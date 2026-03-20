@@ -59,9 +59,12 @@ The most recent ball was Jan 18, 2025 at Hyatt Regency Capitol Hill. Featured Se
 - **Styling**: Tailwind CSS v4 via `@tailwindcss/vite` plugin
   - **NOT** `@astrojs/tailwind` (that requires Tailwind v3)
   - Theme colors/fonts defined in `src/styles/global.css` using `@theme` directive (no `tailwind.config.mjs`)
-- **Deployment**: Static build, deployed via GitHub Pages or Netlify
+- **Deployment**: Two environments (see Deployment section below)
+  - **Preview**: GitHub Pages (auto-deploys on push to `main`)
+  - **Production**: Static files uploaded to gate.com (Hostway) hosting (TODO: set up)
 - **Domain**: Managed through gate.com (Hostway)
 - **Base path**: `base: '/countdown250'` in `astro.config.mjs` for subfolder deployment
+- **GitHub repo**: https://github.com/mikey-harrigan/countdown250
 - **No database, no auth** - just a static site linking to Eventbrite for tickets
 
 ### Node.js / npm on Windows (MINGW64)
@@ -141,38 +144,68 @@ A detailed photo catalog with labels is in `public/images/photo-catalog.json`.
 
 ## Deployment / Pushing Changes to Production
 
-### For Non-Technical Users (Claude Code App / Mobile)
+### IMPORTANT: After making ANY code changes, Claude MUST:
+1. Commit and push to GitHub (this updates the preview site automatically)
+2. Ask the user: "Want me to push these changes live to the production site?"
+3. If yes, run the deploy-to-prod script (see below)
 
-When you make changes and want to publish them:
+The users of this project are non-technical. They do not know git. Claude should handle ALL git operations automatically (staging, committing with a clear message, pushing) after making changes. Never ask the user to run git commands manually.
 
-1. **Preview your changes locally** (if possible):
-   ```
-   npm run dev
-   ```
-   Site will be at http://localhost:4321
+### Two Deployment Environments
 
-2. **Build to check for errors**:
-   ```
-   npm run build
-   ```
+#### 1. Preview Site (GitHub Pages) - ACTIVE
+- **URL**: https://mikey-harrigan.github.io/countdown250/
+- **How it works**: Automatically rebuilds when code is pushed to the `main` branch
+- **Use for**: Sharing with team for feedback before going live
 
-3. **Commit and push**:
-   ```
-   git add -A
-   git commit -m "Description of what changed"
-   git push origin main
-   ```
+#### 2. Production Site (gate.com / Hostway) - TODO: SET UP
+- **URL**: https://allamericanball.com/countdown250/
+- **How it works**: Static files uploaded via FTP to the Hostway server
+- **Status**: Not yet configured. Needs FTP credentials from gate.com hosting panel.
 
-4. **If deploying to Netlify**: Changes auto-deploy on push to `main`.
-   If deploying to GitHub Pages: The GitHub Action will build and deploy automatically.
+### Deploy to Production Script
 
-### If you get a git error about "no upstream branch":
+When Hostway/gate.com FTP access is set up, create a `deploy.sh` script in the project root:
+
+```bash
+#!/bin/bash
+# Deploy to production (allamericanball.com/countdown250/)
+# Requires: FTP_HOST, FTP_USER, FTP_PASS environment variables
+# These should be stored in a .env file (never committed to git)
+
+set -e
+
+echo "Building site..."
+PATH="/c/Program Files/nodejs:$PATH" npm run build
+
+echo "Uploading to production..."
+# TODO: Replace with actual FTP details once gate.com credentials are obtained
+# Option A: lftp (if available)
+# lftp -e "mirror -R --delete dist/ /countdown250/ ; quit" -u $FTP_USER,$FTP_PASS $FTP_HOST
+#
+# Option B: If gate.com supports rsync/SSH
+# rsync -avz --delete dist/ $FTP_USER@$FTP_HOST:/path/to/countdown250/
+#
+# Option C: If only browser-based file manager is available,
+# Claude should instruct the user to upload the dist/ folder contents manually.
+
+echo "Production deploy complete!"
+echo "Live at: https://allamericanball.com/countdown250/"
 ```
-git push -u origin main
-```
 
-### If you get merge conflicts:
-Ask Claude to help resolve them. Don't force push.
+### To set up production deployment:
+1. Log into gate.com hosting panel for allamericanball.com
+2. Find FTP credentials (host, username, password)
+3. Create a `.env` file in the project root with those credentials
+4. Update `deploy.sh` with the correct FTP command
+5. Update `astro.config.mjs` site URL back to `https://allamericanball.com` for production builds
+
+### Git Workflow (for Claude, not for humans)
+- Always `git pull origin main` before starting work to avoid conflicts
+- Stage specific changed files (not `git add -A` to avoid secrets)
+- Write clear commit messages describing what changed
+- Push to `origin main` after every commit
+- If merge conflicts occur, resolve them (never force push)
 
 ---
 
@@ -228,7 +261,6 @@ The site is fully built as a single-page layout. All sections are validated for 
 10. **Footer** - Red CTA banner, quick links, social, legal disclaimer.
 
 ### What's Not Yet Done
-- No git remote / GitHub repo set up yet
-- No CI/CD deployment pipeline configured
-- No initial git commit made yet
-- Domain DNS not pointed yet (allamericanball.com/countdown250/ subfolder)
+- Production deployment to allamericanball.com/countdown250/ (needs gate.com FTP credentials)
+- Domain DNS not pointed yet
+- countdown250ball.com redirect to allamericanball.com/countdown250/
