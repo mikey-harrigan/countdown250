@@ -1,0 +1,50 @@
+---
+const highlights = [
+  "Host of the legendary White House Correspondents' Dinner",
+  "Site of the 1981 assassination attempt on President Ronald Reagan",
+  "Venue for countless presidential visits and historic national gatherings",
+  "Secure corridors and entrances used by U.S. presidents and dignitaries",
+];
+---
+
+<section id="venue" class="py-20 sm:py-28 bg-cream">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Image -->
+      <div class="relative order-2 md:order-1">
+        <img
+          src="/countdown250/images/event-photos/aab-main-room.jpg"
+          alt="The Washington Hilton grand ballroom"
+          class="rounded-lg shadow-xl w-full object-cover aspect-[4/3]"
+        />
+        <div class="absolute -top-4 -left-4 w-32 h-32 bg-gold/10 rounded-lg -z-10"></div>
+      </div>
+
+      <!-- Text -->
+      <div class="order-1 md:order-2">
+        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">A Hotel Where History Happens</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-navy mb-6">The Washington Hilton</h2>
+        <div class="w-16 h-1 bg-red mb-8"></div>
+
+        <p class="text-lg text-slate leading-relaxed mb-6">
+          Few venues in America carry the historical significance of the Washington Hilton.
+          For decades it has hosted U.S. presidents, world leaders, celebrities, journalists,
+          and historic national events that helped shape the American story.
+        </p>
+
+        <div class="space-y-3 mb-8">
+          {highlights.map((h) => (
+            <div class="flex items-start gap-3">
+              <div class="mt-1.5 w-2 h-2 rounded-full bg-gold flex-shrink-0"></div>
+              <p class="text-slate">{h}</p>
+            </div>
+          ))}
+        </div>
+
+        <p class="text-lg font-medium text-navy">
+          For one extraordinary evening, this iconic venue becomes the setting for the Countdown 250 Ball.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

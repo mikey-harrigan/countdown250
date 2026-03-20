@@ -1,0 +1,70 @@
+---
+const ticketUrl = "https://www.eventbrite.com/e/all-american-countdown-250-ball-tickets-1982528927390";
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background image -->
+  <div class="absolute inset-0">
+    <img
+      src="/countdown250/images/event-photos/aab-2013-ballroom.jpg"
+      alt="All-American Ball ballroom celebration"
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-navy-dark/80 via-navy/70 to-navy-dark/90"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto pt-24 pb-16">
+    <p class="text-gold font-medium tracking-[0.3em] uppercase text-sm sm:text-base mb-6 animate-fade-in">
+      Friday, July 3, 2026 &middot; Washington Hilton &middot; Washington, D.C.
+    </p>
+
+    <h1 class="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold leading-tight mb-6">
+      The All-American<br />
+      <span class="text-gold">Countdown 250</span><br />
+      Ball
+    </h1>
+
+    <p class="text-white/80 text-lg sm:text-xl max-w-2xl mx-auto mb-4 font-light">
+      A once-in-a-generation patriotic celebration launching America's 250th anniversary weekend.
+    </p>
+
+    <p class="text-white/60 text-base sm:text-lg max-w-xl mx-auto mb-10">
+      3,000 Guests. 6 Party Zones. 4 Stages. Midnight Countdown.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <a
+        href={ticketUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-red hover:bg-red-light text-white px-10 py-4 text-lg font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+      >
+        Buy Tickets
+      </a>
+      <a
+        href="#about"
+        class="border-2 border-white/30 hover:border-white/60 text-white px-10 py-4 text-lg font-semibold tracking-wider uppercase transition-all rounded hover:-translate-y-0.5"
+      >
+        Learn More
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+</section>
+
+<style>
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
+</style>

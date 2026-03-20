@@ -1,0 +1,39 @@
+---
+const photos = [
+  { src: "/countdown250/images/event-photos/aab-2013-ballroom.jpg", alt: "Grand ballroom setup at a previous All-American Ball" },
+  { src: "/countdown250/images/event-photos/aab-2013-color-guard-1.jpg", alt: "Military color guard presenting flags" },
+  { src: "/countdown250/images/event-photos/crowd-good-1.jpg", alt: "Guests enjoying the celebration" },
+  { src: "/countdown250/images/event-photos/aab-2013-award-ceremony.jpg", alt: "All-American Hero Awards ceremony on stage" },
+  { src: "/countdown250/images/event-photos/food-bev.jpg", alt: "Gourmet culinary spread" },
+  { src: "/countdown250/images/event-photos/aab-2013-entrance.jpg", alt: "Grand entrance to the ball" },
+  { src: "/countdown250/images/event-photos/aab-2017-military-guard.jpg", alt: "Honor guard in formal dress" },
+  { src: "/countdown250/images/event-photos/aab-2013-awardees.jpg", alt: "All-American Hero Award recipients" },
+];
+---
+
+<section class="py-20 sm:py-28 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">From Past Celebrations</p>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-6">A Legacy of Excellence</h2>
+      <div class="w-20 h-1 bg-red mx-auto mb-6"></div>
+      <p class="text-slate/60 text-lg max-w-2xl mx-auto">
+        For over 30 years, the All-American Ball has brought together America's finest
+        for unforgettable evenings of celebration and patriotism.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      {photos.map((photo, i) => (
+        <div class={`overflow-hidden rounded-lg ${i === 0 || i === 7 ? 'md:col-span-2 md:row-span-2' : ''}`}>
+          <img
+            src={photo.src}
+            alt={photo.alt}
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 aspect-square"
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

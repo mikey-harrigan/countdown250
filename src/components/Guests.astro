@@ -1,0 +1,62 @@
+---
+const guestCategories = [
+  "Elected officials",
+  "Business and civic leaders",
+  "Media personalities",
+  "Influencers and thought leaders",
+  "Celebrities and professional athletes",
+  "Decorated veterans and first responders",
+  "Community leaders",
+  "Proud Americans from across the country",
+];
+---
+
+<section class="py-20 sm:py-28 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Text -->
+      <div>
+        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">Who Will Be There</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-navy mb-6">Distinguished Guests</h2>
+        <div class="w-16 h-1 bg-red mb-8"></div>
+
+        <p class="text-lg text-slate leading-relaxed mb-8">
+          Join approximately 3,000 guests including leaders, visionaries, and heroes from
+          every corner of American life.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {guestCategories.map((cat) => (
+            <div class="flex items-center gap-3 bg-cream rounded-lg px-4 py-3">
+              <div class="w-2 h-2 rounded-full bg-navy flex-shrink-0"></div>
+              <span class="text-slate text-sm font-medium">{cat}</span>
+            </div>
+          ))}
+        </div>
+
+        <p class="text-slate/60 text-sm mt-6 italic">
+          Additional announcements will be made as the event approaches.
+        </p>
+      </div>
+
+      <!-- Image collage -->
+      <div class="grid grid-cols-2 gap-3">
+        <img
+          src="/countdown250/images/event-photos/aab-2013-awardees.jpg"
+          alt="Past award recipients at All-American Ball"
+          class="rounded-lg object-cover w-full aspect-[3/4]"
+        />
+        <img
+          src="/countdown250/images/event-photos/aab-2017-military-guard.jpg"
+          alt="Military honor guard"
+          class="rounded-lg object-cover w-full aspect-[3/4]"
+        />
+        <img
+          src="/countdown250/images/event-photos/crowd-good-2.jpg"
+          alt="Celebration crowd"
+          class="rounded-lg object-cover w-full aspect-square col-span-2"
+        />
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,171 @@
+---
+const ticketUrl = "https://www.eventbrite.com/e/all-american-countdown-250-ball-tickets-1982528927390";
+
+const tickets = [
+  {
+    name: "Liberty Ticket",
+    time: "9 PM - 1 AM",
+    price: "$195",
+    futurePrice: "$295 / $395 / $495",
+    features: [
+      "Full access to the Ball",
+      "Premium open bar all night",
+      "Bands, DJs, and roving entertainers",
+      "Interactive attractions",
+      "Tribute to America presentation",
+      "Hero Awards ceremony",
+    ],
+    note: "Reception-style event with limited seating",
+    highlight: false,
+    badge: "",
+  },
+  {
+    name: "Patriot VIP",
+    time: "7 PM - 1 AM",
+    price: "$395",
+    futurePrice: "$595 / $795 / $995",
+    features: [
+      "Everything in Liberty, plus:",
+      "VIP Mixer Reception (7-9 PM)",
+      "Early entry",
+      "Full buffet dinner",
+      "Open bar during mixer",
+      "Live performances",
+      "Mingle with honored guests",
+    ],
+    note: "",
+    highlight: true,
+    badge: "Best Value",
+  },
+  {
+    name: "Statesman Concierge",
+    time: "7 PM - 1 AM",
+    price: "$1,495",
+    futurePrice: "$2,500 / $3,500 / $5,000",
+    features: [
+      "Everything in Patriot VIP, plus:",
+      "Dedicated concierge ambassador",
+      "Reserved Presidential Stage seating",
+      "Private top-shelf bars",
+      "Premium VIP buffet reception",
+      "Exclusive hospitality areas",
+      "Backstage access",
+      "Private event photographer",
+      "Commemorative gifts & lanyard",
+      "Program recognition (photo included)",
+      "Stage announcement recognition",
+    ],
+    note: "Extremely limited. Expected to sell out.",
+    highlight: false,
+    badge: "Most Popular",
+  },
+];
+---
+
+<section id="tickets" class="py-20 sm:py-28 bg-navy-dark text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">Early Release Pricing</p>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">Choose Your Experience</h2>
+      <div class="w-20 h-1 bg-red mx-auto mb-6"></div>
+      <p class="text-white/60 text-base max-w-xl mx-auto">
+        Prices increase as the event approaches. Lock in today's rates before they go up.
+      </p>
+    </div>
+
+    <!-- Ticket cards -->
+    <div class="grid md:grid-cols-3 gap-6 lg:gap-8 mb-12">
+      {tickets.map((ticket) => (
+        <div class={`relative rounded-2xl p-8 flex flex-col ${
+          ticket.highlight
+            ? 'bg-white text-slate ring-2 ring-gold shadow-2xl scale-[1.02]'
+            : 'bg-white/5 border border-white/10 text-white'
+        }`}>
+          {ticket.badge && (
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span class={`px-4 py-1 text-xs font-bold tracking-wider uppercase rounded-full ${
+                ticket.highlight ? 'bg-gold text-navy-dark' : 'bg-red text-white'
+              }`}>
+                {ticket.badge}
+              </span>
+            </div>
+          )}
+
+          <div class="mb-6">
+            <p class={`text-xs font-medium tracking-wider uppercase mb-2 ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
+              {ticket.time}
+            </p>
+            <h3 class={`text-xl font-bold mb-1 ${ticket.highlight ? 'text-navy' : 'text-white'}`}>
+              {ticket.name}
+            </h3>
+          </div>
+
+          <div class="mb-6">
+            <div class="flex items-baseline gap-1">
+              <span class={`text-4xl font-bold ${ticket.highlight ? 'text-navy' : 'text-white'}`}>
+                {ticket.price}
+              </span>
+              <span class={`text-sm ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
+                / early
+              </span>
+            </div>
+            <p class={`text-xs mt-1 ${ticket.highlight ? 'text-slate/40' : 'text-white/30'}`}>
+              Future tiers: {ticket.futurePrice}
+            </p>
+          </div>
+
+          <ul class="space-y-2.5 mb-8 flex-grow">
+            {ticket.features.map((f) => (
+              <li class="flex items-start gap-2.5">
+                <svg class={`w-4 h-4 mt-0.5 flex-shrink-0 ${ticket.highlight ? 'text-gold' : 'text-gold/80'}`} fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                </svg>
+                <span class={`text-sm ${ticket.highlight ? 'text-slate/80' : 'text-white/70'}`}>{f}</span>
+              </li>
+            ))}
+          </ul>
+
+          {ticket.note && (
+            <p class={`text-xs mb-4 italic ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
+              {ticket.note}
+            </p>
+          )}
+
+          <a
+            href={ticketUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={`block text-center py-3.5 px-6 rounded font-semibold text-sm tracking-wider uppercase transition-all hover:-translate-y-0.5 ${
+              ticket.highlight
+                ? 'bg-red text-white hover:bg-red-light shadow-lg'
+                : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
+            }`}
+          >
+            Buy Tickets
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <!-- Host packages -->
+    <div class="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+      <div class="bg-white/5 border border-gold/20 rounded-xl p-6 text-center">
+        <h3 class="text-lg font-bold text-gold mb-1">Founders Host Package</h3>
+        <p class="text-3xl font-bold text-white mb-3">$12,500</p>
+        <p class="text-white/50 text-sm mb-4">3 Statesman Concierge Passes + half-page program tribute + multiple stage announcements</p>
+        <a href={ticketUrl} target="_blank" rel="noopener noreferrer" class="inline-block border border-gold/40 text-gold hover:bg-gold/10 px-6 py-2 rounded text-sm font-semibold tracking-wider uppercase transition-colors">
+          Inquire
+        </a>
+      </div>
+      <div class="bg-white/5 border border-gold/20 rounded-xl p-6 text-center">
+        <h3 class="text-lg font-bold text-gold mb-1">Presidential Host Package</h3>
+        <p class="text-3xl font-bold text-white mb-3">$18,500</p>
+        <p class="text-white/50 text-sm mb-4">4 Statesman Concierge Passes + full-page program tribute + multiple stage announcements</p>
+        <a href={ticketUrl} target="_blank" rel="noopener noreferrer" class="inline-block border border-gold/40 text-gold hover:bg-gold/10 px-6 py-2 rounded text-sm font-semibold tracking-wider uppercase transition-colors">
+          Inquire
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

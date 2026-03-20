@@ -1,0 +1,101 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+}
+
+const { title, description, ogImage = '/countdown250/images/logos/countdown250-logo.png' } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/countdown250/favicon.svg" />
+
+  <!-- SEO -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "All-American Countdown 250 Ball",
+    "description": "A once-in-a-generation patriotic celebration launching America's 250th anniversary weekend. 3,000 guests, 6 party zones, 4 stages, midnight countdown.",
+    "startDate": "2026-07-03T18:00:00-04:00",
+    "endDate": "2026-07-04T00:30:00-04:00",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "Washington Hilton",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1919 Connecticut Avenue NW",
+        "addressLocality": "Washington",
+        "addressRegion": "DC",
+        "postalCode": "20009",
+        "addressCountry": "US"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "GoCity Group",
+      "url": "https://allamericanball.com"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Liberty Ticket",
+        "price": "195",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-01-01"
+      },
+      {
+        "@type": "Offer",
+        "name": "Patriot VIP Ticket",
+        "price": "395",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-01-01"
+      },
+      {
+        "@type": "Offer",
+        "name": "Statesman Concierge Pass",
+        "price": "1495",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/LimitedAvailability",
+        "validFrom": "2026-01-01"
+      }
+    ],
+    "image": ogImage
+  })} />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body class="min-h-screen flex flex-col">
+  <slot />
+</body>
+</html>

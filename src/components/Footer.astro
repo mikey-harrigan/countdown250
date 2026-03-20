@@ -1,0 +1,83 @@
+---
+const ticketUrl = "https://www.eventbrite.com/e/all-american-countdown-250-ball-tickets-1982528927390";
+---
+
+<footer class="bg-navy-dark border-t border-white/10">
+  <!-- CTA banner -->
+  <div class="bg-red py-12 text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4 font-heading">Be There When History Begins</h2>
+      <p class="text-white/80 mb-6">
+        Early release pricing won't last. Secure your tickets before prices increase.
+      </p>
+      <a
+        href={ticketUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-white text-red px-10 py-4 text-lg font-semibold tracking-wider uppercase hover:bg-cream transition-colors rounded shadow-lg"
+      >
+        Buy Tickets Now
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer content -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid sm:grid-cols-3 gap-8">
+      <!-- Brand -->
+      <div>
+        <img
+          src="/countdown250/images/logos/countdown250-logo.png"
+          alt="Countdown 250"
+          class="h-16 w-auto mb-4"
+        />
+        <p class="text-white/40 text-sm">
+          Friday, July 3, 2026<br />
+          Washington Hilton<br />
+          Washington, D.C.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <h3 class="text-white font-semibold text-sm tracking-wider uppercase mb-4">Quick Links</h3>
+        <div class="space-y-2">
+          <a href="#about" class="block text-white/50 hover:text-white text-sm transition-colors">About the Event</a>
+          <a href="#experience" class="block text-white/50 hover:text-white text-sm transition-colors">Your Experience</a>
+          <a href="#venue" class="block text-white/50 hover:text-white text-sm transition-colors">The Venue</a>
+          <a href="#tickets" class="block text-white/50 hover:text-white text-sm transition-colors">Tickets</a>
+          <a href={ticketUrl} target="_blank" rel="noopener noreferrer" class="block text-white/50 hover:text-white text-sm transition-colors">Buy Tickets</a>
+        </div>
+      </div>
+
+      <!-- Social / Contact -->
+      <div>
+        <h3 class="text-white font-semibold text-sm tracking-wider uppercase mb-4">Connect</h3>
+        <div class="space-y-2">
+          <a href="https://facebook.com/AllAmericanBall2025/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-white/50 hover:text-white text-sm transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
+            Facebook
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Disclaimer & Legal -->
+    <div class="border-t border-white/10 mt-10 pt-8">
+      <p class="text-white/30 text-xs mb-4 max-w-3xl">
+        This event is an independently produced celebration honoring America's 250th anniversary
+        and is not affiliated with or endorsed by the U.S. Semiquincentennial Commission or the
+        America250 Foundation.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <p class="text-white/30 text-xs">
+          &copy; 2026 Merrifield Venture Partners, LLC d/b/a GoCity Group. All Rights Reserved.
+        </p>
+        <div class="flex gap-4">
+          <a href="#" class="text-white/30 hover:text-white/50 text-xs transition-colors">Terms of Use</a>
+          <a href="#" class="text-white/30 hover:text-white/50 text-xs transition-colors">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
