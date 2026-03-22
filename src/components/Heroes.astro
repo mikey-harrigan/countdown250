@@ -1,9 +1,9 @@
 ---
-const heroes = [
-  { name: "Buzz Aldrin", title: "Apollo 11 Astronaut", image: "/countdown250/images/honorees/buzz-aldrin-portrait.jpg" },
-  { name: "Lee Greenwood", title: "Legendary Patriotic Performer", image: "/countdown250/images/honorees/lee-greenwood.jpg" },
-  { name: "Luis Avila", title: "Wounded Warrior & Advocate", image: "/countdown250/images/honorees/luis-avila.jpg" },
-  { name: "Sheriff Mark Chapman", title: "Community Leader & Hero", image: "/countdown250/images/honorees/sheriff-chapman.png" },
+const heroImages = [
+  { src: "/countdown250/images/event-photos/aab-2025-soldier-ceremony.jpg", alt: "Decorated soldier receiving All-American Hero award", caption: "Hero Awards Ceremony" },
+  { src: "/countdown250/images/event-photos/aab-2025-medal-recipients-stage.jpg", alt: "Medal recipients on stage at the 2025 Ball", caption: "Medal Recipients" },
+  { src: "/countdown250/images/event-photos/aab-2025-soldier-crowd-emotional.jpg", alt: "Emotional moment during hero recognition", caption: "Honoring Service & Sacrifice" },
+  { src: "/countdown250/images/event-photos/aab-2025-vip-group-formal.jpg", alt: "VIP group with honorees at the 2025 Ball", caption: "Distinguished Honorees" },
 ];
 ---
 
@@ -20,21 +20,20 @@ const heroes = [
       </p>
     </div>
 
-    <!-- Hero honoree grid -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-      {heroes.map((hero) => (
-        <div class="text-center group">
-          <div class="relative overflow-hidden rounded-xl mb-4 aspect-[3/4]">
-            <img
-              src={hero.image}
-              alt={hero.name}
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              loading="lazy"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent"></div>
+    <!-- Hero ceremony photos -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {heroImages.map((img) => (
+        <div class="group relative overflow-hidden rounded-xl aspect-[3/4]">
+          <img
+            src={img.src}
+            alt={img.alt}
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-navy/70 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-4">
+            <p class="text-white font-semibold text-sm">{img.caption}</p>
           </div>
-          <h3 class="font-bold text-navy text-lg">{hero.name}</h3>
-          <p class="text-slate/60 text-sm">{hero.title}</p>
         </div>
       ))}
     </div>
