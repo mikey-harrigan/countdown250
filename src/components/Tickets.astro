@@ -18,6 +18,7 @@ const tickets = [
     note: "Reception-style event with limited seating",
     highlight: false,
     badge: "",
+    tier: 1,
   },
   {
     name: "Patriot VIP",
@@ -36,6 +37,7 @@ const tickets = [
     note: "",
     highlight: true,
     badge: "Best Value",
+    tier: 2,
   },
   {
     name: "Statesman Concierge",
@@ -58,6 +60,30 @@ const tickets = [
     note: "Extremely limited. Expected to sell out.",
     highlight: false,
     badge: "Most Popular",
+    tier: 3,
+  },
+];
+
+const hostPackages = [
+  {
+    name: "Founders Host Package",
+    price: "$12,500",
+    features: [
+      "3 Statesman Concierge Passes",
+      "Half-page program tribute",
+      "Multiple stage announcements",
+    ],
+    tier: 4,
+  },
+  {
+    name: "Presidential Host Package",
+    price: "$18,500",
+    features: [
+      "4 Statesman Concierge Passes",
+      "Full-page program tribute",
+      "Multiple stage announcements",
+    ],
+    tier: 5,
   },
 ];
 ---
@@ -74,98 +100,126 @@ const tickets = [
       </p>
     </div>
 
-    <!-- Ticket cards -->
-    <div class="grid md:grid-cols-3 gap-6 lg:gap-8 mb-12">
+    <!-- Ticket tier indicator -->
+    <div class="flex items-center justify-center gap-0 mb-12 max-w-4xl mx-auto">
+      <div class="flex-1 h-1 bg-white/20 rounded-l-full"></div>
+      {[1, 2, 3, 4, 5].map((tier) => (
+        <div class="flex flex-col items-center mx-2 sm:mx-4">
+          <div class={`w-4 h-4 rounded-full border-2 ${tier <= 3 ? 'bg-gold border-gold' : 'bg-red border-red'}`}></div>
+        </div>
+      ))}
+      <div class="flex-1 h-1 bg-white/20 rounded-r-full"></div>
+    </div>
+
+    <!-- Main 3 ticket cards -->
+    <div class="grid md:grid-cols-3 gap-8 lg:gap-10 mb-16">
       {tickets.map((ticket) => (
-        <div class={`relative rounded-2xl p-8 flex flex-col ${
+        <div class={`relative rounded-2xl overflow-hidden flex flex-col ${
           ticket.highlight
-            ? 'bg-white text-slate ring-2 ring-gold shadow-2xl scale-[1.02]'
-            : 'bg-white/5 border border-white/10 text-white'
+            ? 'bg-white text-slate ring-4 ring-gold shadow-2xl scale-[1.03]'
+            : 'bg-white/5 border-2 border-white/15 text-white'
         }`}>
-          {ticket.badge && (
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-              <span class={`px-4 py-1 text-xs font-bold tracking-wider uppercase rounded-full ${
-                ticket.highlight ? 'bg-gold text-navy-dark' : 'bg-red text-white'
-              }`}>
-                {ticket.badge}
-              </span>
-            </div>
-          )}
-
-          <div class="mb-6">
-            <p class={`text-xs font-medium tracking-wider uppercase mb-2 ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
-              {ticket.time}
-            </p>
-            <h3 class={`text-xl font-bold mb-1 ${ticket.highlight ? 'text-navy' : 'text-white'}`}>
-              {ticket.name}
-            </h3>
+          {/* Tier header bar */}
+          <div class={`py-2 text-center text-xs font-bold tracking-widest uppercase ${
+            ticket.highlight
+              ? 'bg-gold text-navy-dark'
+              : 'bg-white/10 text-white/60'
+          }`}>
+            {ticket.badge || `Tier ${ticket.tier}`}
           </div>
 
-          <div class="mb-6">
-            <div class="flex items-baseline gap-1">
-              <span class={`text-4xl font-bold ${ticket.highlight ? 'text-navy' : 'text-white'}`}>
-                {ticket.price}
-              </span>
-              <span class={`text-sm ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
-                / early
-              </span>
+          <div class="p-8 flex flex-col flex-grow">
+            <div class="mb-6">
+              <p class={`text-xs font-medium tracking-wider uppercase mb-2 ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
+                {ticket.time}
+              </p>
+              <h3 class={`text-2xl font-bold mb-1 ${ticket.highlight ? 'text-navy' : 'text-white'}`}>
+                {ticket.name}
+              </h3>
             </div>
-            <p class={`text-xs mt-1 ${ticket.highlight ? 'text-slate/40' : 'text-white/30'}`}>
-              Future tiers: {ticket.futurePrice}
-            </p>
+
+            <div class="mb-6 pb-6 border-b ${ticket.highlight ? 'border-slate/10' : 'border-white/10'}">
+              <div class="flex items-baseline gap-1">
+                <span class={`text-4xl font-bold ${ticket.highlight ? 'text-navy' : 'text-white'}`}>
+                  {ticket.price}
+                </span>
+                <span class={`text-sm ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
+                  / early
+                </span>
+              </div>
+              <p class={`text-xs mt-1 ${ticket.highlight ? 'text-slate/40' : 'text-white/30'}`}>
+                Future tiers: {ticket.futurePrice}
+              </p>
+            </div>
+
+            <ul class="space-y-2.5 mb-8 flex-grow">
+              {ticket.features.map((f) => (
+                <li class="flex items-start gap-2.5">
+                  <svg class={`w-4 h-4 mt-0.5 flex-shrink-0 ${ticket.highlight ? 'text-gold' : 'text-gold/80'}`} fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                  </svg>
+                  <span class={`text-sm ${ticket.highlight ? 'text-slate/80' : 'text-white/70'}`}>{f}</span>
+                </li>
+              ))}
+            </ul>
+
+            {ticket.note && (
+              <p class={`text-xs mb-4 italic ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
+                {ticket.note}
+              </p>
+            )}
+
+            <a
+              href={ticketUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={`block text-center py-3.5 px-6 rounded-lg font-semibold text-sm tracking-wider uppercase transition-all hover:-translate-y-0.5 ${
+                ticket.highlight
+                  ? 'bg-red text-white hover:bg-red-light shadow-lg'
+                  : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
+              }`}
+            >
+              Buy Tickets
+            </a>
           </div>
-
-          <ul class="space-y-2.5 mb-8 flex-grow">
-            {ticket.features.map((f) => (
-              <li class="flex items-start gap-2.5">
-                <svg class={`w-4 h-4 mt-0.5 flex-shrink-0 ${ticket.highlight ? 'text-gold' : 'text-gold/80'}`} fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                </svg>
-                <span class={`text-sm ${ticket.highlight ? 'text-slate/80' : 'text-white/70'}`}>{f}</span>
-              </li>
-            ))}
-          </ul>
-
-          {ticket.note && (
-            <p class={`text-xs mb-4 italic ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
-              {ticket.note}
-            </p>
-          )}
-
-          <a
-            href={ticketUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class={`block text-center py-3.5 px-6 rounded font-semibold text-sm tracking-wider uppercase transition-all hover:-translate-y-0.5 ${
-              ticket.highlight
-                ? 'bg-red text-white hover:bg-red-light shadow-lg'
-                : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
-            }`}
-          >
-            Buy Tickets
-          </a>
         </div>
       ))}
     </div>
 
-    <!-- Host packages -->
-    <div class="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-      <div class="bg-white/5 border border-gold/20 rounded-xl p-6 text-center">
-        <h3 class="text-lg font-bold text-gold mb-1">Founders Host Package</h3>
-        <p class="text-3xl font-bold text-white mb-3">$12,500</p>
-        <p class="text-white/50 text-sm mb-4">3 Statesman Concierge Passes + half-page program tribute + multiple stage announcements</p>
-        <a href={ticketUrl} target="_blank" rel="noopener noreferrer" class="inline-block border border-gold/40 text-gold hover:bg-gold/10 px-6 py-2 rounded text-sm font-semibold tracking-wider uppercase transition-colors">
-          Inquire
-        </a>
-      </div>
-      <div class="bg-white/5 border border-gold/20 rounded-xl p-6 text-center">
-        <h3 class="text-lg font-bold text-gold mb-1">Presidential Host Package</h3>
-        <p class="text-3xl font-bold text-white mb-3">$18,500</p>
-        <p class="text-white/50 text-sm mb-4">4 Statesman Concierge Passes + full-page program tribute + multiple stage announcements</p>
-        <a href={ticketUrl} target="_blank" rel="noopener noreferrer" class="inline-block border border-gold/40 text-gold hover:bg-gold/10 px-6 py-2 rounded text-sm font-semibold tracking-wider uppercase transition-colors">
-          Inquire
-        </a>
-      </div>
+    <!-- Divider between ticket types -->
+    <div class="flex items-center gap-4 max-w-3xl mx-auto mb-16">
+      <div class="flex-1 h-px bg-gold/30"></div>
+      <span class="text-gold font-medium tracking-[0.2em] uppercase text-sm">Premium Packages</span>
+      <div class="flex-1 h-px bg-gold/30"></div>
+    </div>
+
+    <!-- Host packages - now with clear delineation -->
+    <div class="grid sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      {hostPackages.map((pkg) => (
+        <div class="bg-gradient-to-b from-gold/10 to-transparent border-2 border-gold/30 rounded-2xl overflow-hidden">
+          {/* Tier header bar */}
+          <div class="py-2 text-center text-xs font-bold tracking-widest uppercase bg-gold/20 text-gold">
+            Tier {pkg.tier}
+          </div>
+          <div class="p-8 text-center">
+            <h3 class="text-xl font-bold text-gold mb-2">{pkg.name}</h3>
+            <p class="text-4xl font-bold text-white mb-6">{pkg.price}</p>
+            <ul class="space-y-2 mb-6 text-left max-w-xs mx-auto">
+              {pkg.features.map((f) => (
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="text-white/70 text-sm">{f}</span>
+                </li>
+              ))}
+            </ul>
+            <a href={ticketUrl} target="_blank" rel="noopener noreferrer" class="inline-block border-2 border-gold text-gold hover:bg-gold hover:text-navy-dark px-8 py-3 rounded-lg text-sm font-semibold tracking-wider uppercase transition-all hover:-translate-y-0.5">
+              Inquire
+            </a>
+          </div>
+        </div>
+      ))}
     </div>
   </div>
 </section>
