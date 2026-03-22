@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" fill="none">
+  <!-- Background shape -->
+  <defs>
+    <linearGradient id="bannerGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#002868" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#001a45" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#dfc06e"/>
+      <stop offset="100%" stop-color="#c9a84c"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#B31942" stop-opacity="0"/>
+      <stop offset="15%" stop-color="#B31942"/>
+      <stop offset="85%" stop-color="#B31942"/>
+      <stop offset="100%" stop-color="#B31942" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Top decorative line -->
+  <rect x="100" y="10" width="600" height="2" rx="1" fill="url(#redGrad)"/>
+
+  <!-- Star row top -->
+  <g fill="#c9a84c">
+    <polygon points="310,22 312,28 318,28 313,32 315,38 310,34 305,38 307,32 302,28 308,28"/>
+    <polygon points="340,22 342,28 348,28 343,32 345,38 340,34 335,38 337,32 332,28 338,28"/>
+    <polygon points="370,22 372,28 378,28 373,32 375,38 370,34 365,38 367,32 362,28 368,28"/>
+    <polygon points="400,18 402.5,25 409,25 404,29.5 406,36 400,32 394,36 396,29.5 391,25 397.5,25"/>
+    <polygon points="430,22 432,28 438,28 433,32 435,38 430,34 425,38 427,32 422,28 428,28"/>
+    <polygon points="460,22 462,28 468,28 463,32 465,38 460,34 455,38 457,32 452,28 458,28"/>
+    <polygon points="490,22 492,28 498,28 493,32 495,38 490,34 485,38 487,32 482,28 488,28"/>
+  </g>
+
+  <!-- ALL-AMERICAN subtitle -->
+  <text x="400" y="62" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-weight="700" font-size="18" letter-spacing="12" fill="#c9a84c">ALL-AMERICAN</text>
+
+  <!-- Left eagle wing (simplified) -->
+  <g fill="#c9a84c" opacity="0.6">
+    <path d="M120,105 Q160,70 200,85 Q230,75 250,90 L240,100 Q220,88 200,95 Q170,82 140,108 Z"/>
+  </g>
+
+  <!-- Right eagle wing (simplified) -->
+  <g fill="#c9a84c" opacity="0.6">
+    <path d="M680,105 Q640,70 600,85 Q570,75 550,90 L560,100 Q580,88 600,95 Q630,82 660,108 Z"/>
+  </g>
+
+  <!-- Shield left -->
+  <g transform="translate(245, 70)">
+    <rect x="0" y="0" width="8" height="55" rx="1" fill="#B31942"/>
+    <rect x="11" y="0" width="8" height="55" rx="1" fill="white"/>
+    <rect x="22" y="0" width="8" height="55" rx="1" fill="#B31942"/>
+    <rect x="0" y="0" width="30" height="22" rx="1" fill="#002868"/>
+    <g fill="white">
+      <circle cx="7" cy="7" r="1.5"/>
+      <circle cx="15" cy="7" r="1.5"/>
+      <circle cx="23" cy="7" r="1.5"/>
+      <circle cx="11" cy="13" r="1.5"/>
+      <circle cx="19" cy="13" r="1.5"/>
+    </g>
+  </g>
+
+  <!-- Shield right -->
+  <g transform="translate(527, 70)">
+    <rect x="0" y="0" width="8" height="55" rx="1" fill="#B31942"/>
+    <rect x="11" y="0" width="8" height="55" rx="1" fill="white"/>
+    <rect x="22" y="0" width="8" height="55" rx="1" fill="#B31942"/>
+    <rect x="0" y="0" width="30" height="22" rx="1" fill="#002868"/>
+    <g fill="white">
+      <circle cx="7" cy="7" r="1.5"/>
+      <circle cx="15" cy="7" r="1.5"/>
+      <circle cx="23" cy="7" r="1.5"/>
+      <circle cx="11" cy="13" r="1.5"/>
+      <circle cx="19" cy="13" r="1.5"/>
+    </g>
+  </g>
+
+  <!-- COUNTDOWN main text -->
+  <text x="400" y="108" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-weight="800" font-size="52" fill="white" letter-spacing="3">COUNTDOWN</text>
+
+  <!-- 250 large number -->
+  <text x="400" y="155" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-weight="800" font-size="56" fill="url(#goldGrad)" letter-spacing="4">250</text>
+
+  <!-- BALL subtitle -->
+  <text x="400" y="178" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-weight="600" font-size="18" letter-spacing="16" fill="white">BALL</text>
+
+  <!-- Bottom decorative line -->
+  <rect x="100" y="188" width="600" height="2" rx="1" fill="url(#redGrad)"/>
+
+  <!-- Bottom stars -->
+  <g fill="#c9a84c">
+    <polygon points="370,196 371.5,200 375,200 372,203 373.5,207 370,204.5 366.5,207 368,203 365,200 368.5,200"/>
+    <polygon points="400,196 401.5,200 405,200 402,203 403.5,207 400,204.5 396.5,207 398,203 395,200 398.5,200"/>
+    <polygon points="430,196 431.5,200 435,200 432,203 433.5,207 430,204.5 426.5,207 428,203 425,200 428.5,200"/>
+  </g>
+</svg>
