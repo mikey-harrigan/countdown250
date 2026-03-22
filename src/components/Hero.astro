@@ -78,18 +78,42 @@ const ticketUrl = "https://www.eventbrite.com/e/all-american-countdown-250-ball-
     animation: fade-in 1s ease-out;
   }
 
+  /* Wave animation: 4 features, each lights up for ~1s in sequence.
+     One full cycle = 4s (1s per feature). We want 4 cycles = 16s total.
+     Each feature is "on" for 25% of a cycle (its slot).
+     Using percentage keyframes within one cycle duration. */
   @keyframes hero-wave {
-    0%, 100% {
-      color: rgba(255, 255, 255, 0.7);
+    0% {
+      color: rgba(255, 255, 255, 0.5);
       text-shadow: none;
+      transform: scale(1);
     }
-    50% {
+    8% {
       color: #ffffff;
-      text-shadow: 0 0 20px rgba(201, 168, 76, 0.6), 0 0 40px rgba(201, 168, 76, 0.3);
+      text-shadow: 0 0 30px rgba(201, 168, 76, 0.8), 0 0 60px rgba(201, 168, 76, 0.4), 0 0 90px rgba(201, 168, 76, 0.2);
+      transform: scale(1.08);
+    }
+    16% {
+      color: #ffffff;
+      text-shadow: 0 0 30px rgba(201, 168, 76, 0.8), 0 0 60px rgba(201, 168, 76, 0.4), 0 0 90px rgba(201, 168, 76, 0.2);
+      transform: scale(1.08);
+    }
+    25% {
+      color: rgba(255, 255, 255, 0.5);
+      text-shadow: none;
+      transform: scale(1);
+    }
+    100% {
+      color: rgba(255, 255, 255, 0.5);
+      text-shadow: none;
+      transform: scale(1);
     }
   }
   .hero-feature {
-    animation: hero-wave 3s ease-in-out infinite;
-    animation-delay: calc(var(--i) * 0.6s);
+    display: inline-block;
+    animation: hero-wave 4s ease-in-out 4;
+    animation-delay: calc(var(--i) * 1s);
+    animation-fill-mode: forwards;
+    color: rgba(255, 255, 255, 0.5);
   }
 </style>
