@@ -1,0 +1,41 @@
+---
+import { updates } from '../data/updates';
+
+const latestThree = updates.slice(0, 3);
+const base = "/countdown250";
+
+function formatDate(dateStr: string): string {
+  const date = new Date(dateStr + 'T00:00:00');
+  return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+}
+---
+
+<section class="py-16 sm:py-20 bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">Stay Informed</p>
+      <h2 class="text-3xl sm:text-4xl font-bold text-navy mb-4">Latest Updates</h2>
+      <div class="w-16 h-1 bg-red mx-auto"></div>
+    </div>
+
+    <div class="space-y-0 divide-y divide-slate/10">
+      {latestThree.map((update) => (
+        <a href={`${base}/updates/`} class="block py-5 group hover:bg-cream/50 -mx-4 px-4 rounded transition-colors">
+          <div class="flex items-baseline justify-between gap-4">
+            <h3 class="text-lg font-semibold text-navy group-hover:text-navy-light transition-colors">{update.headline}</h3>
+            <time class="text-sm text-slate/50 whitespace-nowrap flex-shrink-0">{formatDate(update.date)}</time>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="text-center mt-8">
+      <a
+        href={`${base}/updates/`}
+        class="inline-block border-2 border-navy text-navy hover:bg-navy hover:text-white px-8 py-3 text-sm font-semibold tracking-wider uppercase transition-all rounded hover:-translate-y-0.5"
+      >
+        News & Announcements
+      </a>
+    </div>
+  </div>
+</section>
