@@ -23,16 +23,15 @@ const moreLinks = [
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent" style="overflow: visible;">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="overflow: visible;">
     <div class="flex items-center justify-between h-20" style="overflow: visible;">
-      <!-- Logo — large at top, shrinks on scroll -->
-      <a href="/countdown250/" class="flex-shrink-0 relative z-10" style="overflow: visible;">
-        <div id="nav-logo" class="logo-container relative transition-all duration-500 ease-out" style="height: 200px; width: 200px; overflow: visible;">
-          <img
-            src="/countdown250/images/logos/new-logo.png"
-            alt="All-American Countdown 250 Ball"
-            class="absolute top-0 left-0 h-full w-full object-contain drop-shadow-lg"
-            style="overflow: visible; clip: unset;"
-          />
-        </div>
+      <!-- Logo — large at top, shrinks on scroll. Top-aligned so it grows downward, never clipped -->
+      <a href="/countdown250/" class="flex-shrink-0 relative z-10" style="overflow: visible; align-self: flex-start;">
+        <img
+          id="nav-logo"
+          src="/countdown250/images/logos/new-logo.png"
+          alt="All-American Countdown 250 Ball"
+          class="drop-shadow-lg transition-all duration-500 ease-out"
+          style="height: 180px; width: 180px; margin-top: 4px;"
+        />
       </a>
 
       <!-- Desktop Nav -->
@@ -105,9 +104,9 @@ const moreLinks = [
   // Navbar scroll effect with logo resize
   const navbar = document.getElementById('navbar');
   const navLogo = document.getElementById('nav-logo');
-  const LOGO_BIG = 200;   // px when at top — extends well below navbar
-  const LOGO_SMALL = 80;  // px when scrolled — just fits in the navbar bar (h-20 = 80px)
-  const SCROLL_RANGE = 200; // px over which the transition happens
+  const LOGO_BIG = 180;   // px when at top — extends well below navbar
+  const LOGO_SMALL = 100;  // px when scrolled — just barely fits in the navbar bar
+  const SCROLL_RANGE = 150; // px of scroll over which the transition happens
 
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
@@ -121,16 +120,12 @@ const moreLinks = [
       navbar?.classList.add('bg-transparent');
     }
 
-    // Logo resize + vertical shift so it's never clipped at the top
-    // When big, it shifts down so the logo hangs below the navbar
-    // When small, shift is 0 so it sits inside the navbar
+    // Logo resize — top-aligned, grows/shrinks downward so top is never clipped
     if (navLogo) {
-      const t = Math.min(scrollY / SCROLL_RANGE, 1); // 0 at top, 1 when scrolled
+      const t = Math.min(scrollY / SCROLL_RANGE, 1);
       const size = LOGO_BIG - (LOGO_BIG - LOGO_SMALL) * t;
-      const topOffset = (1 - t) * 10; // shift down when big so top isn't clipped
       navLogo.style.height = size + 'px';
       navLogo.style.width = size + 'px';
-      navLogo.style.marginTop = topOffset + 'px';
     }
   });
 
