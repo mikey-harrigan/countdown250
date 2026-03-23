@@ -3,14 +3,15 @@ const ticketUrl = "https://www.eventbrite.com/e/all-american-countdown-250-ball-
 ---
 
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-  <!-- Background image -->
+  <!-- Background image — full-width, cover, centered, no distortion -->
   <div class="absolute inset-0">
     <img
-      src="/countdown250/images/event/ballroom-crowd.jpg"
-      alt="Packed ballroom with thousands of guests at a spectacular gala celebration"
-      class="w-full h-full object-cover"
+      src="/countdown250/images/event/hero-toast-countdown.png"
+      alt="Thousands of guests raising champagne glasses in a spectacular ballroom countdown"
+      class="w-full h-full object-cover object-center"
     />
-    <div class="absolute inset-0 bg-gradient-to-b from-navy-dark/80 via-navy/70 to-navy-dark/90"></div>
+    <!-- Dark overlay for logo visibility -->
+    <div class="absolute inset-0" style="background: rgba(0,0,0,0.4);"></div>
   </div>
 
   <!-- Content -->
