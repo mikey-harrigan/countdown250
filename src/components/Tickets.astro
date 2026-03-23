@@ -157,8 +157,8 @@ const hostPackages = [
       <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">Early Release Pricing</p>
       <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">Choose Your Experience</h2>
       <div class="w-20 h-1 bg-red mx-auto mb-6"></div>
-      <p class="text-white/60 text-base max-w-xl mx-auto mb-6">
-        Prices increase very soon. Lock in today's rates before they go up.
+      <p class="price-warning text-red font-bold text-lg tracking-wide max-w-xl mx-auto mb-6">
+        PRICES WILL INCREASE VERY SOON, WITHOUT NOTICE!
       </p>
       <div class="flex items-center justify-center gap-3 flex-wrap">
         {["Liberty", "Patriot VIP", "Statesman's Concierge", "Founders Host", "Presidential Host"].map((name, i) => (
@@ -307,3 +307,19 @@ const hostPackages = [
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes price-glow {
+    0%, 100% {
+      opacity: 0.6;
+      text-shadow: none;
+    }
+    50% {
+      opacity: 1;
+      text-shadow: 0 0 10px rgba(255, 48, 64, 0.8), 0 0 30px rgba(255, 48, 64, 0.5), 0 0 60px rgba(255, 48, 64, 0.3);
+    }
+  }
+  .price-warning {
+    animation: price-glow 2.5s ease-in-out infinite;
+  }
+</style>
