@@ -26,20 +26,33 @@ const highlights = [
         <h2 class="text-3xl sm:text-4xl font-bold text-navy mb-6">The Washington Hilton</h2>
         <div class="w-16 h-1 bg-red mb-8"></div>
 
-        <p class="text-lg text-slate leading-relaxed mb-6">
+        <p class="text-lg text-slate leading-relaxed mb-4">
           Few venues in America carry the historical significance of the Washington Hilton.
           For decades it has hosted U.S. presidents, world leaders, celebrities, journalists,
           and historic national events that helped shape the American story.
         </p>
 
-        <div class="space-y-3 mb-8">
-          {highlights.map((h) => (
-            <div class="flex items-start gap-3">
-              <div class="mt-1.5 w-2 h-2 rounded-full bg-gold flex-shrink-0"></div>
-              <p class="text-slate">{h}</p>
-            </div>
-          ))}
+        <!-- Read more expandable -->
+        <div id="venue-details" class="hidden mb-6">
+          <div class="space-y-3 mb-6">
+            {highlights.map((h) => (
+              <div class="flex items-start gap-3">
+                <div class="mt-1.5 w-2 h-2 rounded-full bg-gold flex-shrink-0"></div>
+                <p class="text-slate">{h}</p>
+              </div>
+            ))}
+          </div>
         </div>
+
+        <button
+          id="venue-toggle"
+          class="text-red font-medium text-sm tracking-wide hover:text-red-light transition-colors mb-6 flex items-center gap-1"
+        >
+          <span id="venue-toggle-text">Read More</span>
+          <svg id="venue-toggle-icon" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
 
         <p class="text-lg font-medium text-navy">
           For one extraordinary evening, this iconic venue becomes the setting for the Countdown 250 Ball.
@@ -48,3 +61,22 @@ const highlights = [
     </div>
   </div>
 </section>
+
+<script>
+  const toggle = document.getElementById('venue-toggle');
+  const details = document.getElementById('venue-details');
+  const toggleText = document.getElementById('venue-toggle-text');
+  const toggleIcon = document.getElementById('venue-toggle-icon');
+
+  toggle?.addEventListener('click', () => {
+    const isHidden = details?.classList.contains('hidden');
+    details?.classList.toggle('hidden');
+    if (isHidden) {
+      toggleText!.textContent = 'Read Less';
+      toggleIcon?.classList.add('rotate-180');
+    } else {
+      toggleText!.textContent = 'Read More';
+      toggleIcon?.classList.remove('rotate-180');
+    }
+  });
+</script>
