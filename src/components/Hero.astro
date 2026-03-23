@@ -15,12 +15,12 @@ const ticketUrl = "https://www.eventbrite.com/e/all-american-countdown-250-ball-
 
   <!-- Content -->
   <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-24 pb-16">
-    <!-- Transparent header banner with event name, date, location -->
-    <div class="mb-8 animate-fade-in">
+    <!-- Header logo -->
+    <div class="hero-logo-wrap my-6 sm:my-8 animate-fade-in">
       <img
-        src="/countdown250/images/header-countdown250.png"
+        src="/countdown250/assets/images/countdown250-logo.webp"
         alt="All-American Countdown 250 Ball — July 3, 2026 — Washington, D.C."
-        class="w-full max-w-4xl mx-auto drop-shadow-2xl"
+        class="hero-logo mx-auto drop-shadow-2xl"
       />
     </div>
 
@@ -70,6 +70,19 @@ const ticketUrl = "https://www.eventbrite.com/e/all-american-countdown-250-ball-
   }
   .animate-fade-in {
     animation: fade-in 1s ease-out;
+  }
+
+  /* Hero logo — responsive, centered, no upscaling */
+  .hero-logo {
+    width: 90%;
+    max-width: 700px;
+    height: auto;
+    display: block;
+  }
+  @media (max-width: 640px) {
+    .hero-logo {
+      max-width: 90vw;
+    }
   }
 
   /* Wave animation: 4 features, each lights up for ~1s in sequence.
