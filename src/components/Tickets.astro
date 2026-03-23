@@ -125,20 +125,26 @@ const hostPackages = [
   {
     name: "Founders Host Package",
     price: "$12,500",
+    subtitle: "Includes three Statesman's Concierge Passes plus:",
     features: [
-      "3 Statesman Concierge Passes",
-      "Half-page program tribute",
-      "Multiple stage announcements",
+      "Half-page tribute feature/personal message in official event program",
+      "Private tour of historic hotel spaces reserved for presidents & dignitaries",
+      "Multiple VIP stage recognition announcements during the event",
+      "Elite concierge hospitality services",
+      "Upgraded premium official event gifts",
     ],
     tier: 4,
   },
   {
     name: "Presidential Host Package",
     price: "$18,500",
+    subtitle: "Includes four Statesman's Concierge Passes plus:",
     features: [
-      "4 Statesman Concierge Passes",
-      "Full-page program tribute",
-      "Multiple stage announcements",
+      "Full-page tribute feature/personal message in official event program",
+      "Private tour of historic hotel spaces reserved for presidents & dignitaries",
+      "Multiple VIP stage recognition announcements during the event",
+      "Elite concierge hospitality services",
+      "Upgraded premium official event gifts",
     ],
     tier: 5,
   },
@@ -153,7 +159,7 @@ const hostPackages = [
       <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">Choose Your Experience</h2>
       <div class="w-20 h-1 bg-red mx-auto mb-6"></div>
       <p class="text-white/60 text-base max-w-xl mx-auto mb-6">
-        Prices increase as the event approaches. Lock in today's rates before they go up.
+        Prices increase very soon. Lock in today's rates before they go up.
       </p>
       <div class="flex items-center justify-center gap-3 flex-wrap">
         {["Liberty", "Patriot VIP", "Statesman's Concierge", "Founders Host", "Presidential Host"].map((name, i) => (
@@ -281,8 +287,9 @@ const hostPackages = [
           </div>
           <div class="p-8 text-center">
             <h3 class="text-xl font-bold text-gold mb-2">{pkg.name}</h3>
-            <p class="text-4xl font-bold text-white mb-6">{pkg.price}</p>
-            <ul class="space-y-2 mb-6 text-left max-w-xs mx-auto">
+            <p class="text-4xl font-bold text-white mb-4">{pkg.price}</p>
+            <p class="text-white/60 text-sm mb-6 italic">{pkg.subtitle}</p>
+            <ul class="space-y-2 mb-6 text-left max-w-sm mx-auto">
               {pkg.features.map((f) => (
                 <li class="flex items-start gap-2.5">
                   <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-gold" fill="currentColor" viewBox="0 0 20 20">
