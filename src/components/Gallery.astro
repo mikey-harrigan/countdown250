@@ -1,39 +1,18 @@
 ---
-const photos = [
-  { src: "/countdown250/images/event-photos/aab-2025-ballroom-led-wide.jpg", alt: "Full ballroom with LED production at the 2025 Ball" },
-  { src: "/countdown250/images/event-photos/aab-2025-soldier-stage-hero.jpg", alt: "Decorated soldier with full stage behind" },
-  { src: "/countdown250/images/event-photos/aab-2025-youth-performers.jpg", alt: "Youth performing group on stage" },
-  { src: "/countdown250/images/event-photos/aab-2025-golden-seal-wide.jpg", alt: "Golden seal and event grandeur" },
-  { src: "/countdown250/images/event-photos/aab-2025-medal-recipients-stage.jpg", alt: "Medal recipients on stage" },
-  { src: "/countdown250/images/event-photos/aab-2025-patriotic-portrait.jpg", alt: "Patriotic portrait with full stage decor" },
-  { src: "/countdown250/images/event-photos/aab-2025-couple-full-venue.jpg", alt: "Elegant couple with complete venue backdrop" },
-  { src: "/countdown250/images/event-photos/aab-2025-sharp-navy-suit.jpg", alt: "Guest in sharp navy suit at the Ball" },
-];
 ---
 
 <section class="py-20 sm:py-28 bg-white">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
       <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">From Past Celebrations</p>
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-6">A Legacy of Excellence</h2>
-      <div class="w-20 h-1 bg-red mx-auto mb-6"></div>
-      <p class="text-slate/60 text-lg max-w-2xl mx-auto">
-        For over 30 years, the All-American Ball has brought together America's finest
-        for unforgettable evenings of celebration and patriotism.
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-6">A Legacy of Iconic American Celebrations</h2>
+      <div class="w-20 h-1 bg-red mx-auto mb-8"></div>
+      <p class="text-slate text-lg leading-relaxed mb-6">
+        For more than three decades, the All-American Ball has brought together leaders, dignitaries, and guests from across the nation for unforgettable inaugural celebrations in Washington, D.C.
       </p>
-    </div>
-
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-      {photos.map((photo, i) => (
-        <div class={`overflow-hidden rounded-lg ${i === 0 || i === 7 ? 'md:col-span-2 md:row-span-2' : ''}`}>
-          <img
-            src={photo.src}
-            alt={photo.alt}
-            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500 aspect-square"
-            loading="lazy"
-          />
-        </div>
-      ))}
+      <p class="text-slate text-lg leading-relaxed">
+        The All-American Countdown 250 Ball continues that tradition—elevated to meet a once-in-a-generation moment in American history.
+      </p>
     </div>
   </div>
 </section>
