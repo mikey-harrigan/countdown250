@@ -106,7 +106,7 @@ const moreLinks = [
   const navbar = document.getElementById('navbar');
   const navLogo = document.getElementById('nav-logo');
   const LOGO_BIG = 200;   // px when at top — extends well below navbar
-  const LOGO_SMALL = 70;  // px when scrolled — just fits in navbar
+  const LOGO_SMALL = 80;  // px when scrolled — just fits in the navbar bar (h-20 = 80px)
   const SCROLL_RANGE = 200; // px over which the transition happens
 
   window.addEventListener('scroll', () => {
@@ -121,12 +121,16 @@ const moreLinks = [
       navbar?.classList.add('bg-transparent');
     }
 
-    // Logo resize — smooth interpolation
+    // Logo resize + vertical shift so it's never clipped at the top
+    // When big, it shifts down so the logo hangs below the navbar
+    // When small, shift is 0 so it sits inside the navbar
     if (navLogo) {
-      const t = Math.min(scrollY / SCROLL_RANGE, 1); // 0 at top, 1 at SCROLL_RANGE+
+      const t = Math.min(scrollY / SCROLL_RANGE, 1); // 0 at top, 1 when scrolled
       const size = LOGO_BIG - (LOGO_BIG - LOGO_SMALL) * t;
+      const topOffset = (1 - t) * 10; // shift down when big so top isn't clipped
       navLogo.style.height = size + 'px';
       navLogo.style.width = size + 'px';
+      navLogo.style.marginTop = topOffset + 'px';
     }
   });
 
