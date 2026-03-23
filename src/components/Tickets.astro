@@ -4,58 +4,115 @@ const ticketUrl = "https://www.eventbrite.com/e/all-american-countdown-250-ball-
 const tickets = [
   {
     name: "Liberty Ticket",
-    time: "9 PM - 1 AM",
+    time: "The Ball: 9 PM – 1 AM",
     price: "$195",
     futurePrice: "$295 / $395 / $495",
-    features: [
-      "Full access to the Ball",
-      "Premium open bar all night",
-      "Bands, DJs, and roving entertainers",
-      "Interactive attractions",
-      "Tribute to America presentation",
-      "Hero Awards ceremony",
+    sections: [
+      {
+        heading: "The Ball (9pm–1am)",
+        items: [
+          "Open bar (9pm–1am)",
+          "4 grand party areas",
+          "3 dance floors",
+          "Multiple bands and DJs",
+          "Immersive experiences & roving entertainers",
+          "Step-and-repeat",
+          'Gripping "Tribute to America" performances',
+          "All-American Hero Lifetime Achievement Awards ceremony",
+        ],
+      },
     ],
-    note: "Reception-style event with limited seating",
+    note: "Reception-style Ball with limited seating",
     highlight: false,
     badge: "",
     tier: 1,
   },
   {
     name: "Patriot VIP",
-    time: "7 PM - 1 AM",
+    time: "VIP Reception + Ball: 7 PM – 1 AM",
     price: "$395",
     futurePrice: "$595 / $795 / $995",
-    features: [
-      "Everything in Liberty, plus:",
-      "VIP Mixer Reception (7-9 PM)",
-      "Early entry",
-      "Full buffet dinner",
-      "Open bar during mixer",
-      "Live performances",
-      "Mingle with honored guests",
+    sections: [
+      {
+        heading: "VIP Reception (7pm–9pm)",
+        items: [
+          "Early entry at 6:30pm",
+          "Delicious buffet dinner (7pm–8:30pm)",
+          "Premium open bar (7pm–9pm)",
+          "Mingle with honored guests, dignitaries, and All-American Heroes",
+          "Multiple party areas",
+          "Live entertainment",
+          "Immersive experiences & roving entertainers",
+          "Step-and-repeat",
+        ],
+      },
+      {
+        heading: "The Ball (9pm–1am)",
+        items: [
+          "Open bar (9pm–1am)",
+          "4 grand party areas",
+          "3 dance floors",
+          "Multiple bands and DJs",
+          "Immersive experiences & roving entertainers",
+          "Step-and-repeat",
+          'Gripping "Tribute to America" performances',
+          "All-American Hero Lifetime Achievement Awards ceremony",
+        ],
+      },
     ],
-    note: "",
+    note: "Reception-style Ball with limited seating",
     highlight: false,
     badge: "Tier 2",
     tier: 2,
   },
   {
-    name: "Statesman Concierge",
-    time: "7 PM - 1 AM",
+    name: "Statesman's Concierge Pass",
+    time: "Premier Luxury: 7 PM – 1 AM",
     price: "$1,495",
     futurePrice: "$2,500 / $3,500 / $5,000",
-    features: [
-      "Everything in Patriot VIP, plus:",
-      "Dedicated concierge ambassador",
-      "Reserved Presidential Stage seating",
-      "Private top-shelf bars",
-      "Premium VIP buffet reception",
-      "Exclusive hospitality areas",
-      "Backstage access",
-      "Private event photographer",
-      "Commemorative gifts & lanyard",
-      "Program recognition (photo included)",
-      "Stage announcement recognition",
+    sections: [
+      {
+        heading: "VIP Reception (7pm–9pm)",
+        items: [
+          "Early entry at 6:30pm",
+          "Private expedited entrance",
+          "Dedicated Ambassador (concierge service from arrival to departure)",
+          "Reserved seating on the Presidential Stage with special guests",
+          "Private top-shelf full open bars (all night)",
+          "Premium 2-hour buffet dinner (7pm–9pm)",
+          "Live entertainment",
+          "Private immersive experiences & roving entertainers",
+          "Access to exclusive hospitality areas",
+          "Access to historic hotel spaces reserved for presidents & dignitaries",
+          "Private photographer access",
+          "Private step-and-repeat",
+          "Commemorative Presidential Pass lanyard",
+          "Official All-American Countdown 250 commemorative gift",
+          "Premium recognition in official event program",
+          "Stage announcement recognition",
+        ],
+      },
+      {
+        heading: "The Ball (9pm–1am)",
+        items: [
+          "All VIP Reception amenities and services, PLUS…",
+          "Backstage access",
+          "Exquisite passed hors d'oeuvres and private dessert bar",
+          "6 grand party areas",
+          "4 dance floors with multiple bands and DJs",
+          "Most exclusive vantage points of main stage performances from reserved Presidential Stage seating",
+        ],
+      },
+      {
+        heading: "Additional Benefits",
+        items: [
+          "Premium All-American Countdown 250 Ball gift",
+          "Special recognition in the official event program (lead-time permitting)",
+          "Personal stage announcement recognition",
+          "Commemorative Official All-American Countdown 250 Ball Program",
+          "Commemorative Statesman's Concierge Pass lanyard",
+        ],
+      },
     ],
     note: "Extremely limited. Expected to sell out.",
     highlight: true,
@@ -152,16 +209,27 @@ const hostPackages = [
               </p>
             </div>
 
-            <ul class="space-y-2.5 mb-8 flex-grow">
-              {ticket.features.map((f) => (
-                <li class="flex items-start gap-2.5">
-                  <svg class={`w-4 h-4 mt-0.5 flex-shrink-0 ${ticket.highlight ? 'text-gold' : 'text-gold/80'}`} fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                  </svg>
-                  <span class={`text-sm ${ticket.highlight ? 'text-slate/80' : 'text-white/70'}`}>{f}</span>
-                </li>
+            <div class="space-y-5 mb-8 flex-grow">
+              {ticket.sections.map((section, si) => (
+                <div>
+                  <p class={`text-xs font-bold tracking-wider uppercase mb-2 ${
+                    ticket.highlight ? 'text-navy/70' : 'text-gold/90'
+                  } ${si > 0 ? 'pt-3 border-t ' + (ticket.highlight ? 'border-slate/10' : 'border-white/10') : ''}`}>
+                    {section.heading}
+                  </p>
+                  <ul class="space-y-2">
+                    {section.items.map((f) => (
+                      <li class="flex items-start gap-2">
+                        <svg class={`w-3.5 h-3.5 mt-0.5 flex-shrink-0 ${ticket.highlight ? 'text-gold' : 'text-gold/80'}`} fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                        </svg>
+                        <span class={`text-sm leading-snug ${ticket.highlight ? 'text-slate/80' : 'text-white/70'}`}>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </ul>
+            </div>
 
             {ticket.note && (
               <p class={`text-xs mb-4 italic ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
