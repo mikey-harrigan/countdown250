@@ -20,16 +20,17 @@ const moreLinks = [
 ];
 ---
 
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-20">
-      <!-- Logo -->
-      <a href="/countdown250/" class="flex-shrink-0 relative z-10">
-        <div class="logo-container relative h-28 sm:h-32 w-28 sm:w-32">
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent" style="overflow: visible;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="overflow: visible;">
+    <div class="flex items-center justify-between h-20" style="overflow: visible;">
+      <!-- Logo — large at top, shrinks on scroll -->
+      <a href="/countdown250/" class="flex-shrink-0 relative z-10" style="overflow: visible;">
+        <div id="nav-logo" class="logo-container relative transition-all duration-500 ease-out" style="height: 120px; width: 120px; overflow: visible;">
           <img
             src="/countdown250/images/logos/new-logo.png"
             alt="All-American Countdown 250 Ball"
-            class="relative h-full w-full object-contain drop-shadow-lg"
+            class="absolute top-0 left-0 h-full w-full object-contain drop-shadow-lg"
+            style="overflow: visible; clip: unset;"
           />
         </div>
       </a>
@@ -101,15 +102,31 @@ const moreLinks = [
 </nav>
 
 <script>
-  // Navbar scroll effect
+  // Navbar scroll effect with logo resize
   const navbar = document.getElementById('navbar');
+  const navLogo = document.getElementById('nav-logo');
+  const LOGO_BIG = 120;   // px when at top
+  const LOGO_SMALL = 56;  // px when scrolled down
+  const SCROLL_RANGE = 150; // px over which the transition happens
+
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) {
+    const scrollY = window.scrollY;
+
+    // Background change
+    if (scrollY > 80) {
       navbar?.classList.add('bg-navy-dark/95', 'backdrop-blur-sm', 'shadow-lg');
       navbar?.classList.remove('bg-transparent');
     } else {
       navbar?.classList.remove('bg-navy-dark/95', 'backdrop-blur-sm', 'shadow-lg');
       navbar?.classList.add('bg-transparent');
+    }
+
+    // Logo resize — smooth interpolation
+    if (navLogo) {
+      const t = Math.min(scrollY / SCROLL_RANGE, 1); // 0 at top, 1 at SCROLL_RANGE+
+      const size = LOGO_BIG - (LOGO_BIG - LOGO_SMALL) * t;
+      navLogo.style.height = size + 'px';
+      navLogo.style.width = size + 'px';
     }
   });
 
