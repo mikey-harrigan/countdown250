@@ -1,0 +1,48 @@
+---
+import { updates } from '../data/updates';
+const base = "/countdown250";
+const headlines = updates.map(u => u.headline);
+---
+
+<div class="news-ticker-bar bg-navy border-y border-gold/30">
+  <div class="max-w-7xl mx-auto flex items-center overflow-hidden h-10">
+    <a href={`${base}/updates/`} class="flex-shrink-0 bg-red text-white text-xs font-bold tracking-wider uppercase px-4 py-2 z-10">
+      The Latest News
+    </a>
+    <div class="ticker-wrap overflow-hidden flex-1 relative h-full">
+      <div class="ticker-content flex items-center h-full whitespace-nowrap">
+        {[...headlines, ...headlines].map((h, i) => (
+          <span class="ticker-item text-white/90 text-sm mx-8 inline-flex items-center">
+            <span class="text-gold mr-3">★</span>
+            {h}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .ticker-wrap {
+    mask-image: linear-gradient(to right, transparent, black 40px, black calc(100% - 40px), transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 40px, black calc(100% - 40px), transparent);
+  }
+
+  .ticker-content {
+    animation: ticker-scroll 30s linear infinite;
+    width: max-content;
+  }
+
+  @keyframes ticker-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .ticker-content:hover {
+    animation-play-state: paused;
+  }
+</style>
