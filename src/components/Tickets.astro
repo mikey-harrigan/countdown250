@@ -258,9 +258,10 @@ const hostPackages = [
               rel="noopener noreferrer"
               class={`block text-center py-3.5 px-6 rounded-lg font-semibold text-sm tracking-wider uppercase transition-all hover:-translate-y-0.5 ${
                 ticket.highlight
-                  ? 'bg-navy text-white hover:bg-navy-dark shadow-lg'
+                  ? 'shadow-lg'
                   : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
               }`}
+              style={ticket.highlight ? 'background-color: #002868; color: white;' : ''}
             >
               Buy Tickets
             </a>
