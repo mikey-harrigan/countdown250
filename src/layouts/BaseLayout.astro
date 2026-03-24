@@ -5,7 +5,7 @@ interface Props {
   ogImage?: string;
 }
 
-const { title, description, ogImage = '/countdown250/images/logos/new-logo.png' } = Astro.props;
+const { title, description, ogImage = '/images/logos/new-logo.png' } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -14,7 +14,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/svg+xml" href="/countdown250/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
   <!-- SEO -->
   <title>{title}</title>
