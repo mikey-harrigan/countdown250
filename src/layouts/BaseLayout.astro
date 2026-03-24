@@ -95,47 +95,56 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Eventbrite Embedded Checkout Widget -->
-  <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
 </head>
 <body class="min-h-screen flex flex-col">
   <slot />
 
+  <!-- Eventbrite Modal Overlay -->
+  <div id="eb-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; z-index:99999; background:rgba(0,0,0,0.7);">
+    <div style="position:relative; width:90%; max-width:600px; height:85vh; margin:5vh auto; background:white; border-radius:12px; overflow:hidden;">
+      <button id="eb-modal-close" style="position:absolute; top:10px; right:14px; z-index:10; background:none; border:none; font-size:28px; cursor:pointer; color:#333; font-weight:bold;">&times;</button>
+      <iframe id="eb-iframe" src="" style="width:100%; height:100%; border:none;"></iframe>
+    </div>
+  </div>
+
   <script>
-    // Initialize Eventbrite embedded checkout modal
     document.addEventListener('DOMContentLoaded', function() {
-      // Handle all ticket buttons with the eventbrite-checkout class
+      var modal = document.getElementById('eb-modal');
+      var iframe = document.getElementById('eb-iframe');
+      var ebUrl = 'https://www.eventbrite.com/e/all-american-countdown-250-ball-tickets-1982528927390';
+
+      // All eventbrite-checkout buttons open the modal
       document.querySelectorAll('.eventbrite-checkout').forEach(function(btn) {
         btn.addEventListener('click', function(e) {
           e.preventDefault();
-          if (window.EBWidgets) {
-            window.EBWidgets.createWidget({
-              widgetType: 'checkout',
-              eventId: '1982528927390',
-              modal: true,
-              modalTriggerElementId: btn.id,
-              onOrderComplete: function() {
-                window.location.href = '/countdown250/thank-you';
-              }
-            });
-            // Trigger the click again after widget is bound
-            btn.click();
-          }
-        }, { once: true });
+          iframe.src = ebUrl;
+          modal.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+        });
       });
 
-      // Pre-initialize all widgets
-      document.querySelectorAll('.eventbrite-checkout').forEach(function(btn) {
-        if (window.EBWidgets) {
-          window.EBWidgets.createWidget({
-            widgetType: 'checkout',
-            eventId: '1982528927390',
-            modal: true,
-            modalTriggerElementId: btn.id,
-            onOrderComplete: function() {
-              window.location.href = '/countdown250/thank-you';
-            }
-          });
+      // Close modal
+      document.getElementById('eb-modal-close').addEventListener('click', function() {
+        modal.style.display = 'none';
+        iframe.src = '';
+        document.body.style.overflow = '';
+      });
+
+      // Close on backdrop click
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+          iframe.src = '';
+          document.body.style.overflow = '';
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+          modal.style.display = 'none';
+          iframe.src = '';
+          document.body.style.overflow = '';
         }
       });
     });
