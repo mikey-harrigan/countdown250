@@ -7,22 +7,24 @@ const tickets = [
     time: "The Ball: 9 PM – 1 AM",
     price: "$195",
     futurePrice: "$295 / $395 / $495",
+    description: "Best for guests who want the full Ball experience at the most accessible entry point.",
     sections: [
       {
-        heading: "The Ball (9pm–1am)",
+        heading: "The Ball (9 PM–1 AM)",
         items: [
-          "Open bar (9pm–1am)",
-          "4 grand party areas",
-          "3 dance floors",
-          "Multiple bands and DJs",
-          "Immersive experiences & roving entertainers",
-          "Step-and-repeat",
-          'Gripping "Tribute to America" performances',
+          "Admission to the Ball from 9 PM–1 AM",
+          "4 grand party areas and 3 dance floors",
+          "Open bar all night",
+          "Multiple live bands and DJs",
+          "Immersive experiences and roaming entertainers",
+          "Step-and-repeat photo opportunity",
+          "Patriotic Tribute to America performances",
           "All-American Hero Lifetime Achievement Awards ceremony",
+          "Reception-style Ball with limited seating",
         ],
       },
     ],
-    note: "Reception-style Ball with limited seating",
+    note: "",
     highlight: false,
     badge: "",
     tier: 1,
@@ -223,6 +225,12 @@ const hostPackages = [
                 Future tiers: {ticket.futurePrice}
               </p>
             </div>
+
+            {ticket.description && (
+              <p class={`text-sm mb-6 italic ${ticket.highlight ? 'text-slate/60' : 'text-white/50'}`}>
+                {ticket.description}
+              </p>
+            )}
 
             <div class="space-y-5 mb-8 flex-grow">
               {ticket.sections.map((section, si) => (
