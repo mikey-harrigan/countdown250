@@ -33,30 +33,31 @@ const tickets = [
     time: "VIP Reception + Ball: 7 PM – 1 AM",
     price: "$395",
     futurePrice: "$595 / $795 / $995",
+    description: "Best for guests who want early access, dinner, and a more elevated evening from start to finish.",
+    sectionIntro: "Includes Two Distinct Experiences: The VIP Reception + The Ball",
     sections: [
       {
-        heading: "VIP Reception (7pm–9pm)",
+        heading: "Part One: VIP Reception (7 PM–9 PM)",
         items: [
-          "Early entry at 6:30pm",
-          "Delicious buffet dinner (7pm–8:30pm)",
-          "Premium open bar (7pm–9pm)",
-          "Mingle with honored guests, dignitaries, and All-American Heroes",
-          "Multiple party areas",
+          "Early entry beginning at 6:30 PM",
+          "Admission to the exclusive VIP Reception",
+          "Buffet dinner",
+          "Premium open bar",
+          "Opportunity to mingle with honored guests, dignitaries, and All-American Heroes",
           "Live entertainment",
-          "Immersive experiences & roving entertainers",
-          "Step-and-repeat",
+          "Immersive experiences and roaming entertainers",
+          "Step-and-repeat access",
         ],
       },
       {
-        heading: "The Ball (9pm–1am)",
+        heading: "Part Two: The Ball (9 PM–1 AM)",
         items: [
-          "Open bar (9pm–1am)",
-          "4 grand party areas",
-          "3 dance floors",
-          "Multiple bands and DJs",
-          "Immersive experiences & roving entertainers",
-          "Step-and-repeat",
-          'Gripping "Tribute to America" performances',
+          "Admission to the main Ball",
+          "Access to 4 grand party areas and 3 dance floors",
+          "Open bar all night",
+          "Multiple live bands and DJs",
+          "Immersive experiences, roaming entertainers and step-and-repeat",
+          "Patriotic Tribute to America performances",
           "All-American Hero Lifetime Achievement Awards ceremony",
         ],
       },
@@ -228,6 +229,12 @@ const hostPackages = [
             {ticket.description && (
               <p class={`text-sm mb-6 italic ${ticket.highlight ? 'text-slate/60' : 'text-white/50'}`}>
                 {ticket.description}
+              </p>
+            )}
+
+            {ticket.sectionIntro && (
+              <p class={`text-xs font-bold tracking-wider uppercase mb-4 ${ticket.highlight ? 'text-navy/70' : 'text-gold/90'}`}>
+                {ticket.sectionIntro}
               </p>
             )}
 
