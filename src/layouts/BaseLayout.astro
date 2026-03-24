@@ -94,8 +94,51 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Eventbrite Embedded Checkout Widget -->
+  <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
 </head>
 <body class="min-h-screen flex flex-col">
   <slot />
+
+  <script>
+    // Initialize Eventbrite embedded checkout modal
+    document.addEventListener('DOMContentLoaded', function() {
+      // Handle all ticket buttons with the eventbrite-checkout class
+      document.querySelectorAll('.eventbrite-checkout').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          if (window.EBWidgets) {
+            window.EBWidgets.createWidget({
+              widgetType: 'checkout',
+              eventId: '1982528927390',
+              modal: true,
+              modalTriggerElementId: btn.id,
+              onOrderComplete: function() {
+                window.location.href = '/countdown250/thank-you';
+              }
+            });
+            // Trigger the click again after widget is bound
+            btn.click();
+          }
+        }, { once: true });
+      });
+
+      // Pre-initialize all widgets
+      document.querySelectorAll('.eventbrite-checkout').forEach(function(btn) {
+        if (window.EBWidgets) {
+          window.EBWidgets.createWidget({
+            widgetType: 'checkout',
+            eventId: '1982528927390',
+            modal: true,
+            modalTriggerElementId: btn.id,
+            onOrderComplete: function() {
+              window.location.href = '/countdown250/thank-you';
+            }
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>

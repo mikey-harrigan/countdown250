@@ -10,14 +10,12 @@ const ticketUrl = "https://www.eventbrite.com/e/all-american-countdown-250-ball-
       <p class="text-white/80 mb-6">
         Early release pricing won't last. Secure your tickets before prices increase.
       </p>
-      <a
-        href={ticketUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-block bg-white text-red px-10 py-4 text-lg font-semibold tracking-wider uppercase hover:bg-cream transition-colors rounded shadow-lg"
+      <button
+        id="eb-footer-buy"
+        class="eventbrite-checkout inline-block bg-white text-red px-10 py-4 text-lg font-semibold tracking-wider uppercase hover:bg-cream transition-colors rounded shadow-lg cursor-pointer"
       >
         Buy Tickets Now
-      </a>
+      </button>
     </div>
   </div>
 
@@ -49,7 +47,7 @@ const ticketUrl = "https://www.eventbrite.com/e/all-american-countdown-250-ball-
           <a href="#venue" class="block text-white/50 hover:text-white text-sm transition-colors">The Venue</a>
           <a href="#tickets" class="block text-white/50 hover:text-white text-sm transition-colors">Tickets</a>
           <a href="/countdown250/updates/" class="block text-white/50 hover:text-white text-sm transition-colors">News & Updates</a>
-          <a href={ticketUrl} target="_blank" rel="noopener noreferrer" class="block text-white/50 hover:text-white text-sm transition-colors">Buy Tickets</a>
+          <button id="eb-footer-link" class="eventbrite-checkout block text-white/50 hover:text-white text-sm transition-colors cursor-pointer bg-transparent border-0 p-0 text-left">Buy Tickets</button>
         </div>
       </div>
 
