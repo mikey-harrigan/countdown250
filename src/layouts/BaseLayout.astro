@@ -152,6 +152,14 @@ if (pathSegments.length > 0) {
       document.querySelectorAll('.eventbrite-checkout').forEach(function(btn) {
         btn.addEventListener('click', function(e) {
           e.preventDefault();
+          // Google Ads conversion tracking
+          if (typeof gtag === 'function') {
+            gtag('event', 'conversion', {
+              'send_to': 'AW-1018113532/Kg8xCMCN9_IZEPzbvOUD',
+              'value': 1.0,
+              'currency': 'USD'
+            });
+          }
           iframe.src = ebUrl;
           modal.style.display = 'block';
           document.body.style.overflow = 'hidden';
