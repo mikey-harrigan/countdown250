@@ -100,7 +100,20 @@ const faqs = [
 ];
 ---
 
-<BaseLayout title="FAQ | All-American Countdown 250 Ball" description="Frequently asked questions about the All-American Countdown 250 Ball on July 3, 2026 at the Washington Hilton.">
+<BaseLayout title="FAQ | All-American Countdown 250 Ball" description="Frequently asked questions about the All-American Countdown 250 Ball on July 3, 2026 at the Washington Hilton." ogImage="/images/event/countdown-toast.png">
+  <!-- FAQPage Structured Data for rich snippets -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.flatMap(cat => cat.questions.map(item => ({
+      "@type": "Question",
+      "name": item.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.a
+      }
+    })))
+  })} />
   <Navbar />
   <main>
     <!-- Hero header -->
