@@ -7,6 +7,12 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    date: "2026-03-26",
+    headline: "Official Countdown 250 Ball Partners with Operation Renewed Hope Foundation",
+    slug: "orhf-partnership",
+    body: "The official All-American Countdown 250 Ball is proud to announce its partnership with Operation Renewed Hope Foundation (ORHF), a veteran-led nonprofit dedicated to eradicating homelessness among our patriotic and selfless U.S. Veterans. ORHF provides quality housing and supportive services to homeless Veterans in the Greater DC Metropolitan region, serving over 100 Veterans and their families each year. With more than 90% of donations going directly to helping Veterans, ORHF is making a real difference in the lives of those who served our nation. ORHF will help select the All-American Hero Lifetime Achievement Award recipients and manage the awards ceremony at the Ball. Learn more at operationrenewedhopefoundation.org.",
+  },
+  {
     date: "2026-03-20",
     headline: "Early Release Tickets Now Available",
     slug: "early-release-tickets",
