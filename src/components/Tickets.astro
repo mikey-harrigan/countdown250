@@ -125,34 +125,6 @@ const tickets = [
   },
 ];
 
-const hostPackages = [
-  {
-    name: "Founders Host Package",
-    price: "$14,500",
-    subtitle: "Includes three Statesman's Concierge Passes plus:",
-    features: [
-      "Half-page tribute feature/personal message in official event program",
-      "Private tour of historic hotel spaces reserved for presidents & dignitaries",
-      "Multiple VIP stage recognition announcements during the event",
-      "Elite concierge hospitality services",
-      "Upgraded premium official event gifts",
-    ],
-    tier: 4,
-  },
-  {
-    name: "Presidential Host Package",
-    price: "$18,500",
-    subtitle: "Includes four Statesman's Concierge Passes plus:",
-    features: [
-      "Full-page tribute feature/personal message in official event program",
-      "Private tour of historic hotel spaces reserved for presidents & dignitaries",
-      "Multiple VIP stage recognition announcements during the event",
-      "Elite concierge hospitality services",
-      "Upgraded premium official event gifts",
-    ],
-    tier: 5,
-  },
-];
 ---
 
 <section id="tickets" class="py-20 sm:py-28 bg-navy-dark text-white">
@@ -172,23 +144,21 @@ const hostPackages = [
         ★ Proceeds help support <a href="https://www.operationrenewedhopefoundation.org" target="_blank" rel="noopener noreferrer" class="underline hover:text-gold">Operation Renewed Hope Foundation</a> in their mission to house U.S. Veterans and end veteran homelessness.
       </p>
       <div class="flex items-center justify-center gap-3 flex-wrap">
-        {["Liberty", "Patriot VIP", "Statesman's Concierge", "Founders Host", "Presidential Host"].map((name, i) => (
-          <span class={`px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase ${
-            i === 2 ? 'bg-white/10 text-white/80 border border-white/20' : 'bg-white/10 text-white/80 border border-white/20'
-          }`}>
+        {["Liberty", "Patriot VIP", "Statesman's Concierge"].map((name) => (
+          <span class="px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase bg-white/10 text-white/80 border border-white/20">
             {name}
           </span>
         ))}
       </div>
-      <p class="text-white/40 text-sm mt-3">5 ticket options — scroll down to see all</p>
+      <p class="text-white/40 text-sm mt-3">3 ticket tiers available</p>
     </div>
 
     <!-- Ticket tier indicator -->
     <div class="flex items-center justify-center gap-0 mb-12 max-w-4xl mx-auto">
       <div class="flex-1 h-1 bg-white/20 rounded-l-full"></div>
-      {[1, 2, 3, 4, 5].map((tier) => (
+      {[1, 2, 3].map((tier) => (
         <div class="flex flex-col items-center mx-2 sm:mx-4">
-          <div class={`w-4 h-4 rounded-full border-2 ${tier <= 3 ? 'bg-gold border-gold' : 'bg-red border-red'}`}></div>
+          <div class="w-4 h-4 rounded-full border-2 bg-gold border-gold"></div>
         </div>
       ))}
       <div class="flex-1 h-1 bg-white/20 rounded-r-full"></div>
@@ -291,42 +261,14 @@ const hostPackages = [
       ))}
     </div>
 
-    <!-- Divider between ticket types -->
-    <div class="flex items-center gap-4 max-w-3xl mx-auto mb-16">
-      <div class="flex-1 h-px bg-gold/30"></div>
-      <span class="text-gold font-medium tracking-[0.2em] uppercase text-sm">Premium Packages</span>
-      <div class="flex-1 h-px bg-gold/30"></div>
+    <!-- Sponsorship contact line -->
+    <div class="text-center mb-16">
+      <p class="text-white/60 text-sm">
+        Corporate sponsorship and premium host packages available. Contact us at
+        <a href="mailto:CountdownAmerica250@gmail.com" class="text-gold hover:text-gold/80 underline">CountdownAmerica250@gmail.com</a> for details.
+      </p>
     </div>
 
-    <!-- Host packages - now with clear delineation -->
-    <div class="grid sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
-      {hostPackages.map((pkg) => (
-        <div class="bg-gradient-to-b from-gold/10 to-transparent border-2 border-gold/30 rounded-2xl overflow-hidden">
-          {/* Tier header bar */}
-          <div class="py-2 text-center text-xs font-bold tracking-widest uppercase bg-gold/20 text-gold">
-            Tier {pkg.tier}
-          </div>
-          <div class="p-8 text-center">
-            <h3 class="text-xl font-bold text-gold mb-2">{pkg.name}</h3>
-            <p class="text-4xl font-bold text-white mb-4">{pkg.price}</p>
-            <p class="text-white/60 text-sm mb-6 italic">{pkg.subtitle}</p>
-            <ul class="space-y-2 mb-6 text-left max-w-sm mx-auto">
-              {pkg.features.map((f) => (
-                <li class="flex items-start gap-2.5">
-                  <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-gold" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                  </svg>
-                  <span class="text-white/70 text-sm">{f}</span>
-                </li>
-              ))}
-            </ul>
-            <button id={`eb-host-${pkg.tier}`} class="eventbrite-checkout inline-block px-8 py-3 rounded-lg text-sm font-semibold tracking-wider uppercase transition-all hover:-translate-y-0.5 cursor-pointer" style="background-color: #1a56db !important; color: white !important;">
-              Buy Package
-            </button>
-          </div>
-        </div>
-      ))}
-    </div>
     <!-- Event Info & Disclaimers -->
     <div class="mt-20 pt-12 border-t border-white/10 max-w-3xl mx-auto">
       <div class="mb-10">
