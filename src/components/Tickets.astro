@@ -7,6 +7,7 @@ const tickets = [
     time: "The Ball: 9 PM – 1 AM",
     price: "$195",
     futurePrice: "$295 / $395 / $495",
+    id: "ticket-liberty",
     description: "Best for guests who want the full Ball experience at the most accessible entry point.",
     sections: [
       {
@@ -33,6 +34,7 @@ const tickets = [
     time: "VIP Reception + Ball: 7 PM – 1 AM",
     price: "$395",
     futurePrice: "$595 / $795 / $995",
+    id: "ticket-patriot-vip",
     description: "Best for guests who want early access, dinner, and a more elevated evening from start to finish.",
     sectionIntro: "Includes Two Distinct Experiences: The VIP Reception + The Ball",
     sections: [
@@ -72,6 +74,7 @@ const tickets = [
     time: "Premier Luxury: 7 PM – 1 AM",
     price: "$1,495",
     futurePrice: "$2,500 / $3,500 / $5,000",
+    id: "ticket-statesmans",
     sectionIntro: "Includes Two Distinct Experiences: The VIP Reception + The Ball — Elevated with Exclusive Access, Concierge Service, and Recognition",
     sections: [
       {
@@ -143,14 +146,18 @@ const tickets = [
       <p class="text-gold/80 text-sm max-w-lg mx-auto mb-6 font-medium">
         ★ Proceeds help support <a href="https://www.operationrenewedhopefoundation.org" target="_blank" rel="noopener noreferrer" class="underline hover:text-gold">Operation Renewed Hope Foundation</a> in their mission to house U.S. Veterans and end veteran homelessness.
       </p>
+      <p class="text-white/60 text-base italic mb-6">Three ways to celebrate America's 250th</p>
       <div class="flex items-center justify-center gap-3 flex-wrap">
-        {["Liberty", "Patriot VIP", "Statesman's Concierge"].map((name) => (
-          <span class="px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase bg-white/10 text-white/80 border border-white/20">
-            {name}
-          </span>
+        {[
+          { label: "Liberty", href: "#ticket-liberty" },
+          { label: "Patriot VIP", href: "#ticket-patriot-vip" },
+          { label: "Statesman's Concierge", href: "#ticket-statesmans" },
+        ].map(({ label, href }) => (
+          <a href={href} class="px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase bg-white/10 text-white/80 border border-white/20 hover:bg-gold hover:text-navy-dark hover:border-gold transition-colors duration-200 cursor-pointer">
+            {label}
+          </a>
         ))}
       </div>
-      <p class="text-white/40 text-sm mt-3">3 ticket tiers available</p>
     </div>
 
     <!-- Ticket tier indicator -->
@@ -167,7 +174,7 @@ const tickets = [
     <!-- Main 3 ticket cards -->
     <div class="grid md:grid-cols-3 gap-8 lg:gap-10 mb-16">
       {tickets.map((ticket) => (
-        <div class={`relative rounded-2xl overflow-hidden flex flex-col ${
+        <div id={ticket.id} class={`relative rounded-2xl overflow-hidden flex flex-col ${
           ticket.highlight
             ? 'bg-white text-slate ring-4 ring-gold shadow-2xl scale-[1.03]'
             : 'bg-white/5 border-2 border-white/15 text-white'
