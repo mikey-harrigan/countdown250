@@ -7,6 +7,12 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    date: "2026-03-30",
+    headline: "Tickets Are Moving — Early Pricing Won't Last Long",
+    slug: "tickets-moving-early-pricing",
+    body: "We've been blown away by the early response. In just the first week, tickets are selling and the momentum is real. If you've been on the fence, now is the time — early release pricing is the lowest it will ever be, and prices are going up soon. Liberty tickets are $195, Patriot VIP is $395, and the Statesman's Concierge Pass is $1,495. Once the price increase hits, it's gone for good. Grab your spot before that happens.",
+  },
+  {
     date: "2026-03-26",
     headline: "Official Countdown 250 Ball Partners with Operation Renewed Hope Foundation",
     slug: "orhf-partnership",
