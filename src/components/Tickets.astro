@@ -141,7 +141,7 @@ const tickets = [
       <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">Choose Your Experience</h2>
       <div class="w-20 h-1 bg-red mx-auto mb-6"></div>
       <p class="price-warning text-gold font-bold text-lg tracking-wide max-w-xl mx-auto mb-4">
-        ⚡ PRICES JUST INCREASED — TICKETS SELLING FAST
+        ⚡ PRICES WILL GO UP AGAIN SOON
       </p>
       <p class="text-white/60 text-sm max-w-lg mx-auto mb-4">
         Ticket sales are deliberately limited to ensure optimal comfort and an exceptional experience for every guest.
@@ -202,28 +202,20 @@ const tickets = [
             </div>
 
             <div class="mb-6 pb-6 border-b ${ticket.highlight ? 'border-slate/10' : 'border-white/10'}">
-              <!-- Old price strikethrough -->
-              <div class="flex items-baseline gap-2 mb-1">
-                <span class={`text-lg line-through ${ticket.highlight ? 'text-slate/30' : 'text-white/25'}`}>
+              <!-- All prices on one line -->
+              <div class="flex items-baseline flex-wrap gap-x-3 gap-y-1">
+                <span class={`text-base line-through ${ticket.highlight ? 'text-slate/30' : 'text-white/25'}`}>
                   {ticket.originalPrice}
                 </span>
-                <span class={`text-xs ${ticket.highlight ? 'text-slate/30' : 'text-white/25'}`}>early bird</span>
-              </div>
-              <!-- New current price -->
-              <div class="flex items-baseline gap-1">
                 <span class={`text-4xl font-bold ${ticket.highlight ? 'text-navy' : 'text-white'}`}>
                   {ticket.price}
                 </span>
-                <span class={`text-sm font-semibold ${ticket.highlight ? 'text-red-600' : 'text-red-400'}`}>
-                  ↑ current price
-                </span>
+                {ticket.futurePrice.split(' / ').map((fp) => (
+                  <span class={`text-sm ${ticket.highlight ? 'text-slate/30' : 'text-white/25'}`}>{fp}</span>
+                ))}
               </div>
-              <!-- Next tier warning -->
-              <p class={`text-xs mt-2 font-medium ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
-                Next increase: {ticket.futurePrice.split(' / ')[0]} · selling fast
-              </p>
-              <p class={`text-xs mt-0.5 ${ticket.highlight ? 'text-slate/30' : 'text-white/25'}`}>
-                Future tiers: {ticket.futurePrice}
+              <p class={`text-xs mt-2 italic ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
+                Tickets selling at record pace — prices will go up again soon
               </p>
             </div>
 
