@@ -5,7 +5,8 @@ const tickets = [
   {
     name: "Liberty Ticket",
     time: "The Ball: 9 PM – 1 AM",
-    price: "$195",
+    originalPrice: "$195",
+    price: "$225",
     futurePrice: "$295 / $395 / $495",
     id: "ticket-liberty",
     description: "Best for guests who want the full Ball experience at the most accessible entry point.",
@@ -32,7 +33,8 @@ const tickets = [
   {
     name: "Patriot VIP Ticket",
     time: "VIP Reception + Ball: 7 PM – 1 AM",
-    price: "$395",
+    originalPrice: "$395",
+    price: "$450",
     futurePrice: "$595 / $795 / $995",
     id: "ticket-patriot-vip",
     description: "Best for guests who want early access, dinner, and a more elevated evening from start to finish.",
@@ -72,7 +74,8 @@ const tickets = [
   {
     name: "Statesman's Concierge Pass",
     time: "Premier Luxury: 7 PM – 1 AM",
-    price: "$1,495",
+    originalPrice: "$1,495",
+    price: "$1,700",
     futurePrice: "$2,500 / $3,500 / $5,000",
     id: "ticket-statesmans",
     sectionIntro: "Includes Two Distinct Experiences: The VIP Reception + The Ball — Elevated with Exclusive Access, Concierge Service, and Recognition",
@@ -138,7 +141,7 @@ const tickets = [
       <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">Choose Your Experience</h2>
       <div class="w-20 h-1 bg-red mx-auto mb-6"></div>
       <p class="price-warning text-gold font-bold text-lg tracking-wide max-w-xl mx-auto mb-4">
-        PRICES WILL INCREASE VERY SOON!
+        ⚡ PRICES JUST INCREASED — TICKETS SELLING FAST
       </p>
       <p class="text-white/60 text-sm max-w-lg mx-auto mb-4">
         Ticket sales are deliberately limited to ensure optimal comfort and an exceptional experience for every guest.
@@ -199,15 +202,27 @@ const tickets = [
             </div>
 
             <div class="mb-6 pb-6 border-b ${ticket.highlight ? 'border-slate/10' : 'border-white/10'}">
+              <!-- Old price strikethrough -->
+              <div class="flex items-baseline gap-2 mb-1">
+                <span class={`text-lg line-through ${ticket.highlight ? 'text-slate/30' : 'text-white/25'}`}>
+                  {ticket.originalPrice}
+                </span>
+                <span class={`text-xs ${ticket.highlight ? 'text-slate/30' : 'text-white/25'}`}>early bird</span>
+              </div>
+              <!-- New current price -->
               <div class="flex items-baseline gap-1">
                 <span class={`text-4xl font-bold ${ticket.highlight ? 'text-navy' : 'text-white'}`}>
                   {ticket.price}
                 </span>
-                <span class={`text-sm ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
-                  / early price
+                <span class={`text-sm font-semibold ${ticket.highlight ? 'text-red-600' : 'text-red-400'}`}>
+                  ↑ current price
                 </span>
               </div>
-              <p class={`text-xs mt-1 ${ticket.highlight ? 'text-slate/40' : 'text-white/30'}`}>
+              <!-- Next tier warning -->
+              <p class={`text-xs mt-2 font-medium ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
+                Next increase: {ticket.futurePrice.split(' / ')[0]} · selling fast
+              </p>
+              <p class={`text-xs mt-0.5 ${ticket.highlight ? 'text-slate/30' : 'text-white/25'}`}>
                 Future tiers: {ticket.futurePrice}
               </p>
             </div>
