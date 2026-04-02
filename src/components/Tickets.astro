@@ -202,14 +202,17 @@ const tickets = [
             </div>
 
             <div class="mb-6 pb-6 border-b ${ticket.highlight ? 'border-slate/10' : 'border-white/10'}">
-              <!-- All prices on one line -->
-              <div class="flex items-baseline flex-wrap gap-x-3 gap-y-1">
+              <!-- Old + current price on one line -->
+              <div class="flex items-baseline gap-3">
                 <span class={`text-base line-through ${ticket.highlight ? 'text-slate/30' : 'text-white/25'}`}>
                   {ticket.originalPrice}
                 </span>
                 <span class={`text-4xl font-bold ${ticket.highlight ? 'text-navy' : 'text-white'}`}>
                   {ticket.price}
                 </span>
+              </div>
+              <!-- Future prices on their own line -->
+              <div class="flex items-baseline gap-2 mt-1 flex-wrap">
                 {ticket.futurePrice.split(' / ').map((fp) => (
                   <span class={`text-sm ${ticket.highlight ? 'text-slate/30' : 'text-white/25'}`}>{fp}</span>
                 ))}
