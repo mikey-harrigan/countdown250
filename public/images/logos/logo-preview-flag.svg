@@ -3,9 +3,9 @@
     <clipPath id="bgClip">
       <rect width="700" height="360" rx="8" />
     </clipPath>
-    <radialGradient id="flagFade" cx="50%" cy="48%" r="55%">
+    <radialGradient id="flagFade" cx="50%" cy="48%" r="60%">
       <stop offset="0%" stop-color="white" stop-opacity="1" />
-      <stop offset="60%" stop-color="white" stop-opacity="0.7" />
+      <stop offset="55%" stop-color="white" stop-opacity="0.8" />
       <stop offset="100%" stop-color="white" stop-opacity="0" />
     </radialGradient>
     <mask id="flagMask">
@@ -16,10 +16,10 @@
   <!-- Dark background -->
   <rect width="700" height="360" fill="#001a45" rx="8" />
 
-  <!-- Waving flag using curved paths — 20% opacity, no filter needed -->
-  <g mask="url(#flagMask)" opacity="0.20" clip-path="url(#bgClip)">
+  <!-- Waving flag — 35% opacity, clearly visible -->
+  <g mask="url(#flagMask)" opacity="0.35" clip-path="url(#bgClip)">
     <g transform="translate(-30, -20) scale(1.25)">
-      <!-- Wavy red stripes using bezier curves -->
+      <!-- Wavy red stripes -->
       <path d="M0,0 Q80,8 160,-2 Q240,8 320,0 Q400,-8 480,2 Q560,8 640,0 L640,22 Q560,30 480,24 Q400,14 320,22 Q240,30 160,20 Q80,30 0,22 Z" fill="#B22234" />
       <path d="M0,44 Q80,52 160,42 Q240,52 320,44 Q400,36 480,46 Q560,52 640,44 L640,66 Q560,74 480,68 Q400,58 320,66 Q240,74 160,64 Q80,74 0,66 Z" fill="#B22234" />
       <path d="M0,88 Q80,96 160,86 Q240,96 320,88 Q400,80 480,90 Q560,96 640,88 L640,110 Q560,118 480,112 Q400,102 320,110 Q240,118 160,108 Q80,118 0,110 Z" fill="#B22234" />
@@ -27,7 +27,6 @@
       <path d="M0,176 Q80,184 160,174 Q240,184 320,176 Q400,168 480,178 Q560,184 640,176 L640,198 Q560,206 480,200 Q400,190 320,198 Q240,206 160,196 Q80,206 0,198 Z" fill="#B22234" />
       <path d="M0,220 Q80,228 160,218 Q240,228 320,220 Q400,212 480,222 Q560,228 640,220 L640,242 Q560,250 480,244 Q400,234 320,242 Q240,250 160,240 Q80,250 0,242 Z" fill="#B22234" />
       <path d="M0,264 Q80,272 160,262 Q240,272 320,264 Q400,256 480,266 Q560,272 640,264 L640,286 Q560,294 480,288 Q400,278 320,286 Q240,294 160,284 Q80,294 0,286 Z" fill="#B22234" />
-
       <!-- Wavy white stripes -->
       <path d="M0,22 Q80,30 160,20 Q240,30 320,22 Q400,14 480,24 Q560,30 640,22 L640,44 Q560,52 480,46 Q400,36 320,44 Q240,52 160,42 Q80,52 0,44 Z" fill="#ffffff" />
       <path d="M0,66 Q80,74 160,64 Q240,74 320,66 Q400,58 480,68 Q560,74 640,66 L640,88 Q560,96 480,90 Q400,80 320,88 Q240,96 160,86 Q80,96 0,88 Z" fill="#ffffff" />
@@ -35,40 +34,39 @@
       <path d="M0,154 Q80,162 160,152 Q240,162 320,154 Q400,146 480,156 Q560,162 640,154 L640,176 Q560,184 480,178 Q400,168 320,176 Q240,184 160,174 Q80,184 0,176 Z" fill="#ffffff" />
       <path d="M0,198 Q80,206 160,196 Q240,206 320,198 Q400,190 480,200 Q560,206 640,198 L640,220 Q560,228 480,222 Q400,212 320,220 Q240,228 160,218 Q80,228 0,220 Z" fill="#ffffff" />
       <path d="M0,242 Q80,250 160,240 Q240,250 320,242 Q400,234 480,244 Q560,250 640,242 L640,264 Q560,272 480,266 Q400,256 320,264 Q240,272 160,262 Q80,272 0,264 Z" fill="#ffffff" />
-
-      <!-- Blue canton with wave -->
+      <!-- Blue canton -->
       <path d="M0,0 Q80,8 160,-2 Q240,8 260,4 L260,154 Q240,162 160,152 Q80,162 0,154 Z" fill="#3C3B6E" />
-
-      <!-- Stars in canton -->
+      <!-- Stars -->
       <g fill="#ffffff">
-        <circle cx="26" cy="14" r="4" /><circle cx="68" cy="14" r="4" /><circle cx="110" cy="14" r="4" /><circle cx="152" cy="14" r="4" /><circle cx="194" cy="14" r="4" /><circle cx="236" cy="14" r="4" />
-        <circle cx="47" cy="36" r="4" /><circle cx="89" cy="36" r="4" /><circle cx="131" cy="36" r="4" /><circle cx="173" cy="36" r="4" /><circle cx="215" cy="36" r="4" />
-        <circle cx="26" cy="58" r="4" /><circle cx="68" cy="58" r="4" /><circle cx="110" cy="58" r="4" /><circle cx="152" cy="58" r="4" /><circle cx="194" cy="58" r="4" /><circle cx="236" cy="58" r="4" />
-        <circle cx="47" cy="80" r="4" /><circle cx="89" cy="80" r="4" /><circle cx="131" cy="80" r="4" /><circle cx="173" cy="80" r="4" /><circle cx="215" cy="80" r="4" />
-        <circle cx="26" cy="102" r="4" /><circle cx="68" cy="102" r="4" /><circle cx="110" cy="102" r="4" /><circle cx="152" cy="102" r="4" /><circle cx="194" cy="102" r="4" /><circle cx="236" cy="102" r="4" />
-        <circle cx="47" cy="124" r="4" /><circle cx="89" cy="124" r="4" /><circle cx="131" cy="124" r="4" /><circle cx="173" cy="124" r="4" /><circle cx="215" cy="124" r="4" />
+        <circle cx="26" cy="14" r="4.5" /><circle cx="68" cy="14" r="4.5" /><circle cx="110" cy="14" r="4.5" /><circle cx="152" cy="14" r="4.5" /><circle cx="194" cy="14" r="4.5" /><circle cx="236" cy="14" r="4.5" />
+        <circle cx="47" cy="36" r="4.5" /><circle cx="89" cy="36" r="4.5" /><circle cx="131" cy="36" r="4.5" /><circle cx="173" cy="36" r="4.5" /><circle cx="215" cy="36" r="4.5" />
+        <circle cx="26" cy="58" r="4.5" /><circle cx="68" cy="58" r="4.5" /><circle cx="110" cy="58" r="4.5" /><circle cx="152" cy="58" r="4.5" /><circle cx="194" cy="58" r="4.5" /><circle cx="236" cy="58" r="4.5" />
+        <circle cx="47" cy="80" r="4.5" /><circle cx="89" cy="80" r="4.5" /><circle cx="131" cy="80" r="4.5" /><circle cx="173" cy="80" r="4.5" /><circle cx="215" cy="80" r="4.5" />
+        <circle cx="26" cy="102" r="4.5" /><circle cx="68" cy="102" r="4.5" /><circle cx="110" cy="102" r="4.5" /><circle cx="152" cy="102" r="4.5" /><circle cx="194" cy="102" r="4.5" /><circle cx="236" cy="102" r="4.5" />
+        <circle cx="47" cy="124" r="4.5" /><circle cx="89" cy="124" r="4.5" /><circle cx="131" cy="124" r="4.5" /><circle cx="173" cy="124" r="4.5" /><circle cx="215" cy="124" r="4.5" />
       </g>
     </g>
   </g>
 
-  <!-- Corner flourishes -->
-  <path d="M80,60 L80,45 Q80,35 90,35 L105,35" fill="none" stroke="#c5a44e" stroke-width="1" />
-  <path d="M80,60 Q80,50 90,45 L100,40" fill="none" stroke="#c5a44e" stroke-width="0.5" opacity="0.5" />
-  <path d="M620,60 L620,45 Q620,35 610,35 L595,35" fill="none" stroke="#c5a44e" stroke-width="1" />
-  <path d="M620,60 Q620,50 610,45 L600,40" fill="none" stroke="#c5a44e" stroke-width="0.5" opacity="0.5" />
-  <path d="M80,300 L80,315 Q80,325 90,325 L105,325" fill="none" stroke="#c5a44e" stroke-width="1" />
-  <path d="M80,300 Q80,310 90,315 L100,320" fill="none" stroke="#c5a44e" stroke-width="0.5" opacity="0.5" />
-  <path d="M620,300 L620,315 Q620,325 610,325 L595,325" fill="none" stroke="#c5a44e" stroke-width="1" />
-  <path d="M620,300 Q620,310 610,315 L600,320" fill="none" stroke="#c5a44e" stroke-width="0.5" opacity="0.5" />
+  <!-- STAR CORNERS instead of gold L-shapes -->
+  <!-- Top-left star -->
+  <polygon points="58,42 61,51 70,51 63,57 65,66 58,60 51,66 53,57 46,51 55,51" fill="#c5a44e" opacity="0.7" />
+  <!-- Top-right star -->
+  <polygon points="642,42 645,51 654,51 647,57 649,66 642,60 635,66 637,57 630,51 639,51" fill="#c5a44e" opacity="0.7" />
+  <!-- Bottom-left star -->
+  <polygon points="58,318 61,309 70,309 63,303 65,294 58,300 51,294 53,303 46,309 55,309" fill="#c5a44e" opacity="0.7" />
+  <!-- Bottom-right star -->
+  <polygon points="642,318 645,309 654,309 647,303 649,294 642,300 635,294 637,303 630,309 639,309" fill="#c5a44e" opacity="0.7" />
 
-  <!-- Border lines -->
-  <line x1="105" y1="35" x2="595" y2="35" stroke="#c5a44e" stroke-width="0.3" opacity="0.3" />
-  <line x1="105" y1="325" x2="595" y2="325" stroke="#c5a44e" stroke-width="0.3" opacity="0.3" />
-  <line x1="80" y1="60" x2="80" y2="300" stroke="#c5a44e" stroke-width="0.3" opacity="0.3" />
-  <line x1="620" y1="60" x2="620" y2="300" stroke="#c5a44e" stroke-width="0.3" opacity="0.3" />
+  <!-- Thin border lines between stars -->
+  <line x1="75" y1="35" x2="625" y2="35" stroke="#c5a44e" stroke-width="0.4" opacity="0.3" />
+  <line x1="75" y1="325" x2="625" y2="325" stroke="#c5a44e" stroke-width="0.4" opacity="0.3" />
+  <line x1="50" y1="70" x2="50" y2="290" stroke="#c5a44e" stroke-width="0.4" opacity="0.3" />
+  <line x1="650" y1="70" x2="650" y2="290" stroke="#c5a44e" stroke-width="0.4" opacity="0.3" />
 
-  <!-- Diamond accents -->
+  <!-- Diamond accent top center -->
   <polygon points="350,30 354,35 350,40 346,35" fill="#c5a44e" opacity="0.6" />
+  <!-- Diamond accent bottom center -->
   <polygon points="350,320 354,325 350,330 346,325" fill="#c5a44e" opacity="0.6" />
 
   <!-- ALL-AMERICAN -->
@@ -79,10 +77,12 @@
   <circle cx="220" cy="98" r="1.5" fill="#c5a44e" opacity="0.6" />
   <circle cx="480" cy="98" r="1.5" fill="#c5a44e" opacity="0.6" />
 
-  <!-- COUNTDOWN -->
+  <!-- COUNTDOWN with subtle shadow for readability -->
+  <text x="352" y="170" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="rgba(0,0,0,0.3)" font-size="68" font-weight="700" letter-spacing="4">COUNTDOWN</text>
   <text x="350" y="168" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="#ffffff" font-size="68" font-weight="700" letter-spacing="4">COUNTDOWN</text>
 
-  <!-- 250 -->
+  <!-- 250 with white outline/stroke -->
+  <text x="350" y="248" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" font-size="90" font-weight="900" letter-spacing="2" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.6">250</text>
   <text x="350" y="248" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="#c5a44e" font-size="90" font-weight="900" letter-spacing="2">250</text>
 
   <!-- Decorative line -->
@@ -91,5 +91,5 @@
   <circle cx="510" cy="266" r="1.5" fill="#c5a44e" opacity="0.6" />
 
   <!-- Date -->
-  <text x="350" y="296" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="rgba(255,255,255,0.55)" font-size="12" letter-spacing="5" font-weight="400">JULY 3, 2026  ·  WASHINGTON, D.C.</text>
+  <text x="350" y="296" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="rgba(255,255,255,0.6)" font-size="12" letter-spacing="5" font-weight="400">JULY 3, 2026  ·  WASHINGTON, D.C.</text>
 </svg>
