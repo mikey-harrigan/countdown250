@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" width="600" height="280">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&amp;display=swap');
+      .subtitle { font-family: 'Playfair Display', Georgia, serif; fill: #c5a44e; font-size: 14px; letter-spacing: 6px; font-weight: 400; }
+      .main-text { font-family: 'Playfair Display', Georgia, serif; fill: #ffffff; font-size: 72px; font-weight: 700; letter-spacing: 3px; }
+      .number { font-family: 'Playfair Display', Georgia, serif; fill: #c5a44e; font-size: 96px; font-weight: 900; letter-spacing: 2px; }
+      .detail { font-family: 'Playfair Display', Georgia, serif; fill: rgba(255,255,255,0.6); font-size: 13px; letter-spacing: 5px; font-weight: 400; }
+      .line { stroke: #c5a44e; stroke-width: 0.75; }
+    </style>
+  </defs>
+
+  <!-- ALL-AMERICAN subtitle -->
+  <text x="300" y="52" text-anchor="middle" class="subtitle">ALL-AMERICAN</text>
+
+  <!-- Thin gold line -->
+  <line x1="180" y1="68" x2="420" y2="68" class="line" />
+
+  <!-- COUNTDOWN main text -->
+  <text x="300" y="142" text-anchor="middle" class="main-text">COUNTDOWN</text>
+
+  <!-- 250 large number -->
+  <text x="300" y="218" text-anchor="middle" class="number">250</text>
+
+  <!-- Thin gold line -->
+  <line x1="150" y1="234" x2="450" y2="234" class="line" />
+
+  <!-- Date and location -->
+  <text x="300" y="262" text-anchor="middle" class="detail">JULY 3, 2026  ·  WASHINGTON, D.C.</text>
+</svg>
