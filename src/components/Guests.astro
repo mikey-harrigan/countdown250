@@ -11,19 +11,28 @@ const guestCategories = [
 
 <section class="py-20 sm:py-28 bg-white">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="max-w-3xl mx-auto">
-      <div>
-        <div class="text-center mb-8">
-          <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">Who Else Will Be There</p>
-          <h2 class="text-3xl sm:text-4xl font-bold text-navy mb-6">Distinguished Guests</h2>
-          <div class="w-16 h-1 bg-red mx-auto mb-6"></div>
-          <p class="text-lg text-slate leading-relaxed">
-            An extraordinary gathering of leaders, visionaries, and heroes from
-            every corner of American life.
-          </p>
-        </div>
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">Who Else Will Be There</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-navy mb-6">Distinguished Guests</h2>
+        <div class="w-16 h-1 bg-red mx-auto mb-6"></div>
+        <p class="text-lg text-slate leading-relaxed max-w-3xl mx-auto">
+          An extraordinary gathering of leaders, visionaries, and heroes from
+          every corner of American life.
+        </p>
+      </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <!-- Image -->
+        <div class="rounded-lg overflow-hidden shadow-xl">
+          <img
+            src="/images/event/guests-cocktail-mingling.png"
+            alt="Distinguished guests mingling with champagne at an elegant reception"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <!-- Guest categories -->
+        <div class="grid grid-cols-1 gap-3">
           {guestCategories.map((cat) => (
             <div class="flex items-center gap-3 bg-cream rounded-lg px-4 py-3">
               <div class="w-2 h-2 rounded-full bg-navy flex-shrink-0"></div>
