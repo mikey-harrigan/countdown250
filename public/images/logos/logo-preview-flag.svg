@@ -16,7 +16,7 @@
   <!-- Dark background -->
   <rect width="700" height="360" fill="#001a45" rx="8" />
 
-  <!-- Waving flag — 35% opacity, clearly visible -->
+  <!-- Waving flag — 35% opacity -->
   <g mask="url(#flagMask)" opacity="0.35" clip-path="url(#bgClip)">
     <g transform="translate(-30, -20) scale(1.25)">
       <!-- Wavy red stripes -->
@@ -36,60 +36,104 @@
       <path d="M0,242 Q80,250 160,240 Q240,250 320,242 Q400,234 480,244 Q560,250 640,242 L640,264 Q560,272 480,266 Q400,256 320,264 Q240,272 160,262 Q80,272 0,264 Z" fill="#ffffff" />
       <!-- Blue canton -->
       <path d="M0,0 Q80,8 160,-2 Q240,8 260,4 L260,154 Q240,162 160,152 Q80,162 0,154 Z" fill="#3C3B6E" />
-      <!-- Stars -->
+      <!-- Actual 5-pointed stars in canton -->
       <g fill="#ffffff">
-        <circle cx="26" cy="14" r="4.5" /><circle cx="68" cy="14" r="4.5" /><circle cx="110" cy="14" r="4.5" /><circle cx="152" cy="14" r="4.5" /><circle cx="194" cy="14" r="4.5" /><circle cx="236" cy="14" r="4.5" />
-        <circle cx="47" cy="36" r="4.5" /><circle cx="89" cy="36" r="4.5" /><circle cx="131" cy="36" r="4.5" /><circle cx="173" cy="36" r="4.5" /><circle cx="215" cy="36" r="4.5" />
-        <circle cx="26" cy="58" r="4.5" /><circle cx="68" cy="58" r="4.5" /><circle cx="110" cy="58" r="4.5" /><circle cx="152" cy="58" r="4.5" /><circle cx="194" cy="58" r="4.5" /><circle cx="236" cy="58" r="4.5" />
-        <circle cx="47" cy="80" r="4.5" /><circle cx="89" cy="80" r="4.5" /><circle cx="131" cy="80" r="4.5" /><circle cx="173" cy="80" r="4.5" /><circle cx="215" cy="80" r="4.5" />
-        <circle cx="26" cy="102" r="4.5" /><circle cx="68" cy="102" r="4.5" /><circle cx="110" cy="102" r="4.5" /><circle cx="152" cy="102" r="4.5" /><circle cx="194" cy="102" r="4.5" /><circle cx="236" cy="102" r="4.5" />
-        <circle cx="47" cy="124" r="4.5" /><circle cx="89" cy="124" r="4.5" /><circle cx="131" cy="124" r="4.5" /><circle cx="173" cy="124" r="4.5" /><circle cx="215" cy="124" r="4.5" />
+        <polygon points="26,8 28,14 34,14 29,18 31,24 26,20 21,24 23,18 18,14 24,14" />
+        <polygon points="68,8 70,14 76,14 71,18 73,24 68,20 63,24 65,18 60,14 66,14" />
+        <polygon points="110,8 112,14 118,14 113,18 115,24 110,20 105,24 107,18 102,14 108,14" />
+        <polygon points="152,8 154,14 160,14 155,18 157,24 152,20 147,24 149,18 144,14 150,14" />
+        <polygon points="194,8 196,14 202,14 197,18 199,24 194,20 189,24 191,18 186,14 192,14" />
+        <polygon points="236,8 238,14 244,14 239,18 241,24 236,20 231,24 233,18 228,14 234,14" />
+        <polygon points="47,30 49,36 55,36 50,40 52,46 47,42 42,46 44,40 39,36 45,36" />
+        <polygon points="89,30 91,36 97,36 92,40 94,46 89,42 84,46 86,40 81,36 87,36" />
+        <polygon points="131,30 133,36 139,36 134,40 136,46 131,42 126,46 128,40 123,36 129,36" />
+        <polygon points="173,30 175,36 181,36 176,40 178,46 173,42 168,46 170,40 165,36 171,36" />
+        <polygon points="215,30 217,36 223,36 218,40 220,46 215,42 210,46 212,40 207,36 213,36" />
+        <polygon points="26,52 28,58 34,58 29,62 31,68 26,64 21,68 23,62 18,58 24,58" />
+        <polygon points="68,52 70,58 76,58 71,62 73,68 68,64 63,68 65,62 60,58 66,58" />
+        <polygon points="110,52 112,58 118,58 113,62 115,68 110,64 105,68 107,62 102,58 108,58" />
+        <polygon points="152,52 154,58 160,58 155,62 157,68 152,64 147,68 149,62 144,58 150,58" />
+        <polygon points="194,52 196,58 202,58 197,62 199,68 194,64 189,68 191,62 186,58 192,58" />
+        <polygon points="236,52 238,58 244,58 239,62 241,68 236,64 231,68 233,62 228,58 234,58" />
+        <polygon points="47,74 49,80 55,80 50,84 52,90 47,86 42,90 44,84 39,80 45,80" />
+        <polygon points="89,74 91,80 97,80 92,84 94,90 89,86 84,90 86,84 81,80 87,80" />
+        <polygon points="131,74 133,80 139,80 134,84 136,90 131,86 126,90 128,84 123,80 129,80" />
+        <polygon points="173,74 175,80 181,80 176,84 178,90 173,86 168,90 170,84 165,80 171,80" />
+        <polygon points="215,74 217,80 223,80 218,84 220,90 215,86 210,90 212,84 207,80 213,80" />
+        <polygon points="26,96 28,102 34,102 29,106 31,112 26,108 21,112 23,106 18,102 24,102" />
+        <polygon points="68,96 70,102 76,102 71,106 73,112 68,108 63,112 65,106 60,102 66,102" />
+        <polygon points="110,96 112,102 118,102 113,106 115,112 110,108 105,112 107,106 102,102 108,102" />
+        <polygon points="152,96 154,102 160,102 155,106 157,112 152,108 147,112 149,106 144,102 150,102" />
+        <polygon points="194,96 196,102 202,102 197,106 199,112 194,108 189,112 191,106 186,102 192,102" />
+        <polygon points="236,96 238,102 244,102 239,106 241,112 236,108 231,112 233,106 228,102 234,102" />
+        <polygon points="47,118 49,124 55,124 50,128 52,134 47,130 42,134 44,128 39,124 45,124" />
+        <polygon points="89,118 91,124 97,124 92,128 94,134 89,130 84,134 86,128 81,124 87,124" />
+        <polygon points="131,118 133,124 139,124 134,128 136,134 131,130 126,134 128,128 123,124 129,124" />
+        <polygon points="173,118 175,124 181,124 176,128 178,134 173,130 168,134 170,128 165,124 171,124" />
+        <polygon points="215,118 217,124 223,124 218,128 220,134 215,130 210,134 212,128 207,124 213,124" />
       </g>
     </g>
   </g>
 
-  <!-- STAR CORNERS instead of gold L-shapes -->
-  <!-- Top-left star -->
-  <polygon points="58,42 61,51 70,51 63,57 65,66 58,60 51,66 53,57 46,51 55,51" fill="#c5a44e" opacity="0.7" />
-  <!-- Top-right star -->
-  <polygon points="642,42 645,51 654,51 647,57 649,66 642,60 635,66 637,57 630,51 639,51" fill="#c5a44e" opacity="0.7" />
-  <!-- Bottom-left star -->
-  <polygon points="58,318 61,309 70,309 63,303 65,294 58,300 51,294 53,303 46,309 55,309" fill="#c5a44e" opacity="0.7" />
-  <!-- Bottom-right star -->
-  <polygon points="642,318 645,309 654,309 647,303 649,294 642,300 635,294 637,303 630,309 639,309" fill="#c5a44e" opacity="0.7" />
+  <!-- STAR CORNERS — actual 5-pointed stars -->
+  <polygon points="58,42 61,51 70,51 63,57 65,66 58,60 51,66 53,57 46,51 55,51" fill="#dbb740" opacity="0.8" />
+  <polygon points="642,42 645,51 654,51 647,57 649,66 642,60 635,66 637,57 630,51 639,51" fill="#dbb740" opacity="0.8" />
+  <polygon points="58,318 61,309 70,309 63,303 65,294 58,300 51,294 53,303 46,309 55,309" fill="#dbb740" opacity="0.8" />
+  <polygon points="642,318 645,309 654,309 647,303 649,294 642,300 635,294 637,303 630,309 639,309" fill="#dbb740" opacity="0.8" />
 
-  <!-- Thin border lines between stars -->
-  <line x1="75" y1="35" x2="625" y2="35" stroke="#c5a44e" stroke-width="0.4" opacity="0.3" />
-  <line x1="75" y1="325" x2="625" y2="325" stroke="#c5a44e" stroke-width="0.4" opacity="0.3" />
-  <line x1="50" y1="70" x2="50" y2="290" stroke="#c5a44e" stroke-width="0.4" opacity="0.3" />
-  <line x1="650" y1="70" x2="650" y2="290" stroke="#c5a44e" stroke-width="0.4" opacity="0.3" />
+  <!-- Border lines between stars -->
+  <line x1="75" y1="35" x2="625" y2="35" stroke="#dbb740" stroke-width="0.4" opacity="0.35" />
+  <line x1="75" y1="325" x2="625" y2="325" stroke="#dbb740" stroke-width="0.4" opacity="0.35" />
+  <line x1="50" y1="70" x2="50" y2="290" stroke="#dbb740" stroke-width="0.4" opacity="0.35" />
+  <line x1="650" y1="70" x2="650" y2="290" stroke="#dbb740" stroke-width="0.4" opacity="0.35" />
 
-  <!-- Diamond accent top center -->
-  <polygon points="350,30 354,35 350,40 346,35" fill="#c5a44e" opacity="0.6" />
-  <!-- Diamond accent bottom center -->
-  <polygon points="350,320 354,325 350,330 346,325" fill="#c5a44e" opacity="0.6" />
+  <!-- Diamond accents -->
+  <polygon points="350,30 354,35 350,40 346,35" fill="#dbb740" opacity="0.7" />
+  <polygon points="350,320 354,325 350,330 346,325" fill="#dbb740" opacity="0.7" />
 
-  <!-- ALL-AMERICAN -->
-  <text x="350" y="82" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="#c5a44e" font-size="15" letter-spacing="6" font-weight="400">ALL-AMERICAN</text>
+  <!-- ALL-AMERICAN — brighter gold -->
+  <text x="350" y="82" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="#dbb740" font-size="16" letter-spacing="6" font-weight="400">ALL-AMERICAN</text>
 
   <!-- Decorative line -->
-  <line x1="220" y1="98" x2="480" y2="98" stroke="#c5a44e" stroke-width="0.6" />
-  <circle cx="220" cy="98" r="1.5" fill="#c5a44e" opacity="0.6" />
-  <circle cx="480" cy="98" r="1.5" fill="#c5a44e" opacity="0.6" />
+  <line x1="220" y1="98" x2="480" y2="98" stroke="#dbb740" stroke-width="0.7" />
+  <circle cx="220" cy="98" r="1.5" fill="#dbb740" opacity="0.7" />
+  <circle cx="480" cy="98" r="1.5" fill="#dbb740" opacity="0.7" />
 
-  <!-- COUNTDOWN with subtle shadow for readability -->
-  <text x="352" y="170" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="rgba(0,0,0,0.3)" font-size="68" font-weight="700" letter-spacing="4">COUNTDOWN</text>
-  <text x="350" y="168" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="#ffffff" font-size="68" font-weight="700" letter-spacing="4">COUNTDOWN</text>
+  <!-- COUNTDOWN with clock O -->
+  <!-- "C" -->
+  <text x="162" y="168" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="#ffffff" font-size="68" font-weight="700" letter-spacing="4">C</text>
+  <!-- Clock face replacing first O -->
+  <g transform="translate(200, 144)">
+    <!-- Clock circle -->
+    <circle cx="0" cy="0" r="20" fill="none" stroke="#ffffff" stroke-width="3" />
+    <!-- Hour marks -->
+    <line x1="0" y1="-17" x2="0" y2="-14" stroke="#ffffff" stroke-width="2" />
+    <line x1="0" y1="17" x2="0" y2="14" stroke="#ffffff" stroke-width="2" />
+    <line x1="-17" y1="0" x2="-14" y2="0" stroke="#ffffff" stroke-width="2" />
+    <line x1="17" y1="0" x2="14" y2="0" stroke="#ffffff" stroke-width="2" />
+    <!-- Hour hand (pointing to ~11) -->
+    <line x1="0" y1="0" x2="-6" y2="-10" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+    <!-- Minute hand (pointing to ~12) -->
+    <line x1="0" y1="0" x2="1" y2="-15" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
+    <!-- Center dot -->
+    <circle cx="0" cy="0" r="2" fill="#dbb740" />
+  </g>
+  <!-- "UNTD" -->
+  <text x="280" y="168" text-anchor="start" font-family="'Playfair Display', 'Georgia', serif" fill="#ffffff" font-size="68" font-weight="700" letter-spacing="4">UNTD</text>
+  <!-- Regular "O" -->
+  <text x="458" y="168" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="#ffffff" font-size="68" font-weight="700" letter-spacing="4">O</text>
+  <!-- "WN" -->
+  <text x="490" y="168" text-anchor="start" font-family="'Playfair Display', 'Georgia', serif" fill="#ffffff" font-size="68" font-weight="700" letter-spacing="4">WN</text>
 
-  <!-- 250 with white outline/stroke -->
-  <text x="350" y="248" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" font-size="90" font-weight="900" letter-spacing="2" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.6">250</text>
-  <text x="350" y="248" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="#c5a44e" font-size="90" font-weight="900" letter-spacing="2">250</text>
+  <!-- 250 with white outline -->
+  <text x="350" y="248" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" font-size="90" font-weight="900" letter-spacing="2" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.5">250</text>
+  <text x="350" y="248" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="#dbb740" font-size="90" font-weight="900" letter-spacing="2">250</text>
 
   <!-- Decorative line -->
-  <line x1="190" y1="266" x2="510" y2="266" stroke="#c5a44e" stroke-width="0.6" />
-  <circle cx="190" cy="266" r="1.5" fill="#c5a44e" opacity="0.6" />
-  <circle cx="510" cy="266" r="1.5" fill="#c5a44e" opacity="0.6" />
+  <line x1="190" y1="266" x2="510" y2="266" stroke="#dbb740" stroke-width="0.7" />
+  <circle cx="190" cy="266" r="1.5" fill="#dbb740" opacity="0.7" />
+  <circle cx="510" cy="266" r="1.5" fill="#dbb740" opacity="0.7" />
 
   <!-- Date -->
-  <text x="350" y="296" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="rgba(255,255,255,0.6)" font-size="12" letter-spacing="5" font-weight="400">JULY 3, 2026  ·  WASHINGTON, D.C.</text>
+  <text x="350" y="296" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="rgba(255,255,255,0.65)" font-size="13" letter-spacing="5" font-weight="400">JULY 3, 2026  ·  WASHINGTON, D.C.</text>
 </svg>
