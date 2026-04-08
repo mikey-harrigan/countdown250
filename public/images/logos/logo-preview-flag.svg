@@ -1,83 +1,87 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 360" width="700" height="360">
   <defs>
-    <!-- Clip to rounded rectangle -->
     <clipPath id="bgClip">
       <rect width="700" height="360" rx="8" />
     </clipPath>
-    <!-- Fade mask so the flag ghosts into the background -->
-    <radialGradient id="flagFade" cx="50%" cy="50%" r="55%">
+    <!-- Radial fade so flag is strongest in center, fades at edges -->
+    <radialGradient id="flagFade" cx="50%" cy="48%" r="60%">
       <stop offset="0%" stop-color="white" stop-opacity="1" />
+      <stop offset="70%" stop-color="white" stop-opacity="0.6" />
       <stop offset="100%" stop-color="white" stop-opacity="0" />
     </radialGradient>
     <mask id="flagMask">
       <rect width="700" height="360" fill="url(#flagFade)" />
     </mask>
+    <!-- Wave distortion filter -->
+    <filter id="wave">
+      <feTurbulence type="turbulence" baseFrequency="0.015 0.003" numOctaves="2" seed="3" result="turbulence" />
+      <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="18" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
   </defs>
 
   <!-- Dark background -->
   <rect width="700" height="360" fill="#001a45" rx="8" clip-path="url(#bgClip)" />
 
-  <!-- Faded waving American flag behind everything -->
-  <g mask="url(#flagMask)" opacity="0.07" clip-path="url(#bgClip)">
-    <!-- Flag stripes - slightly rotated and scaled for a gentle wave feel -->
-    <g transform="translate(50, 20) rotate(-3, 350, 180) scale(1.15)">
+  <!-- Waving American flag at 18% opacity with wave filter -->
+  <g mask="url(#flagMask)" opacity="0.18" clip-path="url(#bgClip)" filter="url(#wave)">
+    <g transform="translate(20, -10) rotate(-2, 350, 180) scale(1.2)">
       <!-- Red stripes -->
-      <rect x="0" y="0" width="620" height="24" fill="#ff3038" rx="1" />
-      <rect x="0" y="48" width="620" height="24" fill="#ff3038" rx="1" />
-      <rect x="0" y="96" width="620" height="24" fill="#ff3038" rx="1" />
-      <rect x="0" y="144" width="620" height="24" fill="#ff3038" rx="1" />
-      <rect x="0" y="192" width="620" height="24" fill="#ff3038" rx="1" />
-      <rect x="0" y="240" width="620" height="24" fill="#ff3038" rx="1" />
-      <rect x="0" y="288" width="620" height="24" fill="#ff3038" rx="1" />
+      <rect x="0" y="0" width="620" height="26" fill="#ff3038" />
+      <rect x="0" y="52" width="620" height="26" fill="#ff3038" />
+      <rect x="0" y="104" width="620" height="26" fill="#ff3038" />
+      <rect x="0" y="156" width="620" height="26" fill="#ff3038" />
+      <rect x="0" y="208" width="620" height="26" fill="#ff3038" />
+      <rect x="0" y="260" width="620" height="26" fill="#ff3038" />
+      <rect x="0" y="312" width="620" height="26" fill="#ff3038" />
       <!-- White stripes -->
-      <rect x="0" y="24" width="620" height="24" fill="#ffffff" rx="1" />
-      <rect x="0" y="72" width="620" height="24" fill="#ffffff" rx="1" />
-      <rect x="0" y="120" width="620" height="24" fill="#ffffff" rx="1" />
-      <rect x="0" y="168" width="620" height="24" fill="#ffffff" rx="1" />
-      <rect x="0" y="216" width="620" height="24" fill="#ffffff" rx="1" />
-      <rect x="0" y="264" width="620" height="24" fill="#ffffff" rx="1" />
+      <rect x="0" y="26" width="620" height="26" fill="#ffffff" />
+      <rect x="0" y="78" width="620" height="26" fill="#ffffff" />
+      <rect x="0" y="130" width="620" height="26" fill="#ffffff" />
+      <rect x="0" y="182" width="620" height="26" fill="#ffffff" />
+      <rect x="0" y="234" width="620" height="26" fill="#ffffff" />
+      <rect x="0" y="286" width="620" height="26" fill="#ffffff" />
       <!-- Blue canton -->
-      <rect x="0" y="0" width="248" height="168" fill="#3C3B6E" />
-      <!-- Stars (simplified - 5 rows) -->
+      <rect x="0" y="0" width="260" height="182" fill="#3C3B6E" />
+      <!-- Stars -->
       <g fill="#ffffff">
-        <!-- Row 1 -->
-        <polygon points="24,14 26,20 32,20 27,24 29,30 24,26 19,30 21,24 16,20 22,20" />
-        <polygon points="64,14 66,20 72,20 67,24 69,30 64,26 59,30 61,24 56,20 62,20" />
-        <polygon points="104,14 106,20 112,20 107,24 109,30 104,26 99,30 101,24 96,20 102,20" />
-        <polygon points="144,14 146,20 152,20 147,24 149,30 144,26 139,30 141,24 136,20 142,20" />
-        <polygon points="184,14 186,20 192,20 187,24 189,30 184,26 179,30 181,24 176,20 182,20" />
-        <polygon points="224,14 226,20 232,20 227,24 229,30 224,26 219,30 221,24 216,20 222,20" />
-        <!-- Row 2 -->
-        <polygon points="44,42 46,48 52,48 47,52 49,58 44,54 39,58 41,52 36,48 42,48" />
-        <polygon points="84,42 86,48 92,48 87,52 89,58 84,54 79,58 81,52 76,48 82,48" />
-        <polygon points="124,42 126,48 132,48 127,52 129,58 124,54 119,58 121,52 116,48 122,48" />
-        <polygon points="164,42 166,48 172,48 167,52 169,58 164,54 159,58 161,52 156,48 162,48" />
-        <polygon points="204,42 206,48 212,48 207,52 209,58 204,54 199,58 201,52 196,48 202,48" />
-        <!-- Row 3 -->
-        <polygon points="24,70 26,76 32,76 27,80 29,86 24,82 19,86 21,80 16,76 22,76" />
-        <polygon points="64,70 66,76 72,76 67,80 69,86 64,82 59,86 61,80 56,76 62,76" />
-        <polygon points="104,70 106,76 112,76 107,80 109,86 104,82 99,86 101,80 96,76 102,76" />
-        <polygon points="144,70 146,76 152,76 147,80 149,86 144,82 139,86 141,80 136,76 142,76" />
-        <polygon points="184,70 186,76 192,76 187,80 189,86 184,82 179,86 181,80 176,76 182,76" />
-        <polygon points="224,70 226,76 232,76 227,80 229,86 224,82 219,86 221,80 216,76 222,76" />
-        <!-- Row 4 -->
-        <polygon points="44,98 46,104 52,104 47,108 49,114 44,110 39,114 41,108 36,104 42,104" />
-        <polygon points="84,98 86,104 92,104 87,108 89,114 84,110 79,114 81,108 76,104 82,104" />
-        <polygon points="124,98 126,104 132,104 127,108 129,114 124,110 119,114 121,108 116,104 122,104" />
-        <polygon points="164,98 166,104 172,104 167,108 169,114 164,110 159,114 161,108 156,104 162,104" />
-        <polygon points="204,98 206,104 212,104 207,108 209,114 204,110 199,114 201,108 196,104 202,104" />
-        <!-- Row 5 -->
-        <polygon points="24,126 26,132 32,132 27,136 29,142 24,138 19,142 21,136 16,132 22,132" />
-        <polygon points="64,126 66,132 72,132 67,136 69,142 64,138 59,142 61,136 56,132 62,132" />
-        <polygon points="104,126 106,132 112,132 107,136 109,142 104,138 99,142 101,136 96,132 102,132" />
-        <polygon points="144,126 146,132 152,132 147,136 149,142 144,138 139,142 141,136 136,132 142,132" />
-        <polygon points="184,126 186,132 192,132 187,136 189,142 184,138 179,142 181,136 176,132 182,132" />
-        <polygon points="224,126 226,132 232,132 227,136 229,142 224,138 219,142 221,136 216,132 222,132" />
+        <polygon points="26,15 28,21 34,21 29,25 31,31 26,27 21,31 23,25 18,21 24,21" />
+        <polygon points="68,15 70,21 76,21 71,25 73,31 68,27 63,31 65,25 60,21 66,21" />
+        <polygon points="110,15 112,21 118,21 113,25 115,31 110,27 105,31 107,25 102,21 108,21" />
+        <polygon points="152,15 154,21 160,21 155,25 157,31 152,27 147,31 149,25 144,21 150,21" />
+        <polygon points="194,15 196,21 202,21 197,25 199,31 194,27 189,31 191,25 186,21 192,21" />
+        <polygon points="236,15 238,21 244,21 239,25 241,31 236,27 231,31 233,25 228,21 234,21" />
+        <polygon points="47,43 49,49 55,49 50,53 52,59 47,55 42,59 44,53 39,49 45,49" />
+        <polygon points="89,43 91,49 97,49 92,53 94,59 89,55 84,59 86,53 81,49 87,49" />
+        <polygon points="131,43 133,49 139,49 134,53 136,59 131,55 126,59 128,53 123,49 129,49" />
+        <polygon points="173,43 175,49 181,49 176,53 178,59 173,55 168,59 170,53 165,49 171,49" />
+        <polygon points="215,43 217,49 223,49 218,53 220,59 215,55 210,59 212,53 207,49 213,49" />
+        <polygon points="26,71 28,77 34,77 29,81 31,87 26,83 21,87 23,81 18,77 24,77" />
+        <polygon points="68,71 70,77 76,77 71,81 73,87 68,83 63,87 65,81 60,77 66,77" />
+        <polygon points="110,71 112,77 118,77 113,81 115,87 110,83 105,87 107,81 102,77 108,77" />
+        <polygon points="152,71 154,77 160,77 155,81 157,87 152,83 147,87 149,81 144,77 150,77" />
+        <polygon points="194,71 196,77 202,77 197,81 199,87 194,83 189,87 191,81 186,77 192,77" />
+        <polygon points="236,71 238,77 244,77 239,81 241,87 236,83 231,87 233,81 228,77 234,77" />
+        <polygon points="47,99 49,105 55,105 50,109 52,115 47,111 42,115 44,109 39,105 45,105" />
+        <polygon points="89,99 91,105 97,105 92,109 94,115 89,111 84,115 86,109 81,105 87,105" />
+        <polygon points="131,99 133,105 139,105 134,109 136,115 131,111 126,115 128,109 123,105 129,105" />
+        <polygon points="173,99 175,105 181,105 176,109 178,115 173,111 168,115 170,109 165,105 171,105" />
+        <polygon points="215,99 217,105 223,105 218,109 220,115 215,111 210,115 212,109 207,105 213,105" />
+        <polygon points="26,127 28,133 34,133 29,137 31,143 26,139 21,143 23,137 18,133 24,133" />
+        <polygon points="68,127 70,133 76,133 71,137 73,143 68,139 63,143 65,137 60,133 66,133" />
+        <polygon points="110,127 112,133 118,133 113,137 115,143 110,139 105,143 107,137 102,133 108,133" />
+        <polygon points="152,127 154,133 160,133 155,137 157,143 152,139 147,143 149,137 144,133 150,133" />
+        <polygon points="194,127 196,133 202,133 197,137 199,143 194,139 189,143 191,137 186,133 192,133" />
+        <polygon points="236,127 238,133 244,133 239,137 241,143 236,139 231,143 233,137 228,133 234,133" />
+        <polygon points="47,155 49,161 55,161 50,165 52,171 47,167 42,171 44,165 39,161 45,161" />
+        <polygon points="89,155 91,161 97,161 92,165 94,171 89,167 84,171 86,165 81,161 87,161" />
+        <polygon points="131,155 133,161 139,161 134,165 136,171 131,167 126,171 128,165 123,161 129,161" />
+        <polygon points="173,155 175,161 181,161 176,165 178,171 173,167 168,171 170,165 165,161 171,161" />
+        <polygon points="215,155 217,161 223,161 218,165 220,171 215,167 210,171 212,165 207,161 213,161" />
       </g>
     </g>
   </g>
 
-  <!-- Elegant corner flourishes -->
+  <!-- Corner flourishes -->
   <path d="M80,60 L80,45 Q80,35 90,35 L105,35" fill="none" stroke="#c5a44e" stroke-width="1" />
   <path d="M80,60 Q80,50 90,45 L100,40" fill="none" stroke="#c5a44e" stroke-width="0.5" opacity="0.5" />
   <path d="M620,60 L620,45 Q620,35 610,35 L595,35" fill="none" stroke="#c5a44e" stroke-width="1" />
@@ -87,7 +91,7 @@
   <path d="M620,300 L620,315 Q620,325 610,325 L595,325" fill="none" stroke="#c5a44e" stroke-width="1" />
   <path d="M620,300 Q620,310 610,315 L600,320" fill="none" stroke="#c5a44e" stroke-width="0.5" opacity="0.5" />
 
-  <!-- Thin border lines -->
+  <!-- Border lines -->
   <line x1="105" y1="35" x2="595" y2="35" stroke="#c5a44e" stroke-width="0.3" opacity="0.3" />
   <line x1="105" y1="325" x2="595" y2="325" stroke="#c5a44e" stroke-width="0.3" opacity="0.3" />
   <line x1="80" y1="60" x2="80" y2="300" stroke="#c5a44e" stroke-width="0.3" opacity="0.3" />
@@ -97,25 +101,25 @@
   <polygon points="350,30 354,35 350,40 346,35" fill="#c5a44e" opacity="0.6" />
   <polygon points="350,320 354,325 350,330 346,325" fill="#c5a44e" opacity="0.6" />
 
-  <!-- ALL-AMERICAN subtitle -->
+  <!-- ALL-AMERICAN -->
   <text x="350" y="82" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="#c5a44e" font-size="15" letter-spacing="6" font-weight="400">ALL-AMERICAN</text>
 
-  <!-- Decorative line with end caps -->
+  <!-- Decorative line -->
   <line x1="220" y1="98" x2="480" y2="98" stroke="#c5a44e" stroke-width="0.6" />
   <circle cx="220" cy="98" r="1.5" fill="#c5a44e" opacity="0.6" />
   <circle cx="480" cy="98" r="1.5" fill="#c5a44e" opacity="0.6" />
 
-  <!-- COUNTDOWN main text -->
+  <!-- COUNTDOWN -->
   <text x="350" y="168" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="#ffffff" font-size="68" font-weight="700" letter-spacing="4">COUNTDOWN</text>
 
-  <!-- 250 large number -->
+  <!-- 250 -->
   <text x="350" y="248" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="#c5a44e" font-size="90" font-weight="900" letter-spacing="2">250</text>
 
-  <!-- Decorative line with end caps -->
+  <!-- Decorative line -->
   <line x1="190" y1="266" x2="510" y2="266" stroke="#c5a44e" stroke-width="0.6" />
   <circle cx="190" cy="266" r="1.5" fill="#c5a44e" opacity="0.6" />
   <circle cx="510" cy="266" r="1.5" fill="#c5a44e" opacity="0.6" />
 
-  <!-- Date and location -->
+  <!-- Date -->
   <text x="350" y="296" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="rgba(255,255,255,0.55)" font-size="12" letter-spacing="5" font-weight="400">JULY 3, 2026  ·  WASHINGTON, D.C.</text>
 </svg>
