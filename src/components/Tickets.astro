@@ -273,6 +273,15 @@ const tickets = [
             >
               Reserve Your Place
             </button>
+
+            {ticket.highlight && (
+              <a
+                href="#statesmans-experience"
+                class="block text-center text-sm text-[#c5a44e]/70 hover:text-[#c5a44e] mt-3 tracking-wide transition-colors"
+              >
+                Learn more about the Statesman's Experience &darr;
+              </a>
+            )}
           </div>
         </div>
       ))}

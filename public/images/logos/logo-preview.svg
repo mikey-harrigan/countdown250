@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 340" width="700" height="340">
+  <!-- Dark background -->
+  <rect width="700" height="340" fill="#001a45" rx="8" />
+
+  <!-- ALL-AMERICAN subtitle -->
+  <text x="350" y="72" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="#c5a44e" font-size="15" letter-spacing="6" font-weight="400">ALL-AMERICAN</text>
+
+  <!-- Thin gold line -->
+  <line x1="210" y1="90" x2="490" y2="90" stroke="#c5a44e" stroke-width="0.75" />
+
+  <!-- COUNTDOWN main text -->
+  <text x="350" y="162" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="#ffffff" font-size="72" font-weight="700" letter-spacing="3">COUNTDOWN</text>
+
+  <!-- 250 large number -->
+  <text x="350" y="242" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="#c5a44e" font-size="96" font-weight="900" letter-spacing="2">250</text>
+
+  <!-- Thin gold line -->
+  <line x1="170" y1="260" x2="530" y2="260" stroke="#c5a44e" stroke-width="0.75" />
+
+  <!-- Date and location -->
+  <text x="350" y="290" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="rgba(255,255,255,0.6)" font-size="13" letter-spacing="5" font-weight="400">JULY 3, 2026  ·  WASHINGTON, D.C.</text>
+</svg>
