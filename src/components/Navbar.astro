@@ -24,7 +24,7 @@ const moreLinks = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="overflow: visible;">
     <div class="flex items-center justify-between h-20" style="overflow: visible;">
       <!-- Logo — large at top, shrinks on scroll. Top-aligned so it grows downward, never clipped -->
-      <a href="/" class="flex-shrink-0 relative z-10" style="overflow: visible; align-self: flex-start;">
+      <a href="/" class="flex-shrink-0 relative z-10" style="overflow: visible; align-self: center;">
         <img
           id="nav-logo"
           src="/images/logos/countdown250-navbar-logo.png"
@@ -115,14 +115,14 @@ const moreLinks = [
       navbar?.classList.add('bg-navy-dark/70');
     }
 
-    // Logo resize — responsive: smaller range on mobile
+    // Logo resize — only shrink on mobile, desktop stays fixed
     if (navLogo) {
       const isMobile = window.innerWidth < 1024;
-      const bigSize = isMobile ? 100 : LOGO_BIG;
-      const smallSize = isMobile ? 60 : LOGO_SMALL;
-      const t = Math.min(scrollY / SCROLL_RANGE, 1);
-      const size = bigSize - (bigSize - smallSize) * t;
-      navLogo.style.height = size + 'px';
+      if (isMobile) {
+        const t = Math.min(scrollY / SCROLL_RANGE, 1);
+        const size = 100 - (100 - 60) * t;
+        navLogo.style.height = size + 'px';
+      }
       navLogo.style.width = 'auto';
     }
   });
@@ -145,9 +145,8 @@ const moreLinks = [
   .nav-logo-img {
     height: 200px;
     width: auto;
-    margin-top: 4px;
   }
-  /* Smaller on mobile so it doesn't overlap hero */
+  /* Smaller on mobile */
   @media (max-width: 1024px) {
     .nav-logo-img {
       height: 100px;
