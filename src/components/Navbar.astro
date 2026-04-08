@@ -27,10 +27,10 @@ const moreLinks = [
       <a href="/" class="flex-shrink-0 relative z-10" style="overflow: visible; align-self: flex-start;">
         <img
           id="nav-logo"
-          src="/images/logos/new-logo.png"
+          src="/images/logos/countdown250-navbar-logo.png"
           alt="All-American Countdown 250 Ball"
           class="drop-shadow-lg transition-all duration-500 ease-out"
-          style="height: 180px; width: 180px; margin-top: 4px;"
+          style="height: 80px; width: auto; margin-top: 4px;"
         />
       </a>
 
@@ -100,8 +100,8 @@ const moreLinks = [
   // Navbar scroll effect with logo resize
   const navbar = document.getElementById('navbar');
   const navLogo = document.getElementById('nav-logo');
-  const LOGO_BIG = 180;   // px when at top — extends well below navbar
-  const LOGO_SMALL = 100;  // px when scrolled — just barely fits in the navbar bar
+  const LOGO_BIG = 80;    // px height when at top
+  const LOGO_SMALL = 50;   // px height when scrolled
   const SCROLL_RANGE = 150; // px of scroll over which the transition happens
 
   window.addEventListener('scroll', () => {
@@ -121,7 +121,7 @@ const moreLinks = [
       const t = Math.min(scrollY / SCROLL_RANGE, 1);
       const size = LOGO_BIG - (LOGO_BIG - LOGO_SMALL) * t;
       navLogo.style.height = size + 'px';
-      navLogo.style.width = size + 'px';
+      navLogo.style.width = 'auto';
     }
   });
 
