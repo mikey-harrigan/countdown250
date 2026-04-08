@@ -5,8 +5,8 @@
   <!-- Thin gold line -->
   <line x1="180" y1="68" x2="420" y2="68" stroke="#c5a44e" stroke-width="0.75" />
 
-  <!-- COUNTDOWN main text -->
-  <text x="300" y="142" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="#002868" font-size="72" font-weight="700" letter-spacing="3">COUNTDOWN</text>
+  <!-- COUNTDOWN main text — white for dark backgrounds -->
+  <text x="300" y="142" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="#ffffff" font-size="72" font-weight="700" letter-spacing="3">COUNTDOWN</text>
 
   <!-- 250 large number -->
   <text x="300" y="218" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="#c5a44e" font-size="96" font-weight="900" letter-spacing="2">250</text>
@@ -14,6 +14,6 @@
   <!-- Thin gold line -->
   <line x1="150" y1="234" x2="450" y2="234" stroke="#c5a44e" stroke-width="0.75" />
 
-  <!-- Date and location -->
-  <text x="300" y="262" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="#4a5568" font-size="13" letter-spacing="5" font-weight="400">JULY 3, 2026  ·  WASHINGTON, D.C.</text>
+  <!-- Date and location — light for dark backgrounds -->
+  <text x="300" y="262" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="rgba(255,255,255,0.6)" font-size="13" letter-spacing="5" font-weight="400">JULY 3, 2026  ·  WASHINGTON, D.C.</text>
 </svg>
