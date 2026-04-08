@@ -99,31 +99,25 @@
   <circle cx="220" cy="98" r="1.5" fill="#dbb740" opacity="0.7" />
   <circle cx="480" cy="98" r="1.5" fill="#dbb740" opacity="0.7" />
 
-  <!-- COUNTDOWN with clock O -->
+  <!-- COUNTDOWN with clock replacing first O -->
   <!-- "C" -->
-  <text x="162" y="168" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="#ffffff" font-size="68" font-weight="700" letter-spacing="4">C</text>
+  <text x="133" y="168" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="#ffffff" font-size="68" font-weight="700" letter-spacing="4">C</text>
   <!-- Clock face replacing first O -->
-  <g transform="translate(200, 144)">
-    <!-- Clock circle -->
+  <g transform="translate(178, 144)">
     <circle cx="0" cy="0" r="20" fill="none" stroke="#ffffff" stroke-width="3" />
     <!-- Hour marks -->
     <line x1="0" y1="-17" x2="0" y2="-14" stroke="#ffffff" stroke-width="2" />
     <line x1="0" y1="17" x2="0" y2="14" stroke="#ffffff" stroke-width="2" />
     <line x1="-17" y1="0" x2="-14" y2="0" stroke="#ffffff" stroke-width="2" />
     <line x1="17" y1="0" x2="14" y2="0" stroke="#ffffff" stroke-width="2" />
-    <!-- Hour hand (pointing to ~11) -->
+    <!-- Hour hand (~11 o'clock) -->
     <line x1="0" y1="0" x2="-6" y2="-10" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
-    <!-- Minute hand (pointing to ~12) -->
+    <!-- Minute hand (~12 o'clock) -->
     <line x1="0" y1="0" x2="1" y2="-15" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
-    <!-- Center dot -->
     <circle cx="0" cy="0" r="2" fill="#dbb740" />
   </g>
-  <!-- "UNTD" -->
-  <text x="280" y="168" text-anchor="start" font-family="'Playfair Display', 'Georgia', serif" fill="#ffffff" font-size="68" font-weight="700" letter-spacing="4">UNTD</text>
-  <!-- Regular "O" -->
-  <text x="458" y="168" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" fill="#ffffff" font-size="68" font-weight="700" letter-spacing="4">O</text>
-  <!-- "WN" -->
-  <text x="490" y="168" text-anchor="start" font-family="'Playfair Display', 'Georgia', serif" fill="#ffffff" font-size="68" font-weight="700" letter-spacing="4">WN</text>
+  <!-- "UNTDOWN" -->
+  <text x="218" y="168" text-anchor="start" font-family="'Playfair Display', 'Georgia', serif" fill="#ffffff" font-size="68" font-weight="700" letter-spacing="4">UNTDOWN</text>
 
   <!-- 250 with white outline -->
   <text x="350" y="248" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" font-size="90" font-weight="900" letter-spacing="2" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.5">250</text>
