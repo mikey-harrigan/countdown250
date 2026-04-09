@@ -49,13 +49,56 @@ const icons: Record<string, string> = {
       ))}
     </div>
 
-    <!-- Photo strip -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-      <div class="rounded-lg overflow-hidden aspect-square"><img src="/images/event/formal-dinner-table.png" alt="Elegant formal dinner under crystal chandeliers" class="object-cover w-full h-full scale-[1.02]" /></div>
-      <div class="rounded-lg overflow-hidden aspect-square"><img src="/images/event/red-carpet-arrival.png" alt="Guests arriving on the red carpet in black tie" class="object-cover w-full h-full scale-[1.02]" /></div>
-      <div class="rounded-lg overflow-hidden aspect-square"><img src="/images/event/patriotic-stage-orchestra.png" alt="Grand stage with orchestra and American flags" class="object-cover w-full h-full scale-[1.02]" /></div>
-      <div class="rounded-lg overflow-hidden aspect-square"><img src="/images/event/patriotic-cocktails-bar.png" alt="Premium cocktails and champagne at an elegant patriotic bar" class="object-cover w-full h-full scale-[1.02]" /></div>
+    <!-- Scrolling Photo Strip -->
+    <div class="overflow-hidden relative">
+      <div class="flex gap-3 animate-scroll-strip">
+        <!-- First set -->
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/formal-dinner-table.png" alt="Elegant formal dinner under crystal chandeliers" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/ballroom-crowd.jpg" alt="Ballroom filled with guests celebrating" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/red-carpet-arrival.png" alt="Guests arriving on the red carpet in black tie" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/color-guard.jpg" alt="Military color guard ceremony" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/patriotic-stage-orchestra.png" alt="Grand stage with orchestra and American flags" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/formal-dinner.jpg" alt="Guests enjoying formal dinner" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/patriotic-cocktails-bar.png" alt="Premium cocktails at an elegant patriotic bar" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/ballroom-stage.jpg" alt="Grand ballroom stage performance" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/guests-cocktail-mingling.png" alt="Guests mingling over cocktails" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/diverse-chatting.jpg" alt="Guests chatting at the celebration" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/dj-dance-floor.png" alt="DJ and guests on the dance floor" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/hilton-exterior-twilight.jpg" alt="Washington Hilton at twilight" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/hero-awards-ceremony.png" alt="Hero awards ceremony on stage" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/party-atmosphere.jpg" alt="Exciting party atmosphere" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/statesman-vip-dinner.png" alt="Intimate VIP dinner experience" class="object-cover w-full h-full" loading="lazy" /></div>
+        <!-- Duplicate set for seamless loop -->
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/formal-dinner-table.png" alt="Elegant formal dinner under crystal chandeliers" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/ballroom-crowd.jpg" alt="Ballroom filled with guests celebrating" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/red-carpet-arrival.png" alt="Guests arriving on the red carpet in black tie" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/color-guard.jpg" alt="Military color guard ceremony" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/patriotic-stage-orchestra.png" alt="Grand stage with orchestra and American flags" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/formal-dinner.jpg" alt="Guests enjoying formal dinner" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/patriotic-cocktails-bar.png" alt="Premium cocktails at an elegant patriotic bar" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/ballroom-stage.jpg" alt="Grand ballroom stage performance" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/guests-cocktail-mingling.png" alt="Guests mingling over cocktails" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/diverse-chatting.jpg" alt="Guests chatting at the celebration" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/dj-dance-floor.png" alt="DJ and guests on the dance floor" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/hilton-exterior-twilight.jpg" alt="Washington Hilton at twilight" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/hero-awards-ceremony.png" alt="Hero awards ceremony on stage" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/party-atmosphere.jpg" alt="Exciting party atmosphere" class="object-cover w-full h-full" loading="lazy" /></div>
+        <div class="flex-shrink-0 w-56 md:w-72 rounded-lg overflow-hidden aspect-square"><img src="/images/event/statesman-vip-dinner.png" alt="Intimate VIP dinner experience" class="object-cover w-full h-full" loading="lazy" /></div>
+      </div>
     </div>
+
+    <style>
+      @keyframes scroll-strip {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-scroll-strip {
+        animation: scroll-strip 60s linear infinite;
+      }
+      .animate-scroll-strip:hover {
+        animation-play-state: paused;
+      }
+    </style>
 
     <!-- Ticket options callout -->
     <div class="text-center mt-12 bg-white/5 border border-white/10 rounded-2xl p-8 max-w-2xl mx-auto">
