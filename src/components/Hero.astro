@@ -3,12 +3,19 @@ const ticketUrl = "https://www.eventbrite.com/e/all-american-countdown-250-ball-
 ---
 
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-  <!-- Background image — full-width, cover, centered, no distortion -->
+  <!-- Background image — different images for mobile vs desktop -->
   <div class="absolute inset-0">
+    <!-- Mobile: ballroom overhead (no confusing "10" text) -->
+    <img
+      src="/images/event/ballroom-overhead-confetti.png"
+      alt="Packed ballroom with confetti and chandeliers"
+      class="w-full h-full object-cover object-center md:hidden"
+    />
+    <!-- Desktop: countdown toast -->
     <img
       src="/images/event/hero-toast.png"
       alt="Thousands of guests raising champagne glasses in a spectacular ballroom"
-      class="w-full h-full object-cover object-center"
+      class="w-full h-full object-cover object-center hidden md:block"
     />
     <!-- Dark overlay for logo visibility -->
     <div class="absolute inset-0" style="background: rgba(0,0,0,0.4);"></div>
