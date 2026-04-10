@@ -23,7 +23,7 @@ You've celebrated with us before. You know what we deliver — an unforgettable 
 
 **On July 3, 2026, we're doing something we've never done before.**
 
-The All-American Countdown 250 Ball is our most ambitious event in over 30 years. Three thousand guests. Six grand ballrooms. Four live entertainment stages. Premium open bars. A midnight countdown launching America's 250th birthday — live from the legendary Washington Hilton.
+The Official Countdown 250 Ball is our most ambitious event in over 30 years. Three thousand guests. Six grand ballrooms. Four live entertainment stages. Premium open bars. A midnight countdown launching America's 250th birthday — live from the legendary Washington Hilton.
 
 This is a once-in-a-generation moment. The last time America celebrated a milestone like this was the Bicentennial in 1976. People still talk about it. This July, we make new memories.
 

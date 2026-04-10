@@ -13,13 +13,13 @@ press@allamericanball.com
 
 ---
 
-## As New York Restricts Access to Iconic Ball Drop, Washington, D.C. Invites All Americans to Celebrate at the Countdown 250 Ball
+## As New York Restricts Access to Iconic Ball Drop, Washington, D.C. Invites All Americans to Celebrate at the Official Countdown 250 Ball
 
 *Three thousand guests to mark America's 250th anniversary at the legendary Washington Hilton on July 3, 2026*
 
 ---
 
-**WASHINGTON, D.C.** — As New York City transforms its iconic Times Square New Year's Eve celebration into a ticketed, limited-access event, the All-American Ball Committee announced that its Countdown 250 Ball will welcome up to 3,000 guests for a historic evening marking the 250th anniversary of the United States.
+**WASHINGTON, D.C.** — As New York City transforms its iconic Times Square New Year's Eve celebration into a ticketed, limited-access event, the All-American Ball Committee announced that the Official Countdown 250 Ball will welcome up to 3,000 guests for a historic evening marking the 250th anniversary of the United States.
 
 The black-tie gala, set for the evening of July 3, 2026, at the legendary Washington Hilton in the nation's capital, offers Americans a guaranteed, all-inclusive celebration — with no lottery, no restrictions, and no standing in the cold.
 
