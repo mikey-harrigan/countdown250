@@ -42,14 +42,15 @@ const ticketUrl = "https://www.eventbrite.com/e/all-american-countdown-250-ball-
         Proudly supporting <a href="https://www.operationrenewedhopefoundation.org" target="_blank" rel="noopener noreferrer" class="underline hover:text-gold">Operation Renewed Hope Foundation</a> — housing U.S. Veterans
       </p>
 
-      <div class="hero-features flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 text-white text-base sm:text-lg">
-        <span class="hero-feature font-semibold" style="--i:0">Black Tie Optional</span>
-        <span class="text-white text-sm">&#9733;</span>
-        <span class="hero-feature font-semibold" style="--i:1">Live Entertainment</span>
-        <span class="text-white text-sm">&#9733;</span>
-        <span class="hero-feature font-semibold" style="--i:2">Premium Open Bars</span>
-        <span class="text-white text-sm">&#9733;</span>
-        <span class="hero-feature font-semibold" style="--i:3">Midnight Countdown</span>
+      <p class="text-gold font-semibold text-base sm:text-lg tracking-wide mb-2">America's Premier 250th Anniversary Gala</p>
+      <div class="flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-3 text-gold/80 text-sm sm:text-base">
+        <span class="font-medium">Black Tie Optional</span>
+        <span class="text-gold/40 text-xs">&#9733;</span>
+        <span class="font-medium">Live Entertainment</span>
+        <span class="text-gold/40 text-xs">&#9733;</span>
+        <span class="font-medium">All-Inclusive</span>
+        <span class="text-gold/40 text-xs">&#9733;</span>
+        <span class="font-medium">Midnight Countdown</span>
       </div>
     </div>
 
@@ -99,42 +100,4 @@ const ticketUrl = "https://www.eventbrite.com/e/all-american-countdown-250-ball-
     }
   }
 
-  /* Wave animation: 4 features, each lights up for ~1s in sequence.
-     One full cycle = 4s (1s per feature). We want 4 cycles = 16s total.
-     Each feature is "on" for 25% of a cycle (its slot).
-     Using percentage keyframes within one cycle duration. */
-  @keyframes hero-wave {
-    0% {
-      color: #FFD700;
-      text-shadow: 0 0 4px rgba(255, 215, 0, 0.3);
-      transform: scale(1);
-    }
-    8% {
-      color: #ff3040;
-      text-shadow: 0 0 15px rgba(255, 48, 64, 1), 0 0 40px rgba(255, 48, 64, 0.8), 0 0 80px rgba(255, 48, 64, 0.5), 0 0 140px rgba(255, 48, 64, 0.3), 0 0 200px rgba(255, 48, 64, 0.15);
-      transform: scale(1.12);
-    }
-    16% {
-      color: #ff3040;
-      text-shadow: 0 0 15px rgba(255, 48, 64, 1), 0 0 40px rgba(255, 48, 64, 0.8), 0 0 80px rgba(255, 48, 64, 0.5), 0 0 140px rgba(255, 48, 64, 0.3), 0 0 200px rgba(255, 48, 64, 0.15);
-      transform: scale(1.12);
-    }
-    25% {
-      color: #FFD700;
-      text-shadow: 0 0 4px rgba(255, 215, 0, 0.3);
-      transform: scale(1);
-    }
-    100% {
-      color: #FFD700;
-      text-shadow: 0 0 4px rgba(255, 215, 0, 0.3);
-      transform: scale(1);
-    }
-  }
-  .hero-feature {
-    display: inline-block;
-    animation: hero-wave 12s ease-in-out 4;
-    animation-delay: calc(var(--i) * 3s);
-    animation-fill-mode: forwards;
-    color: #FFD700;
-  }
 </style>
