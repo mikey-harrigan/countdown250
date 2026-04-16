@@ -59,11 +59,9 @@ The most recent ball was Jan 18, 2025 at Hyatt Regency Capitol Hill. Featured Se
 - **Styling**: Tailwind CSS v4 via `@tailwindcss/vite` plugin
   - **NOT** `@astrojs/tailwind` (that requires Tailwind v3)
   - Theme colors/fonts defined in `src/styles/global.css` using `@theme` directive (no `tailwind.config.mjs`)
-- **Deployment**: Two environments (see Deployment section below)
-  - **Preview**: GitHub Pages (auto-deploys on push to `main`)
-  - **Production**: Static files uploaded to gate.com (Hostway) hosting (TODO: set up)
-- **Domain**: Managed through gate.com (Hostway)
-- **Base path**: `base: '/countdown250'` in `astro.config.mjs` for subfolder deployment
+- **Deployment**: GitHub Pages IS production (see Deployment section below). Auto-deploys on push to `main`.
+- **Domain**: `countdown250.allamericanball.com` — custom domain via CNAME record pointing to GitHub Pages (IPs in 185.199.x.x range). The pretty URL is just a DNS alias; the actual hosting is GitHub Pages.
+- **Base path**: `base: '/'` in `astro.config.mjs` (serves from the domain root since CNAME handles the URL).
 - **GitHub repo**: https://github.com/mikey-harrigan/countdown250
 - **No database, no auth** - just a static site linking to Eventbrite for tickets
 
@@ -144,61 +142,24 @@ A detailed photo catalog with labels is in `public/images/photo-catalog.json`.
 
 ## Deployment / Pushing Changes to Production
 
+### THE SIMPLE TRUTH
+GitHub Pages IS production. There is no separate production environment. Pushing to `main` IS the deploy. The custom domain `countdown250.allamericanball.com` is just a CNAME pointing at GitHub Pages.
+
 ### IMPORTANT: After making ANY code changes, Claude MUST:
-1. Commit and push to GitHub (this updates the preview site automatically)
-2. Ask the user: "Want me to push these changes live to the production site?"
-3. If yes, run the deploy-to-prod script (see below)
+1. Commit and push to `origin main` (this IS the production deploy)
+2. Tell the user the change will be live at `https://countdown250.allamericanball.com` in ~1-2 minutes
+3. Mike is non-technical — Claude handles ALL git operations automatically (staging, commit message, push). Never ask Mike to run git commands manually.
 
-The users of this project are non-technical. They do not know git. Claude should handle ALL git operations automatically (staging, committing with a clear message, pushing) after making changes. Never ask the user to run git commands manually.
+### Live URLs
+- **Live site (real users):** https://countdown250.allamericanball.com/ (custom domain)
+- **GitHub Pages default URL (identical content):** https://mikey-harrigan.github.io/countdown250/
 
-### Two Deployment Environments
+Both serve the same content from the same build. The custom domain is just a nicer address.
 
-#### 1. Preview Site (GitHub Pages) - ACTIVE
-- **URL**: https://mikey-harrigan.github.io/countdown250/
-- **How it works**: Automatically rebuilds when code is pushed to the `main` branch
-- **Use for**: Sharing with team for feedback before going live
-
-#### 2. Production Site (gate.com / Hostway) - TODO: SET UP
-- **URL**: https://allamericanball.com/countdown250/
-- **How it works**: Static files uploaded via FTP to the Hostway server
-- **Status**: Not yet configured. Needs FTP credentials from gate.com hosting panel.
-
-### Deploy to Production Script
-
-When Hostway/gate.com FTP access is set up, create a `deploy.sh` script in the project root:
-
-```bash
-#!/bin/bash
-# Deploy to production (allamericanball.com/countdown250/)
-# Requires: FTP_HOST, FTP_USER, FTP_PASS environment variables
-# These should be stored in a .env file (never committed to git)
-
-set -e
-
-echo "Building site..."
-PATH="/c/Program Files/nodejs:$PATH" npm run build
-
-echo "Uploading to production..."
-# TODO: Replace with actual FTP details once gate.com credentials are obtained
-# Option A: lftp (if available)
-# lftp -e "mirror -R --delete dist/ /countdown250/ ; quit" -u $FTP_USER,$FTP_PASS $FTP_HOST
-#
-# Option B: If gate.com supports rsync/SSH
-# rsync -avz --delete dist/ $FTP_USER@$FTP_HOST:/path/to/countdown250/
-#
-# Option C: If only browser-based file manager is available,
-# Claude should instruct the user to upload the dist/ folder contents manually.
-
-echo "Production deploy complete!"
-echo "Live at: https://allamericanball.com/countdown250/"
-```
-
-### To set up production deployment:
-1. Log into gate.com hosting panel for allamericanball.com
-2. Find FTP credentials (host, username, password)
-3. Create a `.env` file in the project root with those credentials
-4. Update `deploy.sh` with the correct FTP command
-5. Update `astro.config.mjs` site URL back to `https://allamericanball.com` for production builds
+### Why the custom-domain alias works
+- DNS: `countdown250.allamericanball.com` → CNAME → `mikey-harrigan.github.io`
+- `public/CNAME` file in the repo tells GitHub Pages "serve this domain"
+- Certificate is auto-managed by GitHub Pages
 
 ### Git Workflow (for Claude, not for humans)
 - Always `git pull origin main` before starting work to avoid conflicts
