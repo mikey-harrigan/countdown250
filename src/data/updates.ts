@@ -8,6 +8,12 @@ export interface Update {
 export const updates: Update[] = [
   {
     date: "2026-04-16",
+    headline: "Complete America 250 DC Events Guide Now Live — Plan Your July 4 Weekend",
+    slug: "america-250-dc-events-guide-live",
+    body: "A complete guide to all major America's 250th anniversary events in Washington, D.C. is now available on the Countdown 250 site. The guide covers six tentpole events anchoring DC this summer: UFC Freedom 250 on the White House South Lawn (June 14), the Great American State Fair on the National Mall (June 25-July 10), The Official Countdown 250 Ball (July 3, featured), the Salute to America July 4 fireworks on the Mall, the Freedom 250 Grand Prix of Washington D.C. (August 22-23), and context on the America250 Times Square Ball Drop in NYC. Includes a three-day July 4 weekend itinerary and a nine-question FAQ. See the full guide at /america-250-dc-events-guide.",
+  },
+  {
+    date: "2026-04-16",
     headline: "Great American State Fair on National Mall — Plan Your DC Independence Eve",
     slug: "great-american-state-fair-evening-finale",
     body: "Freedom 250 has announced the Great American State Fair, a 16-day celebration running June 25 through July 10, 2026 on the National Mall. All 50 states, territories, and federal agencies will be represented, with the July 4 peak featuring a presidential keynote and what organizers describe as the largest pyrotechnics display in world history. The Countdown 250 Ball falls squarely within Fair week — taking place the evening of July 3 at the historic Washington Hilton, three blocks from the Mall. For visitors planning their DC 250th anniversary trip, the pairing is natural: the Fair by day, the Ball by night, the nation's 250th birthday fireworks the next morning. See our guide to State Fair Week evening plans at /great-american-state-fair-evening.",
