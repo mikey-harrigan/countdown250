@@ -1,0 +1,331 @@
+---
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
+
+const events = [
+  {
+    name: "UFC Freedom 250",
+    date: "Sunday, June 14, 2026",
+    window: "Main card evening; weigh-ins June 13",
+    location: "South Lawn of the White House",
+    audience: "85,000 free viewing tickets at The Ellipse",
+    description: "An unprecedented mixed martial arts event on the White House South Lawn. Confirmed fights include Alex Pereira vs Ciryl Gane for the interim UFC heavyweight title and Ilia Topuria vs Justin Gaethje. Simulcast on CBS and Paramount+. Free viewing tickets distributed via lottery on UFC.com.",
+    link: "https://www.ufc.com/freedom250",
+    linkLabel: "ufc.com/freedom250"
+  },
+  {
+    name: "Great American State Fair",
+    date: "June 25 \u2013 July 10/11, 2026",
+    window: "Daily 10 AM \u2013 late evening",
+    location: "National Mall, 4th to 14th Street",
+    audience: "Millions expected",
+    description: "A 16-day festival celebrating America's 250th with all 50 states, territories, and federal agencies on the National Mall. Features a Ferris wheel, the Smithsonian's National Carousel, and hands-on pavilions representing American heartland, innovation, faith and family. Free admission with advance registration encouraged.",
+    link: "/great-american-state-fair-evening",
+    linkLabel: "State Fair Evening Plans"
+  },
+  {
+    name: "The Official Countdown 250 Ball",
+    date: "Friday, July 3, 2026",
+    window: "7:00 PM \u2013 1:00 AM",
+    location: "Washington Hilton, 3 blocks from the Mall",
+    audience: "3,000 guests, black-tie",
+    description: "The premier formal evening of Independence Eve. A black-tie gala launching America's 250th anniversary weekend, featuring six party zones, four live entertainment stages, premium open bars, the All-American Hero Lifetime Achievement Awards, and a signature midnight countdown to the exact instant America enters its 250th year. The social anchor of the celebration.",
+    link: "/",
+    linkLabel: "Get Tickets",
+    highlight: true
+  },
+  {
+    name: "Salute to America \u2014 July 4 Fireworks",
+    date: "Saturday, July 4, 2026",
+    window: "All day; fireworks at dusk",
+    location: "National Mall",
+    audience: "Free, hundreds of thousands expected",
+    description: "The nation's 250th birthday fireworks celebration, preceded by a formal reading of the Declaration of Independence on the steps of the National Archives, flyovers, headline performances, and the National Independence Day Parade. Traditionally one of America's largest annual fireworks displays \u2014 expected to be the biggest ever for the 250th.",
+    link: "",
+    linkLabel: ""
+  },
+  {
+    name: "Freedom 250 Grand Prix of Washington, D.C.",
+    date: "August 22\u201323, 2026",
+    window: "Practice and qualifying Saturday; race Sunday",
+    location: "Street circuit on the National Mall",
+    audience: "Free ticket registration via freedom250gp.com",
+    description: "The first-ever INDYCAR race on a street circuit around the National Mall. Produced by INDYCAR and Monumental Sports & Entertainment. Televised on FOX Sports. A historic moment in American motorsport, designed specifically to celebrate the 250th anniversary.",
+    link: "https://www.freedom250gp.com/",
+    linkLabel: "freedom250gp.com"
+  },
+  {
+    name: "America250 Times Square Ball Drop",
+    date: "Friday, July 3, 2026 at 11:59 PM",
+    window: "Midnight ball drop",
+    location: "Times Square, New York City",
+    audience: "Ticketed (NYC \u2014 not DC)",
+    description: "New York City's first-ever ticketed Times Square Ball Drop, timed to midnight as July 3 becomes July 4 in celebration of America turning 250. If you're looking for a midnight-countdown experience without the crowds and ticket scarcity of Times Square, The Official Countdown 250 Ball at the Washington Hilton offers the same transition moment in black tie at a historic DC venue.",
+    link: "",
+    linkLabel: ""
+  }
+];
+
+const faqs = [
+  {
+    q: "What is America 250?",
+    a: "America 250 is the national celebration of the 250th anniversary of the Declaration of Independence, marking the founding of the United States on July 4, 1776. The federal commission overseeing it is the America250 Foundation, chartered by Congress. The White House parallel initiative is called Freedom 250. Celebrations are taking place nationwide, but Washington, D.C. is the focal point for the largest events."
+  },
+  {
+    q: "What's the difference between America 250 and Freedom 250?",
+    a: "America 250 is the nonpartisan Congressionally-chartered commission (america250.org). Freedom 250 is the executive branch's umbrella brand, led by the White House in partnership with federal departments and agencies. They cooperate, and many events are co-branded or appear on both calendars. For event planning purposes, visitors don't need to distinguish \u2014 both brands point to the same summer of celebrations."
+  },
+  {
+    q: "When should I plan my DC trip for the 250th?",
+    a: "Two prime windows. First: June 25 through July 5 covers Great American State Fair opening week, the UFC White House event (June 14 is slightly earlier), Independence Eve, and July 4 fireworks. Second: August 22\u201323 for the Freedom 250 Grand Prix race weekend. The July window is the peak and most crowded; book accommodations as early as possible."
+  },
+  {
+    q: "What's the best July 3 evening event in DC?",
+    a: "The Official Countdown 250 Ball at the Washington Hilton. It's the only formal black-tie gala on Independence Eve timed to the midnight moment when America enters its 250th year. Three blocks from the National Mall, 3,000 guests, built for the exact 24 hours when DC is the center of the celebration. Tickets from $225."
+  },
+  {
+    q: "Where should I stay in DC for America 250 events?",
+    a: "Anywhere walkable or metro-accessible to the National Mall. The Washington Hilton (1919 Connecticut Ave NW) is a popular choice because it hosts the Countdown 250 Ball and is three blocks from the Mall. The Hay-Adams, The Willard, and the Watergate are other historic properties near Mall venues. Book early \u2014 July 4 weekend demand is extreme this year."
+  },
+  {
+    q: "How do I get free tickets to the UFC event or the Grand Prix?",
+    a: "UFC Freedom 250: 85,000 free viewing tickets are distributed via lottery on UFC.com as the event approaches \u2014 the 4,500 main card seats on the White House South Lawn are not publicly sold. Freedom 250 Grand Prix: limited free tickets are available via freedom250gp.com with advance registration."
+  },
+  {
+    q: "What's on July 3 specifically, the Friday before July 4?",
+    a: "Morning to afternoon: Great American State Fair on the Mall (free). Evening: The Official Countdown 250 Ball at the Washington Hilton (formal, ticketed, 7 PM \u2013 1 AM). Midnight: The Ball's signature countdown production marks America entering its 250th year. Some visitors plan July 3 specifically around this pairing \u2014 day at the Fair, night at the Ball."
+  },
+  {
+    q: "Is Washington safe and accessible during the 250th events?",
+    a: "Yes. DC hosts huge national events every year (July 4 fireworks, White House Correspondents' Dinner, inaugurations). Federal, Metro, and local agencies coordinate extensive security planning. Street closures will be significant \u2014 plan transit around the National Mall circuit for the Grand Prix weekend, and around the Mall generally for July 4. Metro is usually the most reliable option."
+  },
+  {
+    q: "Are there events for kids and families?",
+    a: "Yes. The Great American State Fair is family-friendly, free, and daytime-focused. The July 4 parade and fireworks on the Mall are family traditions. UFC and the Grand Prix are adult-oriented but have public viewing areas. The Countdown 250 Ball is a black-tie adult event (not suitable for children)."
+  }
+];
+---
+
+<BaseLayout
+  title="America 250 DC Events Guide 2026 | Freedom 250, State Fair, Grand Prix, Countdown 250 Ball | July 3, 2026"
+  description="The complete guide to America's 250th anniversary events in Washington, D.C. Great American State Fair, UFC Freedom 250, Grand Prix, Salute to America fireworks, and the Countdown 250 Ball. Plan your DC trip."
+  ogImage="/images/event/hero-toast.png"
+>
+  <Navbar />
+  <main>
+    <!-- Hero -->
+    <section class="relative pt-32 pb-20 bg-navy text-white overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-navy-dark/90 to-navy"></div>
+      <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">America 250 &middot; Washington, D.C.</p>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 font-heading leading-tight">
+          Your Complete Guide to America&rsquo;s 250th Anniversary Events in Washington, D.C.
+        </h1>
+        <p class="text-xl sm:text-2xl text-white/85 mb-8 max-w-3xl mx-auto leading-relaxed">
+          Six major events. One historic year. One capital city. Here&rsquo;s how to plan your 250th anniversary trip to D.C.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href="#events" class="inline-block bg-red hover:bg-red-light text-white px-10 py-4 text-base font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5">
+            See All Events
+          </a>
+          <a href={ticketUrl} class="eventbrite-checkout inline-block border-2 border-gold/60 hover:border-gold text-gold px-10 py-4 text-base font-semibold tracking-wider uppercase transition-all rounded">
+            July 3 Ball Tickets
+          </a>
+        </div>
+        <div class="w-20 h-1 bg-red mx-auto mt-10"></div>
+      </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="py-20 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="text-slate/70 text-lg leading-relaxed space-y-6">
+          <p>
+            In 1776, a group of delegates meeting in Philadelphia signed the Declaration of Independence. In 2026,
+            the nation turns 250. The celebration of that milestone is already the largest coordinated national
+            event cycle in American history &mdash; and Washington, D.C. is the epicenter.
+          </p>
+          <p>
+            Six major events anchor the D.C. calendar, running from the UFC&rsquo;s unprecedented South Lawn card in
+            June through the INDYCAR Grand Prix in late August. If you&rsquo;re planning a trip to the capital for
+            America 250, this guide covers what&rsquo;s happening, when, and how the pieces fit together.
+          </p>
+          <p>
+            The single most important date in the sequence is <strong class="text-navy">Friday, July 3, 2026</strong>
+            &mdash; the eve of America&rsquo;s 250th birthday. That evening, The Official Countdown 250 Ball gathers
+            3,000 guests at the historic Washington Hilton for the formal kickoff celebration, ending at the stroke
+            of midnight with a countdown production marking the exact moment America enters its 250th year.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Events -->
+    <section id="events" class="py-20 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-16">
+          <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">The Schedule</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-navy mb-6 font-heading">Six Events. One Historic Year.</h2>
+          <div class="w-16 h-1 bg-red mx-auto"></div>
+        </div>
+
+        <div class="space-y-6">
+          {events.map((e) => (
+            <div class={`rounded-2xl p-8 sm:p-10 shadow-sm ${e.highlight ? 'bg-navy text-white ring-4 ring-gold' : 'bg-white'}`}>
+              <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                <div>
+                  <h3 class={`text-2xl font-bold mb-2 font-heading ${e.highlight ? 'text-gold' : 'text-navy'}`}>{e.name}</h3>
+                  <p class={`text-sm font-medium mb-1 ${e.highlight ? 'text-white/80' : 'text-slate/70'}`}>
+                    <strong>When:</strong> {e.date} &middot; {e.window}
+                  </p>
+                  <p class={`text-sm font-medium mb-1 ${e.highlight ? 'text-white/80' : 'text-slate/70'}`}>
+                    <strong>Where:</strong> {e.location}
+                  </p>
+                  <p class={`text-sm font-medium ${e.highlight ? 'text-white/80' : 'text-slate/70'}`}>
+                    <strong>Audience:</strong> {e.audience}
+                  </p>
+                </div>
+                {e.highlight && (
+                  <span class="inline-block bg-gold text-navy-dark text-xs font-bold tracking-wider uppercase px-3 py-1 rounded self-start">Featured</span>
+                )}
+              </div>
+              <p class={`leading-relaxed ${e.highlight ? 'text-white/85' : 'text-slate/70'}`}>{e.description}</p>
+              {e.link && (
+                <div class="mt-5">
+                  <a
+                    href={e.link}
+                    target={e.link.startsWith('http') ? '_blank' : undefined}
+                    rel={e.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    class={`inline-block text-sm font-semibold tracking-wider uppercase border-b-2 ${e.highlight ? 'text-gold border-gold/60 hover:border-gold' : 'text-red border-red/60 hover:border-red'}`}
+                  >
+                    {e.linkLabel} &rarr;
+                  </a>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Trip planning -->
+    <section class="py-20 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">Planning Your Trip</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-navy mb-6 font-heading">The Perfect July 4 Weekend Itinerary</h2>
+          <div class="w-16 h-1 bg-red mx-auto"></div>
+        </div>
+
+        <div class="space-y-6 text-slate/70 text-base leading-relaxed">
+          <div class="bg-cream rounded-xl p-6 border-l-4 border-gold">
+            <p class="text-navy font-bold mb-1">Friday, July 3 &mdash; Independence Eve</p>
+            <ul class="space-y-1 ml-4">
+              <li>&bull; Morning / Afternoon: Great American State Fair on the National Mall (free, allow 3&ndash;5 hours)</li>
+              <li>&bull; Late Afternoon: Return to hotel, change into black tie</li>
+              <li>&bull; 7 PM or 9 PM: The Official Countdown 250 Ball at the Washington Hilton</li>
+              <li>&bull; Midnight: The Ball&rsquo;s signature countdown to America&rsquo;s 250th year</li>
+              <li>&bull; 1 AM: Concierge-coordinated departure (Statesman&rsquo;s tier)</li>
+            </ul>
+          </div>
+          <div class="bg-cream rounded-xl p-6 border-l-4 border-red">
+            <p class="text-navy font-bold mb-1">Saturday, July 4 &mdash; America&rsquo;s 250th Birthday</p>
+            <ul class="space-y-1 ml-4">
+              <li>&bull; Morning: Declaration of Independence reading at the National Archives</li>
+              <li>&bull; Midday: National Independence Day Parade on Constitution Avenue</li>
+              <li>&bull; Afternoon: Return to Great American State Fair (extended hours to midnight)</li>
+              <li>&bull; Dusk: Salute to America fireworks on the National Mall</li>
+            </ul>
+          </div>
+          <div class="bg-cream rounded-xl p-6 border-l-4 border-gold">
+            <p class="text-navy font-bold mb-1">Sunday, July 5 &mdash; Recovery &amp; Exploration</p>
+            <ul class="space-y-1 ml-4">
+              <li>&bull; Smithsonian museums, Arlington Cemetery, Capitol tours</li>
+              <li>&bull; Last day of Great American State Fair (if staying through July 10, longer window available)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-10 p-6 bg-navy/5 rounded-xl text-sm text-slate/60 leading-relaxed">
+          <p class="mb-2"><strong class="text-navy">Pro tip:</strong> The July 3 evening pairing of the State Fair (day) and the Countdown 250 Ball (night) is the single most concentrated way to experience America&rsquo;s 250th anniversary. The Ball ends at 1 AM, leaving you rested for July 4 parades and fireworks.</p>
+          <p><strong class="text-navy">Book early:</strong> Hotel availability around the National Mall for July 3&ndash;5 is already extremely limited. Countdown 250 Ball tickets increase in price waves as the event approaches.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-navy text-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">Independence Eve at the Washington Hilton</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6 font-heading">Lock In July 3 Before Prices Increase</h2>
+        <div class="w-16 h-1 bg-red mx-auto mb-10"></div>
+
+        <p class="text-white/80 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
+          The single night that ties the entire week together. 3,000 guests. Black tie. Midnight countdown.
+          Three blocks from the Mall. Tickets from $225.
+        </p>
+
+        <a href={ticketUrl} class="eventbrite-checkout inline-block bg-red hover:bg-red-light text-white px-10 py-4 text-base font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5">
+          Get Countdown 250 Tickets
+        </a>
+        <p class="text-white/40 text-sm mt-4">Early pricing. Lock in today.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">Frequently Asked</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-navy mb-6 font-heading">America 250 DC Trip Questions</h2>
+          <div class="w-16 h-1 bg-red mx-auto"></div>
+        </div>
+
+        <div class="space-y-4">
+          {faqs.map(({ q, a }) => (
+            <div class="bg-cream rounded-xl p-6">
+              <h3 class="text-lg font-bold text-navy mb-2 font-heading">{q}</h3>
+              <p class="text-slate/70 leading-relaxed">{a}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-12 p-6 bg-navy/5 rounded-xl text-sm text-slate/60 leading-relaxed">
+          <p>
+            <strong class="text-navy">Disclaimer:</strong> The Official Countdown 250 Ball is an independently
+            produced celebration honoring America&rsquo;s 250th anniversary. It is not affiliated with, endorsed
+            by, or an official event of the U.S. Semiquincentennial Commission, the America250 Foundation,
+            Freedom 250, the Great American State Fair, UFC, INDYCAR, Monumental Sports &amp; Entertainment,
+            or any other event listed in this guide. References to those events are made for informational
+            and contextual purposes only.
+          </p>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="/" class="inline-block bg-white border-2 border-navy text-navy hover:bg-navy hover:text-white px-8 py-3 text-sm font-semibold tracking-wider uppercase transition-all rounded hover:-translate-y-0.5">
+            Explore the Full Event
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Structured Data for SEO -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(({ q, a }) => ({
+        "@type": "Question",
+        "name": q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": a
+        }
+      }))
+    })} />
+  </main>
+  <Footer />
+</BaseLayout>
