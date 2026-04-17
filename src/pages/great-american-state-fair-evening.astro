@@ -1,0 +1,279 @@
+---
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
+
+const faqs = [
+  {
+    q: "What is the Great American State Fair?",
+    a: "The Great American State Fair is a 16-day festival on the National Mall in Washington, D.C., celebrating America's 250th anniversary. Running from June 25 to July 10/11, 2026, it features all 50 states, territories, and federal agencies showcasing food, culture, and heritage, with a peak celebration on July 4 including a keynote from President Trump and what organizers describe as the largest pyrotechnics display in world history. Admission is free."
+  },
+  {
+    q: "Is the Countdown 250 Ball part of the Great American State Fair?",
+    a: "The Countdown 250 Ball is an independently produced black-tie gala held during Great American State Fair week at the historic Washington Hilton, three blocks from the National Mall. It is designed as the formal evening complement to the Fair's daytime programming on Independence Eve, July 3, 2026. The Ball is not affiliated with or endorsed by Freedom 250 or the U.S. Semiquincentennial Commission."
+  },
+  {
+    q: "When is the Ball relative to the Fair?",
+    a: "The Great American State Fair runs June 25 through July 10/11 on the National Mall. The Countdown 250 Ball takes place the evening of Friday, July 3, 2026 — Independence Eve — at the Washington Hilton. Most Fair guests will close out the Mall by late afternoon, leaving the evening open for the formal celebration nearby."
+  },
+  {
+    q: "How far is the Washington Hilton from the National Mall?",
+    a: "The Washington Hilton is at 1919 Connecticut Avenue NW, roughly three blocks north of the National Mall's western end. Easy walk, short cab ride, or a quick Metro hop from the Fair grounds."
+  },
+  {
+    q: "What is the dress code?",
+    a: "Black tie or formal. This is a premier ballroom gala with presidents, dignitaries, and distinguished guests in attendance."
+  },
+  {
+    q: "What's included with a ticket?",
+    a: "All tickets include full ball access, six party zones, four entertainment stages, premium open bars, culinary stations, the All-American Hero Lifetime Achievement Awards ceremony, and the signature midnight countdown marking the exact moment America enters its 250th year. Higher tiers include VIP reception, reserved seating, concierge service, and more."
+  },
+  {
+    q: "Can I attend both the Fair and the Ball on July 3?",
+    a: "Yes. The Fair runs daytime to evening. The Ball begins at 7 PM (VIP reception) or 9 PM (general entry). Most guests plan the Fair for afternoon, return to their hotel or residence to change into formal attire, and arrive at the Washington Hilton by 7 or 9 PM for the evening."
+  },
+  {
+    q: "Are tickets limited?",
+    a: "Yes. Capacity is 3,000 guests across all tiers, and the Statesman's Concierge Pass is limited to 200 seats. Prices increase in waves as the event approaches."
+  }
+];
+---
+
+<BaseLayout
+  title="Great American State Fair Evening Events | The Official Countdown 250 Ball | July 3, 2026 Washington DC"
+  description="Planning your trip around the Great American State Fair? Join the formal evening finale on Independence Eve — July 3, 2026 at the historic Washington Hilton. Black-tie gala, midnight countdown to America's 250th year. Get tickets."
+  ogImage="/images/event/ballroom-crowd.jpg"
+>
+  <Navbar />
+  <main>
+    <!-- Hero -->
+    <section class="relative pt-32 pb-20 bg-navy text-white overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-navy-dark/90 to-navy"></div>
+      <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">Great American State Fair Week</p>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 font-heading leading-tight">
+          The Formal Evening Finale of Great American State Fair Week
+        </h1>
+        <p class="text-xl sm:text-2xl text-white/85 mb-8 max-w-3xl mx-auto leading-relaxed">
+          While the Great American State Fair celebrates America&rsquo;s 250th by day on the National Mall,
+          The Official Countdown 250 Ball delivers the black-tie evening finale &mdash; July 3, 2026, at the historic Washington Hilton.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href={ticketUrl} class="eventbrite-checkout inline-block bg-red hover:bg-red-light text-white px-10 py-4 text-base font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5">
+            Get Tickets
+          </a>
+          <a href="#pairing" class="inline-block border-2 border-white/40 hover:border-white text-white px-10 py-4 text-base font-semibold tracking-wider uppercase transition-all rounded">
+            How They Pair
+          </a>
+        </div>
+        <div class="w-20 h-1 bg-red mx-auto mt-10"></div>
+      </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="py-20 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="text-slate/70 text-lg leading-relaxed space-y-6">
+          <p>
+            The Great American State Fair is the centerpiece daytime celebration of America&rsquo;s 250th anniversary &mdash;
+            a 16-day festival on the National Mall running June 25 through July 10, 2026, bringing all 50 states,
+            territories, and federal agencies to Washington, D.C. Millions of visitors are expected.
+          </p>
+          <p>
+            The Countdown 250 Ball is built for the evening of Independence Eve. Three blocks from the Mall, at the
+            historic Washington Hilton, 3,000 guests will gather for a black-tie celebration that ends with a midnight
+            countdown to the exact instant America enters its 250th year.
+          </p>
+          <p class="font-semibold text-navy text-xl">
+            By day, the Fair. By night, the Ball.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pairing -->
+    <section id="pairing" class="py-20 bg-cream">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-16">
+          <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">The Perfect Pairing</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-navy mb-6 font-heading">One Day. Two Once-in-a-Generation Experiences.</h2>
+          <div class="w-16 h-1 bg-red mx-auto"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- GASF column -->
+          <div class="bg-white rounded-2xl p-8 sm:p-10 shadow-sm">
+            <p class="text-gold font-medium tracking-[0.15em] uppercase text-xs mb-3">Daytime</p>
+            <h3 class="text-2xl font-bold text-navy mb-4 font-heading">Great American State Fair</h3>
+            <ul class="text-slate/70 space-y-3 text-base leading-relaxed">
+              <li class="flex gap-3"><span class="text-red font-bold">&bull;</span><span>National Mall, 4th to 14th Street</span></li>
+              <li class="flex gap-3"><span class="text-red font-bold">&bull;</span><span>10 AM &ndash; late evening (extended July 4 until midnight)</span></li>
+              <li class="flex gap-3"><span class="text-red font-bold">&bull;</span><span>All 50 states, territories &amp; federal agencies</span></li>
+              <li class="flex gap-3"><span class="text-red font-bold">&bull;</span><span>Ferris wheel, Smithsonian National Carousel, hands-on pavilions</span></li>
+              <li class="flex gap-3"><span class="text-red font-bold">&bull;</span><span>Free admission (advance registration encouraged)</span></li>
+              <li class="flex gap-3"><span class="text-red font-bold">&bull;</span><span>Family-friendly, educational, open-air</span></li>
+            </ul>
+          </div>
+          <!-- Ball column -->
+          <div class="bg-navy text-white rounded-2xl p-8 sm:p-10 shadow-lg">
+            <p class="text-gold font-medium tracking-[0.15em] uppercase text-xs mb-3">Evening of July 3</p>
+            <h3 class="text-2xl font-bold text-white mb-4 font-heading">The Official Countdown 250 Ball</h3>
+            <ul class="text-white/80 space-y-3 text-base leading-relaxed">
+              <li class="flex gap-3"><span class="text-gold font-bold">&bull;</span><span>Washington Hilton, 3 blocks from the Mall</span></li>
+              <li class="flex gap-3"><span class="text-gold font-bold">&bull;</span><span>7 PM &ndash; 1 AM (VIP reception starts 7 PM)</span></li>
+              <li class="flex gap-3"><span class="text-gold font-bold">&bull;</span><span>3,000 guests, black-tie formal</span></li>
+              <li class="flex gap-3"><span class="text-gold font-bold">&bull;</span><span>6 party zones, 4 entertainment stages, premium open bars</span></li>
+              <li class="flex gap-3"><span class="text-gold font-bold">&bull;</span><span>Midnight countdown to America&rsquo;s 250th year</span></li>
+              <li class="flex gap-3"><span class="text-gold font-bold">&bull;</span><span>Tickets from $225 to $18,500</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <p class="text-slate/70 text-lg max-w-2xl mx-auto">
+            Arrive at the Fair in the afternoon. Return to your hotel by 5 PM. Black-tie at the Washington Hilton by 7 or 9 PM.
+            Midnight countdown. Home by 1 AM. July 4 parade and Mall fireworks the next day.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why July 3 -->
+    <section class="py-20 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">Why July 3</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-navy mb-6 font-heading">Independence Eve. The One Night That Matters.</h2>
+          <div class="w-16 h-1 bg-red mx-auto"></div>
+        </div>
+        <div class="text-slate/70 text-lg leading-relaxed space-y-6">
+          <p>
+            The Great American State Fair will run for 16 days. The Countdown 250 Ball happens once &mdash; on the eve of
+            America turning 250. At the stroke of midnight, the nation enters its third century.
+          </p>
+          <p>
+            There is exactly one formal black-tie gala in Washington, D.C. timed to that moment. The Countdown 250 Ball.
+            3,000 seats. Once in a generation. Every guest will walk out of the Washington Hilton with the greatest
+            memories of their lives.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Logistics -->
+    <section class="py-20 bg-navy text-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">Plan Your Evening</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6 font-heading">Getting There &amp; What to Expect</h2>
+          <div class="w-16 h-1 bg-red mx-auto"></div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="bg-navy-dark/40 rounded-xl p-6 border border-white/10">
+            <h3 class="text-lg font-bold text-gold mb-2">Venue</h3>
+            <p class="text-white/80 text-sm leading-relaxed">Washington Hilton, 1919 Connecticut Ave NW, Washington, D.C. 20009. Historic site of presidential galas and the White House Correspondents&rsquo; Dinner.</p>
+          </div>
+          <div class="bg-navy-dark/40 rounded-xl p-6 border border-white/10">
+            <h3 class="text-lg font-bold text-gold mb-2">From the Fair</h3>
+            <p class="text-white/80 text-sm leading-relaxed">Roughly three blocks north of the National Mall&rsquo;s western end. Short cab, quick Metro, or walkable in comfortable shoes.</p>
+          </div>
+          <div class="bg-navy-dark/40 rounded-xl p-6 border border-white/10">
+            <h3 class="text-lg font-bold text-gold mb-2">Dress Code</h3>
+            <p class="text-white/80 text-sm leading-relaxed">Black tie or formal. This is a premier ballroom gala.</p>
+          </div>
+          <div class="bg-navy-dark/40 rounded-xl p-6 border border-white/10">
+            <h3 class="text-lg font-bold text-gold mb-2">Timing</h3>
+            <p class="text-white/80 text-sm leading-relaxed">VIP reception 7&ndash;9 PM. General ball access from 9 PM. Midnight countdown. Event ends at 1 AM.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tickets CTA -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">Reserve Your Evening</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-navy mb-6 font-heading">Three Ways to Celebrate the 250th</h2>
+        <div class="w-16 h-1 bg-red mx-auto mb-10"></div>
+
+        <div class="grid sm:grid-cols-3 gap-6 mb-10 text-left">
+          <div class="bg-white rounded-xl p-6">
+            <h3 class="text-lg font-bold text-navy mb-2">Liberty Ticket</h3>
+            <p class="text-2xl font-bold text-red mb-2">$225</p>
+            <p class="text-slate/60 text-sm">Full ball access, 9 PM &ndash; 1 AM.</p>
+          </div>
+          <div class="bg-white rounded-xl p-6 border-2 border-gold">
+            <h3 class="text-lg font-bold text-navy mb-2">Patriot VIP</h3>
+            <p class="text-2xl font-bold text-red mb-2">$450</p>
+            <p class="text-slate/60 text-sm">VIP reception 7&ndash;9 PM + full ball.</p>
+          </div>
+          <div class="bg-navy text-white rounded-xl p-6">
+            <h3 class="text-lg font-bold text-gold mb-2">Statesman&rsquo;s Concierge</h3>
+            <p class="text-2xl font-bold text-white mb-2">$1,700</p>
+            <p class="text-white/70 text-sm">Reserved Presidential Stage seating. Limited to 200 seats.</p>
+          </div>
+        </div>
+
+        <a href={ticketUrl} class="eventbrite-checkout inline-block bg-red hover:bg-red-light text-white px-10 py-4 text-base font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5">
+          Get Tickets on Eventbrite
+        </a>
+        <p class="text-slate/50 text-sm mt-4">Prices increase in waves. Lock in today.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">Frequently Asked</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-navy mb-6 font-heading">State Fair Week Questions</h2>
+          <div class="w-16 h-1 bg-red mx-auto"></div>
+        </div>
+
+        <div class="space-y-6">
+          {faqs.map(({ q, a }) => (
+            <div class="bg-cream rounded-xl p-6">
+              <h3 class="text-lg font-bold text-navy mb-3 font-heading">{q}</h3>
+              <p class="text-slate/70 leading-relaxed">{a}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-12 p-6 bg-navy/5 rounded-xl text-sm text-slate/60 leading-relaxed">
+          <p>
+            <strong class="text-navy">Disclaimer:</strong> The Countdown 250 Ball is an independently produced
+            celebration honoring America&rsquo;s 250th anniversary. It is not affiliated with, endorsed by, or
+            an official event of the Great American State Fair, Freedom 250, the U.S. Semiquincentennial
+            Commission, or the America250 Foundation. All references to those events are made for informational
+            and contextual purposes only.
+          </p>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="/" class="inline-block bg-white border-2 border-navy text-navy hover:bg-navy hover:text-white px-8 py-3 text-sm font-semibold tracking-wider uppercase transition-all rounded hover:-translate-y-0.5">
+            Explore the Full Event
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Structured Data for SEO -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(({ q, a }) => ({
+        "@type": "Question",
+        "name": q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": a
+        }
+      }))
+    })} />
+  </main>
+  <Footer />
+</BaseLayout>
