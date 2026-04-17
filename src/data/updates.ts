@@ -22,7 +22,7 @@ export const updates: Update[] = [
     date: "2026-03-30",
     headline: "Tickets Are Moving — Early Pricing Won't Last Long",
     slug: "tickets-moving-early-pricing",
-    body: "Initial ticket sales are well ahead of pace, and the early response has been incredible. If you've been on the fence, now is the time — early release pricing is the lowest it will ever be, and prices are going up soon. Liberty tickets are $195, Patriot VIP is $395, and the Statesman's Concierge Pass is $1,495. Once the price increase hits, it's gone for good. Grab your spot before that happens.",
+    body: "Initial ticket sales are well ahead of pace, and the early response has been incredible. If you've been on the fence, now is the time — early release pricing is the lowest it will ever be, and prices are going up soon. Liberty tickets start at $225, Patriot VIP at $450, and the Statesman's Concierge Pass at $1,700. Once the next price increase hits, it's gone for good. Grab your spot before that happens.",
   },
   {
     date: "2026-03-26",
@@ -34,7 +34,7 @@ export const updates: Update[] = [
     date: "2026-03-20",
     headline: "Early Release Tickets Now Available",
     slug: "early-release-tickets",
-    body: "Early release pricing is now live for the All-American Countdown 250 Ball. Lock in the lowest prices before they increase. Liberty tickets start at $195, Patriot VIP at $395, and Statesman Concierge at $1,495. Prices will rise as the event approaches, so secure your spot today.",
+    body: "Early release pricing is live for The Official Countdown 250 Ball. Lock in the current rates before the next wave of increases. Liberty tickets at $225, Patriot VIP at $450, and Statesman's Concierge at $1,700 (limited to 200 seats). Prices rise as the event approaches, so secure your spot today.",
   },
   {
     date: "2026-03-10",
