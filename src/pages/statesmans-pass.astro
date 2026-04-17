@@ -3,9 +3,50 @@ import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+
+const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
+
+const faqs = [
+  {
+    q: "Who typically buys the Statesman's Concierge Pass?",
+    a: "DC business leaders, political and civic figures, senior military officers, government contractors, legal and consulting partners, lobbyists, veteran community leaders, and out-of-town attendees who expect premium service. The pass is designed for buyers who value signaling, access, and concierge-level care over ticket price."
+  },
+  {
+    q: "How is the Statesman's Concierge Pass different from the Patriot VIP tier?",
+    a: "Patriot VIP ($450) includes the VIP reception dinner and ballroom access. Statesman's ($1,700) adds reserved Presidential Stage seating, a dedicated personal concierge for the evening, a private VIP entrance and photographer, premium fine dining, backstage access, and recognition in the official event program."
+  },
+  {
+    q: "Is the $1,700 price final, or will it increase?",
+    a: "Current pricing is early-release. The Statesman's Concierge Pass is limited to 200 guests total across the entire event. Prices increase as the event approaches and as inventory decreases. Buyers who lock in early receive the best rate and are typically recognized with preferential seat selection."
+  },
+  {
+    q: "Can I buy multiple Statesman's passes for a group or company?",
+    a: "Yes. Companies often purchase 2, 4, 6, or 10 passes for client entertainment, senior executive teams, board members, or guest-of-honor parties. For groups of 6 or more, the Founders Host Package ($12,500 for 3 passes) and Presidential Host Package ($18,500 for 4 passes) include additional recognition and private tours. Contact us for group coordination."
+  },
+  {
+    q: "Is the charitable component tax-deductible?",
+    a: "The Countdown 250 Ball's charity partner is Operation Renewed Hope Foundation, which provides housing for U.S. veterans. Ticket purchases are not direct charitable contributions — they are event admission. However, if you or your company would like to structure a philanthropic component alongside your ticket purchase, contact us to coordinate directly with the foundation."
+  },
+  {
+    q: "What should I wear?",
+    a: "Black tie or formal. Tuxedo or dark suit for men, evening gown or sophisticated formal wear for women. Military dress uniforms are welcome and respected."
+  },
+  {
+    q: "Can I purchase directly on Eventbrite, or do I need to use the inquiry form?",
+    a: "Both options are live. Many guests purchase directly on Eventbrite and request specific concierge preferences afterward (arrival time, seating, dietary needs). Others prefer to speak with our VIP team first via the inquiry form — especially for groups of 4+, complex logistics, or when coordinating with a corporate travel office. Use whichever fits your style."
+  },
+  {
+    q: "What happens after I purchase?",
+    a: "You'll receive immediate Eventbrite confirmation. Within 48 hours, a member of our VIP concierge team contacts you personally to arrange arrival details, seating placement, dietary requirements, photography preferences, and any special requests for the evening."
+  }
+];
 ---
 
-<BaseLayout title="Statesman's Concierge Experience | Countdown 250 Ball" description="The ultimate black-tie experience. Reserved Presidential Stage seating, private VIP entrance, dedicated concierge, and backstage access at the Countdown 250 Ball." ogImage="/images/event/statesman-vip-dinner.png">
+<BaseLayout
+  title="Statesman's Concierge Pass — $1,700 Premium VIP Tickets | The Official Countdown 250 Ball | Washington D.C. July 3, 2026"
+  description="The premier VIP experience at America's 250th anniversary black-tie gala. Reserved Presidential Stage seating, dedicated concierge, private VIP entrance, backstage access, premium fine dining. Washington Hilton, July 3, 2026. Limited to 200 guests."
+  ogImage="/images/event/statesman-vip-dinner.png"
+>
   <Navbar />
 
   <!-- Hero -->
@@ -14,13 +55,46 @@ import Footer from '../components/Footer.astro';
       <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, rgba(197,164,78,0.3) 0%, transparent 70%);"></div>
     </div>
     <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
-      <p class="text-gold font-medium tracking-[0.3em] uppercase text-sm mb-4">By Invitation & Inquiry</p>
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 font-heading">The Statesman's<br/>Concierge Experience</h1>
+      <p class="text-gold font-medium tracking-[0.3em] uppercase text-sm mb-4">July 3, 2026 &middot; Washington Hilton</p>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 font-heading">The Statesman&rsquo;s<br/>Concierge Pass</h1>
       <div class="w-24 h-0.5 bg-gold mx-auto mb-8"></div>
-      <p class="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed">
-        The pinnacle of the Countdown 250 Ball. An evening of unmatched elegance, access, and personal service reserved for a select few.
+      <p class="text-white/80 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
+        The premier VIP experience at America&rsquo;s 250th anniversary black-tie gala.
+        Reserved Presidential Stage seating, dedicated personal concierge, private VIP entrance,
+        backstage access. Limited to 200 guests.
       </p>
-      <p class="text-gold text-3xl font-bold mt-8">$1,700 <span class="text-white/50 text-base font-normal">per guest</span></p>
+      <p class="text-gold text-3xl font-bold mt-8">$1,700 <span class="text-white/50 text-base font-normal">per guest &middot; early release pricing</span></p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
+        <a href={ticketUrl} class="eventbrite-checkout inline-block bg-red hover:bg-red-light text-white px-10 py-4 text-base font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5">
+          Buy on Eventbrite
+        </a>
+        <a href="#inquiry" class="inline-block border-2 border-gold/60 hover:border-gold text-gold px-10 py-4 text-base font-semibold tracking-wider uppercase transition-all rounded">
+          Request Concierge Service
+        </a>
+      </div>
+      <p class="text-white/40 text-sm mt-4 max-w-xl mx-auto">
+        Buy directly to lock in current pricing and your concierge will follow up within 48 hours. Prefer to speak first? Use the inquiry form below.
+      </p>
+    </div>
+  </section>
+
+  <!-- Who this is for -->
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="text-slate/70 text-lg leading-relaxed space-y-6">
+        <p>
+          The Statesman&rsquo;s Concierge Pass is built for the guests whose evening demands more than a seat.
+          DC business leaders. Senior military officers. Political and civic figures. Defense, legal, and consulting
+          partners. Government contractors hosting clients. Out-of-town travelers who expect premium service from
+          arrival to encore.
+        </p>
+        <p>
+          On the eve of America&rsquo;s 250th birthday, 3,000 guests will gather at the historic Washington Hilton.
+          Two hundred of them will do so in the Statesman&rsquo;s tier &mdash; the room within the room, with the access,
+          the seating, and the personal care that turns a remarkable evening into a career-defining one.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -88,14 +162,80 @@ import Footer from '../components/Footer.astro';
     </div>
   </section>
 
+  <!-- Evening timeline -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">The Evening</p>
+        <h2 class="text-2xl sm:text-3xl font-bold text-navy mb-4 font-heading">Your Statesman&rsquo;s Evening, Hour by Hour</h2>
+        <div class="w-16 h-0.5 bg-gold mx-auto"></div>
+      </div>
+      <div class="space-y-6 text-slate/70 text-base leading-relaxed">
+        <div class="bg-white rounded-xl p-6 border-l-4 border-gold">
+          <p class="text-navy font-bold mb-1">6:45 PM &mdash; Private Arrival</p>
+          <p>Private VIP entrance, separate from the main 9 PM general entry. Expedited check-in. Red carpet welcome. Dedicated concierge meets you at arrival.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border-l-4 border-gold">
+          <p class="text-navy font-bold mb-1">7:00 PM &mdash; VIP Reception</p>
+          <p>Champagne reception with fellow Statesman&rsquo;s guests and select dignitaries. Hors d&rsquo;oeuvres, photo opportunities, and brief mingling in a private reception space.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border-l-4 border-gold">
+          <p class="text-navy font-bold mb-1">7:45 PM &mdash; Premium Fine Dining</p>
+          <p>Multi-course plated dinner at your reserved Presidential Stage table. Premium wines throughout. All dietary requirements accommodated on request.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border-l-4 border-gold">
+          <p class="text-navy font-bold mb-1">9:00 PM &mdash; Ball Opens, All-American Hero Awards</p>
+          <p>Main ball doors open. You remain at your reserved table on the Presidential Stage &mdash; the best sightlines for the All-American Hero Lifetime Achievement Awards ceremony and evening entertainment.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border-l-4 border-gold">
+          <p class="text-navy font-bold mb-1">10:30 PM &mdash; Backstage Access</p>
+          <p>Meet performers, explore exclusive backstage areas, and enjoy private lounges reserved for Statesman&rsquo;s guests.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border-l-4 border-red">
+          <p class="text-navy font-bold mb-1">12:00 AM &mdash; Midnight Countdown</p>
+          <p>The moment America enters its 250th year. Your reserved Presidential Stage seating places you at the heart of the spectacle &mdash; the best view in the ballroom of the multi-sensory countdown production.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border-l-4 border-gold">
+          <p class="text-navy font-bold mb-1">1:00 AM &mdash; Departure</p>
+          <p>Concierge-coordinated departure. Commemorative gift presented. Professional photography available for pickup within 48 hours.</p>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <a href={ticketUrl} class="eventbrite-checkout inline-block bg-red hover:bg-red-light text-white px-10 py-4 text-base font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5">
+          Secure Your Statesman&rsquo;s Pass &mdash; $1,700
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">Frequently Asked</p>
+        <h2 class="text-2xl sm:text-3xl font-bold text-navy mb-4 font-heading">Premium Buyer Questions</h2>
+        <div class="w-16 h-0.5 bg-gold mx-auto"></div>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map(({ q, a }) => (
+          <div class="bg-cream rounded-xl p-6">
+            <h3 class="text-lg font-bold text-navy mb-2 font-heading">{q}</h3>
+            <p class="text-slate/70 leading-relaxed">{a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- Inquiry Form -->
-  <section class="py-20 bg-navy-dark">
+  <section id="inquiry" class="py-20 bg-navy-dark">
     <div class="max-w-2xl mx-auto px-4">
       <div class="text-center mb-12">
-        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4 font-heading">Request Your Invitation</h2>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4 font-heading">Request Concierge Service</h2>
         <div class="w-16 h-0.5 bg-gold mx-auto mb-6"></div>
         <p class="text-white/60">
-          Complete the form below and a member of our VIP concierge team will contact you within 24 hours to arrange every detail of your evening.
+          Prefer to speak with our VIP team before purchasing? Complete the form below and a member of our concierge team will contact you within 24 hours to arrange every detail. For immediate purchase, use the Eventbrite button at the top of this page.
         </p>
       </div>
 
@@ -162,6 +302,20 @@ import Footer from '../components/Footer.astro';
       </div>
     </div>
   </section>
+
+  <!-- FAQ Structured Data for SEO -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(({ q, a }) => ({
+      "@type": "Question",
+      "name": q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": a
+      }
+    }))
+  })} />
 
   <Footer />
 </BaseLayout>
