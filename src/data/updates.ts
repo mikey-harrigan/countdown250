@@ -7,6 +7,12 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    date: "2026-04-16",
+    headline: "Great American State Fair on National Mall — Plan Your DC Independence Eve",
+    slug: "great-american-state-fair-evening-finale",
+    body: "Freedom 250 has announced the Great American State Fair, a 16-day celebration running June 25 through July 10, 2026 on the National Mall. All 50 states, territories, and federal agencies will be represented, with the July 4 peak featuring a presidential keynote and what organizers describe as the largest pyrotechnics display in world history. The Countdown 250 Ball falls squarely within Fair week — taking place the evening of July 3 at the historic Washington Hilton, three blocks from the Mall. For visitors planning their DC 250th anniversary trip, the pairing is natural: the Fair by day, the Ball by night, the nation's 250th birthday fireworks the next morning. See our guide to State Fair Week evening plans at /great-american-state-fair-evening.",
+  },
+  {
     date: "2026-03-30",
     headline: "Tickets Are Moving — Early Pricing Won't Last Long",
     slug: "tickets-moving-early-pricing",
