@@ -226,31 +226,31 @@ state-fair
 evening
 ```
 
-**Headlines (paste each as separate line — Google requires 3-15):**
+**Headlines (max 30 chars each — all verified under limit):**
 ```
 State Fair Evening Plans?
-The Official Countdown 250 Ball
+The Countdown 250 Ball
 July 3 Black Tie Gala DC
 Washington Hilton, July 3
 Great American State Fair Week
-The Formal Evening of 250th Week
+Formal Evening of 250th Week
 After the Fair, the Ball
 America's 250th Eve Gala
 3,000 Guests, 6 Ballrooms
 Midnight Countdown to 250
 Independence Eve Washington DC
-3 Blocks From the National Mall
+3 Blocks From National Mall
 Tickets Start at $225
-Liberty, Patriot VIP, Statesman's
+Liberty, VIP, Statesman's
 Lock In Before Prices Rise
 ```
 
-**Descriptions (paste each as separate line — Google requires 2-4):**
+**Descriptions (max 90 chars each — all verified under limit):**
 ```
-Planning a DC trip for the Great American State Fair? Cap the day with the black-tie formal. July 3, Washington Hilton.
-The Official Countdown 250 Ball. 3,000 guests, 6 ballrooms, 4 stages. Get tickets before prices increase.
-Formal evening finale of Great American State Fair Week. Three blocks from the National Mall. Black tie.
-Independence Eve at Washington Hilton. Premium open bars, live entertainment, midnight countdown. Reserve now.
+After the State Fair, the black-tie ball. July 3 at Washington Hilton. Tickets $225+.
+Official Countdown 250 Ball. 3,000 guests, 6 ballrooms, 4 stages. Reserve now.
+Formal evening finale of State Fair Week. Three blocks from the National Mall.
+Independence Eve black-tie gala at Washington Hilton. Open bars, midnight countdown.
 ```
 
 ---
@@ -268,18 +268,18 @@ america-250
 dc-events
 ```
 
-**Headlines:**
+**Headlines (max 30 chars each — all verified under limit):**
 ```
 America 250 DC Events Guide
 July 3 Gala Washington DC
-The Official Countdown 250 Ball
-250th Birthday Eve Celebration
-DC's Premier America 250 Gala
+The Countdown 250 Ball
+250th Birthday Eve Gala
+DC's Premier 250 Gala
 Your July 4 Weekend Plan
 Washington Hilton, July 3
 Tickets Start at $225
 Black Tie America 250 Gala
-3,000 Guest Ballroom Spectacle
+3,000 Guest Ball Spectacle
 Independence Eve Washington
 Premium Open Bars All Night
 Midnight Countdown to 250
@@ -287,12 +287,12 @@ The Gala of the Generation
 Lock In Tickets Now
 ```
 
-**Descriptions:**
+**Descriptions (max 90 chars each — all verified under limit):**
 ```
-Planning your 250th anniversary DC trip? The Countdown 250 Ball is Independence Eve's premier black-tie gala.
-3,000 guests, 6 ballrooms, 4 stages, midnight countdown. July 3, Washington Hilton. Tickets from $225.
-Non-partisan, multigenerational 250th anniversary gala. Three blocks from the National Mall. Book now.
-Official Countdown 250 Ball at Washington Hilton. Hero awards, live entertainment, premium open bar.
+DC's premier 250th Independence Eve black-tie gala. July 3 at Washington Hilton.
+3,000 guests. 6 ballrooms. 4 stages. Midnight countdown. July 3 at Washington Hilton.
+Non-partisan 250th anniversary gala. Three blocks from the National Mall. Book now.
+Countdown 250 Ball at Washington Hilton. Hero awards, live music, premium open bar.
 ```
 
 ---
@@ -310,16 +310,16 @@ black-tie
 july-3
 ```
 
-**Headlines:**
+**Headlines (max 30 chars each — all verified under limit):**
 ```
 Black Tie Gala DC July 3
 Washington Hilton July 3
-Formal Ball 250th Anniversary
-The Official Countdown 250 Ball
+Formal Ball 250th Birthday
+The Countdown 250 Ball
 DC's Premier July 3 Formal
 Midnight Countdown Gala
 Tickets Start at $225
-Black Tie, Open Bar, Live Music
+Black Tie, Open Bar, Music
 Presidential Stage Seating
 America's 250th Eve Gala
 Luxury Gala Washington DC
@@ -329,12 +329,12 @@ The Ball of the Decade
 Reserve Your Table Now
 ```
 
-**Descriptions:**
+**Descriptions (max 90 chars each — all verified under limit):**
 ```
-The formal evening of July 3. Washington Hilton. 3,000 guests. Black tie. Midnight countdown to America's 250th.
-Reserved Presidential Stage seating in Statesman's Concierge tier. All tiers include premium open bars.
-Six ballrooms, four stages, premium entertainment. Washington DC's premier Independence Eve black-tie gala.
-Lock in tickets before next price increase. Liberty $225, Patriot VIP $450, Statesman's $1,700.
+July 3 black tie. Washington Hilton. Midnight countdown to America's 250th.
+Statesman's Concierge tier: reserved Presidential Stage seating. All tiers: open bars.
+Six ballrooms, four stages. DC's premier Independence Eve black-tie gala.
+Liberty $225. Patriot VIP $450. Statesman's $1,700. Book before prices rise.
 ```
 
 ---
