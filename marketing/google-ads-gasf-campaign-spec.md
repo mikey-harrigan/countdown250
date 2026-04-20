@@ -1,66 +1,166 @@
-# Google Ads Campaign Spec — Great American State Fair
+# GASF Google Ads Campaign — Launch Playbook
 
-## Context
-Great American State Fair was announced Apr 14, 2026. Search volume is live and rising as more news cycles hit (expected again at: UFC Freedom 250 / June 14, fair opening / June 25, July 3 events, etc.). We want to capture high-intent "Great American State Fair" searches with paid ads that point to the GASF landing page.
+**Last updated: 2026-04-20**
+**Status: Ready to launch**
+**Execution time: ~30-40 min**
 
-## Campaign name
-`Countdown 250 – GASF Search`
+---
 
-## Campaign type
-Search (text ads only, no display)
+## 🛑 BEFORE YOU LAUNCH — Do these first (10 min)
 
-## Daily budget (recommended start)
-**$30/day for 7 days to calibrate, then adjust.** Reasoning:
-- Tracking is broken on existing campaigns, so budget small until fixed
-- $30 × 7 = $210 test budget
-- If CPC averages $1–2, this gives 100–200 clicks to learn
+### 1. Fix the NYC Ball Drop bleed
+NYC Ball Drop is currently at **$200/day with 0 tracked conversions over 30 days** ($5,084 spent). Don't stack a new campaign on top.
 
-## Location targeting
-- **Primary:** Washington D.C., Maryland (state), Virginia (state)
-- **Secondary:** All 50 states + DC (national tier — since the Fair will draw national visitors)
-- Start with primary only. Add secondary if conversion data supports it.
+**Decide one:**
+- **Option A (recommended):** Cut NYC Ball Drop to **$50/day** so we can see if pixel-enabled conversions come in now (pixels went live Apr 19)
+- **Option B:** Pause NYC Ball Drop entirely while GASF launches
+- **Option C:** Leave NYC Ball Drop alone — accept $200/day burn continues
 
-## Audience signals (optional, nice-to-have)
-- In-market for travel / events
-- Affinity: Patriotism enthusiasts, news junkies, event planners
-- Age: 35–65, skew wealthy households
+My vote: A. Gives it one more week with real conversion tracking before killing it.
 
-## Ad schedule
-- All day, all week to start
-- Review after 7 days — may need to concentrate on evening hours if sales data matches the Apr 15 evening-skew pattern
+### 2. Verify Google Ads conversion action is actually active
+Google Ads → Goals → Conversions. Look at the **"Purchase"** conversion action:
+- Status should say **"Recording conversions"** or similar — NOT "No recent conversions" (that was the old broken state)
+- "Count" setting should be **"One"** for purchases (not "Every")
+- Conversion window: **30 days** click / **1 day** view
 
-## Landing page
-https://countdown250.allamericanball.com/great-american-state-fair-evening
+If it still says "Needs attention" — stop and tell me. The pixel is on Eventbrite but Google Ads might not be receiving events yet. We'll troubleshoot before launching.
 
-## Ad group 1: `GASF Brand Match`
-**Keywords (exact + phrase match):**
+### 3. Confirm Visa ••••4884 isn't flagged
+Overnight briefing flagged Meta had a payment error and Google Ads may have similar card issues. Log into Google Ads → Billing & payments → make sure no warnings. $30/day × 7 days = $210 hold.
+
+---
+
+## 🎯 CAMPAIGN CONFIG — Step by step
+
+Open Google Ads. Top left: **Create → New campaign**.
+
+### Step 1 — Goal
+- Select **"Create a campaign without a goal's guidance"** (NOT Sales/Leads/Traffic — those add features we don't want)
+- Click Continue
+
+### Step 2 — Campaign type
+- Select **Search**
+- Click Continue
+
+### Step 3 — Conversion goals
+- Click **"Use account-level goals"**
+- Make sure "Purchase" is the ONLY included goal
+- If other goals are listed (Page views, Engagement), click each and remove them from this campaign
+- Click Continue
+
+### Step 4 — Campaign name
 ```
+Countdown 250 - GASF Search
+```
+
+### Step 5 — Bidding
+- **Bid strategy:** Manual CPC with Enhanced CPC **(NOT auto-bidding)**
+- Reason: We have 0 conversion history for this campaign. Auto-bidding has nothing to learn from. Manual CPC gives you price control.
+- Set max CPC: **$3.00** (adjust down after first week of data)
+
+### Step 6 — Networks
+- ✅ Google Search
+- ❌ Uncheck Search Partners
+- ❌ Uncheck Display Network
+
+### Step 7 — Locations
+- **Target: Washington D.C., Maryland, Virginia**
+- Click "Location options" → select **"Presence: People in or regularly in your targeted locations"** (NOT "People interested in")
+
+### Step 8 — Languages
+- English only
+
+### Step 9 — Audience (optional but helpful)
+Under **Audience segments**, add as "Observation" (not Targeting):
+- In-market → Event Tickets
+- In-market → Travel / Event Planning
+- Affinity → News Junkies
+- Affinity → Travel Buffs / Luxury Travelers
+- Demographics → Household Income: **Top 10%** and **Top 11-20%**
+
+Observation mode = these don't restrict who sees your ads; they just let you analyze performance by segment later.
+
+### Step 10 — Budget
+- Daily budget: **$30**
+- Delivery method: Standard (not Accelerated)
+
+### Step 11 — Ad schedule
+- Leave all day / all week for now. Adjust after 7 days based on data.
+
+### Step 12 — Device adjustments
+- Leave at 0% for all devices initially
+
+---
+
+## 📝 AD GROUPS — Paste-ready
+
+You'll create 3 ad groups. Click **"+ New ad group"** for each.
+
+---
+
+### AD GROUP 1: GASF Brand Match
+
+**Ad group name:**
+```
+GASF Brand Match
+```
+
+**Default bid:** $2.50
+
+**Keywords** — paste this whole block into the keywords box:
+```
+[great american state fair]
 "great american state fair"
+[great american state fair dc]
 "great american state fair dc"
-"great american state fair washington"
+[great american state fair washington]
+[great american state fair 2026]
 "great american state fair 2026"
-"great american state fair tickets"
+[great american state fair tickets]
+[great american state fair events]
 "great american state fair events"
-"great american state fair july 3"
-"great american state fair july 4"
+[great american state fair july 3]
+[great american state fair july 4]
+[great american state fair evening]
 "great american state fair evening"
-"great american state fair national mall"
-"great american state fair after"
-"great american state fair schedule"
+[great american state fair national mall]
+[great american state fair after]
+[great american state fair schedule]
+[great american state fair july 2026]
 ```
 
-**Negative keywords (do not show ads for these):**
+**Negative keywords (add at campaign level too):**
 ```
 -jobs
 -vendor
+-vendors
 -exhibitor
 -volunteer
+-volunteers
 -employment
 -career
+-careers
 -hiring
+-sponsor
+-free
+-parking
+-kids
+-children
+-family
 ```
 
-## Ad group 2: `DC 250th Event Search`
+---
+
+### AD GROUP 2: DC 250th Event Search
+
+**Ad group name:**
+```
+DC 250th Event Search
+```
+
+**Default bid:** $2.00
+
 **Keywords:**
 ```
 "things to do dc july 3 2026"
@@ -75,9 +175,22 @@ https://countdown250.allamericanball.com/great-american-state-fair-evening
 "july 3 events washington"
 "dc 250th birthday events"
 "america 250 gala"
+"america 250 washington"
+"250th anniversary dc"
+"fourth of july dc 2026 events"
 ```
 
-## Ad group 3: `Black Tie DC Evening`
+---
+
+### AD GROUP 3: Black Tie DC Evening
+
+**Ad group name:**
+```
+Black Tie DC Evening
+```
+
+**Default bid:** $2.00
+
 **Keywords:**
 ```
 "black tie gala dc 2026"
@@ -87,109 +200,307 @@ https://countdown250.allamericanball.com/great-american-state-fair-evening
 "washington hilton event july 3"
 "dc evening events july 4 weekend"
 "dc formal ball 2026"
+"washington dc formal gala"
+"dc gala 2026"
+"black tie event washington dc"
 ```
 
-## Responsive Search Ads — copy
+---
 
-### Ad 1 (for Ad Group 1: GASF)
-**Final URL:** `https://countdown250.allamericanball.com/great-american-state-fair-evening?utm_source=google&utm_medium=cpc&utm_campaign=gasf&utm_content=ad1`
+## 📢 RESPONSIVE SEARCH ADS — Copy-paste blocks
 
-**Headlines (up to 15, Google rotates):**
-1. State Fair Evening Plans?
-2. The Official Countdown 250 Ball
-3. July 3 Black Tie Gala DC
-4. Washington Hilton, July 3
-5. Great American State Fair Week
-6. The Formal Evening of 250th Week
-7. After the Fair, the Ball
-8. America's 250th Eve Gala
-9. 3,000 Guests · 6 Ballrooms
-10. Midnight Countdown to 250
-11. Independence Eve Washington DC
-12. 3 Blocks From the National Mall
-13. Tickets Start at $225
-14. Liberty · Patriot VIP · Statesman's
-15. Lock In Before Prices Rise
+For each ad group, create **ONE** responsive search ad. Paste headlines and descriptions as separate lines.
 
-**Descriptions (up to 4):**
-1. Planning a DC trip for the Great American State Fair? Cap the day with the black-tie formal. July 3, Washington Hilton. Midnight countdown.
-2. The Official Countdown 250 Ball. 3,000 guests, 6 ballrooms, 4 stages. Get tickets before prices increase.
-3. Formal evening finale of Great American State Fair Week. Three blocks from the National Mall. Black tie. Tickets $225–$1,700.
-4. Independence Eve at the iconic Washington Hilton. Premium open bars, live entertainment, midnight countdown. Reserve now.
+---
 
-**Sitelinks (4):**
-- State Fair Evening Guide → `/great-american-state-fair-evening`
-- Ticket Tiers → `/#tickets`
-- Venue Info → `/#venue`
-- About the Ball → `/#about`
+### AD FOR AD GROUP 1: GASF Brand Match
 
-**Callouts (6–8):**
-- Washington Hilton
-- July 3, 2026
-- 7 PM – 1 AM
-- Black Tie Gala
-- 3,000 Guests
-- Premium Open Bars
-- Midnight Countdown
-- All-Inclusive
+**Final URL:**
+```
+https://countdown250.allamericanball.com/great-american-state-fair-evening?utm_source=google&utm_medium=cpc&utm_campaign=gasf&utm_content=brand
+```
 
-**Structured snippet:**
-- **Type:** Services
-- **Values:** VIP Reception, Reserved Seating, Premium Open Bar, Midnight Countdown, Hero Awards Ceremony, Live Entertainment
+**Display path (2 fields):**
+```
+state-fair
+evening
+```
 
-### Ad 2 (for Ad Group 2: DC 250th Event Search)
+**Headlines (paste each as separate line — Google requires 3-15):**
+```
+State Fair Evening Plans?
+The Official Countdown 250 Ball
+July 3 Black Tie Gala DC
+Washington Hilton, July 3
+Great American State Fair Week
+The Formal Evening of 250th Week
+After the Fair, the Ball
+America's 250th Eve Gala
+3,000 Guests, 6 Ballrooms
+Midnight Countdown to 250
+Independence Eve Washington DC
+3 Blocks From the National Mall
+Tickets Start at $225
+Liberty, Patriot VIP, Statesman's
+Lock In Before Prices Rise
+```
+
+**Descriptions (paste each as separate line — Google requires 2-4):**
+```
+Planning a DC trip for the Great American State Fair? Cap the day with the black-tie formal. July 3, Washington Hilton.
+The Official Countdown 250 Ball. 3,000 guests, 6 ballrooms, 4 stages. Get tickets before prices increase.
+Formal evening finale of Great American State Fair Week. Three blocks from the National Mall. Black tie.
+Independence Eve at Washington Hilton. Premium open bars, live entertainment, midnight countdown. Reserve now.
+```
+
+---
+
+### AD FOR AD GROUP 2: DC 250th Event Search
+
+**Final URL:**
+```
+https://countdown250.allamericanball.com/america-250-dc-events-guide?utm_source=google&utm_medium=cpc&utm_campaign=gasf&utm_content=dc250th
+```
+
+**Display path:**
+```
+america-250
+dc-events
+```
+
 **Headlines:**
-1. America 250 DC Events Guide
-2. July 3 Gala Washington DC
-3. The Official Countdown 250 Ball
-4. 250th Birthday Eve Celebration
-5. DC's Premier America 250 Gala
-6. July 4 Weekend Plan
-7. Washington Hilton, July 3
-8. Tickets Start at $225
-9. Black Tie America 250 Gala
-10. 3,000 Guest Ballroom Spectacle
+```
+America 250 DC Events Guide
+July 3 Gala Washington DC
+The Official Countdown 250 Ball
+250th Birthday Eve Celebration
+DC's Premier America 250 Gala
+Your July 4 Weekend Plan
+Washington Hilton, July 3
+Tickets Start at $225
+Black Tie America 250 Gala
+3,000 Guest Ballroom Spectacle
+Independence Eve Washington
+Premium Open Bars All Night
+Midnight Countdown to 250
+The Gala of the Generation
+Lock In Tickets Now
+```
 
 **Descriptions:**
-1. Planning your 250th anniversary DC trip? The Countdown 250 Ball is Independence Eve's premier black-tie gala. Lock in tickets.
-2. 3,000 guests, 6 ballrooms, 4 stages, midnight countdown. July 3, Washington Hilton. Tickets from $225. Get yours now.
+```
+Planning your 250th anniversary DC trip? The Countdown 250 Ball is Independence Eve's premier black-tie gala.
+3,000 guests, 6 ballrooms, 4 stages, midnight countdown. July 3, Washington Hilton. Tickets from $225.
+Non-partisan, multigenerational 250th anniversary gala. Three blocks from the National Mall. Book now.
+Official Countdown 250 Ball at Washington Hilton. Hero awards, live entertainment, premium open bar.
+```
 
-### Ad 3 (for Ad Group 3: Black Tie Evening)
+---
+
+### AD FOR AD GROUP 3: Black Tie DC Evening
+
+**Final URL:**
+```
+https://countdown250.allamericanball.com/?utm_source=google&utm_medium=cpc&utm_campaign=gasf&utm_content=blacktie
+```
+
+**Display path:**
+```
+black-tie
+july-3
+```
+
 **Headlines:**
-1. Black Tie Gala DC July 3
-2. Washington Hilton July 3
-3. Formal Ball 250th Anniversary
-4. The Official Countdown 250 Ball
-5. DC's Premier July 3 Formal
-6. Midnight Countdown Gala
-7. Tickets Start at $225
-8. Black Tie · Open Bar · Live Music
-9. Presidential Stage Seating
-10. America's 250th Eve Gala
+```
+Black Tie Gala DC July 3
+Washington Hilton July 3
+Formal Ball 250th Anniversary
+The Official Countdown 250 Ball
+DC's Premier July 3 Formal
+Midnight Countdown Gala
+Tickets Start at $225
+Black Tie, Open Bar, Live Music
+Presidential Stage Seating
+America's 250th Eve Gala
+Luxury Gala Washington DC
+3,000 Guests, 6 Ballrooms
+Independence Eve Black Tie
+The Ball of the Decade
+Reserve Your Table Now
+```
 
 **Descriptions:**
-1. The formal evening of July 3. Washington Hilton. 3,000 guests. Black tie. Open bars. Midnight countdown to America's 250th year.
-2. Reserved Presidential Stage seating available in Statesman's Concierge tier ($1,700). All tiers include premium open bars and entertainment.
+```
+The formal evening of July 3. Washington Hilton. 3,000 guests. Black tie. Midnight countdown to America's 250th.
+Reserved Presidential Stage seating in Statesman's Concierge tier. All tiers include premium open bars.
+Six ballrooms, four stages, premium entertainment. Washington DC's premier Independence Eve black-tie gala.
+Lock in tickets before next price increase. Liberty $225, Patriot VIP $450, Statesman's $1,700.
+```
 
-## Tracking code
-Add `?aff=googleGasf` (if Eventbrite allows) or use `gasfAds` as a separate Eventbrite tracking link.
-**OR** (simpler) — use UTM params on the landing page URL. The GASF landing page is the landing target, not Eventbrite directly, so UTMs work.
+---
 
-All final URLs should include:
-`?utm_source=google&utm_medium=cpc&utm_campaign=gasf&utm_content=[ad-variant]`
+## 🔗 CAMPAIGN-LEVEL ASSETS — Set once, apply to all ad groups
 
-## Budget escalation rule
-- If CPA (cost per conversion) < $50 after 200 clicks, increase budget to $60/day
-- If CPA > $200 after 200 clicks, pause and rethink
-- Track Eventbrite orders that come via the GASF landing page through UTMs / referrer analytics
+After ad groups are built, go to **Assets** (left sidebar) → click each type → add at **Campaign level**.
 
-## What to do right now
-1. Log into Google Ads
-2. Create new campaign → Search → Sales goal
-3. Set budget: $30/day
-4. Set locations: DC, MD, VA
-5. Create the three ad groups with keywords above
-6. Paste the ad copy for each
-7. Set sitelinks, callouts, structured snippets
-8. Point landing page URL to `/great-american-state-fair-evening`
-9. Publish as paused → final review → enable
+### Sitelinks (add 4-6)
+```
+State Fair Evening Guide
+  Description line 1: Pair the Great American State Fair with Independence Eve's premier gala.
+  Description line 2: Tickets from $225. Washington Hilton.
+  URL: https://countdown250.allamericanball.com/great-american-state-fair-evening
+
+Ticket Tiers
+  Description line 1: Liberty $225, Patriot VIP $450, Statesman's $1,700.
+  Description line 2: Every tier includes premium open bar access.
+  URL: https://countdown250.allamericanball.com/#tickets
+
+Venue & Directions
+  Description line 1: Washington Hilton, 1919 Connecticut Ave NW.
+  Description line 2: Three blocks from the National Mall.
+  URL: https://countdown250.allamericanball.com/#venue
+
+About the Ball
+  Description line 1: 3,000 guests, 6 ballrooms, 4 stages.
+  Description line 2: Independence Eve, America's 250th year.
+  URL: https://countdown250.allamericanball.com/#about
+
+Statesman's Pass
+  Description line 1: Premium reserved-seating concierge tier.
+  Description line 2: Presidential stage, VIP reception, concierge.
+  URL: https://countdown250.allamericanball.com/statesmans-pass
+
+Press & Media
+  Description line 1: Press releases and media information.
+  Description line 2: For media inquiries.
+  URL: https://countdown250.allamericanball.com/press
+```
+
+### Callouts (add 8)
+```
+Washington Hilton
+July 3, 2026
+7 PM to 1 AM
+Black Tie Gala
+3,000 Guests
+Premium Open Bars
+Midnight Countdown
+Reserved Seating Available
+```
+
+### Structured snippet
+```
+Header: Services
+Values:
+  VIP Reception
+  Reserved Seating
+  Premium Open Bar
+  Midnight Countdown
+  Hero Awards Ceremony
+  Live Entertainment
+```
+
+### Price assets (add 3)
+```
+Type: Events
+Currency: USD
+Price qualifier: From
+
+Liberty Ticket
+  From $225
+  Description: General admission, full event access
+  URL: https://countdown250.allamericanball.com/#tickets
+
+Patriot VIP
+  From $450
+  Description: Reserved seating, premium bar access
+  URL: https://countdown250.allamericanball.com/#tickets
+
+Statesman's Concierge
+  From $1,700
+  Description: Presidential stage, VIP reception, concierge
+  URL: https://countdown250.allamericanball.com/statesmans-pass
+```
+
+### Business name
+```
+Countdown 250 Ball
+```
+
+### Business logo
+Upload from: `C:\Users\USER\countdown250\public\images\logo.png` (or similar — check the folder for the hi-res logo)
+
+---
+
+## ✅ FINAL REVIEW BEFORE PUBLISHING
+
+Before hitting **Publish**:
+- [ ] Campaign status set to **Enabled** (not Paused)
+- [ ] Daily budget = $30
+- [ ] All 3 ad groups active
+- [ ] Each ad group has at least one responsive search ad with 10+ headlines
+- [ ] Negative keywords applied at campaign level
+- [ ] Sitelinks, callouts, structured snippets visible in preview
+- [ ] Final URLs all use `countdown250.allamericanball.com` (NOT Eventbrite direct — we want them to hit our site first so pixel fires)
+
+Click **Publish**.
+
+---
+
+## 📊 WHAT TO EXPECT / WHEN TO REVIEW
+
+**First 24 hours:**
+- Ads will be in "Under review" — normal
+- First impressions usually within 2-4 hours of approval
+- Don't touch anything
+
+**Day 3:**
+- You should see 50-150 clicks across the 3 ad groups
+- Check which ad group has lowest CPC (that's your strongest intent match)
+- Check landing page time-on-site in GA4 — under 30 sec = landing page not matching the ad promise
+
+**Day 7 (decision day):**
+- Pull clicks, impressions, CTR, conversions per ad group
+- If conversions > 0 and CPA < $75: increase budget to $60/day
+- If conversions = 0 but CTR > 3%: keep running, landing page is the bottleneck
+- If CTR < 2%: kill that ad group, ad copy isn't working
+- Send me the data, I'll analyze
+
+---
+
+## 🔄 WHAT HAPPENS AFTER THIS
+
+Once GASF is live and running, next waves (in order):
+
+1. **UFC Freedom 250 campaign** (June 14 White House South Lawn event) — same playbook, different keywords
+2. **Freedom 250 Grand Prix keyword campaign** — capture Aug 22 race weekend research traffic (even though Pre-Prix 250 is paused, this drives awareness for Countdown 250 brand)
+3. **Retargeting campaign on Meta** — 1,005+ pixel-tagged site visitors ready to retarget
+4. **LinkedIn Statesman's campaign** — premium-tier targeting
+
+But only after GASF proves the attribution loop works end-to-end.
+
+---
+
+## 🆘 IF SOMETHING BREAKS
+
+**Ad disapproved:** 90% of the time it's a Trademark issue on "Great American State Fair." If Google flags it, reply to the disapproval with "We are an adjacent event, not claiming affiliation with the fair. Our landing page includes disclaimer. Request review."
+
+**Conversion tracking still says "Needs attention" after 48 hours:**
+Reach out to Eventbrite Ashley (Tues Apr 21 call) and ask her to verify the pixel is firing server-side. Separately, check `pagead/1p-conversion` in browser dev tools on Eventbrite confirmation page.
+
+**Can't find "Account-level goals" in Step 3:**
+You might be on a newer Google Ads UI. Look for "Conversion goals" section — same thing, different label.
+
+**Getting impressions but no clicks:**
+CTR problem. Your ad copy isn't winning the auction-to-click moment. Let me know; I'll rewrite headlines.
+
+**Lots of clicks, no conversions:**
+Either (a) landing page issue or (b) ticket prices too high for the search intent. We'll look at session recordings and Eventbrite funnel.
+
+---
+
+## FILE LOCATIONS
+
+This playbook: `C:\Users\USER\countdown250\marketing\google-ads-gasf-campaign-spec.md`
+Landing page code: `C:\Users\USER\countdown250\src\pages\great-american-state-fair-evening.astro`
+Hub page code: `C:\Users\USER\countdown250\src\pages\america-250-dc-events-guide.astro`
