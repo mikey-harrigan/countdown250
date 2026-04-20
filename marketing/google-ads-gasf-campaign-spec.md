@@ -226,31 +226,39 @@ state-fair
 evening
 ```
 
+**Positioning pillars (every ad must emphasize at least one):**
+1. **Official Countdown 250** — legitimacy / the definitive event
+2. **All-inclusive** — food, drinks, entertainment included
+3. **6 ballrooms, 4 stages, 3,000 guests** — scale / spectacle
+4. **A celebration of a lifetime** — emotional / once-in-a-generation
+
+**Do NOT mention specific ticket prices in ad copy.** Prices scare off awareness-stage traffic and undercut premium positioning. Tier info lives on the landing page.
+
 **Headlines (max 30 chars each — all verified under limit):**
 ```
-State Fair Evening Plans?
-The Countdown 250 Ball
-July 3 Black Tie Gala DC
-Washington Hilton, July 3
-Great American State Fair Week
-Formal Evening of 250th Week
-After the Fair, the Ball
-America's 250th Eve Gala
-3,000 Guests, 6 Ballrooms
+Official Countdown 250 Ball
+An All-Inclusive Gala
+A Celebration of a Lifetime
+6 Ballrooms, 4 Stages
+3,000 Guests · 6 Ballrooms
+July 3 Independence Eve Gala
 Midnight Countdown to 250
-Independence Eve Washington DC
-3 Blocks From National Mall
-Tickets Start at $225
-Liberty, VIP, Statesman's
-Lock In Before Prices Rise
+Black Tie. All-Inclusive.
+State Fair Evening Plans?
+Premium Open Bars All Night
+Live Entertainment All Night
+The Ball of the Generation
+After the State Fair, the Ball
+America's Biggest 250th Gala
+Washington Hilton, July 3
 ```
 
 **Descriptions (max 90 chars each — all verified under limit):**
 ```
-After the State Fair, the black-tie ball. July 3 at Washington Hilton. Tickets $225+.
-Official Countdown 250 Ball. 3,000 guests, 6 ballrooms, 4 stages. Reserve now.
-Formal evening finale of State Fair Week. Three blocks from the National Mall.
-Independence Eve black-tie gala at Washington Hilton. Open bars, midnight countdown.
+Official Countdown 250 Ball. All-inclusive black-tie gala. Washington Hilton, July 3.
+6 ballrooms, 4 stages, 3,000 guests. A celebration of a lifetime on Independence Eve.
+Formal evening finale of State Fair Week. All-inclusive. Washington Hilton, July 3.
+Countdown with 3,000 Americans to the 250th year. Open bars. Live entertainment.
 ```
 
 ---
@@ -270,29 +278,29 @@ dc-events
 
 **Headlines (max 30 chars each — all verified under limit):**
 ```
+Official Countdown 250 Ball
+An All-Inclusive Gala
 America 250 DC Events Guide
-July 3 Gala Washington DC
-The Countdown 250 Ball
-250th Birthday Eve Gala
-DC's Premier 250 Gala
+A Celebration of a Lifetime
+6 Ballrooms, 4 Stages
+3,000 Guests · 6 Ballrooms
 Your July 4 Weekend Plan
 Washington Hilton, July 3
-Tickets Start at $225
-Black Tie America 250 Gala
-3,000 Guest Ball Spectacle
-Independence Eve Washington
-Premium Open Bars All Night
+July 3 Independence Eve Gala
+Black Tie. All-Inclusive.
 Midnight Countdown to 250
-The Gala of the Generation
-Lock In Tickets Now
+Premium Open Bars All Night
+Live Entertainment All Night
+The Ball of the Generation
+America's Biggest 250th Gala
 ```
 
 **Descriptions (max 90 chars each — all verified under limit):**
 ```
-DC's premier 250th Independence Eve black-tie gala. July 3 at Washington Hilton.
-3,000 guests. 6 ballrooms. 4 stages. Midnight countdown. July 3 at Washington Hilton.
-Non-partisan 250th anniversary gala. Three blocks from the National Mall. Book now.
-Countdown 250 Ball at Washington Hilton. Hero awards, live music, premium open bar.
+Official Countdown 250 Ball. All-inclusive black-tie gala. Washington Hilton, July 3.
+6 ballrooms, 4 stages, 3,000 guests. A celebration of a lifetime on Independence Eve.
+DC's premier 250th Independence Eve gala. Three blocks from the National Mall.
+Countdown with 3,000 Americans to the 250th year. Open bars. Live entertainment.
 ```
 
 ---
@@ -312,29 +320,29 @@ july-3
 
 **Headlines (max 30 chars each — all verified under limit):**
 ```
+Official Countdown 250 Ball
+An All-Inclusive Gala
+A Celebration of a Lifetime
 Black Tie Gala DC July 3
 Washington Hilton July 3
-Formal Ball 250th Birthday
-The Countdown 250 Ball
-DC's Premier July 3 Formal
-Midnight Countdown Gala
-Tickets Start at $225
-Black Tie, Open Bar, Music
-Presidential Stage Seating
-America's 250th Eve Gala
+6 Ballrooms, 4 Stages
+3,000 Guests · 6 Ballrooms
+Black Tie. All-Inclusive.
+Midnight Countdown to 250
+Premium Open Bars All Night
+Live Entertainment All Night
 Luxury Gala Washington DC
-3,000 Guests, 6 Ballrooms
+The Ball of the Generation
 Independence Eve Black Tie
-The Ball of the Decade
 Reserve Your Table Now
 ```
 
 **Descriptions (max 90 chars each — all verified under limit):**
 ```
-July 3 black tie. Washington Hilton. Midnight countdown to America's 250th.
-Statesman's Concierge tier: reserved Presidential Stage seating. All tiers: open bars.
-Six ballrooms, four stages. DC's premier Independence Eve black-tie gala.
-Liberty $225. Patriot VIP $450. Statesman's $1,700. Book before prices rise.
+Official Countdown 250 Ball. All-inclusive black-tie gala. Washington Hilton, July 3.
+6 ballrooms, 4 stages, 3,000 guests. A celebration of a lifetime on Independence Eve.
+DC's premier Independence Eve black-tie gala. Three blocks from the National Mall.
+Countdown with 3,000 Americans to the 250th year. Open bars. Live entertainment.
 ```
 
 ---
@@ -351,8 +359,8 @@ State Fair Evening Guide
   URL: https://countdown250.allamericanball.com/great-american-state-fair-evening
 
 Ticket Tiers
-  Description line 1: Liberty $225, Patriot VIP $450, Statesman's $1,700.
-  Description line 2: Every tier includes premium open bar access.
+  Description line 1: Three tiers of all-inclusive access.
+  Description line 2: Premium open bars included at every level.
   URL: https://countdown250.allamericanball.com/#tickets
 
 Venue & Directions
@@ -400,27 +408,8 @@ Values:
   Live Entertainment
 ```
 
-### Price assets (add 3)
-```
-Type: Events
-Currency: USD
-Price qualifier: From
-
-Liberty Ticket
-  From $225
-  Description: General admission, full event access
-  URL: https://countdown250.allamericanball.com/#tickets
-
-Patriot VIP
-  From $450
-  Description: Reserved seating, premium bar access
-  URL: https://countdown250.allamericanball.com/#tickets
-
-Statesman's Concierge
-  From $1,700
-  Description: Presidential stage, VIP reception, concierge
-  URL: https://countdown250.allamericanball.com/statesmans-pass
-```
+### Price assets — SKIP
+Per Apr 20 decision: prices are NOT shown in Google Ads (scare off awareness-stage traffic, undercut premium positioning). Tier pricing lives only on the landing page. Skip this asset type entirely.
 
 ### Business name
 ```
