@@ -173,7 +173,25 @@ if (pathSegments.length > 0) {
     document.addEventListener('DOMContentLoaded', function() {
       var modal = document.getElementById('eb-modal');
       var iframe = document.getElementById('eb-iframe');
-      var ebUrl = 'https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain';
+
+      // Map inbound UTM source/campaign to an Eventbrite tracking code so sales attribute to the right channel
+      function resolveAff() {
+        try {
+          var stored = sessionStorage.getItem('cd250_aff');
+          if (stored) return stored;
+          var p = new URLSearchParams(window.location.search);
+          var src = (p.get('utm_source') || '').toLowerCase();
+          var cmp = (p.get('utm_campaign') || '').toLowerCase();
+          var aff = 'websitemain';
+          if (src === 'google' && cmp === 'gasf') aff = 'googleGasf';
+          else if (src === 'google') aff = 'googleOther';
+          else if (src === 'facebook' || src === 'meta') aff = 'fbAds';
+          else if (src === 'linkedin') aff = 'liAds';
+          sessionStorage.setItem('cd250_aff', aff);
+          return aff;
+        } catch (e) { return 'websitemain'; }
+      }
+      var ebUrl = 'https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=' + resolveAff();
 
       // All eventbrite-checkout buttons open the modal
       document.querySelectorAll('.eventbrite-checkout').forEach(function(btn) {
