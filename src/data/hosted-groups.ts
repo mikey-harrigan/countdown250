@@ -28,23 +28,19 @@ export const hostedGroupCategories: HostedGroupCategory[] = [
     name: "Neighborhoods & Local",
     groups: [
       "Lansdowne Neighbors",
-      "Loudoun Professionals",
     ],
   },
   {
     name: "Industry & Networking",
     groups: [
-      "Real Estate Professionals",
-      "Mortgage Professionals",
-      "Government Affairs",
-      "Tech Leaders",
+      "Healthcare Professionals",
     ],
   },
   {
     name: "Interests & Social",
     groups: [
-      "Golf Enthusiasts",
       "DC Sports Fanatics",
+      "AI Enthusiasts",
     ],
   },
 ];
