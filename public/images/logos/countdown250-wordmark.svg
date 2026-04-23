@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" width="1200" height="240">
+  <!-- Countdown 250 Ball — horizontal wordmark logo -->
+  <!-- Designed for dark backgrounds (white text + gold accent) -->
+
+  <!-- Main wordmark: COUNTDOWN 250 BALL -->
+  <text x="600" y="140" text-anchor="middle" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-size="80" font-weight="700" letter-spacing="5">
+    <tspan fill="#ffffff">COUNTDOWN </tspan>
+    <tspan fill="#c5a44e" font-weight="900">250</tspan>
+    <tspan fill="#ffffff"> BALL</tspan>
+  </text>
+
+  <!-- Thin gold divider -->
+  <line x1="400" y1="180" x2="800" y2="180" stroke="#c5a44e" stroke-width="0.75" />
+
+  <!-- Date and location — subtle -->
+  <text x="600" y="210" text-anchor="middle" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" fill="rgba(255,255,255,0.7)" font-size="16" letter-spacing="5" font-weight="400">JULY 3, 2026  ·  WASHINGTON, D.C.</text>
+</svg>
