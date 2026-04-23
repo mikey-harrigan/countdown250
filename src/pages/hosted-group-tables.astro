@@ -1,0 +1,198 @@
+---
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { hostedGroupCategories } from '../data/hosted-groups';
+
+const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
+---
+
+<BaseLayout
+  title="Hosted Group Tables — Statesman Pass Benefit | The Official Countdown 250 Ball | Washington D.C. July 3, 2026"
+  description="Create or join a named Hosted Group at the Countdown 250 Ball. Statesman guests are seated together in the Statesman area, alongside special guests and All-American Hero Awardees. Current groups include university alumni, Loudoun & Lansdowne locals, industry networks, and more."
+  ogImage="/images/event/statesman-vip-dinner.png"
+>
+  <Navbar />
+
+  <!-- Hero -->
+  <section class="pt-32 pb-16 bg-navy text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">A Statesman Pass Benefit</p>
+      <h1 class="text-3xl sm:text-5xl font-bold mb-5 font-heading">Hosted Group Tables</h1>
+      <p class="text-xl sm:text-2xl text-gold/90 italic font-light mb-8">Attend together. Sit together. Be recognized together.</p>
+      <div class="w-24 h-0.5 bg-gold mx-auto"></div>
+    </div>
+  </section>
+
+  <!-- Intro / What it is -->
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold text-navy mb-6 font-heading">What It Is</h2>
+      <div class="space-y-4 text-slate/80 text-lg leading-relaxed">
+        <p>
+          Hosted Group Tables is a new benefit exclusive to the <a href="/statesmans-pass" class="text-red font-semibold hover:underline">Statesman Pass</a>. It lets you attend the Countdown 250 Ball as part of a named group — and be seated with your people in the Statesman area, the event's premium section.
+        </p>
+        <p>
+          Whether you're an alumni crew, a neighborhood circle, an industry network, or a group of friends who want to experience Independence Eve together, Hosted Group Tables makes it official.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-16 bg-cream">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold text-navy mb-8 font-heading">How It Works</h2>
+      <div class="space-y-5">
+        <div class="bg-white rounded-xl p-6 border-l-4 border-gold">
+          <p class="text-navy font-bold mb-2">1. Purchase your Statesman Pass on Eventbrite.</p>
+          <p class="text-slate/70">Group membership is a benefit of the Statesman Pass, not a separate ticket. No group discounts or held pricing — your Statesman Pass is the entry.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border-l-4 border-gold">
+          <p class="text-navy font-bold mb-2">2. Choose your group at checkout.</p>
+          <p class="text-slate/70">A short question in the Eventbrite checkout asks whether you're joining an existing Hosted Group, proposing a new one, or attending solo.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border-l-4 border-gold">
+          <p class="text-navy font-bold mb-2">3. Be seated together in the Statesman area.</p>
+          <p class="text-slate/70">Guests in the same Hosted Group are placed at the same table, or adjacent tables for larger groups, all within the premium Statesman section.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border-l-4 border-gold">
+          <p class="text-navy font-bold mb-2">4. Mix, mingle, and be recognized.</p>
+          <p class="text-slate/70">Your group shares the Statesman area with special guests and All-American Hero Awardees throughout the evening.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Group Size & Seating -->
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold text-navy mb-6 font-heading">Group Size &amp; Seating</h2>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="bg-cream rounded-xl p-6">
+          <p class="text-gold font-medium tracking-[0.2em] uppercase text-xs mb-2">Any Size Welcome</p>
+          <p class="text-navy font-bold text-lg mb-2">Groups under 10</p>
+          <p class="text-slate/70 leading-relaxed">Smaller groups are still part of the program and will be seated together. Depending on total group size, they may share a table with another compatible group.</p>
+        </div>
+        <div class="bg-navy rounded-xl p-6 text-white">
+          <p class="text-gold font-medium tracking-[0.2em] uppercase text-xs mb-2">Custom Signage</p>
+          <p class="font-bold text-lg mb-2">Groups of 10 or more</p>
+          <p class="text-white/70 leading-relaxed">Groups with 10+ paid Statesman guests receive custom table signage displaying the official group name — a physical moment of recognition at your table.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Special Guests & Awardees -->
+  <section class="py-16 bg-cream">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold text-navy mb-6 font-heading">Special Guests &amp; Awardees</h2>
+      <div class="space-y-4 text-slate/80 text-lg leading-relaxed">
+        <p>
+          The Statesman area is where the evening's most distinguished guests gather — including recipients of the All-American Hero Lifetime Achievement Awards, dignitaries, senior government officials, military leaders, and civic figures.
+        </p>
+        <p>
+          Hosted Groups are seated in the same premium section, with organic opportunities to mix and mingle throughout the night. Hosted Group Tables does not guarantee seating at the same table as any specific special guest or awardee — proximity, not placement, is the benefit.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hosted Groups Currently Forming -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10">
+        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">Official List</p>
+        <h2 class="text-2xl sm:text-3xl font-bold text-navy mb-4 font-heading">Hosted Groups Currently Forming</h2>
+        <div class="w-16 h-0.5 bg-gold mx-auto mb-6"></div>
+        <p class="max-w-2xl mx-auto text-slate/80 leading-relaxed">
+          To join an existing group, enter the <strong>exact official name</strong> shown below when purchasing your Statesman Pass.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6">
+        {hostedGroupCategories.map((cat) => (
+          <div class="bg-cream rounded-xl p-6">
+            <p class="text-red font-semibold tracking-wider uppercase text-xs mb-4">{cat.name}</p>
+            <ul class="space-y-2">
+              {cat.groups.map((g) => (
+                <li class="text-navy font-medium">
+                  <span class="text-gold mr-2">&bull;</span>{g}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-10">
+        <a
+          href={ticketUrl}
+          class="eventbrite-checkout inline-block bg-red hover:bg-red-light text-white px-10 py-4 text-base font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+        >
+          Get Your Statesman Pass &amp; Join a Group
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Don't See Your Group -->
+  <section class="py-16 bg-navy text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-6 font-heading">Don't See Your Group?</h2>
+      <div class="space-y-4 text-white/80 text-lg leading-relaxed">
+        <p>
+          If your alumni network, neighborhood, industry circle, or social group isn't on the list yet, you can propose a new Hosted Group during Eventbrite checkout.
+        </p>
+        <p>
+          Select <em>"I am interested in starting a new Hosted Group"</em> and enter the name you'd like your group to appear under. Once reviewed, your group will be added to the official Hosted Groups list on this page — and will appear in the Eventbrite dropdown for future buyers.
+        </p>
+        <p class="text-gold/90 font-medium">
+          Your Statesman Pass purchase is immediate. Group review and approval happen afterward — ticket buying is never slowed down.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Important Notes -->
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold text-navy mb-6 font-heading">Important Notes</h2>
+      <ul class="space-y-4 text-slate/80 text-lg leading-relaxed">
+        <li class="flex items-start">
+          <span class="text-gold mr-3 mt-1">&bull;</span>
+          <span>Hosted Group Tables is a benefit of the <a href="/statesmans-pass" class="text-red font-semibold hover:underline">Statesman Pass</a>. It is not a separate ticket type. All group members must hold a Statesman Pass.</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-gold mr-3 mt-1">&bull;</span>
+          <span>There are no group discounts and no held pricing. Pricing follows standard Statesman Pass rates.</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-gold mr-3 mt-1">&bull;</span>
+          <span>When joining an existing group, use the <strong>exact official name</strong> as it appears on this page. Small differences (for example, "JMU Alums" vs. "JMU Alumni") prevent the system from matching you with the group.</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-gold mr-3 mt-1">&bull;</span>
+          <span>New group proposals are reviewed for clarity and to avoid duplicates with existing groups. Most reasonable proposals are approved.</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-gold mr-3 mt-1">&bull;</span>
+          <span>Hosted Group membership does not guarantee seating at the same table as any specific special guest or awardee. You are seated with your group in the premium Statesman area.</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-gold mr-3 mt-1">&bull;</span>
+          <span>Custom table signage (8.5 &times; 11 insert card, text-only) is included once a group reaches 10 or more paid Statesman Pass guests.</span>
+        </li>
+      </ul>
+
+      <div class="mt-12 text-center">
+        <a href="/statesmans-pass" class="text-red font-semibold hover:underline text-lg">
+          &larr; Back to Statesman Pass overview
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
