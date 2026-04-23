@@ -1,0 +1,59 @@
+---
+// Home-page callout for the Hosted Group Tables program.
+// Positioned between Heroes and Tickets so the "bring your crew" angle is
+// fresh in the buyer's mind when they look at ticket pricing.
+import { hostedGroupCategories } from '../data/hosted-groups';
+const visibleGroups = hostedGroupCategories.flatMap(c => c.groups);
+---
+
+<section id="hosted-groups" class="relative py-20 sm:py-28 overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-dark text-white">
+  <!-- Subtle gold top/bottom borders -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <p class="text-gold font-medium tracking-[0.3em] uppercase text-xs mb-4">A New Statesman Benefit</p>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 font-heading">Hosted Group Tables</h2>
+      <p class="text-xl sm:text-2xl text-gold/90 italic font-light mb-6">Attend together. Sit together. Be recognized together.</p>
+      <div class="w-20 h-0.5 bg-gold mx-auto"></div>
+    </div>
+
+    <!-- Two column: pitch + groups preview -->
+    <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-start mb-12">
+      <!-- Left: the pitch -->
+      <div class="space-y-5">
+        <p class="text-white/80 text-lg leading-relaxed">
+          Statesman Pass guests can create or join a named group of any size and be seated together in the premium Statesman area &mdash; alongside special guests and All-American Hero Awardees.
+        </p>
+        <p class="text-white/80 text-lg leading-relaxed">
+          Rally your alumni network, your neighbors, your industry circle, or your closest friends. Groups of 10 or more receive custom table signage. Organize your crew for Independence Eve.
+        </p>
+        <div class="pt-4">
+          <a
+            href="/hosted-group-tables"
+            class="inline-block bg-gold text-navy-dark hover:bg-gold/90 px-10 py-4 text-sm font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+          >
+            View Hosted Groups or Start Your Own
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: groups currently forming -->
+      <div class="bg-white/5 border border-gold/30 rounded-xl p-6 sm:p-8">
+        <p class="text-gold font-medium tracking-[0.2em] uppercase text-xs mb-4">Groups Currently Forming</p>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
+          {visibleGroups.map((g) => (
+            <li class="text-white/90 text-sm flex items-start">
+              <span class="text-gold mr-2 mt-0.5">&bull;</span>{g}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-6 text-white/50 text-xs leading-relaxed">
+          Don't see your group? You can propose a new one when purchasing your Statesman Pass.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

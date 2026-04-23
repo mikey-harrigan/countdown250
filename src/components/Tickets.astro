@@ -187,6 +187,21 @@ const tickets = [
               </h3>
             </div>
 
+            {ticket.highlight && (
+              <a
+                href="/hosted-group-tables"
+                class="block mb-6 bg-gradient-to-r from-gold/15 via-gold/20 to-gold/15 border-2 border-gold/50 rounded-lg px-4 py-3 hover:border-gold hover:from-gold/25 hover:to-gold/25 transition-all group"
+              >
+                <div class="flex items-center gap-3">
+                  <span class="flex-shrink-0 bg-red text-white text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded">New</span>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-navy font-bold text-sm leading-tight">Hosted Group Tables</p>
+                    <p class="text-slate/70 text-xs leading-tight mt-0.5">Sit with your crew in the Statesman area &rarr;</p>
+                  </div>
+                </div>
+              </a>
+            )}
+
             <div class="mb-6 pb-6 border-b ${ticket.highlight ? 'border-slate/10' : 'border-white/10'}">
               <!-- Old + current price on one line -->
               <div class="flex items-baseline gap-3">
