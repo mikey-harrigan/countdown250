@@ -401,49 +401,29 @@ const faqs = [
     </section>
 
     <!-- ============================================================ -->
-    <!-- 5. HOSTED TABLES — 3-zone layout: centered header / body+image / two benefit boxes -->
+    <!-- 5. HOSTED TABLES — compact 3-element layout -->
     <!-- ============================================================ -->
-    <section class="py-20 sm:py-28 bg-white">
+    <section class="py-20 sm:py-24 bg-white">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <!-- Zone 1: Centered header block with headline + staircase -->
-        <div class="text-center mb-14 sm:mb-16">
+        <!-- Compact centered header -->
+        <div class="text-center mb-10 sm:mb-12">
           <p class="text-gold font-medium tracking-[0.3em] uppercase text-xs mb-4">The Hosted Table Experience</p>
-          <h2 class="font-bold text-navy mb-6 font-heading leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+          <h2 class="font-bold text-navy mb-4 font-heading leading-tight text-3xl sm:text-4xl md:text-5xl">
             Host Your Own <span class="italic whitespace-nowrap">&ldquo;Party Within the Party&rdquo;</span>
           </h2>
-          <div class="w-16 h-1 bg-red mx-auto mb-8"></div>
-
-          <!-- Staircase: block is centered, but internal text left-aligned so indents work -->
-          <div class="inline-block text-left text-slate/75 italic text-lg sm:text-xl space-y-2">
-            <p class="inline-flex items-center gap-2">
-              <span><strong class="font-extrabold">You</strong> invite guests</span>
-              <svg class="inline-block w-6 h-6 sm:w-7 sm:h-7 text-gold flex-shrink-0" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 12h15" />
-              </svg>
-            </p>
-            <p class="pl-10 sm:pl-20 md:pl-32 lg:pl-48 xl:pl-64">
-              <span class="inline-flex items-center gap-2">
-                <span><strong class="font-extrabold">Guests</strong> purchase their own tickets</span>
-                <svg class="inline-block w-6 h-6 sm:w-7 sm:h-7 text-gold flex-shrink-0" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 12h15" />
-                </svg>
-              </span>
-            </p>
-            <p class="pl-24 sm:pl-56 md:pl-[22rem] lg:pl-[40rem] xl:pl-[48rem] font-medium text-slate">
-              <strong class="font-extrabold">We</strong> handle the rest!
-            </p>
-          </div>
+          <p class="text-slate/70 italic text-lg sm:text-xl max-w-2xl mx-auto">
+            <strong class="font-bold not-italic text-navy">You</strong> invite guests. <strong class="font-bold not-italic text-navy">Guests</strong> buy their own tickets. <strong class="font-bold not-italic text-navy">We</strong> handle the rest.
+          </p>
         </div>
 
-        <!-- Zone 2: Body copy (left) + Image (right) -->
-        <div class="grid md:grid-cols-2 gap-10 lg:gap-14 items-center mb-14 sm:mb-16">
-          <!-- Left: body + CTA -->
+        <!-- Body copy + image -->
+        <div class="grid md:grid-cols-2 gap-10 lg:gap-14 items-center mb-12 sm:mb-14">
           <div>
             <p class="text-slate/80 text-lg leading-relaxed mb-6">
-              Simply invite friends, clients, family, alumni, or colleagues to gather at your reserved hosted table(s) inside the <strong class="text-navy">Statesman's Concierge Area</strong>. Groups of all sizes are welcome. We handle the details while you get the credit. Your group enjoys memories that last a lifetime.
+              Invite friends, clients, family, alumni, or colleagues to gather at your reserved hosted table(s) inside the <strong class="text-navy">Statesman's Concierge Area</strong>. Groups of all sizes are welcome. We handle the details while you get the credit.
             </p>
-            <p class="text-red text-sm italic font-medium mb-8">
+            <p class="text-red text-sm italic font-medium mb-7">
               Limited premium table placements available.
             </p>
             <a
@@ -453,8 +433,6 @@ const faqs = [
               Explore Hosted Tables
             </a>
           </div>
-
-          <!-- Right: image -->
           <div class="relative">
             <div class="rounded-lg overflow-hidden shadow-xl aspect-[4/3]">
               <img
@@ -467,33 +445,34 @@ const faqs = [
           </div>
         </div>
 
-        <!-- Zone 3: Two benefit boxes (Host primary, Guests secondary) -->
-        <div class="grid md:grid-cols-2 gap-6 lg:gap-8 pt-3">
-          <!-- Box 1: Host benefits (PRIMARY) -->
-          <div class="relative bg-cream border-2 border-gold/60 rounded-xl p-6 sm:p-8 shadow-sm">
-            <div class="absolute -top-3 left-5 sm:left-7 bg-gold text-navy-dark text-[11px] sm:text-xs font-bold tracking-[0.18em] uppercase px-4 py-1.5 rounded shadow-sm">Benefits to Hosts</div>
-            <ul class="space-y-2 text-slate/85 text-[15px] leading-snug mt-3">
-              <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Reserved premium gathering place for your group</span></li>
-              <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Guests purchase their own qualifying tickets</span></li>
-              <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Personalized table signage featuring the Host's name and group name</span></li>
-              <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Personal recognition as a Host in the official event program</span></li>
-              <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Personal recognition as a Host on the event website</span></li>
-              <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Public &ldquo;Toast to the Hosts&rdquo; ceremony during the event</span></li>
-              <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Fast and easy group hosting &mdash; we handle the details</span></li>
-              <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>No additional cost to be a Host</span></li>
-            </ul>
-          </div>
-
-          <!-- Box 2: Guest benefits (SECONDARY) -->
-          <div class="relative bg-white border border-slate/20 rounded-xl p-6 sm:p-8">
-            <div class="absolute -top-3 left-5 sm:left-7 bg-navy text-white text-[11px] sm:text-xs font-bold tracking-[0.18em] uppercase px-4 py-1.5 rounded shadow-sm">Benefits to Guests of the Hosts</div>
-            <ul class="space-y-2 text-slate/80 text-[15px] leading-snug mt-3">
-              <li class="flex items-start"><span class="text-navy/60 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Reserved premium gathering place with the group</span></li>
-              <li class="flex items-start"><span class="text-navy/60 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Easy to join your group during ticket purchase</span></li>
-              <li class="flex items-start"><span class="text-navy/60 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Included in the &ldquo;Party Inside the Party&rdquo; experience</span></li>
-              <li class="flex items-start"><span class="text-navy/60 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>No additional cost beyond their qualifying ticket</span></li>
-              <li class="flex items-start"><span class="text-navy/60 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Shared memories to last a lifetime with your invited group</span></li>
-            </ul>
+        <!-- Unified benefits card: two columns inside one card -->
+        <div class="bg-cream border border-gold/40 rounded-xl overflow-hidden shadow-sm">
+          <div class="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gold/30">
+            <!-- Host benefits -->
+            <div class="p-6 sm:p-7 md:p-8">
+              <p class="text-gold font-bold tracking-[0.18em] uppercase text-xs sm:text-[13px] mb-4">Benefits to Hosts</p>
+              <ul class="space-y-1.5 text-slate/85 text-[15px] leading-snug">
+                <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Reserved premium gathering place for your group</span></li>
+                <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Guests purchase their own qualifying tickets</span></li>
+                <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Personalized table signage with Host's name &amp; group name</span></li>
+                <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Recognition as a Host in the official event program</span></li>
+                <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Recognition as a Host on the event website</span></li>
+                <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Public &ldquo;Toast to the Hosts&rdquo; ceremony during the event</span></li>
+                <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Fast and easy &mdash; we handle the details</span></li>
+                <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>No additional cost to be a Host</span></li>
+              </ul>
+            </div>
+            <!-- Guest benefits -->
+            <div class="p-6 sm:p-7 md:p-8">
+              <p class="text-navy font-bold tracking-[0.18em] uppercase text-xs sm:text-[13px] mb-4">Benefits to Guests of the Hosts</p>
+              <ul class="space-y-1.5 text-slate/80 text-[15px] leading-snug">
+                <li class="flex items-start"><span class="text-navy/60 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Reserved premium gathering place with the group</span></li>
+                <li class="flex items-start"><span class="text-navy/60 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Easy to join your group during ticket purchase</span></li>
+                <li class="flex items-start"><span class="text-navy/60 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Included in the &ldquo;Party Inside the Party&rdquo; experience</span></li>
+                <li class="flex items-start"><span class="text-navy/60 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>No additional cost beyond their qualifying ticket</span></li>
+                <li class="flex items-start"><span class="text-navy/60 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Shared memories to last a lifetime with your invited group</span></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
