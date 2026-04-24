@@ -405,17 +405,26 @@ const faqs = [
     <!-- ============================================================ -->
     <section class="py-20 sm:py-28 bg-white">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="grid md:grid-cols-[2fr_5fr] gap-10 lg:gap-12 items-center">
           <!-- Text -->
           <div>
             <p class="text-gold font-medium tracking-[0.3em] uppercase text-xs mb-4">The Hosted Table Experience</p>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-4 font-heading leading-tight">
-              Host Your Own<br />&ldquo;Party Within the Party&rdquo;
+            <h2 class="font-bold text-navy mb-4 font-heading leading-tight">
+              <span class="block text-3xl sm:text-4xl lg:text-5xl">Host Your Own</span>
+              <span class="block text-2xl sm:text-3xl md:text-3xl lg:text-[2.5rem] italic whitespace-nowrap">&ldquo;Party Within the Party&rdquo;</span>
             </h2>
-            <div class="text-slate/70 italic text-lg mb-5 space-y-1">
-              <p>You invite guests</p>
-              <p class="pl-6 sm:pl-12">Guests purchase their own tickets</p>
-              <p class="pl-12 sm:pl-24">We handle the rest!</p>
+            <div class="text-slate/70 italic text-lg mb-5 space-y-1.5">
+              <p class="inline-flex items-center gap-2">
+                <span>You invite guests</span>
+                <span class="text-gold font-bold not-italic text-xl">&rarr;</span>
+              </p>
+              <p class="pl-8 sm:pl-16 md:pl-24 lg:pl-40">
+                <span class="inline-flex items-center gap-2">
+                  <span>Guests purchase their own tickets</span>
+                  <span class="text-gold font-bold not-italic text-xl">&rarr;</span>
+                </span>
+              </p>
+              <p class="pl-16 sm:pl-32 md:pl-48 lg:pl-72">We handle the rest!</p>
             </div>
             <div class="w-16 h-1 bg-red mb-6"></div>
             <p class="text-slate/80 text-lg leading-relaxed mb-6">
