@@ -46,7 +46,12 @@ const tiers = [
     name: "Statesman Concierge Pass",
     tagline: "The definitive Countdown 250 experience.",
     price: "$1,700",
-    description: "Private entrance, dedicated concierge, reserved Presidential Stage seating, backstage access, fine dining, program recognition, and Hosted Group Tables eligibility.",
+    bullets: [
+      "Priority entry",
+      "Premium hospitality",
+      "Upgraded food & beverage",
+      "Preferred access",
+    ],
     scarcity: "Premium Allocation Limited",
     highlight: true,
     badge: "The Pinnacle",
@@ -134,7 +139,7 @@ const faqs = [
         </h1>
 
         <p class="text-lg sm:text-xl md:text-2xl text-white/90 font-light mb-6 max-w-3xl mx-auto leading-relaxed">
-          The All-American <strong class="text-gold">COUNTDOWN 250 Ball</strong> &bull; Washington Hilton &bull; Black-Tie Optional &bull; Midnight Countdown Into America's 250th Anniversary Weekend
+          The Official <strong class="text-gold">COUNTDOWN 250 Ball</strong> &bull; Washington Hilton &bull; Black-Tie Optional &bull; Midnight Countdown Into America's 250th Anniversary Weekend
         </p>
 
         <p class="text-gold/90 text-sm sm:text-base italic mb-10">
@@ -193,6 +198,15 @@ const faqs = [
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 1.75 URGENCY STRIP — subtle confidence-into-motion transition -->
+    <!-- ============================================================ -->
+    <section class="bg-navy-dark py-3 sm:py-4">
+      <p class="text-center text-gold/90 tracking-[0.35em] uppercase text-[10px] sm:text-xs font-semibold">
+        JULY 3, 2026 <span class="text-gold/50 mx-2">&bull;</span> LIMITED RELEASE PRICING <span class="text-gold/50 mx-2">&bull;</span> COUNTDOWN UNDERWAY
+      </p>
     </section>
 
     <!-- ============================================================ -->
@@ -329,9 +343,22 @@ const faqs = [
                 <p class={`text-xs uppercase tracking-[0.15em] font-semibold mb-4 ${t.highlight ? 'text-red/90' : 'text-gold/80'}`}>
                   {t.scarcity}
                 </p>
-                <p class={`text-sm leading-relaxed mb-8 flex-grow ${t.highlight ? 'text-slate/80' : 'text-white/70'}`}>
-                  {t.description}
-                </p>
+                {t.bullets ? (
+                  <ul class={`space-y-2 mb-8 flex-grow ${t.highlight ? 'text-slate/80' : 'text-white/70'}`}>
+                    {t.bullets.map((b) => (
+                      <li class="flex items-start gap-2 text-sm leading-snug">
+                        <svg class={`w-4 h-4 mt-0.5 flex-shrink-0 ${t.highlight ? 'text-gold' : 'text-gold/80'}`} fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                        </svg>
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p class={`text-sm leading-relaxed mb-8 flex-grow ${t.highlight ? 'text-slate/80' : 'text-white/70'}`}>
+                    {t.description}
+                  </p>
+                )}
                 <a
                   href={ticketUrl}
                   class={`eventbrite-checkout block w-full text-center py-3.5 px-6 rounded-lg font-semibold text-sm tracking-wider uppercase transition-all hover:-translate-y-0.5 ${
@@ -389,6 +416,25 @@ const faqs = [
             <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-gold/10 rounded-lg -z-10"></div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 5.5 SOCIAL PROOF — pull quote from past guest -->
+    <!-- ============================================================ -->
+    <section class="py-20 sm:py-24 bg-navy text-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <!-- Large decorative opening quote mark -->
+        <svg class="w-14 h-14 sm:w-16 sm:h-16 text-gold/70 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+        </svg>
+        <p class="text-2xl sm:text-3xl md:text-4xl font-heading font-light italic leading-snug mb-6">
+          One of the most memorable Washington celebrations we've attended.
+        </p>
+        <div class="w-16 h-px bg-gold/60 mx-auto mb-4"></div>
+        <p class="text-gold/90 uppercase tracking-[0.3em] text-xs font-semibold">
+          &mdash; Past Guest
+        </p>
       </div>
     </section>
 
