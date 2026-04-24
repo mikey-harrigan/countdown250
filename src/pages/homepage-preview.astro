@@ -313,10 +313,22 @@ const faqs = [
             </div>
           ))}
           <!-- Featured larger tile centered on the last row -->
-          <div class="col-span-2 sm:col-span-3 lg:col-span-4 bg-navy rounded-xl p-8 sm:p-10 text-center text-white mt-2">
-            <p class="text-gold font-medium tracking-[0.3em] uppercase text-xs mb-3">At the Stroke of Midnight</p>
-            <p class="text-2xl sm:text-3xl font-bold font-heading mb-2">The Countdown to America's 250th</p>
-            <p class="text-white/70 text-sm sm:text-base">A once-in-a-lifetime moment in front of thousands of guests and a national audience.</p>
+          <div class="col-span-2 sm:col-span-3 lg:col-span-4 bg-navy rounded-xl p-8 sm:p-10 md:p-14 text-white mt-2">
+            <!-- Staggered question: line 1 italic left, line 2 bold right on desktop; centered on mobile -->
+            <div class="max-w-4xl mx-auto mb-8 md:mb-10">
+              <p class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl italic font-light font-heading leading-snug text-center md:text-left md:pl-4 lg:pl-10 mb-2 md:mb-3">
+                Where will you be...
+              </p>
+              <p class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-heading leading-snug text-center md:text-right md:pr-4 lg:pr-10 text-gold">
+                When the clock strikes 250?
+              </p>
+            </div>
+            <p class="text-white text-base sm:text-lg md:text-xl font-bold font-heading tracking-wide text-center mb-2">
+              The Official COUNTDOWN 250 Ball
+            </p>
+            <p class="text-white/65 text-sm sm:text-base text-center italic">
+              A once-in-a-lifetime moment.
+            </p>
           </div>
         </div>
       </div>
