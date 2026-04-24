@@ -1,0 +1,442 @@
+---
+// STANDALONE PREVIEW PAGE — accessible only by direct URL.
+// Not linked from the main navigation. A conversion-focused alternate
+// homepage layout for evaluation before (potentially) replacing the live home.
+//
+// If testing well, the final swap is: move the <main> contents of this page
+// into src/pages/index.astro. Do NOT remove this file at that point — keep
+// it as a fallback/reference.
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
+
+const energyFeatures = [
+  { label: "6 Party Zones", icon: "ballrooms" },
+  { label: "4 Stages", icon: "stages" },
+  { label: "Live Bands & DJs", icon: "music" },
+  { label: "Premium Bars", icon: "drink" },
+  { label: "Fine Cuisine", icon: "dining" },
+  { label: "Thousands of Guests", icon: "guests" },
+  { label: "Midnight Celebration", icon: "sparkle" },
+];
+
+const tiers = [
+  {
+    name: "Liberty Ticket",
+    tagline: "Full access to the celebration.",
+    price: "$225",
+    description: "Main ballroom access, premium open bars, live bands and DJs, and the midnight countdown to America's 250th.",
+    highlight: false,
+    badge: "Tier 1",
+  },
+  {
+    name: "Patriot VIP Experience",
+    tagline: "Earlier entry and upgraded hospitality.",
+    price: "$450",
+    description: "Everything in Liberty, plus early entry, a VIP reception with dinner, premium open bar, and access to honored guests.",
+    highlight: false,
+    badge: "Tier 2",
+  },
+  {
+    name: "Statesman Concierge Pass",
+    tagline: "The definitive Countdown 250 experience.",
+    price: "$1,700",
+    description: "Private entrance, dedicated concierge, reserved Presidential Stage seating, backstage access, fine dining, program recognition, and Hosted Group Tables eligibility.",
+    highlight: true,
+    badge: "The Pinnacle",
+  },
+];
+
+const trustPoints = [
+  {
+    title: "Iconic Washington Hilton",
+    body: "The event is hosted at the landmark venue that has welcomed presidents, world leaders, and the White House Correspondents' Dinner for over 60 years.",
+  },
+  {
+    title: "Supporting Operation Renewed Hope Foundation",
+    body: "Proceeds help ORHF in their mission to house U.S. Veterans and end veteran homelessness.",
+  },
+  {
+    title: "Experienced Washington Professionals",
+    body: "Produced by a team that has delivered premier DC galas for over three decades — including multiple editions of the All-American Inaugural Ball.",
+  },
+  {
+    title: "The Premier July 3 Kickoff",
+    body: "The formal kickoff to America's 250th Independence Weekend — the once-in-a-generation moment you'll tell your grandchildren about.",
+  },
+];
+
+const faqs = [
+  {
+    q: "Is this political?",
+    a: "No. The Countdown 250 Ball is a non-partisan, multigenerational celebration of America's 250th anniversary. Guests come from every corner of American life — business, arts, military, civic life, and beyond.",
+  },
+  {
+    q: "What is the dress code?",
+    a: "Black-tie optional. Tuxedos and formal gowns are welcome and encouraged; tailored dark suits and sophisticated evening wear are equally appropriate. Military dress uniforms are respected and welcomed.",
+  },
+  {
+    q: "What is included with the Statesman's Concierge Pass?",
+    a: "Private VIP entrance, dedicated concierge service, reserved Presidential Stage seating, premium fine dining, backstage access, recognition in the official event program, and eligibility for Hosted Group Tables — a benefit that lets you create or join a named group and be seated together in the premium Statesman area.",
+  },
+  {
+    q: "Are hosted tables available?",
+    a: "Yes. Hosted table placements are available for companies, family groups, executive teams, client celebrations, and VIP guests. Availability is limited. Inquire via the Hosted Group Tables program or contact us directly to discuss custom host-table configurations.",
+  },
+  {
+    q: "Are tickets refundable?",
+    a: "Tickets are non-refundable but are transferable. If you cannot attend, you may transfer your ticket to another guest up to 72 hours before the event by contacting our guest services team.",
+  },
+];
+---
+
+<BaseLayout
+  title="Countdown 250 Ball — Homepage Preview | Washington Hilton | July 3, 2026"
+  description="Conversion-focused homepage preview for The Official Countdown 250 Ball. Washington Hilton, July 3, 2026. America's premier July 3 celebration."
+  ogImage="/images/event/hero-countdown250-toast.png"
+>
+  <Navbar />
+
+  <main>
+    <!-- ============================================================ -->
+    <!-- 1. HERO -->
+    <!-- ============================================================ -->
+    <section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
+      <!-- Background image -->
+      <div class="absolute inset-0">
+        <img
+          src="/images/event/hero-countdown250-toast.png"
+          alt="Black-tie guests toasting with champagne as Countdown 250 reaches 00:00:01 on stage"
+          class="w-full h-full object-cover object-center"
+        />
+        <div class="absolute inset-0" style="background: rgba(0,0,0,0.55);"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-28 pb-20">
+        <!-- Seal logo -->
+        <div class="flex justify-center mb-8 animate-fade-in">
+          <img
+            src="/images/logos/countdown250-seal-circle-dark.png"
+            alt="The Official Countdown 250 Ball — July 3, 2026 — Washington, D.C."
+            class="w-[240px] sm:w-[300px] md:w-[340px] h-auto drop-shadow-2xl"
+          />
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-5 leading-tight font-heading">
+          America's Premier<br />July 3 Celebration
+        </h1>
+
+        <p class="text-lg sm:text-xl md:text-2xl text-white/90 font-light mb-6 max-w-3xl mx-auto leading-relaxed">
+          The All-American <strong class="text-gold">COUNTDOWN 250 Ball</strong> &bull; Washington Hilton &bull; Black-Tie Optional &bull; Midnight Countdown Into America's 250th Anniversary Weekend
+        </p>
+
+        <p class="text-gold/90 text-sm sm:text-base italic mb-10">
+          From the producers of sold-out signature Washington celebrations.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a
+            href={ticketUrl}
+            class="eventbrite-checkout bg-red hover:bg-red-light text-white px-10 py-4 text-lg font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+          >
+            Get Tickets
+          </a>
+          <a
+            href="#statesman"
+            class="border-2 border-gold text-gold hover:bg-gold hover:text-navy-dark px-10 py-4 text-lg font-semibold tracking-wider uppercase transition-all rounded"
+          >
+            Explore Statesman's Experience
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 2. STATESMAN'S CONCIERGE PASS SPOTLIGHT -->
+    <!-- ============================================================ -->
+    <section id="statesman" class="relative py-20 sm:py-28 bg-gradient-to-b from-navy-dark via-navy to-navy-dark text-white overflow-hidden">
+      <!-- Gold edge accents -->
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
+
+      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <!-- Image -->
+          <div class="relative order-2 md:order-1">
+            <div class="rounded-lg overflow-hidden shadow-2xl aspect-[4/3] bg-navy/50 border border-gold/30 flex items-center justify-center">
+              <img
+                src="/images/event/statesman-vip-dinner.png"
+                alt="Intimate VIP dinner experience at the Statesman tier"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <!-- Gold corner accents -->
+            <div class="absolute -top-3 -left-3 w-16 h-16 border-t-2 border-l-2 border-gold/50"></div>
+            <div class="absolute -bottom-3 -right-3 w-16 h-16 border-b-2 border-r-2 border-gold/50"></div>
+          </div>
+
+          <!-- Text -->
+          <div class="order-1 md:order-2">
+            <p class="text-gold font-medium tracking-[0.3em] uppercase text-xs mb-4">The Pinnacle Experience</p>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 font-heading">Statesman's Concierge Pass</h2>
+            <p class="text-xl text-gold/90 italic font-light mb-6">The most elevated way to experience Countdown 250.</p>
+            <p class="text-white/80 text-lg leading-relaxed mb-8">
+              For guests who prefer premium hospitality, comfort, access, and a truly memorable night.
+            </p>
+
+            <ul class="space-y-3 mb-10">
+              {[
+                "Priority entry",
+                "Upgraded culinary & beverage experience",
+                "Preferred access areas",
+                "Concierge-level treatment",
+                "Ideal for couples, executives, hosts & VIP guests",
+                "Limited allocation available",
+              ].map((b) => (
+                <li class="flex items-start text-white/90">
+                  <svg class="w-5 h-5 mt-0.5 mr-3 flex-shrink-0 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                  </svg>
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a
+                href={ticketUrl}
+                class="eventbrite-checkout bg-gold text-navy-dark hover:bg-gold/90 px-8 py-3 text-sm font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5 text-center"
+              >
+                Secure Statesman Passes
+              </a>
+              <a
+                href="/hosted-group-tables"
+                class="border-2 border-gold/60 text-gold hover:bg-gold/10 px-8 py-3 text-sm font-semibold tracking-wider uppercase transition-all rounded text-center"
+              >
+                Hosted Tables Available
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 3. EVENT ENERGY -->
+    <!-- ============================================================ -->
+    <section class="py-20 sm:py-28 bg-cream">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 sm:mb-16">
+          <p class="text-red font-medium tracking-[0.3em] uppercase text-xs mb-4">The Night of the Generation</p>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-4 font-heading">One Unforgettable Night</h2>
+          <div class="w-20 h-1 bg-red mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+          {energyFeatures.map((f) => (
+            <div class="bg-white rounded-xl border border-gold/20 p-6 text-center hover:border-gold/60 hover:-translate-y-1 transition-all shadow-sm">
+              <p class="text-navy font-bold text-lg sm:text-xl font-heading">{f.label}</p>
+            </div>
+          ))}
+          <!-- Featured larger tile centered on the last row -->
+          <div class="col-span-2 sm:col-span-3 lg:col-span-4 bg-navy rounded-xl p-8 sm:p-10 text-center text-white mt-2">
+            <p class="text-gold font-medium tracking-[0.3em] uppercase text-xs mb-3">At the Stroke of Midnight</p>
+            <p class="text-2xl sm:text-3xl font-bold font-heading mb-2">The Countdown to America's 250th</p>
+            <p class="text-white/70 text-sm sm:text-base">A once-in-a-lifetime moment in front of thousands of guests and a national audience.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 4. TICKET LADDER -->
+    <!-- ============================================================ -->
+    <section id="tickets" class="py-20 sm:py-28 bg-navy-dark text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">Early Release Pricing</p>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 font-heading">Choose Your Ticket Type</h2>
+          <div class="w-20 h-1 bg-red mx-auto mb-6"></div>
+          <p class="text-white/60 text-sm max-w-lg mx-auto">
+            Ticket sales are deliberately limited to ensure optimal comfort and an exceptional experience for every guest.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 lg:gap-10">
+          {tiers.map((t) => (
+            <div class={`relative rounded-2xl overflow-hidden flex flex-col ${
+              t.highlight
+                ? 'bg-white text-slate ring-4 ring-gold shadow-2xl scale-[1.03]'
+                : 'bg-white/5 border-2 border-white/15 text-white'
+            }`}>
+              <div class={`py-2 text-center text-xs font-bold tracking-widest uppercase ${
+                t.highlight ? 'bg-gold text-navy-dark' : 'bg-white/10 text-white/60'
+              }`}>
+                {t.badge}
+              </div>
+              <div class="p-8 flex flex-col flex-grow">
+                <h3 class={`text-2xl font-bold mb-2 font-heading ${t.highlight ? 'text-navy' : 'text-white'}`}>{t.name}</h3>
+                <p class={`italic mb-4 ${t.highlight ? 'text-slate/70' : 'text-white/60'}`}>{t.tagline}</p>
+                <p class={`text-4xl font-bold mb-4 ${t.highlight ? 'text-navy' : 'text-white'}`}>{t.price}</p>
+                <p class={`text-sm leading-relaxed mb-8 flex-grow ${t.highlight ? 'text-slate/80' : 'text-white/70'}`}>
+                  {t.description}
+                </p>
+                <a
+                  href={ticketUrl}
+                  class={`eventbrite-checkout block w-full text-center py-3.5 px-6 rounded-lg font-semibold text-sm tracking-wider uppercase transition-all hover:-translate-y-0.5 ${
+                    t.highlight
+                      ? 'bg-red text-white hover:bg-red-light shadow-lg'
+                      : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
+                  }`}
+                >
+                  Get Tickets
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 5. HOSTED TABLES -->
+    <!-- ============================================================ -->
+    <section class="py-20 sm:py-28 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <!-- Text -->
+          <div>
+            <p class="text-gold font-medium tracking-[0.3em] uppercase text-xs mb-4">Groups, Companies & VIP Hospitality</p>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-5 font-heading">Entertain in Grand Style</h2>
+            <div class="w-16 h-1 bg-red mb-6"></div>
+            <p class="text-slate/80 text-lg leading-relaxed mb-5">
+              Hosted table packages are available for companies, families, executive groups, clients, patriotic celebrations, and VIP guests.
+            </p>
+            <p class="text-red text-sm italic font-medium mb-8">
+              Limited premium table placements available.
+            </p>
+            <a
+              href="/hosted-group-tables"
+              class="inline-block bg-navy hover:bg-navy-light text-white px-10 py-4 text-sm font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+            >
+              Request Hosted Table Options
+            </a>
+          </div>
+
+          <!-- Image -->
+          <div class="relative">
+            <div class="rounded-lg overflow-hidden shadow-xl aspect-[4/3]">
+              <img
+                src="/images/event/formal-dinner-table.png"
+                alt="Elegant hosted dinner table with crystal chandeliers"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-gold/10 rounded-lg -z-10"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 6. TRUST / LEGITIMACY -->
+    <!-- ============================================================ -->
+    <section class="py-20 sm:py-28 bg-cream">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <p class="text-gold font-medium tracking-[0.3em] uppercase text-xs mb-4">The Reasons It Matters</p>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-5 font-heading">Why Guests Attend</h2>
+          <div class="w-20 h-1 bg-red mx-auto"></div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6 lg:gap-8">
+          {trustPoints.map((p) => (
+            <div class="bg-white rounded-xl p-6 sm:p-8 border-l-4 border-gold shadow-sm">
+              <h3 class="text-navy font-bold text-xl mb-3 font-heading">{p.title}</h3>
+              <p class="text-slate/80 leading-relaxed">{p.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 7. URGENCY -->
+    <!-- ============================================================ -->
+    <section class="py-16 sm:py-20 bg-red text-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <p class="text-white/80 font-medium tracking-[0.3em] uppercase text-xs mb-4">Don't Wait</p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 font-heading">Availability Is Limited</h2>
+        <p class="text-white/90 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
+          Premium allocations may increase or sell out as demand rises. Hosted table inventory is limited.
+        </p>
+        <a
+          href={ticketUrl}
+          class="eventbrite-checkout inline-block bg-white text-red hover:bg-cream px-12 py-4 text-lg font-bold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+        >
+          Reserve Now
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 8. FAQ -->
+    <!-- ============================================================ -->
+    <section class="py-20 sm:py-28 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <p class="text-gold font-medium tracking-[0.3em] uppercase text-xs mb-4">Frequently Asked</p>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-5 font-heading">Common Questions</h2>
+          <div class="w-20 h-1 bg-red mx-auto"></div>
+        </div>
+
+        <div class="space-y-4">
+          {faqs.map(({ q, a }) => (
+            <details class="group bg-cream rounded-xl p-6 cursor-pointer">
+              <summary class="flex items-start justify-between gap-4 list-none cursor-pointer">
+                <h3 class="text-lg font-bold text-navy font-heading">{q}</h3>
+                <svg class="w-5 h-5 flex-shrink-0 text-gold mt-1 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p class="text-slate/70 leading-relaxed mt-4">{a}</p>
+            </details>
+          ))}
+        </div>
+
+        <div class="mt-12 text-center">
+          <a
+            href={ticketUrl}
+            class="eventbrite-checkout inline-block bg-red hover:bg-red-light text-white px-10 py-4 text-lg font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+          >
+            Get Tickets
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
+
+  /* FAQ default marker removal */
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
