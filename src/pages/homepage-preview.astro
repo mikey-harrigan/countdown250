@@ -29,6 +29,7 @@ const tiers = [
     tagline: "Full access to the celebration.",
     price: "$225",
     description: "Main ballroom access, premium open bars, live bands and DJs, and the midnight countdown to America's 250th.",
+    scarcity: "Current Release Pricing",
     highlight: false,
     badge: "Tier 1",
   },
@@ -37,6 +38,7 @@ const tiers = [
     tagline: "Earlier entry and upgraded hospitality.",
     price: "$450",
     description: "Everything in Liberty, plus early entry, a VIP reception with dinner, premium open bar, and access to honored guests.",
+    scarcity: "Limited VIP Availability",
     highlight: false,
     badge: "Tier 2",
   },
@@ -45,6 +47,7 @@ const tiers = [
     tagline: "The definitive Countdown 250 experience.",
     price: "$1,700",
     description: "Private entrance, dedicated concierge, reserved Presidential Stage seating, backstage access, fine dining, program recognition, and Hosted Group Tables eligibility.",
+    scarcity: "Premium Allocation Limited",
     highlight: true,
     badge: "The Pinnacle",
   },
@@ -156,6 +159,43 @@ const faqs = [
     </section>
 
     <!-- ============================================================ -->
+    <!-- 1.5 TRUST BAND — confidence signal immediately below hero -->
+    <!-- ============================================================ -->
+    <section class="relative bg-white border-y border-gold/30">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
+        <div class="flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-8 gap-y-3 text-center">
+          <div class="flex items-center gap-2 text-navy text-sm sm:text-[15px] font-medium">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 00-.06 1.813l7.25 4a1 1 0 00.836 0l7.25-4a1 1 0 00-.06-1.814l-7-3zM3.04 8.617l6.996 3.856a1 1 0 00.928 0l6.996-3.856.44.193a1 1 0 01.6.91v4.635a1 1 0 01-.504.868l-7.5 4.125a1 1 0 01-.912 0l-7.5-4.125A1 1 0 012 14.41V9.774a1 1 0 01.6-.91l.44-.193z"/>
+            </svg>
+            <span>Washington Hilton</span>
+          </div>
+          <span class="hidden sm:inline-block w-px h-5 bg-slate/20"></span>
+          <div class="flex items-center gap-2 text-navy text-sm sm:text-[15px] font-medium">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <span>30+ Years of Signature Events</span>
+          </div>
+          <span class="hidden sm:inline-block w-px h-5 bg-slate/20"></span>
+          <div class="flex items-center gap-2 text-navy text-sm sm:text-[15px] font-medium">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-red flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+            <span>Supporting Operation Renewed Hope Foundation</span>
+          </div>
+          <span class="hidden sm:inline-block w-px h-5 bg-slate/20"></span>
+          <div class="flex items-center gap-2 text-navy text-sm sm:text-[15px] font-medium">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+            <span>A Patriotic Celebration Welcoming Guests of All Backgrounds</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
     <!-- 2. STATESMAN'S CONCIERGE PASS SPOTLIGHT -->
     <!-- ============================================================ -->
     <section id="statesman" class="relative py-20 sm:py-28 bg-gradient-to-b from-navy-dark via-navy to-navy-dark text-white overflow-hidden">
@@ -184,8 +224,11 @@ const faqs = [
             <p class="text-gold font-medium tracking-[0.3em] uppercase text-xs mb-4">The Pinnacle Experience</p>
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 font-heading">Statesman's Concierge Pass</h2>
             <p class="text-xl text-gold/90 italic font-light mb-6">The most elevated way to experience Countdown 250.</p>
-            <p class="text-white/80 text-lg leading-relaxed mb-8">
-              For guests who prefer premium hospitality, comfort, access, and a truly memorable night.
+            <p class="text-white/85 text-lg leading-relaxed mb-3">
+              For guests who prefer the most elevated, comfortable, and memorable way to experience Countdown 250.
+            </p>
+            <p class="text-white/70 text-base leading-relaxed mb-8 italic">
+              Ideal for couples, executives, hosts, and guests who expect the best.
             </p>
 
             <ul class="space-y-3 mb-10">
@@ -209,13 +252,14 @@ const faqs = [
             <div class="flex flex-col sm:flex-row gap-4">
               <a
                 href={ticketUrl}
-                class="eventbrite-checkout bg-gold text-navy-dark hover:bg-gold/90 px-8 py-3 text-sm font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5 text-center"
+                class="eventbrite-checkout inline-flex items-center justify-center gap-2 bg-gold text-navy-dark hover:bg-gold/90 px-9 py-4 text-sm font-bold tracking-[0.12em] uppercase transition-all rounded ring-1 ring-gold/30 ring-offset-2 ring-offset-navy shadow-xl hover:shadow-2xl hover:-translate-y-0.5 text-center"
               >
-                Secure Statesman Passes
+                <span class="text-navy-dark">&#9733;</span>
+                <span>Secure Statesman Passes</span>
               </a>
               <a
                 href="/hosted-group-tables"
-                class="border-2 border-gold/60 text-gold hover:bg-gold/10 px-8 py-3 text-sm font-semibold tracking-wider uppercase transition-all rounded text-center"
+                class="border-2 border-gold/60 text-gold hover:bg-gold/10 px-8 py-4 text-sm font-semibold tracking-wider uppercase transition-all rounded text-center"
               >
                 Hosted Tables Available
               </a>
@@ -281,7 +325,10 @@ const faqs = [
               <div class="p-8 flex flex-col flex-grow">
                 <h3 class={`text-2xl font-bold mb-2 font-heading ${t.highlight ? 'text-navy' : 'text-white'}`}>{t.name}</h3>
                 <p class={`italic mb-4 ${t.highlight ? 'text-slate/70' : 'text-white/60'}`}>{t.tagline}</p>
-                <p class={`text-4xl font-bold mb-4 ${t.highlight ? 'text-navy' : 'text-white'}`}>{t.price}</p>
+                <p class={`text-4xl font-bold mb-2 ${t.highlight ? 'text-navy' : 'text-white'}`}>{t.price}</p>
+                <p class={`text-xs uppercase tracking-[0.15em] font-semibold mb-4 ${t.highlight ? 'text-red/90' : 'text-gold/80'}`}>
+                  {t.scarcity}
+                </p>
                 <p class={`text-sm leading-relaxed mb-8 flex-grow ${t.highlight ? 'text-slate/80' : 'text-white/70'}`}>
                   {t.description}
                 </p>
@@ -311,10 +358,13 @@ const faqs = [
           <!-- Text -->
           <div>
             <p class="text-gold font-medium tracking-[0.3em] uppercase text-xs mb-4">Groups, Companies & VIP Hospitality</p>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-5 font-heading">Entertain in Grand Style</h2>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-5 font-heading">Host the Night in Grand Style</h2>
             <div class="w-16 h-1 bg-red mb-6"></div>
             <p class="text-slate/80 text-lg leading-relaxed mb-5">
-              Hosted table packages are available for companies, families, executive groups, clients, patriotic celebrations, and VIP guests.
+              Entertain clients, reward friends, celebrate with family, or gather your group for the premier July 3 celebration.
+            </p>
+            <p class="text-slate/80 text-lg leading-relaxed mb-5">
+              Groups organizing premium attendance may qualify for recognition as <strong class="text-navy">Founding Hosts</strong> of Countdown 250.
             </p>
             <p class="text-red text-sm italic font-medium mb-8">
               Limited premium table placements available.
