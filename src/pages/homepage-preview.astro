@@ -409,26 +409,29 @@ const faqs = [
         <!-- Zone 1: Centered header block with headline + staircase -->
         <div class="text-center mb-14 sm:mb-16">
           <p class="text-gold font-medium tracking-[0.3em] uppercase text-xs mb-4">The Hosted Table Experience</p>
-          <h2 class="font-bold text-navy mb-6 font-heading leading-tight">
-            <span class="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Host Your Own</span>
-            <span class="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic mt-1">&ldquo;Party Within the Party&rdquo;</span>
+          <h2 class="font-bold text-navy mb-6 font-heading leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+            Host Your Own <span class="italic whitespace-nowrap">&ldquo;Party Within the Party&rdquo;</span>
           </h2>
           <div class="w-16 h-1 bg-red mx-auto mb-8"></div>
 
           <!-- Staircase: block is centered, but internal text left-aligned so indents work -->
           <div class="inline-block text-left text-slate/75 italic text-lg sm:text-xl space-y-2">
             <p class="inline-flex items-center gap-2">
-              <span>You invite guests</span>
-              <span class="text-gold font-bold not-italic text-2xl">&rarr;</span>
+              <span><strong class="font-extrabold">You</strong> invite guests</span>
+              <svg class="inline-block w-6 h-6 sm:w-7 sm:h-7 text-gold flex-shrink-0" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 12h15" />
+              </svg>
             </p>
-            <p class="pl-10 sm:pl-20 md:pl-32 lg:pl-48">
+            <p class="pl-10 sm:pl-20 md:pl-32 lg:pl-48 xl:pl-64">
               <span class="inline-flex items-center gap-2">
-                <span>Guests purchase their own tickets</span>
-                <span class="text-gold font-bold not-italic text-2xl">&rarr;</span>
+                <span><strong class="font-extrabold">Guests</strong> purchase their own tickets</span>
+                <svg class="inline-block w-6 h-6 sm:w-7 sm:h-7 text-gold flex-shrink-0" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 12h15" />
+                </svg>
               </span>
             </p>
-            <p class="pl-20 sm:pl-40 md:pl-64 lg:pl-96 font-medium text-slate">
-              We handle the rest!
+            <p class="pl-24 sm:pl-56 md:pl-[22rem] lg:pl-[40rem] xl:pl-[48rem] font-medium text-slate">
+              <strong class="font-extrabold">We</strong> handle the rest!
             </p>
           </div>
         </div>
@@ -465,12 +468,11 @@ const faqs = [
         </div>
 
         <!-- Zone 3: Two benefit boxes (Host primary, Guests secondary) -->
-        <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+        <div class="grid md:grid-cols-2 gap-6 lg:gap-8 pt-3">
           <!-- Box 1: Host benefits (PRIMARY) -->
           <div class="relative bg-cream border-2 border-gold/60 rounded-xl p-6 sm:p-8 shadow-sm">
-            <div class="absolute -top-3 left-5 sm:left-7 bg-gold text-navy-dark text-[10px] font-bold tracking-[0.2em] uppercase px-3 py-1 rounded">For Hosts</div>
-            <h3 class="text-navy font-bold text-lg sm:text-xl mb-5 font-heading">Benefits to Hosts</h3>
-            <ul class="space-y-2 text-slate/85 text-[15px] leading-snug">
+            <div class="absolute -top-3 left-5 sm:left-7 bg-gold text-navy-dark text-[11px] sm:text-xs font-bold tracking-[0.18em] uppercase px-4 py-1.5 rounded shadow-sm">Benefits to Hosts</div>
+            <ul class="space-y-2 text-slate/85 text-[15px] leading-snug mt-3">
               <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Reserved premium gathering place for your group</span></li>
               <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Guests purchase their own qualifying tickets</span></li>
               <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Personalized table signage featuring the Host's name and group name</span></li>
@@ -484,9 +486,8 @@ const faqs = [
 
           <!-- Box 2: Guest benefits (SECONDARY) -->
           <div class="relative bg-white border border-slate/20 rounded-xl p-6 sm:p-8">
-            <div class="absolute -top-3 left-5 sm:left-7 bg-navy text-white text-[10px] font-bold tracking-[0.2em] uppercase px-3 py-1 rounded">For Guests</div>
-            <h3 class="text-navy font-bold text-lg sm:text-xl mb-5 font-heading">Why Guests Love It</h3>
-            <ul class="space-y-2 text-slate/80 text-[15px] leading-snug">
+            <div class="absolute -top-3 left-5 sm:left-7 bg-navy text-white text-[11px] sm:text-xs font-bold tracking-[0.18em] uppercase px-4 py-1.5 rounded shadow-sm">Benefits to Guests of the Hosts</div>
+            <ul class="space-y-2 text-slate/80 text-[15px] leading-snug mt-3">
               <li class="flex items-start"><span class="text-navy/60 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Reserved premium gathering place with the group</span></li>
               <li class="flex items-start"><span class="text-navy/60 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Easy to join your group during ticket purchase</span></li>
               <li class="flex items-start"><span class="text-navy/60 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Included in the &ldquo;Party Inside the Party&rdquo; experience</span></li>
