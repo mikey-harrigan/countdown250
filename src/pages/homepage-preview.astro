@@ -493,34 +493,43 @@ const faqs = [
           </div>
         </div>
 
-        <!-- Unified benefits card: two columns inside one card -->
-        <div class="bg-cream border border-navy/25 rounded-xl overflow-hidden shadow-[0_0_12px_rgba(13,61,122,0.15)]">
-          <div class="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-navy/25">
-            <!-- Host benefits -->
-            <div class="p-6 sm:p-7 md:p-8">
-              <p class="text-gold font-bold tracking-[0.18em] uppercase text-xs sm:text-[13px] mb-4">Benefits to Hosts</p>
-              <ul class="space-y-1.5 text-slate/85 text-[15px] leading-snug">
-                <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Reserved premium gathering place for your group</span></li>
-                <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Guests purchase their own qualifying tickets</span></li>
-                <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Personalized table signage with Host's name &amp; group name</span></li>
-                <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Recognition as a Host in the official event program</span></li>
-                <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Recognition as a Host on the event website</span></li>
-                <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Public &ldquo;Toast to the Hosts&rdquo; ceremony during the event</span></li>
-                <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Fast and easy &mdash; we handle the details</span></li>
-                <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>No additional cost to be a Host</span></li>
-              </ul>
-            </div>
-            <!-- Guest benefits -->
-            <div class="p-6 sm:p-7 md:p-8">
-              <p class="text-navy font-bold tracking-[0.18em] uppercase text-xs sm:text-[13px] mb-4">Benefits to Guests of the Hosts</p>
-              <ul class="space-y-1.5 text-slate/80 text-[15px] leading-snug">
-                <li class="flex items-start"><span class="text-navy/60 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Reserved premium gathering place with the group</span></li>
-                <li class="flex items-start"><span class="text-navy/60 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Easy to join your group during ticket purchase</span></li>
-                <li class="flex items-start"><span class="text-navy/60 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Included in the &ldquo;Party Inside the Party&rdquo; experience</span></li>
-                <li class="flex items-start"><span class="text-navy/60 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>No additional cost beyond their qualifying ticket</span></li>
-                <li class="flex items-start"><span class="text-navy/60 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Shared memories to last a lifetime with your invited group</span></li>
-              </ul>
-            </div>
+        <!-- Asymmetric benefits card: Host (dominant, peacock) | Guest (supporting) -->
+        <div class="grid md:grid-cols-[5fr_4fr] rounded-xl overflow-hidden border border-navy/30 shadow-[0_0_24px_rgba(13,61,122,0.25)]">
+
+          <!-- HOST PANEL: dark navy + gold = premium, aspirational, peacock-targeted -->
+          <div class="relative bg-gradient-to-br from-navy-dark via-navy to-navy-dark p-7 sm:p-8 md:p-10 text-white overflow-hidden">
+            <!-- Gold accent edges -->
+            <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/70 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
+
+            <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-2">Benefits to Hosts</p>
+            <p class="font-heading italic text-gold/85 text-base sm:text-lg leading-snug mb-6">
+              Be seen. Be recognized. Be the host everyone remembers.
+            </p>
+
+            <ul class="space-y-2.5 text-white/85 text-[15px] sm:text-base leading-snug">
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span>Reserved premium gathering place for your group</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span>Guests purchase their own qualifying tickets</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span><strong class="font-semibold text-white">Personalized table signage</strong> with your name &amp; group name</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span><strong class="font-semibold text-white">Named in the official event program</strong></span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span><strong class="font-semibold text-white">Named on the event website</strong></span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span><strong class="font-semibold text-white">Public &ldquo;Toast to the Hosts&rdquo;</strong> during the evening</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span>Fast and easy &mdash; we handle every detail</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span>No additional cost to be a Host</span></li>
+            </ul>
+          </div>
+
+          <!-- GUEST PANEL: cream + understated = supporting -->
+          <div class="bg-cream p-6 sm:p-7 md:p-8">
+            <p class="text-navy/80 font-bold tracking-[0.25em] uppercase text-xs mb-5">Benefits to Guests</p>
+
+            <ul class="space-y-2 text-slate/75 text-[14px] sm:text-[15px] leading-snug">
+              <li class="flex items-start"><span class="text-navy/40 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Reserved premium gathering place with the group</span></li>
+              <li class="flex items-start"><span class="text-navy/40 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Easy to join your group during ticket purchase</span></li>
+              <li class="flex items-start"><span class="text-navy/40 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Included in the &ldquo;Party Inside the Party&rdquo; experience</span></li>
+              <li class="flex items-start"><span class="text-navy/40 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>No additional cost beyond their qualifying ticket</span></li>
+              <li class="flex items-start"><span class="text-navy/40 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Shared memories to last a lifetime with your group</span></li>
+            </ul>
           </div>
         </div>
       </div>
