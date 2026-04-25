@@ -605,13 +605,26 @@ const faqs = [
     <section class="py-16 sm:py-20 bg-red text-white">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
         <p class="text-white/80 font-semibold tracking-[0.3em] uppercase text-xs mb-4">One Night. One Generation.</p>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 font-heading">Availability Is Limited</h2>
-        <p class="text-white/90 text-lg leading-relaxed mb-4 max-w-2xl mx-auto">
-          July 3, 2026 is the one night America's 250th anniversary weekend officially begins &mdash; and there is only one Washington Hilton ballroom, with a limited number of seats.
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 font-heading">Availability Is Limited</h2>
+
+        <!-- Body: cascading "only one" build -->
+        <div class="text-white/95 text-lg sm:text-xl leading-relaxed mb-7 space-y-2 max-w-2xl mx-auto">
+          <p>Some moments come only once in a lifetime.</p>
+          <p>We have only one 250th birthday.</p>
+          <p>There is only one July 4, 2026 in Washington, D.C.</p>
+          <p>And there is only one Official Countdown 250 Ball.</p>
+        </div>
+
+        <!-- Closing italic question — callback to the hero hook -->
+        <p class="font-heading italic text-xl sm:text-2xl md:text-3xl text-white mb-10 leading-snug">
+          Where will you be when the clock strikes 250?
         </p>
-        <p class="text-white/90 text-lg leading-relaxed mb-10 max-w-2xl mx-auto font-medium">
-          Current release pricing may rise. Premium and Hosted Table inventory is limited.
+
+        <!-- Closing scarcity reminder -->
+        <p class="text-white/90 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl mx-auto font-medium">
+          Prices will go up soon.<br />Premium and Hosted Table inventory is limited.
         </p>
+
         <a
           href={ticketUrl}
           class="eventbrite-checkout inline-block bg-white text-red hover:bg-cream px-12 py-4 text-sm font-bold tracking-[0.2em] uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
