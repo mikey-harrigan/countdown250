@@ -9,6 +9,7 @@
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
+import Countdown from '../components/Countdown.astro';
 import Footer from '../components/Footer.astro';
 
 const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
@@ -106,7 +107,7 @@ const faqs = [
   },
   {
     q: "What is the dress code?",
-    a: "Creative Patriotic Black Tie Optional — with an emphasis on creative and patriotic! Typically men wear either a suit or a tuxedo, while women generally wear either gowns or cocktail dresses… but many will add their own flavor of patriotism to brighten the evening. This is a celebration… be comfortable and have fun with it!",
+    a: "Creative Patriotic Black Tie Optional. Think elegant, festive, and fun. Men often choose a suit or tuxedo. Women often choose gowns, cocktail dresses, or chic evening attire. Many guests add touches of patriotic flair — red, white, blue, or uniquely American style. Most importantly: be comfortable, celebrate, and enjoy the night.",
   },
   {
     q: "What is included with the Statesman's Concierge Pass?",
@@ -206,10 +207,15 @@ const faqs = [
         </p>
         <!-- Credentials bar (Inter, tracked editorial uppercase) -->
         <p class="text-navy/70 text-[11px] sm:text-xs font-semibold tracking-[0.25em] uppercase">
-          Washington Hilton <span class="text-gold mx-3">&#10022;</span> Proudly supporting Operation Renewed Hope Foundation
+          Washington Hilton <span class="text-gold mx-3">&#10022;</span> Supporting Operation Renewed Hope Foundation <span class="text-gold mx-3 hidden md:inline">&#10022;</span><span class="hidden md:inline">Welcoming Guests of All Backgrounds</span>
         </p>
       </div>
     </section>
+
+    <!-- ============================================================ -->
+    <!-- 1.6 COUNTDOWN TIMER — premium, static-feeling band -->
+    <!-- ============================================================ -->
+    <Countdown />
 
     <!-- ============================================================ -->
     <!-- 2. STATESMAN'S CONCIERGE PASS SPOTLIGHT -->
@@ -600,7 +606,34 @@ const faqs = [
     </section>
 
     <!-- ============================================================ -->
-    <!-- 7. URGENCY -->
+    <!-- 7. FAQ — placed before final urgency so page closes on action -->
+    <!-- ============================================================ -->
+    <section class="py-20 sm:py-28 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <p class="text-gold font-semibold tracking-[0.3em] uppercase text-xs mb-4">Frequently Asked</p>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-5 font-heading">Common Questions</h2>
+          <div class="w-20 h-1 bg-red mx-auto"></div>
+        </div>
+
+        <div class="space-y-4">
+          {faqs.map(({ q, a }) => (
+            <details class="group bg-cream rounded-xl p-6 cursor-pointer">
+              <summary class="flex items-start justify-between gap-4 list-none cursor-pointer">
+                <h3 class="text-lg font-bold text-navy font-heading">{q}</h3>
+                <svg class="w-5 h-5 flex-shrink-0 text-gold mt-1 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p class="text-slate/70 leading-relaxed mt-4">{a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 8. URGENCY — final close, conversion-focused -->
     <!-- ============================================================ -->
     <section class="py-16 sm:py-20 bg-red text-white">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
@@ -631,42 +664,6 @@ const faqs = [
         >
           Reserve Now
         </a>
-      </div>
-    </section>
-
-    <!-- ============================================================ -->
-    <!-- 8. FAQ -->
-    <!-- ============================================================ -->
-    <section class="py-20 sm:py-28 bg-white">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-12">
-          <p class="text-gold font-semibold tracking-[0.3em] uppercase text-xs mb-4">Frequently Asked</p>
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-5 font-heading">Common Questions</h2>
-          <div class="w-20 h-1 bg-red mx-auto"></div>
-        </div>
-
-        <div class="space-y-4">
-          {faqs.map(({ q, a }) => (
-            <details class="group bg-cream rounded-xl p-6 cursor-pointer">
-              <summary class="flex items-start justify-between gap-4 list-none cursor-pointer">
-                <h3 class="text-lg font-bold text-navy font-heading">{q}</h3>
-                <svg class="w-5 h-5 flex-shrink-0 text-gold mt-1 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </summary>
-              <p class="text-slate/70 leading-relaxed mt-4">{a}</p>
-            </details>
-          ))}
-        </div>
-
-        <div class="mt-12 text-center">
-          <a
-            href={ticketUrl}
-            class="eventbrite-checkout inline-block bg-red hover:bg-red-light text-white px-10 py-4 text-sm font-semibold tracking-[0.2em] uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
-          >
-            Get Tickets
-          </a>
-        </div>
       </div>
     </section>
 
