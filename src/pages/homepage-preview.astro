@@ -136,7 +136,7 @@ const faqs = [
       <!-- Content -->
       <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-28 pb-20">
         <!-- Seal logo -->
-        <div class="flex justify-center mb-8 animate-fade-in">
+        <div class="flex justify-center mb-10 animate-fade-in">
           <img
             src="/images/logos/countdown250-seal-circle-dark.png"
             alt="The Official Countdown 250 Ball — July 3, 2026 — Washington, D.C."
@@ -144,36 +144,42 @@ const faqs = [
           />
         </div>
 
-        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight font-heading">
-          America's Premier<br class="hidden sm:block" /> July 3 Countdown Celebration
+        <!-- Poetic open: italic question, two staggered lines -->
+        <p class="font-heading italic font-light text-2xl sm:text-3xl md:text-4xl text-white/85 leading-tight mb-1 tracking-tight">
+          Where will you be&hellip;
+        </p>
+        <p class="font-heading italic font-normal text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-12 tracking-tight">
+          when the clock strikes 250?
+        </p>
+
+        <!-- Brand eyebrow -->
+        <p class="text-[11px] sm:text-xs font-semibold tracking-[0.4em] uppercase text-gold mb-3">
+          The Official
+        </p>
+
+        <!-- Display headline -->
+        <h1 class="font-heading font-bold text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] text-white leading-[1.05] mb-7 tracking-tight">
+          Countdown 250 Ball
         </h1>
 
-        <p class="text-2xl sm:text-3xl md:text-4xl text-gold font-bold font-heading mb-4 tracking-wide">
-          The Official COUNTDOWN 250 Ball
-        </p>
+        <!-- Gold flourish divider -->
+        <div class="w-20 h-px bg-gold/70 mx-auto mb-6"></div>
 
-        <p class="text-lg sm:text-xl md:text-2xl text-white/95 font-light mb-3 max-w-3xl mx-auto leading-relaxed">
-          Kicking off the biggest patriotic weekend in American history.
-        </p>
-
-        <p class="text-base sm:text-lg md:text-xl text-white/75 font-light mb-6 max-w-3xl mx-auto leading-relaxed">
-          Midnight Countdown to America's 250th Independence Weekend
-        </p>
-
-        <p class="text-gold/90 text-sm sm:text-base italic mb-10">
-          From the producers of landmark national celebrations for over 30 years.
+        <!-- Italic close -->
+        <p class="font-heading italic font-light text-lg sm:text-xl md:text-2xl text-gold/95 mb-12">
+          A once-in-a-lifetime moment.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
             href={ticketUrl}
-            class="eventbrite-checkout bg-red hover:bg-red-light text-white px-10 py-4 text-lg font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+            class="eventbrite-checkout bg-red hover:bg-red-light text-white px-10 py-4 text-sm font-semibold tracking-[0.2em] uppercase transition-all rounded shadow-lg hover:shadow-xl hover:-translate-y-0.5"
           >
             Get Tickets
           </a>
           <a
             href="#statesman"
-            class="border-2 border-gold text-gold hover:bg-gold hover:text-navy-dark px-10 py-4 text-lg font-semibold tracking-wider uppercase transition-all rounded"
+            class="border-2 border-gold text-gold hover:bg-gold hover:text-navy-dark px-10 py-4 text-sm font-semibold tracking-[0.2em] uppercase transition-all rounded"
           >
             Explore Statesman's Experience
           </a>
@@ -222,7 +228,7 @@ const faqs = [
           <!-- Text -->
           <div class="order-1 md:order-2">
             <h2 class="text-3xl sm:text-4xl md:text-4xl lg:text-[2.75rem] font-bold text-white mb-3 font-heading md:whitespace-nowrap">Statesman's Concierge Pass</h2>
-            <p class="text-xl sm:text-2xl text-gold/90 italic font-light mb-6">Our Premier Ticket Option</p>
+            <p class="font-heading italic font-light text-xl sm:text-2xl text-gold/90 mb-6">Our Premier Ticket Option</p>
 
             <p class="text-white/85 text-lg leading-relaxed mb-7">
               For guests seeking one of the most extraordinary evenings of their lives. Ideal for couples, executives, hosts, and guests who expect the best.
@@ -273,7 +279,7 @@ const faqs = [
               </a>
               <a
                 href="/hosted-group-tables"
-                class="border-2 border-gold/60 text-gold hover:bg-gold/10 px-8 py-4 text-sm font-semibold tracking-wider uppercase transition-all rounded text-center"
+                class="border-2 border-gold/60 text-gold hover:bg-gold/10 px-8 py-4 text-sm font-semibold tracking-[0.2em] uppercase transition-all rounded text-center"
               >
                 Hosted Tables Available
               </a>
@@ -301,7 +307,7 @@ const faqs = [
     <section class="py-20 sm:py-28 bg-cream">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12 sm:mb-16">
-          <p class="text-red font-medium tracking-[0.3em] uppercase text-xs mb-4">The Night of the Generation</p>
+          <p class="text-red font-semibold tracking-[0.3em] uppercase text-xs mb-4">The Night of the Generation</p>
           <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-4 font-heading">One Unforgettable Night</h2>
           <div class="w-20 h-1 bg-red mx-auto"></div>
         </div>
@@ -312,24 +318,6 @@ const faqs = [
               <p class="text-navy font-bold text-lg sm:text-xl font-heading">{f.label}</p>
             </div>
           ))}
-          <!-- Featured larger tile centered on the last row -->
-          <div class="col-span-2 sm:col-span-3 lg:col-span-4 bg-navy rounded-xl p-8 sm:p-10 md:p-14 text-white mt-2">
-            <!-- Staggered question: line 1 italic left, line 2 bold right on desktop; centered on mobile -->
-            <div class="max-w-4xl mx-auto mb-8 md:mb-10">
-              <p class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl italic font-light font-heading leading-snug text-center md:text-left md:pl-4 lg:pl-10 mb-2 md:mb-3">
-                Where will you be...
-              </p>
-              <p class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-heading leading-snug text-center md:text-right md:pr-4 lg:pr-10 text-gold">
-                when the clock strikes 250?
-              </p>
-            </div>
-            <p class="text-white text-base sm:text-lg md:text-xl font-bold font-heading tracking-wide text-center mb-2">
-              The Official COUNTDOWN 250 Ball
-            </p>
-            <p class="text-white/65 text-sm sm:text-base text-center italic">
-              A once-in-a-lifetime moment.
-            </p>
-          </div>
         </div>
       </div>
     </section>
@@ -340,7 +328,7 @@ const faqs = [
     <section id="tickets" class="py-20 sm:py-28 bg-navy-dark text-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14">
-          <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">Early Release Pricing</p>
+          <p class="text-gold font-semibold tracking-[0.3em] uppercase text-xs mb-4">Early Release Pricing</p>
           <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 font-heading">Choose Your Ticket Type</h2>
           <div class="w-20 h-1 bg-red mx-auto mb-6"></div>
           <p class="text-white/60 text-sm max-w-lg mx-auto">
@@ -362,7 +350,7 @@ const faqs = [
               </div>
               <div class="p-8 flex flex-col flex-grow">
                 <h3 class={`text-2xl font-bold mb-2 font-heading ${t.highlight ? 'text-navy' : 'text-white'}`}>{t.name}</h3>
-                <p class={`italic mb-4 ${t.highlight ? 'text-slate/70' : 'text-white/60'}`}>{t.tagline}</p>
+                <p class={`font-heading italic font-light mb-4 ${t.highlight ? 'text-slate/70' : 'text-white/60'}`}>{t.tagline}</p>
                 <p class={`text-4xl font-bold mb-2 ${t.highlight ? 'text-navy' : 'text-white'}`}>{t.price}</p>
                 <p class={`text-xs uppercase tracking-[0.15em] font-semibold mb-4 ${t.highlight ? 'text-red/90' : 'text-gold/80'}`}>
                   {t.scarcity}
@@ -385,7 +373,7 @@ const faqs = [
                 )}
                 <a
                   href={ticketUrl}
-                  class={`eventbrite-checkout block w-full text-center py-3.5 px-6 rounded-lg font-semibold text-sm tracking-wider uppercase transition-all hover:-translate-y-0.5 ${
+                  class={`eventbrite-checkout block w-full text-center py-3.5 px-6 rounded-lg font-semibold text-sm tracking-[0.2em] uppercase transition-all hover:-translate-y-0.5 ${
                     t.highlight
                       ? 'bg-red text-white hover:bg-red-light shadow-lg'
                       : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
@@ -411,7 +399,7 @@ const faqs = [
 
         <!-- Centered premium header — aspirational lead -->
         <div class="text-center mb-12 sm:mb-14">
-          <p class="text-gold font-medium tracking-[0.3em] uppercase text-xs mb-4">Your Group Experience</p>
+          <p class="text-gold font-semibold tracking-[0.3em] uppercase text-xs mb-4">Your Group Experience</p>
           <h2 class="font-bold text-navy mb-5 font-heading leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
             Host a <em class="italic">Party Inside the Party</em>
           </h2>
@@ -518,7 +506,7 @@ const faqs = [
       <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
 
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <p class="text-gold/80 font-medium tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-6">
+        <p class="text-gold/80 font-semibold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-6">
           Trusted by longtime guests of the All-American Inaugural Ball
         </p>
 
@@ -544,7 +532,7 @@ const faqs = [
     <section class="py-20 sm:py-28 bg-cream">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14">
-          <p class="text-gold font-medium tracking-[0.3em] uppercase text-xs mb-4">The Reasons It Matters</p>
+          <p class="text-gold font-semibold tracking-[0.3em] uppercase text-xs mb-4">The Reasons It Matters</p>
           <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-5 font-heading">Why Guests Attend</h2>
           <div class="w-20 h-1 bg-red mx-auto"></div>
         </div>
@@ -565,7 +553,7 @@ const faqs = [
     <!-- ============================================================ -->
     <section class="py-16 sm:py-20 bg-red text-white">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-        <p class="text-white/80 font-medium tracking-[0.3em] uppercase text-xs mb-4">One Night. One Generation.</p>
+        <p class="text-white/80 font-semibold tracking-[0.3em] uppercase text-xs mb-4">One Night. One Generation.</p>
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 font-heading">Availability Is Limited</h2>
         <p class="text-white/90 text-lg leading-relaxed mb-4 max-w-2xl mx-auto">
           July 3, 2026 is the one night America's 250th anniversary weekend officially begins &mdash; and there is only one Washington Hilton ballroom, with a limited number of seats.
@@ -575,7 +563,7 @@ const faqs = [
         </p>
         <a
           href={ticketUrl}
-          class="eventbrite-checkout inline-block bg-white text-red hover:bg-cream px-12 py-4 text-lg font-bold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+          class="eventbrite-checkout inline-block bg-white text-red hover:bg-cream px-12 py-4 text-sm font-bold tracking-[0.2em] uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
         >
           Reserve Now
         </a>
@@ -588,7 +576,7 @@ const faqs = [
     <section class="py-20 sm:py-28 bg-white">
       <div class="max-w-3xl mx-auto px-4 sm:px-6">
         <div class="text-center mb-12">
-          <p class="text-gold font-medium tracking-[0.3em] uppercase text-xs mb-4">Frequently Asked</p>
+          <p class="text-gold font-semibold tracking-[0.3em] uppercase text-xs mb-4">Frequently Asked</p>
           <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-5 font-heading">Common Questions</h2>
           <div class="w-20 h-1 bg-red mx-auto"></div>
         </div>
@@ -610,7 +598,7 @@ const faqs = [
         <div class="mt-12 text-center">
           <a
             href={ticketUrl}
-            class="eventbrite-checkout inline-block bg-red hover:bg-red-light text-white px-10 py-4 text-lg font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+            class="eventbrite-checkout inline-block bg-red hover:bg-red-light text-white px-10 py-4 text-sm font-semibold tracking-[0.2em] uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
           >
             Get Tickets
           </a>
@@ -645,7 +633,7 @@ const faqs = [
           <div class="p-8 sm:p-10">
             <!-- Header -->
             <div class="text-center mb-8">
-              <p class="text-gold font-medium tracking-[0.3em] uppercase text-xs mb-3">Statesman's Concierge Pass</p>
+              <p class="text-gold font-semibold tracking-[0.3em] uppercase text-xs mb-3">Statesman's Concierge Pass</p>
               <h3 id="statesman-benefits-title" class="text-2xl sm:text-3xl font-bold text-navy font-heading leading-tight">
                 Full Benefits &amp; Amenities
               </h3>
