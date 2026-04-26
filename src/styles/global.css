@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #002868;
-  --color-navy-dark: #001a45;
-  --color-navy-light: #0d3d7a;
-  --color-red: #B22234;
-  --color-red-dark: #8B1A29;
-  --color-red-light: #C5293C;
-  --color-gold: #fdd835;
-  --color-gold-light: #fee55a;
-  --color-cream: #faf8f5;
+  --color-navy: #2457A6;        /* Primary Celebration Blue — vibrant, presidential */
+  --color-navy-dark: #17345F;   /* Deep Supporting Navy — high-contrast text/footer */
+  --color-navy-light: #3A6BB8;  /* Slightly lighter for hovers/accents */
+  --color-red: #C62839;         /* Crisp Patriotic Red */
+  --color-red-dark: #9E1F2D;
+  --color-red-light: #D53A4A;
+  --color-gold: #C9A227;        /* Warm Luxe Gold — readable, jewelry-like */
+  --color-gold-light: #DAB444;
+  --color-cream: #FAF8F2;       /* Warm parchment background */
   --color-slate: #2d3748;
 
   --font-heading: 'Playfair Display', Georgia, serif;
