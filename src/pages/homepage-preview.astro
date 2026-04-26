@@ -207,7 +207,7 @@ const faqs = [
         </p>
         <!-- Credentials bar (Inter, tracked editorial uppercase) -->
         <p class="text-navy/70 text-[11px] sm:text-xs font-semibold tracking-[0.25em] uppercase">
-          Washington Hilton <span class="text-gold mx-3">&#10022;</span> Supporting Operation Renewed Hope Foundation <span class="text-gold mx-3 hidden md:inline">&#10022;</span><span class="hidden md:inline">Welcoming Guests of All Backgrounds</span>
+          Washington Hilton <span class="text-gold mx-3">&#10022;</span> Supporting Operation Renewed Hope Foundation
         </p>
       </div>
     </section>
@@ -334,7 +334,7 @@ const faqs = [
             On July 3, the iconic Washington Hilton ballroom complex will transform into an extraordinary celebration of American heritage &mdash; an evening of world-class entertainment, refined elegance, and memories that will last forever.
           </p>
           <p class="text-slate/80 text-lg leading-relaxed">
-            Mix and mingle with C-Suite business leaders, decorated veterans and first responders, professional athletes and celebrities, policymakers, media personalities and influencers, and proud Americans from across the country as we savor this event of a lifetime.
+            Mix and mingle with decorated veterans and first responders, professional athletes and celebrities, C-suite business leaders, policymakers, media personalities, influencers, and proud Americans from across the country at this once-in-a-lifetime celebration.
           </p>
         </div>
 
@@ -584,36 +584,24 @@ const faqs = [
     </section>
 
     <!-- ============================================================ -->
-    <!-- 6. TRUST / LEGITIMACY -->
-    <!-- ============================================================ -->
-    <section class="py-20 sm:py-28 bg-cream">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-14">
-          <p class="text-gold font-semibold tracking-[0.3em] uppercase text-xs mb-4">The Reasons It Matters</p>
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-5 font-heading">Why Guests Attend</h2>
-          <div class="w-20 h-1 bg-red mx-auto"></div>
-        </div>
-
-        <div class="grid sm:grid-cols-2 gap-6 lg:gap-8">
-          {trustPoints.map((p) => (
-            <div class="bg-white rounded-xl p-6 sm:p-8 border-l-4 border-gold shadow-sm">
-              <h3 class="text-navy font-bold text-xl mb-3 font-heading">{p.title}</h3>
-              <p class="text-slate/80 leading-relaxed">{p.body}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================ -->
-    <!-- 7. FAQ — placed before final urgency so page closes on action -->
+    <!-- 6. FAQ — placed before final urgency so page closes on action -->
     <!-- ============================================================ -->
     <section class="py-20 sm:py-28 bg-white">
       <div class="max-w-3xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-12">
+        <div class="text-center mb-10">
           <p class="text-gold font-semibold tracking-[0.3em] uppercase text-xs mb-4">Frequently Asked</p>
           <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-5 font-heading">Common Questions</h2>
           <div class="w-20 h-1 bg-red mx-auto"></div>
+        </div>
+
+        <!-- Why guests attend — short bullet block above the questions -->
+        <div class="mb-10 bg-cream rounded-xl p-6 sm:p-7 border-l-4 border-gold">
+          <p class="text-navy font-bold text-base sm:text-lg mb-3 font-heading">Why guests attend:</p>
+          <ul class="space-y-1.5 text-slate/80 text-base leading-snug">
+            <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>A once-in-a-generation historic moment</span></li>
+            <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>A premium all-inclusive celebration</span></li>
+            <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Distinguished guests from across America</span></li>
+          </ul>
         </div>
 
         <div class="space-y-4">
@@ -637,20 +625,20 @@ const faqs = [
     <!-- ============================================================ -->
     <section class="py-16 sm:py-20 bg-red text-white">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-        <p class="text-white/80 font-semibold tracking-[0.3em] uppercase text-xs mb-4">One Night. One Generation.</p>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 font-heading">Availability Is Limited</h2>
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-3 font-heading leading-tight">It&rsquo;s Almost Time.</h2>
+        <p class="text-white/90 font-semibold tracking-[0.3em] uppercase text-xs sm:text-sm mb-8">One Night. One Generation.</p>
 
         <!-- Body: cascading "only one" build -->
-        <div class="text-white/95 text-lg sm:text-xl leading-relaxed mb-7 space-y-2 max-w-2xl mx-auto">
+        <div class="text-white/95 text-lg sm:text-xl leading-relaxed mb-9 space-y-2 max-w-2xl mx-auto">
           <p>Some moments come only once in a lifetime.</p>
           <p>We have only one 250th birthday.</p>
           <p>There is only one July 4, 2026 in Washington, D.C.</p>
           <p>And there is only one Official Countdown 250 Ball.</p>
         </div>
 
-        <!-- Closing italic question — callback to the hero hook -->
-        <p class="font-heading italic text-xl sm:text-2xl md:text-3xl text-white mb-10 leading-snug">
-          Where will you be when the clock strikes 250?
+        <!-- Emphasized BLUE callback to the hero hook -->
+        <p class="font-heading italic font-bold text-2xl sm:text-3xl md:text-4xl text-navy-dark mb-10 leading-snug">
+          Where will you be&hellip;<br />when the clock strikes 250?
         </p>
 
         <!-- Closing scarcity reminder -->
