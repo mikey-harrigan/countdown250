@@ -59,27 +59,27 @@ const faqs = [
   <!-- ============================================================ -->
   <section class="stage-hero relative min-h-screen flex items-center justify-center pt-32 pb-20 sm:pt-40 sm:pb-24 bg-[#040D1C] text-white overflow-hidden">
 
-    <!-- REAL STAGE PHOTOGRAPH — fills the entire hero -->
+    <!-- REAL STAGE PHOTOGRAPH — zoomed in on the back-of-house stage. -->
     <img
       src="/images/event/ballroom-stage.jpg"
       alt=""
       aria-hidden="true"
-      class="absolute inset-0 w-full h-full object-cover"
+      class="hero-stage-img absolute inset-0 w-full h-full object-cover"
     />
 
-    <!-- Darkening / tint overlay so headline screen + buttons read cleanly -->
-    <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, rgba(4,13,28,0.65) 0%, rgba(11,31,58,0.55) 50%, rgba(2,6,15,0.85) 100%);"></div>
-    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center, transparent 25%, rgba(0,0,0,0.6) 100%);"></div>
+    <!-- Lighter overlay — let the stage read clearly through it -->
+    <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, rgba(4,13,28,0.40) 0%, rgba(11,31,58,0.25) 45%, rgba(2,6,15,0.75) 100%);"></div>
+    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.55) 100%);"></div>
 
     <!-- Hairline gold proscenium edges (subtle, framing) -->
     <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E]/55 to-transparent z-[5]"></div>
     <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E]/55 to-transparent z-[5]"></div>
 
     <!-- ============================================================ -->
-    <!-- THE SCREEN — single panel with everything: headline, sub, -->
-    <!-- and two buttons. Hung from the back of the stage. -->
+    <!-- THE SCREEN — sits ON the back-of-stage area in the photo. -->
+    <!-- Narrower so the actual stage shows on either side. -->
     <!-- ============================================================ -->
-    <div class="relative z-20 max-w-3xl mx-auto px-6 sm:px-8 w-full mt-12 sm:mt-20">
+    <div class="relative z-20 max-w-2xl mx-auto px-6 sm:px-8 w-full -mt-8 sm:-mt-12">
       <div class="stage-screen relative">
         <!-- Top mounting cleat (the bar the screen hangs from) -->
         <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-32 sm:w-40 h-1.5 bg-gradient-to-b from-[#3a3a3a] to-[#1a1a1a] rounded-sm shadow-md z-10"></div>
@@ -506,8 +506,26 @@ const faqs = [
 
   /* (Prior CSS-built spotlight cones, screen-wash, and wood-plank
      stage-floor styles removed — the real ballroom-stage photo
-     provides the actual rigging, lights, and stage. No need to
-     simulate them in CSS anymore.) */
+     provides the actual rigging, lights, and stage.) */
+
+  /* HERO BACKDROP IMAGE — zoomed in on the actual stage at the
+     back of the ballroom. Origin biased toward the upper-middle
+     so the stage area lands at the viewport's vertical center. */
+  .hero-stage-img {
+    transform: scale(1.55);
+    transform-origin: center 40%;
+    object-position: center 40%;
+  }
+  @media (min-width: 1024px) {
+    .hero-stage-img {
+      transform: scale(1.35);
+    }
+  }
+  @media (min-width: 1536px) {
+    .hero-stage-img {
+      transform: scale(1.15);
+    }
+  }
 
   /* SCREEN shimmer — extremely subtle warm pulse on the headline
      "screen" so it feels backlit and alive. */
