@@ -52,96 +52,109 @@ const faqs = [
   <Navbar />
 
   <!-- ============================================================ -->
-  <!-- 1. HERO — full-screen Broadway / opening-night production. -->
-  <!-- Stage with swaying red + blue light beams, gold key lights, -->
-  <!-- subtle haze. Massive marquee headline + dramatic ticket cards. -->
+  <!-- 1. HERO — A literal Broadway stage. Proscenium, red velvet -->
+  <!-- curtains, bright moving spotlight cones, stage floor, and -->
+  <!-- a centered "screen" where the headline copy is displayed. -->
   <!-- ============================================================ -->
-  <section class="relative min-h-screen flex items-center justify-center pt-32 pb-20 sm:pt-36 sm:pb-24 bg-[#06152A] text-white overflow-hidden">
-    <!-- Deep stage backdrop gradient -->
-    <div class="absolute inset-0 bg-gradient-to-b from-[#06152A] via-[#0B1F3A] to-[#040D1C]"></div>
+  <section class="stage-hero relative min-h-screen flex items-center justify-center pt-28 pb-16 sm:pt-32 sm:pb-20 bg-[#040D1C] text-white overflow-hidden">
 
-    <!-- Stage light beams (rotating diagonals) -->
-    <div class="absolute inset-0 pointer-events-none overflow-hidden">
-      <!-- Red beams -->
-      <div class="beam beam-red-1"></div>
-      <div class="beam beam-red-2"></div>
-      <!-- Blue beams -->
-      <div class="beam beam-blue-1"></div>
-      <div class="beam beam-blue-2"></div>
-      <!-- Gold key light beam (warm) -->
-      <div class="beam beam-gold"></div>
+    <!-- Stage backdrop gradient (deep navy with vignette) -->
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-[#040D1C] via-[#0B1F3A] to-[#02060F]"></div>
+      <!-- Subtle vignette darkening at edges -->
+      <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.45) 100%);"></div>
     </div>
 
-    <!-- Soft radial halo + ambient color washes -->
+    <!-- PROSCENIUM ARCH — gold trim across the top of the stage -->
+    <div class="absolute top-0 left-0 right-0 h-10 sm:h-14 pointer-events-none" style="background: linear-gradient(to bottom, rgba(197,164,78,0.45) 0%, rgba(197,164,78,0.15) 50%, transparent 100%);"></div>
+    <div class="absolute top-10 sm:top-14 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E] to-transparent" style="box-shadow: 0 0 16px rgba(197,164,78,0.7);"></div>
+
+    <!-- RED VELVET CURTAINS — left + right -->
+    <div class="curtain curtain-left absolute top-0 bottom-0 left-0 w-[10%] sm:w-[14%] pointer-events-none"></div>
+    <div class="curtain curtain-right absolute top-0 bottom-0 right-0 w-[10%] sm:w-[14%] pointer-events-none"></div>
+
+    <!-- BRIGHT MOVING SPOTLIGHT CONES (using clip-path + mix-blend-mode: screen) -->
     <div class="absolute inset-0 pointer-events-none">
-      <!-- Gold key fill (steady center halo) -->
-      <div class="spotlight spotlight-halo absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[60rem] rounded-full" style="background: radial-gradient(circle, rgba(197,164,78,0.18) 0%, transparent 65%); filter: blur(20px);"></div>
-      <!-- Cool blue ambient on right -->
-      <div class="spotlight spotlight-blue-amb absolute top-[20%] right-[5%] w-[40rem] h-[40rem] rounded-full" style="background: radial-gradient(circle, rgba(60,110,200,1) 0%, transparent 65%); filter: blur(80px);"></div>
-      <!-- Warm red ambient on left -->
-      <div class="spotlight spotlight-red-amb absolute bottom-[10%] left-[5%] w-[36rem] h-[36rem] rounded-full" style="background: radial-gradient(circle, rgba(166,30,45,1) 0%, transparent 65%); filter: blur(80px);"></div>
+      <div class="cone cone-white-1"></div>
+      <div class="cone cone-gold"></div>
+      <div class="cone cone-red"></div>
+      <div class="cone cone-blue"></div>
+      <div class="cone cone-white-2"></div>
     </div>
 
-    <!-- Subtle stage haze at bottom -->
-    <div class="absolute bottom-0 left-0 right-0 h-1/3 pointer-events-none" style="background: linear-gradient(to top, rgba(197,164,78,0.06) 0%, transparent 100%);"></div>
+    <!-- Spotlight bright "hot spots" where cones hit the stage -->
+    <div class="absolute inset-0 pointer-events-none mix-blend-screen">
+      <div class="hotspot hotspot-1 absolute w-[20rem] h-[20rem] rounded-full" style="background: radial-gradient(circle, rgba(255,240,200,0.6) 0%, transparent 60%); filter: blur(40px);"></div>
+      <div class="hotspot hotspot-2 absolute w-[18rem] h-[18rem] rounded-full" style="background: radial-gradient(circle, rgba(220,80,90,0.55) 0%, transparent 60%); filter: blur(45px);"></div>
+      <div class="hotspot hotspot-3 absolute w-[18rem] h-[18rem] rounded-full" style="background: radial-gradient(circle, rgba(120,170,230,0.55) 0%, transparent 60%); filter: blur(45px);"></div>
+    </div>
 
-    <!-- Hairline gold proscenium edges -->
-    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E]/50 to-transparent"></div>
-    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E]/50 to-transparent"></div>
+    <!-- STAGE FLOOR — perspective gradient at bottom -->
+    <div class="absolute bottom-0 left-0 right-0 h-1/4 pointer-events-none" style="background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);"></div>
+    <!-- Stage floor edge highlight -->
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E]/60 to-transparent"></div>
 
-    <!-- Stage content -->
-    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center w-full">
-      <!-- Marquee eyebrow -->
-      <p class="text-[#C5A44E] font-semibold tracking-[0.5em] uppercase text-[11px] sm:text-xs mb-8 sm:mb-10 marquee-glow">
-        &mdash; Tonight on Stage &mdash;
-      </p>
+    <!-- ============================================================ -->
+    <!-- STAGE CONTENT: The Screen + Ticket cards below it -->
+    <!-- ============================================================ -->
+    <div class="relative z-20 max-w-5xl mx-auto px-6 sm:px-8 w-full">
 
-      <!-- GIANT marquee headline -->
-      <h1 class="font-heading font-black text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[1.05] tracking-tight mb-10 sm:mb-12 marquee-headline">
-        Welcome to the Statesman&rsquo;s<br />
-        <span class="text-[#C5A44E]">Concierge Pass</span> Info Page
-      </h1>
+      <!-- THE SCREEN — projected display where copy appears -->
+      <div class="stage-screen relative mx-auto max-w-3xl mb-10 sm:mb-14">
+        <!-- Outer gold frame ornament -->
+        <div class="relative bg-gradient-to-b from-[#FBF6E0] via-[#F7F3E8] to-[#EBDFB8] border-[5px] border-[#C5A44E] rounded-sm shadow-[0_0_80px_rgba(197,164,78,0.55),0_25px_60px_rgba(0,0,0,0.6)]">
+          <!-- Subtle inner backlit glow -->
+          <div class="absolute inset-0 pointer-events-none rounded-sm" style="box-shadow: inset 0 0 80px rgba(197,164,78,0.18);"></div>
 
-      <!-- Gold ornament divider -->
-      <div class="flex items-center justify-center gap-4 mb-10 sm:mb-12">
-        <div class="w-20 h-px bg-[#C5A44E]/70"></div>
-        <div class="w-2 h-2 bg-[#C5A44E] rotate-45 shadow-[0_0_12px_rgba(197,164,78,0.6)]"></div>
-        <div class="w-20 h-px bg-[#C5A44E]/70"></div>
+          <!-- Decorative gold corner brackets just outside the frame -->
+          <span class="absolute -top-3 -left-3 w-7 h-7 border-t-2 border-l-2 border-[#C5A44E]"></span>
+          <span class="absolute -top-3 -right-3 w-7 h-7 border-t-2 border-r-2 border-[#C5A44E]"></span>
+          <span class="absolute -bottom-3 -left-3 w-7 h-7 border-b-2 border-l-2 border-[#C5A44E]"></span>
+          <span class="absolute -bottom-3 -right-3 w-7 h-7 border-b-2 border-r-2 border-[#C5A44E]"></span>
+
+          <!-- Screen content -->
+          <div class="relative px-6 py-12 sm:px-12 sm:py-16 md:px-16 md:py-20 text-center">
+            <p class="text-[#A61E2D] font-bold tracking-[0.5em] uppercase text-[10px] sm:text-xs mb-6 sm:mb-8">
+              &mdash; Tonight on Stage &mdash;
+            </p>
+
+            <h1 class="font-heading font-black text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-[#0B1F3A] leading-[1.1] tracking-tight mb-8 sm:mb-10">
+              Welcome to the Statesman&rsquo;s<br />
+              <span class="text-[#C5A44E]">Concierge Pass</span> Info Page
+            </h1>
+
+            <div class="flex items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-10">
+              <div class="w-12 sm:w-16 h-px bg-[#C5A44E]"></div>
+              <div class="w-2 h-2 bg-[#C5A44E] rotate-45"></div>
+              <div class="w-12 sm:w-16 h-px bg-[#C5A44E]"></div>
+            </div>
+
+            <p class="font-heading italic text-[#163A70] text-lg sm:text-xl md:text-2xl font-medium tracking-wide">
+              For guests who expect the very best.
+            </p>
+          </div>
+        </div>
       </div>
 
-      <!-- Italic subheadline -->
-      <p class="font-heading italic text-white text-2xl sm:text-3xl md:text-4xl font-light tracking-wide mb-16 sm:mb-20">
-        For guests who expect the very best.
-      </p>
-
-      <!-- TWO DRAMATIC TICKET-STYLE CARDS -->
-      <div class="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+      <!-- TWO TICKET CARDS — playbills hanging below the screen -->
+      <div class="grid md:grid-cols-2 gap-4 sm:gap-6 max-w-3xl mx-auto">
         <!-- Card 1: Statesman -->
         <a
           href="#statesman"
-          class="ticket-card group relative block bg-gradient-to-br from-[#F7F3E8] to-[#FAEFD0] rounded-md overflow-hidden p-10 sm:p-12 text-center transition-all hover:-translate-y-2 shadow-[0_20px_60px_-15px_rgba(197,164,78,0.45)] hover:shadow-[0_25px_80px_-15px_rgba(197,164,78,0.7)]"
+          class="ticket-card group relative block bg-gradient-to-br from-[#F7F3E8] to-[#FAEFD0] rounded-sm overflow-hidden p-6 sm:p-8 text-center transition-all hover:-translate-y-1 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.6)] hover:shadow-[0_20px_50px_-10px_rgba(197,164,78,0.7)]"
         >
-          <!-- Gold corner brackets -->
-          <span class="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-[#C5A44E]"></span>
-          <span class="absolute top-3 right-3 w-5 h-5 border-t-2 border-r-2 border-[#C5A44E]"></span>
-          <span class="absolute bottom-3 left-3 w-5 h-5 border-b-2 border-l-2 border-[#C5A44E]"></span>
-          <span class="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-[#C5A44E]"></span>
+          <span class="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-[#C5A44E]"></span>
+          <span class="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-[#C5A44E]"></span>
+          <span class="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-[#C5A44E]"></span>
+          <span class="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-[#C5A44E]"></span>
 
-          <p class="text-[#C5A44E] font-bold tracking-[0.5em] uppercase text-[10px] mb-6">Act One</p>
-          <h3 class="font-heading text-xl sm:text-2xl md:text-3xl text-[#0B1F3A] font-bold leading-tight mb-5">
+          <p class="text-[#C5A44E] font-bold tracking-[0.4em] uppercase text-[10px] mb-3">Act One</p>
+          <h3 class="font-heading text-base sm:text-lg md:text-xl text-[#0B1F3A] font-bold leading-snug mb-3">
             What Is the<br /> Statesman&rsquo;s Concierge Pass?
           </h3>
-          <div class="flex items-center justify-center gap-3 mb-5">
-            <div class="w-8 h-px bg-[#C5A44E]"></div>
-            <div class="w-1.5 h-1.5 bg-[#C5A44E] rotate-45"></div>
-            <div class="w-8 h-px bg-[#C5A44E]"></div>
-          </div>
-          <p class="text-[#163A70] text-base sm:text-[17px] leading-relaxed mb-7 max-w-xs mx-auto">
-            Concierge service. Private access. Refined hospitality.
-          </p>
-          <span class="inline-flex items-center gap-2 text-[#A61E2D] text-xs font-bold tracking-[0.3em] uppercase group-hover:gap-4 transition-all">
+          <span class="inline-flex items-center gap-2 text-[#A61E2D] text-[11px] sm:text-xs font-bold tracking-[0.3em] uppercase group-hover:gap-3 transition-all mt-2">
             Take Your Seat
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </span>
@@ -150,28 +163,20 @@ const faqs = [
         <!-- Card 2: Hosted Tables -->
         <a
           href="#hosted-tables"
-          class="ticket-card group relative block bg-gradient-to-br from-[#F7F3E8] to-[#FAEFD0] rounded-md overflow-hidden p-10 sm:p-12 text-center transition-all hover:-translate-y-2 shadow-[0_20px_60px_-15px_rgba(197,164,78,0.45)] hover:shadow-[0_25px_80px_-15px_rgba(197,164,78,0.7)]"
+          class="ticket-card group relative block bg-gradient-to-br from-[#F7F3E8] to-[#FAEFD0] rounded-sm overflow-hidden p-6 sm:p-8 text-center transition-all hover:-translate-y-1 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.6)] hover:shadow-[0_20px_50px_-10px_rgba(197,164,78,0.7)]"
         >
-          <span class="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-[#C5A44E]"></span>
-          <span class="absolute top-3 right-3 w-5 h-5 border-t-2 border-r-2 border-[#C5A44E]"></span>
-          <span class="absolute bottom-3 left-3 w-5 h-5 border-b-2 border-l-2 border-[#C5A44E]"></span>
-          <span class="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-[#C5A44E]"></span>
+          <span class="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-[#C5A44E]"></span>
+          <span class="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-[#C5A44E]"></span>
+          <span class="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-[#C5A44E]"></span>
+          <span class="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-[#C5A44E]"></span>
 
-          <p class="text-[#C5A44E] font-bold tracking-[0.5em] uppercase text-[10px] mb-6">Act Two</p>
-          <h3 class="font-heading text-xl sm:text-2xl md:text-3xl text-[#0B1F3A] font-bold leading-tight mb-5">
-            What Is the Hosted Groups /<br /> Party Inside the Party?
+          <p class="text-[#C5A44E] font-bold tracking-[0.4em] uppercase text-[10px] mb-3">Act Two</p>
+          <h3 class="font-heading text-base sm:text-lg md:text-xl text-[#0B1F3A] font-bold leading-snug mb-3">
+            Hosted Groups /<br /> Party Inside the Party?
           </h3>
-          <div class="flex items-center justify-center gap-3 mb-5">
-            <div class="w-8 h-px bg-[#C5A44E]"></div>
-            <div class="w-1.5 h-1.5 bg-[#C5A44E] rotate-45"></div>
-            <div class="w-8 h-px bg-[#C5A44E]"></div>
-          </div>
-          <p class="text-[#163A70] text-base sm:text-[17px] leading-relaxed mb-7 max-w-xs mx-auto">
-            Your guests. Your table. Your unforgettable evening.
-          </p>
-          <span class="inline-flex items-center gap-2 text-[#A61E2D] text-xs font-bold tracking-[0.3em] uppercase group-hover:gap-4 transition-all">
+          <span class="inline-flex items-center gap-2 text-[#A61E2D] text-[11px] sm:text-xs font-bold tracking-[0.3em] uppercase group-hover:gap-3 transition-all mt-2">
             Reserve Your Group
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </span>
@@ -448,112 +453,154 @@ const faqs = [
   }
 
   /* ==========================================================
-     STAGE LIGHTING SYSTEM — Broadway / Radio City energy.
-     Beams + ambient washes + halo + marquee glow.
-     Five swaying beams (red x2, blue x2, gold x1) plus three
-     ambient radial washes. Each animation has a unique duration
-     so the composition never resolves to the same frame twice.
+     BROADWAY STAGE — full theatrical treatment.
+     Components: red velvet curtains, bright moving spotlight
+     cones, "hot spots" where cones land, marquee shimmer.
      ========================================================== */
 
-  /* Sweeping spotlight beams — long thin diagonal blurred slices.
-     Anchored at top, swing from a "lighting rig" point. */
-  .beam {
+  /* RED VELVET CURTAINS — left + right drapes with vertical pleat
+     stripes and an inward-darkening edge for depth. */
+  .curtain-left {
+    background:
+      linear-gradient(to right,
+        rgba(40,5,10,1) 0%,
+        rgba(110,15,25,1) 25%,
+        rgba(150,25,35,0.95) 55%,
+        rgba(90,15,20,0.6) 90%,
+        transparent 100%),
+      repeating-linear-gradient(90deg,
+        rgba(0,0,0,0.30) 0px,
+        rgba(0,0,0,0.30) 2px,
+        transparent 2px,
+        transparent 26px);
+    background-blend-mode: multiply;
+    box-shadow: inset -10px 0 30px rgba(0,0,0,0.45);
+  }
+  .curtain-right {
+    background:
+      linear-gradient(to left,
+        rgba(40,5,10,1) 0%,
+        rgba(110,15,25,1) 25%,
+        rgba(150,25,35,0.95) 55%,
+        rgba(90,15,20,0.6) 90%,
+        transparent 100%),
+      repeating-linear-gradient(90deg,
+        rgba(0,0,0,0.30) 0px,
+        rgba(0,0,0,0.30) 2px,
+        transparent 2px,
+        transparent 26px);
+    background-blend-mode: multiply;
+    box-shadow: inset 10px 0 30px rgba(0,0,0,0.45);
+  }
+
+  /* SPOTLIGHT CONES — bright, defined shafts of light fanning down
+     from a top "lighting rig" pivot. Clip-path makes the cone shape;
+     mix-blend-mode: screen makes overlapping cones brighten the
+     stage where they cross. */
+  .cone {
     position: absolute;
     pointer-events: none;
-    top: -20%;
-    width: 4rem;
-    height: 140%;
+    top: -2rem;
+    width: 14rem;
+    height: 110%;
     transform-origin: 50% 0;
-    filter: blur(50px);
+    filter: blur(22px);
+    clip-path: polygon(45% 0%, 55% 0%, 100% 100%, 0% 100%);
+    mix-blend-mode: screen;
     will-change: transform, opacity;
   }
-
-  .beam-red-1 {
-    left: 20%;
-    background: linear-gradient(180deg, rgba(166,30,45,0.55) 0%, rgba(166,30,45,0.20) 40%, transparent 80%);
-    animation: beam-sway-red-1 11s ease-in-out infinite;
+  .cone-white-1 {
+    left: 18%;
+    background: linear-gradient(180deg, rgba(255,250,230,1) 0%, rgba(255,245,210,0.55) 30%, rgba(255,245,210,0.15) 60%, transparent 95%);
+    animation: cone-sway-1 9s ease-in-out infinite;
   }
-  .beam-red-2 {
-    left: 70%;
-    background: linear-gradient(180deg, rgba(180,40,60,0.45) 0%, rgba(180,40,60,0.15) 40%, transparent 80%);
-    animation: beam-sway-red-2 14s ease-in-out infinite;
+  .cone-gold {
+    left: 38%;
+    background: linear-gradient(180deg, rgba(255,210,130,1) 0%, rgba(197,164,78,0.55) 30%, rgba(197,164,78,0.15) 60%, transparent 95%);
+    animation: cone-sway-2 11s ease-in-out infinite;
   }
-  .beam-blue-1 {
-    left: 35%;
-    background: linear-gradient(180deg, rgba(60,110,200,0.55) 0%, rgba(60,110,200,0.20) 40%, transparent 80%);
-    animation: beam-sway-blue-1 13s ease-in-out infinite;
+  .cone-red {
+    left: 60%;
+    background: linear-gradient(180deg, rgba(230,90,100,1) 0%, rgba(180,30,45,0.5) 30%, rgba(166,30,45,0.15) 60%, transparent 95%);
+    animation: cone-sway-3 13s ease-in-out infinite;
   }
-  .beam-blue-2 {
-    left: 82%;
-    background: linear-gradient(180deg, rgba(80,140,220,0.45) 0%, rgba(80,140,220,0.15) 40%, transparent 80%);
-    animation: beam-sway-blue-2 16s ease-in-out infinite;
+  .cone-blue {
+    left: 78%;
+    background: linear-gradient(180deg, rgba(120,180,240,1) 0%, rgba(60,110,200,0.5) 30%, rgba(60,110,200,0.15) 60%, transparent 95%);
+    animation: cone-sway-4 14s ease-in-out infinite;
   }
-  .beam-gold {
+  .cone-white-2 {
     left: 50%;
-    background: linear-gradient(180deg, rgba(197,164,78,0.50) 0%, rgba(197,164,78,0.18) 40%, transparent 80%);
-    animation: beam-sway-gold 18s ease-in-out infinite;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.1) 60%, transparent 95%);
+    animation: cone-sway-5 16s ease-in-out infinite;
   }
 
-  @keyframes beam-sway-red-1 {
-    0%, 100% { transform: translateX(-50%) rotate(18deg); opacity: 0.7; }
-    50%      { transform: translateX(-50%) rotate(-2deg);  opacity: 1.0; }
+  @keyframes cone-sway-1 {
+    0%, 100% { transform: translateX(-50%) rotate(20deg); }
+    50%      { transform: translateX(-50%) rotate(-5deg); }
   }
-  @keyframes beam-sway-red-2 {
-    0%, 100% { transform: translateX(-50%) rotate(-15deg); opacity: 0.6; }
-    50%      { transform: translateX(-50%) rotate(8deg);   opacity: 0.9; }
+  @keyframes cone-sway-2 {
+    0%, 100% { transform: translateX(-50%) rotate(-12deg); }
+    50%      { transform: translateX(-50%) rotate(10deg); }
   }
-  @keyframes beam-sway-blue-1 {
-    0%, 100% { transform: translateX(-50%) rotate(-22deg); opacity: 0.7; }
-    50%      { transform: translateX(-50%) rotate(-2deg);  opacity: 1.0; }
+  @keyframes cone-sway-3 {
+    0%, 100% { transform: translateX(-50%) rotate(-22deg); }
+    50%      { transform: translateX(-50%) rotate(8deg); }
   }
-  @keyframes beam-sway-blue-2 {
-    0%, 100% { transform: translateX(-50%) rotate(12deg);  opacity: 0.6; }
-    50%      { transform: translateX(-50%) rotate(-8deg);  opacity: 0.9; }
+  @keyframes cone-sway-4 {
+    0%, 100% { transform: translateX(-50%) rotate(15deg); }
+    50%      { transform: translateX(-50%) rotate(-12deg); }
   }
-  @keyframes beam-sway-gold {
-    0%, 100% { transform: translateX(-50%) rotate(0deg);   opacity: 0.7; }
-    50%      { transform: translateX(-50%) rotate(-6deg);  opacity: 1.0; }
-  }
-
-  /* Ambient color washes (radial) — slow pulse so the room "breathes" */
-  .spotlight {
-    will-change: opacity;
-  }
-  .spotlight-halo {
-    animation: halo-pulse 10s ease-in-out infinite;
-  }
-  .spotlight-blue-amb {
-    opacity: 0.20;
-    animation: amb-blue 12s ease-in-out infinite;
-  }
-  .spotlight-red-amb {
-    opacity: 0.16;
-    animation: amb-red 14s ease-in-out infinite;
+  @keyframes cone-sway-5 {
+    0%, 100% { transform: translateX(-50%) rotate(-3deg); }
+    50%      { transform: translateX(-50%) rotate(6deg); }
   }
 
-  @keyframes halo-pulse {
-    0%, 100% { opacity: 0.85; }
-    50%      { opacity: 1.0; }
+  /* HOT SPOTS — bright pools of light where cones hit the stage.
+     These drift independently for added stage liveness. */
+  .hotspot {
+    will-change: transform, opacity;
   }
-  @keyframes amb-blue {
-    0%, 100% { opacity: 0.18; transform: translate(0, 0); }
-    50%      { opacity: 0.26; transform: translate(-15px, 15px); }
+  .hotspot-1 {
+    top: 35%;
+    left: 25%;
+    animation: hotspot-drift-1 8s ease-in-out infinite;
   }
-  @keyframes amb-red {
-    0%, 100% { opacity: 0.14; transform: translate(0, 0); }
-    50%      { opacity: 0.22; transform: translate(20px, -15px); }
+  .hotspot-2 {
+    top: 50%;
+    left: 65%;
+    animation: hotspot-drift-2 10s ease-in-out infinite;
+  }
+  .hotspot-3 {
+    top: 30%;
+    left: 60%;
+    animation: hotspot-drift-3 12s ease-in-out infinite;
   }
 
-  /* Marquee eyebrow + headline glow — subtle warm radiance */
-  .marquee-glow {
-    text-shadow: 0 0 18px rgba(197,164,78,0.45);
+  @keyframes hotspot-drift-1 {
+    0%, 100% { transform: translate(0, 0); opacity: 0.7; }
+    50%      { transform: translate(40px, 30px); opacity: 1.0; }
   }
-  .marquee-headline {
-    text-shadow: 0 2px 24px rgba(197,164,78,0.20), 0 0 60px rgba(11,31,58,0.6);
+  @keyframes hotspot-drift-2 {
+    0%, 100% { transform: translate(0, 0); opacity: 0.7; }
+    50%      { transform: translate(-50px, -20px); opacity: 1.0; }
+  }
+  @keyframes hotspot-drift-3 {
+    0%, 100% { transform: translate(0, 0); opacity: 0.6; }
+    50%      { transform: translate(30px, -40px); opacity: 0.95; }
   }
 
-  /* Ticket cards — subtle entrance flourish on hover already handled
-     via Tailwind hover: classes; this adds a faint shimmer tone */
+  /* SCREEN shimmer — extremely subtle warm pulse on the headline
+     "screen" so it feels backlit and alive. */
+  .stage-screen {
+    animation: screen-pulse 6s ease-in-out infinite;
+  }
+  @keyframes screen-pulse {
+    0%, 100% { filter: brightness(1.0); }
+    50%      { filter: brightness(1.04); }
+  }
+
+  /* Ticket cards — soft white shimmer on hover */
   .ticket-card::before {
     content: "";
     position: absolute;
@@ -567,10 +614,11 @@ const faqs = [
     opacity: 1;
   }
 
-  /* Reduced motion — disable all motion completely */
+  /* Respect prefers-reduced-motion — kill all animation/transition */
   @media (prefers-reduced-motion: reduce) {
-    .beam,
-    .spotlight,
+    .cone,
+    .hotspot,
+    .stage-screen,
     .ticket-card::before {
       animation: none !important;
       transition: none !important;
