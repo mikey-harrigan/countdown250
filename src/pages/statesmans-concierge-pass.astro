@@ -52,104 +52,84 @@ const faqs = [
   <Navbar />
 
   <!-- ============================================================ -->
-  <!-- 1. HERO — ballroom spotlights, exclusive invitation tone -->
+  <!-- 1. HERO — experiential top: welcome + nav cards in one block -->
+  <!-- Animated red/blue/gold spotlights evoke a stage in motion. -->
   <!-- ============================================================ -->
-  <section class="relative pt-40 pb-32 sm:pt-48 sm:pb-40 bg-gradient-to-b from-[#0B1F3A] via-[#163A70] to-[#0B1F3A] text-white overflow-hidden">
-    <!-- Multi-spot ballroom lighting -->
+  <section class="relative pt-32 pb-24 sm:pt-40 sm:pb-32 bg-gradient-to-b from-[#0B1F3A] via-[#163A70] to-[#0B1F3A] text-white overflow-hidden">
+    <!-- Moving ballroom spotlights — gold, blue, red — gently drift via @keyframes -->
     <div class="absolute inset-0 pointer-events-none">
-      <div class="absolute -top-32 left-[12%] w-[42rem] h-[42rem] rounded-full opacity-[0.16]" style="background: radial-gradient(circle, rgba(197,164,78,1) 0%, transparent 60%); filter: blur(50px);"></div>
-      <div class="absolute -bottom-40 right-[10%] w-[40rem] h-[40rem] rounded-full opacity-[0.13]" style="background: radial-gradient(circle, rgba(197,164,78,1) 0%, transparent 60%); filter: blur(60px);"></div>
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[24rem] h-[24rem] rounded-full opacity-[0.07]" style="background: radial-gradient(circle, rgba(197,164,78,1) 0%, transparent 70%); filter: blur(40px);"></div>
+      <!-- Gold key light (warm, primary) -->
+      <div class="spotlight spotlight-gold-1 absolute -top-32 left-[10%] w-[44rem] h-[44rem] rounded-full" style="background: radial-gradient(circle, rgba(197,164,78,1) 0%, transparent 60%); filter: blur(55px);"></div>
+      <div class="spotlight spotlight-gold-2 absolute -bottom-40 right-[8%] w-[42rem] h-[42rem] rounded-full" style="background: radial-gradient(circle, rgba(197,164,78,1) 0%, transparent 60%); filter: blur(60px);"></div>
+      <!-- Blue stage wash (deep, cool) -->
+      <div class="spotlight spotlight-blue absolute top-[15%] right-[18%] w-[34rem] h-[34rem] rounded-full" style="background: radial-gradient(circle, rgba(60,110,200,1) 0%, transparent 60%); filter: blur(70px);"></div>
+      <!-- Red accent (muted, restrained) -->
+      <div class="spotlight spotlight-red absolute bottom-[18%] left-[14%] w-[30rem] h-[30rem] rounded-full" style="background: radial-gradient(circle, rgba(166,30,45,1) 0%, transparent 60%); filter: blur(75px);"></div>
     </div>
     <!-- Hairline gold edges -->
     <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E]/45 to-transparent"></div>
     <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E]/45 to-transparent"></div>
 
-    <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
-      <p class="text-[#C5A44E]/85 font-medium tracking-[0.4em] uppercase text-[11px] sm:text-xs mb-10">By Invitation</p>
+    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <!-- Welcome headline + subheadline -->
+      <p class="text-[#C5A44E]/85 font-medium tracking-[0.4em] uppercase text-[11px] sm:text-xs mb-8">By Invitation</p>
 
-      <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl leading-[1.1] mb-10">
-        The Statesman&rsquo;s<br /> Concierge Pass
+      <h1 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.15] mb-8">
+        Welcome to the Statesman&rsquo;s<br /> Concierge Pass Info Page
       </h1>
 
-      <!-- Gold ornament divider -->
-      <div class="flex items-center justify-center gap-4 mb-10">
+      <div class="flex items-center justify-center gap-4 mb-8">
         <div class="w-14 h-px bg-[#C5A44E]/60"></div>
         <div class="w-1.5 h-1.5 bg-[#C5A44E] rotate-45"></div>
         <div class="w-14 h-px bg-[#C5A44E]/60"></div>
       </div>
 
-      <p class="text-white/85 text-lg sm:text-xl font-light leading-relaxed max-w-xl mx-auto mb-14">
-        An evening curated for those who expect the extraordinary &mdash; and a stage on which to celebrate it with the people who matter most.
+      <p class="font-heading italic text-[#C5A44E]/95 text-xl sm:text-2xl md:text-3xl font-light tracking-wide mb-16 sm:mb-20">
+        For guests who expect the very best.
       </p>
 
-      <a
-        href={ticketUrl}
-        class="eventbrite-checkout inline-block bg-[#C5A44E] text-[#0B1F3A] hover:bg-[#C5A44E]/90 px-10 py-4 text-[13px] font-semibold tracking-[0.2em] uppercase transition-all rounded-sm shadow-xl hover:-translate-y-0.5"
-      >
-        Reserve Your Pass
-      </a>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- 2. TWO NAVIGATION CARDS — the only menu the page needs -->
-  <!-- ============================================================ -->
-  <section class="relative py-24 sm:py-32 bg-[#F7F3E8]">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="text-center mb-14 sm:mb-16">
-        <p class="text-[#C5A44E] font-medium tracking-[0.4em] uppercase text-[11px] mb-4">Begin Where You Wish</p>
-        <h2 class="font-heading text-2xl sm:text-3xl text-[#0B1F3A] font-bold leading-tight">Two Questions, One Experience</h2>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+      <!-- Two clickable nav cards — clearly clickable, premium calling-card feel -->
+      <div class="grid md:grid-cols-2 gap-5 sm:gap-6 max-w-4xl mx-auto">
         <!-- Card 1: Statesman -->
         <a
           href="#statesman"
-          class="group relative block bg-gradient-to-br from-[#0B1F3A] via-[#163A70] to-[#0B1F3A] rounded-md overflow-hidden border border-[#C5A44E]/30 hover:border-[#C5A44E] transition-all p-10 sm:p-12 text-center hover:-translate-y-1 shadow-xl hover:shadow-2xl"
+          class="group relative block bg-[#F7F3E8] hover:bg-white rounded-md overflow-hidden border-2 border-[#C5A44E]/40 hover:border-[#C5A44E] transition-all p-8 sm:p-10 text-center hover:-translate-y-1 shadow-xl hover:shadow-2xl"
         >
-          <!-- Soft inner spotlight -->
-          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[20rem] h-[20rem] rounded-full opacity-[0.10] pointer-events-none" style="background: radial-gradient(circle, rgba(197,164,78,1) 0%, transparent 60%); filter: blur(40px);"></div>
-          <div class="relative z-10">
-            <p class="text-[#C5A44E]/85 font-medium tracking-[0.4em] uppercase text-[10px] mb-6">No. 01</p>
-            <h3 class="font-heading text-xl sm:text-2xl text-white font-medium leading-snug mb-5">
-              What Is the Statesman&rsquo;s<br class="hidden sm:block" /> Concierge Pass?
-            </h3>
-            <div class="w-10 h-px bg-[#C5A44E]/60 mx-auto mb-5"></div>
-            <p class="text-white/75 text-[15px] sm:text-base leading-relaxed mb-7 max-w-xs mx-auto">
-              Concierge service. Private access. Refined hospitality.
-            </p>
-            <span class="inline-flex items-center gap-2 text-[#C5A44E] text-xs font-semibold tracking-[0.25em] uppercase group-hover:gap-3 transition-all">
-              Discover
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </span>
-          </div>
+          <p class="text-[#C5A44E] font-semibold tracking-[0.4em] uppercase text-[10px] mb-5">No. 01</p>
+          <h3 class="font-heading text-lg sm:text-xl text-[#0B1F3A] font-bold leading-snug mb-4">
+            What Is the<br class="hidden sm:block" /> Statesman&rsquo;s Concierge Pass?
+          </h3>
+          <div class="w-10 h-px bg-[#C5A44E]/70 mx-auto mb-5"></div>
+          <p class="text-[#163A70] text-sm sm:text-[15px] leading-relaxed mb-6">
+            Concierge service. Private access. Refined hospitality.
+          </p>
+          <span class="inline-flex items-center gap-2 text-[#C5A44E] text-xs font-semibold tracking-[0.25em] uppercase group-hover:gap-3 transition-all">
+            Discover
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </span>
         </a>
 
         <!-- Card 2: Hosted Tables -->
         <a
           href="#hosted-tables"
-          class="group relative block bg-gradient-to-br from-[#0B1F3A] via-[#163A70] to-[#0B1F3A] rounded-md overflow-hidden border border-[#C5A44E]/30 hover:border-[#C5A44E] transition-all p-10 sm:p-12 text-center hover:-translate-y-1 shadow-xl hover:shadow-2xl"
+          class="group relative block bg-[#F7F3E8] hover:bg-white rounded-md overflow-hidden border-2 border-[#C5A44E]/40 hover:border-[#C5A44E] transition-all p-8 sm:p-10 text-center hover:-translate-y-1 shadow-xl hover:shadow-2xl"
         >
-          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[20rem] h-[20rem] rounded-full opacity-[0.10] pointer-events-none" style="background: radial-gradient(circle, rgba(197,164,78,1) 0%, transparent 60%); filter: blur(40px);"></div>
-          <div class="relative z-10">
-            <p class="text-[#C5A44E]/85 font-medium tracking-[0.4em] uppercase text-[10px] mb-6">No. 02</p>
-            <h3 class="font-heading text-xl sm:text-2xl text-white font-medium leading-snug mb-5">
-              What Is the Hosted Table /<br class="hidden sm:block" /> Party Inside the Party Program?
-            </h3>
-            <div class="w-10 h-px bg-[#C5A44E]/60 mx-auto mb-5"></div>
-            <p class="text-white/75 text-[15px] sm:text-base leading-relaxed mb-7 max-w-xs mx-auto">
-              Your guests. Your table. Your unforgettable evening together.
-            </p>
-            <span class="inline-flex items-center gap-2 text-[#C5A44E] text-xs font-semibold tracking-[0.25em] uppercase group-hover:gap-3 transition-all">
-              Discover
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </span>
-          </div>
+          <p class="text-[#C5A44E] font-semibold tracking-[0.4em] uppercase text-[10px] mb-5">No. 02</p>
+          <h3 class="font-heading text-lg sm:text-xl text-[#0B1F3A] font-bold leading-snug mb-4">
+            What Is the Hosted Groups /<br class="hidden sm:block" /> Party Inside the Party Program?
+          </h3>
+          <div class="w-10 h-px bg-[#C5A44E]/70 mx-auto mb-5"></div>
+          <p class="text-[#163A70] text-sm sm:text-[15px] leading-relaxed mb-6">
+            Your guests. Your table. Your unforgettable evening together.
+          </p>
+          <span class="inline-flex items-center gap-2 text-[#C5A44E] text-xs font-semibold tracking-[0.25em] uppercase group-hover:gap-3 transition-all">
+            Discover
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </span>
         </a>
       </div>
     </div>
@@ -420,5 +400,55 @@ const faqs = [
   /* Smooth scroll for in-page anchor jumps */
   html {
     scroll-behavior: smooth;
+  }
+
+  /* ==========================================================
+     Hero "moving spotlights" — gentle drift + opacity breathing.
+     Each spotlight has a unique duration and offset so the
+     composition never repeats exactly. Tasteful, not flashy.
+     ========================================================== */
+  .spotlight {
+    will-change: transform, opacity;
+  }
+
+  .spotlight-gold-1 {
+    opacity: 0.16;
+    animation: drift-gold-1 18s ease-in-out infinite;
+  }
+  .spotlight-gold-2 {
+    opacity: 0.13;
+    animation: drift-gold-2 22s ease-in-out infinite;
+  }
+  .spotlight-blue {
+    opacity: 0.18;
+    animation: drift-blue 20s ease-in-out infinite;
+  }
+  .spotlight-red {
+    opacity: 0.10;
+    animation: drift-red 24s ease-in-out infinite;
+  }
+
+  @keyframes drift-gold-1 {
+    0%, 100% { transform: translate(0, 0); opacity: 0.16; }
+    50%      { transform: translate(40px, 30px); opacity: 0.22; }
+  }
+  @keyframes drift-gold-2 {
+    0%, 100% { transform: translate(0, 0); opacity: 0.13; }
+    50%      { transform: translate(-30px, -25px); opacity: 0.18; }
+  }
+  @keyframes drift-blue {
+    0%, 100% { transform: translate(0, 0); opacity: 0.16; }
+    50%      { transform: translate(-25px, 20px); opacity: 0.22; }
+  }
+  @keyframes drift-red {
+    0%, 100% { transform: translate(0, 0); opacity: 0.09; }
+    50%      { transform: translate(35px, -20px); opacity: 0.14; }
+  }
+
+  /* Respect reduced-motion preference — turn off drift entirely */
+  @media (prefers-reduced-motion: reduce) {
+    .spotlight {
+      animation: none !important;
+    }
   }
 </style>
