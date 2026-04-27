@@ -40,7 +40,7 @@ const tickets = [
     price: "$225",
     futurePrice: "$295 / $395 / $495",
     id: "ticket-liberty",
-    description: "Best for guests who want the full Ball experience at the most affordable entry point.",
+    description: "Celebrate the Ball in classic style.",
     sections: [
       {
         heading: "Includes The Ball Only (9 PM–1 AM)",
@@ -157,7 +157,7 @@ const tickets = [
     ],
     note: "Extremely limited. Expected to sell out.",
     highlight: true,
-    badge: "Tier 3 — The Pinnacle Experience",
+    badge: "Most Popular Premium Option",
     tier: 3,
   },
 ];
@@ -284,122 +284,22 @@ const faqs = [
     <Countdown />
 
     <!-- ============================================================ -->
-    <!-- 2. STATESMAN'S CONCIERGE PASS SPOTLIGHT -->
-    <!-- ============================================================ -->
-    <section id="statesman" class="relative py-20 sm:py-28 bg-gradient-to-b from-navy-dark via-navy to-navy-dark text-white overflow-hidden">
-      <!-- Gold edge accents -->
-      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
-      <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
-
-      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-[2fr_3fr] gap-10 lg:gap-12 items-center">
-          <!-- Image -->
-          <div class="relative order-2 md:order-1">
-            <div class="rounded-lg overflow-hidden shadow-2xl aspect-[4/3] bg-navy/50 border border-gold/30 flex items-center justify-center">
-              <img
-                src="/images/event/statesman-vip-dinner.png"
-                alt="Intimate VIP dinner experience at the Statesman's Concierge tier"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <!-- Gold corner accents -->
-            <div class="absolute -top-3 -left-3 w-16 h-16 border-t-2 border-l-2 border-gold/50"></div>
-            <div class="absolute -bottom-3 -right-3 w-16 h-16 border-b-2 border-r-2 border-gold/50"></div>
-          </div>
-
-          <!-- Text -->
-          <div class="order-1 md:order-2">
-            <h2 class="text-3xl sm:text-4xl md:text-4xl lg:text-[2.75rem] font-bold text-white mb-3 font-heading md:whitespace-nowrap">Statesman's Concierge Pass</h2>
-            <p class="font-heading italic font-light text-xl sm:text-2xl text-gold/90 mb-6">Our Premier Ticket Option</p>
-
-            <p class="text-white/85 text-lg leading-relaxed mb-7">
-              For guests seeking one of the most extraordinary evenings of their lives. Ideal for couples, executives, hosts, and guests who expect the best.
-            </p>
-
-            <p class="text-red/90 text-sm tracking-[0.2em] uppercase font-semibold mb-8">
-              Very limited supply &mdash; pacing to sell out early.
-            </p>
-
-            <ul class="space-y-2.5 mb-6">
-              {[
-                "Priority entry with personal concierge service throughout the night",
-                "Upgraded culinary and premium beverage experience all evening",
-                "Access to exclusive entertainment areas and elevated experiences",
-                "Private tour of historic spaces reserved for presidents and dignitaries",
-                "Premium limited-edition official event gift",
-                "Recognition in the official program and personal stage acknowledgments",
-                "Option to host your Party Inside the Party",
-              ].map((b) => (
-                <li class="flex items-start text-white/90 text-[15px] leading-snug">
-                  <svg class="w-5 h-5 mt-0.5 mr-3 flex-shrink-0 text-gold" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                  </svg>
-                  <span>{b}</span>
-                </li>
-              ))}
-            </ul>
-
-            <!-- View Full Benefits modal trigger -->
-            <button
-              type="button"
-              id="statesman-benefits-trigger"
-              class="group inline-flex items-center gap-2 text-gold hover:text-white text-sm font-semibold tracking-wide transition-colors mb-10"
-            >
-              <span class="underline underline-offset-4 decoration-gold/40 group-hover:decoration-gold">View Full Statesman's Concierge Pass Benefits &amp; Amenities</span>
-              <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </button>
-
-            <div class="flex flex-col sm:flex-row gap-4">
-              <a
-                href={ticketUrl}
-                class="eventbrite-checkout inline-flex items-center justify-center gap-2 bg-gold text-navy-dark hover:bg-gold/90 px-9 py-4 text-sm font-bold tracking-[0.12em] uppercase transition-all rounded ring-1 ring-gold/30 ring-offset-2 ring-offset-navy shadow-xl hover:shadow-2xl hover:-translate-y-0.5 text-center"
-              >
-                <span class="text-navy-dark">&#9733;</span>
-                <span>Secure Statesman's Concierge Passes</span>
-              </a>
-              <a
-                href="/hosted-group-tables"
-                class="border-2 border-gold/60 text-gold hover:bg-gold/10 px-8 py-4 text-sm font-semibold tracking-[0.2em] uppercase transition-all rounded text-center"
-              >
-                Hosted Tables Available
-              </a>
-            </div>
-
-            <div class="mt-5">
-              <a
-                href="#tickets"
-                class="inline-flex items-center gap-1.5 text-white/70 hover:text-white text-sm font-medium tracking-wide transition-colors group"
-              >
-                <span class="underline underline-offset-4 decoration-white/30 group-hover:decoration-white">See All Ticket Options &amp; Pricing</span>
-                <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================ -->
     <!-- 3. ALL-INCLUSIVE EXPERIENCE -->
     <!-- ============================================================ -->
-    <section id="experience" class="py-20 sm:py-28 bg-cream">
+    <section id="experience" class="py-20 sm:py-28 bg-red">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <!-- Header + value-establishing copy -->
         <div class="text-center mb-14 sm:mb-16 max-w-3xl mx-auto">
-          <p class="text-red font-semibold tracking-[0.3em] uppercase text-xs mb-4">A Celebration for the Ages</p>
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-5 font-heading leading-tight">
+          <p class="text-gold font-semibold tracking-[0.3em] uppercase text-xs mb-4">A Celebration for the Ages</p>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5 font-heading leading-tight">
             Your All-Inclusive Experience
           </h2>
           <div class="w-20 h-px bg-gold mx-auto mb-8"></div>
-          <p class="text-slate/80 text-lg leading-relaxed mb-5">
+          <p class="text-white/90 text-lg leading-relaxed mb-5">
             On July 3, the iconic Washington Hilton ballroom complex will transform into an extraordinary celebration of American heritage &mdash; an evening of world-class entertainment, refined elegance, and memories that will last forever.
           </p>
-          <p class="text-slate/80 text-lg leading-relaxed">
+          <p class="text-white/90 text-lg leading-relaxed">
             Mix and mingle with decorated veterans and first responders, professional athletes and celebrities, C-suite business leaders, policymakers, media personalities, influencers, and proud Americans from across the country at this once-in-a-lifetime celebration.
           </p>
         </div>
@@ -427,15 +327,15 @@ const faqs = [
         <!-- Header -->
         <div class="text-center mb-14">
           <p class="text-gold font-semibold tracking-[0.3em] uppercase text-xs mb-4">Early Release Pricing</p>
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 font-heading">Choose Your Ticket Type</h2>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 font-heading">Choose Your Ticket to History</h2>
+          <p class="text-white/75 text-base sm:text-lg mb-6 font-medium">Compare 3 ticket options below.</p>
           <div class="w-20 h-1 bg-red mx-auto mb-6"></div>
           <p class="text-white/60 text-sm max-w-lg mx-auto mb-4">
             Ticket sales are deliberately limited to ensure optimal comfort and an exceptional experience for every guest.
           </p>
-          <p class="text-gold/80 text-sm max-w-xl mx-auto mb-6 font-medium">
+          <p class="text-gold/80 text-sm max-w-xl mx-auto mb-2 font-medium">
             &#9733; Proceeds help support <a href="https://www.operationrenewedhopefoundation.org" target="_blank" rel="noopener noreferrer" class="underline hover:text-gold">Operation Renewed Hope Foundation</a> in their mission to house U.S. Veterans and end veteran homelessness.
           </p>
-          <p class="text-white/60 text-base italic">Three Tiers of Tickets</p>
         </div>
 
         <!-- Tier indicator -->
@@ -594,21 +494,36 @@ const faqs = [
     </section>
 
     <!-- ============================================================ -->
-    <!-- 5. HOSTED TABLES — premium aspirational layout -->
+    <!-- 4.5 HOSTED TABLES — Statesman's Pass free upgrade story -->
     <!-- ============================================================ -->
-    <section class="relative py-20 sm:py-24 bg-white overflow-hidden">
-      <!-- Subtle gold edge top — premium signal -->
-      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
+    <section id="statesman" class="relative">
 
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- TOP BANNER: positions this whole section as a Statesman's Pass benefit -->
+      <div class="bg-gold text-navy-dark py-5 sm:py-6 px-4 sm:px-6 border-b-2 border-navy-dark/20">
+        <div class="max-w-6xl mx-auto text-center">
+          <p class="font-heading font-bold text-base sm:text-lg md:text-xl tracking-wide leading-snug">
+            <span class="inline-block">&#9733;</span>
+            <span class="mx-2 sm:mx-3">Free Optional Benefit for Statesman&rsquo;s Pass Holders</span>
+            <span class="inline-block">&#9733;</span>
+          </p>
+          <p class="text-navy-dark/85 text-sm sm:text-base mt-2 font-medium">
+            You can host your own &ldquo;Party Inside the Party.&rdquo;
+          </p>
+        </div>
+      </div>
 
-        <!-- Centered premium header — aspirational lead -->
+      <!-- Hosted Tables content — preserved from prior "Your Group Experience" section -->
+      <div class="relative py-20 sm:py-24 bg-white overflow-hidden">
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <!-- Centered premium header — aspirational lead -->
         <div class="text-center mb-12 sm:mb-14">
           <p class="text-gold font-semibold tracking-[0.3em] uppercase text-xs mb-4">Your Group Experience</p>
           <h2 class="font-bold text-navy mb-2 font-heading leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
             Host a &ldquo;<em class="italic">Party Inside the Party</em>&rdquo;
           </h2>
-          <p class="text-red font-heading italic text-sm sm:text-base md:text-lg mb-5">
+          <p class="text-red font-semibold text-base sm:text-lg md:text-xl mb-5">
             Included at No Extra Charge for Statesman&rsquo;s Pass Guests
           </p>
           <p class="text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-slate/85">
@@ -711,6 +626,7 @@ const faqs = [
             </ul>
           </div>
         </div>
+      </div>
       </div>
     </section>
 
