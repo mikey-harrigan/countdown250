@@ -1,0 +1,97 @@
+---
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="About — The Official Countdown 250 Ball | America's Formal Kickoff to the 250th | Washington D.C. July 3, 2026"
+  description="The Countdown 250 Ball is America's formal kickoff to the 250th Independence Weekend. Produced by the All-American Ball Committee, the team behind 30+ years of inaugural balls and milestone galas at the Washington Hilton."
+  ogImage="/images/event/stage-countdown-v2.png"
+>
+  <Navbar />
+
+  <!-- Hero -->
+  <section class="relative pt-32 pb-16 bg-navy-dark text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, rgba(197,164,78,0.3) 0%, transparent 70%);"></div>
+    </div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
+      <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">July 3, 2026 &middot; Washington Hilton</p>
+      <h1 class="text-3xl sm:text-5xl font-bold mb-4 font-heading">The Countdown Is On</h1>
+      <p class="text-xl sm:text-2xl text-gold/90 italic font-light mb-8">America&rsquo;s Formal Kickoff to the 250th</p>
+      <div class="w-24 h-0.5 bg-gold mx-auto"></div>
+    </div>
+  </section>
+
+  <!-- Legacy credibility intro -->
+  <section class="py-14 bg-cream">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-red text-base md:text-lg font-semibold italic leading-relaxed">
+        From inaugural balls to milestone events, the All-American Ball Committee has produced some of America&rsquo;s most historic celebrations, bringing together leaders, dignitaries, astronauts, world champion athletes, A-list celebrities, members of Congress, and proud Americans for over three decades.
+      </p>
+      <p class="text-red text-base md:text-lg font-semibold italic leading-relaxed mt-3">
+        The Official Countdown 250 Ball continues that tradition &mdash; elevated to meet this once-in-a-generation moment.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main body -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 space-y-6 text-lg text-slate leading-relaxed">
+      <p>
+        <strong class="text-navy">America 250</strong> &mdash; the 250th anniversary of the United States &mdash; is the most anticipated national milestone of our lifetimes. This Independence Weekend the entire country marks the occasion, and Washington, D.C. will be ground zero for the celebration. The Official Countdown 250 Ball is America&rsquo;s formal kickoff.
+      </p>
+      <p>
+        Ball week falls during the <a href="/great-american-state-fair-evening" class="text-red font-semibold hover:underline">Great American State Fair</a> &mdash; 16 days on the National Mall bringing all 50 states, territories, and federal agencies to the capital. By day, the Fair. By night, the Ball. Three blocks apart.
+      </p>
+      <p>
+        This historic weekend begins on the evening of July 3. The Official Countdown 250 Ball is America&rsquo;s formal kickoff to the America 250 weekend. This once-in-a-generation celebration can only take place at the legendary <a href="/venue" class="text-red font-semibold hover:underline">Washington Hilton</a> &mdash; the iconic venue that has hosted presidents, world leaders, and the White House Correspondents&rsquo; Dinner for over 60 years.
+      </p>
+      <p>
+        People who experienced the Bicentennial in 1976 still talk about it. This is that moment for our generation. Celebrate in style and pride &mdash; live entertainment across 4 stages, 6 grand ballrooms, premium open bars, and a midnight countdown that launches America&rsquo;s 250th birthday.
+      </p>
+      <p class="text-xl font-semibold text-navy pt-4">
+        Be there as history is made.
+      </p>
+    </div>
+  </section>
+
+  <!-- Why this gala, why now -->
+  <section class="py-16 sm:py-20 bg-navy text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 font-heading">Why We&rsquo;re Producing This Event</h2>
+      <div class="space-y-5 text-lg text-white/85 leading-relaxed">
+        <p>
+          Anniversaries like this come once in a lifetime. The Bicentennial in 1976 defined a generation&rsquo;s memory of America. The 250th &mdash; the Semiquincentennial &mdash; is the next chapter in that line, and it deserves a celebration to match.
+        </p>
+        <p>
+          For 30+ years our team has produced the events that mark America&rsquo;s most important nights &mdash; Inaugural Balls, milestone anniversaries, and signature Washington galas. Each one we&rsquo;ve produced has welcomed presidents, members of Congress, astronauts, world-champion athletes, decorated veterans, dignitaries, and entertainers from every corner of American life.
+        </p>
+        <p>
+          The Official Countdown 250 Ball will be the grandest production of our careers. It is the formal evening kickoff to America 250 weekend in Washington, D.C. The Ball begins at 7 PM on July 3rd and runs through the midnight countdown into the morning of July 4th &mdash; the actual stroke of America&rsquo;s 250th birthday.
+        </p>
+        <p>
+          Three thousand guests. Six grand ballrooms. Four stages. One night. We&rsquo;re producing it because someone has to do it right, at scale, in the venue that history demands &mdash; and because we want to be part of giving this generation the kind of moment that 1976 gave the last.
+        </p>
+        <p class="text-gold/90 italic font-medium">
+          Where will you be when the clock strikes 250?
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="py-16 bg-navy-dark text-white text-center">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-8 font-heading">Ready to be part of the night?</h2>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/#tickets" class="bg-red text-white px-10 py-4 text-sm font-semibold tracking-[0.2em] uppercase hover:bg-red-light transition-colors rounded shadow-lg">Compare Ticket Options</a>
+        <a href="/venue" class="border-2 border-gold text-gold px-10 py-4 text-sm font-semibold tracking-[0.2em] uppercase hover:bg-gold hover:text-navy-dark transition-colors rounded">About the Venue</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

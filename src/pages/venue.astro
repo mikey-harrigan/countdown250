@@ -1,0 +1,181 @@
+---
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const highlights = [
+  "Host of the legendary White House Correspondents' Dinner",
+  "Site of the 1981 assassination attempt on President Ronald Reagan",
+  "Venue for countless presidential visits and historic national gatherings",
+  "Secure corridors and entrances used by U.S. presidents and dignitaries",
+];
+---
+
+<BaseLayout
+  title="Venue — The Washington Hilton | The Official Countdown 250 Ball | Washington D.C. July 3, 2026"
+  description="The Washington Hilton — a Washington landmark and the only venue capable of hosting America's 250th anniversary kickoff gala. Six grand ballrooms, four stages, 60 years of presidential and national history."
+  ogImage="/images/event/hilton-twilight.png"
+>
+  <Navbar />
+
+  <!-- Hero -->
+  <section class="relative pt-32 pb-16 bg-navy-dark text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, rgba(197,164,78,0.3) 0%, transparent 70%);"></div>
+    </div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
+      <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">A Hotel Where History Happens</p>
+      <h1 class="text-3xl sm:text-5xl font-bold mb-4 font-heading">The Washington Hilton</h1>
+      <p class="text-xl sm:text-2xl text-gold/90 italic font-light mb-8">The Only Venue for America&rsquo;s 250th Kickoff</p>
+      <div class="w-24 h-0.5 bg-gold mx-auto"></div>
+    </div>
+  </section>
+
+  <!-- Image + intro -->
+  <section class="py-16 sm:py-20 bg-cream">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="relative">
+          <div class="rounded-lg overflow-hidden shadow-xl aspect-[4/3]">
+            <img
+              src="/images/event/hilton-twilight.png"
+              alt="The Washington Hilton at twilight — landmark venue of the Countdown 250 Ball"
+              class="w-full h-full object-cover scale-[1.02]"
+            />
+          </div>
+          <div class="absolute -top-4 -left-4 w-32 h-32 bg-gold/10 rounded-lg -z-10"></div>
+        </div>
+        <div>
+          <p class="text-lg text-slate leading-relaxed mb-5">
+            The Washington Hilton isn&rsquo;t just a hotel &mdash; it&rsquo;s a landmark. The curved tower rising above Connecticut Avenue has been a fixture of Washington for over 60 years. If something important is happening in this city, there&rsquo;s a good chance it&rsquo;s happening here.
+          </p>
+          <p class="text-lg text-slate leading-relaxed mb-5">
+            Designed by celebrated architect William B. Tabler in the 1960s and opened in 1965, the Hilton&rsquo;s distinctive concave silhouette has hosted presidents, world leaders, ambassadors, journalists, military leaders, and cultural figures across nine decades of American history. It is one of a small handful of venues equipped &mdash; physically and historically &mdash; to host events of true national consequence.
+          </p>
+          <p class="text-lg font-semibold text-navy">
+            On the night of July 3rd, it adds one more chapter to that story &mdash; and you can be in the room when it happens.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- History highlights -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-navy mb-4 font-heading">A Hotel Woven Into American History</h2>
+        <div class="w-16 h-1 bg-red mx-auto"></div>
+      </div>
+      <div class="space-y-3">
+        {highlights.map((h) => (
+          <div class="flex items-start gap-4 bg-cream rounded-lg px-6 py-4">
+            <div class="mt-2 w-2 h-2 rounded-full bg-gold flex-shrink-0"></div>
+            <p class="text-lg text-slate leading-relaxed">{h}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why ideal for Countdown 250 -->
+  <section class="py-16 sm:py-20 bg-navy text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 font-heading">Why the Washington Hilton &mdash; and Only the Washington Hilton</h2>
+      <div class="space-y-5 text-lg text-white/90 leading-relaxed">
+        <p>
+          To host a celebration as significant as America&rsquo;s 250th formal kickoff, every detail must match the moment. Few venues in the country can.
+        </p>
+        <p>
+          The Washington Hilton offers the rare combination of:
+        </p>
+        <ul class="space-y-3 pl-1">
+          <li class="flex items-start"><span class="text-gold mr-3 mt-1">&#10022;</span><span><strong class="text-gold">Scale</strong> &mdash; six grand ballrooms, four stages, capacity to comfortably host the 3,000 guests who will gather for the Countdown 250 Ball.</span></li>
+          <li class="flex items-start"><span class="text-gold mr-3 mt-1">&#10022;</span><span><strong class="text-gold">History</strong> &mdash; every president since Lyndon Johnson has walked these halls. The Hilton has been the venue for the White House Correspondents&rsquo; Dinner since 1968 and is woven into the fabric of modern American political and cultural life.</span></li>
+          <li class="flex items-start"><span class="text-gold mr-3 mt-1">&#10022;</span><span><strong class="text-gold">Security infrastructure</strong> &mdash; designed for visiting heads of state, with secure entrances, dedicated motorcade approaches, and operational protocols that routinely accommodate the highest levels of government and private protection.</span></li>
+          <li class="flex items-start"><span class="text-gold mr-3 mt-1">&#10022;</span><span><strong class="text-gold">Location</strong> &mdash; steps from Embassy Row and Dupont Circle, blocks from the National Mall, with three Metro stations within walking distance. There is no more centrally located large-scale gala venue in the city.</span></li>
+        </ul>
+        <p class="pt-3">
+          For 30+ years the All-American Ball Committee has staged signature national-moment celebrations at the Washington Hilton. The relationship is deep, the production team is intimately familiar with every corridor, every ballroom, every operational detail. There is no other venue in Washington &mdash; and arguably no other venue in America &mdash; where a gala of this scale, history, and consequence can be produced on this night.
+        </p>
+        <p class="text-gold/95 italic font-medium pt-2">
+          When the clock strikes 250 on the evening of July 3rd, it strikes here.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hotel block / Book your stay -->
+  <section class="py-16 sm:py-20 bg-cream">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-gold font-semibold tracking-[0.2em] uppercase text-xs mb-3">Exclusive Guest Rate</p>
+      <h2 class="text-2xl sm:text-3xl font-bold text-navy mb-4 font-heading">Book Your Stay</h2>
+      <div class="w-16 h-1 bg-red mx-auto mb-8"></div>
+
+      <p class="text-lg text-slate leading-relaxed mb-8">
+        A limited block of rooms has been reserved at the Washington Hilton at a special group rate exclusively for Countdown 250 Ball guests.
+      </p>
+
+      <div class="bg-white rounded-2xl shadow-lg p-8 sm:p-10 mb-8 text-left max-w-xl mx-auto">
+        <div class="flex items-baseline justify-center gap-2 mb-6">
+          <span class="text-4xl font-bold text-navy">$309</span>
+          <span class="text-slate/60">/ night</span>
+        </div>
+        <p class="text-center text-slate/50 text-sm mb-6">Plus taxes &amp; fees. Subject to availability.</p>
+
+        <div class="space-y-3 text-sm text-slate/80">
+          <div class="flex items-start gap-3">
+            <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-gold" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+            </svg>
+            <span>Daily $25 food &amp; beverage credit included</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-gold" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+            </svg>
+            <span>Premium Wi-Fi for up to 3 devices</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-gold" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+            </svg>
+            <span>Check-in: 4:00 PM / Check-out: 11:00 AM</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-gold" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+            </svg>
+            <span>Complimentary daily 3-hour Lyft bicycle pass</span>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-6 border-t border-slate/10 text-center">
+          <p class="text-red font-semibold text-sm">Book by June 20, 2026 &mdash; limited rooms available</p>
+        </div>
+      </div>
+
+      <a
+        href="https://book.passkey.com/gt/221256884?gtid=bddd881ec9893586b2fb3b7c481c5c7e"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-red hover:bg-red-light text-white px-10 py-4 text-sm font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+      >
+        Book Your Room Now
+      </a>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="py-16 bg-navy-dark text-white text-center">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-8 font-heading">Be in the room.</h2>
+      <a href="/#tickets" class="inline-block bg-red text-white px-10 py-4 text-sm font-semibold tracking-[0.2em] uppercase hover:bg-red-light transition-colors rounded shadow-lg">
+        Compare Ticket Options
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
