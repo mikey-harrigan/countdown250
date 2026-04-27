@@ -100,8 +100,8 @@ const moreLinks = [
   // Navbar scroll effect with logo resize
   const navbar = document.getElementById('navbar');
   const navLogo = document.getElementById('nav-logo');
-  const LOGO_BIG = 120;   // px height when at top (mobile) — 2x prior 60
-  const LOGO_SMALL = 80;  // px height when scrolled (mobile) — 2x prior 40
+  const LOGO_BIG = 102;   // px height when at top (mobile)
+  const LOGO_SMALL = 68;  // px height when scrolled (mobile)
   const SCROLL_RANGE = 150; // px of scroll over which the transition happens
 
   window.addEventListener('scroll', () => {
@@ -147,13 +147,13 @@ const moreLinks = [
      Parent has overflow:visible to allow this. Vertical center stays
      anchored to the navbar's items-center axis. */
   .nav-logo-img {
-    height: 128px;
+    height: 109px;
     width: auto;
   }
   /* Smaller on mobile */
   @media (max-width: 1024px) {
     .nav-logo-img {
-      height: 88px;
+      height: 75px;
     }
   }
 </style>
