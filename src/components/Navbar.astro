@@ -100,8 +100,8 @@ const moreLinks = [
   // Navbar scroll effect with logo resize
   const navbar = document.getElementById('navbar');
   const navLogo = document.getElementById('nav-logo');
-  const LOGO_BIG = 60;    // px height when at top (mobile)
-  const LOGO_SMALL = 40;  // px height when scrolled (mobile)
+  const LOGO_BIG = 180;   // px height when at top (mobile) — 3x prior 60
+  const LOGO_SMALL = 120; // px height when scrolled (mobile) — 3x prior 40
   const SCROLL_RANGE = 150; // px of scroll over which the transition happens
 
   window.addEventListener('scroll', () => {
@@ -143,15 +143,17 @@ const moreLinks = [
 
 <style>
   /* Navbar logo — horizontal wordmark sizing.
-     Wordmark has ~2.5:1 aspect ratio, so heights stay modest to keep width in check. */
+     Logo is 3x prior size and intentionally overflows the 80px navbar.
+     Parent has overflow:visible to allow this. Vertical center stays
+     anchored to the navbar's items-center axis. */
   .nav-logo-img {
-    height: 64px;
+    height: 192px;
     width: auto;
   }
   /* Smaller on mobile */
   @media (max-width: 1024px) {
     .nav-logo-img {
-      height: 44px;
+      height: 132px;
     }
   }
 </style>
