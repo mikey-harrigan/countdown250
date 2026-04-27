@@ -52,60 +52,96 @@ const faqs = [
   <Navbar />
 
   <!-- ============================================================ -->
-  <!-- 1. HERO — experiential top: welcome + nav cards in one block -->
-  <!-- Animated red/blue/gold spotlights evoke a stage in motion. -->
+  <!-- 1. HERO — full-screen Broadway / opening-night production. -->
+  <!-- Stage with swaying red + blue light beams, gold key lights, -->
+  <!-- subtle haze. Massive marquee headline + dramatic ticket cards. -->
   <!-- ============================================================ -->
-  <section class="relative pt-32 pb-24 sm:pt-40 sm:pb-32 bg-gradient-to-b from-[#0B1F3A] via-[#163A70] to-[#0B1F3A] text-white overflow-hidden">
-    <!-- Moving ballroom spotlights — gold, blue, red — gently drift via @keyframes -->
-    <div class="absolute inset-0 pointer-events-none">
-      <!-- Gold key light (warm, primary) -->
-      <div class="spotlight spotlight-gold-1 absolute -top-32 left-[10%] w-[44rem] h-[44rem] rounded-full" style="background: radial-gradient(circle, rgba(197,164,78,1) 0%, transparent 60%); filter: blur(55px);"></div>
-      <div class="spotlight spotlight-gold-2 absolute -bottom-40 right-[8%] w-[42rem] h-[42rem] rounded-full" style="background: radial-gradient(circle, rgba(197,164,78,1) 0%, transparent 60%); filter: blur(60px);"></div>
-      <!-- Blue stage wash (deep, cool) -->
-      <div class="spotlight spotlight-blue absolute top-[15%] right-[18%] w-[34rem] h-[34rem] rounded-full" style="background: radial-gradient(circle, rgba(60,110,200,1) 0%, transparent 60%); filter: blur(70px);"></div>
-      <!-- Red accent (muted, restrained) -->
-      <div class="spotlight spotlight-red absolute bottom-[18%] left-[14%] w-[30rem] h-[30rem] rounded-full" style="background: radial-gradient(circle, rgba(166,30,45,1) 0%, transparent 60%); filter: blur(75px);"></div>
+  <section class="relative min-h-screen flex items-center justify-center pt-32 pb-20 sm:pt-36 sm:pb-24 bg-[#06152A] text-white overflow-hidden">
+    <!-- Deep stage backdrop gradient -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[#06152A] via-[#0B1F3A] to-[#040D1C]"></div>
+
+    <!-- Stage light beams (rotating diagonals) -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <!-- Red beams -->
+      <div class="beam beam-red-1"></div>
+      <div class="beam beam-red-2"></div>
+      <!-- Blue beams -->
+      <div class="beam beam-blue-1"></div>
+      <div class="beam beam-blue-2"></div>
+      <!-- Gold key light beam (warm) -->
+      <div class="beam beam-gold"></div>
     </div>
-    <!-- Hairline gold edges -->
-    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E]/45 to-transparent"></div>
-    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E]/45 to-transparent"></div>
 
-    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
-      <!-- Welcome headline + subheadline -->
-      <p class="text-[#C5A44E]/85 font-medium tracking-[0.4em] uppercase text-[11px] sm:text-xs mb-8">By Invitation</p>
+    <!-- Soft radial halo + ambient color washes -->
+    <div class="absolute inset-0 pointer-events-none">
+      <!-- Gold key fill (steady center halo) -->
+      <div class="spotlight spotlight-halo absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[60rem] rounded-full" style="background: radial-gradient(circle, rgba(197,164,78,0.18) 0%, transparent 65%); filter: blur(20px);"></div>
+      <!-- Cool blue ambient on right -->
+      <div class="spotlight spotlight-blue-amb absolute top-[20%] right-[5%] w-[40rem] h-[40rem] rounded-full" style="background: radial-gradient(circle, rgba(60,110,200,1) 0%, transparent 65%); filter: blur(80px);"></div>
+      <!-- Warm red ambient on left -->
+      <div class="spotlight spotlight-red-amb absolute bottom-[10%] left-[5%] w-[36rem] h-[36rem] rounded-full" style="background: radial-gradient(circle, rgba(166,30,45,1) 0%, transparent 65%); filter: blur(80px);"></div>
+    </div>
 
-      <h1 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.15] mb-8">
-        Welcome to the Statesman&rsquo;s<br /> Concierge Pass Info Page
+    <!-- Subtle stage haze at bottom -->
+    <div class="absolute bottom-0 left-0 right-0 h-1/3 pointer-events-none" style="background: linear-gradient(to top, rgba(197,164,78,0.06) 0%, transparent 100%);"></div>
+
+    <!-- Hairline gold proscenium edges -->
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E]/50 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E]/50 to-transparent"></div>
+
+    <!-- Stage content -->
+    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center w-full">
+      <!-- Marquee eyebrow -->
+      <p class="text-[#C5A44E] font-semibold tracking-[0.5em] uppercase text-[11px] sm:text-xs mb-8 sm:mb-10 marquee-glow">
+        &mdash; Tonight on Stage &mdash;
+      </p>
+
+      <!-- GIANT marquee headline -->
+      <h1 class="font-heading font-black text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[1.05] tracking-tight mb-10 sm:mb-12 marquee-headline">
+        Welcome to the Statesman&rsquo;s<br />
+        <span class="text-[#C5A44E]">Concierge Pass</span> Info Page
       </h1>
 
-      <div class="flex items-center justify-center gap-4 mb-8">
-        <div class="w-14 h-px bg-[#C5A44E]/60"></div>
-        <div class="w-1.5 h-1.5 bg-[#C5A44E] rotate-45"></div>
-        <div class="w-14 h-px bg-[#C5A44E]/60"></div>
+      <!-- Gold ornament divider -->
+      <div class="flex items-center justify-center gap-4 mb-10 sm:mb-12">
+        <div class="w-20 h-px bg-[#C5A44E]/70"></div>
+        <div class="w-2 h-2 bg-[#C5A44E] rotate-45 shadow-[0_0_12px_rgba(197,164,78,0.6)]"></div>
+        <div class="w-20 h-px bg-[#C5A44E]/70"></div>
       </div>
 
-      <p class="font-heading italic text-[#C5A44E]/95 text-xl sm:text-2xl md:text-3xl font-light tracking-wide mb-16 sm:mb-20">
+      <!-- Italic subheadline -->
+      <p class="font-heading italic text-white text-2xl sm:text-3xl md:text-4xl font-light tracking-wide mb-16 sm:mb-20">
         For guests who expect the very best.
       </p>
 
-      <!-- Two clickable nav cards — clearly clickable, premium calling-card feel -->
-      <div class="grid md:grid-cols-2 gap-5 sm:gap-6 max-w-4xl mx-auto">
+      <!-- TWO DRAMATIC TICKET-STYLE CARDS -->
+      <div class="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
         <!-- Card 1: Statesman -->
         <a
           href="#statesman"
-          class="group relative block bg-[#F7F3E8] hover:bg-white rounded-md overflow-hidden border-2 border-[#C5A44E]/40 hover:border-[#C5A44E] transition-all p-8 sm:p-10 text-center hover:-translate-y-1 shadow-xl hover:shadow-2xl"
+          class="ticket-card group relative block bg-gradient-to-br from-[#F7F3E8] to-[#FAEFD0] rounded-md overflow-hidden p-10 sm:p-12 text-center transition-all hover:-translate-y-2 shadow-[0_20px_60px_-15px_rgba(197,164,78,0.45)] hover:shadow-[0_25px_80px_-15px_rgba(197,164,78,0.7)]"
         >
-          <p class="text-[#C5A44E] font-semibold tracking-[0.4em] uppercase text-[10px] mb-5">No. 01</p>
-          <h3 class="font-heading text-lg sm:text-xl text-[#0B1F3A] font-bold leading-snug mb-4">
-            What Is the<br class="hidden sm:block" /> Statesman&rsquo;s Concierge Pass?
+          <!-- Gold corner brackets -->
+          <span class="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-[#C5A44E]"></span>
+          <span class="absolute top-3 right-3 w-5 h-5 border-t-2 border-r-2 border-[#C5A44E]"></span>
+          <span class="absolute bottom-3 left-3 w-5 h-5 border-b-2 border-l-2 border-[#C5A44E]"></span>
+          <span class="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-[#C5A44E]"></span>
+
+          <p class="text-[#C5A44E] font-bold tracking-[0.5em] uppercase text-[10px] mb-6">Act One</p>
+          <h3 class="font-heading text-xl sm:text-2xl md:text-3xl text-[#0B1F3A] font-bold leading-tight mb-5">
+            What Is the<br /> Statesman&rsquo;s Concierge Pass?
           </h3>
-          <div class="w-10 h-px bg-[#C5A44E]/70 mx-auto mb-5"></div>
-          <p class="text-[#163A70] text-sm sm:text-[15px] leading-relaxed mb-6">
+          <div class="flex items-center justify-center gap-3 mb-5">
+            <div class="w-8 h-px bg-[#C5A44E]"></div>
+            <div class="w-1.5 h-1.5 bg-[#C5A44E] rotate-45"></div>
+            <div class="w-8 h-px bg-[#C5A44E]"></div>
+          </div>
+          <p class="text-[#163A70] text-base sm:text-[17px] leading-relaxed mb-7 max-w-xs mx-auto">
             Concierge service. Private access. Refined hospitality.
           </p>
-          <span class="inline-flex items-center gap-2 text-[#C5A44E] text-xs font-semibold tracking-[0.25em] uppercase group-hover:gap-3 transition-all">
-            Discover
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <span class="inline-flex items-center gap-2 text-[#A61E2D] text-xs font-bold tracking-[0.3em] uppercase group-hover:gap-4 transition-all">
+            Take Your Seat
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </span>
@@ -114,19 +150,28 @@ const faqs = [
         <!-- Card 2: Hosted Tables -->
         <a
           href="#hosted-tables"
-          class="group relative block bg-[#F7F3E8] hover:bg-white rounded-md overflow-hidden border-2 border-[#C5A44E]/40 hover:border-[#C5A44E] transition-all p-8 sm:p-10 text-center hover:-translate-y-1 shadow-xl hover:shadow-2xl"
+          class="ticket-card group relative block bg-gradient-to-br from-[#F7F3E8] to-[#FAEFD0] rounded-md overflow-hidden p-10 sm:p-12 text-center transition-all hover:-translate-y-2 shadow-[0_20px_60px_-15px_rgba(197,164,78,0.45)] hover:shadow-[0_25px_80px_-15px_rgba(197,164,78,0.7)]"
         >
-          <p class="text-[#C5A44E] font-semibold tracking-[0.4em] uppercase text-[10px] mb-5">No. 02</p>
-          <h3 class="font-heading text-lg sm:text-xl text-[#0B1F3A] font-bold leading-snug mb-4">
-            What Is the Hosted Groups /<br class="hidden sm:block" /> Party Inside the Party Program?
+          <span class="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-[#C5A44E]"></span>
+          <span class="absolute top-3 right-3 w-5 h-5 border-t-2 border-r-2 border-[#C5A44E]"></span>
+          <span class="absolute bottom-3 left-3 w-5 h-5 border-b-2 border-l-2 border-[#C5A44E]"></span>
+          <span class="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-[#C5A44E]"></span>
+
+          <p class="text-[#C5A44E] font-bold tracking-[0.5em] uppercase text-[10px] mb-6">Act Two</p>
+          <h3 class="font-heading text-xl sm:text-2xl md:text-3xl text-[#0B1F3A] font-bold leading-tight mb-5">
+            What Is the Hosted Groups /<br /> Party Inside the Party?
           </h3>
-          <div class="w-10 h-px bg-[#C5A44E]/70 mx-auto mb-5"></div>
-          <p class="text-[#163A70] text-sm sm:text-[15px] leading-relaxed mb-6">
-            Your guests. Your table. Your unforgettable evening together.
+          <div class="flex items-center justify-center gap-3 mb-5">
+            <div class="w-8 h-px bg-[#C5A44E]"></div>
+            <div class="w-1.5 h-1.5 bg-[#C5A44E] rotate-45"></div>
+            <div class="w-8 h-px bg-[#C5A44E]"></div>
+          </div>
+          <p class="text-[#163A70] text-base sm:text-[17px] leading-relaxed mb-7 max-w-xs mx-auto">
+            Your guests. Your table. Your unforgettable evening.
           </p>
-          <span class="inline-flex items-center gap-2 text-[#C5A44E] text-xs font-semibold tracking-[0.25em] uppercase group-hover:gap-3 transition-all">
-            Discover
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <span class="inline-flex items-center gap-2 text-[#A61E2D] text-xs font-bold tracking-[0.3em] uppercase group-hover:gap-4 transition-all">
+            Reserve Your Group
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </span>
@@ -149,8 +194,8 @@ const faqs = [
     <div class="relative z-10 max-w-3xl mx-auto px-6">
       <div class="text-center mb-14">
         <p class="text-[#C5A44E]/85 font-medium tracking-[0.4em] uppercase text-[11px] mb-5">No. 01</p>
-        <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-8">
-          What Is the Statesman&rsquo;s<br /> Concierge Pass?
+        <h2 class="font-heading text-4xl sm:text-5xl md:text-6xl font-black leading-[1.1] mb-8 tracking-tight">
+          What Is the Statesman&rsquo;s<br /> <span class="text-[#C5A44E]">Concierge Pass?</span>
         </h2>
 
         <div class="flex items-center justify-center gap-4 mb-10">
@@ -240,8 +285,8 @@ const faqs = [
       <!-- Heading block -->
       <div class="text-center mb-14">
         <p class="text-[#C5A44E] font-medium tracking-[0.4em] uppercase text-[11px] mb-5">No. 02</p>
-        <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight mb-6">
-          Party Inside the Party
+        <h2 class="font-heading text-4xl sm:text-5xl md:text-6xl font-black text-[#0B1F3A] leading-[1.1] mb-6 tracking-tight">
+          Party Inside <span class="text-[#A61E2D]">the Party</span>
         </h2>
         <p class="font-heading italic text-[#163A70] text-lg sm:text-xl font-light leading-snug max-w-xl mx-auto mb-10">
           Start or join a Hosted Group in about 15 seconds. We take it from there.
@@ -354,8 +399,8 @@ const faqs = [
     <div class="relative z-10 max-w-2xl mx-auto px-6 text-center">
       <p class="text-[#C5A44E]/85 font-medium tracking-[0.4em] uppercase text-[11px] mb-8">Reserve Your Place</p>
 
-      <h2 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-8">
-        Make It the Night<br /> of Their Lives
+      <h2 class="font-heading font-black text-4xl sm:text-5xl md:text-6xl leading-[1.1] mb-8 tracking-tight">
+        Make It the Night<br /> of <span class="text-[#C5A44E]">Their Lives</span>
       </h2>
 
       <div class="flex items-center justify-center gap-4 mb-10">
@@ -403,52 +448,132 @@ const faqs = [
   }
 
   /* ==========================================================
-     Hero "moving spotlights" — gentle drift + opacity breathing.
-     Each spotlight has a unique duration and offset so the
-     composition never repeats exactly. Tasteful, not flashy.
+     STAGE LIGHTING SYSTEM — Broadway / Radio City energy.
+     Beams + ambient washes + halo + marquee glow.
+     Five swaying beams (red x2, blue x2, gold x1) plus three
+     ambient radial washes. Each animation has a unique duration
+     so the composition never resolves to the same frame twice.
      ========================================================== */
-  .spotlight {
+
+  /* Sweeping spotlight beams — long thin diagonal blurred slices.
+     Anchored at top, swing from a "lighting rig" point. */
+  .beam {
+    position: absolute;
+    pointer-events: none;
+    top: -20%;
+    width: 4rem;
+    height: 140%;
+    transform-origin: 50% 0;
+    filter: blur(50px);
     will-change: transform, opacity;
   }
 
-  .spotlight-gold-1 {
+  .beam-red-1 {
+    left: 20%;
+    background: linear-gradient(180deg, rgba(166,30,45,0.55) 0%, rgba(166,30,45,0.20) 40%, transparent 80%);
+    animation: beam-sway-red-1 11s ease-in-out infinite;
+  }
+  .beam-red-2 {
+    left: 70%;
+    background: linear-gradient(180deg, rgba(180,40,60,0.45) 0%, rgba(180,40,60,0.15) 40%, transparent 80%);
+    animation: beam-sway-red-2 14s ease-in-out infinite;
+  }
+  .beam-blue-1 {
+    left: 35%;
+    background: linear-gradient(180deg, rgba(60,110,200,0.55) 0%, rgba(60,110,200,0.20) 40%, transparent 80%);
+    animation: beam-sway-blue-1 13s ease-in-out infinite;
+  }
+  .beam-blue-2 {
+    left: 82%;
+    background: linear-gradient(180deg, rgba(80,140,220,0.45) 0%, rgba(80,140,220,0.15) 40%, transparent 80%);
+    animation: beam-sway-blue-2 16s ease-in-out infinite;
+  }
+  .beam-gold {
+    left: 50%;
+    background: linear-gradient(180deg, rgba(197,164,78,0.50) 0%, rgba(197,164,78,0.18) 40%, transparent 80%);
+    animation: beam-sway-gold 18s ease-in-out infinite;
+  }
+
+  @keyframes beam-sway-red-1 {
+    0%, 100% { transform: translateX(-50%) rotate(18deg); opacity: 0.7; }
+    50%      { transform: translateX(-50%) rotate(-2deg);  opacity: 1.0; }
+  }
+  @keyframes beam-sway-red-2 {
+    0%, 100% { transform: translateX(-50%) rotate(-15deg); opacity: 0.6; }
+    50%      { transform: translateX(-50%) rotate(8deg);   opacity: 0.9; }
+  }
+  @keyframes beam-sway-blue-1 {
+    0%, 100% { transform: translateX(-50%) rotate(-22deg); opacity: 0.7; }
+    50%      { transform: translateX(-50%) rotate(-2deg);  opacity: 1.0; }
+  }
+  @keyframes beam-sway-blue-2 {
+    0%, 100% { transform: translateX(-50%) rotate(12deg);  opacity: 0.6; }
+    50%      { transform: translateX(-50%) rotate(-8deg);  opacity: 0.9; }
+  }
+  @keyframes beam-sway-gold {
+    0%, 100% { transform: translateX(-50%) rotate(0deg);   opacity: 0.7; }
+    50%      { transform: translateX(-50%) rotate(-6deg);  opacity: 1.0; }
+  }
+
+  /* Ambient color washes (radial) — slow pulse so the room "breathes" */
+  .spotlight {
+    will-change: opacity;
+  }
+  .spotlight-halo {
+    animation: halo-pulse 10s ease-in-out infinite;
+  }
+  .spotlight-blue-amb {
+    opacity: 0.20;
+    animation: amb-blue 12s ease-in-out infinite;
+  }
+  .spotlight-red-amb {
     opacity: 0.16;
-    animation: drift-gold-1 18s ease-in-out infinite;
-  }
-  .spotlight-gold-2 {
-    opacity: 0.13;
-    animation: drift-gold-2 22s ease-in-out infinite;
-  }
-  .spotlight-blue {
-    opacity: 0.18;
-    animation: drift-blue 20s ease-in-out infinite;
-  }
-  .spotlight-red {
-    opacity: 0.10;
-    animation: drift-red 24s ease-in-out infinite;
+    animation: amb-red 14s ease-in-out infinite;
   }
 
-  @keyframes drift-gold-1 {
-    0%, 100% { transform: translate(0, 0); opacity: 0.16; }
-    50%      { transform: translate(40px, 30px); opacity: 0.22; }
+  @keyframes halo-pulse {
+    0%, 100% { opacity: 0.85; }
+    50%      { opacity: 1.0; }
   }
-  @keyframes drift-gold-2 {
-    0%, 100% { transform: translate(0, 0); opacity: 0.13; }
-    50%      { transform: translate(-30px, -25px); opacity: 0.18; }
+  @keyframes amb-blue {
+    0%, 100% { opacity: 0.18; transform: translate(0, 0); }
+    50%      { opacity: 0.26; transform: translate(-15px, 15px); }
   }
-  @keyframes drift-blue {
-    0%, 100% { transform: translate(0, 0); opacity: 0.16; }
-    50%      { transform: translate(-25px, 20px); opacity: 0.22; }
-  }
-  @keyframes drift-red {
-    0%, 100% { transform: translate(0, 0); opacity: 0.09; }
-    50%      { transform: translate(35px, -20px); opacity: 0.14; }
+  @keyframes amb-red {
+    0%, 100% { opacity: 0.14; transform: translate(0, 0); }
+    50%      { opacity: 0.22; transform: translate(20px, -15px); }
   }
 
-  /* Respect reduced-motion preference — turn off drift entirely */
+  /* Marquee eyebrow + headline glow — subtle warm radiance */
+  .marquee-glow {
+    text-shadow: 0 0 18px rgba(197,164,78,0.45);
+  }
+  .marquee-headline {
+    text-shadow: 0 2px 24px rgba(197,164,78,0.20), 0 0 60px rgba(11,31,58,0.6);
+  }
+
+  /* Ticket cards — subtle entrance flourish on hover already handled
+     via Tailwind hover: classes; this adds a faint shimmer tone */
+  .ticket-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .ticket-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Reduced motion — disable all motion completely */
   @media (prefers-reduced-motion: reduce) {
-    .spotlight {
+    .beam,
+    .spotlight,
+    .ticket-card::before {
       animation: none !important;
+      transition: none !important;
     }
   }
 </style>
