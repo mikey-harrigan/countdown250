@@ -1,0 +1,223 @@
+---
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
+---
+
+<BaseLayout
+  title="The Declaration of Celebration | Countdown 250 Ball | Washington D.C. July 3, 2026"
+  description="In Congress, July 3, 2026 — the unanimous Declaration of America's 250th Anniversary Celebration at the legendary Washington Hilton."
+  ogImage="/images/event/hero-countdown250-toast.png"
+>
+  <Navbar />
+
+  <!-- ============================================================ -->
+  <!-- Dark wood backdrop — the table on which the parchment lies. -->
+  <!-- ============================================================ -->
+  <main class="declaration-room relative min-h-screen pt-28 pb-16 sm:pt-32 sm:pb-20 overflow-hidden">
+
+    <!-- Subtle warm candle glow at top -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[42rem] h-[24rem] pointer-events-none opacity-40" style="background: radial-gradient(ellipse, rgba(220,170,80,0.35) 0%, transparent 70%); filter: blur(40px);"></div>
+
+    <!-- ============================================================ -->
+    <!-- The Parchment Document. -->
+    <!-- ============================================================ -->
+    <article class="parchment-page relative mx-auto max-w-3xl px-8 sm:px-14 md:px-20 py-14 sm:py-20 md:py-24 my-6 sm:my-8 z-10">
+
+      <!-- IN CONGRESS header -->
+      <div class="text-center mb-8">
+        <p class="declaration-header font-heading text-xl sm:text-2xl md:text-3xl tracking-[0.18em] text-[#3A2410] mb-1">
+          IN CONGRESS, JULY 3, 2026
+        </p>
+      </div>
+
+      <!-- Title: The unanimous Declaration -->
+      <h1 class="declaration-title font-heading italic text-2xl sm:text-3xl md:text-[2.25rem] leading-[1.25] text-[#2A1808] text-center mb-10 sm:mb-14 px-2">
+        The unanimous Declaration<br />
+        of the One Greatest Celebration<br />
+        in American History.
+      </h1>
+
+      <!-- Ornamental divider -->
+      <div class="flex items-center justify-center gap-4 mb-12 sm:mb-14">
+        <div class="w-24 h-px bg-[#6B3F1A]/50"></div>
+        <span class="text-[#6B3F1A] text-lg leading-none">&#10086;</span>
+        <div class="w-24 h-px bg-[#6B3F1A]/50"></div>
+      </div>
+
+      <!-- Opening paragraph with drop cap -->
+      <p class="declaration-body declaration-first text-[#2D1A0A] text-base sm:text-lg leading-[1.95] text-justify mb-7">
+        <span class="drop-cap">W</span>hen, in the Course of national events, it becomes necessary for one Generation to mark the Two-hundred and Fiftieth Year of the founding of these United States with a Celebration befitting the magnitude of the moment &mdash; a decent respect to the opinions of our fellow Americans requires that we should declare the causes which impel us to gather, on the Eve of America&rsquo;s 250th Independence Day, in the great Ballrooms of the Washington Hilton.
+      </p>
+
+      <!-- Body — "We hold these truths" + supporting clauses -->
+      <div class="declaration-body text-[#2D1A0A] text-base sm:text-lg leading-[1.95] text-justify space-y-6 mb-12">
+        <p>
+          <em class="font-semibold not-italic">We hold these truths to be self-evident:</em> That this Milestone shall come but once in a Lifetime; that all who gather are endowed by the Pursuit of Happiness with certain unalienable opportunities &mdash; among these are Refined Hospitality, Premium Open Bars, World-Class Entertainment, and the Right to dance until the stroke of Midnight, when the Clock turns 250.
+        </p>
+        <p>
+          That on the Evening of July the Third, in the year Two Thousand and Twenty-Six, the great Ballrooms of the Washington Hilton shall be transformed into a Celebration of unprecedented scale; whereto shall come three thousand of America&rsquo;s most patriotic souls &mdash; leaders of industry, decorated Veterans, world-champion Athletes, distinguished Dignitaries, civic figures, and proud Americans from every State of the Union.
+        </p>
+        <p>
+          That the <em class="font-semibold not-italic">Statesman&rsquo;s Concierge Pass</em> shall provide its bearers with the most elevated experience of the Evening &mdash; personal concierge service from arrival to departure, exclusive access to private historic spaces, premium hospitality throughout, and the privilege of hosting a Party Inside the Party for the guests of one&rsquo;s own choosing, at no additional cost.
+        </p>
+        <p>
+          That this Night shall be the formal Kickoff to America&rsquo;s 250th Independence Weekend &mdash; a Moment which People who experienced the Bicentennial of 1776 still recall, half a century on, as the defining Celebration of their generation. We do solemnly believe that ours shall be the same.
+        </p>
+      </div>
+
+      <!-- Resolution -->
+      <div class="text-center my-14 sm:my-16">
+        <div class="flex items-center justify-center gap-4 mb-8">
+          <div class="w-20 h-px bg-[#6B3F1A]/50"></div>
+          <span class="text-[#6B3F1A] text-2xl leading-none">&#10047;</span>
+          <div class="w-20 h-px bg-[#6B3F1A]/50"></div>
+        </div>
+
+        <p class="declaration-resolved font-heading italic text-xl sm:text-2xl md:text-3xl text-[#2A1808] leading-snug mb-3">
+          We, therefore, the People of these United States,
+        </p>
+        <p class="declaration-resolved font-heading text-xl sm:text-2xl md:text-3xl tracking-wide text-[#2A1808] mb-10">
+          do solemnly publish and declare &mdash;
+        </p>
+
+        <p class="font-heading italic text-2xl sm:text-3xl md:text-[2.25rem] text-[#7A1A1A] leading-snug mb-8 px-2">
+          That this Night shall be remembered<br />
+          for as long as the Republic stands.
+        </p>
+
+        <p class="text-[#2D1A0A] text-base sm:text-lg leading-relaxed max-w-xl mx-auto italic">
+          And for the support of this Declaration, with a firm reliance upon the Patriots gathered to witness it, we mutually pledge to one another a Celebration of unmatched grandeur.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mb-16 sm:mb-20">
+        <a
+          href={ticketUrl}
+          class="eventbrite-checkout inline-block bg-[#7A1A1A] hover:bg-[#5C1010] text-[#F4E8C3] px-12 py-5 text-[13px] font-semibold tracking-[0.25em] uppercase border-2 border-[#7A1A1A] transition-all shadow-lg hover:-translate-y-0.5"
+        >
+          Take Your Place in History
+        </a>
+      </div>
+
+      <!-- Signature block -->
+      <div class="border-t border-[#6B3F1A]/40 pt-10">
+        <div class="grid sm:grid-cols-[auto_1fr] gap-8 sm:gap-10 items-center">
+          <!-- Wax seal -->
+          <div class="wax-seal mx-auto sm:mx-0 w-24 h-24 sm:w-28 sm:h-28 rounded-full flex items-center justify-center text-[#F4E8C3] font-heading font-black text-2xl sm:text-3xl tracking-tight relative">
+            <span class="relative z-10 text-center leading-none">250</span>
+          </div>
+
+          <!-- Signed by -->
+          <div class="text-center sm:text-left">
+            <p class="text-[#6B3F1A] text-[10px] tracking-[0.35em] uppercase mb-3">Signed and Affixed</p>
+            <p class="font-heading italic text-2xl sm:text-3xl text-[#2A1808] mb-2 leading-tight">
+              The All-American Ball Committee
+            </p>
+            <p class="text-[#5A3414] text-sm italic leading-snug">
+              Producers of America&rsquo;s most historic celebrations<br />
+              for over three decades.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  /* ============================================================
+     DECLARATION OF INDEPENDENCE — parchment + ink aesthetic
+     ============================================================ */
+
+  /* The "room" — dark wood / marble surface the parchment sits on */
+  .declaration-room {
+    background:
+      radial-gradient(ellipse at center top, #3a2210 0%, #1f1208 60%, #100804 100%),
+      #100804;
+  }
+
+  /* The parchment document itself */
+  .parchment-page {
+    background:
+      /* Aged stains in corners */
+      radial-gradient(ellipse 30% 30% at 0% 0%, rgba(140,90,30,0.20) 0%, transparent 60%),
+      radial-gradient(ellipse 35% 35% at 100% 0%, rgba(160,100,30,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 35% at 100% 100%, rgba(150,95,30,0.22) 0%, transparent 60%),
+      radial-gradient(ellipse 35% 30% at 0% 100%, rgba(140,85,25,0.20) 0%, transparent 60%),
+      /* Subtle horizontal staining waves */
+      radial-gradient(ellipse 100% 4% at 50% 25%, rgba(120,75,25,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 100% 4% at 50% 70%, rgba(120,75,25,0.10) 0%, transparent 70%),
+      /* Edge vignette */
+      radial-gradient(ellipse at center, transparent 55%, rgba(100,60,15,0.28) 100%),
+      /* Base parchment color */
+      linear-gradient(to bottom, #F2E5B6 0%, #ECD7A0 50%, #E5CC8E 100%);
+    box-shadow:
+      0 35px 90px rgba(0,0,0,0.75),
+      0 12px 35px rgba(0,0,0,0.55),
+      0 2px 6px rgba(0,0,0,0.4),
+      inset 0 0 90px rgba(120,80,30,0.12);
+  }
+
+  /* Drop cap — large illuminated initial */
+  .drop-cap {
+    float: left;
+    font-family: 'Cinzel', 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 5.25rem;
+    line-height: 0.85;
+    padding-right: 0.55rem;
+    padding-top: 0.4rem;
+    color: #7A1A1A;
+    text-shadow: 1px 1px 0 rgba(180,130,60,0.25);
+  }
+  @media (max-width: 640px) {
+    .drop-cap {
+      font-size: 4rem;
+      padding-right: 0.45rem;
+      padding-top: 0.35rem;
+    }
+  }
+
+  /* Subtle ink-bleed feel on body text */
+  .declaration-body {
+    text-shadow: 0 0.5px 0 rgba(45,26,10,0.15);
+  }
+
+  /* Wax seal — deep crimson red wax with highlight + shadow */
+  .wax-seal {
+    background:
+      radial-gradient(circle at 30% 30%, rgba(255,180,170,0.4) 0%, transparent 25%),
+      radial-gradient(circle at 70% 75%, rgba(0,0,0,0.4) 0%, transparent 35%),
+      radial-gradient(circle at center, #B22A22 0%, #8a1612 65%, #4f0606 100%);
+    box-shadow:
+      inset -3px -3px 10px rgba(0,0,0,0.55),
+      inset 3px 3px 8px rgba(255,180,150,0.12),
+      0 6px 14px rgba(0,0,0,0.5),
+      0 2px 4px rgba(0,0,0,0.4);
+    border: 2px solid rgba(40,5,5,0.4);
+  }
+  /* Embossed ridge around the seal edge */
+  .wax-seal::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,180,150,0.18);
+    pointer-events: none;
+  }
+
+  /* CTA button — looks like a wax-stamped seal of approval */
+  .eventbrite-checkout {
+    box-shadow:
+      0 4px 12px rgba(0,0,0,0.4),
+      inset 0 1px 0 rgba(255,200,180,0.15);
+  }
+</style>
