@@ -6,35 +6,22 @@ import Footer from '../components/Footer.astro';
 
 const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
 
-// Section 2: Quick Guide TOC
-const tocItems = [
-  { num: "01", label: "What Is the Statesman's Concierge Pass?", href: "#what-is" },
-  { num: "02", label: "What's Included", href: "#whats-included" },
-  { num: "03", label: "Hosted Groups / Party Inside the Party", href: "#hosted-groups" },
-  { num: "04", label: "Benefits for Hosts", href: "#benefits" },
-  { num: "05", label: "Seating Notes", href: "#seating" },
-  { num: "06", label: "Common Questions", href: "#faq" },
-  { num: "07", label: "Secure Your Passes", href: "#secure" },
+// Statesman section: collapsed accordions
+const statesmanDetails = [
+  { title: "Arrival & Access", items: ["Priority entry", "Personal concierge throughout the evening", "VIP arrival treatment"] },
+  { title: "Food & Beverage", items: ["Premium bars all evening", "Elevated dining", "Refined hospitality from start to finish"] },
+  { title: "Exclusive Access & Recognition", items: ["Private historic spaces", "Premium gathering areas", "Official program recognition", "Signature keepsake gift"] },
+  { title: "Hosted Group Privileges", items: ["Host your own Party Inside the Party", "Group gathering privileges", "No additional hosting fee"] },
 ];
 
-// Section 4: What's Included accordions
-const includedSections = [
-  { title: "Arrival & Access", items: ["Priority entry", "Concierge assistance", "VIP arrival treatment"] },
-  { title: "Food & Beverage", items: ["Premium bars", "Elevated dining", "Refined hospitality throughout the evening"] },
-  { title: "Exclusive Access", items: ["Historic private spaces", "Elevated experiences", "Premium gathering areas"] },
-  { title: "Recognition & Gifts", items: ["Official program recognition opportunities", "Signature keepsake gifts", "Special acknowledgments"] },
-  { title: "Hosted Group Benefits", items: ["Ability to host your own Party Inside the Party", "Group gathering privileges", "No additional hosting fee"] },
-];
-
-// Section 6: Benefits columns
+// Hosted Table benefits — two columns
 const hostBenefits = [
   "Reserved premium gathering place",
-  "Guests purchase their own qualifying tickets",
+  "Guests purchase their own qualifying passes",
   "Personalized signage",
   "Recognition opportunities",
   "Public Toast to the Hosts",
   "No additional hosting cost",
-  "We handle logistics",
 ];
 
 const guestBenefits = [
@@ -45,7 +32,7 @@ const guestBenefits = [
   "Lifetime memories",
 ];
 
-// Section 8: FAQ
+// FAQ
 const faqs = [
   { q: "Is this a ticket option?", a: "Yes. The Statesman's Concierge Pass is Countdown 250's premier ticket option." },
   { q: "Do I need a Hosted Group?", a: "No. Hosted Groups are entirely optional. Every guest enjoys the full Statesman's experience either way." },
@@ -59,160 +46,194 @@ const faqs = [
 
 <BaseLayout
   title="Statesman's Concierge Pass | Countdown 250 Ball"
-  description="Countdown 250's premier ticket option. Concierge service, premium amenities, exclusive access, and Hosted Groups — everything you need to know."
+  description="Countdown 250's premier experience. Concierge service, exclusive access, refined hospitality, and the option to host your own Party Inside the Party."
   ogImage="/images/event/statesman-vip-dinner.png"
 >
   <Navbar />
 
   <!-- ============================================================ -->
-  <!-- 1. HERO — dark elegant ballroom feel via CSS spotlights -->
+  <!-- 1. HERO — ballroom spotlights, exclusive invitation tone -->
   <!-- ============================================================ -->
-  <section class="relative pt-40 pb-32 sm:pt-48 sm:pb-40 bg-[#0B1F3A] text-white overflow-hidden">
-    <!-- Subtle gold spotlight overlays (no image, all CSS) -->
+  <section class="relative pt-40 pb-32 sm:pt-48 sm:pb-40 bg-gradient-to-b from-[#0B1F3A] via-[#163A70] to-[#0B1F3A] text-white overflow-hidden">
+    <!-- Multi-spot ballroom lighting -->
     <div class="absolute inset-0 pointer-events-none">
-      <div class="absolute -top-24 left-1/4 w-[40rem] h-[40rem] rounded-full opacity-[0.18]" style="background: radial-gradient(circle, rgba(197,164,78,1) 0%, transparent 60%); filter: blur(40px);"></div>
-      <div class="absolute -bottom-32 right-1/4 w-[36rem] h-[36rem] rounded-full opacity-[0.12]" style="background: radial-gradient(circle, rgba(197,164,78,1) 0%, transparent 60%); filter: blur(50px);"></div>
+      <div class="absolute -top-32 left-[12%] w-[42rem] h-[42rem] rounded-full opacity-[0.16]" style="background: radial-gradient(circle, rgba(197,164,78,1) 0%, transparent 60%); filter: blur(50px);"></div>
+      <div class="absolute -bottom-40 right-[10%] w-[40rem] h-[40rem] rounded-full opacity-[0.13]" style="background: radial-gradient(circle, rgba(197,164,78,1) 0%, transparent 60%); filter: blur(60px);"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[24rem] h-[24rem] rounded-full opacity-[0.07]" style="background: radial-gradient(circle, rgba(197,164,78,1) 0%, transparent 70%); filter: blur(40px);"></div>
     </div>
     <!-- Hairline gold edges -->
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E]/45 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E]/45 to-transparent"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
+      <p class="text-[#C5A44E]/85 font-medium tracking-[0.4em] uppercase text-[11px] sm:text-xs mb-10">By Invitation</p>
+
+      <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl leading-[1.1] mb-10">
+        The Statesman&rsquo;s<br /> Concierge Pass
+      </h1>
+
+      <!-- Gold ornament divider -->
+      <div class="flex items-center justify-center gap-4 mb-10">
+        <div class="w-14 h-px bg-[#C5A44E]/60"></div>
+        <div class="w-1.5 h-1.5 bg-[#C5A44E] rotate-45"></div>
+        <div class="w-14 h-px bg-[#C5A44E]/60"></div>
+      </div>
+
+      <p class="text-white/85 text-lg sm:text-xl font-light leading-relaxed max-w-xl mx-auto mb-14">
+        An evening curated for those who expect the extraordinary &mdash; and a stage on which to celebrate it with the people who matter most.
+      </p>
+
+      <a
+        href={ticketUrl}
+        class="eventbrite-checkout inline-block bg-[#C5A44E] text-[#0B1F3A] hover:bg-[#C5A44E]/90 px-10 py-4 text-[13px] font-semibold tracking-[0.2em] uppercase transition-all rounded-sm shadow-xl hover:-translate-y-0.5"
+      >
+        Reserve Your Pass
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 2. TWO NAVIGATION CARDS — the only menu the page needs -->
+  <!-- ============================================================ -->
+  <section class="relative py-24 sm:py-32 bg-[#F7F3E8]">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-14 sm:mb-16">
+        <p class="text-[#C5A44E] font-medium tracking-[0.4em] uppercase text-[11px] mb-4">Begin Where You Wish</p>
+        <h2 class="font-heading text-2xl sm:text-3xl text-[#0B1F3A] font-bold leading-tight">Two Questions, One Experience</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+        <!-- Card 1: Statesman -->
+        <a
+          href="#statesman"
+          class="group relative block bg-gradient-to-br from-[#0B1F3A] via-[#163A70] to-[#0B1F3A] rounded-md overflow-hidden border border-[#C5A44E]/30 hover:border-[#C5A44E] transition-all p-10 sm:p-12 text-center hover:-translate-y-1 shadow-xl hover:shadow-2xl"
+        >
+          <!-- Soft inner spotlight -->
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[20rem] h-[20rem] rounded-full opacity-[0.10] pointer-events-none" style="background: radial-gradient(circle, rgba(197,164,78,1) 0%, transparent 60%); filter: blur(40px);"></div>
+          <div class="relative z-10">
+            <p class="text-[#C5A44E]/85 font-medium tracking-[0.4em] uppercase text-[10px] mb-6">No. 01</p>
+            <h3 class="font-heading text-xl sm:text-2xl text-white font-medium leading-snug mb-5">
+              What Is the Statesman&rsquo;s<br class="hidden sm:block" /> Concierge Pass?
+            </h3>
+            <div class="w-10 h-px bg-[#C5A44E]/60 mx-auto mb-5"></div>
+            <p class="text-white/75 text-[15px] sm:text-base leading-relaxed mb-7 max-w-xs mx-auto">
+              Concierge service. Private access. Refined hospitality.
+            </p>
+            <span class="inline-flex items-center gap-2 text-[#C5A44E] text-xs font-semibold tracking-[0.25em] uppercase group-hover:gap-3 transition-all">
+              Discover
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Card 2: Hosted Tables -->
+        <a
+          href="#hosted-tables"
+          class="group relative block bg-gradient-to-br from-[#0B1F3A] via-[#163A70] to-[#0B1F3A] rounded-md overflow-hidden border border-[#C5A44E]/30 hover:border-[#C5A44E] transition-all p-10 sm:p-12 text-center hover:-translate-y-1 shadow-xl hover:shadow-2xl"
+        >
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[20rem] h-[20rem] rounded-full opacity-[0.10] pointer-events-none" style="background: radial-gradient(circle, rgba(197,164,78,1) 0%, transparent 60%); filter: blur(40px);"></div>
+          <div class="relative z-10">
+            <p class="text-[#C5A44E]/85 font-medium tracking-[0.4em] uppercase text-[10px] mb-6">No. 02</p>
+            <h3 class="font-heading text-xl sm:text-2xl text-white font-medium leading-snug mb-5">
+              What Is the Hosted Table /<br class="hidden sm:block" /> Party Inside the Party Program?
+            </h3>
+            <div class="w-10 h-px bg-[#C5A44E]/60 mx-auto mb-5"></div>
+            <p class="text-white/75 text-[15px] sm:text-base leading-relaxed mb-7 max-w-xs mx-auto">
+              Your guests. Your table. Your unforgettable evening together.
+            </p>
+            <span class="inline-flex items-center gap-2 text-[#C5A44E] text-xs font-semibold tracking-[0.25em] uppercase group-hover:gap-3 transition-all">
+              Discover
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 3. STATESMAN — second navy moment, ballroom continues -->
+  <!-- ============================================================ -->
+  <section id="statesman" class="relative py-28 sm:py-36 bg-gradient-to-b from-[#0B1F3A] via-[#163A70] to-[#0B1F3A] text-white overflow-hidden scroll-mt-24">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-0 left-[15%] w-[36rem] h-[36rem] rounded-full opacity-[0.12]" style="background: radial-gradient(circle, rgba(197,164,78,1) 0%, transparent 60%); filter: blur(50px);"></div>
+      <div class="absolute bottom-0 right-[15%] w-[32rem] h-[32rem] rounded-full opacity-[0.10]" style="background: radial-gradient(circle, rgba(197,164,78,1) 0%, transparent 60%); filter: blur(50px);"></div>
+    </div>
     <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E]/40 to-transparent"></div>
     <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E]/40 to-transparent"></div>
 
-    <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
-      <p class="text-[#C5A44E]/85 font-medium tracking-[0.35em] uppercase text-[11px] sm:text-xs mb-8">Countdown 250 Premier Experience</p>
+    <div class="relative z-10 max-w-3xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <p class="text-[#C5A44E]/85 font-medium tracking-[0.4em] uppercase text-[11px] mb-5">No. 01</p>
+        <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-8">
+          What Is the Statesman&rsquo;s<br /> Concierge Pass?
+        </h2>
 
-      <h1 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl leading-[1.15] mb-7">
-        Welcome to the Statesman&rsquo;s<br class="hidden sm:block" /> Concierge Pass Info Page
-      </h1>
+        <div class="flex items-center justify-center gap-4 mb-10">
+          <div class="w-12 h-px bg-[#C5A44E]/60"></div>
+          <div class="w-1.5 h-1.5 bg-[#C5A44E] rotate-45"></div>
+          <div class="w-12 h-px bg-[#C5A44E]/60"></div>
+        </div>
 
-      <div class="w-16 h-px bg-[#C5A44E]/70 mx-auto mb-8"></div>
-
-      <p class="text-white/85 text-lg sm:text-xl font-light leading-relaxed max-w-2xl mx-auto mb-6">
-        Everything you need to know about Countdown 250&rsquo;s premier ticket option &mdash; including premium benefits, Hosted Groups, and how to create your own Party Inside the Party.
-      </p>
-
-      <p class="font-heading italic text-[#C5A44E]/95 text-base sm:text-lg font-light tracking-wide mb-12">
-        Designed for guests who expect the very best.
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a
-          href={ticketUrl}
-          class="eventbrite-checkout inline-block bg-[#C5A44E] text-[#0B1F3A] hover:bg-[#C5A44E]/90 px-9 py-4 text-[13px] font-semibold tracking-[0.18em] uppercase transition-all rounded-sm shadow-lg hover:-translate-y-0.5"
-        >
-          Secure Statesman&rsquo;s Concierge Passes
-        </a>
-        <a
-          href="#hosted-groups"
-          class="inline-block border border-[#C5A44E]/60 text-[#C5A44E] hover:border-[#C5A44E] hover:bg-[#C5A44E]/10 px-9 py-4 text-[13px] font-semibold tracking-[0.18em] uppercase transition-all rounded-sm"
-        >
-          Jump to Hosted Groups
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- 2. QUICK GUIDE / TABLE OF CONTENTS -->
-  <!-- ============================================================ -->
-  <section class="py-24 sm:py-28 bg-[#F7F3E8]">
-    <div class="max-w-2xl mx-auto px-6 text-center">
-      <p class="text-[#C5A44E] font-medium tracking-[0.35em] uppercase text-[11px] mb-4">On This Page</p>
-      <h2 class="font-heading font-bold text-2xl sm:text-3xl text-[#0B1F3A] mb-12">Quick Guide</h2>
-
-      <ol class="space-y-3 text-left">
-        {tocItems.map((item) => (
-          <li>
-            <a
-              href={item.href}
-              class="group flex items-baseline gap-4 py-2 border-b border-[#0B1F3A]/10 hover:border-[#C5A44E]/60 transition-colors"
-            >
-              <span class="text-[#C5A44E]/80 font-medium text-xs tracking-widest flex-shrink-0">{item.num}</span>
-              <span class="text-[#163A70] group-hover:text-[#0B1F3A] text-base sm:text-lg leading-snug transition-colors">{item.label}</span>
-            </a>
-          </li>
-        ))}
-      </ol>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- 3. WHAT IS THE STATESMAN'S PASS -->
-  <!-- ============================================================ -->
-  <section id="what-is" class="py-28 sm:py-36 bg-[#FAFAFA] scroll-mt-24">
-    <div class="max-w-3xl mx-auto px-6 text-center">
-      <p class="text-[#C5A44E] font-medium tracking-[0.35em] uppercase text-[11px] mb-5">The Pinnacle Experience</p>
-      <h2 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-[#0B1F3A] leading-tight mb-10">
-        Our Premier Ticket Option
-      </h2>
-      <div class="w-16 h-px bg-[#C5A44E] mx-auto mb-12"></div>
-
-      <div class="space-y-6 text-lg text-[#163A70] leading-relaxed mb-20">
-        <p>
-          The Statesman&rsquo;s Concierge Pass is the most elevated Countdown 250 experience &mdash; created for guests who want exceptional hospitality, premium amenities, exclusive access, and unforgettable memories.
+        <p class="text-white/85 text-lg leading-relaxed max-w-xl mx-auto mb-4">
+          The most elevated Countdown 250 experience &mdash; created for guests who expect the very best.
         </p>
-        <p>
-          Ideal for couples, executives, hosts, clients, alumni groups, and guests who simply expect the best.
+        <p class="text-white/65 text-base leading-relaxed max-w-xl mx-auto">
+          Ideal for couples, executives, hosts, clients, alumni groups, and discerning guests.
         </p>
       </div>
 
-      <!-- 4 elegant icons -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-10 sm:gap-12">
+      <!-- 4 elegant icon callouts -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 mb-16 sm:mb-20 pt-10 border-t border-[#C5A44E]/20">
         <div class="text-center">
-          <div class="inline-flex items-center justify-center w-14 h-14 mb-4 text-[#C5A44E]">
-            <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+          <div class="inline-flex items-center justify-center w-12 h-12 mb-3 text-[#C5A44E]">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.25">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
             </svg>
           </div>
-          <p class="text-[#0B1F3A] text-sm sm:text-[15px] font-medium leading-snug">Personal Concierge Service</p>
+          <p class="text-white/90 text-xs sm:text-sm font-medium leading-snug tracking-wide">Personal Concierge</p>
         </div>
         <div class="text-center">
-          <div class="inline-flex items-center justify-center w-14 h-14 mb-4 text-[#C5A44E]">
-            <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z" />
+          <div class="inline-flex items-center justify-center w-12 h-12 mb-3 text-[#C5A44E]">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.25">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
             </svg>
           </div>
-          <p class="text-[#0B1F3A] text-sm sm:text-[15px] font-medium leading-snug">Premium Food &amp; Beverage</p>
+          <p class="text-white/90 text-xs sm:text-sm font-medium leading-snug tracking-wide">Premium F&amp;B</p>
         </div>
         <div class="text-center">
-          <div class="inline-flex items-center justify-center w-14 h-14 mb-4 text-[#C5A44E]">
-            <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+          <div class="inline-flex items-center justify-center w-12 h-12 mb-3 text-[#C5A44E]">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.25">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
             </svg>
           </div>
-          <p class="text-[#0B1F3A] text-sm sm:text-[15px] font-medium leading-snug">Exclusive Access Areas</p>
+          <p class="text-white/90 text-xs sm:text-sm font-medium leading-snug tracking-wide">Exclusive Access</p>
         </div>
         <div class="text-center">
-          <div class="inline-flex items-center justify-center w-14 h-14 mb-4 text-[#C5A44E]">
-            <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+          <div class="inline-flex items-center justify-center w-12 h-12 mb-3 text-[#C5A44E]">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.25">
               <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
             </svg>
           </div>
-          <p class="text-[#0B1F3A] text-sm sm:text-[15px] font-medium leading-snug">Hosted Groups Included</p>
+          <p class="text-white/90 text-xs sm:text-sm font-medium leading-snug tracking-wide">Hosted Groups</p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ============================================================ -->
-  <!-- 4. WHAT'S INCLUDED — accordions only, calm rhythm -->
-  <!-- ============================================================ -->
-  <section id="whats-included" class="py-28 sm:py-36 bg-[#F7F3E8] scroll-mt-24">
-    <div class="max-w-2xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-[#0B1F3A] mb-4 leading-tight">What&rsquo;s Included</h2>
-        <div class="w-16 h-px bg-[#C5A44E] mx-auto"></div>
-      </div>
-
-      <div class="border-t border-[#0B1F3A]/12">
-        {includedSections.map(({ title, items }) => (
-          <details class="group border-b border-[#0B1F3A]/12">
-            <summary class="flex items-center justify-between py-6 cursor-pointer list-none">
-              <h3 class="font-heading text-lg sm:text-xl text-[#0B1F3A] font-medium">{title}</h3>
+      <!-- Accordion details -->
+      <div class="border-t border-[#C5A44E]/20">
+        {statesmanDetails.map(({ title, items }) => (
+          <details class="group border-b border-[#C5A44E]/20">
+            <summary class="flex items-center justify-between gap-4 py-6 cursor-pointer list-none">
+              <h3 class="font-heading text-lg sm:text-xl text-white font-medium">{title}</h3>
               <svg class="w-4 h-4 flex-shrink-0 text-[#C5A44E] transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
             </summary>
-            <ul class="pb-7 space-y-2 text-[#163A70] text-base leading-relaxed">
+            <ul class="pb-7 space-y-2 text-white/80 text-base leading-relaxed">
               {items.map((item) => (
                 <li class="flex items-start">
                   <span class="text-[#C5A44E] mr-3 mt-2 flex-shrink-0 text-[6px]">&#9679;</span>
@@ -227,68 +248,62 @@ const faqs = [
   </section>
 
   <!-- ============================================================ -->
-  <!-- 5. HOSTED GROUPS — second navy moment -->
+  <!-- 4. HOSTED TABLE — cream with rich navy/gold accents -->
   <!-- ============================================================ -->
-  <section id="hosted-groups" class="relative py-28 sm:py-36 bg-[#0B1F3A] text-white overflow-hidden scroll-mt-24">
-    <div class="absolute inset-0 pointer-events-none">
-      <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[44rem] h-[44rem] rounded-full opacity-[0.10]" style="background: radial-gradient(circle, rgba(197,164,78,1) 0%, transparent 60%); filter: blur(60px);"></div>
+  <section id="hosted-tables" class="relative py-28 sm:py-36 bg-[#F7F3E8] overflow-hidden scroll-mt-24">
+    <!-- Subtle parchment depth -->
+    <div class="absolute inset-0 pointer-events-none opacity-30">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[60rem] h-[40rem] rounded-full opacity-40" style="background: radial-gradient(ellipse, rgba(197,164,78,0.15) 0%, transparent 70%); filter: blur(60px);"></div>
     </div>
-    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E]/40 to-transparent"></div>
-    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E]/40 to-transparent"></div>
 
-    <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
-      <p class="text-[#C5A44E]/85 font-medium tracking-[0.35em] uppercase text-[11px] mb-6">Party Inside the Party</p>
+    <div class="relative z-10 max-w-3xl mx-auto px-6">
+      <!-- Heading block -->
+      <div class="text-center mb-14">
+        <p class="text-[#C5A44E] font-medium tracking-[0.4em] uppercase text-[11px] mb-5">No. 02</p>
+        <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-[#0B1F3A] leading-tight mb-6">
+          Party Inside the Party
+        </h2>
+        <p class="font-heading italic text-[#163A70] text-lg sm:text-xl font-light leading-snug max-w-xl mx-auto mb-10">
+          Start or join a Hosted Group in about 15 seconds. We take it from there.
+        </p>
 
-      <h2 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl leading-[1.2] mb-6">
-        Everything You Need to Know About Hosting or Joining a Party Inside the Party
-      </h2>
-
-      <p class="font-heading italic text-[#C5A44E]/95 text-lg sm:text-xl font-light leading-snug mb-10 max-w-xl mx-auto">
-        Start or join a Hosted Group in about 15 seconds. We take it from there.
-      </p>
-
-      <div class="w-16 h-px bg-[#C5A44E]/70 mx-auto mb-12"></div>
-
-      <div class="space-y-5 text-lg text-white/85 leading-relaxed mb-16 max-w-2xl mx-auto">
-        <p>Hosted Groups are an optional benefit for Statesman&rsquo;s Concierge Pass guests.</p>
-        <p>Hosts invite their guests. Guests purchase their own qualifying passes. We coordinate the details.</p>
-        <p class="text-white/70 text-base italic">After purchase, guests receive simple follow-up instructions for starting their own Hosted Group or joining an existing one.</p>
-      </div>
-
-      <!-- 3-step row -->
-      <div class="grid sm:grid-cols-3 gap-8 sm:gap-6 max-w-3xl mx-auto pt-12 border-t border-[#C5A44E]/25">
-        <div>
-          <p class="text-[#C5A44E] font-heading text-2xl font-light mb-2">01</p>
-          <p class="text-white/95 text-sm sm:text-base font-medium tracking-wide">Buy Statesman&rsquo;s Passes</p>
+        <div class="flex items-center justify-center gap-4 mb-12">
+          <div class="w-12 h-px bg-[#C5A44E]/70"></div>
+          <div class="w-1.5 h-1.5 bg-[#C5A44E] rotate-45"></div>
+          <div class="w-12 h-px bg-[#C5A44E]/70"></div>
         </div>
-        <div>
-          <p class="text-[#C5A44E] font-heading text-2xl font-light mb-2">02</p>
-          <p class="text-white/95 text-sm sm:text-base font-medium tracking-wide">Start or Join a Group</p>
-        </div>
-        <div>
-          <p class="text-[#C5A44E] font-heading text-2xl font-light mb-2">03</p>
-          <p class="text-white/95 text-sm sm:text-base font-medium tracking-wide">We Handle the Rest</p>
+
+        <div class="space-y-4 text-[#163A70] text-lg leading-relaxed max-w-xl mx-auto">
+          <p>An optional benefit for Statesman&rsquo;s Concierge Pass guests.</p>
+          <p>Hosts invite their guests. Guests purchase their own qualifying passes. We coordinate the details.</p>
+          <p class="text-[#163A70]/70 text-base italic">After purchase, guests receive simple follow-up instructions for starting their own Hosted Group or joining an existing one.</p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ============================================================ -->
-  <!-- 6. BENEFITS TO HOSTS / WHY GUESTS LOVE IT -->
-  <!-- ============================================================ -->
-  <section id="benefits" class="py-28 sm:py-36 bg-[#FAFAFA] scroll-mt-24">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="text-center mb-16 sm:mb-20">
-        <p class="text-[#C5A44E] font-medium tracking-[0.35em] uppercase text-[11px] mb-4">For Hosts and Guests Alike</p>
-        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-[#0B1F3A] mb-4 leading-tight">Why Hosts Love It</h2>
-        <div class="w-16 h-px bg-[#C5A44E] mx-auto"></div>
+      <!-- 3-step row on a navy panel for richness -->
+      <div class="relative bg-gradient-to-br from-[#0B1F3A] via-[#163A70] to-[#0B1F3A] rounded-md overflow-hidden p-10 sm:p-12 mb-16 sm:mb-20 shadow-xl">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E]/50 to-transparent"></div>
+        <div class="grid sm:grid-cols-3 gap-10 sm:gap-6 text-center">
+          <div>
+            <p class="text-[#C5A44E] font-heading text-2xl font-light mb-3">01</p>
+            <p class="text-white/95 text-sm sm:text-base font-medium tracking-wide leading-snug">Buy Statesman&rsquo;s Passes</p>
+          </div>
+          <div>
+            <p class="text-[#C5A44E] font-heading text-2xl font-light mb-3">02</p>
+            <p class="text-white/95 text-sm sm:text-base font-medium tracking-wide leading-snug">Start or Join a Group</p>
+          </div>
+          <div>
+            <p class="text-[#C5A44E] font-heading text-2xl font-light mb-3">03</p>
+            <p class="text-white/95 text-sm sm:text-base font-medium tracking-wide leading-snug">We Handle the Rest</p>
+          </div>
+        </div>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-12 md:gap-16 md:divide-x md:divide-[#0B1F3A]/10">
-        <!-- Column A: Benefits to Hosts -->
+      <!-- Two-column benefits (host + guest) -->
+      <div class="grid md:grid-cols-2 gap-12 md:gap-16 md:divide-x md:divide-[#0B1F3A]/15 mb-16">
         <div class="md:pr-4">
-          <p class="text-[#C5A44E] font-medium tracking-[0.3em] uppercase text-[11px] mb-6">Benefits to Hosts</p>
-          <ul class="space-y-3 text-[#163A70] text-base sm:text-[17px] leading-relaxed">
+          <p class="text-[#C5A44E] font-medium tracking-[0.3em] uppercase text-[11px] mb-5">Why Hosts Love It</p>
+          <ul class="space-y-2.5 text-[#163A70] text-base leading-relaxed">
             {hostBenefits.map((b) => (
               <li class="flex items-start">
                 <span class="text-[#C5A44E] mr-3 mt-2 flex-shrink-0 text-[6px]">&#9679;</span>
@@ -297,11 +312,9 @@ const faqs = [
             ))}
           </ul>
         </div>
-
-        <!-- Column B: Why Guests Love It -->
         <div class="md:pl-12">
-          <p class="text-[#C5A44E] font-medium tracking-[0.3em] uppercase text-[11px] mb-6">Why Guests Love It</p>
-          <ul class="space-y-3 text-[#163A70] text-base sm:text-[17px] leading-relaxed">
+          <p class="text-[#C5A44E] font-medium tracking-[0.3em] uppercase text-[11px] mb-5">Why Guests Love It</p>
+          <ul class="space-y-2.5 text-[#163A70] text-base leading-relaxed">
             {guestBenefits.map((b) => (
               <li class="flex items-start">
                 <span class="text-[#C5A44E] mr-3 mt-2 flex-shrink-0 text-[6px]">&#9679;</span>
@@ -311,47 +324,37 @@ const faqs = [
           </ul>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ============================================================ -->
-  <!-- 7. SEATING NOTES — calm bridge -->
-  <!-- ============================================================ -->
-  <section id="seating" class="py-24 sm:py-28 bg-[#F7F3E8] scroll-mt-24">
-    <div class="max-w-2xl mx-auto px-6 text-center">
-      <h2 class="font-heading font-bold text-2xl sm:text-3xl text-[#0B1F3A] mb-4 leading-tight">Simple Seating Notes</h2>
-      <div class="w-12 h-px bg-[#C5A44E] mx-auto mb-10"></div>
-      <div class="space-y-5 text-[#163A70] text-base sm:text-lg leading-relaxed">
-        <p>
-          Guests purchasing multiple Statesman&rsquo;s Concierge Passes in one order will be seated together.
-        </p>
-        <p>
-          Guests not participating in a Hosted Group will still enjoy the full Statesman&rsquo;s Concierge Pass experience in premium shared seating areas.
+      <!-- Seating note inline -->
+      <div class="text-center pt-12 border-t border-[#0B1F3A]/15">
+        <p class="text-[#C5A44E] font-medium tracking-[0.3em] uppercase text-[11px] mb-4">A Simple Seating Note</p>
+        <p class="text-[#163A70] text-base sm:text-lg leading-relaxed max-w-xl mx-auto">
+          Multiple Statesman&rsquo;s Passes purchased in one order are seated together. Guests not in a Hosted Group enjoy the full Statesman&rsquo;s experience in premium shared seating.
         </p>
       </div>
     </div>
   </section>
 
   <!-- ============================================================ -->
-  <!-- 8. FAQ — accordions, same calm rhythm as Section 4 -->
+  <!-- 5. FAQ — concise, calm rhythm -->
   <!-- ============================================================ -->
-  <section id="faq" class="py-28 sm:py-36 bg-[#FAFAFA] scroll-mt-24">
+  <section class="py-24 sm:py-32 bg-[#F7F3E8]">
     <div class="max-w-2xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-[#0B1F3A] mb-4 leading-tight">Common Questions</h2>
-        <div class="w-16 h-px bg-[#C5A44E] mx-auto"></div>
+      <div class="text-center mb-12">
+        <p class="text-[#C5A44E] font-medium tracking-[0.4em] uppercase text-[11px] mb-4">Common Questions</p>
+        <h2 class="font-heading text-2xl sm:text-3xl text-[#0B1F3A] font-bold leading-tight">Everything Else You&rsquo;d Like to Know</h2>
       </div>
 
-      <div class="border-t border-[#0B1F3A]/12">
+      <div class="border-t border-[#0B1F3A]/15">
         {faqs.map(({ q, a }) => (
-          <details class="group border-b border-[#0B1F3A]/12">
-            <summary class="flex items-start justify-between gap-6 py-6 cursor-pointer list-none">
+          <details class="group border-b border-[#0B1F3A]/15">
+            <summary class="flex items-start justify-between gap-6 py-5 sm:py-6 cursor-pointer list-none">
               <h3 class="font-heading text-base sm:text-lg text-[#0B1F3A] font-medium leading-snug">{q}</h3>
               <svg class="w-4 h-4 flex-shrink-0 text-[#C5A44E] mt-1.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
             </summary>
-            <p class="pb-7 pr-10 text-[#163A70] text-base leading-relaxed">{a}</p>
+            <p class="pb-6 pr-10 text-[#163A70] text-base leading-relaxed">{a}</p>
           </details>
         ))}
       </div>
@@ -359,22 +362,27 @@ const faqs = [
   </section>
 
   <!-- ============================================================ -->
-  <!-- 9. FINAL CTA — third navy moment, page close -->
+  <!-- 6. FINAL CTA — third navy moment, page closes on the night -->
   <!-- ============================================================ -->
-  <section id="secure" class="relative py-32 sm:py-40 bg-[#0B1F3A] text-white overflow-hidden scroll-mt-24">
+  <section class="relative py-32 sm:py-40 bg-gradient-to-b from-[#0B1F3A] via-[#163A70] to-[#0B1F3A] text-white overflow-hidden">
     <div class="absolute inset-0 pointer-events-none">
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[42rem] h-[42rem] rounded-full opacity-[0.14]" style="background: radial-gradient(circle, rgba(197,164,78,1) 0%, transparent 60%); filter: blur(50px);"></div>
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[44rem] h-[44rem] rounded-full opacity-[0.14]" style="background: radial-gradient(circle, rgba(197,164,78,1) 0%, transparent 60%); filter: blur(55px);"></div>
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[32rem] h-[32rem] rounded-full opacity-[0.10]" style="background: radial-gradient(circle, rgba(197,164,78,1) 0%, transparent 60%); filter: blur(50px);"></div>
     </div>
-    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E]/40 to-transparent"></div>
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E]/45 to-transparent"></div>
 
     <div class="relative z-10 max-w-2xl mx-auto px-6 text-center">
-      <p class="text-[#C5A44E]/85 font-medium tracking-[0.35em] uppercase text-[11px] mb-6">Reserve Your Place</p>
+      <p class="text-[#C5A44E]/85 font-medium tracking-[0.4em] uppercase text-[11px] mb-8">Reserve Your Place</p>
 
-      <h2 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
-        Make It the Night of Their Lives
+      <h2 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl leading-tight mb-8">
+        Make It the Night<br /> of Their Lives
       </h2>
 
-      <div class="w-16 h-px bg-[#C5A44E]/70 mx-auto mb-10"></div>
+      <div class="flex items-center justify-center gap-4 mb-10">
+        <div class="w-14 h-px bg-[#C5A44E]/60"></div>
+        <div class="w-1.5 h-1.5 bg-[#C5A44E] rotate-45"></div>
+        <div class="w-14 h-px bg-[#C5A44E]/60"></div>
+      </div>
 
       <p class="text-white/85 text-lg leading-relaxed mb-12 max-w-xl mx-auto">
         Whether celebrating with a spouse, family, friends, clients, alumni, or colleagues, the Statesman&rsquo;s Concierge Pass creates an extraordinary Countdown 250 experience.
@@ -383,13 +391,13 @@ const faqs = [
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
         <a
           href={ticketUrl}
-          class="eventbrite-checkout inline-block bg-[#C5A44E] text-[#0B1F3A] hover:bg-[#C5A44E]/90 px-9 py-4 text-[13px] font-semibold tracking-[0.18em] uppercase transition-all rounded-sm shadow-lg hover:-translate-y-0.5"
+          class="eventbrite-checkout inline-block bg-[#C5A44E] text-[#0B1F3A] hover:bg-[#C5A44E]/90 px-10 py-4 text-[13px] font-semibold tracking-[0.2em] uppercase transition-all rounded-sm shadow-xl hover:-translate-y-0.5"
         >
-          Secure Statesman&rsquo;s Concierge Passes
+          Secure Statesman&rsquo;s Passes
         </a>
         <a
           href="/#tickets"
-          class="inline-block border border-[#C5A44E]/60 text-[#C5A44E] hover:border-[#C5A44E] hover:bg-[#C5A44E]/10 px-9 py-4 text-[13px] font-semibold tracking-[0.18em] uppercase transition-all rounded-sm"
+          class="inline-block border border-[#C5A44E]/60 text-[#C5A44E] hover:border-[#C5A44E] hover:bg-[#C5A44E]/10 px-10 py-4 text-[13px] font-semibold tracking-[0.2em] uppercase transition-all rounded-sm"
         >
           Return to Ticket Options
         </a>
