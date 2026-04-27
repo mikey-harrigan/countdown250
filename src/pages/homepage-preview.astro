@@ -36,48 +36,134 @@ const experienceIcons: Record<string, string> = {
   broadcast: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 7.5l16.5-4.125M12 6.75c-2.708 0-5.363.224-7.948.655C2.999 7.58 2.25 8.507 2.25 9.574v9.176A2.25 2.25 0 004.5 21h15a2.25 2.25 0 002.25-2.25V9.574c0-1.067-.75-1.994-1.802-2.169A48.329 48.329 0 0012 6.75zm-1.683 6.443l-.311.07a1.8 1.8 0 01-.87-.04l.31-.07a1.8 1.8 0 00.871.04zm.684-.156l.312-.07c.3-.068.578-.2.812-.382l-.312.07a1.806 1.806 0 01-.812.382z" /></svg>`,
 };
 
-const tiers = [
+// Rich 3-tier ticket data — restored modernized version (Phase 1)
+const tickets = [
   {
     name: "Liberty Ticket",
-    tagline: "Full access to the celebration.",
+    time: "The Ball: 9 PM – 1 AM",
+    originalPrice: "$195",
     price: "$225",
-    bullets: [
-      "Main ballroom access",
-      "Premium open bars",
-      "Live bands & DJs",
-      "Midnight countdown to America's 250th",
+    futurePrice: "$295 / $395 / $495",
+    id: "ticket-liberty",
+    description: "Best for guests who want the full Ball experience at the most affordable entry point.",
+    sections: [
+      {
+        heading: "Includes The Ball Only (9 PM–1 AM)",
+        items: [
+          "Admission to the main Ball",
+          "Access to 4 grand ballrooms and 3 dance floors",
+          "Open bar all night",
+          "Multiple live bands and DJs",
+          "Immersive experiences and roaming entertainers",
+          "Step-and-repeat access",
+          "Patriotic Tribute to America performances",
+          "All-American Hero Lifetime Achievement Awards ceremony",
+        ],
+      },
     ],
-    scarcity: "Current Release Pricing",
+    note: "Reception-style Ball with limited seating",
     highlight: false,
     badge: "Tier 1",
+    tier: 1,
   },
   {
-    name: "Patriot VIP Experience",
-    tagline: "Earlier entry and upgraded hospitality.",
+    name: "Patriot VIP Ticket",
+    time: "VIP Reception + Ball: 7 PM – 1 AM",
+    originalPrice: "$395",
     price: "$450",
-    bullets: [
-      "Everything in Liberty",
-      "Early entry + VIP reception dinner",
-      "Premium open bar",
-      "Access to honored guests",
+    futurePrice: "$595 / $795 / $995",
+    id: "ticket-patriot-vip",
+    description: "Best for guests who want early access, dinner, and a more elevated evening from start to finish.",
+    sectionIntro: "Includes Two Distinct Experiences: The VIP Reception + The Ball",
+    sections: [
+      {
+        heading: "Part One: VIP Reception (7 PM–9 PM)",
+        items: [
+          "Early entry beginning at 6:30 PM",
+          "Admission to the exclusive VIP Reception",
+          "Buffet dinner",
+          "Premium open bar",
+          "Opportunity to mingle with honored guests, dignitaries, and All-American Heroes",
+          "Live entertainment",
+          "Immersive experiences and roaming entertainers",
+          "Step-and-repeat access",
+        ],
+      },
+      {
+        heading: "Part Two: The Ball (9 PM–1 AM)",
+        items: [
+          "Admission to the main Ball",
+          "Access to 4 grand ballrooms and 3 dance floors",
+          "Open bar all night",
+          "Multiple live bands and DJs",
+          "Immersive experiences, roaming entertainers and step-and-repeat",
+          "Patriotic Tribute to America performances",
+          "All-American Hero Lifetime Achievement Awards ceremony",
+        ],
+      },
     ],
-    scarcity: "Limited VIP Availability",
+    note: "Reception-style Ball with limited seating",
     highlight: false,
     badge: "Tier 2",
+    tier: 2,
   },
   {
     name: "Statesman's Concierge Pass",
-    tagline: "The definitive Countdown 250 experience.",
+    time: "Premier Luxury: 7 PM – 1 AM",
+    originalPrice: "$1,495",
     price: "$1,700",
-    bullets: [
-      "Priority entry",
-      "Premium hospitality",
-      "Upgraded food & beverage",
-      "Preferred access",
+    futurePrice: "$2,500 / $3,500 / $5,000",
+    id: "ticket-statesmans",
+    sectionIntro: "Includes Two Distinct Experiences: The VIP Reception + The Ball — Elevated with Exclusive Access, Concierge Service, and Recognition",
+    sections: [
+      {
+        heading: "Part One: VIP Reception (7 PM–9 PM)",
+        items: [
+          "Early entry beginning at 6:30 PM",
+          "Private expedited entrance",
+          "Dedicated Ambassador / concierge service",
+          "Reserved seating on the Presidential Stage with special guests",
+          "Private top-shelf open bars",
+          "Premium buffet dinner",
+          "Live entertainment",
+          "Private immersive experiences and roaming entertainers",
+          "Access to exclusive hospitality areas",
+          "Access to historic hotel spaces reserved for presidents and dignitaries",
+          "Private photographer access",
+          "Private step-and-repeat",
+          "Premium recognition in the official event program",
+          "Stage announcement recognition",
+        ],
+      },
+      {
+        heading: "Part Two: The Ball (9 PM–1 AM)",
+        items: [
+          "Continued concierge-level service throughout the evening",
+          "Reserved Presidential Stage seating for the main celebration",
+          "Access to all 6 grand ballrooms and all 4 stages / dance floors",
+          "Multiple live bands and DJs",
+          "Backstage access",
+          "Passed hors d'oeuvres and private dessert bar",
+          "Most exclusive vantage points for the main stage performances and ceremonies",
+          "All-American Hero Lifetime Achievement Awards ceremony",
+          "Patriotic Tribute to America performances",
+        ],
+      },
+      {
+        heading: "Additional Benefits",
+        items: [
+          "Premium limited-edition official event gift",
+          "Personal stage announcement recognition",
+          "Special recognition in the official event program (lead-time permitting)",
+          "Official Statesman's Concierge Pass lanyard",
+          "Commemorative official event program",
+        ],
+      },
     ],
-    scarcity: "Premium Allocation Limited",
+    note: "Extremely limited. Expected to sell out.",
     highlight: true,
-    badge: "The Pinnacle",
+    badge: "Tier 3 — The Pinnacle Experience",
+    tier: 3,
   },
 ];
 
@@ -358,67 +444,175 @@ const faqs = [
     </section>
 
     <!-- ============================================================ -->
-    <!-- 4. TICKET LADDER -->
+    <!-- 4. TICKET LADDER — modernized 3-column comparison (restored) -->
     <!-- ============================================================ -->
     <section id="tickets" class="py-20 sm:py-28 bg-navy-dark text-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Header -->
         <div class="text-center mb-14">
           <p class="text-gold font-semibold tracking-[0.3em] uppercase text-xs mb-4">Early Release Pricing</p>
           <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 font-heading">Choose Your Ticket Type</h2>
           <div class="w-20 h-1 bg-red mx-auto mb-6"></div>
-          <p class="text-white/60 text-sm max-w-lg mx-auto">
+          <p class="text-white/60 text-sm max-w-lg mx-auto mb-4">
             Ticket sales are deliberately limited to ensure optimal comfort and an exceptional experience for every guest.
           </p>
+          <p class="text-gold/80 text-sm max-w-xl mx-auto mb-6 font-medium">
+            &#9733; Proceeds help support <a href="https://www.operationrenewedhopefoundation.org" target="_blank" rel="noopener noreferrer" class="underline hover:text-gold">Operation Renewed Hope Foundation</a> in their mission to house U.S. Veterans and end veteran homelessness.
+          </p>
+          <p class="text-white/60 text-base italic">Three Tiers of Tickets</p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8 lg:gap-10">
-          {tiers.map((t) => (
-            <div class={`relative rounded-2xl overflow-hidden flex flex-col ${
-              t.highlight
-                ? 'bg-white text-slate ring-4 ring-gold shadow-2xl scale-[1.03]'
-                : 'bg-white/5 border-2 border-white/15 text-white'
+        <!-- Tier indicator -->
+        <div class="flex items-center justify-center gap-0 mb-12 max-w-4xl mx-auto">
+          <div class="flex-1 h-1 bg-white/20 rounded-l-full"></div>
+          {[1, 2, 3].map(() => (
+            <div class="flex flex-col items-center mx-2 sm:mx-4">
+              <div class="w-4 h-4 rounded-full border-2 bg-gold border-gold"></div>
+            </div>
+          ))}
+          <div class="flex-1 h-1 bg-white/20 rounded-r-full"></div>
+        </div>
+
+        <!-- 3-column ticket grid (md+); stacks on mobile -->
+        <div class="grid md:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mb-14 items-start">
+          {tickets.map((ticket) => (
+            <div id={ticket.id} class={`relative rounded-2xl overflow-hidden flex flex-col h-full transition-transform ${
+              ticket.highlight
+                ? 'bg-white text-slate ring-4 ring-gold shadow-[0_20px_60px_-15px_rgba(197,164,78,0.55)] md:scale-[1.03]'
+                : 'bg-white/[0.04] border-2 border-white/15 text-white shadow-xl'
             }`}>
-              <div class={`py-2 text-center text-xs font-bold tracking-widest uppercase ${
-                t.highlight ? 'bg-gold text-navy-dark' : 'bg-white/10 text-white/60'
+              {/* Tier header bar */}
+              <div class={`py-2.5 text-center text-[11px] sm:text-xs font-bold tracking-widest uppercase ${
+                ticket.highlight ? 'bg-gold text-navy-dark' : 'bg-white/10 text-white/60'
               }`}>
-                {t.badge}
+                {ticket.badge}
               </div>
-              <div class="p-8 flex flex-col flex-grow">
-                <h3 class={`text-2xl font-bold mb-2 font-heading ${t.highlight ? 'text-navy' : 'text-white'}`}>{t.name}</h3>
-                <p class={`font-heading italic font-light mb-4 ${t.highlight ? 'text-slate/70' : 'text-white/60'}`}>{t.tagline}</p>
-                <p class={`text-4xl font-bold mb-2 ${t.highlight ? 'text-navy' : 'text-white'}`}>{t.price}</p>
-                <p class={`text-xs uppercase tracking-[0.15em] font-semibold mb-4 ${t.highlight ? 'text-red/90' : 'text-gold/80'}`}>
-                  {t.scarcity}
-                </p>
-                {t.bullets ? (
-                  <ul class={`space-y-2 mb-8 flex-grow ${t.highlight ? 'text-slate/80' : 'text-white/70'}`}>
-                    {t.bullets.map((b) => (
-                      <li class="flex items-start gap-2 text-sm leading-snug">
-                        <svg class={`w-4 h-4 mt-0.5 flex-shrink-0 ${t.highlight ? 'text-gold' : 'text-gold/80'}`} fill="currentColor" viewBox="0 0 20 20">
-                          <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                        </svg>
-                        <span>{b}</span>
-                      </li>
+
+              <div class="p-7 sm:p-8 flex flex-col flex-grow">
+                {/* Time + Name */}
+                <div class="mb-6">
+                  <p class={`text-[11px] font-medium tracking-wider uppercase mb-2 ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
+                    {ticket.time}
+                  </p>
+                  <h3 class={`text-2xl font-bold mb-1 font-heading ${ticket.highlight ? 'text-navy' : 'text-white'}`}>
+                    {ticket.name}
+                  </h3>
+                </div>
+
+                {/* Hosted Group Tables badge — Statesman only */}
+                {ticket.highlight && (
+                  <a
+                    href="/hosted-group-tables"
+                    class="block mb-6 bg-gradient-to-r from-gold/15 via-gold/20 to-gold/15 border-2 border-gold/50 rounded-lg px-4 py-3 hover:border-gold hover:from-gold/25 hover:to-gold/25 transition-all group"
+                  >
+                    <div class="flex items-center gap-3">
+                      <span class="flex-shrink-0 bg-red text-white text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded">New</span>
+                      <div class="flex-1 min-w-0">
+                        <p class="text-navy font-bold text-sm leading-tight">Hosted Group Tables</p>
+                        <p class="text-slate/70 text-xs leading-tight mt-0.5">Gather your crew. Be named Founding Host. &rarr;</p>
+                      </div>
+                    </div>
+                  </a>
+                )}
+
+                {/* Pricing block */}
+                <div class={`mb-6 pb-6 border-b ${ticket.highlight ? 'border-slate/10' : 'border-white/10'}`}>
+                  <div class="flex items-baseline gap-3">
+                    <span class={`text-base line-through ${ticket.highlight ? 'text-slate/30' : 'text-white/25'}`}>
+                      {ticket.originalPrice}
+                    </span>
+                    <span class={`text-4xl font-bold ${ticket.highlight ? 'text-navy' : 'text-white'}`}>
+                      {ticket.price}
+                    </span>
+                  </div>
+                  <div class="flex items-baseline gap-2 mt-1 flex-wrap">
+                    {ticket.futurePrice.split(' / ').map((fp) => (
+                      <span class={`text-sm ${ticket.highlight ? 'text-slate/30' : 'text-white/25'}`}>{fp}</span>
                     ))}
-                  </ul>
-                ) : (
-                  <p class={`text-sm leading-relaxed mb-8 flex-grow ${t.highlight ? 'text-slate/80' : 'text-white/70'}`}>
-                    {t.description}
+                  </div>
+                  <p class={`text-xs mt-2 italic text-center ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
+                    Very limited availability
+                  </p>
+                </div>
+
+                {/* "Best for..." description */}
+                {ticket.description && (
+                  <p class={`text-sm mb-6 italic ${ticket.highlight ? 'text-slate/60' : 'text-white/55'}`}>
+                    {ticket.description}
                   </p>
                 )}
+
+                {/* Section intro (Patriot + Statesman only) */}
+                {ticket.sectionIntro && (
+                  <p class={`text-xs font-bold tracking-wider uppercase mb-4 leading-snug ${ticket.highlight ? 'text-navy/70' : 'text-gold/90'}`}>
+                    {ticket.sectionIntro}
+                  </p>
+                )}
+
+                {/* Detail sections */}
+                <div class="space-y-5 mb-8 flex-grow">
+                  {ticket.sections.map((section, si) => (
+                    <div>
+                      <p class={`text-xs font-bold tracking-wider uppercase mb-2 ${
+                        ticket.highlight ? 'text-navy/70' : 'text-gold/90'
+                      } ${si > 0 ? 'pt-3 border-t ' + (ticket.highlight ? 'border-slate/10' : 'border-white/10') : ''}`}>
+                        {section.heading}
+                      </p>
+                      <ul class="space-y-2">
+                        {section.items.map((f) => (
+                          <li class="flex items-start gap-2">
+                            <svg class={`w-3.5 h-3.5 mt-0.5 flex-shrink-0 ${ticket.highlight ? 'text-gold' : 'text-gold/80'}`} fill="currentColor" viewBox="0 0 20 20">
+                              <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                            </svg>
+                            <span class={`text-sm leading-snug ${ticket.highlight ? 'text-slate/80' : 'text-white/70'}`}>{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Footnote (e.g., "Reception-style", "Extremely limited") */}
+                {ticket.note && (
+                  <p class={`text-xs mb-4 italic ${ticket.highlight ? 'text-slate/55' : 'text-white/40'}`}>
+                    {ticket.note}
+                  </p>
+                )}
+
+                {/* CTA */}
                 <a
                   href={ticketUrl}
-                  class={`eventbrite-checkout block w-full text-center py-3.5 px-6 rounded-lg font-semibold text-sm tracking-[0.2em] uppercase transition-all hover:-translate-y-0.5 ${
-                    t.highlight
-                      ? 'bg-red text-white hover:bg-red-light shadow-lg'
+                  class={`eventbrite-checkout block w-full text-center py-3.5 px-6 rounded-lg font-semibold text-sm tracking-[0.18em] uppercase transition-all hover:-translate-y-0.5 ${
+                    ticket.highlight
+                      ? 'bg-[#1a56db] text-white hover:bg-[#1a56db]/90 shadow-lg'
                       : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
                   }`}
                 >
                   Get Tickets
                 </a>
+
+                {/* Statesman-only: "Learn More" link */}
+                {ticket.highlight && (
+                  <div class="mt-3">
+                    <a
+                      href="/statesmans-pass"
+                      class="block text-center text-sm text-gold hover:text-gold/80 tracking-wide font-semibold transition-colors"
+                    >
+                      Learn More About the Statesman&rsquo;s Experience &rarr;
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           ))}
+        </div>
+
+        <!-- Sponsorship contact -->
+        <div class="text-center">
+          <p class="text-white/60 text-sm">
+            Corporate sponsorship and premium host packages available. Contact us at
+            <a href="mailto:CountdownAmerica250@gmail.com" class="text-gold hover:text-gold/80 underline">CountdownAmerica250@gmail.com</a> for details.
+          </p>
         </div>
       </div>
     </section>
