@@ -52,142 +52,159 @@ const faqs = [
   <Navbar />
 
   <!-- ============================================================ -->
-  <!-- 1. HERO — A literal Broadway stage. Proscenium, red velvet -->
-  <!-- curtains, bright moving spotlight cones, stage floor, and -->
-  <!-- a centered "screen" where the headline copy is displayed. -->
+  <!-- 1. HERO — A REAL stage: visible lighting rig with hanging -->
+  <!-- fixtures, a single screen with all content, and red velvet -->
+  <!-- curtains that part open on page load to reveal it all. -->
   <!-- ============================================================ -->
-  <section class="stage-hero relative min-h-screen flex items-center justify-center pt-28 pb-16 sm:pt-32 sm:pb-20 bg-[#040D1C] text-white overflow-hidden">
+  <section class="stage-hero relative min-h-screen flex items-center justify-center pt-32 pb-20 sm:pt-40 sm:pb-24 bg-[#040D1C] text-white overflow-hidden">
 
-    <!-- Stage backdrop gradient (deep navy with vignette) -->
+    <!-- Stage backdrop gradient with vignette -->
     <div class="absolute inset-0">
       <div class="absolute inset-0 bg-gradient-to-b from-[#040D1C] via-[#0B1F3A] to-[#02060F]"></div>
-      <!-- Subtle vignette darkening at edges -->
-      <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.45) 100%);"></div>
+      <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.55) 100%);"></div>
     </div>
 
-    <!-- PROSCENIUM ARCH — gold trim across the top of the stage -->
-    <div class="absolute top-0 left-0 right-0 h-10 sm:h-14 pointer-events-none" style="background: linear-gradient(to bottom, rgba(197,164,78,0.45) 0%, rgba(197,164,78,0.15) 50%, transparent 100%);"></div>
-    <div class="absolute top-10 sm:top-14 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E] to-transparent" style="box-shadow: 0 0 16px rgba(197,164,78,0.7);"></div>
+    <!-- PROSCENIUM ARCH — gold trim across the very top -->
+    <div class="absolute top-0 left-0 right-0 h-8 sm:h-10 pointer-events-none z-[5]" style="background: linear-gradient(to bottom, rgba(197,164,78,0.55) 0%, rgba(197,164,78,0.18) 50%, transparent 100%);"></div>
+    <div class="absolute top-8 sm:top-10 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E] to-transparent z-[5]" style="box-shadow: 0 0 16px rgba(197,164,78,0.7);"></div>
 
-    <!-- RED VELVET CURTAINS — left + right -->
-    <div class="curtain curtain-left absolute top-0 bottom-0 left-0 w-[10%] sm:w-[14%] pointer-events-none"></div>
-    <div class="curtain curtain-right absolute top-0 bottom-0 right-0 w-[10%] sm:w-[14%] pointer-events-none"></div>
+    <!-- ============================================================ -->
+    <!-- LIGHTING RIG: visible truss + 3 hanging spotlight fixtures. -->
+    <!-- Stays behind the curtain; revealed when curtain opens. -->
+    <!-- ============================================================ -->
+    <div class="absolute top-12 sm:top-14 left-0 right-0 z-[6] pointer-events-none">
+      <!-- Horizontal truss bar -->
+      <div class="absolute top-0 left-[6%] right-[6%] h-2 rounded-sm" style="background: linear-gradient(to bottom, #4a4a4a 0%, #2a2a2a 40%, #0c0c0c 100%); box-shadow: 0 3px 8px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1);"></div>
+      <!-- Truss vertical supports anchoring it to proscenium -->
+      <div class="absolute -top-2 left-[6%] w-1 h-3 bg-[#0a0a0a]"></div>
+      <div class="absolute -top-2 right-[6%] w-1 h-3 bg-[#0a0a0a]"></div>
 
-    <!-- THREE LARGE MOVING SPOTLIGHTS converging on the screen.
-         Each cone is wide and bright; together they wash the screen
-         with light from above (like real stage cans on a fly bar). -->
-    <div class="absolute inset-0 pointer-events-none">
+      <!-- 3 fixtures hanging from the truss, aligned with cone positions -->
+      <div class="rig-fixture absolute top-2" style="left: 22%; transform: translateX(-50%);">
+        <!-- Cable -->
+        <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-px h-2 bg-[#0c0c0c]"></div>
+        <!-- Yoke C-bracket -->
+        <div class="relative w-9 h-1 bg-gradient-to-b from-[#3a3a3a] to-[#0a0a0a] rounded-sm"></div>
+        <!-- Body -->
+        <div class="relative w-7 h-9 mx-auto rounded-sm" style="background: linear-gradient(to bottom, #3a3a3a 0%, #1a1a1a 50%, #050505 100%); box-shadow: inset -2px 0 4px rgba(0,0,0,0.5), 0 4px 6px rgba(0,0,0,0.5);"></div>
+        <!-- Lens (glowing bottom) -->
+        <div class="relative -mt-1 mx-auto w-5 h-1.5 rounded-full" style="background: radial-gradient(ellipse, #fff5c8 0%, #ffd07a 40%, #C5A44E 90%); box-shadow: 0 0 14px rgba(255,210,130,1), 0 0 28px rgba(255,200,100,0.7), 0 0 50px rgba(197,164,78,0.4);"></div>
+      </div>
+
+      <div class="rig-fixture absolute top-2" style="left: 50%; transform: translateX(-50%);">
+        <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-px h-2 bg-[#0c0c0c]"></div>
+        <div class="relative w-9 h-1 bg-gradient-to-b from-[#3a3a3a] to-[#0a0a0a] rounded-sm"></div>
+        <div class="relative w-7 h-9 mx-auto rounded-sm" style="background: linear-gradient(to bottom, #3a3a3a 0%, #1a1a1a 50%, #050505 100%); box-shadow: inset -2px 0 4px rgba(0,0,0,0.5), 0 4px 6px rgba(0,0,0,0.5);"></div>
+        <div class="relative -mt-1 mx-auto w-5 h-1.5 rounded-full" style="background: radial-gradient(ellipse, #fff5c8 0%, #ffd07a 40%, #C5A44E 90%); box-shadow: 0 0 14px rgba(255,210,130,1), 0 0 28px rgba(255,200,100,0.7), 0 0 50px rgba(197,164,78,0.4);"></div>
+      </div>
+
+      <div class="rig-fixture absolute top-2" style="left: 78%; transform: translateX(-50%);">
+        <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-px h-2 bg-[#0c0c0c]"></div>
+        <div class="relative w-9 h-1 bg-gradient-to-b from-[#3a3a3a] to-[#0a0a0a] rounded-sm"></div>
+        <div class="relative w-7 h-9 mx-auto rounded-sm" style="background: linear-gradient(to bottom, #3a3a3a 0%, #1a1a1a 50%, #050505 100%); box-shadow: inset -2px 0 4px rgba(0,0,0,0.5), 0 4px 6px rgba(0,0,0,0.5);"></div>
+        <div class="relative -mt-1 mx-auto w-5 h-1.5 rounded-full" style="background: radial-gradient(ellipse, #fff5c8 0%, #ffd07a 40%, #C5A44E 90%); box-shadow: 0 0 14px rgba(255,210,130,1), 0 0 28px rgba(255,200,100,0.7), 0 0 50px rgba(197,164,78,0.4);"></div>
+      </div>
+    </div>
+
+    <!-- THREE BIG SPOTLIGHTS — wide cones from the fixtures above -->
+    <div class="absolute inset-0 pointer-events-none z-[7]">
       <div class="big-cone big-cone-warm"></div>
       <div class="big-cone big-cone-gold"></div>
       <div class="big-cone big-cone-cool"></div>
     </div>
 
-    <!-- Screen wash: a steady bright pool aimed at the screen's
-         position — keeps the words clearly illuminated even as
-         the moving cones swing through their arcs. -->
-    <div class="absolute inset-0 pointer-events-none mix-blend-screen">
-      <div class="screen-wash absolute top-[18%] left-1/2 -translate-x-1/2 w-[55rem] h-[28rem] rounded-full" style="background: radial-gradient(ellipse, rgba(255,235,180,0.45) 0%, rgba(197,164,78,0.20) 40%, transparent 75%); filter: blur(40px);"></div>
+    <!-- Screen wash — steady bright pool keeping words illuminated -->
+    <div class="absolute inset-0 pointer-events-none mix-blend-screen z-[8]">
+      <div class="screen-wash absolute top-[28%] left-1/2 -translate-x-1/2 w-[55rem] h-[32rem] rounded-full" style="background: radial-gradient(ellipse, rgba(255,235,180,0.5) 0%, rgba(197,164,78,0.22) 40%, transparent 75%); filter: blur(40px);"></div>
     </div>
 
-    <!-- STAGE FLOOR — wooden plank perspective gradient at bottom -->
-    <div class="stage-floor absolute bottom-0 left-0 right-0 h-[28%] pointer-events-none"></div>
+    <!-- STAGE FLOOR — wood plank perspective at bottom -->
+    <div class="stage-floor absolute bottom-0 left-0 right-0 h-[24%] pointer-events-none z-[9]"></div>
     <!-- Footlight strip — warm gold glow rising off the stage front -->
-    <div class="absolute bottom-0 left-0 right-0 h-1 pointer-events-none" style="background: linear-gradient(to right, transparent 0%, rgba(197,164,78,0.9) 20%, rgba(255,220,150,1) 50%, rgba(197,164,78,0.9) 80%, transparent 100%); box-shadow: 0 -4px 20px rgba(255,210,130,0.6), 0 -10px 40px rgba(197,164,78,0.3);"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-1 pointer-events-none z-[10]" style="background: linear-gradient(to right, transparent 0%, rgba(197,164,78,0.9) 20%, rgba(255,220,150,1) 50%, rgba(197,164,78,0.9) 80%, transparent 100%); box-shadow: 0 -4px 20px rgba(255,210,130,0.6), 0 -10px 40px rgba(197,164,78,0.3);"></div>
 
     <!-- ============================================================ -->
-    <!-- STAGE CONTENT: The Screen + Ticket cards below it -->
+    <!-- THE SCREEN — single panel with everything: headline, sub, -->
+    <!-- and two buttons. Hung from the back of the stage. -->
     <!-- ============================================================ -->
-    <div class="relative z-20 max-w-5xl mx-auto px-6 sm:px-8 w-full">
-
-      <!-- THE SCREEN — hung at the back of the stage. -->
-      <div class="stage-screen relative mx-auto max-w-3xl mb-10 sm:mb-14">
+    <div class="relative z-20 max-w-3xl mx-auto px-6 sm:px-8 w-full mt-12 sm:mt-20">
+      <div class="stage-screen relative">
         <!-- Top mounting cleat (the bar the screen hangs from) -->
-        <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-32 sm:w-40 h-1.5 bg-gradient-to-b from-[#3a3a3a] to-[#1a1a1a] rounded-sm shadow-md"></div>
+        <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-32 sm:w-40 h-1.5 bg-gradient-to-b from-[#3a3a3a] to-[#1a1a1a] rounded-sm shadow-md z-10"></div>
+        <!-- Two cables from cleat down into the screen frame -->
+        <div class="absolute -top-2 left-1/2 -translate-x-12 w-px h-3 bg-[#1a1a1a]"></div>
+        <div class="absolute -top-2 left-1/2 translate-x-12 w-px h-3 bg-[#1a1a1a]"></div>
 
-        <!-- The actual screen panel -->
-        <div class="screen-panel relative bg-gradient-to-b from-[#FBF6E0] via-[#F7F3E8] to-[#E8DAB0] border-[6px] border-[#C5A44E] rounded-sm shadow-[0_0_120px_rgba(255,220,150,0.5),0_30px_70px_rgba(0,0,0,0.7)]">
-          <!-- Subtle backlit inner glow -->
-          <div class="absolute inset-0 pointer-events-none rounded-sm" style="box-shadow: inset 0 0 100px rgba(197,164,78,0.20);"></div>
-          <!-- Inner darker frame edge for depth -->
+        <!-- The screen panel -->
+        <div class="screen-panel relative bg-gradient-to-b from-[#FBF6E0] via-[#F7F3E8] to-[#E8DAB0] border-[6px] border-[#C5A44E] rounded-sm shadow-[0_0_140px_rgba(255,220,150,0.55),0_35px_80px_rgba(0,0,0,0.75)]">
+          <!-- Backlit inner glow -->
+          <div class="absolute inset-0 pointer-events-none rounded-sm" style="box-shadow: inset 0 0 100px rgba(197,164,78,0.22);"></div>
+          <!-- Inner darker frame edge -->
           <div class="absolute inset-0 pointer-events-none rounded-sm border border-[#9C7E2F]/40"></div>
 
-          <!-- Decorative gold corner brackets -->
+          <!-- Gold L-bracket corners -->
           <span class="absolute -top-3 -left-3 w-7 h-7 border-t-2 border-l-2 border-[#C5A44E]"></span>
           <span class="absolute -top-3 -right-3 w-7 h-7 border-t-2 border-r-2 border-[#C5A44E]"></span>
           <span class="absolute -bottom-3 -left-3 w-7 h-7 border-b-2 border-l-2 border-[#C5A44E]"></span>
           <span class="absolute -bottom-3 -right-3 w-7 h-7 border-b-2 border-r-2 border-[#C5A44E]"></span>
 
           <!-- Screen content -->
-          <div class="relative px-6 py-14 sm:px-12 sm:py-20 md:px-16 md:py-24 text-center">
-            <h1 class="font-heading font-black text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-[#0B1F3A] leading-[1.1] tracking-tight mb-8 sm:mb-10">
+          <div class="relative px-6 py-12 sm:px-12 sm:py-16 md:px-14 md:py-20 text-center">
+            <!-- Headline -->
+            <h1 class="font-heading font-black text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-[#0B1F3A] leading-[1.1] tracking-tight mb-7 sm:mb-9">
               Welcome to the<br />
               <span class="text-[#C5A44E]">Statesman&rsquo;s Pass</span><br />
               Info Page
             </h1>
 
-            <div class="flex items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-10">
+            <!-- Gold ornament -->
+            <div class="flex items-center justify-center gap-3 sm:gap-4 mb-7 sm:mb-9">
               <div class="w-12 sm:w-16 h-px bg-[#C5A44E]"></div>
               <div class="w-2 h-2 bg-[#C5A44E] rotate-45"></div>
               <div class="w-12 sm:w-16 h-px bg-[#C5A44E]"></div>
             </div>
 
-            <p class="font-heading italic text-[#163A70] text-lg sm:text-xl md:text-2xl font-medium tracking-wide">
+            <!-- Subhead -->
+            <p class="font-heading italic text-[#163A70] text-lg sm:text-xl md:text-2xl font-medium tracking-wide mb-10 sm:mb-12">
               For guests who expect the very best.
             </p>
+
+            <!-- Two buttons inside the same screen -->
+            <div class="grid sm:grid-cols-2 gap-3 sm:gap-4 max-w-2xl mx-auto">
+              <a
+                href="#statesman"
+                class="screen-btn group inline-flex items-center justify-center gap-3 bg-[#0B1F3A] hover:bg-[#163A70] text-white border-2 border-[#C5A44E] rounded-sm px-5 py-4 text-[13px] sm:text-sm font-semibold tracking-wide transition-all hover:-translate-y-0.5 shadow-md leading-snug"
+              >
+                <span>What Is the Statesman&rsquo;s Pass?</span>
+                <svg class="w-3.5 h-3.5 flex-shrink-0 text-[#C5A44E] group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+              <a
+                href="#hosted-tables"
+                class="screen-btn group inline-flex items-center justify-center gap-3 bg-[#0B1F3A] hover:bg-[#163A70] text-white border-2 border-[#C5A44E] rounded-sm px-5 py-4 text-[13px] sm:text-sm font-semibold tracking-wide transition-all hover:-translate-y-0.5 shadow-md leading-snug"
+              >
+                <span>Party Inside the Party?</span>
+                <svg class="w-3.5 h-3.5 flex-shrink-0 text-[#C5A44E] group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
 
-        <!-- Cast shadow on stage floor below the screen -->
-        <div class="absolute -bottom-6 left-[8%] right-[8%] h-4 pointer-events-none rounded-full" style="background: radial-gradient(ellipse, rgba(0,0,0,0.5) 0%, transparent 70%); filter: blur(8px);"></div>
-      </div>
-
-      <!-- TWO TICKET CARDS — clean, no theatrical phrasing -->
-      <div class="grid md:grid-cols-2 gap-4 sm:gap-6 max-w-3xl mx-auto">
-        <!-- Card 1: Statesman -->
-        <a
-          href="#statesman"
-          class="ticket-card group relative block bg-gradient-to-br from-[#F7F3E8] to-[#FAEFD0] rounded-sm overflow-hidden p-7 sm:p-9 text-center transition-all hover:-translate-y-1 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.6)] hover:shadow-[0_20px_50px_-10px_rgba(197,164,78,0.7)]"
-        >
-          <span class="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-[#C5A44E]"></span>
-          <span class="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-[#C5A44E]"></span>
-          <span class="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-[#C5A44E]"></span>
-          <span class="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-[#C5A44E]"></span>
-
-          <h3 class="font-heading text-base sm:text-lg md:text-xl text-[#0B1F3A] font-bold leading-snug mb-4">
-            What Is the<br /> Statesman&rsquo;s Pass?
-          </h3>
-          <div class="flex items-center justify-center gap-2 mt-3">
-            <div class="w-6 h-px bg-[#C5A44E]/70"></div>
-            <svg class="w-4 h-4 text-[#A61E2D] group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-            <div class="w-6 h-px bg-[#C5A44E]/70"></div>
-          </div>
-        </a>
-
-        <!-- Card 2: Hosted Tables -->
-        <a
-          href="#hosted-tables"
-          class="ticket-card group relative block bg-gradient-to-br from-[#F7F3E8] to-[#FAEFD0] rounded-sm overflow-hidden p-7 sm:p-9 text-center transition-all hover:-translate-y-1 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.6)] hover:shadow-[0_20px_50px_-10px_rgba(197,164,78,0.7)]"
-        >
-          <span class="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-[#C5A44E]"></span>
-          <span class="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-[#C5A44E]"></span>
-          <span class="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-[#C5A44E]"></span>
-          <span class="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-[#C5A44E]"></span>
-
-          <h3 class="font-heading text-base sm:text-lg md:text-xl text-[#0B1F3A] font-bold leading-snug mb-4">
-            Hosted Groups /<br /> Party Inside the Party?
-          </h3>
-          <div class="flex items-center justify-center gap-2 mt-3">
-            <div class="w-6 h-px bg-[#C5A44E]/70"></div>
-            <svg class="w-4 h-4 text-[#A61E2D] group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-            <div class="w-6 h-px bg-[#C5A44E]/70"></div>
-          </div>
-        </a>
+        <!-- Cast shadow on the stage floor below the screen -->
+        <div class="absolute -bottom-6 left-[8%] right-[8%] h-4 pointer-events-none rounded-full" style="background: radial-gradient(ellipse, rgba(0,0,0,0.55) 0%, transparent 70%); filter: blur(8px);"></div>
       </div>
     </div>
+
+    <!-- ============================================================ -->
+    <!-- RED VELVET CURTAINS — animate open on page load. -->
+    <!-- Each curtain starts at 50% width covering its half of the -->
+    <!-- stage; CSS animation slides them off to the wings. -->
+    <!-- ============================================================ -->
+    <div class="curtain curtain-velvet curtain-left absolute top-0 bottom-0 left-0 w-1/2 z-50 pointer-events-none"></div>
+    <div class="curtain curtain-velvet curtain-right absolute top-0 bottom-0 right-0 w-1/2 z-50 pointer-events-none"></div>
   </section>
 
   <!-- ============================================================ -->
@@ -463,39 +480,76 @@ const faqs = [
      cones, "hot spots" where cones land, marquee shimmer.
      ========================================================== */
 
-  /* RED VELVET CURTAINS — left + right drapes with vertical pleat
-     stripes and an inward-darkening edge for depth. */
-  .curtain-left {
-    background:
-      linear-gradient(to right,
-        rgba(40,5,10,1) 0%,
-        rgba(110,15,25,1) 25%,
-        rgba(150,25,35,0.95) 55%,
-        rgba(90,15,20,0.6) 90%,
-        transparent 100%),
+  /* ==========================================================
+     RED VELVET CURTAINS — convincingly draped fabric.
+     Layered gradients build the velvet look:
+     - Base: deep crimson with vertical depth
+     - Wave layer: irregular fold highlights and shadows
+     - Pleat layer: fine repeating vertical lines (the velvet "nap")
+     Plus inward inner-shadow for fabric weight.
+     ========================================================== */
+  .curtain-velvet {
+    background-blend-mode: overlay, multiply, normal;
+    /* Velvet "nap" stripes (very fine, the texture of pile fabric) */
+    background-image:
       repeating-linear-gradient(90deg,
-        rgba(0,0,0,0.30) 0px,
-        rgba(0,0,0,0.30) 2px,
-        transparent 2px,
-        transparent 26px);
-    background-blend-mode: multiply;
-    box-shadow: inset -10px 0 30px rgba(0,0,0,0.45);
+        rgba(0,0,0,0.18) 0px,
+        rgba(0,0,0,0.18) 1px,
+        transparent 1px,
+        transparent 4px,
+        rgba(255,255,255,0.04) 4px,
+        rgba(255,255,255,0.04) 5px,
+        transparent 5px,
+        transparent 9px),
+      /* Major fold pattern — irregular spacing for organic look */
+      linear-gradient(90deg,
+        rgba(35,6,12,1) 0%,
+        rgba(75,15,24,1) 4%,
+        rgba(110,22,34,1) 9%,
+        rgba(60,12,20,1) 15%,
+        rgba(135,28,42,1) 22%,
+        rgba(70,15,24,1) 30%,
+        rgba(120,24,38,1) 38%,
+        rgba(55,10,18,1) 46%,
+        rgba(140,30,46,1) 54%,
+        rgba(75,16,26,1) 62%,
+        rgba(125,26,40,1) 70%,
+        rgba(60,12,20,1) 78%,
+        rgba(110,22,36,1) 86%,
+        rgba(70,14,24,1) 92%,
+        rgba(38,7,14,1) 100%),
+      /* Base crimson gradient (top-to-bottom depth) */
+      linear-gradient(180deg,
+        #4f0c18 0%,
+        #6b1422 30%,
+        #5c1020 65%,
+        #2e0710 100%);
+  }
+
+  .curtain-left {
+    box-shadow:
+      inset -25px 0 40px rgba(0,0,0,0.55),  /* inner edge fade */
+      inset 0 -30px 40px rgba(0,0,0,0.4),   /* bottom weight */
+      inset 0 20px 30px rgba(0,0,0,0.3);    /* top shadow */
+    animation: curtain-open-left 2.4s cubic-bezier(0.25, 0.1, 0.25, 1) 0.4s forwards;
+    will-change: transform;
   }
   .curtain-right {
-    background:
-      linear-gradient(to left,
-        rgba(40,5,10,1) 0%,
-        rgba(110,15,25,1) 25%,
-        rgba(150,25,35,0.95) 55%,
-        rgba(90,15,20,0.6) 90%,
-        transparent 100%),
-      repeating-linear-gradient(90deg,
-        rgba(0,0,0,0.30) 0px,
-        rgba(0,0,0,0.30) 2px,
-        transparent 2px,
-        transparent 26px);
-    background-blend-mode: multiply;
-    box-shadow: inset 10px 0 30px rgba(0,0,0,0.45);
+    box-shadow:
+      inset 25px 0 40px rgba(0,0,0,0.55),
+      inset 0 -30px 40px rgba(0,0,0,0.4),
+      inset 0 20px 30px rgba(0,0,0,0.3);
+    animation: curtain-open-right 2.4s cubic-bezier(0.25, 0.1, 0.25, 1) 0.4s forwards;
+    will-change: transform;
+  }
+
+  @keyframes curtain-open-left {
+    0%   { transform: translateX(0);     }
+    100% { transform: translateX(-72%);  }
+  }
+  @keyframes curtain-open-right {
+    0%   { transform: translateX(0);     }
+    100% { transform: translateX(72%);   }
   }
 
   /* THREE BIG SPOTLIGHTS — wide cones converging on the screen
@@ -597,14 +651,17 @@ const faqs = [
     opacity: 1;
   }
 
-  /* Respect prefers-reduced-motion — kill all animation/transition */
+  /* Respect prefers-reduced-motion — show curtains already-open and
+     kill all animation. */
   @media (prefers-reduced-motion: reduce) {
-    .cone,
-    .hotspot,
+    .big-cone,
+    .screen-wash,
     .stage-screen,
     .ticket-card::before {
       animation: none !important;
       transition: none !important;
     }
+    .curtain-left  { transform: translateX(-72%) !important; animation: none !important; }
+    .curtain-right { transform: translateX(72%)  !important; animation: none !important; }
   }
 </style>
