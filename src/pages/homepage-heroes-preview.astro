@@ -321,9 +321,9 @@ const faqs = [
           <div class="w-24 h-px bg-gold mx-auto"></div>
         </div>
 
-        <!-- ROW 1: Top body copy (left) | Medal (right) -->
-        <div class="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-14 items-center mb-10 sm:mb-12">
-          <div class="space-y-5 text-slate text-lg leading-relaxed text-center md:text-left">
+        <!-- ROW 1: Top body copy (left) | Medal + statement stacked (right) -->
+        <div class="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-14 items-start mb-10 sm:mb-12">
+          <div class="space-y-5 text-slate text-lg leading-relaxed text-center md:text-left md:pt-6">
             <p>
               America&rsquo;s greatness is reflected in the citizens who dedicate their lives to serving others.
             </p>
@@ -332,8 +332,9 @@ const faqs = [
             </p>
           </div>
 
-          <!-- Lifetime Achievement Award medal -->
-          <div class="flex justify-center">
+          <!-- Right column: medal on top, statement centered below -->
+          <div class="flex flex-col items-center">
+            <!-- Lifetime Achievement Award medal -->
             <div class="relative w-72 sm:w-80 md:w-[22rem] lg:w-[26rem]">
               <img
                 src="/images/misc/all-amer-heroes-medal.png"
@@ -343,13 +344,24 @@ const faqs = [
                 loading="lazy"
               />
             </div>
+
+            <!-- 3-LINE AWARD STATEMENT — centered under the medal -->
+            <div class="text-center mt-8 sm:mt-10 max-w-md">
+              <p class="font-heading italic text-navy/85 text-base sm:text-lg font-medium leading-snug mb-3">
+                These Honored Guests will receive our inaugural
+              </p>
+              <p class="font-heading font-extrabold text-red text-xl sm:text-2xl md:text-[1.75rem] leading-[1.15] mb-3 tracking-tight">
+                All-American Hero Lifetime Achievement Awards
+              </p>
+              <p class="font-heading italic text-navy/85 text-base sm:text-lg font-medium leading-snug">
+                celebrating the very best of America&rsquo;s spirit.
+              </p>
+            </div>
           </div>
         </div>
 
-        <!-- ROW 2: Heroes mini-scroller (left) | 3-line award statement (right) -->
-        <div class="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-14 items-center mb-10 sm:mb-12">
-
-          <!-- HEROES MINI-SCROLLER — slow, elegant, honor/people-focused -->
+        <!-- ROW 2: Heroes mini-scroller (centered, full-width-constrained) -->
+        <div class="max-w-3xl mx-auto mb-10 sm:mb-12">
           <div class="heroes-carousel relative rounded-md overflow-hidden aspect-[16/9] shadow-lg ring-1 ring-gold/25">
             <div class="carousel-slide active">
               <img src="/images/event/buzz-aldrin.png" alt="Astronaut Buzz Aldrin at a past All-American Inaugural Ball" class="absolute inset-0 w-full h-full object-cover" loading="eager" />
@@ -385,19 +397,6 @@ const faqs = [
               <button type="button" class="carousel-dot" data-go="4" aria-label="Slide 5"></button>
               <button type="button" class="carousel-dot" data-go="5" aria-label="Slide 6"></button>
             </div>
-          </div>
-
-          <!-- 3-LINE AWARD STATEMENT — Line 2 dominant -->
-          <div class="text-center md:text-left">
-            <p class="font-heading italic text-navy/85 text-base sm:text-lg md:text-xl font-medium leading-snug mb-3">
-              These Honored Guests will receive our inaugural
-            </p>
-            <p class="font-heading font-extrabold text-red text-2xl sm:text-3xl md:text-[2rem] lg:text-[2.25rem] leading-[1.1] mb-3 tracking-tight">
-              All-American Hero Lifetime Achievement Awards
-            </p>
-            <p class="font-heading italic text-navy/85 text-base sm:text-lg md:text-xl font-medium leading-snug">
-              celebrating the very best of America&rsquo;s spirit.
-            </p>
           </div>
         </div>
 
