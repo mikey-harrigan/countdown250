@@ -321,15 +321,30 @@ const faqs = [
           </p>
         </div>
 
-        <!-- Compact feature cards: icon + title inline, description indented below -->
+        <!-- Flag-styled feature cards: stars-and-stripes header + clean content below -->
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {experienceFeatures.map((f) => (
-            <div class="bg-white rounded-xl border border-navy/25 px-5 py-4 hover:border-navy hover:-translate-y-0.5 transition-all shadow-[0_0_12px_rgba(13,61,122,0.15)] hover:shadow-[0_0_28px_rgba(13,61,122,0.4)]">
-              <div class="flex items-center gap-3 mb-2">
-                <div class="text-gold flex-shrink-0" set:html={experienceIcons[f.icon]} />
-                <h3 class="font-heading font-bold text-navy text-base sm:text-lg leading-tight">{f.title}</h3>
+            <div class="relative bg-white rounded-lg overflow-hidden border border-navy/15 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all">
+              <!-- FLAG HEADER: 7-stripe band + blue canton with stars -->
+              <div class="relative h-16 sm:h-20 overflow-hidden">
+                <!-- Red & white stripes (7 alternating) -->
+                <div class="absolute inset-0" style="background: repeating-linear-gradient(to bottom, #B22234 0%, #B22234 14.286%, #FFFFFF 14.286%, #FFFFFF 28.571%, #B22234 28.571%, #B22234 42.857%, #FFFFFF 42.857%, #FFFFFF 57.143%, #B22234 57.143%, #B22234 71.429%, #FFFFFF 71.429%, #FFFFFF 85.714%, #B22234 85.714%, #B22234 100%);"></div>
+                <!-- Blue canton with stars -->
+                <div class="absolute top-0 left-0 w-2/5 h-full bg-[#1A2851] flex items-center justify-center">
+                  <div class="grid grid-cols-5 gap-x-0.5 gap-y-0.5 text-white text-[8px] sm:text-[10px] leading-none">
+                    <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                    <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                  </div>
+                </div>
+                <!-- Subtle bottom shadow under the flag for depth -->
+                <div class="absolute -bottom-px left-0 right-0 h-px bg-navy/30"></div>
               </div>
-              <p class="text-slate/70 text-sm pl-10 leading-relaxed">{f.desc}</p>
+
+              <!-- CONTENT (clean white for legibility) -->
+              <div class="px-5 py-4">
+                <h3 class="font-heading font-bold text-navy text-base sm:text-lg leading-tight mb-1.5">{f.title}</h3>
+                <p class="text-slate/70 text-sm leading-relaxed">{f.desc}</p>
+              </div>
             </div>
           ))}
         </div>
