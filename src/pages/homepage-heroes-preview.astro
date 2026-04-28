@@ -321,12 +321,15 @@ const faqs = [
           <div class="w-24 h-px bg-gold mx-auto"></div>
         </div>
 
-        <!-- Single row: body copy + scroller (left) | medal + statement (right) -->
-        <div class="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-14 items-start mb-10 sm:mb-12">
+        <!-- Single row: body copy + scroller (left) | medal + statement (right).
+             items-stretch on md+ so both columns share the same height; the
+             scroller uses flex-1 to fill the remaining vertical space below
+             the body copy, balancing against the medal + statement on right. -->
+        <div class="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-14 md:items-stretch mb-10 sm:mb-12">
 
           <!-- LEFT COLUMN: top body copy + heroes mini-scroller below it -->
-          <div>
-            <div class="space-y-5 text-slate text-lg leading-relaxed text-center md:text-left mb-7">
+          <div class="md:flex md:flex-col md:h-full">
+            <div class="space-y-5 text-slate text-lg leading-relaxed text-center md:text-left mb-7 md:mb-10">
               <p>
                 America&rsquo;s greatness is reflected in the citizens who dedicate their lives to serving others.
               </p>
@@ -335,8 +338,9 @@ const faqs = [
               </p>
             </div>
 
-            <!-- HEROES MINI-SCROLLER — slow, elegant, honor/people-focused -->
-            <div class="heroes-carousel relative rounded-md overflow-hidden aspect-[16/9] shadow-lg ring-1 ring-gold/25">
+            <!-- HEROES MINI-SCROLLER — fills remaining vertical space at md+;
+                 aspect-[16/9] keeps a sensible ratio on mobile when stacked. -->
+            <div class="heroes-carousel relative rounded-md overflow-hidden aspect-[16/9] md:aspect-auto md:flex-1 md:min-h-[18rem] shadow-lg ring-1 ring-gold/25">
               <div class="carousel-slide active">
                 <img src="/images/event/buzz-aldrin.png" alt="Astronaut Buzz Aldrin at a past All-American Inaugural Ball" class="absolute inset-0 w-full h-full object-cover" loading="eager" />
                 <div class="carousel-caption">Buzz Aldrin &mdash; past honored guest</div>
