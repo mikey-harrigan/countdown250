@@ -321,32 +321,35 @@ const faqs = [
           </p>
         </div>
 
-        <!-- Flag-styled feature cards: stars-and-stripes header + clean content below -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {experienceFeatures.map((f) => (
-            <div class="relative bg-white rounded-lg overflow-hidden border border-navy/15 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all">
-              <!-- FLAG HEADER: 7-stripe band + blue canton with stars -->
-              <div class="relative h-16 sm:h-20 overflow-hidden">
-                <!-- Red & white stripes (7 alternating) -->
-                <div class="absolute inset-0" style="background: repeating-linear-gradient(to bottom, #B22234 0%, #B22234 14.286%, #FFFFFF 14.286%, #FFFFFF 28.571%, #B22234 28.571%, #B22234 42.857%, #FFFFFF 42.857%, #FFFFFF 57.143%, #B22234 57.143%, #B22234 71.429%, #FFFFFF 71.429%, #FFFFFF 85.714%, #B22234 85.714%, #B22234 100%);"></div>
-                <!-- Blue canton with stars -->
-                <div class="absolute top-0 left-0 w-2/5 h-full bg-[#1A2851] flex items-center justify-center">
-                  <div class="grid grid-cols-5 gap-x-0.5 gap-y-0.5 text-white text-[8px] sm:text-[10px] leading-none">
-                    <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-                    <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-                  </div>
-                </div>
-                <!-- Subtle bottom shadow under the flag for depth -->
-                <div class="absolute -bottom-px left-0 right-0 h-px bg-navy/30"></div>
-              </div>
+        <!-- Image (red carpet arrival) + Parchment-styled feature cards.
+             On lg+ they sit side-by-side; on mobile they stack with image
+             on top so the section never gets too long. -->
+        <div class="grid lg:grid-cols-[5fr_7fr] gap-6 lg:gap-8 items-stretch">
 
-              <!-- CONTENT (clean white for legibility) -->
-              <div class="px-5 py-4">
-                <h3 class="font-heading font-bold text-navy text-base sm:text-lg leading-tight mb-1.5">{f.title}</h3>
-                <p class="text-slate/70 text-sm leading-relaxed">{f.desc}</p>
-              </div>
+          <!-- Hilton entrance (placeholder — swap to chosen photo later) -->
+          <div class="relative rounded-lg overflow-hidden shadow-2xl ring-1 ring-cream/20 min-h-[16rem] lg:min-h-0">
+            <img
+              src="/images/event/hilton-porte-cochere.jpg"
+              alt="The Washington Hilton entrance"
+              class="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent px-4 py-3">
+              <p class="text-white/95 text-xs sm:text-sm font-medium tracking-wide italic text-center">
+                The legendary Washington Hilton.
+              </p>
             </div>
-          ))}
+          </div>
+
+          <!-- 8 parchment-styled feature cards in a 2-column grid -->
+          <div class="grid grid-cols-2 gap-2.5 sm:gap-3">
+            {experienceFeatures.map((f) => (
+              <div class="parchment-mini relative px-3.5 py-3 sm:px-4 sm:py-3 rounded-sm">
+                <h3 class="font-heading font-bold text-[#3A2410] text-sm sm:text-[15px] leading-tight mb-1">{f.title}</h3>
+                <p class="text-[#5A3414]/85 text-[12px] sm:text-[13px] leading-snug">{f.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -929,5 +932,25 @@ const faqs = [
   }
   details > summary::-webkit-details-marker {
     display: none;
+  }
+
+  /* ==========================================================
+     PARCHMENT MINI CARDS — small aged-paper tiles for the
+     All-Inclusive Experience features. Layered radial gradients
+     give corner stains + edge vignette over a warm cream base.
+     ========================================================== */
+  .parchment-mini {
+    background:
+      radial-gradient(ellipse 60% 60% at 0% 0%,   rgba(140,90,30,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 70% 60% at 100% 0%, rgba(160,100,30,0.13) 0%, transparent 70%),
+      radial-gradient(ellipse 70% 65% at 100% 100%, rgba(150,95,30,0.16) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 55% at 0% 100%, rgba(140,85,25,0.14) 0%, transparent 70%),
+      radial-gradient(ellipse at center, transparent 65%, rgba(110,70,20,0.18) 100%),
+      linear-gradient(to bottom, #F0E2B0 0%, #E8D49A 100%);
+    box-shadow:
+      0 6px 14px rgba(0,0,0,0.18),
+      0 2px 4px rgba(0,0,0,0.12),
+      inset 0 0 30px rgba(120,80,30,0.10);
+    border: 1px solid rgba(110,70,20,0.20);
   }
 </style>
