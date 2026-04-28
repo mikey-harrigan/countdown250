@@ -278,6 +278,117 @@ const faqs = [
     <Countdown />
 
     <!-- ============================================================ -->
+    <!-- 2. ALL-AMERICAN HERO LIFETIME ACHIEVEMENT AWARDS -->
+    <!-- Premium patriotic section honoring extraordinary Americans. -->
+    <!-- Sits between countdown and All-Inclusive Experience. -->
+    <!-- ============================================================ -->
+    <section id="heroes" class="relative pt-12 pb-14 sm:pt-16 sm:pb-20 bg-cream overflow-hidden">
+      <!-- Hairline gold edges, subtle premium framing -->
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Headline only -->
+        <div class="text-center mb-10 sm:mb-12 max-w-4xl mx-auto">
+          <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-navy mb-4 font-heading leading-[1.1] tracking-tight">
+            The All-American Hero<br class="hidden sm:block" /> Lifetime Achievement Awards
+          </h2>
+          <div class="w-24 h-px bg-gold mx-auto"></div>
+        </div>
+
+        <!-- Single row: body copy + scroller (left) | medal + statement (right) -->
+        <div class="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-14 md:items-stretch mb-10 sm:mb-12">
+
+          <!-- LEFT COLUMN: top body copy + heroes mini-scroller below it -->
+          <div class="md:flex md:flex-col md:h-full">
+            <div class="space-y-5 text-slate text-lg leading-relaxed text-center md:text-left mb-7 md:mb-10">
+              <p>
+                America&rsquo;s greatness is reflected in the citizens who dedicate their lives to serving others.
+              </p>
+              <p>
+                At the Countdown 250 Ball, the inaugural All-American Hero Lifetime Achievement Awards will recognize several extraordinary Americans whose courage, leadership, and selfless service have strengthened our nation.
+              </p>
+            </div>
+
+            <!-- HEROES MINI-SCROLLER -->
+            <div class="heroes-carousel relative rounded-md overflow-hidden aspect-[16/9] md:aspect-auto md:flex-1 md:min-h-[18rem] shadow-lg ring-1 ring-gold/25">
+              <div class="carousel-slide active">
+                <img src="/images/event/buzz-aldrin.png" alt="Astronaut Buzz Aldrin at a past All-American Inaugural Ball" class="absolute inset-0 w-full h-full object-cover" loading="eager" />
+                <div class="carousel-caption">Buzz Aldrin &mdash; past honored guest</div>
+              </div>
+              <div class="carousel-slide">
+                <img src="/images/event/aab-2025-medal-recipients-stage.jpg" alt="Medal recipients on stage at a past ball" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                <div class="carousel-caption">Medal recipients on stage</div>
+              </div>
+              <div class="carousel-slide">
+                <img src="/images/event/aab-2025-soldier-stage-hero.jpg" alt="Decorated service member honored on stage" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                <div class="carousel-caption">Honoring extraordinary service</div>
+              </div>
+              <div class="carousel-slide">
+                <img src="/images/event/inaugural-ceremony-flag.jpg" alt="Color guard ceremony with American flag" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                <div class="carousel-caption">A signature ceremonial moment</div>
+              </div>
+              <div class="carousel-slide">
+                <img src="/images/event/hero-awards-ceremony.png" alt="Lifetime achievement awards ceremony" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                <div class="carousel-caption">Lifetime achievement, recognized</div>
+              </div>
+              <div class="carousel-slide">
+                <img src="/images/event/aab-2025-soldier-ceremony.jpg" alt="Soldier honored at past ball ceremony" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                <div class="carousel-caption">Decorated veterans, recognized on stage</div>
+              </div>
+
+              <div class="carousel-dots">
+                <button type="button" class="carousel-dot active" data-go="0" aria-label="Slide 1"></button>
+                <button type="button" class="carousel-dot" data-go="1" aria-label="Slide 2"></button>
+                <button type="button" class="carousel-dot" data-go="2" aria-label="Slide 3"></button>
+                <button type="button" class="carousel-dot" data-go="3" aria-label="Slide 4"></button>
+                <button type="button" class="carousel-dot" data-go="4" aria-label="Slide 5"></button>
+                <button type="button" class="carousel-dot" data-go="5" aria-label="Slide 6"></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: medal on top, statement centered below -->
+          <div class="flex flex-col items-center">
+            <div class="relative w-72 sm:w-80 md:w-[22rem] lg:w-[26rem]">
+              <img
+                src="/images/misc/all-amer-heroes-medal.png"
+                alt="All-American Heroes Lifetime Achievement Award medal"
+                class="w-full h-auto"
+                style="filter: drop-shadow(0 22px 40px rgba(0,0,0,0.40)) drop-shadow(0 6px 14px rgba(197,164,78,0.45));"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="text-center mt-8 sm:mt-10 max-w-md">
+              <p class="font-heading italic text-navy/85 text-base sm:text-lg font-medium leading-snug mb-3">
+                These Honored Guests will receive our inaugural
+              </p>
+              <p class="font-heading font-extrabold text-red text-xl sm:text-2xl md:text-[1.75rem] leading-[1.15] mb-3 tracking-tight">
+                All-American Hero Lifetime Achievement Awards
+              </p>
+              <p class="font-heading italic text-navy/85 text-base sm:text-lg font-medium leading-snug">
+                celebrating the very best of America&rsquo;s spirit.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Centered CTA beneath both columns -->
+        <div class="text-center pt-8 border-t border-navy/15 max-w-3xl mx-auto">
+          <a href="/honorees" class="inline-flex items-center gap-3 border-2 border-red text-red hover:bg-red hover:text-cream font-bold tracking-[0.18em] uppercase px-8 py-3.5 rounded-sm transition-colors text-xs sm:text-[13px] group">
+            <span>Meet the Honorees</span>
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
     <!-- 3. ALL-INCLUSIVE EXPERIENCE -->
     <!-- ============================================================ -->
     <section id="experience" class="relative pt-12 pb-20 sm:pt-16 sm:pb-28 bg-gradient-to-b from-[#B3192D] to-[#8E1425] overflow-hidden">
@@ -897,6 +1008,59 @@ const faqs = [
       sBCloseFn();
     }
   });
+
+  // =====================================================
+  // HEROES SCROLLER — fade slideshow on the All-American
+  // Heroes section. Slow auto-advance, pauses on hover,
+  // pauses when off-screen, respects reduced-motion.
+  // =====================================================
+  function initFadeCarousel(selector: string, intervalMs: number) {
+    const carousel = document.querySelector(selector);
+    if (!carousel) return;
+
+    const slides = carousel.querySelectorAll<HTMLElement>('.carousel-slide');
+    const dots = carousel.querySelectorAll<HTMLButtonElement>('.carousel-dot');
+    if (slides.length < 2) return;
+
+    let current = 0;
+    let timer: ReturnType<typeof setInterval> | null = null;
+
+    function show(idx: number) {
+      slides[current]?.classList.remove('active');
+      dots[current]?.classList.remove('active');
+      current = ((idx % slides.length) + slides.length) % slides.length;
+      slides[current]?.classList.add('active');
+      dots[current]?.classList.add('active');
+    }
+    function next() { show(current + 1); }
+    function start() { stop(); timer = setInterval(next, intervalMs); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => { show(i); start(); });
+    });
+
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) start();
+          else stop();
+        });
+      }, { threshold: 0.1 });
+      io.observe(carousel);
+    } else {
+      start();
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      stop();
+    }
+  }
+
+  initFadeCarousel('.heroes-carousel', 6500);
 </script>
 
 <style>
@@ -914,6 +1078,67 @@ const faqs = [
   }
   details > summary::-webkit-details-marker {
     display: none;
+  }
+
+  /* ==========================================================
+     HEROES SCROLLER — fade slideshow under the body copy in
+     the All-American Heroes section. Used by .heroes-carousel.
+     ========================================================== */
+  .carousel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+    pointer-events: none;
+  }
+  .carousel-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .carousel-caption {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.40) 60%, transparent 100%);
+    color: rgba(255,255,255,0.95);
+    font-size: 0.75rem;
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: 0.025em;
+    text-align: center;
+    pointer-events: none;
+  }
+  @media (min-width: 640px) {
+    .carousel-caption { font-size: 0.875rem; }
+  }
+  .carousel-dots {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0.5rem;
+    display: flex;
+    gap: 0.4rem;
+    z-index: 10;
+  }
+  .carousel-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: rgba(255,255,255,0.45);
+    border: 1px solid rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+    padding: 0;
+  }
+  .carousel-dot:hover { background: rgba(255,255,255,0.85); }
+  .carousel-dot.active {
+    background: #C5A44E;
+    border-color: #C5A44E;
+    transform: scale(1.25);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-slide { transition: none; }
+    .carousel-dot { transition: none; }
   }
 
   /* ==========================================================
