@@ -950,6 +950,8 @@ const faqs = [
   .ribbon-card {
     position: relative;
     min-height: 6.25rem;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                filter    0.35s ease-out;
     /* Layered drop-shadow for premium dimensional depth without going
        cartoonishly heavy. Three layers: ambient soft, mid contact,
        crisp edge. */
@@ -957,6 +959,33 @@ const faqs = [
       drop-shadow(0 12px 22px rgba(0,0,0,0.32))
       drop-shadow(0 4px 8px rgba(0,0,0,0.22))
       drop-shadow(0 1px 1px rgba(0,0,0,0.18));
+    will-change: transform, filter;
+  }
+  .ribbon-card:hover {
+    transform: translateY(-5px) scale(1.04);
+    filter:
+      drop-shadow(0 22px 36px rgba(0,0,0,0.40))
+      drop-shadow(0 8px 16px rgba(197,164,78,0.45))
+      drop-shadow(0 1px 2px rgba(0,0,0,0.30));
+  }
+  .ribbon-card-bg {
+    transition: filter 0.35s ease-out;
+  }
+  .ribbon-card:hover .ribbon-card-bg {
+    filter: brightness(1.05) saturate(1.08);
+  }
+  .ribbon-card:hover .ribbon-card-bg::after {
+    background: linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.2) 50%, transparent 80%) !important;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ribbon-card,
+    .ribbon-card-bg,
+    .ribbon-card-bg::after {
+      transition: none !important;
+    }
+    .ribbon-card:hover {
+      transform: none !important;
+    }
   }
   /* The ribbon shape + stripes (clipped via clip-path) */
   .ribbon-card-bg {

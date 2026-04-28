@@ -920,14 +920,26 @@ const faqs = [
      RIBBON CARDS — All-Inclusive Experience feature tiles.
      Banner shape (V-cut ends) with red top + white middle
      + blue bottom, gold trim lines separating the stripes.
+     Dynamic hover: lift + scale + deeper gold-tinted shadow
+     + brighter satin shine.
      ========================================================== */
   .ribbon-card {
     position: relative;
     min-height: 6.25rem;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                filter    0.35s ease-out;
     filter:
       drop-shadow(0 12px 22px rgba(0,0,0,0.32))
       drop-shadow(0 4px 8px rgba(0,0,0,0.22))
       drop-shadow(0 1px 1px rgba(0,0,0,0.18));
+    will-change: transform, filter;
+  }
+  .ribbon-card:hover {
+    transform: translateY(-5px) scale(1.04);
+    filter:
+      drop-shadow(0 22px 36px rgba(0,0,0,0.40))
+      drop-shadow(0 8px 16px rgba(197,164,78,0.45))
+      drop-shadow(0 1px 2px rgba(0,0,0,0.30));
   }
   .ribbon-card-bg {
     position: absolute;
@@ -943,6 +955,10 @@ const faqs = [
         #B22234 0%, #B22234 14%,
         #FAFAFA 14%, #FAFAFA 86%,
         #1A2851 86%, #1A2851 100%);
+    transition: filter 0.35s ease-out;
+  }
+  .ribbon-card:hover .ribbon-card-bg {
+    filter: brightness(1.05) saturate(1.08);
   }
   .ribbon-card-bg::after {
     content: '';
@@ -951,5 +967,20 @@ const faqs = [
     top: 14%; bottom: 14%;
     background: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%, transparent 50%);
     pointer-events: none;
+    transition: background 0.35s ease-out;
+  }
+  .ribbon-card:hover .ribbon-card-bg::after {
+    background: linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.2) 50%, transparent 80%);
+  }
+  /* Reduced motion — keep effect minimal but still acknowledge hover */
+  @media (prefers-reduced-motion: reduce) {
+    .ribbon-card,
+    .ribbon-card-bg,
+    .ribbon-card-bg::after {
+      transition: none !important;
+    }
+    .ribbon-card:hover {
+      transform: none !important;
+    }
   }
 </style>
