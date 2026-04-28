@@ -208,11 +208,14 @@ const faqs = [
       <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-28 pb-20">
         <!-- Seal logo -->
         <div class="flex justify-center mb-10 animate-fade-in">
-          <img
-            src="/images/logos/countdown250-seal-circle-dark.png"
-            alt="The Official Countdown 250 Ball — July 3, 2026 — Washington, D.C."
-            class="w-[240px] sm:w-[300px] md:w-[340px] h-auto drop-shadow-2xl"
-          />
+          <picture>
+            <source srcset="/images/logos/countdown250-seal-circle-dark.webp" type="image/webp" />
+            <img
+              src="/images/logos/countdown250-seal-circle-dark.png"
+              alt="The Official Countdown 250 Ball — July 3, 2026 — Washington, D.C."
+              class="w-[240px] sm:w-[300px] md:w-[340px] h-auto drop-shadow-2xl"
+            />
+          </picture>
         </div>
 
         <!-- Poetic open: italic question, two staggered lines -->
@@ -357,13 +360,16 @@ const faqs = [
           <!-- RIGHT COLUMN: medal on top, statement centered below -->
           <div class="flex flex-col items-center">
             <div class="relative w-72 sm:w-80 md:w-[22rem] lg:w-[26rem]">
-              <img
-                src="/images/misc/all-amer-heroes-medal.png"
-                alt="All-American Heroes Lifetime Achievement Award medal"
-                class="w-full h-auto"
-                style="filter: drop-shadow(0 22px 40px rgba(0,0,0,0.40)) drop-shadow(0 6px 14px rgba(197,164,78,0.45));"
-                loading="lazy"
-              />
+              <picture>
+                <source srcset="/images/misc/all-amer-heroes-medal.webp" type="image/webp" />
+                <img
+                  src="/images/misc/all-amer-heroes-medal.png"
+                  alt="All-American Heroes Lifetime Achievement Award medal"
+                  class="w-full h-auto"
+                  style="filter: drop-shadow(0 22px 40px rgba(0,0,0,0.40)) drop-shadow(0 6px 14px rgba(197,164,78,0.45));"
+                  loading="lazy"
+                />
+              </picture>
             </div>
 
             <div class="text-center mt-8 sm:mt-10 max-w-md">
@@ -416,22 +422,77 @@ const faqs = [
           </p>
         </div>
 
-        <!-- Hilton image (left) + ribbon feature cards (right). On mobile
-             they stack with image on top so the section stays compact. -->
+        <!-- Image carousel (left) + ribbon feature cards (right). On mobile
+             they stack with image on top so the section stays compact.
+             12-slide fade carousel — auto-advance 6.5s, pauses on hover and
+             when off-screen, respects prefers-reduced-motion. -->
         <div class="grid lg:grid-cols-[5fr_7fr] gap-6 lg:gap-8 items-stretch">
 
-          <!-- Washington Hilton at twilight — elevated frame treatment -->
-          <div class="relative rounded-lg overflow-hidden ring-2 ring-[#C5A44E]/40 min-h-[16rem] lg:min-h-0" style="box-shadow: 0 25px 60px -12px rgba(0,0,0,0.65), 0 10px 25px -10px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08) inset;">
-            <img
-              src="/images/event/hilton-twilight.jpg"
-              alt="Guests entering the Washington Hilton at twilight, lit in red, white, and blue"
-              class="absolute inset-0 w-full h-full object-cover"
-              loading="lazy"
-            />
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent px-4 py-3">
-              <p class="text-white/95 text-xs sm:text-sm font-medium tracking-wide italic text-center">
-                A grand arrival at the Washington Hilton.
-              </p>
+          <!-- Experience carousel — 12 slides of real ball moments -->
+          <div class="experience-carousel relative rounded-lg overflow-hidden ring-2 ring-[#C5A44E]/40 aspect-[4/3] lg:aspect-auto lg:min-h-0" style="box-shadow: 0 25px 60px -12px rgba(0,0,0,0.65), 0 10px 25px -10px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08) inset;">
+            <div class="carousel-slide active">
+              <img src="/images/event/hilton-twilight.jpg" alt="Guests entering the Washington Hilton at twilight, lit in red, white, and blue" class="absolute inset-0 w-full h-full object-cover" loading="eager" />
+              <div class="carousel-caption">A grand arrival at the Washington Hilton</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/event/ballroom-crowd.jpg" alt="A grand ballroom packed with celebrating guests" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">Six grand ballrooms, one unforgettable night</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/event/piano-player.jpg" alt="Pianist performing on stage at the All-American Inaugural Ball" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">Intimate music, world-class talent</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/event/saxophonist.jpg" alt="Saxophonist in tuxedo performing live" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">Live jazz under the chandeliers</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/event/singer-flag-screen.jpg" alt="Singer performing in front of a giant American flag stage screen" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">Patriotic performance on the main stage</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/event/performer-eagle-screen.jpg" alt="Performer at a podium in front of a glowing eagle and flag stage screen" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">Spectacle, ceremony, and stagecraft</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/event/veterans-celebrating.jpg" alt="Wounded veteran with family and a fellow officer celebrating at the ball" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">Heroes &amp; their families, side by side</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/event/guests-elegant-quartet.jpg" alt="Four elegantly dressed guests posing in the ballroom" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">Black-tie elegance from coast to coast</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/event/guests-friendship.jpg" alt="Two guests sharing a laugh in the ballroom" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">Connections forged on a historic night</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/event/countdown-toast.jpg" alt="Champagne toast at midnight countdown" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">Midnight countdown to America&rsquo;s 250th</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/event/dj-party-lights.jpg" alt="DJ booth with party lights and packed dance floor" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">DJs &amp; dance floors until 1 AM</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/event/red-carpet-arrival.jpg" alt="Guests arriving on the red carpet" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">Red-carpet arrivals at the Washington Hilton</div>
+            </div>
+
+            <!-- Dot indicators — one per slide -->
+            <div class="carousel-dots">
+              <button type="button" class="carousel-dot active" data-go="0" aria-label="Slide 1"></button>
+              <button type="button" class="carousel-dot" data-go="1" aria-label="Slide 2"></button>
+              <button type="button" class="carousel-dot" data-go="2" aria-label="Slide 3"></button>
+              <button type="button" class="carousel-dot" data-go="3" aria-label="Slide 4"></button>
+              <button type="button" class="carousel-dot" data-go="4" aria-label="Slide 5"></button>
+              <button type="button" class="carousel-dot" data-go="5" aria-label="Slide 6"></button>
+              <button type="button" class="carousel-dot" data-go="6" aria-label="Slide 7"></button>
+              <button type="button" class="carousel-dot" data-go="7" aria-label="Slide 8"></button>
+              <button type="button" class="carousel-dot" data-go="8" aria-label="Slide 9"></button>
+              <button type="button" class="carousel-dot" data-go="9" aria-label="Slide 10"></button>
+              <button type="button" class="carousel-dot" data-go="10" aria-label="Slide 11"></button>
+              <button type="button" class="carousel-dot" data-go="11" aria-label="Slide 12"></button>
             </div>
           </div>
 
@@ -1066,6 +1127,7 @@ const faqs = [
   }
 
   initFadeCarousel('.heroes-carousel', 6500);
+  initFadeCarousel('.experience-carousel', 5500);
 </script>
 
 <style>
