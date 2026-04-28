@@ -43,20 +43,17 @@ const tickets = [
     description: "Celebrate the Ball in classic style.",
     sections: [
       {
-        heading: "Includes The Ball Only (9 PM–1 AM)",
+        heading: "Includes The Ball (9 PM – 1 AM)",
         items: [
           "Admission to the main Ball",
-          "Access to 4 grand ballrooms and 3 dance floors",
+          "4 grand ballrooms & 3 dance floors",
           "Open bar all night",
           "Multiple live bands and DJs",
-          "Immersive experiences and roaming entertainers",
-          "Step-and-repeat access",
-          "Patriotic Tribute to America performances",
-          "All-American Hero Lifetime Achievement Awards ceremony",
+          "Immersive experiences, roaming entertainers & step-and-repeat",
+          "Patriotic Tribute & All-American Hero Lifetime Achievement Awards Ceremony",
         ],
       },
     ],
-    note: "Reception-style Ball with limited seating",
     highlight: false,
     badge: "Tier 1",
     tier: 1,
@@ -68,32 +65,16 @@ const tickets = [
     price: "$450",
     futurePrice: "$595 / $795 / $995",
     id: "ticket-patriot-vip",
-    description: "Best for guests who want early access, dinner, and a more elevated evening from start to finish.",
-    sectionIntro: "Includes Two Distinct Experiences: The VIP Reception + The Ball",
+    description: "Early access, dinner, and a more elevated evening from start to finish.",
+    inheritsFrom: "Liberty Ticket",
     sections: [
       {
-        heading: "Part One: VIP Reception (7 PM–9 PM)",
+        heading: "Plus the Exclusive VIP Reception (7 PM – 9 PM)",
         items: [
           "Early entry beginning at 6:30 PM",
-          "Admission to the exclusive VIP Reception",
-          "Buffet dinner",
-          "Premium open bar",
-          "Opportunity to mingle with honored guests, dignitaries, and All-American Heroes",
-          "Live entertainment",
-          "Immersive experiences and roaming entertainers",
-          "Step-and-repeat access",
-        ],
-      },
-      {
-        heading: "Part Two: The Ball (9 PM–1 AM)",
-        items: [
-          "Admission to the main Ball",
-          "Access to 4 grand ballrooms and 3 dance floors",
-          "Open bar all night",
-          "Multiple live bands and DJs",
-          "Immersive experiences, roaming entertainers and step-and-repeat",
-          "Patriotic Tribute to America performances",
-          "All-American Hero Lifetime Achievement Awards ceremony",
+          "Buffet dinner & premium open bar",
+          "Mingle with honored guests, dignitaries, and All-American Heroes",
+          "Live entertainment & immersive experiences",
         ],
       },
     ],
@@ -109,49 +90,20 @@ const tickets = [
     price: "$1,700",
     futurePrice: "$2,500 / $3,500 / $5,000",
     id: "ticket-statesmans",
-    sectionIntro: "Includes Two Distinct Experiences: The VIP Reception + The Ball — Elevated with Exclusive Access, Concierge Service, and Recognition",
+    inheritsFrom: "Patriot VIP Ticket",
     sections: [
       {
-        heading: "Part One: VIP Reception (7 PM–9 PM)",
+        heading: "Plus the Statesman's Concierge Experience",
         items: [
-          "Early entry beginning at 6:30 PM",
+          "Personal Ambassador & dedicated concierge service",
           "Private expedited entrance",
-          "Dedicated Ambassador / concierge service",
-          "Reserved seating on the Presidential Stage with special guests",
-          "Private top-shelf open bars",
-          "Premium buffet dinner",
-          "Live entertainment",
-          "Private immersive experiences and roaming entertainers",
-          "Access to exclusive hospitality areas",
-          "Access to historic hotel spaces reserved for presidents and dignitaries",
-          "Private photographer access",
-          "Private step-and-repeat",
-          "Premium recognition in the official event program",
-          "Stage announcement recognition",
-        ],
-      },
-      {
-        heading: "Part Two: The Ball (9 PM–1 AM)",
-        items: [
-          "Continued concierge-level service throughout the evening",
-          "Reserved Presidential Stage seating for the main celebration",
-          "Access to all 6 grand ballrooms and all 4 stages / dance floors",
-          "Multiple live bands and DJs",
-          "Backstage access",
-          "Passed hors d'oeuvres and private dessert bar",
-          "Most exclusive vantage points for the main stage performances and ceremonies",
-          "All-American Hero Lifetime Achievement Awards ceremony",
-          "Patriotic Tribute to America performances",
-        ],
-      },
-      {
-        heading: "Additional Benefits",
-        items: [
-          "Premium limited-edition official event gift",
-          "Personal stage announcement recognition",
-          "Special recognition in the official event program (lead-time permitting)",
-          "Official Statesman's Concierge Pass lanyard",
-          "Commemorative official event program",
+          "Reserved Presidential Stage seating (reception + ball)",
+          "Top-shelf private open bars all night",
+          "Backstage access & most exclusive stage vantage points",
+          "Access to historic spaces reserved for presidents and dignitaries",
+          "Passed hors d'oeuvres & private dessert bar",
+          "Stage announcement & official-program recognition",
+          "Premium gift, lanyard & commemorative event program",
         ],
       },
     ],
@@ -595,7 +547,19 @@ const faqs = [
                   </p>
                 )}
 
-                {/* Section intro (Patriot + Statesman only) */}
+                {/* "Includes everything in the previous tier" callout (Patriot + Statesman) */}
+                {ticket.inheritsFrom && (
+                  <div class={`flex items-start gap-2.5 mb-5 px-3 py-2.5 rounded-md ${ticket.highlight ? 'bg-red/8 ring-1 ring-red/15' : 'bg-gold/10 ring-1 ring-gold/25'}`}>
+                    <svg class={`w-5 h-5 mt-0 flex-shrink-0 ${ticket.highlight ? 'text-red' : 'text-gold'}`} fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <p class={`text-sm font-bold leading-snug ${ticket.highlight ? 'text-navy' : 'text-white'}`}>
+                      Everything in the <span class={ticket.highlight ? 'text-red' : 'text-gold'}>{ticket.inheritsFrom}</span>
+                    </p>
+                  </div>
+                )}
+
+                {/* Section intro (legacy slot — kept in case any future tier needs it) */}
                 {ticket.sectionIntro && (
                   <p class={`text-xs font-bold tracking-wider uppercase mb-4 leading-snug ${ticket.highlight ? 'text-navy/70' : 'text-gold/90'}`}>
                     {ticket.sectionIntro}
