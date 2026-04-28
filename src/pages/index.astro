@@ -280,15 +280,18 @@ const faqs = [
     <!-- ============================================================ -->
     <!-- 3. ALL-INCLUSIVE EXPERIENCE -->
     <!-- ============================================================ -->
-    <section id="experience" class="pt-12 pb-20 sm:pt-16 sm:pb-28 bg-red">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="experience" class="relative pt-12 pb-20 sm:pt-16 sm:pb-28 bg-gradient-to-b from-[#B3192D] to-[#8E1425] overflow-hidden">
+      <!-- Subtle vignette darkening at the edges for premium depth -->
+      <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center, transparent 35%, rgba(0,0,0,0.32) 100%);"></div>
 
-        <!-- Header + value-establishing copy -->
-        <div class="text-center mb-14 sm:mb-16 max-w-3xl mx-auto">
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5 font-heading leading-tight">
+      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Header + value-establishing copy (tightened spacing) -->
+        <div class="text-center mb-10 sm:mb-12 max-w-3xl mx-auto">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 font-heading leading-tight">
             Your All-Inclusive Experience
           </h2>
-          <div class="w-20 h-px bg-gold mx-auto mb-8"></div>
+          <div class="w-20 h-px bg-gold mx-auto mb-6"></div>
           <p class="text-white/90 text-lg leading-relaxed mb-5">
             On July 3, the iconic Washington Hilton ballroom complex will transform into an extraordinary celebration of American heritage &mdash; an evening of world-class entertainment, refined elegance, and memories that will last forever.
           </p>
@@ -297,32 +300,39 @@ const faqs = [
           </p>
         </div>
 
-        <!-- Flag-styled feature cards: stars-and-stripes header + clean content below -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {experienceFeatures.map((f) => (
-            <div class="relative bg-white rounded-lg overflow-hidden border border-navy/15 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all">
-              <!-- FLAG HEADER: 7-stripe band + blue canton with stars -->
-              <div class="relative h-16 sm:h-20 overflow-hidden">
-                <!-- Red & white stripes (7 alternating) -->
-                <div class="absolute inset-0" style="background: repeating-linear-gradient(to bottom, #B22234 0%, #B22234 14.286%, #FFFFFF 14.286%, #FFFFFF 28.571%, #B22234 28.571%, #B22234 42.857%, #FFFFFF 42.857%, #FFFFFF 57.143%, #B22234 57.143%, #B22234 71.429%, #FFFFFF 71.429%, #FFFFFF 85.714%, #B22234 85.714%, #B22234 100%);"></div>
-                <!-- Blue canton with stars -->
-                <div class="absolute top-0 left-0 w-2/5 h-full bg-[#1A2851] flex items-center justify-center">
-                  <div class="grid grid-cols-5 gap-x-0.5 gap-y-0.5 text-white text-[8px] sm:text-[10px] leading-none">
-                    <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-                    <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-                  </div>
-                </div>
-                <!-- Subtle bottom shadow under the flag for depth -->
-                <div class="absolute -bottom-px left-0 right-0 h-px bg-navy/30"></div>
-              </div>
+        <!-- Hilton image (left) + ribbon feature cards (right). On mobile
+             they stack with image on top so the section stays compact. -->
+        <div class="grid lg:grid-cols-[5fr_7fr] gap-6 lg:gap-8 items-stretch">
 
-              <!-- CONTENT (clean white for legibility) -->
-              <div class="px-5 py-4">
-                <h3 class="font-heading font-bold text-navy text-base sm:text-lg leading-tight mb-1.5">{f.title}</h3>
-                <p class="text-slate/70 text-sm leading-relaxed">{f.desc}</p>
-              </div>
+          <!-- Washington Hilton at twilight — elevated frame treatment -->
+          <div class="relative rounded-lg overflow-hidden ring-2 ring-[#C5A44E]/40 min-h-[16rem] lg:min-h-0" style="box-shadow: 0 25px 60px -12px rgba(0,0,0,0.65), 0 10px 25px -10px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08) inset;">
+            <img
+              src="/images/event/hilton-twilight.png"
+              alt="Guests entering the Washington Hilton at twilight, lit in red, white, and blue"
+              class="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent px-4 py-3">
+              <p class="text-white/95 text-xs sm:text-sm font-medium tracking-wide italic text-center">
+                A grand arrival at the Washington Hilton.
+              </p>
             </div>
-          ))}
+          </div>
+
+          <!-- 8 ribbon-styled feature cards. 2-col x 4-row grid with
+               auto-rows-fr so all cards have equal height regardless of
+               content length. -->
+          <div class="grid grid-cols-2 grid-rows-4 gap-4 sm:gap-5 auto-rows-fr">
+            {experienceFeatures.map((f) => (
+              <div class="ribbon-card relative h-full">
+                <div class="ribbon-card-bg"></div>
+                <div class="ribbon-card-content relative h-full flex flex-col justify-center text-center px-5 py-4 sm:px-6 sm:py-5">
+                  <h3 class="font-heading font-bold text-[#0B1F3A] text-base sm:text-[17px] leading-tight mb-1.5">{f.title}</h3>
+                  <p class="text-[#163A70] text-[13px] sm:text-[14px] leading-snug">{f.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -904,5 +914,42 @@ const faqs = [
   }
   details > summary::-webkit-details-marker {
     display: none;
+  }
+
+  /* ==========================================================
+     RIBBON CARDS — All-Inclusive Experience feature tiles.
+     Banner shape (V-cut ends) with red top + white middle
+     + blue bottom, gold trim lines separating the stripes.
+     ========================================================== */
+  .ribbon-card {
+    position: relative;
+    min-height: 6.25rem;
+    filter:
+      drop-shadow(0 12px 22px rgba(0,0,0,0.32))
+      drop-shadow(0 4px 8px rgba(0,0,0,0.22))
+      drop-shadow(0 1px 1px rgba(0,0,0,0.18));
+  }
+  .ribbon-card-bg {
+    position: absolute;
+    inset: 0;
+    clip-path: polygon(0% 50%, 6% 0%, 94% 0%, 100% 50%, 94% 100%, 6% 100%);
+    background:
+      /* Gold accent lines at stripe boundaries */
+      linear-gradient(to bottom,
+        transparent 13.5%, rgba(197,164,78,0.85) 13.5%, rgba(197,164,78,0.85) 14.5%, transparent 14.5%,
+        transparent 85.5%, rgba(197,164,78,0.85) 85.5%, rgba(197,164,78,0.85) 86.5%, transparent 86.5%),
+      /* Color stripes: red 14% / white 72% / blue 14% (Old Glory tones) */
+      linear-gradient(to bottom,
+        #B22234 0%, #B22234 14%,
+        #FAFAFA 14%, #FAFAFA 86%,
+        #1A2851 86%, #1A2851 100%);
+  }
+  .ribbon-card-bg::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    top: 14%; bottom: 14%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%, transparent 50%);
+    pointer-events: none;
   }
 </style>
