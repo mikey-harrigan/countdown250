@@ -321,18 +321,60 @@ const faqs = [
           <div class="w-24 h-px bg-gold mx-auto"></div>
         </div>
 
-        <!-- ROW 1: Top body copy (left) | Medal + statement stacked (right) -->
+        <!-- Single row: body copy + scroller (left) | medal + statement (right) -->
         <div class="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-14 items-start mb-10 sm:mb-12">
-          <div class="space-y-5 text-slate text-lg leading-relaxed text-center md:text-left md:pt-6">
-            <p>
-              America&rsquo;s greatness is reflected in the citizens who dedicate their lives to serving others.
-            </p>
-            <p>
-              At the Countdown 250 Ball, we will proudly recognize several extraordinary Americans whose courage, leadership, and selfless service have strengthened our nation.
-            </p>
+
+          <!-- LEFT COLUMN: top body copy + heroes mini-scroller below it -->
+          <div>
+            <div class="space-y-5 text-slate text-lg leading-relaxed text-center md:text-left mb-7">
+              <p>
+                America&rsquo;s greatness is reflected in the citizens who dedicate their lives to serving others.
+              </p>
+              <p>
+                At the Countdown 250 Ball, we will proudly recognize several extraordinary Americans whose courage, leadership, and selfless service have strengthened our nation.
+              </p>
+            </div>
+
+            <!-- HEROES MINI-SCROLLER — slow, elegant, honor/people-focused -->
+            <div class="heroes-carousel relative rounded-md overflow-hidden aspect-[16/9] shadow-lg ring-1 ring-gold/25">
+              <div class="carousel-slide active">
+                <img src="/images/event/buzz-aldrin.png" alt="Astronaut Buzz Aldrin at a past All-American Inaugural Ball" class="absolute inset-0 w-full h-full object-cover" loading="eager" />
+                <div class="carousel-caption">Buzz Aldrin &mdash; past honored guest</div>
+              </div>
+              <div class="carousel-slide">
+                <img src="/images/event/aab-2025-medal-recipients-stage.jpg" alt="Medal recipients on stage at a past ball" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                <div class="carousel-caption">Medal recipients on stage</div>
+              </div>
+              <div class="carousel-slide">
+                <img src="/images/event/aab-2025-soldier-stage-hero.jpg" alt="Decorated service member honored on stage" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                <div class="carousel-caption">Honoring extraordinary service</div>
+              </div>
+              <div class="carousel-slide">
+                <img src="/images/event/inaugural-ceremony-flag.jpg" alt="Color guard ceremony with American flag" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                <div class="carousel-caption">A signature ceremonial moment</div>
+              </div>
+              <div class="carousel-slide">
+                <img src="/images/event/hero-awards-ceremony.png" alt="Lifetime achievement awards ceremony" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                <div class="carousel-caption">Lifetime achievement, recognized</div>
+              </div>
+              <div class="carousel-slide">
+                <img src="/images/event/aab-2025-soldier-ceremony.jpg" alt="Soldier honored at past ball ceremony" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                <div class="carousel-caption">Decorated veterans, recognized on stage</div>
+              </div>
+
+              <!-- Dot indicators -->
+              <div class="carousel-dots">
+                <button type="button" class="carousel-dot active" data-go="0" aria-label="Slide 1"></button>
+                <button type="button" class="carousel-dot" data-go="1" aria-label="Slide 2"></button>
+                <button type="button" class="carousel-dot" data-go="2" aria-label="Slide 3"></button>
+                <button type="button" class="carousel-dot" data-go="3" aria-label="Slide 4"></button>
+                <button type="button" class="carousel-dot" data-go="4" aria-label="Slide 5"></button>
+                <button type="button" class="carousel-dot" data-go="5" aria-label="Slide 6"></button>
+              </div>
+            </div>
           </div>
 
-          <!-- Right column: medal on top, statement centered below -->
+          <!-- RIGHT COLUMN: medal on top, statement centered below -->
           <div class="flex flex-col items-center">
             <!-- Lifetime Achievement Award medal -->
             <div class="relative w-72 sm:w-80 md:w-[22rem] lg:w-[26rem]">
@@ -356,46 +398,6 @@ const faqs = [
               <p class="font-heading italic text-navy/85 text-base sm:text-lg font-medium leading-snug">
                 celebrating the very best of America&rsquo;s spirit.
               </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- ROW 2: Heroes mini-scroller (centered, full-width-constrained) -->
-        <div class="max-w-3xl mx-auto mb-10 sm:mb-12">
-          <div class="heroes-carousel relative rounded-md overflow-hidden aspect-[16/9] shadow-lg ring-1 ring-gold/25">
-            <div class="carousel-slide active">
-              <img src="/images/event/buzz-aldrin.png" alt="Astronaut Buzz Aldrin at a past All-American Inaugural Ball" class="absolute inset-0 w-full h-full object-cover" loading="eager" />
-              <div class="carousel-caption">Buzz Aldrin &mdash; past honored guest</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/event/aab-2025-medal-recipients-stage.jpg" alt="Medal recipients on stage at a past ball" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">Medal recipients on stage</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/event/aab-2025-soldier-stage-hero.jpg" alt="Decorated service member honored on stage" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">Honoring extraordinary service</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/event/inaugural-ceremony-flag.jpg" alt="Color guard ceremony with American flag" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">A signature ceremonial moment</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/event/hero-awards-ceremony.png" alt="Lifetime achievement awards ceremony" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">Lifetime achievement, recognized</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/event/aab-2025-soldier-ceremony.jpg" alt="Soldier honored at past ball ceremony" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">Decorated veterans, recognized on stage</div>
-            </div>
-
-            <!-- Dot indicators -->
-            <div class="carousel-dots">
-              <button type="button" class="carousel-dot active" data-go="0" aria-label="Slide 1"></button>
-              <button type="button" class="carousel-dot" data-go="1" aria-label="Slide 2"></button>
-              <button type="button" class="carousel-dot" data-go="2" aria-label="Slide 3"></button>
-              <button type="button" class="carousel-dot" data-go="3" aria-label="Slide 4"></button>
-              <button type="button" class="carousel-dot" data-go="4" aria-label="Slide 5"></button>
-              <button type="button" class="carousel-dot" data-go="5" aria-label="Slide 6"></button>
             </div>
           </div>
         </div>
