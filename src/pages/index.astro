@@ -97,6 +97,7 @@ const tickets = [
     id: "ticket-statesmans",
     description: "For the Pinnacle Experience at the VIP Reception + The Ball — Elevated with Exclusive Access, Concierge Service, Personal Recognition, and Official Event Gifts.",
     inheritsFrom: "Patriot VIP Ticket",
+    sectionIntro: "Plus These Elite Upgrades:",
     sections: [
       {
         heading: "Accommodations – All Night",
@@ -586,9 +587,9 @@ const faqs = [
                   </div>
                 )}
 
-                {/* Section intro (legacy slot — kept in case any future tier needs it) */}
+                {/* Umbrella heading above the categorized sections (e.g. "Plus These Elite Upgrades:") */}
                 {ticket.sectionIntro && (
-                  <p class={`text-xs font-bold tracking-wider uppercase mb-4 leading-snug ${ticket.highlight ? 'text-navy/70' : 'text-gold/90'}`}>
+                  <p class={`text-sm font-extrabold tracking-wider uppercase mb-4 leading-snug ${ticket.highlight ? 'text-red' : 'text-gold'}`}>
                     {ticket.sectionIntro}
                   </p>
                 )}
