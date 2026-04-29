@@ -1,49 +1,36 @@
-// Hosted Group Tables — official public list.
-// This file is the single source of truth for group names shown on the website.
-// Keep identical to the Eventbrite dropdown; when adding/approving/renaming a group,
-// update BOTH this file AND the Eventbrite checkout dropdown.
+// Hosted Tables Program — official public roster.
+// This file is the single source of truth for the live roster shown on
+// /hosted-group-tables. Keep counts updated as real people join via the
+// Google Forms (master Sheet → reflect changes here weekly).
 //
-// To add a group: add its exact name to the appropriate category below.
-// To rename: change the string here AND update Eventbrite to match exactly.
-// To remove: delete the string here AND remove from Eventbrite.
+// Featured threshold: tables with 6+ confirmed members earn the "Featured
+// Hosted Table" badge (public toast + personalized signage at the event).
 
-export interface HostedGroupCategory {
-  /** Section heading shown on the Hosted Group Tables page */
+export interface HostedTable {
+  /** Display name shown on the public roster */
   name: string;
-  /** Group names — case and punctuation must match Eventbrite exactly */
-  groups: string[];
+  /** Optional one-line theme/description shown under the name */
+  description?: string;
+  /** Confirmed member count (seed at launch, real signups added on top) */
+  count: number;
 }
 
-export const hostedGroupCategories: HostedGroupCategory[] = [
-  {
-    name: "Alumni & Schools",
-    groups: [
-      "JMU Alumni",
-      "Virginia Tech Alumni",
-      "UVA Alumni",
-      "GMU Alumni",
-    ],
-  },
-  {
-    name: "Neighborhoods & Local",
-    groups: [
-      "Lansdowne Neighbors",
-    ],
-  },
-  {
-    name: "Industry & Networking",
-    groups: [
-      "Healthcare Professionals",
-    ],
-  },
-  {
-    name: "Interests & Social",
-    groups: [
-      "DC Sports Fanatics",
-      "AI Enthusiasts",
-    ],
-  },
+/** A Hosted Table earns "Featured" status (public toast + personalized
+ *  signage) at this many confirmed members or more. */
+export const FEATURED_THRESHOLD = 6;
+
+/** Live roster shown on /hosted-group-tables, ordered by display preference. */
+export const hostedTables: HostedTable[] = [
+  { name: "JMU Alumni",                    count: 12 },
+  { name: "Virginia Tech Alumni",          count: 8  },
+  { name: "University of Maryland Alumni", count: 6  },
+  { name: "UVA Alumni",                    count: 4  },
+  { name: "Georgetown Alumni",             count: 4  },
+  { name: "Healthcare Professionals",      count: 6  },
+  { name: "H Tragle 50th Bday",            count: 10 },
+  { name: "Lansdowne Crew",                count: 8  },
+  { name: "Walter Family Reunion",         count: 8  },
 ];
 
-/** Flat list of all group names, useful for quick display or validation. */
-export const allHostedGroups = hostedGroupCategories.flatMap((c) => c.groups);
+/** Convenience: derived flat list of names, kept for any legacy imports. */
+export const allHostedGroups = hostedTables.map((t) => t.name);
