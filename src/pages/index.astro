@@ -618,6 +618,22 @@ const faqs = [
                   ))}
                 </div>
 
+                {/* Statesman-only: big gold CTA to Hosted Tables */}
+                {ticket.highlight && (
+                  <a
+                    href="#hosted-tables"
+                    class="block w-full text-center mb-4 px-5 py-4 rounded-lg bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                  >
+                    <p class="font-heading font-extrabold text-base sm:text-lg leading-tight tracking-tight mb-1.5">
+                      Host your own &ldquo;Party Inside the Party&rdquo; &rarr;
+                    </p>
+                    <ul class="text-xs sm:text-[13px] font-semibold space-y-0.5">
+                      <li>&#10003; No cost to you or your guests</li>
+                      <li>&#10003; Takes 30 seconds to set up</li>
+                    </ul>
+                  </a>
+                )}
+
                 {/* Footnote (e.g., "Reception-style", "Extremely limited") */}
                 {ticket.note && (
                   <p class={`text-xs mb-4 italic ${ticket.highlight ? 'text-slate/55' : 'text-white/40'}`}>
