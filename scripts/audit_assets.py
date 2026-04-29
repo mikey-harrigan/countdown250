@@ -4,6 +4,7 @@
   3. Every <a href="#..."> in-page anchor matches an id="..." on the same page.
   4. No duplicate id attributes within a single .astro file.
   5. Each .carousel block's .carousel-dot count matches its .carousel-slide count.
+  6. Every named import from a local file resolves to an actual export of that file.
 
 Prints PASS / FAIL per check. Exit 1 if any failure.
 """
@@ -175,6 +176,123 @@ if mismatches:
     failures.append(f"{len(mismatches)} carousel dot/slide mismatches")
     for src, name, s, d in mismatches:
         print(f"  MISMATCH {src} .{name}: {s} slides, {d} dots")
+
+
+# ---------- 6. Dead-import audit (catches the kind of break that took down
+#                the GitHub Pages build on 2026-04-29 — renamed an export in a
+#                data file, missed an importer in a legacy component) ----------
+print("\n=== [6] Dead-import audit (named imports from local files) ===")
+
+SRC_DIR = ROOT / "src"
+TS_LIKE = (".ts", ".tsx", ".astro", ".js", ".jsx")
+
+# Files we audit imports IN
+IMPORT_FILES = (
+    list(SRC_DIR.rglob("*.astro"))
+    + list(SRC_DIR.rglob("*.ts"))
+    + list(SRC_DIR.rglob("*.tsx"))
+)
+
+# Match named-import statements:
+#   import { X, Y as Z } from '...'
+#   import type { X } from '...'
+#   import Default, { X, Y } from '...'  (we only check the {} part here)
+named_import_re = re.compile(
+    r"import\s+(?:type\s+)?(?:[A-Za-z_$][\w$]*\s*,\s*)?\{([^}]+)\}\s*from\s*['\"]([^'\"]+)['\"]",
+    re.DOTALL,
+)
+
+# Match exported names from a source file (covers the common patterns).
+export_named_re = re.compile(
+    r"export\s+(?:default\s+)?(?:async\s+)?(?:const|let|var|function|class|interface|type|enum)\s+([A-Za-z_$][\w$]*)"
+)
+# Re-export style: export { X, Y as Z } from '...'  /  export { X, Y };
+export_object_re = re.compile(r"export\s+\{([^}]+)\}")
+
+
+def resolve_local_import(importer: Path, spec: str) -> Path | None:
+    """Resolve a relative import spec to an actual source file path."""
+    if not (spec.startswith("./") or spec.startswith("../") or spec.startswith("/")):
+        return None  # bare/package import, skip
+    base = (importer.parent / spec).resolve()
+    # Try direct extensions
+    for ext in ("", *TS_LIKE):
+        p = Path(str(base) + ext) if ext else base
+        if p.is_file():
+            return p
+    # Try /index.* if base is a directory
+    if base.is_dir():
+        for ext in TS_LIKE:
+            p = base / f"index{ext}"
+            if p.is_file():
+                return p
+    return None
+
+
+def parse_exports(src_path: Path) -> set[str]:
+    """Return the set of named exports from a source file."""
+    txt = src_path.read_text(encoding="utf-8", errors="ignore")
+    # Strip /* */ and // comments crudely so they don't pollute matches
+    txt = re.sub(r"/\*.*?\*/", "", txt, flags=re.DOTALL)
+    txt = re.sub(r"(?m)^\s*//.*$", "", txt)
+    names: set[str] = set()
+    names.update(export_named_re.findall(txt))
+    for blob in export_object_re.findall(txt):
+        for raw in blob.split(","):
+            piece = raw.strip()
+            if not piece:
+                continue
+            # Handle "X as Y" — export name is whatever appears AFTER `as`
+            after_as = re.match(r"[A-Za-z_$][\w$]*\s+as\s+([A-Za-z_$][\w$]*)", piece)
+            if after_as:
+                names.add(after_as.group(1))
+            else:
+                m = re.match(r"([A-Za-z_$][\w$]*)", piece)
+                if m:
+                    names.add(m.group(1))
+    return names
+
+
+def imported_names_from_clause(blob: str) -> list[str]:
+    """Extract the source-side names from a {...} import clause (handle 'as')."""
+    out: list[str] = []
+    for raw in blob.split(","):
+        piece = raw.strip()
+        if not piece:
+            continue
+        # Strip leading "type " (TypeScript inline type imports)
+        piece = re.sub(r"^type\s+", "", piece)
+        # "X as Y" — what we need to verify on the source side is X
+        m = re.match(r"([A-Za-z_$][\w$]*)(?:\s+as\s+[A-Za-z_$][\w$]*)?", piece)
+        if m:
+            out.append(m.group(1))
+    return out
+
+
+# Cache parsed exports so we don't re-parse the same file for every importer
+exports_cache: dict[Path, set[str]] = {}
+dead_imports = []
+for f in IMPORT_FILES:
+    txt = f.read_text(encoding="utf-8", errors="ignore")
+    for m in named_import_re.finditer(txt):
+        clause = m.group(1)
+        spec = m.group(2)
+        target = resolve_local_import(f, spec)
+        if target is None:
+            continue  # external/package import, skip
+        if target not in exports_cache:
+            exports_cache[target] = parse_exports(target)
+        exports = exports_cache[target]
+        for name in imported_names_from_clause(clause):
+            if name not in exports:
+                dead_imports.append((f.name, name, spec, target.name))
+
+if dead_imports:
+    failures.append(f"{len(dead_imports)} dead/missing named imports")
+    for src, name, spec, target in dead_imports:
+        print(f"  DEAD     {src}: imports '{name}' from '{spec}' — not exported by {target}")
+else:
+    print(f"  PASS — every named import from {len(exports_cache)} local source files resolves to an actual export")
 
 
 # ---------- summary ----------
