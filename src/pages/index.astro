@@ -38,7 +38,7 @@ const tickets = [
     time: "The Ball: 9 PM – 1 AM",
     originalPrice: "$195",
     price: "$225",
-    futurePrice: "$295 / $395 / $495",
+    futurePrice: "$350 / $500",
     id: "ticket-liberty",
     description: "Celebrate the Ball in classic style.",
     sections: [
@@ -64,7 +64,7 @@ const tickets = [
     time: "VIP Reception + Ball: 7 PM – 1 AM",
     originalPrice: "$395",
     price: "$450",
-    futurePrice: "$595 / $795 / $995",
+    futurePrice: "$700 / $1,000",
     id: "ticket-patriot-vip",
     description: "Early access, dinner, and a more elevated evening from start to finish (6:30 PM – 1 AM).",
     inheritsFrom: "Liberty Ticket",
@@ -93,7 +93,7 @@ const tickets = [
     time: "Premier Luxury: 7 PM – 1 AM",
     originalPrice: "$1,495",
     price: "$1,700",
-    futurePrice: "$2,500 / $3,500 / $5,000",
+    futurePrice: "$3,000 / $5,000",
     id: "ticket-statesmans",
     description: "For the Pinnacle Experience at the VIP Reception + The Ball — Elevated with Exclusive Access, Concierge Service, Personal Recognition, and Official Event Gifts.",
     inheritsFrom: "Patriot VIP Ticket",
@@ -532,17 +532,15 @@ const faqs = [
                   </h3>
                 </div>
 
-                {/* Pricing block */}
+                {/* Pricing block — original (strike) + current (big) + future (small) all on one baseline */}
                 <div class={`mb-6 pb-6 border-b ${ticket.highlight ? 'border-slate/10' : 'border-white/10'}`}>
-                  <div class="flex items-baseline gap-3">
+                  <div class="flex items-baseline gap-3 flex-wrap">
                     <span class={`text-base line-through ${ticket.highlight ? 'text-slate/30' : 'text-white/25'}`}>
                       {ticket.originalPrice}
                     </span>
                     <span class={`text-4xl font-bold ${ticket.highlight ? 'text-navy' : 'text-white'}`}>
                       {ticket.price}
                     </span>
-                  </div>
-                  <div class="flex items-baseline gap-2 mt-1 flex-wrap">
                     {ticket.futurePrice.split(' / ').map((fp) => (
                       <span class={`text-sm ${ticket.highlight ? 'text-slate/30' : 'text-white/25'}`}>{fp}</span>
                     ))}
