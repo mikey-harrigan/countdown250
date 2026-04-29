@@ -859,42 +859,6 @@ const faqs = [
     </section>
 
     <!-- ============================================================ -->
-    <!-- 6. FAQ — placed before final urgency so page closes on action -->
-    <!-- ============================================================ -->
-    <section class="pt-12 pb-20 sm:pt-16 sm:pb-28 bg-white">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-10">
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-5 font-heading">Common Questions</h2>
-          <div class="w-20 h-1 bg-red mx-auto"></div>
-        </div>
-
-        <!-- Why guests attend — short bullet block above the questions -->
-        <div class="mb-10 bg-cream rounded-xl p-6 sm:p-7 border-l-4 border-gold">
-          <p class="text-navy font-bold text-base sm:text-lg mb-3 font-heading">Why guests attend:</p>
-          <ul class="space-y-1.5 text-slate/80 text-base leading-snug">
-            <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>A once-in-a-generation historic moment</span></li>
-            <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>A premium all-inclusive celebration</span></li>
-            <li class="flex items-start"><span class="text-gold mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Distinguished guests from across America</span></li>
-          </ul>
-        </div>
-
-        <div class="space-y-4">
-          {faqs.map(({ q, a }) => (
-            <details class="group bg-cream rounded-xl p-6 cursor-pointer">
-              <summary class="flex items-start justify-between gap-4 list-none cursor-pointer">
-                <h3 class="text-lg font-bold text-navy font-heading">{q}</h3>
-                <svg class="w-5 h-5 flex-shrink-0 text-gold mt-1 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </summary>
-              <p class="text-slate/70 leading-relaxed mt-4">{a}</p>
-            </details>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================ -->
     <!-- 7. URGENCY — final close, conversion-focused -->
     <!-- ============================================================ -->
     <section class="py-16 sm:py-20 bg-red text-white">
