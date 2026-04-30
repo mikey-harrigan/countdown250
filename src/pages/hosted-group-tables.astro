@@ -11,8 +11,8 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
 // Google Forms. The "Create" form is for Hosts; the "Join" form is for
 // Guests joining an existing Hosted Group. Until replaced, both buttons
 // fall back to a prefilled mailto: so visitors can still reach Mike.
-const CREATE_FORM_URL = "mailto:CountdownAmerica250@gmail.com?subject=Create%20a%20Hosted%20Table&body=I%27d%20like%20to%20create%20a%20Hosted%20Table.%20Please%20send%20me%20the%20signup%20form.";
-const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%20Hosted%20Table&body=I%27d%20like%20to%20join%20a%20Hosted%20Table.%20Please%20send%20me%20the%20signup%20form.";
+const CREATE_FORM_URL = "mailto:CountdownAmerica250@gmail.com?subject=Create%20a%20Hosted%20Group&body=I%27d%20like%20to%20create%20a%20Hosted%20Group.%20Please%20send%20me%20the%20signup%20form.";
+const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%20Hosted%20Group&body=I%27d%20like%20to%20join%20a%20Hosted%20Group.%20Please%20send%20me%20the%20signup%20form.";
 ---
 
 <BaseLayout
@@ -22,379 +22,446 @@ const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%2
 >
   <Navbar />
 
-  <!-- ============================================================ -->
-  <!-- HERO -->
-  <!-- ============================================================ -->
-  <section class="pt-32 pb-14 sm:pb-16 bg-navy text-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-      <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-4">
-        Maximize Your Statesman&rsquo;s Pass Experience
-      </p>
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 font-heading text-gold leading-tight">
-        The Hosted Groups Program
-      </h1>
-      <p class="text-xl sm:text-2xl text-white italic font-light mb-7 leading-snug">
-        Host your own &ldquo;Party Inside the Party&rdquo;<br class="hidden sm:block" />
-        &mdash; or join one already in motion.
-      </p>
-      <div class="w-24 h-px bg-gold mx-auto"></div>
-    </div>
-  </section>
+  <main>
 
-  <!-- ============================================================ -->
-  <!-- WHAT IT IS (concise, with reassurance baked in) -->
-  <!-- ============================================================ -->
-  <section class="py-12 sm:py-14 bg-navy text-white">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6">
-      <div class="space-y-5 text-white/90 text-base sm:text-lg leading-relaxed">
-        <p>
-          The <strong class="text-gold">Hosted Groups Program</strong> is an exclusive amenity for Statesman&rsquo;s Concierge Pass holders. It lets you reserve a private table for your group inside the Statesman&rsquo;s Concierge Area &mdash; a &ldquo;Party Inside the Party&rdquo; with personalized recognition, signage, and amenities.
+    <!-- ============================================================ -->
+    <!-- HERO — navy bg, mirrors the Partners page hero pattern -->
+    <!-- ============================================================ -->
+    <section class="relative pt-20 pb-16 sm:pt-24 bg-navy text-white overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-navy-dark/90 to-navy"></div>
+      <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <!-- Eyebrow -->
+        <p class="text-white font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-7">
+          Maximize Your Statesman&rsquo;s Pass Experience
         </p>
-        <p>
-          Hosting and joining are both <strong class="text-white">completely optional</strong>. Use it if it suits you. Skip it if it doesn&rsquo;t. Your Statesman&rsquo;s Pass experience is exceptional either way.
+
+        <!-- H1 — same font and styling family as the Partners page H1 -->
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gold mb-3 font-heading leading-tight">
+          Hosted Groups
+        </h1>
+
+        <!-- Tagline directly under the title -->
+        <p class="text-white italic text-base sm:text-lg font-light mb-7 tracking-wide">
+          Your &ldquo;Party Inside the Party&rdquo;
         </p>
+
+        <div class="w-20 h-1 bg-red mx-auto"></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================================ -->
-  <!-- 3-STEP FLOW -->
-  <!-- ============================================================ -->
-  <section class="py-10 sm:py-12 bg-navy">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      <p class="text-center text-base sm:text-lg lg:text-xl leading-relaxed text-white/90 whitespace-nowrap overflow-x-auto">
-        <strong class="font-bold text-gold">You</strong> invite guests
-        <span class="text-gold font-black text-lg sm:text-xl lg:text-2xl mx-2 sm:mx-3 align-middle">&rarr;</span>
-        <strong class="font-bold text-gold">Guests</strong> purchase Statesman&rsquo;s Pass tix
-        <span class="text-gold font-black text-lg sm:text-xl lg:text-2xl mx-2 sm:mx-3 align-middle">&rarr;</span>
-        <strong class="font-bold text-gold">We</strong> handle the rest.
-      </p>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- THREE WAYS — the no-pressure / don't-dissuade reassurance -->
-  <!-- ============================================================ -->
-  <section class="py-14 sm:py-16 bg-navy text-white border-t border-gold/20">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-10">
-        <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3">No Wrong Way</p>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 font-heading leading-tight">
-          Three Ways to Enjoy Your Statesman&rsquo;s Pass
-        </h2>
-        <div class="w-20 h-px bg-gold mx-auto"></div>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-5 sm:gap-6">
-
-        <!-- Option 1: Host -->
-        <div class="bg-cream rounded-xl p-6 sm:p-7 flex flex-col">
-          <p class="text-red font-bold tracking-wider uppercase text-xs mb-3">Option 1</p>
-          <h3 class="font-heading font-bold text-xl text-navy mb-3 leading-tight">
-            Host your own Hosted Group
-          </h3>
-          <p class="text-slate/80 text-sm sm:text-base leading-relaxed flex-grow">
-            Bring your group, get the spotlight. Featured Hosted Groups (6+ guests) earn the public Toast to the Hosts and personalized table signage.
+    <!-- ============================================================ -->
+    <!-- INTRO — white bg starts here, same as Partners body sections -->
+    <!-- ============================================================ -->
+    <section class="pt-12 pb-10 sm:pt-14 sm:pb-12 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <!-- 3-fact reassurance bar — moved here from the hero, recolored for white bg -->
+        <p class="text-navy font-bold tracking-[0.15em] uppercase text-xs sm:text-sm mb-8 text-center">
+          No Extra Cost &nbsp;<span class="text-gold">&#9733;</span>&nbsp; Takes Under a Minute &nbsp;<span class="text-gold">&#9733;</span>&nbsp; Completely Optional
+        </p>
+        <div class="space-y-5 text-slate/80 text-base sm:text-lg leading-relaxed">
+          <p>
+            The Hosted Groups experience is a <strong class="text-red">complimentary option</strong> available to Statesman&rsquo;s Pass ticket holders. It lets you host a private group &mdash; or join an existing group &mdash; at your very own &ldquo;Party Inside the Party&rdquo; within the historic Countdown 250 Gala.
+          </p>
+          <p>
+            Each group enjoys a <strong class="text-red">dedicated gathering space</strong> in the exclusive Statesman&rsquo;s Concierge Area, with reserved seating, custom signage, and coordinated details designed to create your own special &ldquo;Party Inside the Party.&rdquo; <strong class="text-red">Group members are seated together</strong> even if tickets are purchased separately.
+          </p>
+          <p class="text-slate/70 text-sm sm:text-base italic">
+            Groups of 6 or more, contact us at <a href="mailto:CountdownAmerica250@gmail.com?subject=Hosted%20Group%20%E2%80%94%20Group%20of%206%2B" class="text-red font-semibold not-italic hover:underline">CountdownAmerica250@gmail.com</a> for enhanced accommodations.
           </p>
         </div>
-
-        <!-- Option 2: Join -->
-        <div class="bg-cream rounded-xl p-6 sm:p-7 flex flex-col">
-          <p class="text-red font-bold tracking-wider uppercase text-xs mb-3">Option 2</p>
-          <h3 class="font-heading font-bold text-xl text-navy mb-3 leading-tight">
-            Join an existing Hosted Group
-          </h3>
-          <p class="text-slate/80 text-sm sm:text-base leading-relaxed flex-grow">
-            Sit with your tribe. Affinity tables (alumni, professional, family, neighborhood) are open to any Statesman&rsquo;s Pass holder. Browse the live roster below.
-          </p>
-        </div>
-
-        <!-- Option 3: Independent -->
-        <div class="bg-cream rounded-xl p-6 sm:p-7 flex flex-col">
-          <p class="text-red font-bold tracking-wider uppercase text-xs mb-3">Option 3</p>
-          <h3 class="font-heading font-bold text-xl text-navy mb-3 leading-tight">
-            Sit independently
-          </h3>
-          <p class="text-slate/80 text-sm sm:text-base leading-relaxed flex-grow">
-            <strong class="font-bold text-navy">Not in a group? That&rsquo;s OK.</strong> We&rsquo;ll seat you with other independent and honored guests in the Statesman&rsquo;s Concierge Area. Buying tickets together at the same time? You&rsquo;ll be seated together automatically &mdash; no formal group needed.
-          </p>
-        </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================================ -->
-  <!-- BENEFITS LADDER — Hosted Group vs Featured Hosted Group -->
-  <!-- ============================================================ -->
-  <section class="py-14 sm:py-16 bg-navy text-white">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-10">
-        <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3">Benefits</p>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 font-heading leading-tight">
-          Bring 5 Friends. Get the Spotlight.
-        </h2>
-        <div class="w-20 h-px bg-gold mx-auto mb-5"></div>
-        <p class="max-w-2xl mx-auto text-white/85 text-base sm:text-lg leading-relaxed">
-          Every Hosted Group gets reserved seating + named in the official program. Hosts who bring 5 or more guests (6+ total) earn full public recognition.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-5 sm:gap-6">
-
-        <!-- Tier 1: Hosted Group -->
-        <div class="bg-cream rounded-xl p-6 sm:p-8">
-          <p class="text-navy/70 font-bold tracking-[0.25em] uppercase text-xs mb-3">Hosted Group &mdash; any size</p>
-          <p class="text-slate/85 text-sm italic mb-5">For any group of 2 or more.</p>
-          <ul class="space-y-2.5 text-slate/85 text-base leading-snug">
-            <li class="flex items-start"><span class="text-gold mr-3 font-bold flex-shrink-0 mt-1.5 text-[8px]">&#9679;</span><span>Reserved private table for your group inside the Statesman&rsquo;s Concierge Area</span></li>
-            <li class="flex items-start"><span class="text-gold mr-3 font-bold flex-shrink-0 mt-1.5 text-[8px]">&#9679;</span><span><strong class="font-bold text-navy">Host named</strong> in the official event program</span></li>
-            <li class="flex items-start"><span class="text-gold mr-3 font-bold flex-shrink-0 mt-1.5 text-[8px]">&#9679;</span><span><strong class="font-bold text-navy">Host named</strong> on the event website</span></li>
-            <li class="flex items-start"><span class="text-gold mr-3 font-bold flex-shrink-0 mt-1.5 text-[8px]">&#9679;</span><span>We handle every detail &mdash; you enjoy <strong class="font-bold text-navy">YOUR party</strong></span></li>
-          </ul>
-        </div>
-
-        <!-- Tier 2: Featured Hosted Group -->
-        <div class="relative bg-gradient-to-br from-gold to-[#B8954A] rounded-xl p-6 sm:p-8">
-          <span class="absolute -top-3 right-6 bg-red text-white text-[10px] font-bold tracking-wider uppercase px-3 py-1 rounded shadow-lg">&#9733; Featured</span>
-          <p class="text-navy-dark/80 font-bold tracking-[0.25em] uppercase text-xs mb-3">Featured Hosted Group &mdash; 6+ guests</p>
-          <p class="text-navy-dark text-sm italic mb-5">Everything above, plus:</p>
-          <ul class="space-y-2.5 text-navy-dark text-base leading-snug">
-            <li class="flex items-start"><span class="mr-3 font-bold flex-shrink-0 mt-1.5 text-[8px]">&#9679;</span><span><strong class="font-bold">Public &ldquo;Toast to the Hosts&rdquo;</strong> ceremony at the event</span></li>
-            <li class="flex items-start"><span class="mr-3 font-bold flex-shrink-0 mt-1.5 text-[8px]">&#9679;</span><span><strong class="font-bold">Personalized table signage</strong> with your name &amp; group name</span></li>
-            <li class="flex items-start"><span class="mr-3 font-bold flex-shrink-0 mt-1.5 text-[8px]">&#9679;</span><span>Premium recognition during stage announcements</span></li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- DEADLINES -->
-  <!-- ============================================================ -->
-  <section class="py-12 sm:py-14 bg-navy text-white border-t border-gold/20">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-8">
-        <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3">Production Deadlines</p>
-        <h2 class="text-2xl sm:text-3xl font-bold text-white font-heading">Don&rsquo;t Wait &mdash; Recruit Early</h2>
-      </div>
-      <ul class="space-y-3 text-white/85 text-base sm:text-lg leading-relaxed">
-        <li class="flex items-start gap-3">
-          <span class="text-gold font-bold flex-shrink-0 w-20">T-60 days</span>
-          <span>Official event program goes to print &mdash; Hosts confirmed by this date are named.</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="text-gold font-bold flex-shrink-0 w-20">T-30 days</span>
-          <span>Personalized table signage cuts off &mdash; Featured Hosted Groups must finalize details.</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="text-gold font-bold flex-shrink-0 w-20">T-7 days</span>
-          <span>Final seating chart is locked.</span>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- LIVE ROSTER OF HOSTED TABLES -->
-  <!-- ============================================================ -->
-  <section class="py-14 sm:py-16 bg-navy text-white border-t border-gold/20">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-10">
-        <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3">Live Roster</p>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 font-heading leading-tight">
-          Hosted Groups in Motion
-        </h2>
-        <div class="w-20 h-px bg-gold mx-auto mb-5"></div>
-        <p class="max-w-2xl mx-auto text-white/85 text-base sm:text-lg leading-relaxed">
-          Browse the active Hosted Groups. Don&rsquo;t see your tribe? Start your own &mdash; it takes 30 seconds.
-        </p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-        {hostedTables.map((t) => (
-          <div class="relative bg-cream rounded-xl p-5 sm:p-6 flex flex-col">
-            {t.count >= FEATURED_THRESHOLD && (
-              <span class="absolute -top-2.5 -right-2.5 bg-red text-white text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded shadow-md">&#9733; Featured</span>
-            )}
-            <h3 class="font-heading font-bold text-lg sm:text-xl text-navy mb-1 leading-tight">{t.name}</h3>
-            {t.description && (
-              <p class="text-slate/70 text-xs sm:text-sm italic mb-2">{t.description}</p>
-            )}
-            <p class="text-red font-bold text-sm tracking-wide mb-4">
-              {t.count} confirmed members
+    <!-- ============================================================ -->
+    <!-- BENEFITS — compact two-column card on white -->
+    <!-- ============================================================ -->
+    <section class="py-10 sm:py-12 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="rounded-xl overflow-hidden border border-navy/15 shadow-md">
+          <!-- Gold header bar -->
+          <div class="bg-gold py-3 sm:py-4 px-6 text-center">
+            <p class="text-navy-dark font-bold tracking-[0.25em] uppercase text-xs sm:text-sm leading-tight">
+              Benefits of Hosted Groups
             </p>
+          </div>
+          <!-- Two columns: Hosts | Guests -->
+          <div class="grid md:grid-cols-2">
+            <!-- HOSTS PANEL — navy gradient stays as a feature panel even on white page bg -->
+            <div class="relative bg-gradient-to-br from-navy-dark via-navy to-navy-dark p-5 sm:p-6 text-white overflow-hidden">
+              <div class="hidden md:block absolute top-0 right-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold/40 to-transparent"></div>
+              <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs mb-3">Hosts&rsquo; Benefits</p>
+              <ul class="space-y-2 text-white/90 text-sm sm:text-[15px] leading-snug">
+                <li class="flex items-start"><span class="text-gold mr-2.5 flex-shrink-0 mt-1 text-xs">&#10022;</span><span>We do the work &mdash; you enjoy <strong class="font-semibold text-white">YOUR</strong> party</span></li>
+                <li class="flex items-start"><span class="text-gold mr-2.5 flex-shrink-0 mt-1 text-xs">&#10022;</span><span>Premium party favors, decorations, and amenities</span></li>
+                <li class="flex items-start"><span class="text-gold mr-2.5 flex-shrink-0 mt-1 text-xs">&#10022;</span><span>Public &ldquo;Toast to the Hosts&rdquo;</span></li>
+                <li class="flex items-start"><span class="text-gold mr-2.5 flex-shrink-0 mt-1 text-xs">&#10022;</span><span>Named in event program &amp; website</span></li>
+                <li class="flex items-start"><span class="text-gold mr-2.5 flex-shrink-0 mt-1 text-xs">&#10022;</span><span>Personalized table signage</span></li>
+              </ul>
+            </div>
+            <!-- GUESTS PANEL — cream now contrasts against the white page bg -->
+            <div class="bg-cream p-5 sm:p-6">
+              <p class="text-navy/80 font-bold tracking-[0.25em] uppercase text-xs mb-3">Guests&rsquo; Benefits</p>
+              <ul class="space-y-2 text-slate/85 text-sm sm:text-[15px] leading-snug">
+                <li class="flex items-start"><span class="text-navy/40 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Reserved premium seating</span></li>
+                <li class="flex items-start"><span class="text-navy/40 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Seated with your group, even if tickets are bought separately</span></li>
+                <li class="flex items-start"><span class="text-navy/40 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Seated near our distinguished guests</span></li>
+                <li class="flex items-start"><span class="text-navy/40 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>No additional cost beyond your ticket</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PERFECT FOR ANY GROUP — boxed, mirrors the Benefits card pattern -->
+    <!-- ============================================================ -->
+    <section class="py-10 sm:py-12 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="rounded-xl overflow-hidden border border-navy/15 shadow-md">
+          <!-- Gold header bar -->
+          <div class="bg-gold py-3 sm:py-4 px-6 text-center">
+            <p class="text-navy-dark font-bold tracking-[0.25em] uppercase text-xs sm:text-sm leading-tight">
+              Perfect for Any Group
+            </p>
+          </div>
+          <!-- Body — cream, gold-star separators -->
+          <div class="bg-cream p-6 sm:p-7 text-center">
+            <p class="text-slate/85 text-base sm:text-lg leading-relaxed">
+              Company Parties &nbsp;<span class="text-gold">&#9733;</span>&nbsp; School Alumni &nbsp;<span class="text-gold">&#9733;</span>&nbsp; Professional Groups &nbsp;<span class="text-gold">&#9733;</span>&nbsp; Birthday Celebrations &nbsp;<span class="text-gold">&#9733;</span>&nbsp; Reunions &nbsp;<span class="text-gold">&#9733;</span>&nbsp; Neighborhood Groups &nbsp;<span class="text-gold">&#9733;</span>&nbsp; Civic Associations &nbsp;<span class="text-gold">&#9733;</span>&nbsp; Common-interest Groups
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- HOW IT WORKS — HOSTING / JOINING side-by-side on white -->
+    <!-- ============================================================ -->
+    <section id="how-it-works" class="scroll-mt-24 py-14 sm:py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+        <!-- One unified graphic, mirroring the Benefits-of-Hosted-Groups card -->
+        <div class="rounded-xl overflow-hidden border border-navy/15 shadow-md">
+
+          <!-- Gold header bar — 3-line stack -->
+          <div class="bg-gold py-4 sm:py-5 px-6 text-center">
+            <p class="text-navy-dark/80 font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-1">
+              Instructions
+            </p>
+            <p class="text-navy-dark font-bold tracking-[0.25em] uppercase text-base sm:text-lg leading-tight">
+              Creating or Joining a Group
+            </p>
+            <p class="text-navy-dark/85 font-semibold italic text-sm sm:text-base mt-1">
+              Easy as 1&mdash;2&mdash;3
+            </p>
+          </div>
+
+          <!-- Two-column inner grid: Hosting (cream) | Joining (navy) -->
+          <div class="grid md:grid-cols-2">
+
+            <!-- HOSTING PANEL — cream -->
+            <div class="relative bg-cream p-6 sm:p-7 flex flex-col border-b md:border-b-0 md:border-r border-navy/10">
+              <p class="text-red font-bold tracking-[0.2em] uppercase text-xs mb-3">Create Your Hosted Group</p>
+              <h3 class="font-heading font-bold text-xl text-navy mb-4 leading-tight">
+                You invite guests. We handle the rest.
+              </h3>
+              <ol class="space-y-3 text-slate/85 text-sm sm:text-base leading-snug list-none mb-5">
+                <li class="flex gap-3"><span class="font-bold text-navy flex-shrink-0">1.</span><span>Purchase your Statesman&rsquo;s Concierge Pass.</span></li>
+                <li class="flex gap-3"><span class="font-bold text-navy flex-shrink-0">2.</span><span>Use Hosted Groups link on this page or in your confirmation email to register your group &mdash; it takes less than 2 minutes.</span></li>
+                <li class="flex gap-3"><span class="font-bold text-navy flex-shrink-0">3.</span><span>Invite others to join your Hosted Group.</span></li>
+              </ol>
+              <div class="border-t border-navy/10 pt-4 mb-5 space-y-2 text-slate/80 text-sm sm:text-base leading-snug italic">
+                <p>We handle setup, custom signage, decor, favors, coordination, and details.</p>
+                <p>You enjoy an unforgettable evening at your own private celebration within the Ball.</p>
+              </div>
+              <a
+                href={CREATE_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-auto inline-block text-center bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark text-xs font-bold tracking-[0.18em] uppercase px-5 py-3 rounded shadow-md hover:shadow-lg transition-all"
+              >
+                Create a Group &rarr;
+              </a>
+            </div>
+
+            <!-- JOINING PANEL — navy gradient -->
+            <div class="bg-gradient-to-br from-navy-dark via-navy to-navy-dark p-6 sm:p-7 flex flex-col text-white">
+              <p class="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-3">Join an Existing Group</p>
+              <h3 class="font-heading font-bold text-xl text-white mb-4 leading-tight">
+                Get ready to celebrate!
+              </h3>
+              <ol class="space-y-3 text-white/90 text-sm sm:text-base leading-snug list-none mb-5">
+                <li class="flex gap-3"><span class="font-bold text-gold flex-shrink-0">1.</span><span>Purchase your Statesman&rsquo;s Concierge Pass.</span></li>
+                <li class="flex gap-3"><span class="font-bold text-gold flex-shrink-0">2.</span><span>Use the Hosted Groups link on this page or in your confirmation email to select the group you&rsquo;d like to join.</span></li>
+                <li class="flex gap-3"><span class="font-bold text-gold flex-shrink-0">3.</span><span>Register for that group &ndash; it takes less than 2 minutes.</span></li>
+              </ol>
+              <div class="border-t border-gold/30 pt-4 mb-5 space-y-2 text-white/80 text-sm sm:text-base leading-snug italic">
+                <p>We coordinate group accommodation and amenities.</p>
+                <p>You enjoy this historic event with your people!</p>
+              </div>
+              <a
+                href={JOIN_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-auto inline-block text-center bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark text-xs font-bold tracking-[0.18em] uppercase px-5 py-3 rounded shadow-md hover:shadow-lg transition-all"
+              >
+                Join a Group &rarr;
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- LIVE ROSTER — wrapped in a gold-header / navy-body box -->
+    <!-- ============================================================ -->
+    <section class="py-14 sm:py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="rounded-xl overflow-hidden border border-navy/15 shadow-md">
+          <!-- Gold header bar -->
+          <div class="bg-gold py-3 sm:py-4 px-6 text-center">
+            <p class="text-navy-dark font-bold tracking-[0.25em] uppercase text-xs sm:text-sm leading-tight">
+              Live Roster
+            </p>
+          </div>
+          <!-- Navy body -->
+          <div class="bg-gradient-to-br from-navy-dark via-navy to-navy-dark p-6 sm:p-10">
+            <div class="text-center mb-10">
+              <h2 class="text-3xl sm:text-4xl font-bold text-gold mb-4 font-heading leading-tight">
+                Hosted Groups in Motion
+              </h2>
+              <div class="w-16 h-1 bg-gold mx-auto mb-5"></div>
+              <p class="max-w-2xl mx-auto text-white/85 text-base sm:text-lg leading-relaxed">
+                Browse current Hosted Groups. Don&rsquo;t see your group? Start your own.
+              </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+              {hostedTables.map((t) => (
+                <div class="relative bg-cream rounded-xl p-5 sm:p-6 flex flex-col">
+                  {t.count >= FEATURED_THRESHOLD && (
+                    <span class="absolute -top-2.5 -right-2.5 bg-red text-white text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded shadow-md">&#9733; Featured</span>
+                  )}
+                  <h3 class="font-heading font-bold text-lg sm:text-xl text-navy mb-1 leading-tight">{t.name}</h3>
+                  <p class="text-red font-bold text-sm tracking-wide mb-4">
+                    {t.count} confirmed members
+                  </p>
+                  <a
+                    href={JOIN_FORM_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mt-auto inline-block text-center bg-navy hover:bg-navy-light text-white text-xs font-bold tracking-[0.15em] uppercase px-4 py-2.5 rounded transition-colors"
+                  >
+                    Join This Group &rarr;
+                  </a>
+                </div>
+              ))}
+            </div>
+
+            <!-- Start-a-new button below the roster grid, inside the navy box -->
+            <div class="text-center mt-10">
+              <a
+                href={CREATE_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-block bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-8 py-3.5 text-sm font-bold tracking-[0.18em] uppercase transition-all rounded shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              >
+                Start a New Hosted Group &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- FAQ — wrapped in gold-header / cream-body box, condensed -->
+    <!-- ============================================================ -->
+    <section class="py-10 sm:py-12 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="rounded-xl overflow-hidden border border-navy/15 shadow-md">
+          <!-- Gold header bar -->
+          <div class="bg-gold py-3 sm:py-4 px-6 text-center">
+            <p class="text-navy-dark font-bold tracking-[0.25em] uppercase text-xs sm:text-sm leading-tight">
+              Common Questions
+            </p>
+          </div>
+          <!-- Cream body — divider lines instead of individual cards -->
+          <div class="bg-cream px-5 sm:px-7 divide-y divide-navy/10">
+            <details class="group py-3 sm:py-3.5 cursor-pointer">
+              <summary class="flex items-start justify-between gap-4 list-none cursor-pointer">
+                <h3 class="text-sm sm:text-base font-semibold text-navy font-heading">Do I have to be in a group to buy a Statesman&rsquo;s Concierge Pass?</h3>
+                <svg class="w-4 h-4 flex-shrink-0 text-gold mt-1 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </summary>
+              <p class="text-slate/80 leading-relaxed mt-2 text-sm">
+                <strong class="text-navy font-bold">No.</strong> Hosted Groups are completely optional. Independent guests are warmly welcomed and will be seated in the Statesman&rsquo;s Concierge Area.
+              </p>
+            </details>
+
+            <details class="group py-3 sm:py-3.5 cursor-pointer">
+              <summary class="flex items-start justify-between gap-4 list-none cursor-pointer">
+                <h3 class="text-sm sm:text-base font-semibold text-navy font-heading">Does it cost anything extra to host or join a group?</h3>
+                <svg class="w-4 h-4 flex-shrink-0 text-gold mt-1 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </summary>
+              <p class="text-slate/80 leading-relaxed mt-2 text-sm">
+                <strong class="text-navy font-bold">No.</strong> Hosting or joining a Hosted Group is included at no additional cost.
+              </p>
+            </details>
+
+            <details class="group py-3 sm:py-3.5 cursor-pointer">
+              <summary class="flex items-start justify-between gap-4 list-none cursor-pointer">
+                <h3 class="text-sm sm:text-base font-semibold text-navy font-heading">Can I start or join a group after buying my ticket?</h3>
+                <svg class="w-4 h-4 flex-shrink-0 text-gold mt-1 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </summary>
+              <p class="text-slate/80 leading-relaxed mt-2 text-sm">
+                <strong class="text-navy font-bold">Yes.</strong> Use the Hosted Groups link on this page or in your confirmation email.
+              </p>
+            </details>
+
+            <details class="group py-3 sm:py-3.5 cursor-pointer">
+              <summary class="flex items-start justify-between gap-4 list-none cursor-pointer">
+                <h3 class="text-sm sm:text-base font-semibold text-navy font-heading">Will I need my Eventbrite order number?</h3>
+                <svg class="w-4 h-4 flex-shrink-0 text-gold mt-1 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </summary>
+              <p class="text-slate/80 leading-relaxed mt-2 text-sm">
+                <strong class="text-navy font-bold">Yes.</strong> We use your order number to verify your ticket and coordinate seating.
+              </p>
+            </details>
+
+            <details class="group py-3 sm:py-3.5 cursor-pointer">
+              <summary class="flex items-start justify-between gap-4 list-none cursor-pointer">
+                <h3 class="text-sm sm:text-base font-semibold text-navy font-heading">If I buy multiple tickets at one time, will we be seated together?</h3>
+                <svg class="w-4 h-4 flex-shrink-0 text-gold mt-1 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </summary>
+              <p class="text-slate/80 leading-relaxed mt-2 text-sm">
+                <strong class="text-navy font-bold">Yes.</strong> Tickets purchased together in one order will be seated together whenever possible.
+              </p>
+            </details>
+
+            <details class="group py-3 sm:py-3.5 cursor-pointer">
+              <summary class="flex items-start justify-between gap-4 list-none cursor-pointer">
+                <h3 class="text-sm sm:text-base font-semibold text-navy font-heading">If my friend and I purchase tickets separately, can we still sit together?</h3>
+                <svg class="w-4 h-4 flex-shrink-0 text-gold mt-1 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </summary>
+              <p class="text-slate/80 leading-relaxed mt-2 text-sm">
+                <strong class="text-navy font-bold">Yes.</strong> The easiest way is to create or join a Hosted Group. It&rsquo;s quick, free, and groups can be as small as two people.
+              </p>
+            </details>
+
+            <details class="group py-3 sm:py-3.5 cursor-pointer">
+              <summary class="flex items-start justify-between gap-4 list-none cursor-pointer">
+                <h3 class="text-sm sm:text-base font-semibold text-navy font-heading">Can I join a group even if I don&rsquo;t know everyone in it?</h3>
+                <svg class="w-4 h-4 flex-shrink-0 text-gold mt-1 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </summary>
+              <p class="text-slate/80 leading-relaxed mt-2 text-sm">
+                <strong class="text-navy font-bold">Yes.</strong> Many groups are formed around shared interests, affiliations, schools, neighborhoods, or communities.
+              </p>
+            </details>
+
+            <details class="group py-3 sm:py-3.5 cursor-pointer">
+              <summary class="flex items-start justify-between gap-4 list-none cursor-pointer">
+                <h3 class="text-sm sm:text-base font-semibold text-navy font-heading">Will my email address or order number be shown publicly?</h3>
+                <svg class="w-4 h-4 flex-shrink-0 text-gold mt-1 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </summary>
+              <p class="text-slate/80 leading-relaxed mt-2 text-sm">
+                <strong class="text-navy font-bold">No.</strong> Email addresses, phone numbers, Eventbrite order numbers, and private notes are only visible to the event team.
+              </p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- HELPFUL TIPS / ASSETS — moved to bottom (de-emphasized for now) -->
+    <!-- ============================================================ -->
+    <section class="py-12 sm:py-14 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="rounded-xl overflow-hidden border border-navy/15 shadow-md">
+          <!-- Gold header bar -->
+          <div class="bg-gold py-3 sm:py-4 px-6 text-center">
+            <p class="text-navy-dark font-bold tracking-[0.25em] uppercase text-xs sm:text-sm leading-tight">
+              Helpful Tips &amp; Assets
+            </p>
+          </div>
+          <!-- Cream body -->
+          <div class="bg-cream p-6 sm:p-8">
+            <div class="text-center mb-6">
+              <h2 class="text-2xl sm:text-3xl font-bold text-navy font-heading">We&rsquo;ll Help You Get the Word Out</h2>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4 sm:gap-5">
+              <div class="bg-white rounded-xl p-5 sm:p-6 border border-navy/10">
+                <p class="text-red font-bold tracking-[0.18em] uppercase text-xs mb-2">Sample Invitation Email</p>
+                <p class="text-slate/85 text-sm leading-relaxed">
+                  Copy-and-paste email language Hosts can send to friends, family, colleagues, or alumni groups.
+                </p>
+              </div>
+              <div class="bg-white rounded-xl p-5 sm:p-6 border border-navy/10">
+                <p class="text-red font-bold tracking-[0.18em] uppercase text-xs mb-2">Sample Invitation Text</p>
+                <p class="text-slate/85 text-sm leading-relaxed">
+                  Short text-message copy Hosts can send quickly by phone.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- DEADLINES — moved to bottom (de-emphasized for now) -->
+    <!-- ============================================================ -->
+    <section class="py-10 sm:py-12 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-5">Don&rsquo;t Wait &mdash; Recruit Early</p>
+        <ul class="space-y-2 text-slate/85 text-sm sm:text-base leading-relaxed inline-block text-left">
+          <li><strong class="text-red">T-60 days:</strong> Hosts named in the printed program</li>
+          <li><strong class="text-red">T-30 days:</strong> Personalized signage deadline</li>
+          <li><strong class="text-red">T-7 days:</strong> Final seating chart locked</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CLOSING CTA — navy rounded card on white (Partners pattern) -->
+    <!-- ============================================================ -->
+    <section class="py-14 sm:py-16 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="bg-navy rounded-2xl p-10 text-center">
+          <svg class="w-12 h-12 text-gold mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+          </svg>
+          <h3 class="text-2xl sm:text-3xl font-bold text-gold mb-3 font-heading">Be A Part Of History.</h3>
+          <p class="text-white/80 text-base sm:text-lg leading-relaxed mb-7">
+            Reserve your Statesman&rsquo;s Concierge Pass &mdash; then host or join your &ldquo;Party Inside the Party.&rdquo;
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
             <a
-              href={JOIN_FORM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="mt-auto inline-block text-center bg-navy hover:bg-navy-light text-white text-xs font-bold tracking-[0.15em] uppercase px-4 py-2.5 rounded transition-colors"
+              href={ticketUrl}
+              class="eventbrite-checkout inline-block bg-red hover:bg-red-light text-white px-8 py-3 text-sm font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
             >
-              Join This Table &rarr;
+              Get Your Statesman&rsquo;s Pass
+            </a>
+            <a
+              href="#how-it-works"
+              class="inline-block border-2 border-gold text-gold hover:bg-gold hover:text-navy-dark px-8 py-2.5 text-sm font-semibold tracking-wider uppercase transition-all rounded"
+            >
+              Start or Join a Hosted Group
             </a>
           </div>
-        ))}
+        </div>
+
+        <div class="text-center mt-10">
+          <a href="/" class="inline-block bg-white border-2 border-navy text-navy hover:bg-navy hover:text-white px-8 py-3 text-sm font-semibold tracking-wider uppercase transition-all rounded hover:-translate-y-0.5">
+            Back to Home
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================================ -->
-  <!-- TWO BIG CTAs: Create / Join -->
-  <!-- ============================================================ -->
-  <section class="py-14 sm:py-16 bg-navy text-white">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-10">
-        <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3">Get Started</p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 font-heading leading-tight">
-          Ready to Host or Join?
-        </h2>
-        <div class="w-20 h-px bg-gold mx-auto mb-5"></div>
-        <p class="max-w-2xl mx-auto text-white/85 text-base sm:text-lg leading-relaxed">
-          You&rsquo;ll need a Statesman&rsquo;s Concierge Pass. Already have one? Pick your path below.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-5 sm:gap-6 mb-10">
-
-        <!-- Create -->
-        <a
-          href={CREATE_FORM_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group block bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark rounded-xl p-6 sm:p-8 transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5 ring-1 ring-gold/30 ring-offset-2 ring-offset-navy"
-        >
-          <p class="font-bold tracking-[0.18em] uppercase text-xs mb-3 opacity-80">Hosts</p>
-          <h3 class="font-heading font-extrabold text-2xl sm:text-3xl mb-3 leading-tight">
-            Create a Hosted Group &rarr;
-          </h3>
-          <p class="text-sm sm:text-base font-medium leading-snug">
-            Takes 30 seconds. Tell us your group name, expected size, and a few details. We&rsquo;ll send a sample invitation you can forward to your guests.
-          </p>
-        </a>
-
-        <!-- Join -->
-        <a
-          href={JOIN_FORM_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group block bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark rounded-xl p-6 sm:p-8 transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5 ring-1 ring-gold/30 ring-offset-2 ring-offset-navy"
-        >
-          <p class="font-bold tracking-[0.18em] uppercase text-xs mb-3 opacity-80">Guests</p>
-          <h3 class="font-heading font-extrabold text-2xl sm:text-3xl mb-3 leading-tight">
-            Join a Hosted Group &rarr;
-          </h3>
-          <p class="text-sm sm:text-base font-medium leading-snug">
-            Pick from the roster above (or write in your host&rsquo;s name). We&rsquo;ll match you to your group and seat you together at the event.
-          </p>
-        </a>
-
-      </div>
-
-      <p class="text-center text-white/60 text-xs sm:text-sm italic">
-        Don&rsquo;t have a Statesman&rsquo;s Pass yet? <a href={ticketUrl} class="text-gold hover:text-gold/80 underline font-medium">Get yours first &rarr;</a>
-      </p>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- FAQ -->
-  <!-- ============================================================ -->
-  <section class="py-14 sm:py-16 bg-navy text-white border-t border-gold/20">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-10">
-        <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3">Common Questions</p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-white font-heading">Quick Answers</h2>
-      </div>
-
-      <div class="space-y-3">
-        <details class="group bg-cream rounded-xl p-5 sm:p-6 cursor-pointer">
-          <summary class="flex items-start justify-between gap-4 list-none cursor-pointer">
-            <h3 class="text-base sm:text-lg font-bold text-navy font-heading">Do I have to be in a group to buy a Statesman&rsquo;s Pass?</h3>
-            <svg class="w-5 h-5 flex-shrink-0 text-gold mt-1 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-          </summary>
-          <p class="text-slate/80 leading-relaxed mt-4 text-sm sm:text-base">
-            <strong class="text-navy font-bold">No.</strong> The Hosted Groups Program is a Statesman&rsquo;s Pass amenity, not a requirement. You&rsquo;ll be seated with other distinguished and honored guests in the Statesman&rsquo;s Concierge Area &mdash; same elevated experience, same premium section.
-          </p>
-        </details>
-
-        <details class="group bg-cream rounded-xl p-5 sm:p-6 cursor-pointer">
-          <summary class="flex items-start justify-between gap-4 list-none cursor-pointer">
-            <h3 class="text-base sm:text-lg font-bold text-navy font-heading">My friends and I just want to sit together. Do we need a formal group?</h3>
-            <svg class="w-5 h-5 flex-shrink-0 text-gold mt-1 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-          </summary>
-          <p class="text-slate/80 leading-relaxed mt-4 text-sm sm:text-base">
-            <strong class="text-navy font-bold">No.</strong> Buy your tickets at the same time and we&rsquo;ll seat you together automatically. Hosting is for groups of any size who want the public recognition (named in program, named on website, and at 6+ guests, the public Toast to the Hosts).
-          </p>
-        </details>
-
-        <details class="group bg-cream rounded-xl p-5 sm:p-6 cursor-pointer">
-          <summary class="flex items-start justify-between gap-4 list-none cursor-pointer">
-            <h3 class="text-base sm:text-lg font-bold text-navy font-heading">How do I host? What does it actually involve?</h3>
-            <svg class="w-5 h-5 flex-shrink-0 text-gold mt-1 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-          </summary>
-          <p class="text-slate/80 leading-relaxed mt-4 text-sm sm:text-base">
-            Three steps: (1) Buy your Statesman&rsquo;s Pass on Eventbrite. (2) Click <em>Create a Hosted Group</em> on this page and fill out the 30-second form. (3) We&rsquo;ll email you a sample invitation you can forward to your guests. Each guest buys their own Statesman&rsquo;s Pass and joins your group on this same page. We handle every detail at the event.
-          </p>
-        </details>
-
-        <details class="group bg-cream rounded-xl p-5 sm:p-6 cursor-pointer">
-          <summary class="flex items-start justify-between gap-4 list-none cursor-pointer">
-            <h3 class="text-base sm:text-lg font-bold text-navy font-heading">What if my group doesn&rsquo;t reach 6 people?</h3>
-            <svg class="w-5 h-5 flex-shrink-0 text-gold mt-1 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-          </summary>
-          <p class="text-slate/80 leading-relaxed mt-4 text-sm sm:text-base">
-            <strong class="text-navy font-bold">No problem.</strong> You&rsquo;re still a Hosted Group with full base benefits &mdash; reserved private seating for your group, host named in the official event program, and host named on the event website. The two perks reserved for Featured Hosted Groups (public Toast to the Hosts and personalized table signage) carry meaningful production cost, which is why they kick in at 6+ guests.
-          </p>
-        </details>
-
-        <details class="group bg-cream rounded-xl p-5 sm:p-6 cursor-pointer">
-          <summary class="flex items-start justify-between gap-4 list-none cursor-pointer">
-            <h3 class="text-base sm:text-lg font-bold text-navy font-heading">Does the Host pay anything extra?</h3>
-            <svg class="w-5 h-5 flex-shrink-0 text-gold mt-1 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-          </summary>
-          <p class="text-slate/80 leading-relaxed mt-4 text-sm sm:text-base">
-            <strong class="text-navy font-bold">No.</strong> No extra cost to the Host. No extra cost to the guests. Each person pays only for their own Statesman&rsquo;s Concierge Pass.
-          </p>
-        </details>
-
-        <details class="group bg-cream rounded-xl p-5 sm:p-6 cursor-pointer">
-          <summary class="flex items-start justify-between gap-4 list-none cursor-pointer">
-            <h3 class="text-base sm:text-lg font-bold text-navy font-heading">When do I need to confirm my group?</h3>
-            <svg class="w-5 h-5 flex-shrink-0 text-gold mt-1 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-          </summary>
-          <p class="text-slate/80 leading-relaxed mt-4 text-sm sm:text-base">
-            Hosts are named in the printed program if confirmed by <strong class="text-navy font-bold">T-60 days (early May 2026)</strong>. Personalized signage cuts off at <strong class="text-navy font-bold">T-30 days</strong>. Final seating is locked at <strong class="text-navy font-bold">T-7 days</strong>. Earlier is always better.
-          </p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- CLOSING CTA -->
-  <!-- ============================================================ -->
-  <section class="py-14 sm:py-16 bg-navy text-white border-t border-gold/20">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gold mb-5 font-heading leading-tight">
-        Be A Part Of History.
-      </h2>
-      <p class="text-white/90 text-base sm:text-lg leading-relaxed mb-8">
-        Reserve your Statesman&rsquo;s Concierge Pass &mdash; then host or join your &ldquo;Party Inside the Party.&rdquo;
-      </p>
-      <a
-        href={ticketUrl}
-        class="eventbrite-checkout inline-block bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-10 py-4 text-sm font-bold tracking-[0.2em] uppercase transition-all rounded shadow-xl hover:shadow-2xl hover:-translate-y-0.5"
-      >
-        Get Your Statesman&rsquo;s Pass &rarr;
-      </a>
-      <div class="mt-8">
-        <a href="/" class="text-white/60 hover:text-white text-sm transition-colors">
-          &larr; Back to homepage
-        </a>
-      </div>
-    </div>
-  </section>
-
+  </main>
   <Footer />
 </BaseLayout>
