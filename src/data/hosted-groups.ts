@@ -1,10 +1,10 @@
-// Hosted Tables Program — official public roster.
+// Hosted Groups Program — official public roster.
 // This file is the single source of truth for the live roster shown on
 // /hosted-group-tables. Keep counts updated as real people join via the
 // Google Forms (master Sheet → reflect changes here weekly).
 //
 // Featured threshold: tables with 6+ confirmed members earn the "Featured
-// Hosted Table" badge (public toast + personalized signage at the event).
+// Hosted Group" badge (public toast + personalized signage at the event).
 
 export interface HostedTable {
   /** Display name shown on the public roster */
@@ -15,7 +15,7 @@ export interface HostedTable {
   count: number;
 }
 
-/** A Hosted Table earns "Featured" status (public toast + personalized
+/** A Hosted Group earns "Featured" status (public toast + personalized
  *  signage) at this many confirmed members or more. */
 export const FEATURED_THRESHOLD = 6;
 

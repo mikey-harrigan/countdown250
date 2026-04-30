@@ -9,14 +9,14 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
 
 // TODO: Mike — replace these placeholder URLs after creating the two
 // Google Forms. The "Create" form is for Hosts; the "Join" form is for
-// Guests joining an existing Hosted Table. Until replaced, both buttons
+// Guests joining an existing Hosted Group. Until replaced, both buttons
 // fall back to a prefilled mailto: so visitors can still reach Mike.
 const CREATE_FORM_URL = "mailto:CountdownAmerica250@gmail.com?subject=Create%20a%20Hosted%20Table&body=I%27d%20like%20to%20create%20a%20Hosted%20Table.%20Please%20send%20me%20the%20signup%20form.";
 const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%20Hosted%20Table&body=I%27d%20like%20to%20join%20a%20Hosted%20Table.%20Please%20send%20me%20the%20signup%20form.";
 ---
 
 <BaseLayout
-  title="The Hosted Tables Program — Statesman's Pass Amenity | The Official Countdown 250 Ball | July 3, 2026"
+  title="The Hosted Groups Program — Statesman's Pass Amenity | The Official Countdown 250 Ball | July 3, 2026"
   description="Host your own Party Inside the Party at the Countdown 250 Ball — or join one already in motion. Reserved private tables, named recognition, public toast. A Statesman's Concierge Pass amenity."
   ogImage="/images/event/hero-countdown250-toast.jpg"
 >
@@ -31,7 +31,7 @@ const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%2
         Maximize Your Statesman&rsquo;s Pass Experience
       </p>
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 font-heading text-gold leading-tight">
-        The Hosted Tables Program
+        The Hosted Groups Program
       </h1>
       <p class="text-xl sm:text-2xl text-white italic font-light mb-7 leading-snug">
         Host your own &ldquo;Party Inside the Party&rdquo;<br class="hidden sm:block" />
@@ -48,7 +48,7 @@ const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%2
     <div class="max-w-3xl mx-auto px-4 sm:px-6">
       <div class="space-y-5 text-white/90 text-base sm:text-lg leading-relaxed">
         <p>
-          The <strong class="text-gold">Hosted Tables Program</strong> is an exclusive amenity for Statesman&rsquo;s Concierge Pass holders. It lets you reserve a private table for your group inside the Statesman&rsquo;s Concierge Area &mdash; a &ldquo;Party Inside the Party&rdquo; with personalized recognition, signage, and amenities.
+          The <strong class="text-gold">Hosted Groups Program</strong> is an exclusive amenity for Statesman&rsquo;s Concierge Pass holders. It lets you reserve a private table for your group inside the Statesman&rsquo;s Concierge Area &mdash; a &ldquo;Party Inside the Party&rdquo; with personalized recognition, signage, and amenities.
         </p>
         <p>
           Hosting and joining are both <strong class="text-white">completely optional</strong>. Use it if it suits you. Skip it if it doesn&rsquo;t. Your Statesman&rsquo;s Pass experience is exceptional either way.
@@ -91,10 +91,10 @@ const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%2
         <div class="bg-cream rounded-xl p-6 sm:p-7 flex flex-col">
           <p class="text-red font-bold tracking-wider uppercase text-xs mb-3">Option 1</p>
           <h3 class="font-heading font-bold text-xl text-navy mb-3 leading-tight">
-            Host your own Hosted Table
+            Host your own Hosted Group
           </h3>
           <p class="text-slate/80 text-sm sm:text-base leading-relaxed flex-grow">
-            Bring your group, get the spotlight. Featured Hosted Tables (6+ guests) earn the public Toast to the Hosts and personalized table signage.
+            Bring your group, get the spotlight. Featured Hosted Groups (6+ guests) earn the public Toast to the Hosts and personalized table signage.
           </p>
         </div>
 
@@ -102,7 +102,7 @@ const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%2
         <div class="bg-cream rounded-xl p-6 sm:p-7 flex flex-col">
           <p class="text-red font-bold tracking-wider uppercase text-xs mb-3">Option 2</p>
           <h3 class="font-heading font-bold text-xl text-navy mb-3 leading-tight">
-            Join an existing Hosted Table
+            Join an existing Hosted Group
           </h3>
           <p class="text-slate/80 text-sm sm:text-base leading-relaxed flex-grow">
             Sit with your tribe. Affinity tables (alumni, professional, family, neighborhood) are open to any Statesman&rsquo;s Pass holder. Browse the live roster below.
@@ -125,7 +125,7 @@ const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%2
   </section>
 
   <!-- ============================================================ -->
-  <!-- BENEFITS LADDER — Hosted Table vs Featured Hosted Table -->
+  <!-- BENEFITS LADDER — Hosted Group vs Featured Hosted Group -->
   <!-- ============================================================ -->
   <section class="py-14 sm:py-16 bg-navy text-white">
     <div class="max-w-5xl mx-auto px-4 sm:px-6">
@@ -136,15 +136,15 @@ const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%2
         </h2>
         <div class="w-20 h-px bg-gold mx-auto mb-5"></div>
         <p class="max-w-2xl mx-auto text-white/85 text-base sm:text-lg leading-relaxed">
-          Every Hosted Table gets reserved seating + named in the official program. Hosts who bring 5 or more guests (6+ total) earn full public recognition.
+          Every Hosted Group gets reserved seating + named in the official program. Hosts who bring 5 or more guests (6+ total) earn full public recognition.
         </p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-5 sm:gap-6">
 
-        <!-- Tier 1: Hosted Table -->
+        <!-- Tier 1: Hosted Group -->
         <div class="bg-cream rounded-xl p-6 sm:p-8">
-          <p class="text-navy/70 font-bold tracking-[0.25em] uppercase text-xs mb-3">Hosted Table &mdash; any size</p>
+          <p class="text-navy/70 font-bold tracking-[0.25em] uppercase text-xs mb-3">Hosted Group &mdash; any size</p>
           <p class="text-slate/85 text-sm italic mb-5">For any group of 2 or more.</p>
           <ul class="space-y-2.5 text-slate/85 text-base leading-snug">
             <li class="flex items-start"><span class="text-gold mr-3 font-bold flex-shrink-0 mt-1.5 text-[8px]">&#9679;</span><span>Reserved private table for your group inside the Statesman&rsquo;s Concierge Area</span></li>
@@ -154,10 +154,10 @@ const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%2
           </ul>
         </div>
 
-        <!-- Tier 2: Featured Hosted Table -->
+        <!-- Tier 2: Featured Hosted Group -->
         <div class="relative bg-gradient-to-br from-gold to-[#B8954A] rounded-xl p-6 sm:p-8">
           <span class="absolute -top-3 right-6 bg-red text-white text-[10px] font-bold tracking-wider uppercase px-3 py-1 rounded shadow-lg">&#9733; Featured</span>
-          <p class="text-navy-dark/80 font-bold tracking-[0.25em] uppercase text-xs mb-3">Featured Hosted Table &mdash; 6+ guests</p>
+          <p class="text-navy-dark/80 font-bold tracking-[0.25em] uppercase text-xs mb-3">Featured Hosted Group &mdash; 6+ guests</p>
           <p class="text-navy-dark text-sm italic mb-5">Everything above, plus:</p>
           <ul class="space-y-2.5 text-navy-dark text-base leading-snug">
             <li class="flex items-start"><span class="mr-3 font-bold flex-shrink-0 mt-1.5 text-[8px]">&#9679;</span><span><strong class="font-bold">Public &ldquo;Toast to the Hosts&rdquo;</strong> ceremony at the event</span></li>
@@ -186,7 +186,7 @@ const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%2
         </li>
         <li class="flex items-start gap-3">
           <span class="text-gold font-bold flex-shrink-0 w-20">T-30 days</span>
-          <span>Personalized table signage cuts off &mdash; Featured Hosted Tables must finalize details.</span>
+          <span>Personalized table signage cuts off &mdash; Featured Hosted Groups must finalize details.</span>
         </li>
         <li class="flex items-start gap-3">
           <span class="text-gold font-bold flex-shrink-0 w-20">T-7 days</span>
@@ -204,11 +204,11 @@ const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%2
       <div class="text-center mb-10">
         <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3">Live Roster</p>
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 font-heading leading-tight">
-          Hosted Tables in Motion
+          Hosted Groups in Motion
         </h2>
         <div class="w-20 h-px bg-gold mx-auto mb-5"></div>
         <p class="max-w-2xl mx-auto text-white/85 text-base sm:text-lg leading-relaxed">
-          Browse the active Hosted Tables. Don&rsquo;t see your tribe? Start your own &mdash; it takes 30 seconds.
+          Browse the active Hosted Groups. Don&rsquo;t see your tribe? Start your own &mdash; it takes 30 seconds.
         </p>
       </div>
 
@@ -266,7 +266,7 @@ const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%2
         >
           <p class="font-bold tracking-[0.18em] uppercase text-xs mb-3 opacity-80">Hosts</p>
           <h3 class="font-heading font-extrabold text-2xl sm:text-3xl mb-3 leading-tight">
-            Create a Hosted Table &rarr;
+            Create a Hosted Group &rarr;
           </h3>
           <p class="text-sm sm:text-base font-medium leading-snug">
             Takes 30 seconds. Tell us your group name, expected size, and a few details. We&rsquo;ll send a sample invitation you can forward to your guests.
@@ -282,7 +282,7 @@ const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%2
         >
           <p class="font-bold tracking-[0.18em] uppercase text-xs mb-3 opacity-80">Guests</p>
           <h3 class="font-heading font-extrabold text-2xl sm:text-3xl mb-3 leading-tight">
-            Join a Hosted Table &rarr;
+            Join a Hosted Group &rarr;
           </h3>
           <p class="text-sm sm:text-base font-medium leading-snug">
             Pick from the roster above (or write in your host&rsquo;s name). We&rsquo;ll match you to your group and seat you together at the event.
@@ -314,7 +314,7 @@ const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%2
             <svg class="w-5 h-5 flex-shrink-0 text-gold mt-1 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
           </summary>
           <p class="text-slate/80 leading-relaxed mt-4 text-sm sm:text-base">
-            <strong class="text-navy font-bold">No.</strong> The Hosted Tables Program is a Statesman&rsquo;s Pass amenity, not a requirement. You&rsquo;ll be seated with other distinguished and honored guests in the Statesman&rsquo;s Concierge Area &mdash; same elevated experience, same premium section.
+            <strong class="text-navy font-bold">No.</strong> The Hosted Groups Program is a Statesman&rsquo;s Pass amenity, not a requirement. You&rsquo;ll be seated with other distinguished and honored guests in the Statesman&rsquo;s Concierge Area &mdash; same elevated experience, same premium section.
           </p>
         </details>
 
@@ -334,7 +334,7 @@ const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%2
             <svg class="w-5 h-5 flex-shrink-0 text-gold mt-1 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
           </summary>
           <p class="text-slate/80 leading-relaxed mt-4 text-sm sm:text-base">
-            Three steps: (1) Buy your Statesman&rsquo;s Pass on Eventbrite. (2) Click <em>Create a Hosted Table</em> on this page and fill out the 30-second form. (3) We&rsquo;ll email you a sample invitation you can forward to your guests. Each guest buys their own Statesman&rsquo;s Pass and joins your group on this same page. We handle every detail at the event.
+            Three steps: (1) Buy your Statesman&rsquo;s Pass on Eventbrite. (2) Click <em>Create a Hosted Group</em> on this page and fill out the 30-second form. (3) We&rsquo;ll email you a sample invitation you can forward to your guests. Each guest buys their own Statesman&rsquo;s Pass and joins your group on this same page. We handle every detail at the event.
           </p>
         </details>
 
@@ -344,7 +344,7 @@ const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%2
             <svg class="w-5 h-5 flex-shrink-0 text-gold mt-1 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
           </summary>
           <p class="text-slate/80 leading-relaxed mt-4 text-sm sm:text-base">
-            <strong class="text-navy font-bold">No problem.</strong> You&rsquo;re still a Hosted Table with full base benefits &mdash; reserved private seating for your group, host named in the official event program, and host named on the event website. The two perks reserved for Featured Hosted Tables (public Toast to the Hosts and personalized table signage) carry meaningful production cost, which is why they kick in at 6+ guests.
+            <strong class="text-navy font-bold">No problem.</strong> You&rsquo;re still a Hosted Group with full base benefits &mdash; reserved private seating for your group, host named in the official event program, and host named on the event website. The two perks reserved for Featured Hosted Groups (public Toast to the Hosts and personalized table signage) carry meaningful production cost, which is why they kick in at 6+ guests.
           </p>
         </details>
 
