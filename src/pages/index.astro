@@ -262,11 +262,125 @@ const faqs = [
     <Countdown />
 
     <!-- ============================================================ -->
-    <!-- 2. ALL-AMERICAN HERO LIFETIME ACHIEVEMENT AWARDS -->
+    <!-- 2. ALL-INCLUSIVE EXPERIENCE -->
+    <!-- ============================================================ -->
+    <section id="experience" class="scroll-mt-24 relative pt-12 pb-8 sm:pt-16 sm:pb-10 bg-navy text-white overflow-hidden">
+
+      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Header + value-establishing copy (tightened spacing) -->
+        <div class="text-center mb-10 sm:mb-12 max-w-3xl mx-auto">
+          <p class="text-red font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-3">Be A Part Of History</p>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 font-heading leading-tight">
+            Your All-Inclusive Experience
+          </h2>
+          <div class="w-20 h-px bg-gold mx-auto mb-6"></div>
+          <p class="text-white/85 text-lg leading-relaxed mb-5">
+            On July 3, the iconic Washington Hilton ballroom complex will transform into an extraordinary celebration of American heritage &mdash; an evening of world-class entertainment, refined elegance, and memories that will last forever.
+          </p>
+          <p class="text-white/85 text-lg leading-relaxed">
+            Mix and mingle with decorated veterans and first responders, professional athletes and celebrities, C-suite business leaders, policymakers, media personalities, influencers, and proud Americans from across the country at this once-in-a-lifetime celebration.
+          </p>
+        </div>
+
+        <!-- Image carousel (left) + ribbon feature cards (right). On mobile
+             they stack with image on top so the section stays compact.
+             12-slide fade carousel — auto-advance 6.5s, pauses on hover and
+             when off-screen, respects prefers-reduced-motion. -->
+        <div class="grid lg:grid-cols-[5fr_7fr] gap-6 lg:gap-8 items-stretch">
+
+          <!-- Experience carousel — 12 slides of real ball moments -->
+          <div class="experience-carousel relative rounded-lg overflow-hidden ring-2 ring-[#C5A44E]/40 aspect-[4/3] lg:aspect-auto lg:min-h-0" style="box-shadow: 0 25px 60px -12px rgba(0,0,0,0.65), 0 10px 25px -10px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08) inset;">
+            <div class="carousel-slide active">
+              <img src="/images/event/hilton-twilight.jpg" alt="Guests entering the Washington Hilton at twilight, lit in red, white, and blue" class="absolute inset-0 w-full h-full object-cover" loading="eager" />
+              <div class="carousel-caption">A grand arrival at the Washington Hilton</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/event/ballroom-crowd.jpg" alt="A grand ballroom packed with celebrating guests" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">Six grand ballrooms, one unforgettable night</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/event/piano-player.jpg" alt="Pianist performing on stage at the All-American Inaugural Ball" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">Intimate music, world-class talent</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/event/saxophonist.jpg" alt="Saxophonist in tuxedo performing live" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">Live jazz under the chandeliers</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/event/singer-flag-screen.jpg" alt="Singer performing in front of a giant American flag stage screen" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">Patriotic performance on the main stage</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/event/performer-eagle-screen.jpg" alt="Performer at a podium in front of a glowing eagle and flag stage screen" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">Spectacle, ceremony, and stagecraft</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/event/veterans-celebrating.jpg" alt="Wounded veteran with family and a fellow officer celebrating at the ball" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">Heroes &amp; their families, side by side</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/event/guests-elegant-quartet.jpg" alt="Four elegantly dressed guests posing in the ballroom" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">Black-tie elegance from coast to coast</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/event/guests-friendship.jpg" alt="Two guests sharing a laugh in the ballroom" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">Connections forged on a historic night</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/event/countdown-toast.jpg" alt="Champagne toast at midnight countdown" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">Midnight countdown to America&rsquo;s 250th</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/event/dj-party-lights.jpg" alt="DJ booth with party lights and packed dance floor" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">DJs &amp; dance floors until 1 AM</div>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/event/red-carpet-arrival.jpg" alt="Guests arriving on the red carpet" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">Red-carpet arrivals at the Washington Hilton</div>
+            </div>
+
+            <!-- Dot indicators — one per slide -->
+            <div class="carousel-dots">
+              <button type="button" class="carousel-dot active" data-go="0" aria-label="Slide 1"></button>
+              <button type="button" class="carousel-dot" data-go="1" aria-label="Slide 2"></button>
+              <button type="button" class="carousel-dot" data-go="2" aria-label="Slide 3"></button>
+              <button type="button" class="carousel-dot" data-go="3" aria-label="Slide 4"></button>
+              <button type="button" class="carousel-dot" data-go="4" aria-label="Slide 5"></button>
+              <button type="button" class="carousel-dot" data-go="5" aria-label="Slide 6"></button>
+              <button type="button" class="carousel-dot" data-go="6" aria-label="Slide 7"></button>
+              <button type="button" class="carousel-dot" data-go="7" aria-label="Slide 8"></button>
+              <button type="button" class="carousel-dot" data-go="8" aria-label="Slide 9"></button>
+              <button type="button" class="carousel-dot" data-go="9" aria-label="Slide 10"></button>
+              <button type="button" class="carousel-dot" data-go="10" aria-label="Slide 11"></button>
+              <button type="button" class="carousel-dot" data-go="11" aria-label="Slide 12"></button>
+            </div>
+          </div>
+
+          <!-- 8 ribbon-styled feature cards. 2-col x 4-row grid with
+               auto-rows-fr so all cards have equal height regardless of
+               content length. -->
+          <div class="grid grid-cols-2 grid-rows-4 gap-4 sm:gap-5 auto-rows-fr">
+            {experienceFeatures.map((f) => (
+              <div class="ribbon-card relative h-full">
+                <div class="ribbon-card-bg"></div>
+                <div class="ribbon-card-content relative h-full flex flex-col justify-center text-center px-5 py-4 sm:px-6 sm:py-5">
+                  <h3 class="font-heading font-bold text-[#0B1F3A] text-base sm:text-[17px] leading-tight mb-1.5">{f.title}</h3>
+                  <p class="text-[#163A70] text-[13px] sm:text-[14px] leading-snug">{f.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 3. ALL-AMERICAN HERO LIFETIME ACHIEVEMENT AWARDS -->
     <!-- Premium patriotic section honoring extraordinary Americans. -->
     <!-- Sits between countdown and All-Inclusive Experience. -->
     <!-- ============================================================ -->
-    <section id="heroes" class="scroll-mt-24 relative pt-12 pb-14 sm:pt-16 sm:pb-20 bg-navy overflow-hidden">
+    <section id="heroes" class="scroll-mt-24 relative pt-8 pb-14 sm:pt-10 sm:pb-20 bg-navy overflow-hidden">
       <!-- Hairline gold edges, subtle premium framing -->
       <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
       <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
@@ -379,122 +493,6 @@ const faqs = [
           </a>
         </div>
 
-      </div>
-    </section>
-
-    <!-- ============================================================ -->
-    <!-- 3. ALL-INCLUSIVE EXPERIENCE -->
-    <!-- ============================================================ -->
-    <section id="experience" class="scroll-mt-24 relative pt-12 pb-20 sm:pt-16 sm:pb-28 bg-cream overflow-hidden">
-      <!-- Subtle warm vignette for premium depth (replaces the previous dark vignette) -->
-      <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center, transparent 45%, rgba(120,90,30,0.10) 100%);"></div>
-
-      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <!-- Header + value-establishing copy (tightened spacing) -->
-        <div class="text-center mb-10 sm:mb-12 max-w-3xl mx-auto">
-          <p class="text-red font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-3">Be A Part Of History</p>
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0B1F3A] mb-4 font-heading leading-tight">
-            Your All-Inclusive Experience
-          </h2>
-          <div class="w-20 h-px bg-gold mx-auto mb-6"></div>
-          <p class="text-[#0B1F3A]/85 text-lg leading-relaxed mb-5">
-            On July 3, the iconic Washington Hilton ballroom complex will transform into an extraordinary celebration of American heritage &mdash; an evening of world-class entertainment, refined elegance, and memories that will last forever.
-          </p>
-          <p class="text-[#0B1F3A]/85 text-lg leading-relaxed">
-            Mix and mingle with decorated veterans and first responders, professional athletes and celebrities, C-suite business leaders, policymakers, media personalities, influencers, and proud Americans from across the country at this once-in-a-lifetime celebration.
-          </p>
-        </div>
-
-        <!-- Image carousel (left) + ribbon feature cards (right). On mobile
-             they stack with image on top so the section stays compact.
-             12-slide fade carousel — auto-advance 6.5s, pauses on hover and
-             when off-screen, respects prefers-reduced-motion. -->
-        <div class="grid lg:grid-cols-[5fr_7fr] gap-6 lg:gap-8 items-stretch">
-
-          <!-- Experience carousel — 12 slides of real ball moments -->
-          <div class="experience-carousel relative rounded-lg overflow-hidden ring-2 ring-[#C5A44E]/40 aspect-[4/3] lg:aspect-auto lg:min-h-0" style="box-shadow: 0 25px 60px -12px rgba(0,0,0,0.65), 0 10px 25px -10px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08) inset;">
-            <div class="carousel-slide active">
-              <img src="/images/event/hilton-twilight.jpg" alt="Guests entering the Washington Hilton at twilight, lit in red, white, and blue" class="absolute inset-0 w-full h-full object-cover" loading="eager" />
-              <div class="carousel-caption">A grand arrival at the Washington Hilton</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/event/ballroom-crowd.jpg" alt="A grand ballroom packed with celebrating guests" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">Six grand ballrooms, one unforgettable night</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/event/piano-player.jpg" alt="Pianist performing on stage at the All-American Inaugural Ball" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">Intimate music, world-class talent</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/event/saxophonist.jpg" alt="Saxophonist in tuxedo performing live" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">Live jazz under the chandeliers</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/event/singer-flag-screen.jpg" alt="Singer performing in front of a giant American flag stage screen" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">Patriotic performance on the main stage</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/event/performer-eagle-screen.jpg" alt="Performer at a podium in front of a glowing eagle and flag stage screen" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">Spectacle, ceremony, and stagecraft</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/event/veterans-celebrating.jpg" alt="Wounded veteran with family and a fellow officer celebrating at the ball" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">Heroes &amp; their families, side by side</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/event/guests-elegant-quartet.jpg" alt="Four elegantly dressed guests posing in the ballroom" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">Black-tie elegance from coast to coast</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/event/guests-friendship.jpg" alt="Two guests sharing a laugh in the ballroom" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">Connections forged on a historic night</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/event/countdown-toast.jpg" alt="Champagne toast at midnight countdown" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">Midnight countdown to America&rsquo;s 250th</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/event/dj-party-lights.jpg" alt="DJ booth with party lights and packed dance floor" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">DJs &amp; dance floors until 1 AM</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/event/red-carpet-arrival.jpg" alt="Guests arriving on the red carpet" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">Red-carpet arrivals at the Washington Hilton</div>
-            </div>
-
-            <!-- Dot indicators — one per slide -->
-            <div class="carousel-dots">
-              <button type="button" class="carousel-dot active" data-go="0" aria-label="Slide 1"></button>
-              <button type="button" class="carousel-dot" data-go="1" aria-label="Slide 2"></button>
-              <button type="button" class="carousel-dot" data-go="2" aria-label="Slide 3"></button>
-              <button type="button" class="carousel-dot" data-go="3" aria-label="Slide 4"></button>
-              <button type="button" class="carousel-dot" data-go="4" aria-label="Slide 5"></button>
-              <button type="button" class="carousel-dot" data-go="5" aria-label="Slide 6"></button>
-              <button type="button" class="carousel-dot" data-go="6" aria-label="Slide 7"></button>
-              <button type="button" class="carousel-dot" data-go="7" aria-label="Slide 8"></button>
-              <button type="button" class="carousel-dot" data-go="8" aria-label="Slide 9"></button>
-              <button type="button" class="carousel-dot" data-go="9" aria-label="Slide 10"></button>
-              <button type="button" class="carousel-dot" data-go="10" aria-label="Slide 11"></button>
-              <button type="button" class="carousel-dot" data-go="11" aria-label="Slide 12"></button>
-            </div>
-          </div>
-
-          <!-- 8 ribbon-styled feature cards. 2-col x 4-row grid with
-               auto-rows-fr so all cards have equal height regardless of
-               content length. -->
-          <div class="grid grid-cols-2 grid-rows-4 gap-4 sm:gap-5 auto-rows-fr">
-            {experienceFeatures.map((f) => (
-              <div class="ribbon-card relative h-full">
-                <div class="ribbon-card-bg"></div>
-                <div class="ribbon-card-content relative h-full flex flex-col justify-center text-center px-5 py-4 sm:px-6 sm:py-5">
-                  <h3 class="font-heading font-bold text-[#0B1F3A] text-base sm:text-[17px] leading-tight mb-1.5">{f.title}</h3>
-                  <p class="text-[#163A70] text-[13px] sm:text-[14px] leading-snug">{f.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
 
@@ -1143,6 +1141,8 @@ const faqs = [
     transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
                 filter    0.35s ease-out;
     filter:
+      /* Gold halo — defines each card's chevron edge against navy bg */
+      drop-shadow(0 0 6px rgba(197,164,78,0.45))
       drop-shadow(0 12px 22px rgba(0,0,0,0.32))
       drop-shadow(0 4px 8px rgba(0,0,0,0.22))
       drop-shadow(0 1px 1px rgba(0,0,0,0.18));
