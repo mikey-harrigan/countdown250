@@ -31,34 +31,46 @@ const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%2
   <!-- ============================================================ -->
   <!-- HERO -->
   <!-- ============================================================ -->
+  <!-- Italianno script font for the festive H1 below — high-end invitation style -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" slot="head" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin slot="head" />
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet" slot="head" />
+
   <section class="pt-24 pb-12 sm:pb-14 bg-navy text-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-      <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-4">
+      <!-- Two-line eyebrow stack -->
+      <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-1">
         Maximize Your Statesman&rsquo;s Pass Experience
       </p>
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 font-heading text-gold leading-tight">
-        Hosted Tables
-      </h1>
-      <p class="text-xl sm:text-2xl md:text-3xl text-white italic font-light mb-6 leading-snug">
-        Your &ldquo;Party Inside the Party&rdquo;
+      <p class="text-white italic text-sm sm:text-base font-light mb-6 tracking-wide">
+        With your &ldquo;Party Inside the Party&rdquo;
       </p>
 
-      <!-- 3-fact reassurance bar — addresses 'easy + free' at a glance -->
+      <!-- Festive script H1 — Italianno (Google Font) for elegant invitation feel -->
+      <h1 class="hero-script-headline text-gold mb-6 leading-none">
+        Hosted Tables
+      </h1>
+
+      <!-- 3-fact reassurance bar -->
       <p class="text-gold font-bold tracking-[0.15em] uppercase text-xs sm:text-sm mb-8">
         No Extra Cost &nbsp;&bull;&nbsp; Takes Under a Minute &nbsp;&bull;&nbsp; Completely Optional
       </p>
 
-      <!-- Primary CTA -->
-      <a
-        href="#how-it-works"
-        class="inline-block bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-10 py-4 text-sm font-bold tracking-[0.18em] uppercase transition-all rounded shadow-xl hover:shadow-2xl hover:-translate-y-0.5 mb-8"
-      >
-        Start or Join a Hosted Table &rarr;
-      </a>
-
       <div class="w-24 h-px bg-gold mx-auto"></div>
     </div>
   </section>
+
+  <style>
+    /* Festive script headline — Italianno is a flowing italic script in the
+       upscale-invitation tradition. Sized large because scripts read better
+       at scale. Letter-spacing slightly opened up so the curls don't crowd. */
+    .hero-script-headline {
+      font-family: 'Italianno', 'Playfair Display', cursive, serif;
+      font-weight: 400;
+      font-size: clamp(4.5rem, 10vw, 8rem);
+      letter-spacing: 0.01em;
+    }
+  </style>
 
   <!-- ============================================================ -->
   <!-- INTRO + OPTIONAL REASSURANCE -->
