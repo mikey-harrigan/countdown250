@@ -151,7 +151,7 @@ const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%2
                 <li class="flex gap-3"><span class="font-bold text-navy flex-shrink-0">2.</span><span>Use Hosted Groups link on this page or in your confirmation email to register your group &mdash; it takes less than 2 minutes.</span></li>
                 <li class="flex gap-3"><span class="font-bold text-navy flex-shrink-0">3.</span><span>Invite others to join your Hosted Group.</span></li>
               </ol>
-              <div class="border-t border-navy/10 pt-4 space-y-2 text-slate/80 text-sm sm:text-base leading-snug italic">
+              <div class="border-t border-navy/10 pt-4 mb-5 space-y-2 text-slate/80 text-sm sm:text-base leading-snug italic">
                 <p>We handle setup, custom signage, decor, favors, coordination, and details.</p>
                 <p>You enjoy an unforgettable evening at your own private celebration within the Ball.</p>
               </div>
@@ -159,7 +159,7 @@ const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%2
                 href={CREATE_FORM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="mt-5 inline-block text-center bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark text-xs font-bold tracking-[0.18em] uppercase px-5 py-3 rounded shadow-md hover:shadow-lg transition-all"
+                class="mt-auto inline-block text-center bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark text-xs font-bold tracking-[0.18em] uppercase px-5 py-3 rounded shadow-md hover:shadow-lg transition-all"
               >
                 Create a Group &rarr;
               </a>
@@ -176,7 +176,7 @@ const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%2
                 <li class="flex gap-3"><span class="font-bold text-gold flex-shrink-0">2.</span><span>Use the Hosted Groups link on this page or in your confirmation email to select the group you&rsquo;d like to join.</span></li>
                 <li class="flex gap-3"><span class="font-bold text-gold flex-shrink-0">3.</span><span>Register for that group &ndash; it takes less than 2 minutes.</span></li>
               </ol>
-              <div class="border-t border-gold/30 pt-4 space-y-2 text-white/80 text-sm sm:text-base leading-snug italic">
+              <div class="border-t border-gold/30 pt-4 mb-5 space-y-2 text-white/80 text-sm sm:text-base leading-snug italic">
                 <p>We coordinate group accommodation and amenities.</p>
                 <p>You enjoy this historic event with your people!</p>
               </div>
@@ -184,7 +184,7 @@ const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%2
                 href={JOIN_FORM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="mt-5 inline-block text-center bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark text-xs font-bold tracking-[0.18em] uppercase px-5 py-3 rounded shadow-md hover:shadow-lg transition-all"
+                class="mt-auto inline-block text-center bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark text-xs font-bold tracking-[0.18em] uppercase px-5 py-3 rounded shadow-md hover:shadow-lg transition-all"
               >
                 Join a Group &rarr;
               </a>
@@ -196,14 +196,24 @@ const JOIN_FORM_URL   = "mailto:CountdownAmerica250@gmail.com?subject=Join%20a%2
     </section>
 
     <!-- ============================================================ -->
-    <!-- PERFECT FOR ANY GROUP — white -->
+    <!-- PERFECT FOR ANY GROUP — boxed, mirrors the Benefits card pattern -->
     <!-- ============================================================ -->
     <section class="py-10 sm:py-12 bg-white">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-        <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-4">Perfect for Any Group</p>
-        <p class="text-slate/80 text-base sm:text-lg leading-relaxed">
-          School alumni &middot; professional groups &middot; companies &middot; birthday celebrations &middot; reunions &middot; families &middot; neighborhoods &middot; faith communities &middot; civic associations &middot; common-interest groups
-        </p>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="rounded-xl overflow-hidden border border-navy/15 shadow-md">
+          <!-- Gold header bar -->
+          <div class="bg-gold py-3 sm:py-4 px-6 text-center">
+            <p class="text-navy-dark font-bold tracking-[0.25em] uppercase text-xs sm:text-sm leading-tight">
+              Perfect for Any Group
+            </p>
+          </div>
+          <!-- Body — cream, gold-star separators -->
+          <div class="bg-cream p-6 sm:p-7 text-center">
+            <p class="text-slate/85 text-base sm:text-lg leading-relaxed">
+              Company Parties &nbsp;<span class="text-gold">&#9733;</span>&nbsp; School Alumni &nbsp;<span class="text-gold">&#9733;</span>&nbsp; Professional Groups &nbsp;<span class="text-gold">&#9733;</span>&nbsp; Birthday Celebrations &nbsp;<span class="text-gold">&#9733;</span>&nbsp; Reunions &nbsp;<span class="text-gold">&#9733;</span>&nbsp; Neighborhood Groups &nbsp;<span class="text-gold">&#9733;</span>&nbsp; Civic Associations &nbsp;<span class="text-gold">&#9733;</span>&nbsp; Common-interest Groups
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
