@@ -270,8 +270,8 @@ const faqs = [
 
         <!-- Header + value-establishing copy (tightened spacing) -->
         <div class="text-center mb-10 sm:mb-12 max-w-3xl mx-auto">
-          <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-3">Be A Part Of History</p>
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 font-heading leading-tight">
+          <p class="text-white font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-3">Be A Part Of History</p>
+          <h2 class="text-[2.15rem] sm:text-[2.6rem] md:text-[3.45rem] font-bold text-gold mb-4 font-heading leading-tight">
             Your All-Inclusive Experience
           </h2>
           <div class="w-20 h-px bg-gold mx-auto mb-6"></div>
@@ -673,7 +673,7 @@ const faqs = [
           <!-- Centered premium header — aspirational lead -->
         <div class="text-center mb-12 sm:mb-14">
           <h2 class="font-bold text-gold mb-2 font-heading leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-            Host a &ldquo;<em class="italic">Party Inside the Party</em>&rdquo;
+            <span class="text-[1.6rem] sm:text-[1.9rem] md:text-[2.55rem] lg:text-[3.2rem]">Host a</span> &ldquo;<em class="italic">Party Inside the Party</em>&rdquo;
           </h2>
           <p class="text-white font-semibold text-base sm:text-lg md:text-xl mb-5 leading-tight">
             <span class="block">No Extra Costs</span>
@@ -1141,19 +1141,19 @@ const faqs = [
     transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
                 filter    0.35s ease-out;
     filter:
-      /* Gold halo — defines each card's chevron edge against navy bg */
-      drop-shadow(0 0 6px rgba(197,164,78,0.45))
-      drop-shadow(0 12px 22px rgba(0,0,0,0.32))
-      drop-shadow(0 4px 8px rgba(0,0,0,0.22))
-      drop-shadow(0 1px 1px rgba(0,0,0,0.18));
+      /* All-gold halo + lift shadows so the cards glow against the navy bg */
+      drop-shadow(0 0 6px rgba(197,164,78,0.55))
+      drop-shadow(0 12px 22px rgba(197,164,78,0.45))
+      drop-shadow(0 4px 8px rgba(197,164,78,0.35))
+      drop-shadow(0 1px 1px rgba(197,164,78,0.30));
     will-change: transform, filter;
   }
   .ribbon-card:hover {
     transform: translateY(-5px) scale(1.04);
     filter:
-      drop-shadow(0 22px 36px rgba(0,0,0,0.40))
-      drop-shadow(0 8px 16px rgba(197,164,78,0.45))
-      drop-shadow(0 1px 2px rgba(0,0,0,0.30));
+      drop-shadow(0 22px 36px rgba(197,164,78,0.55))
+      drop-shadow(0 8px 16px rgba(197,164,78,0.55))
+      drop-shadow(0 1px 2px rgba(197,164,78,0.40));
   }
   .ribbon-card-bg {
     position: absolute;
