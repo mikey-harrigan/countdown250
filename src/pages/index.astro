@@ -174,16 +174,9 @@ const faqs = [
     <!-- ============================================================ -->
     <!-- 1. HERO -->
     <!-- ============================================================ -->
-    <section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
-      <!-- Background image -->
-      <div class="absolute inset-0">
-        <img
-          src="/images/event/hero-countdown250-toast.jpg"
-          alt="Black-tie guests toasting with champagne as Countdown 250 reaches 00:00:01 on stage"
-          class="w-full h-full object-cover object-center"
-        />
-        <div class="absolute inset-0" style="background: rgba(0,0,0,0.55);"></div>
-      </div>
+    <section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden bg-cream">
+      <!-- Subtle warm radial vignette so the cream doesn't feel flat at full-bleed -->
+      <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center, transparent 35%, rgba(120,90,30,0.08) 100%);"></div>
 
       <!-- Content -->
       <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-28 pb-20">
@@ -200,28 +193,28 @@ const faqs = [
         </div>
 
         <!-- Poetic open: italic question, two staggered lines -->
-        <p class="font-heading italic font-light text-2xl sm:text-3xl md:text-4xl text-white/85 leading-tight mb-1 tracking-tight">
+        <p class="font-heading italic font-light text-2xl sm:text-3xl md:text-4xl text-navy/75 leading-tight mb-1 tracking-tight">
           Where will you be&hellip;
         </p>
-        <p class="font-heading italic font-normal text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-12 tracking-tight">
+        <p class="font-heading italic font-normal text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-navy leading-tight mb-12 tracking-tight">
           when the clock strikes 250?
         </p>
 
         <!-- Masthead presentational line -->
-        <p class="font-heading italic font-bold text-xl sm:text-2xl md:text-3xl text-gold mb-2 tracking-wide">
+        <p class="font-heading italic font-bold text-xl sm:text-2xl md:text-3xl text-red mb-2 tracking-wide">
           The Official
         </p>
 
         <!-- Display headline -->
-        <h1 class="font-heading font-bold text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] text-white leading-[1.05] mb-7 tracking-tight">
+        <h1 class="font-heading font-bold text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] text-navy leading-[1.05] mb-7 tracking-tight">
           Countdown 250 Ball
         </h1>
 
         <!-- Gold flourish divider -->
-        <div class="w-20 h-px bg-gold/70 mx-auto mb-6"></div>
+        <div class="w-20 h-px bg-gold mx-auto mb-6"></div>
 
         <!-- Italic close -->
-        <p class="font-heading italic font-light text-lg sm:text-xl md:text-2xl text-gold/95 mb-12">
+        <p class="font-heading italic font-light text-lg sm:text-xl md:text-2xl text-navy/80 mb-12">
           A once-in-a-lifetime moment.
         </p>
 
@@ -270,7 +263,7 @@ const faqs = [
 
         <!-- Header + value-establishing copy (tightened spacing) -->
         <div class="text-center mb-10 sm:mb-12 max-w-3xl mx-auto">
-          <p class="text-red font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-3">Be A Part Of History</p>
+          <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-3">Be A Part Of History</p>
           <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 font-heading leading-tight">
             Your All-Inclusive Experience
           </h2>
