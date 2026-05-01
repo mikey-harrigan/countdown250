@@ -144,7 +144,7 @@ else:
 print("\n=== [5] Carousel dot-count vs slide-count ===")
 slide_re = re.compile(r'<div\s+class="carousel-slide(?:\s|")')
 dot_re   = re.compile(r'<button[^>]*class="carousel-dot(?:\s|")')
-carousel_open_re = re.compile(r'<div\s+class="(\w+-carousel)[^"]*"')
+carousel_open_re = re.compile(r'<div\s+class="([\w-]+-carousel)[^"]*"')
 
 html_comment_re = re.compile(r'<!--.*?-->', re.DOTALL)
 mismatches = []
