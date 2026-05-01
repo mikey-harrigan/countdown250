@@ -161,6 +161,18 @@ Both serve the same content from the same build. The custom domain is just a nic
 - `public/CNAME` file in the repo tells GitHub Pages "serve this domain"
 - Certificate is auto-managed by GitHub Pages
 
+### KNOWN DNS ISSUE: `www.countdown250.allamericanball.com` cert warning
+
+There is a `www.countdown250.allamericanball.com` DNS record at Cloudflare (the DNS provider for `allamericanball.com`) that resolves to GitHub Pages IPs. **GitHub Pages does NOT issue a cert for the `www.` variant of a subdomain custom domain** — only the bare `countdown250.allamericanball.com` is on the cert (verified via crt.sh CT logs). Any user who types or auto-completes `www.countdown250...` hits a Chrome cert-mismatch interstitial ("Your connection is not private" → Advanced → Proceed). This was reported by 3 users in May 2026.
+
+**Fix (Mike must do this at Cloudflare; not a code change):**
+1. Log in to Cloudflare → select the `allamericanball.com` zone → DNS tab.
+2. Find the record whose name is `www.countdown250` (or `www.countdown250.allamericanball.com`).
+3. **Delete that record.** Anyone who types `www.countdown250...` will then see a clean "site can't be reached" instead of a scary security warning, and most users will instinctively retry without `www.`.
+4. (Optional, better UX) Instead of deleting, create a Cloudflare Redirect Rule: `www.countdown250.allamericanball.com/*` → `https://countdown250.allamericanball.com/$1` (301). Requires Cloudflare to terminate TLS for that hostname, which on a free plan needs the record to be **proxied (orange cloud)** so Cloudflare's edge cert covers it.
+
+**Do NOT add a `www.` reference anywhere in the codebase.** The site canonicalizes to the bare hostname (`astro.config.mjs site:`, `public/CNAME`, `public/robots.txt`, all internal links). All marketing copy in `marketing/` and `*.txt` press releases also use the bare hostname — keep it that way.
+
 ### Git Workflow (for Claude, not for humans)
 - Always `git pull origin main` before starting work to avoid conflicts
 - Stage specific changed files (not `git add -A` to avoid secrets)
