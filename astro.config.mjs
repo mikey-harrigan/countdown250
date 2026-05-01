@@ -5,7 +5,12 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://countdown250.allamericanball.com',
   base: '/',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) =>
+        !/\/(homepage-|home-original-archive|hosted-group-tables-preview)/.test(page),
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },
