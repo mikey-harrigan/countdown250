@@ -29,12 +29,15 @@ const moreLinks = [
     <div class="flex items-center justify-between h-20" style="overflow: visible;">
       <!-- Logo — oval-framed horizontal wordmark. Fits cleanly in nav bar at small sizes. -->
       <a href="/" class="flex-shrink-0 relative z-10" style="overflow: visible; align-self: center;">
-        <img
-          id="nav-logo"
-          src="/images/logos/countdown250-wordmark-gold-frame.png"
-          alt="The Official Countdown 250 Ball"
-          class="drop-shadow-lg transition-all duration-500 ease-out nav-logo-img"
-        />
+        <picture>
+          <source srcset="/images/logos/countdown250-wordmark-navbar-blue.webp" type="image/webp" />
+          <img
+            id="nav-logo"
+            src="/images/logos/countdown250-wordmark-navbar-blue.png"
+            alt="The Official Countdown 250 Ball"
+            class="drop-shadow-lg transition-all duration-500 ease-out nav-logo-img"
+          />
+        </picture>
       </a>
 
       <!-- Desktop Nav -->
