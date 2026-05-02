@@ -1233,46 +1233,39 @@ const faqs = [
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 2.5rem;
+    height: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.55);
     color: #ffffff;
     border-radius: 9999px;
     cursor: pointer;
     padding: 0;
-    opacity: 0.55;
-    transition: opacity 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    opacity: 0.95;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    transition: opacity 0.2s ease, background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
   }
-  .carousel-prev { left: 0.5rem; }
-  .carousel-next { right: 0.5rem; }
+  .carousel-prev { left: 0.6rem; }
+  .carousel-next { right: 0.6rem; }
   .carousel-prev:hover,
   .carousel-next:hover {
     opacity: 1;
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(0, 0, 0, 0.85);
+    border-color: #C5A44E;  /* gold ring on hover for premium feel */
   }
   .carousel-prev:active,
   .carousel-next:active {
-    transform: translateY(-50%) scale(0.94);
-  }
-  /* Strengthen visibility when the carousel itself is hovered */
-  .experience-carousel:hover .carousel-prev,
-  .experience-carousel:hover .carousel-next,
-  .heroes-carousel:hover .carousel-prev,
-  .heroes-carousel:hover .carousel-next,
-  .hosted-groups-carousel:hover .carousel-prev,
-  .hosted-groups-carousel:hover .carousel-next {
-    opacity: 0.95;
+    transform: translateY(-50%) scale(0.92);
   }
   /* Bigger touch targets on small screens */
   @media (max-width: 640px) {
     .carousel-prev,
     .carousel-next {
-      width: 2rem;
-      height: 2rem;
+      width: 2.25rem;
+      height: 2.25rem;
     }
   }
 

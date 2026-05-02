@@ -150,6 +150,69 @@ const moreLinks = [
     link.addEventListener('click', () => menu?.classList.add('hidden'));
   });
 
+  // ===== Precise smooth scroll for any navbar link that targets an in-page anchor =====
+  // Browser native anchor scroll uses scroll-margin-top, but the navbar logo
+  // overflows the navbar (renders 117px / 80px tall while the navbar itself is
+  // 80px), and the logo height also animates on scroll, so the static CSS offset
+  // can land slightly off. This handler computes the exact position at click
+  // time and scrolls there.
+  function getNavbarOffset(): number {
+    const nav = document.getElementById('navbar');
+    if (!nav) return 80;
+    // Use the visible bottom of the navbar including any overflowing logo.
+    // The logo is the tallest child; measure from nav top to logo bottom.
+    const navRect = nav.getBoundingClientRect();
+    const logo = document.getElementById('nav-logo');
+    if (!logo) return navRect.height;
+    const logoRect = logo.getBoundingClientRect();
+    const logoBottomBelowNavTop = (logoRect.bottom - navRect.top);
+    // Add a comfortable cushion (16px) below the navbar/logo
+    return Math.max(navRect.height, logoBottomBelowNavTop) + 16;
+  }
+
+  function smoothScrollToHash(hash: string) {
+    if (!hash || hash === '#') return false;
+    const target = document.querySelector(hash);
+    if (!target) return false;
+    const offset = getNavbarOffset();
+    const targetY = target.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top: targetY, behavior: 'smooth' });
+    // Update the URL hash without triggering another scroll
+    if (history.pushState) {
+      history.pushState(null, '', hash);
+    }
+    return true;
+  }
+
+  // Wire up every navbar anchor link (desktop + mobile) that points to an
+  // in-page anchor on this page. External page links are left alone.
+  document.querySelectorAll<HTMLAnchorElement>('#navbar a[href*="#"]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href') || '';
+      // Same-page anchor: starts with '#' or '/#'
+      if (!href.startsWith('#') && !href.startsWith('/#')) return;
+      // If we're on the home page, intercept and do precise smooth scroll
+      if (location.pathname === '/' || location.pathname === '/index.html') {
+        const hash = href.includes('#') ? '#' + href.split('#')[1] : '';
+        if (hash && document.querySelector(hash)) {
+          e.preventDefault();
+          smoothScrollToHash(hash);
+        }
+      }
+      // Otherwise let the browser navigate to /#hash; the page-load handler below
+      // will scroll precisely once the page is loaded.
+    });
+  });
+
+  // After a fresh page load that arrived with a hash, run the precise scroll
+  // once the layout has settled so we land in the right spot.
+  window.addEventListener('load', () => {
+    if (location.hash) {
+      // small delay so any post-load layout shifts (font load, etc.) settle
+      setTimeout(() => smoothScrollToHash(location.hash), 60);
+    }
+  });
+
   // ===== "More" dropdown — click-toggle, keyboard-accessible, closes on outside click =====
   const moreBtn = document.getElementById('more-btn');
   const moreMenu = document.getElementById('more-menu');
