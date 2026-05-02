@@ -46,12 +46,8 @@ const pastCategories = [
       <div class="absolute inset-0 bg-gradient-to-b from-navy-dark/90 to-navy"></div>
       <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
         <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">Honoring Those Who Serve</p>
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 font-heading leading-tight">
-          All-American Heroes<br />
-          <span class="block text-3xl sm:text-4xl md:text-5xl text-gold font-bold mt-2">Lifetime Achievement Awards</span>
-        </h1>
-        <div class="w-20 h-1 bg-red mx-auto mb-6"></div>
-        <p class="text-white/70 text-lg max-w-2xl mx-auto">Recognizing extraordinary Americans whose lifetime of service, sacrifice, and leadership embodies the very best of our nation.</p>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white font-heading leading-tight">All-American Heroes</h1>
+        <div class="w-20 h-1 bg-red mx-auto mt-6"></div>
       </div>
     </section>
 
@@ -59,8 +55,23 @@ const pastCategories = [
     <section class="py-20 bg-white">
       <div class="max-w-3xl mx-auto px-4 sm:px-6">
         <div class="text-center mb-12">
-          <h2 class="text-3xl sm:text-4xl font-bold text-navy mb-6 font-heading">The All-American Hero Lifetime Achievement Awards</h2>
-          <div class="w-16 h-1 bg-gold mx-auto"></div>
+          <!-- All-American Heroes medal — anchor the section visually -->
+          <picture>
+            <source srcset="/images/misc/all-amer-heroes-medal.webp" type="image/webp" />
+            <img
+              src="/images/misc/all-amer-heroes-medal.png"
+              alt="All-American Heroes Lifetime Achievement Award medal"
+              class="w-32 sm:w-40 md:w-48 h-auto mx-auto mb-6"
+              style="filter: drop-shadow(0 14px 28px rgba(0,0,0,0.18)) drop-shadow(0 4px 10px rgba(197,164,78,0.32));"
+              loading="eager"
+            />
+          </picture>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy font-heading leading-tight mb-2">All-American Heroes</h2>
+          <p class="text-2xl sm:text-3xl md:text-4xl font-bold text-gold font-heading leading-tight mb-5">Lifetime Achievement Awards</p>
+          <div class="w-16 h-1 bg-gold mx-auto mb-6"></div>
+          <p class="text-slate/75 text-lg max-w-2xl mx-auto leading-relaxed">
+            Recognizing extraordinary Americans whose lifetime of service, sacrifice, and leadership embodies the very best of our nation.
+          </p>
         </div>
 
         <div class="text-slate/70 text-lg leading-relaxed space-y-6">

@@ -174,9 +174,28 @@ const moreLinks = [
     if (!hash || hash === '#') return false;
     const target = document.querySelector(hash);
     if (!target) return false;
-    const offset = getNavbarOffset();
-    const targetY = target.getBoundingClientRect().top + window.pageYOffset - offset;
-    window.scrollTo({ top: targetY, behavior: 'smooth' });
+
+    // Re-measureable: the navbar logo shrinks during scroll on mobile,
+    // and lazy-loaded images can shift content during a long smooth scroll.
+    // So we (a) start a smooth scroll using the click-time estimate, then
+    // (b) snap-correct twice after the scroll likely settles.
+    function targetY(): number {
+      return target.getBoundingClientRect().top + window.pageYOffset - getNavbarOffset();
+    }
+
+    window.scrollTo({ top: targetY(), behavior: 'smooth' });
+
+    // Snap-correct after smooth scroll typically settles. Two checks because
+    // smooth-scroll duration varies by browser and content height.
+    setTimeout(() => {
+      const drift = Math.abs(window.pageYOffset - targetY());
+      if (drift > 4) window.scrollTo({ top: targetY(), behavior: 'auto' });
+    }, 700);
+    setTimeout(() => {
+      const drift = Math.abs(window.pageYOffset - targetY());
+      if (drift > 4) window.scrollTo({ top: targetY(), behavior: 'auto' });
+    }, 1100);
+
     // Update the URL hash without triggering another scroll
     if (history.pushState) {
       history.pushState(null, '', hash);
