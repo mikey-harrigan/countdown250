@@ -71,7 +71,7 @@ const moreLinks = [
           href="/#tickets"
           class="navbar-get-tickets-pulse px-9 py-2.5 text-sm font-bold tracking-wider uppercase rounded"
         >
-          Get Tickets
+          <span class="navbar-get-tickets-text">Get Tickets</span>
         </a>
       </div>
 
@@ -216,6 +216,7 @@ const moreLinks = [
   /* Pauses on hover so the visitor doesn't feel like they're     */
   /* chasing a moving target. Respects prefers-reduced-motion.    */
   /* ============================================================ */
+  /* Box scale + glow */
   @keyframes navbar-get-tickets-pulse {
     0%, 100% {
       transform: scale(1);
@@ -226,6 +227,13 @@ const moreLinks = [
       box-shadow: 0 6px 22px rgba(253, 216, 53, 0.65);
     }
   }
+  /* Inner text scale — peaks BIGGER than the box at the same moment, */
+  /* so the "Get Tickets" words briefly punch above the box growth.   */
+  /* Net visible scale at peak: 1.06 (box) x 1.12 (text) = ~1.19      */
+  @keyframes navbar-get-tickets-text-pulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.12); }
+  }
   .navbar-get-tickets-pulse {
     background-color: #fdd835;   /* brand gold */
     color: #001a45;              /* navy-dark print */
@@ -234,13 +242,24 @@ const moreLinks = [
     transform-origin: center;
     will-change: transform;
   }
+  .navbar-get-tickets-text {
+    display: inline-block;       /* required for transform on inline elements */
+    animation: navbar-get-tickets-text-pulse 2.6s ease-in-out infinite;
+    transform-origin: center;
+    will-change: transform;
+  }
   .navbar-get-tickets-pulse:hover {
     animation-play-state: paused;
     transform: translateY(-1px);
     background-color: #ffd400 !important;
   }
+  .navbar-get-tickets-pulse:hover .navbar-get-tickets-text {
+    animation-play-state: paused;
+    transform: scale(1);
+  }
   @media (prefers-reduced-motion: reduce) {
-    .navbar-get-tickets-pulse {
+    .navbar-get-tickets-pulse,
+    .navbar-get-tickets-text {
       animation: none;
     }
   }
