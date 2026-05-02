@@ -183,6 +183,8 @@ const faqs = [
           class="w-full h-full object-cover object-center"
         />
         <div class="absolute inset-0" style="background: rgba(0,0,0,0.55);"></div>
+        <!-- Radial vignette: extra darkness behind the headline copy so text stands out without obscuring the photo at the edges -->
+        <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 60% 55% at center, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.20) 55%, rgba(0,0,0,0) 100%);"></div>
       </div>
 
       <!-- Content -->
