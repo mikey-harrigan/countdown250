@@ -117,8 +117,8 @@ const moreLinks = [
   // reasonable size in the 80px-tall navbar instead of 4-5x too wide.
   const navbar = document.getElementById('navbar');
   const navLogo = document.getElementById('nav-logo');
-  const LOGO_BIG = 56;    // px height when at top (mobile)
-  const LOGO_SMALL = 42;  // px height when scrolled (mobile)
+  const LOGO_BIG = 50;    // px height when at top (mobile)
+  const LOGO_SMALL = 38;  // px height when scrolled (mobile)
   const SCROLL_RANGE = 150; // px of scroll over which the transition happens
 
   window.addEventListener('scroll', () => {
@@ -290,13 +290,13 @@ const moreLinks = [
      wide; at 56px mobile it renders ~261px wide — comfortably inside
      the 80px navbar without dominating it. */
   .nav-logo-img {
-    height: 64px;
+    height: 58px;
     width: auto;
   }
   /* Smaller on mobile */
   @media (max-width: 1024px) {
     .nav-logo-img {
-      height: 56px;
+      height: 50px;
     }
   }
 
