@@ -232,28 +232,56 @@ const pastCategories = [
       </div>
     </section>
 
-    <!-- CLOSING CTA (consolidated — merged the prior '2026 Honorees Teaser'
-         coming-soon note in as a small line above the CTA, so the page has
-         a single clean ending instead of two stacked closing sections) -->
-    <section class="py-16 bg-red text-center">
+    <!-- CLOSING CTA — fully consolidated. Merges the page-specific 2026
+         honorees note + the Footer's global 'Be A Part Of History' banner
+         (Operation Renewed Hope mention, very-limited-availability line)
+         into a single clean closing. The Footer's pre-banner is suppressed
+         on this page via the hideBanner prop so we don't get two stacked
+         red sections. -->
+    <section class="py-16 sm:py-20 bg-red text-center">
       <div class="max-w-3xl mx-auto px-4 sm:px-6">
-        <p class="text-white/80 text-sm sm:text-base italic mb-6 max-w-2xl mx-auto">
+
+        <!-- 2026 honorees note (page-specific) -->
+        <p class="text-white/85 text-sm sm:text-base italic mb-6 max-w-2xl mx-auto">
           The 2026 honorees will be announced as the event approaches &mdash; follow our
           <a href="/updates/" class="text-white font-semibold underline hover:text-cream">News &amp; Updates</a>
           page for announcements.
         </p>
-        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4 font-heading">Be There for the Awards Ceremony</h2>
-        <p class="text-white/90 mb-8">
+
+        <!-- Star divider (from the prior Footer banner) -->
+        <div class="flex items-center justify-center gap-3 sm:gap-4 mb-6 text-white text-lg sm:text-xl" aria-hidden="true">
+          <span>&#9733;</span>
+          <span>&#9733;</span>
+          <span>&#9733;</span>
+          <span>&#9733;</span>
+          <span>&#9733;</span>
+        </div>
+
+        <!-- Headline + body -->
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 font-heading">Be There for the Awards Ceremony</h2>
+        <p class="text-white/95 text-base sm:text-lg leading-relaxed mb-3 max-w-2xl mx-auto">
           Witness these extraordinary Americans receive their Lifetime Achievement Awards in person at the Countdown 250 Ball.
         </p>
+        <p class="text-white/85 text-sm sm:text-base mb-8 max-w-2xl mx-auto">
+          Washington&rsquo;s premier America 250 celebration. Very limited availability.
+        </p>
+
+        <!-- Get Tickets CTA -->
         <a
           href="/#tickets"
           class="inline-block bg-white text-red px-10 py-4 text-sm font-bold tracking-[0.2em] uppercase hover:bg-cream transition-colors rounded shadow-lg"
         >
           Get Your Tickets
         </a>
+
+        <!-- Operation Renewed Hope acknowledgment (from the prior Footer banner) -->
+        <p class="text-white/80 text-xs sm:text-sm mt-7 max-w-2xl mx-auto">
+          Proceeds help support
+          <a href="https://www.operationrenewedhopefoundation.org" target="_blank" rel="noopener noreferrer" class="underline hover:text-cream">Operation Renewed Hope Foundation</a>
+          in their mission to house U.S. Veterans.
+        </p>
       </div>
     </section>
   </main>
-  <Footer />
+  <Footer hideBanner={true} />
 </BaseLayout>

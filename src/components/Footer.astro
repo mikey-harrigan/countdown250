@@ -1,8 +1,17 @@
 ---
 const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
+
+// Pages that handle their own complete closing CTA can pass
+// `hideBanner={true}` to suppress the global 'Be A Part Of History'
+// pre-footer banner so visitors don't see two stacked CTAs.
+interface Props {
+  hideBanner?: boolean;
+}
+const { hideBanner = false } = Astro.props;
 ---
 
 <footer class="bg-navy-dark border-t border-white/10">
+  {!hideBanner && (
   <!-- CTA banner — gold stars separate it from the same-color navy section above -->
   <div class="bg-navy py-12 text-center border-b border-white/10">
     <div class="max-w-3xl mx-auto px-4">
@@ -29,6 +38,7 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
       </button>
     </div>
   </div>
+  )}
 
   <!-- Footer content -->
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
