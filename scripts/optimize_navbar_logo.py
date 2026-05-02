@@ -31,7 +31,10 @@ def main() -> None:
     if img.mode != "RGBA":
         img = img.convert("RGBA")
 
-    # Step 1: tight-crop transparent padding (alpha threshold > 60/255)
+    # Tight-crop transparent padding (alpha threshold > 60/255). NO extra
+    # padding step — the navbar CSS sets heights tuned to the resulting
+    # ~4.66:1 banner aspect so the rendered visual size is right at both
+    # desktop and mobile widths.
     alpha = img.split()[-1]
     threshold_mask = alpha.point(lambda a: 255 if a > 60 else 0)
     bbox = threshold_mask.getbbox()
@@ -40,27 +43,7 @@ def main() -> None:
         img = img.crop(bbox)
         print(f"[INFO] tight-cropped to banner: {before} -> {img.size}")
 
-    # Step 2: re-pad with transparent space to match the OLD navbar logo's
-    # container aspect ratio (1.5:1 — the container the previous wordmark
-    # sat inside, with the banner taking ~60% width / ~25% height). This
-    # way the existing navbar CSS heights render the new banner at the
-    # same visual size as the old one.
-    bw, bh = img.size
-    target_aspect = 1.5  # container width:height
-    container_h = int(bh / 0.25)         # banner = ~25% of container height
-    container_w = int(container_h * target_aspect)
-    # Make sure container is wide enough for the banner (else widen it)
-    if container_w < int(bw / 0.60):
-        container_w = int(bw / 0.60)
-        container_h = int(container_w / target_aspect)
-    padded = Image.new("RGBA", (container_w, container_h), (0, 0, 0, 0))
-    paste_x = (container_w - bw) // 2
-    paste_y = (container_h - bh) // 2
-    padded.paste(img, (paste_x, paste_y))
-    img = padded
-    print(f"[INFO] padded to old container ratio: {img.size}")
-
-    # Step 3: downscale if wider than MAX_WIDTH
+    # Downscale if wider than MAX_WIDTH
     w, h = img.size
     if w > MAX_WIDTH:
         new_h = int(h * (MAX_WIDTH / w))

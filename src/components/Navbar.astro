@@ -111,10 +111,14 @@ const moreLinks = [
 
 <script>
   // Navbar scroll effect with logo resize
+  // The new blue banner wordmark is ~4.66:1 aspect (much wider than the
+  // previous gold-frame wordmark which was 1.5:1 with whitespace padding).
+  // Reduced these constants accordingly so the rendered banner sits at a
+  // reasonable size in the 80px-tall navbar instead of 4-5x too wide.
   const navbar = document.getElementById('navbar');
   const navLogo = document.getElementById('nav-logo');
-  const LOGO_BIG = 109;   // px height when at top (mobile)
-  const LOGO_SMALL = 73;  // px height when scrolled (mobile)
+  const LOGO_BIG = 56;    // px height when at top (mobile)
+  const LOGO_SMALL = 42;  // px height when scrolled (mobile)
   const SCROLL_RANGE = 150; // px of scroll over which the transition happens
 
   window.addEventListener('scroll', () => {
@@ -281,17 +285,18 @@ const moreLinks = [
 
 <style>
   /* Navbar logo — horizontal wordmark sizing.
-     Logo is 2x prior size and intentionally overflows the 80px navbar.
-     Parent has overflow:visible to allow this. Vertical center stays
-     anchored to the navbar's items-center axis. */
+     The new blue banner wordmark is ~4.66:1 aspect, so the heights here
+     are deliberately small. At 64px desktop the banner renders ~298px
+     wide; at 56px mobile it renders ~261px wide — comfortably inside
+     the 80px navbar without dominating it. */
   .nav-logo-img {
-    height: 117px;
+    height: 64px;
     width: auto;
   }
   /* Smaller on mobile */
   @media (max-width: 1024px) {
     .nav-logo-img {
-      height: 80px;
+      height: 56px;
     }
   }
 
