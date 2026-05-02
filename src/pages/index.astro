@@ -183,8 +183,6 @@ const faqs = [
           class="w-full h-full object-cover object-center"
         />
         <div class="absolute inset-0" style="background: rgba(0,0,0,0.55);"></div>
-        <!-- Radial vignette: extra darkness behind the headline copy so text stands out without obscuring the photo at the edges -->
-        <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 60% 55% at center, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.20) 55%, rgba(0,0,0,0) 100%);"></div>
       </div>
 
       <!-- Content -->
@@ -201,31 +199,37 @@ const faqs = [
           </picture>
         </div>
 
-        <!-- Poetic open: italic question, two staggered lines -->
-        <p class="font-heading italic font-light text-2xl sm:text-3xl md:text-4xl text-white/85 leading-tight mb-1 tracking-tight">
-          Where will you be&hellip;
-        </p>
-        <p class="font-heading italic font-normal text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-12 tracking-tight">
-          when the clock strikes 250?
-        </p>
+        <!-- Soft-edged dark backdrop wraps just the headline copy so the text -->
+        <!-- pops without darkening the photo around it. Uses a radial gradient -->
+        <!-- inside the box so the box edges fade naturally instead of hard-cutting. -->
+        <div class="inline-block max-w-full px-6 py-7 sm:px-12 sm:py-9 rounded-3xl mb-10" style="background: radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 70%, rgba(0,0,0,0.15) 100%);">
 
-        <!-- Masthead presentational line -->
-        <p class="font-heading italic font-bold text-xl sm:text-2xl md:text-3xl text-gold mb-2 tracking-wide">
-          The Official
-        </p>
+          <!-- Poetic open: italic question, two staggered lines -->
+          <p class="font-heading italic font-light text-2xl sm:text-3xl md:text-4xl text-white/85 leading-tight mb-1 tracking-tight">
+            Where will you be&hellip;
+          </p>
+          <p class="font-heading italic font-normal text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-10 tracking-tight">
+            when the clock strikes 250?
+          </p>
 
-        <!-- Display headline -->
-        <h1 class="font-heading font-bold text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] text-white leading-[1.05] mb-7 tracking-tight">
-          Countdown 250 Ball
-        </h1>
+          <!-- Masthead presentational line -->
+          <p class="font-heading italic font-bold text-xl sm:text-2xl md:text-3xl text-gold mb-2 tracking-wide">
+            The Official
+          </p>
 
-        <!-- Gold flourish divider -->
-        <div class="w-20 h-px bg-gold/70 mx-auto mb-6"></div>
+          <!-- Display headline -->
+          <h1 class="font-heading font-bold text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] text-white leading-[1.05] mb-6 tracking-tight">
+            Countdown 250 Ball
+          </h1>
 
-        <!-- Italic close -->
-        <p class="font-heading italic font-light text-lg sm:text-xl md:text-2xl text-gold/95 mb-12">
-          A once-in-a-lifetime moment.
-        </p>
+          <!-- Gold flourish divider -->
+          <div class="w-20 h-px bg-gold/70 mx-auto mb-5"></div>
+
+          <!-- Italic close -->
+          <p class="font-heading italic font-light text-lg sm:text-xl md:text-2xl text-gold/95">
+            A once-in-a-lifetime moment.
+          </p>
+        </div>
 
         <div class="flex justify-center">
           <a
