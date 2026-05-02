@@ -24,11 +24,11 @@ export const hostedTables: HostedTable[] = [
   { name: "Technical Staffing Inc.",       count: 8  },
   { name: "JMU Alumni",                    count: 12 },
   { name: "Virginia Tech Alumni",          count: 8  },
-  { name: "Univ. of MD Alumni",            count: 6  },
+  { name: "Lansdowne Neighbors",           count: 8  },
   { name: "Georgetown Alumni",             count: 4  },
   { name: "Healthcare Professionals",      count: 6  },
   { name: "H Tragle 50th Bday",            count: 6  },
-  { name: "Lansdowne Neighbors",           count: 8  },
+  { name: "Univ. of MD Alumni",            count: 6  },
   { name: "Walter Family Reunion",         count: 8  },
 ];
 
