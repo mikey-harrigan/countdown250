@@ -20,7 +20,7 @@ When in doubt, **save before deleting** — it's cheap to keep around, expensive
 ## Index of saved assets
 
 ### Copy
-- `copy/home-tickets-section-headline-tagline.md` — *"Ticket sales are deliberately limited to ensure optimal comfort and an exceptional experience for every guest."* — currently still on the home page Tickets section header (saved 2026-05-02 as a precaution)
+- `copy/home-tickets-section-headline-tagline.md` — *"Ticket sales are deliberately limited to ensure optimal comfort and an exceptional experience for every guest."* — REMOVED from the home page Tickets section 2026-05-02. Restore by pasting back into `src/pages/index.astro` just below the red divider in the "Three Ticket Options" header block.
 
 ### Pages
 - `pages/schedule.astro` — the full event-evening schedule page (was at `/schedule/`). Removed from the live site 2026-05-02 because the actual evening run-of-show isn't finalized yet. Restore by copying back to `src/pages/schedule.astro` AND re-adding `{ label: "Schedule", href: "/schedule/" }` to the `moreLinks` array in `src/components/Navbar.astro`.

@@ -1,8 +1,8 @@
 # Home page — Tickets section headline tagline
 
-**Status:** Currently still on the home page. Saved to library 2026-05-02 as a precaution in case we want to remove or replace it.
+**Status:** REMOVED from the home page 2026-05-02. Library copy is the source of truth now.
 
-**Where it lives now:** `src/pages/index.astro`, inside the Three Ticket Options section, below the "Three Ticket Options" headline.
+**Where it used to live:** `src/pages/index.astro`, inside the Three Ticket Options section, just below the red divider under the "Three Ticket Options" headline (and above the gold "Proceeds help support Operation Renewed Hope..." line).
 
 ---
 
