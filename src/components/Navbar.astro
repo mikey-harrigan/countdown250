@@ -69,7 +69,7 @@ const moreLinks = [
 
         <a
           href="/#tickets"
-          class="navbar-get-tickets-pulse text-white px-6 py-2.5 text-sm font-semibold tracking-wider uppercase rounded"
+          class="navbar-get-tickets-pulse px-9 py-2.5 text-sm font-bold tracking-wider uppercase rounded"
         >
           Get Tickets
         </a>
@@ -211,43 +211,33 @@ const moreLinks = [
   }
 
   /* ============================================================ */
-  /* Navbar Get Tickets button — slow patriotic color cycle       */
-  /* ------------------------------------------------------------ */
-  /* 12-second loop: red -> off-white (cream) -> navy -> red.     */
-  /* Text color animates in sync so it stays readable on each bg. */
-  /* ease-in-out for smooth fades, no harsh transitions.          */
-  /* Pauses on hover so visitors can see the solid red color and  */
-  /* don't feel like they're chasing a moving target.             */
-  /* Respects prefers-reduced-motion.                             */
+  /* Navbar Get Tickets button — gold pill with navy-dark print,   */
+  /* gentle pulse (scale + glow). 2.6s cycle, ease-in-out.        */
+  /* Pauses on hover so the visitor doesn't feel like they're     */
+  /* chasing a moving target. Respects prefers-reduced-motion.    */
   /* ============================================================ */
-  @keyframes navbar-get-tickets-cycle {
+  @keyframes navbar-get-tickets-pulse {
     0%, 100% {
-      background-color: #B22234;  /* old-glory red */
-      color: #ffffff;
-      box-shadow: 0 4px 14px rgba(178, 34, 52, 0.45);
+      transform: scale(1);
+      box-shadow: 0 4px 14px rgba(253, 216, 53, 0.35);
     }
-    33% {
-      background-color: #faf8f5;  /* cream / soft white */
-      color: #001a45;             /* navy-dark for legibility on light bg */
-      box-shadow: 0 4px 14px rgba(255, 255, 255, 0.45);
-    }
-    66% {
-      background-color: #1A2851;  /* navy */
-      color: #ffffff;
-      box-shadow: 0 4px 14px rgba(26, 40, 81, 0.55);
+    50% {
+      transform: scale(1.06);
+      box-shadow: 0 6px 22px rgba(253, 216, 53, 0.65);
     }
   }
   .navbar-get-tickets-pulse {
-    background-color: #B22234;
-    color: #ffffff;
-    transition: transform 0.25s ease-out;
-    animation: navbar-get-tickets-cycle 12s ease-in-out infinite;
+    background-color: #fdd835;   /* brand gold */
+    color: #001a45;              /* navy-dark print */
+    transition: background-color 0.2s ease-out, transform 0.2s ease-out;
+    animation: navbar-get-tickets-pulse 2.6s ease-in-out infinite;
+    transform-origin: center;
+    will-change: transform;
   }
   .navbar-get-tickets-pulse:hover {
     animation-play-state: paused;
     transform: translateY(-1px);
-    background-color: #B22234 !important;
-    color: #ffffff !important;
+    background-color: #ffd400 !important;
   }
   @media (prefers-reduced-motion: reduce) {
     .navbar-get-tickets-pulse {
