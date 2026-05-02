@@ -346,6 +346,14 @@ const faqs = [
               <div class="carousel-caption">Step-and-repeat photo moments under the stars</div>
             </div>
 
+            <!-- Prev / Next arrow buttons -->
+            <button type="button" class="carousel-prev" aria-label="Previous slide">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" /></svg>
+            </button>
+            <button type="button" class="carousel-next" aria-label="Next slide">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" /></svg>
+            </button>
+
             <!-- Dot indicators — one per slide -->
             <div class="carousel-dots">
               <button type="button" class="carousel-dot active" data-go="0" aria-label="Slide 1"></button>
@@ -445,6 +453,13 @@ const faqs = [
                 <img src="/images/event/inaugural-ceremony-flag.jpg" alt="Color guard ceremony with American flag" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
                 <div class="carousel-caption">A signature ceremonial moment</div>
               </div>
+
+              <button type="button" class="carousel-prev" aria-label="Previous hero">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" /></svg>
+              </button>
+              <button type="button" class="carousel-next" aria-label="Next hero">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" /></svg>
+              </button>
 
               <div class="carousel-dots">
                 <button type="button" class="carousel-dot active" data-go="0" aria-label="Slide 1"></button>
@@ -734,6 +749,13 @@ const faqs = [
                 </p>
               </div>
 
+              <button type="button" class="carousel-prev" aria-label="Previous Hosted Group photo">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" /></svg>
+              </button>
+              <button type="button" class="carousel-next" aria-label="Next Hosted Group photo">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" /></svg>
+              </button>
+
               <div class="carousel-dots">
                 <button type="button" class="carousel-dot active" data-go="0" aria-label="Slide 1"></button>
                 <button type="button" class="carousel-dot" data-go="1" aria-label="Slide 2"></button>
@@ -749,7 +771,7 @@ const faqs = [
           <div>
             <p class="text-white/90 text-base sm:text-lg mb-6 leading-relaxed">
               Maximize Your Statesman&rsquo;s Pass<br />
-              You can celebrate this event of a lifetime with your friends, clients, alumni, family, neighbors, or colleagues &mdash; at your very own &ldquo;Party Inside the Party&rdquo;!
+              Celebrate this event-of-a-lifetime with friends, clients, alumni, family, neighbors, or colleagues &mdash; at <strong class="font-bold text-gold">YOUR</strong> &ldquo;Party Inside the Party&rdquo;!
             </p>
 
             <ul class="space-y-3 mb-4 text-white/85 text-base sm:text-[17px] leading-relaxed">
@@ -1061,6 +1083,8 @@ const faqs = [
 
     const slides = carousel.querySelectorAll<HTMLElement>('.carousel-slide');
     const dots = carousel.querySelectorAll<HTMLButtonElement>('.carousel-dot');
+    const prevBtn = carousel.querySelector<HTMLButtonElement>('.carousel-prev');
+    const nextBtn = carousel.querySelector<HTMLButtonElement>('.carousel-next');
     if (slides.length < 2) return;
 
     let current = 0;
@@ -1074,12 +1098,15 @@ const faqs = [
       dots[current]?.classList.add('active');
     }
     function next() { show(current + 1); }
+    function prev() { show(current - 1); }
     function start() { stop(); timer = setInterval(next, intervalMs); }
     function stop() { if (timer) { clearInterval(timer); timer = null; } }
 
     dots.forEach((dot, i) => {
       dot.addEventListener('click', () => { show(i); start(); });
     });
+    prevBtn?.addEventListener('click', () => { prev(); start(); });
+    nextBtn?.addEventListener('click', () => { next(); start(); });
 
     carousel.addEventListener('mouseenter', stop);
     carousel.addEventListener('mouseleave', start);
@@ -1179,9 +1206,67 @@ const faqs = [
     border-color: #C5A44E;
     transform: scale(1.25);
   }
+
+  /* ==========================================================
+     CAROUSEL PREV / NEXT ARROWS
+     Sit absolutely on the left and right inside-edges of each
+     carousel. Subtle dark pill with a chevron, fades in stronger
+     on carousel hover so they don't dominate the photo at rest.
+     ========================================================== */
+  .carousel-prev,
+  .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 2.25rem;
+    height: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    border-radius: 9999px;
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.55;
+    transition: opacity 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  }
+  .carousel-prev { left: 0.5rem; }
+  .carousel-next { right: 0.5rem; }
+  .carousel-prev:hover,
+  .carousel-next:hover {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.65);
+  }
+  .carousel-prev:active,
+  .carousel-next:active {
+    transform: translateY(-50%) scale(0.94);
+  }
+  /* Strengthen visibility when the carousel itself is hovered */
+  .experience-carousel:hover .carousel-prev,
+  .experience-carousel:hover .carousel-next,
+  .heroes-carousel:hover .carousel-prev,
+  .heroes-carousel:hover .carousel-next,
+  .hosted-groups-carousel:hover .carousel-prev,
+  .hosted-groups-carousel:hover .carousel-next {
+    opacity: 0.95;
+  }
+  /* Bigger touch targets on small screens */
+  @media (max-width: 640px) {
+    .carousel-prev,
+    .carousel-next {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .carousel-slide { transition: none; }
     .carousel-dot { transition: none; }
+    .carousel-prev,
+    .carousel-next { transition: none; }
   }
 
   /* ==========================================================

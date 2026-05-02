@@ -43,15 +43,22 @@ const moreLinks = [
           <a href={link.href} class="text-white/90 hover:text-white text-sm font-medium tracking-wide uppercase transition-colors">{link.label}</a>
         ))}
 
-        <!-- More dropdown -->
-        <div class="relative group">
-          <button class="text-white/90 hover:text-white text-sm font-medium tracking-wide uppercase transition-colors flex items-center gap-1">
+        <!-- More dropdown — click-toggle (works on touch + keyboard, not just mouse hover) -->
+        <div class="relative">
+          <button
+            id="more-btn"
+            type="button"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-controls="more-menu"
+            class="text-white/90 hover:text-white text-sm font-medium tracking-wide uppercase transition-colors flex items-center gap-1"
+          >
             More
-            <svg class="w-3.5 h-3.5 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-3.5 h-3.5 mt-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div class="absolute right-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+          <div id="more-menu" class="hidden absolute right-0 top-full pt-2">
             <div class="bg-navy-dark/95 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 py-2 min-w-[180px]">
               {moreLinks.map((link) => (
                 <a href={link.href} class="block px-4 py-2 text-white/80 hover:text-white hover:bg-white/10 text-sm font-medium tracking-wide transition-colors">{link.label}</a>
@@ -62,7 +69,7 @@ const moreLinks = [
 
         <a
           href="/#tickets"
-          class="bg-red text-white px-6 py-2.5 text-sm font-semibold tracking-wider uppercase hover:bg-red-light transition-colors rounded"
+          class="navbar-get-tickets-pulse text-white px-6 py-2.5 text-sm font-semibold tracking-wider uppercase rounded"
         >
           Get Tickets
         </a>
@@ -142,6 +149,49 @@ const moreLinks = [
   menu?.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => menu?.classList.add('hidden'));
   });
+
+  // ===== "More" dropdown — click-toggle, keyboard-accessible, closes on outside click =====
+  const moreBtn = document.getElementById('more-btn');
+  const moreMenu = document.getElementById('more-menu');
+  const moreChevron = moreBtn?.querySelector('svg');
+
+  function closeMoreMenu() {
+    moreMenu?.classList.add('hidden');
+    moreBtn?.setAttribute('aria-expanded', 'false');
+    moreChevron?.classList.remove('rotate-180');
+  }
+
+  moreBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const wasOpen = !moreMenu?.classList.contains('hidden');
+    if (wasOpen) {
+      closeMoreMenu();
+    } else {
+      moreMenu?.classList.remove('hidden');
+      moreBtn?.setAttribute('aria-expanded', 'true');
+      moreChevron?.classList.add('rotate-180');
+    }
+  });
+
+  // Close on click outside
+  document.addEventListener('click', (e) => {
+    if (!moreMenu) return;
+    const target = e.target as Node;
+    if (!moreMenu.contains(target) && !moreBtn?.contains(target)) {
+      closeMoreMenu();
+    }
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMoreMenu();
+  });
+
+  // Close after clicking any link inside the More menu (so the dropdown
+  // doesn't stay open after navigating to the same page anchor)
+  moreMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => closeMoreMenu());
+  });
 </script>
 
 <style>
@@ -157,6 +207,51 @@ const moreLinks = [
   @media (max-width: 1024px) {
     .nav-logo-img {
       height: 80px;
+    }
+  }
+
+  /* ============================================================ */
+  /* Navbar Get Tickets button — slow patriotic color cycle       */
+  /* ------------------------------------------------------------ */
+  /* 12-second loop: red -> off-white (cream) -> navy -> red.     */
+  /* Text color animates in sync so it stays readable on each bg. */
+  /* ease-in-out for smooth fades, no harsh transitions.          */
+  /* Pauses on hover so visitors can see the solid red color and  */
+  /* don't feel like they're chasing a moving target.             */
+  /* Respects prefers-reduced-motion.                             */
+  /* ============================================================ */
+  @keyframes navbar-get-tickets-cycle {
+    0%, 100% {
+      background-color: #B22234;  /* old-glory red */
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(178, 34, 52, 0.45);
+    }
+    33% {
+      background-color: #faf8f5;  /* cream / soft white */
+      color: #001a45;             /* navy-dark for legibility on light bg */
+      box-shadow: 0 4px 14px rgba(255, 255, 255, 0.45);
+    }
+    66% {
+      background-color: #1A2851;  /* navy */
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(26, 40, 81, 0.55);
+    }
+  }
+  .navbar-get-tickets-pulse {
+    background-color: #B22234;
+    color: #ffffff;
+    transition: transform 0.25s ease-out;
+    animation: navbar-get-tickets-cycle 12s ease-in-out infinite;
+  }
+  .navbar-get-tickets-pulse:hover {
+    animation-play-state: paused;
+    transform: translateY(-1px);
+    background-color: #B22234 !important;
+    color: #ffffff !important;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .navbar-get-tickets-pulse {
+      animation: none;
     }
   }
 </style>
