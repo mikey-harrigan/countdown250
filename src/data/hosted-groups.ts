@@ -21,14 +21,14 @@ export const FEATURED_THRESHOLD = 6;
 
 /** Live roster shown on /hosted-group-tables, ordered by display preference. */
 export const hostedTables: HostedTable[] = [
+  { name: "Technical Staffing Inc.",       count: 8  },
   { name: "JMU Alumni",                    count: 12 },
   { name: "Virginia Tech Alumni",          count: 8  },
-  { name: "University of Maryland Alumni", count: 6  },
-  { name: "UVA Alumni",                    count: 4  },
+  { name: "Univ. of MD Alumni",            count: 6  },
   { name: "Georgetown Alumni",             count: 4  },
   { name: "Healthcare Professionals",      count: 6  },
-  { name: "H Tragle 50th Bday",            count: 10 },
-  { name: "Lansdowne Crew",                count: 8  },
+  { name: "H Tragle 50th Bday",            count: 6  },
+  { name: "Lansdowne Neighbors",           count: 8  },
   { name: "Walter Family Reunion",         count: 8  },
 ];
 
