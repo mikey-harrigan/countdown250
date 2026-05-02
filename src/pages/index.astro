@@ -10,14 +10,14 @@ import Footer from '../components/Footer.astro';
 const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
 
 const experienceFeatures = [
-  { icon: "party",     title: "6 Grand Ballrooms",          desc: "Each with its own ambiance, music, and atmosphere" },
-  { icon: "music",     title: "4 Live Entertainment Stages", desc: "Star-studded lineup of diverse bands and DJs" },
-  { icon: "drink",     title: "Premium Open Bars",           desc: "Artisanal cocktails and top-shelf selections all night" },
-  { icon: "food",      title: "Culinary Stations",           desc: "Exquisite food prepared by premier chefs" },
-  { icon: "star",      title: "Hero Awards",                 desc: "All-American Hero Lifetime Achievement Awards ceremony" },
-  { icon: "sparkle",   title: "Midnight Countdown",          desc: "A historic countdown to America's 250th birthday" },
-  { icon: "camera",    title: "Immersive Experiences",       desc: "Roaming entertainers, interactive attractions, and more" },
-  { icon: "broadcast", title: "Live Webcast",                desc: "Be part of a nationally broadcast celebration" },
+  { icon: "party",     title: "6 Ballrooms",         desc: "Each with its own ambiance, music, and atmosphere" },
+  { icon: "music",     title: "4 Live Stages",       desc: "Star-studded lineup of diverse bands and DJs" },
+  { icon: "drink",     title: "Open Bars",           desc: "Artisanal cocktails and top-shelf selections all night" },
+  { icon: "food",      title: "Fine Dining",         desc: "Exquisite food prepared by premier chefs" },
+  { icon: "star",      title: "Hero Awards",         desc: "All-American Hero Lifetime Achievement Awards ceremony" },
+  { icon: "sparkle",   title: "Midnight Countdown",  desc: "A historic countdown to America's 250th birthday" },
+  { icon: "camera",    title: "Immersive Fun",       desc: "Roaming entertainers, interactive attractions, and more" },
+  { icon: "broadcast", title: "National Broadcast",  desc: "Be part of a nationally broadcast celebration" },
 ];
 
 const experienceIcons: Record<string, string> = {
@@ -372,7 +372,7 @@ const faqs = [
                 <div class="ribbon-card-bg"></div>
                 <div class="ribbon-card-content relative h-full flex flex-col justify-center text-center px-5 py-4 sm:px-6 sm:py-5">
                   <h3 class="font-heading font-bold text-[#0B1F3A] text-base sm:text-[17px] leading-tight mb-1.5">{f.title}</h3>
-                  <p class="text-[#163A70] text-[13px] sm:text-[14px] leading-snug">{f.desc}</p>
+                  <p class="text-[#B8954A] text-[13px] sm:text-[14px] leading-snug font-semibold">{f.desc}</p>
                 </div>
               </div>
             ))}
