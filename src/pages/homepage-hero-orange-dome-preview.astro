@@ -535,14 +535,18 @@ import Footer from '../components/Footer.astro';
           V5 &middot; Countdown Pic_5 &middot; logo halo + per-line dark blobs
         </p>
 
-        <!-- Logo with a SOLID NEON-GREEN circle behind, only slightly
-             bigger than the logo. NO radial gradient = no soft halo
-             at the rim. Tightened to -m-2 sm:-m-3 (~8-12 px past the
-             image bounds) so we can see exactly where it sits. -->
+        <!-- Logo overlay — PRECISE CIRCLE only slightly bigger than
+             the logo. To force a true circle (not an oval rendered
+             from a non-square box), set explicit width AND aspect-
+             square so the box is always 1:1. Centered on the logo
+             via left-1/2 top-1/2 translate -50%. Logo widths are
+             340/440/520 px; overlay widths bumped to 360/460/540 px
+             (~20 px bigger total → ~10 px past the seal on each
+             side). -->
         <div class="flex justify-center mb-10 animate-fade-in">
           <div class="relative inline-block">
             <div
-              class="absolute inset-0 -m-2 sm:-m-3 rounded-full pointer-events-none"
+              class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] sm:w-[460px] md:w-[540px] aspect-square rounded-full pointer-events-none"
               style="background: #00ff00;"
               aria-hidden="true"
             ></div>
@@ -582,9 +586,11 @@ import Footer from '../components/Footer.astro';
                 <path id="v5-arch-line2-desk" d="M 50 215 Q 500 85 950 215" fill="none" />
               </defs>
 
-              <!-- SOLID NEON GREEN ellipse behind line 1 — no filter,
-                   no feathering. -->
-              <ellipse cx="500" cy="80" rx="160" ry="42" fill="#00ff00" />
+              <!-- SOLID NEON GREEN ellipse behind line 1.
+                   cy raised 80 → 50 so the words sit centered in
+                   the green oval (the arched text bounding box
+                   midpoint is around viewBox y = 50, not 80). -->
+              <ellipse cx="500" cy="50" rx="160" ry="42" fill="#00ff00" />
               <text fill="rgba(255,255,255,0.92)" font-size="30" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v5-arch-line1-desk" startOffset="50%" text-anchor="middle">Where will you be&#8230;</textPath>
               </text>
@@ -608,7 +614,7 @@ import Footer from '../components/Footer.astro';
                 <path id="v5-arch-line1-mob" d="M 30 95 Q 300 25 570 95" fill="none" />
                 <path id="v5-arch-line2-mob" d="M 30 150 Q 300 80 570 150" fill="none" />
               </defs>
-              <ellipse cx="300" cy="55" rx="115" ry="28" fill="#00ff00" />
+              <ellipse cx="300" cy="35" rx="115" ry="28" fill="#00ff00" />
               <text fill="rgba(255,255,255,0.92)" font-size="34" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v5-arch-line1-mob" startOffset="50%" text-anchor="middle">Where will you be&#8230;</textPath>
               </text>
@@ -636,12 +642,15 @@ import Footer from '../components/Footer.astro';
                  layers stack up to form a soft dark blob behind the
                  glyphs. The text itself stays crisp because the
                  browser renders text-shadow under the glyph alpha. -->
-            <!-- 'A once-in-a-lifetime moment.' overlay — SOLID NEON
-                 GREEN, no gradient, no feathering. Tight to the text. -->
+            <!-- 'A once-in-a-lifetime moment.' overlay enlarged ~50%
+                 per Mike. Margins bumped:
+                   -mx-3 sm:-mx-4  →  -mx-7 sm:-mx-9
+                   -my-1           →  -my-2
+                 Solid neon green, no gradient, no feathering. -->
             <div class="flex justify-center mb-8">
               <div class="relative inline-block">
                 <div
-                  class="absolute inset-0 -mx-3 sm:-mx-4 -my-1 rounded-full pointer-events-none"
+                  class="absolute inset-0 -mx-7 sm:-mx-9 -my-2 rounded-full pointer-events-none"
                   style="background: #00ff00;"
                   aria-hidden="true"
                 ></div>
