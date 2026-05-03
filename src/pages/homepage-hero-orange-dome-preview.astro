@@ -553,7 +553,7 @@ import Footer from '../components/Footer.astro';
             -->
             <div
               class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[270px] sm:w-[345px] md:w-[405px] aspect-square rounded-full pointer-events-none"
-              style="background: #00ff00;"
+              style="background: rgba(0,255,0,0.80);"
               aria-hidden="true"
             ></div>
             <picture class="relative block">
@@ -592,18 +592,12 @@ import Footer from '../components/Footer.astro';
                 <path id="v5-arch-line2-desk" d="M 50 215 Q 500 85 950 215" fill="none" />
               </defs>
 
-              <!-- SOLID NEON GREEN ellipse behind line 1.
-                   cy raised 80 → 50 so the words sit centered in
-                   the green oval (the arched text bounding box
-                   midpoint is around viewBox y = 50, not 80). -->
-              <ellipse cx="500" cy="50" rx="160" ry="42" fill="#00ff00" />
+              <ellipse cx="500" cy="50" rx="160" ry="42" fill="rgba(0,255,0,0.80)" />
               <text fill="rgba(255,255,255,0.92)" font-size="30" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v5-arch-line1-desk" startOffset="50%" text-anchor="middle">Where will you be&#8230;</textPath>
               </text>
 
-              <!-- SOLID NEON GREEN ellipse behind line 2 — no filter,
-                   no feathering. -->
-              <ellipse cx="500" cy="165" rx="370" ry="65" fill="#00ff00" />
+              <ellipse cx="500" cy="165" rx="370" ry="65" fill="rgba(0,255,0,0.80)" />
               <text fill="#ffffff" font-size="47" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v5-arch-line2-desk" startOffset="50%" text-anchor="middle">when the clock strikes 250?</textPath>
               </text>
@@ -620,11 +614,11 @@ import Footer from '../components/Footer.astro';
                 <path id="v5-arch-line1-mob" d="M 30 95 Q 300 25 570 95" fill="none" />
                 <path id="v5-arch-line2-mob" d="M 30 150 Q 300 80 570 150" fill="none" />
               </defs>
-              <ellipse cx="300" cy="35" rx="115" ry="28" fill="#00ff00" />
+              <ellipse cx="300" cy="35" rx="115" ry="28" fill="rgba(0,255,0,0.80)" />
               <text fill="rgba(255,255,255,0.92)" font-size="34" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v5-arch-line1-mob" startOffset="50%" text-anchor="middle">Where will you be&#8230;</textPath>
               </text>
-              <ellipse cx="300" cy="115" rx="220" ry="42" fill="#00ff00" />
+              <ellipse cx="300" cy="115" rx="220" ry="42" fill="rgba(0,255,0,0.80)" />
               <text fill="#ffffff" font-size="40" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v5-arch-line2-mob" startOffset="50%" text-anchor="middle">when the clock strikes 250?</textPath>
               </text>
@@ -657,7 +651,7 @@ import Footer from '../components/Footer.astro';
               <div class="relative inline-block">
                 <div
                   class="absolute inset-0 -mx-7 sm:-mx-9 -my-2 rounded-full pointer-events-none"
-                  style="background: #00ff00;"
+                  style="background: rgba(0,255,0,0.80);"
                   aria-hidden="true"
                 ></div>
                 <p class="relative font-heading italic font-light text-lg sm:text-xl md:text-2xl text-gold/95">
