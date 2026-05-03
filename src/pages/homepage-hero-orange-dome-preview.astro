@@ -66,16 +66,16 @@ import Footer from '../components/Footer.astro';
         <div class="relative mb-10">
 
           <!-- ===== DOME — painted BRIGHT ORANGE for debugging =====
-               Two changes per Mike:
-                 (1) Magenta extra-left feather REMOVED entirely.
-                 (2) Path rewritten as a SINGLE smooth tall-dome
-                     curve (rounded peak at viewBox (500, -100),
-                     straight sides at full max width from y=380
-                     down to the bottom). No more shoulders at line
-                     1 / line 2 / h1 levels — that was creating the
-                     'twin towers' effect with a narrow neck and a
-                     small dome on top. New shape: wide straight
-                     base, smooth taper, single rounded peak.
+               Geometry / blur kept in sync with what's currently
+               LIVE on /index.astro so this orange visualization
+               accurately represents where the dome covers the
+               photo. Only the fill color is bright orange — every
+               other attribute matches live.
+                 ellipse: cx=500 cy=915 rx=500 ry=785
+                          (top at viewBox y=130, bottom at y=1700)
+                 blur: stdDeviation="80 70" (heavy horizontal blur
+                       on sides, moderate vertical on top/bottom)
+                 SVG: top: -30, height: 670, viewBox 0 0 1000 1500
           -->
           <svg
             class="absolute pointer-events-none z-0"
@@ -86,23 +86,14 @@ import Footer from '../components/Footer.astro';
           >
             <defs>
               <filter id="orange-dome-feather" x="-40%" y="-40%" width="180%" height="180%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="50"/>
+                <feGaussianBlur in="SourceGraphic" stdDeviation="80 70"/>
               </filter>
             </defs>
-            <!-- Ball shape (rounded top AND rounded bottom).
-                 Per Mike's latest tweak: extend the BOTTOM downward
-                 so it fully covers the Compare Ticket Options button
-                 and beyond. TOP and SIDES kept exactly as they were.
-                  - cy 810 → 945, ry 620 → 755 (math: keep top edge
-                    at viewBox y=190, push bottom edge from viewBox
-                    y=1430 down to y=1700).
-                  - rx still 500 (sides unchanged).
-                 SVG positioning, viewBox, blur, fill ALL unchanged. -->
             <ellipse
               cx="500"
-              cy="945"
+              cy="915"
               rx="500"
-              ry="755"
+              ry="785"
               fill="rgba(255,102,0,0.90)"
               filter="url(#orange-dome-feather)"
             />
@@ -270,17 +261,18 @@ import Footer from '../components/Footer.astro';
           >
             <defs>
               <filter id="v2-dome-feather" x="-40%" y="-40%" width="180%" height="180%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="50"/>
+                <feGaussianBlur in="SourceGraphic" stdDeviation="80 70"/>
               </filter>
             </defs>
-            <!-- Same geometry as the orange section above so V2 stays
-                 byte-identical except for color. -->
+            <!-- Same geometry, blur, and fill as what's currently
+                 LIVE on /index.astro. This V2 section is what you'd
+                 see on the live home page right now. -->
             <ellipse
               cx="500"
-              cy="945"
+              cy="915"
               rx="500"
-              ry="755"
-              fill="rgba(0,0,0,0.85)"
+              ry="785"
+              fill="rgba(40,40,40,0.70)"
               filter="url(#v2-dome-feather)"
             />
           </svg>
@@ -384,7 +376,7 @@ import Footer from '../components/Footer.astro';
           <ul class="space-y-2 text-navy/85 text-sm leading-relaxed">
             <li><strong class="text-navy">Top section (orange):</strong> debug view &mdash; shows exactly where the dome and per-letter halos sit.</li>
             <li><strong class="text-navy">Bottom section (V2 / dark):</strong> exactly the same shape and positioning, but with production colors (dark dome, dark halos). This is what would ship if you say &lsquo;go live&rsquo;.</li>
-            <li class="pt-2"><strong class="text-navy">Both sections share IDENTICAL geometry:</strong> ellipse cx=500 cy=945 rx=500 ry=755, blur stddev=50, SVG top: -30 / height: 670, viewBox 0 0 1000 1500. Only the fill colors differ.</li>
+            <li class="pt-2"><strong class="text-navy">Both sections share IDENTICAL geometry &amp; blur:</strong> ellipse cx=500 cy=915 rx=500 ry=785, asymmetric blur stdDeviation=&ldquo;80 70&rdquo; (heavy horizontal so the sides feather softly), SVG top: -30 / height: 670, viewBox 0 0 1000 1500. The V2 dark section uses dark grey at 70% opacity (matches what&rsquo;s currently LIVE).</li>
           </ul>
         </div>
       </div>
