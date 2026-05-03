@@ -206,36 +206,29 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- ============================================================ -->
-    <!-- V2 — How it would look LIVE                                  -->
-    <!-- Identical hero to the orange version above EXCEPT every      -->
-    <!-- debug color is swapped back to its real production color:    -->
-    <!--   - Ball/dome fill: BRIGHT ORANGE → BLACK (0.85 opacity)     -->
-    <!--   - Per-letter halos: YELLOW → BLACK                         -->
-    <!-- Everything else (shape, geometry, blur, positioning, text    -->
-    <!-- styling) is byte-identical to the orange version, so this    -->
-    <!-- is what we'd ship if you say 'go live'.                      -->
+    <!-- V2 — NEW picture, NO overlays, NO halos                      -->
+    <!-- Replaces the prior V2. Per Mike: see how the hero looks with -->
+    <!-- the new 'Countdown Pic_1' photo, the logo + arched copy +    -->
+    <!-- masthead/h1/divider/closing line/CTA all on top, but with    -->
+    <!-- ZERO darkening: no full-hero overlay, no dome, and now NO    -->
+    <!-- per-letter halos either. Pure photo + crisp text.            -->
     <!-- ============================================================ -->
     <section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden border-t-4 border-gold/40">
-      <!-- V2 — NO overlays. Just the photo, no full-hero darkening,
-           no dome. The only "darkening" left is the per-letter halos
-           behind each glyph in the arched text (still black, like
-           live). -->
       <div class="absolute inset-0">
         <img
-          src="/images/event/hero-countdown250-toast.jpg"
-          alt="Black-tie guests toasting with champagne as Countdown 250 reaches 00:00:01 on stage"
+          src="/images/event/hero-countdown-pic-1.jpg"
+          alt="Countdown 250 Ball — alternative hero photo (Countdown Pic 1)"
           class="w-full h-full object-cover object-center"
         />
-        <!-- (full-hero overlay REMOVED — was rgba(0,0,0,0.55) -->
+        <!-- (NO full-hero overlay) -->
       </div>
 
       <!-- Content -->
       <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-28 pb-20">
 
-        <!-- V2 label -->
         <p class="text-gold/85 font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-6"
            style="text-shadow: 0 0 6px rgba(0,0,0,1), 0 0 14px rgba(0,0,0,1);">
-          V2 &middot; NO overlays &middot; just per-letter halos
+          V2 &middot; new hero pic &middot; NO overlays &middot; NO halos
         </p>
 
         <!-- Seal logo -->
@@ -251,12 +244,9 @@ import Footer from '../components/Footer.astro';
         </div>
 
         <div class="relative mb-10">
-
-          <!-- (DOME REMOVED — was a dark grey ellipse with feather)  -->
-
           <div class="relative z-10">
 
-            <!-- DESKTOP arched SVG — DARK halos -->
+            <!-- DESKTOP arched SVG — NO halo filter, just plain text -->
             <svg
               viewBox="0 -65 1000 295"
               class="hidden md:block mx-auto h-auto mb-8"
@@ -265,28 +255,18 @@ import Footer from '../components/Footer.astro';
               role="img"
             >
               <defs>
-                <filter id="v2-arch-halo-desk" x="-50%" y="-50%" width="200%" height="200%">
-                  <feMorphology in="SourceAlpha" operator="dilate" radius="12" result="expanded"/>
-                  <feGaussianBlur in="expanded" stdDeviation="18" result="blurred"/>
-                  <feFlood flood-color="black" flood-opacity="1.0" result="darkfill"/>
-                  <feComposite in="darkfill" in2="blurred" operator="in" result="halo"/>
-                  <feMerge>
-                    <feMergeNode in="halo"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
-                </filter>
                 <path id="v2-arch-line1-desk" d="M 50 130 Q 500 0 950 130" fill="none" />
                 <path id="v2-arch-line2-desk" d="M 50 215 Q 500 85 950 215" fill="none" />
               </defs>
-              <text fill="rgba(255,255,255,0.92)" font-size="30" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif" filter="url(#v2-arch-halo-desk)">
+              <text fill="rgba(255,255,255,0.92)" font-size="30" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v2-arch-line1-desk" startOffset="50%" text-anchor="middle">Where will you be&#8230;</textPath>
               </text>
-              <text fill="#ffffff" font-size="47" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif" filter="url(#v2-arch-halo-desk)">
+              <text fill="#ffffff" font-size="47" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v2-arch-line2-desk" startOffset="50%" text-anchor="middle">when the clock strikes 250?</textPath>
               </text>
             </svg>
 
-            <!-- MOBILE arched SVG -->
+            <!-- MOBILE arched SVG — NO halo filter -->
             <svg
               viewBox="0 -40 600 200"
               class="block md:hidden w-full max-w-md mx-auto h-auto mb-8"
@@ -294,23 +274,13 @@ import Footer from '../components/Footer.astro';
               role="img"
             >
               <defs>
-                <filter id="v2-arch-halo-mob" x="-50%" y="-50%" width="200%" height="200%">
-                  <feMorphology in="SourceAlpha" operator="dilate" radius="7" result="expanded"/>
-                  <feGaussianBlur in="expanded" stdDeviation="11" result="blurred"/>
-                  <feFlood flood-color="black" flood-opacity="1.0" result="darkfill"/>
-                  <feComposite in="darkfill" in2="blurred" operator="in" result="halo"/>
-                  <feMerge>
-                    <feMergeNode in="halo"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
-                </filter>
                 <path id="v2-arch-line1-mob" d="M 30 95 Q 300 25 570 95" fill="none" />
                 <path id="v2-arch-line2-mob" d="M 30 150 Q 300 80 570 150" fill="none" />
               </defs>
-              <text fill="rgba(255,255,255,0.92)" font-size="34" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif" filter="url(#v2-arch-halo-mob)">
+              <text fill="rgba(255,255,255,0.92)" font-size="34" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v2-arch-line1-mob" startOffset="50%" text-anchor="middle">Where will you be&#8230;</textPath>
               </text>
-              <text fill="#ffffff" font-size="40" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif" filter="url(#v2-arch-halo-mob)">
+              <text fill="#ffffff" font-size="40" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v2-arch-line2-mob" startOffset="50%" text-anchor="middle">when the clock strikes 250?</textPath>
               </text>
             </svg>
@@ -358,15 +328,16 @@ import Footer from '../components/Footer.astro';
             <li class="flex items-start"><span class="inline-block w-5 h-5 rounded-sm flex-shrink-0 mt-0.5 mr-3" style="background: rgba(255,235,0,0.85); border: 1px solid rgba(0,0,0,0.15);"></span><span><strong class="text-navy">Bright yellow</strong> &mdash; the per-letter halos behind each glyph in the two arched lines. They merge into one blob per text line. On the live site this is black, sized to each letter.</span></li>
           </ul>
 
-          <p class="text-navy font-semibold text-sm mb-2">Bottom hero on this page (V2 &mdash; NO overlays)</p>
+          <p class="text-navy font-semibold text-sm mb-2">Bottom hero on this page (V2)</p>
           <ul class="space-y-2 text-navy/85 text-sm leading-relaxed mb-5">
-            <li>The full-hero dark overlay is REMOVED &mdash; you see the photo at full brightness.</li>
-            <li>The dome SVG is REMOVED &mdash; no targeted dark area behind the text.</li>
-            <li>Only thing left from the &lsquo;darkening&rsquo; system: the per-letter halos (rgba(0,0,0,0.95) blobs behind each glyph in the two arched lines), exactly like live.</li>
+            <li><strong class="text-navy">New hero photo:</strong> &lsquo;Countdown Pic_1&rsquo; from your Downloads folder, optimized + saved as <code class="text-navy/80 bg-white/50 px-1 rounded">/images/event/hero-countdown-pic-1.jpg</code> (1600&times;900, ~349 KB).</li>
+            <li>NO full-hero dark overlay. Photo at full brightness.</li>
+            <li>NO dome SVG behind the text.</li>
+            <li>NO per-letter halos behind the arched glyphs &mdash; the SVG <code class="text-navy/80 bg-white/50 px-1 rounded">filter</code> attribute was removed entirely so the text is just plain crisp glyphs against the photo.</li>
           </ul>
 
           <p class="text-xs text-navy/70 leading-relaxed pt-2 border-t border-navy/10">
-            Use this V2 section to judge whether the photo at full brightness + only per-letter halos is enough to keep the text readable. If yes &rarr; we&rsquo;ve simplified the whole stack. If no &rarr; we put the dome back over the bright photo (no full-hero overlay) so the photo stays vibrant and only the text area is darkened.
+            Pure photo + text test. Tells us how much darkening (if any) is actually needed for legibility on this new picture.
           </p>
         </div>
       </div>
