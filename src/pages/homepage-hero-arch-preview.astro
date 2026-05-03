@@ -1360,14 +1360,24 @@ import Footer from '../components/Footer.astro';
                text's edges via negative insets so the radial-gradient
                can feather smoothly into the photo without ever
                touching a hard rectangular edge. Values are heavier
-               at center (0.88) and fade to fully transparent by 90%
+               at center (0.88) and fade to fully transparent by 100%
                radius — no hard boundary anywhere.
+
+               Per Mike (V-I tweak): extended DOWNWARD only so the
+               visible dome reaches just below the 'Compare Ticket
+               Options' button. Top/left/right kept exactly as they
+               were. Bottom inset bumped from -inset-y-14 (~56 px)
+               to -bottom-28 sm:-bottom-36 (~112-144 px). The
+               gradient center is shifted up to 'center 40%' so the
+               dark spot stays centered on the text rather than
+               drifting downward as the box gets taller.
+
                pointer-events-none so the underlying button is still
                clickable.
           -->
           <div
-            class="absolute -inset-x-8 sm:-inset-x-16 -inset-y-10 sm:-inset-y-14 pointer-events-none z-0"
-            style="background: radial-gradient(ellipse at center, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.72) 25%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.25) 72%, rgba(0,0,0,0.08) 88%, transparent 100%);"
+            class="absolute -inset-x-8 sm:-inset-x-16 -top-10 sm:-top-14 -bottom-28 sm:-bottom-36 pointer-events-none z-0"
+            style="background: radial-gradient(ellipse at center 40%, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.78) 25%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.35) 72%, rgba(0,0,0,0.15) 88%, transparent 100%);"
           ></div>
 
           <!-- All the text and the button sit ABOVE the dome on z-10 -->
