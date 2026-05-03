@@ -860,6 +860,219 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- ============================================================ -->
+    <!-- VERSION G — the "almost live" candidate                      -->
+    <!-- Four fixes from Mike's V-F feedback:                         -->
+    <!--   (1) Restored 'A once-in-a-lifetime moment.' line that I    -->
+    <!--       dropped from earlier preview clones.                   -->
+    <!--   (2) 'The Official' kept at live classes (text-lg/xl/2xl),  -->
+    <!--       AND its halo is dialed down a touch so the gold weight -->
+    <!--       isn't muddied by the dark blob behind it.              -->
+    <!--   (3) Arched text shrunk substantially so 'when the clock    -->
+    <!--       strikes 250?' renders at roughly the same width as     -->
+    <!--       'ountdown 250 Bal' inside the h1 (i.e. the line spans  -->
+    <!--       from the 'o' in Countdown to the first 'l' in Ball).   -->
+    <!--   (4) Halo MUCH bigger and MUCH darker.                      -->
+    <!--                                                              -->
+    <!-- The hero structure now matches live exactly: arched lines →  -->
+    <!-- The Official → Countdown 250 Ball → simple gold rule → 'A    -->
+    <!-- once-in-a-lifetime moment.' → Compare Ticket Options button. -->
+    <!-- The decorative date paragraph + star divider I had in F (not -->
+    <!-- on the live hero) are removed.                               -->
+    <!-- ============================================================ -->
+    <section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0">
+        <img
+          src="/images/event/hero-countdown250-toast.jpg"
+          alt="Hero background"
+          class="w-full h-full object-cover object-center"
+        />
+        <div class="absolute inset-0" style="background: rgba(0,0,0,0.55);"></div>
+      </div>
+
+      <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-28 pb-20">
+
+        <p class="text-gold/85 font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-6"
+           style="text-shadow: 0 0 6px rgba(0,0,0,1), 0 0 14px rgba(0,0,0,1), 0 0 24px rgba(0,0,0,0.95);">
+          Version G &middot; live-aligned, bigger darker halo
+        </p>
+
+        <div class="flex justify-center mb-10">
+          <picture>
+            <source srcset="/images/logos/countdown250-seal-navy-blue.webp" type="image/webp" />
+            <img
+              src="/images/logos/countdown250-seal-navy-blue.png"
+              alt="The Official Countdown 250 Ball — July 3, 2026 — Washington, D.C."
+              class="w-[340px] sm:w-[440px] md:w-[520px] h-auto drop-shadow-2xl"
+            />
+          </picture>
+        </div>
+
+        <div class="mb-10">
+
+          <!-- ===== ARCHED HEADER — Version G =====
+               Sized so 'when the clock strikes 250?' visibly aligns
+               with the 'o' in Countdown to the first 'l' in Ball
+               (i.e. the line is roughly the width of the inner span
+               of the h1).
+
+               viewBox 0 -65 1000 295. Width FORCED via inline style
+               to min(1024px, calc(100vw - 2rem)) — at 1024 px the
+               scale is 1024/1000 = 1.024, so:
+                 line 1 SVG font 30 → renders ~31 px (≈ live 30)
+                 line 2 SVG font 47 → renders ~48 px (≈ live 48)
+               Width of line 2 at 48 px italic Playfair × 27 chars
+               ≈ 640 px, which lines up roughly with the inner span
+               of the 'Countdown 250 Ball' h1 at lg:text-[4.5rem].
+
+               Halo filter id is unique per version so defs can't
+               collide on the same page. Settings vs F:
+                 dilate radius 6 → 12  (halo expands further out)
+                 blur stddev  10 → 18  (much wider soft falloff)
+                 flood opacity 0.95 → 1.0 (pure black)
+               Net effect: each letter is surrounded by a pure-black
+               soft blob that is roughly the size of the letter itself
+               in every direction — heavily obscures the photo behind.
+          -->
+
+          <!-- DESKTOP arched SVG (md and up) — width FORCED -->
+          <svg
+            viewBox="0 -65 1000 295"
+            class="hidden md:block mx-auto h-auto mb-8"
+            style="width: min(1024px, calc(100vw - 2rem));"
+            aria-label="Where will you be… when the clock strikes 250?"
+            role="img"
+          >
+            <defs>
+              <filter id="dark-halo-G" x="-50%" y="-50%" width="200%" height="200%">
+                <feMorphology in="SourceAlpha" operator="dilate" radius="12" result="expanded"/>
+                <feGaussianBlur in="expanded" stdDeviation="18" result="blurred"/>
+                <feFlood flood-color="black" flood-opacity="1.0" result="darkfill"/>
+                <feComposite in="darkfill" in2="blurred" operator="in" result="halo"/>
+                <feMerge>
+                  <feMergeNode in="halo"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+
+              <path id="hero-line1-G-desk" d="M 50 130 Q 500 0 950 130" fill="none" />
+              <path id="hero-line2-G-desk" d="M 50 215 Q 500 85 950 215" fill="none" />
+            </defs>
+
+            <text
+              fill="rgba(255,255,255,0.92)"
+              font-size="30"
+              font-weight="300"
+              font-style="italic"
+              font-family="'Playfair Display', Georgia, serif"
+              filter="url(#dark-halo-G)"
+            >
+              <textPath href="#hero-line1-G-desk" startOffset="50%" text-anchor="middle">
+                Where will you be&#8230;
+              </textPath>
+            </text>
+
+            <text
+              fill="#ffffff"
+              font-size="47"
+              font-weight="400"
+              font-style="italic"
+              font-family="'Playfair Display', Georgia, serif"
+              filter="url(#dark-halo-G)"
+            >
+              <textPath href="#hero-line2-G-desk" startOffset="50%" text-anchor="middle">
+                when the clock strikes 250?
+              </textPath>
+            </text>
+          </svg>
+
+          <!-- MOBILE arched SVG (under md) — same approach, scaled -->
+          <svg
+            viewBox="0 -40 600 200"
+            class="block md:hidden w-full max-w-md mx-auto h-auto mb-8"
+            aria-hidden="true"
+            role="img"
+          >
+            <defs>
+              <filter id="dark-halo-G-mob" x="-50%" y="-50%" width="200%" height="200%">
+                <feMorphology in="SourceAlpha" operator="dilate" radius="7" result="expanded"/>
+                <feGaussianBlur in="expanded" stdDeviation="11" result="blurred"/>
+                <feFlood flood-color="black" flood-opacity="1.0" result="darkfill"/>
+                <feComposite in="darkfill" in2="blurred" operator="in" result="halo"/>
+                <feMerge>
+                  <feMergeNode in="halo"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+
+              <path id="hero-line1-G-mob" d="M 30 95 Q 300 25 570 95" fill="none" />
+              <path id="hero-line2-G-mob" d="M 30 150 Q 300 80 570 150" fill="none" />
+            </defs>
+
+            <text
+              fill="rgba(255,255,255,0.92)"
+              font-size="34"
+              font-weight="300"
+              font-style="italic"
+              font-family="'Playfair Display', Georgia, serif"
+              filter="url(#dark-halo-G-mob)"
+            >
+              <textPath href="#hero-line1-G-mob" startOffset="50%" text-anchor="middle">
+                Where will you be&#8230;
+              </textPath>
+            </text>
+            <text
+              fill="#ffffff"
+              font-size="40"
+              font-weight="400"
+              font-style="italic"
+              font-family="'Playfair Display', Georgia, serif"
+              filter="url(#dark-halo-G-mob)"
+            >
+              <textPath href="#hero-line2-G-mob" startOffset="50%" text-anchor="middle">
+                when the clock strikes 250?
+              </textPath>
+            </text>
+          </svg>
+
+          <!-- The Official — same classes as live (text-lg/xl/2xl).
+               Halo dialed down a touch vs F so the gold weight isn't
+               muddied by the blob behind it. -->
+          <p class="font-heading italic font-bold text-lg sm:text-xl md:text-2xl text-gold mb-2 tracking-wide"
+             style="text-shadow: 0 0 4px rgba(0,0,0,1), 0 0 10px rgba(0,0,0,1), 0 0 18px rgba(0,0,0,0.9), 0 0 32px rgba(0,0,0,0.6);">
+            The Official
+          </p>
+
+          <!-- Countdown 250 Ball — same h1 classes as live -->
+          <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-white leading-[1.05] mb-6 tracking-tight"
+              style="text-shadow: 0 0 8px rgba(0,0,0,1), 0 0 18px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,0.95), 0 0 48px rgba(0,0,0,0.8), 0 0 72px rgba(0,0,0,0.55);">
+            Countdown 250 Ball
+          </h1>
+
+          <!-- Simple gold horizontal-rule divider (matches live) -->
+          <div class="w-20 h-px bg-gold/70 mx-auto mb-5" style="box-shadow: 0 0 14px rgba(0,0,0,0.7);"></div>
+
+          <!-- A once-in-a-lifetime moment. (RESTORED — was missing) -->
+          <p class="font-heading italic font-light text-lg sm:text-xl md:text-2xl text-gold/95 mb-8"
+             style="text-shadow: 0 0 4px rgba(0,0,0,1), 0 0 10px rgba(0,0,0,1), 0 0 18px rgba(0,0,0,0.9), 0 0 32px rgba(0,0,0,0.6);">
+            A once-in-a-lifetime moment.
+          </p>
+
+          <!-- Compare Ticket Options button (matches live).
+               Anchor points to /#tickets on the live home page since
+               the tickets section doesn't exist on this preview. -->
+          <div class="flex justify-center">
+            <a
+              href="/#tickets"
+              class="bg-red hover:bg-red-light text-white px-10 py-4 text-sm font-semibold tracking-[0.2em] uppercase transition-all rounded shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+            >
+              Compare Ticket Options
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
     <!-- Notes for review                                             -->
     <!-- ============================================================ -->
     <section class="bg-white py-14">
@@ -867,15 +1080,18 @@ import Footer from '../components/Footer.astro';
         <div class="bg-navy/[0.02] border border-navy/20 rounded-lg p-6">
           <p class="text-navy font-semibold tracking-[0.2em] uppercase text-xs mb-3">Preview notes</p>
           <ul class="space-y-2 text-navy/85 text-sm leading-relaxed list-disc pl-5">
-            <li><strong class="text-navy">Six versions to compare:</strong> scroll top to bottom. Pick one.</li>
-            <li><strong class="text-navy">Version A:</strong> arc depth = 80. Subtle bow.</li>
-            <li><strong class="text-navy">Version B:</strong> arc depth = 130. Deeper, architectural curve. Same text size as A.</li>
-            <li><strong class="text-navy">Version C:</strong> same arc as B + bigger text fonts. Constrained by inline-block backdrop.</li>
-            <li><strong class="text-navy">Version D:</strong> tried to force SVG width via CSS. Backfired (constraint resolved against parent).</li>
-            <li><strong class="text-navy">Version E:</strong> dropped backdrop, added drop-shadow halo. Targeted exact live size but the arch curvature still made it read smaller than live.</li>
-            <li><strong class="text-navy">Version F (newest, hopefully the winner):</strong> two fixes at once. (1) Arched text bumped ~40% bigger than live nominally so the arch curvature compression brings the perceived size up to live. SVG width forced explicitly to 1024 px so it renders deterministically. (2) Per-letter dark halo using SVG filter (dilate + blur + flood + composite) for the arched text, and a 5-layer stacked text-shadow chain for the HTML text below. The photo sits at the back, the dark halo blobs sit in the middle, and the crisp text sits on top &mdash; exactly the 3-layer model you described. Letters never overlap each other&rsquo;s halos because the crisp text layer always sits in front.</li>
-            <li><strong class="text-navy">Mobile:</strong> Versions A&ndash;D share one mobile SVG. E uses drop-shadow halo. F uses the same per-letter SVG filter, scaled for phone width.</li>
-            <li>Tell me which version &mdash; or any tweak (halo size, text size, arch depth, etc.).</li>
+            <li><strong class="text-navy">Seven versions to compare:</strong> scroll top to bottom. Pick one.</li>
+            <li><strong class="text-navy">A&ndash;F:</strong> earlier iterations on size, container, and halo &mdash; left in place for comparison.</li>
+            <li><strong class="text-navy">Version G (newest):</strong> all four V-F issues addressed.
+              <ul class="list-[circle] pl-5 mt-1 space-y-0.5">
+                <li>&lsquo;A once-in-a-lifetime moment.&rsquo; restored with the live italic / gold styling.</li>
+                <li>&lsquo;The Official&rsquo; kept at live classes (text-lg/xl/2xl) and its halo dialed down so the gold doesn&rsquo;t look muddy.</li>
+                <li>Arched text shrunk so &lsquo;when the clock strikes 250?&rsquo; renders at ~48 px (matches live lg:text-5xl), making its visual width line up with the &lsquo;o&rsquo; in Countdown through the first &lsquo;l&rsquo; in Ball.</li>
+                <li>Halo enlarged AND fully darkened: dilate radius 6 → 12, blur stddev 10 → 18, flood opacity 0.95 → 1.0. Each letter now sits on a pure-black soft blob roughly the size of the letter itself, heavily obscuring the photo behind.</li>
+              </ul>
+            </li>
+            <li><strong class="text-navy">Hero structure now matches live exactly:</strong> arched lines → The Official → Countdown 250 Ball → simple gold rule → A once-in-a-lifetime moment. → Compare Ticket Options button. The decorative date + star divider from earlier preview iterations (not on live) have been removed.</li>
+            <li>If G is the winner: say &ldquo;ship G&rdquo; and I&rsquo;ll port it to the live home page. Or any further tweak (halo bigger/smaller, line 2 width, etc.).</li>
           </ul>
         </div>
       </div>
