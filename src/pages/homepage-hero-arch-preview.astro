@@ -1073,6 +1073,237 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- ============================================================ -->
+    <!-- VERSION H — same as G but with letter-height halos          -->
+    <!-- Per Mike: G is almost there but the photo still distracts.   -->
+    <!-- His ask: have each letter's halo extend out by the FULL      -->
+    <!-- length of the letter itself in every direction (so a 'W'     -->
+    <!-- ends up sitting on a dark blob 3× the W's width and height). -->
+    <!--                                                              -->
+    <!-- Mike's worry — that overlapping halos would cover            -->
+    <!-- neighboring letters — is actually impossible with this       -->
+    <!-- filter approach: SVG renders the dark halo blob from         -->
+    <!-- SourceAlpha first, then puts the original SourceGraphic on   -->
+    <!-- TOP via feMerge. So all letter halos sit together in the     -->
+    <!-- middle layer (yes, they overlap each other, which actually   -->
+    <!-- HELPS obscure the photo between letters), and then every     -->
+    <!-- crisp glyph renders in the front layer on top of all halos   -->
+    <!-- — including its neighbors' halos. Letters are never covered. -->
+    <!--                                                              -->
+    <!-- Implementation:                                              -->
+    <!--   - TWO filters (one per line) so each is sized to its       -->
+    <!--     line's font-size. Halo radius = font-size in SVG units.  -->
+    <!--   - Filter region expanded to 400% so the bigger halo isn't  -->
+    <!--     clipped at the SVG element's bounding box edge.          -->
+    <!--   - viewBox vertical extent expanded to fit the bigger halo  -->
+    <!--     above and below the arched lines.                        -->
+    <!--   - HTML text below uses heavier text-shadow chains, blur    -->
+    <!--     radii now ≈ each line's own font size (letter-height).   -->
+    <!-- ============================================================ -->
+    <section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0">
+        <img
+          src="/images/event/hero-countdown250-toast.jpg"
+          alt="Hero background"
+          class="w-full h-full object-cover object-center"
+        />
+        <div class="absolute inset-0" style="background: rgba(0,0,0,0.55);"></div>
+      </div>
+
+      <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-28 pb-20">
+
+        <p class="text-gold/85 font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-6"
+           style="text-shadow: 0 0 6px rgba(0,0,0,1), 0 0 14px rgba(0,0,0,1), 0 0 24px rgba(0,0,0,0.95);">
+          Version H &middot; G + letter-height halos
+        </p>
+
+        <div class="flex justify-center mb-10">
+          <picture>
+            <source srcset="/images/logos/countdown250-seal-navy-blue.webp" type="image/webp" />
+            <img
+              src="/images/logos/countdown250-seal-navy-blue.png"
+              alt="The Official Countdown 250 Ball — July 3, 2026 — Washington, D.C."
+              class="w-[340px] sm:w-[440px] md:w-[520px] h-auto drop-shadow-2xl"
+            />
+          </picture>
+        </div>
+
+        <div class="mb-10">
+
+          <!-- ===== ARCHED HEADER — Version H =====
+               Same arc + same text sizes as G. Only the halos change.
+
+               Halo math (target: each letter sits on a blob ~3× the
+               letter's own dimension in each axis):
+                 line 1 font-size 30 SVG units → halo radius ≈ 30 SVG units
+                   filter: dilate radius 14 + blur stddev 8
+                   (visible halo extent ≈ 14 + 16 = 30 ✓)
+                 line 2 font-size 47 SVG units → halo radius ≈ 47 SVG units
+                   filter: dilate radius 20 + blur stddev 14
+                   (visible halo extent ≈ 20 + 28 = 48 ✓)
+
+               Filter region 400% (vs 200% in G) so the bigger halo
+               doesn't clip at the bounding-box edge.
+
+               viewBox y range expanded from -65→230 to -100→290 to
+               give the much bigger halo room above the top arch peak
+               and below the bottom arch's descenders.
+          -->
+
+          <!-- DESKTOP arched SVG (md and up) -->
+          <svg
+            viewBox="0 -100 1000 390"
+            class="hidden md:block mx-auto h-auto mb-8"
+            style="width: min(1024px, calc(100vw - 2rem));"
+            aria-label="Where will you be… when the clock strikes 250?"
+            role="img"
+          >
+            <defs>
+              <!-- Eyebrow halo: sized for line 1 font 30 -->
+              <filter id="dark-halo-H-eyebrow" x="-100%" y="-100%" width="300%" height="300%">
+                <feMorphology in="SourceAlpha" operator="dilate" radius="14" result="expanded"/>
+                <feGaussianBlur in="expanded" stdDeviation="8" result="blurred"/>
+                <feFlood flood-color="black" flood-opacity="1.0" result="darkfill"/>
+                <feComposite in="darkfill" in2="blurred" operator="in" result="halo"/>
+                <feMerge>
+                  <feMergeNode in="halo"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+
+              <!-- Headline halo: sized for line 2 font 47 -->
+              <filter id="dark-halo-H-headline" x="-100%" y="-100%" width="300%" height="300%">
+                <feMorphology in="SourceAlpha" operator="dilate" radius="20" result="expanded"/>
+                <feGaussianBlur in="expanded" stdDeviation="14" result="blurred"/>
+                <feFlood flood-color="black" flood-opacity="1.0" result="darkfill"/>
+                <feComposite in="darkfill" in2="blurred" operator="in" result="halo"/>
+                <feMerge>
+                  <feMergeNode in="halo"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+
+              <path id="hero-line1-H-desk" d="M 50 145 Q 500 15 950 145" fill="none" />
+              <path id="hero-line2-H-desk" d="M 50 235 Q 500 105 950 235" fill="none" />
+            </defs>
+
+            <text
+              fill="rgba(255,255,255,0.92)"
+              font-size="30"
+              font-weight="300"
+              font-style="italic"
+              font-family="'Playfair Display', Georgia, serif"
+              filter="url(#dark-halo-H-eyebrow)"
+            >
+              <textPath href="#hero-line1-H-desk" startOffset="50%" text-anchor="middle">
+                Where will you be&#8230;
+              </textPath>
+            </text>
+
+            <text
+              fill="#ffffff"
+              font-size="47"
+              font-weight="400"
+              font-style="italic"
+              font-family="'Playfair Display', Georgia, serif"
+              filter="url(#dark-halo-H-headline)"
+            >
+              <textPath href="#hero-line2-H-desk" startOffset="50%" text-anchor="middle">
+                when the clock strikes 250?
+              </textPath>
+            </text>
+          </svg>
+
+          <!-- MOBILE arched SVG -->
+          <svg
+            viewBox="0 -55 600 230"
+            class="block md:hidden w-full max-w-md mx-auto h-auto mb-8"
+            aria-hidden="true"
+            role="img"
+          >
+            <defs>
+              <filter id="dark-halo-H-mob-eyebrow" x="-100%" y="-100%" width="300%" height="300%">
+                <feMorphology in="SourceAlpha" operator="dilate" radius="10" result="expanded"/>
+                <feGaussianBlur in="expanded" stdDeviation="6" result="blurred"/>
+                <feFlood flood-color="black" flood-opacity="1.0" result="darkfill"/>
+                <feComposite in="darkfill" in2="blurred" operator="in" result="halo"/>
+                <feMerge>
+                  <feMergeNode in="halo"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+              <filter id="dark-halo-H-mob-headline" x="-100%" y="-100%" width="300%" height="300%">
+                <feMorphology in="SourceAlpha" operator="dilate" radius="14" result="expanded"/>
+                <feGaussianBlur in="expanded" stdDeviation="10" result="blurred"/>
+                <feFlood flood-color="black" flood-opacity="1.0" result="darkfill"/>
+                <feComposite in="darkfill" in2="blurred" operator="in" result="halo"/>
+                <feMerge>
+                  <feMergeNode in="halo"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+
+              <path id="hero-line1-H-mob" d="M 30 105 Q 300 35 570 105" fill="none" />
+              <path id="hero-line2-H-mob" d="M 30 165 Q 300 95 570 165" fill="none" />
+            </defs>
+
+            <text
+              fill="rgba(255,255,255,0.92)"
+              font-size="34"
+              font-weight="300"
+              font-style="italic"
+              font-family="'Playfair Display', Georgia, serif"
+              filter="url(#dark-halo-H-mob-eyebrow)"
+            >
+              <textPath href="#hero-line1-H-mob" startOffset="50%" text-anchor="middle">
+                Where will you be&#8230;
+              </textPath>
+            </text>
+            <text
+              fill="#ffffff"
+              font-size="40"
+              font-weight="400"
+              font-style="italic"
+              font-family="'Playfair Display', Georgia, serif"
+              filter="url(#dark-halo-H-mob-headline)"
+            >
+              <textPath href="#hero-line2-H-mob" startOffset="50%" text-anchor="middle">
+                when the clock strikes 250?
+              </textPath>
+            </text>
+          </svg>
+
+          <!-- The Official — text-shadow blur radii bumped to ≈ font size -->
+          <p class="font-heading italic font-bold text-lg sm:text-xl md:text-2xl text-gold mb-2 tracking-wide"
+             style="text-shadow: 0 0 8px rgba(0,0,0,1), 0 0 16px rgba(0,0,0,1), 0 0 24px rgba(0,0,0,1), 0 0 36px rgba(0,0,0,0.85);">
+            The Official
+          </p>
+
+          <!-- Countdown 250 Ball — much wider blur radii sized to the h1 font -->
+          <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-white leading-[1.05] mb-6 tracking-tight"
+              style="text-shadow: 0 0 16px rgba(0,0,0,1), 0 0 36px rgba(0,0,0,1), 0 0 56px rgba(0,0,0,1), 0 0 80px rgba(0,0,0,0.85), 0 0 110px rgba(0,0,0,0.55);">
+            Countdown 250 Ball
+          </h1>
+
+          <div class="w-20 h-px bg-gold/70 mx-auto mb-5" style="box-shadow: 0 0 16px rgba(0,0,0,0.85);"></div>
+
+          <p class="font-heading italic font-light text-lg sm:text-xl md:text-2xl text-gold/95 mb-8"
+             style="text-shadow: 0 0 8px rgba(0,0,0,1), 0 0 16px rgba(0,0,0,1), 0 0 24px rgba(0,0,0,1), 0 0 36px rgba(0,0,0,0.85);">
+            A once-in-a-lifetime moment.
+          </p>
+
+          <div class="flex justify-center">
+            <a
+              href="/#tickets"
+              class="bg-red hover:bg-red-light text-white px-10 py-4 text-sm font-semibold tracking-[0.2em] uppercase transition-all rounded shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+            >
+              Compare Ticket Options
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
     <!-- Notes for review                                             -->
     <!-- ============================================================ -->
     <section class="bg-white py-14">
@@ -1080,7 +1311,7 @@ import Footer from '../components/Footer.astro';
         <div class="bg-navy/[0.02] border border-navy/20 rounded-lg p-6">
           <p class="text-navy font-semibold tracking-[0.2em] uppercase text-xs mb-3">Preview notes</p>
           <ul class="space-y-2 text-navy/85 text-sm leading-relaxed list-disc pl-5">
-            <li><strong class="text-navy">Seven versions to compare:</strong> scroll top to bottom. Pick one.</li>
+            <li><strong class="text-navy">Eight versions to compare:</strong> scroll top to bottom. Pick one.</li>
             <li><strong class="text-navy">A&ndash;F:</strong> earlier iterations on size, container, and halo &mdash; left in place for comparison.</li>
             <li><strong class="text-navy">Version G (newest):</strong> all four V-F issues addressed.
               <ul class="list-[circle] pl-5 mt-1 space-y-0.5">
@@ -1092,6 +1323,7 @@ import Footer from '../components/Footer.astro';
             </li>
             <li><strong class="text-navy">Hero structure now matches live exactly:</strong> arched lines → The Official → Countdown 250 Ball → simple gold rule → A once-in-a-lifetime moment. → Compare Ticket Options button. The decorative date + star divider from earlier preview iterations (not on live) have been removed.</li>
             <li>If G is the winner: say &ldquo;ship G&rdquo; and I&rsquo;ll port it to the live home page. Or any further tweak (halo bigger/smaller, line 2 width, etc.).</li>
+            <li><strong class="text-navy">Version H (newest):</strong> exactly G except every text element gets a halo whose radius equals its own font size &mdash; so each letter sits on a dark blob roughly 3&times; the letter&rsquo;s width and 3&times; its height. Halos overlap each other in the middle layer (which actually helps obscure the photo between letters), but the crisp glyph layer always sits on top, so letters are never covered &mdash; not even by their neighbors&rsquo; halos.</li>
           </ul>
         </div>
       </div>
