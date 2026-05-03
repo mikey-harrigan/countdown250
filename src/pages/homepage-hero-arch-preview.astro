@@ -654,6 +654,212 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- ============================================================ -->
+    <!-- VERSION F — 3-layer photo / dark halo blobs / crisp text    -->
+    <!-- AND much bigger arched text                                  -->
+    <!--                                                              -->
+    <!-- Two fixes in one version:                                    -->
+    <!--                                                              -->
+    <!-- (1) SIZE — overshoot live noticeably. Past versions targeted -->
+    <!-- the same px size as live (30/48), but the arch curvature     -->
+    <!-- compresses each letter visually so they read as smaller than -->
+    <!-- a straight line at the same px. Solution: make the arched    -->
+    <!-- text 35-40% bigger than live nominally so the perceived size -->
+    <!-- matches. SVG width forced explicitly via inline style so the -->
+    <!-- size is deterministic regardless of parent layout quirks.    -->
+    <!--                                                              -->
+    <!-- (2) HALO — Mike's 3-layer model:                             -->
+    <!--    BACK: photo (with the existing 0.55 dark overlay)         -->
+    <!--    MIDDLE: dark halo blobs, shaped per-letter, expanded      -->
+    <!--            outward and heavily darkened. Implemented via SVG -->
+    <!--            filter (feMorphology dilate + feGaussianBlur +    -->
+    <!--            feFlood + feComposite) for the arched text, and   -->
+    <!--            a stacked text-shadow chain for the HTML text.    -->
+    <!--    FRONT: the actual crisp letter glyphs, rendered last so   -->
+    <!--           they sit on top of their own halo blob.            -->
+    <!-- Halos from neighboring letters can overlap (which actually   -->
+    <!-- helps obscure the background between letters) without ever   -->
+    <!-- touching the crisp glyph layer that sits in front.           -->
+    <!-- ============================================================ -->
+    <section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0">
+        <img
+          src="/images/event/hero-countdown250-toast.jpg"
+          alt="Hero background"
+          class="w-full h-full object-cover object-center"
+        />
+        <div class="absolute inset-0" style="background: rgba(0,0,0,0.55);"></div>
+      </div>
+
+      <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-28 pb-20">
+
+        <p class="text-gold/85 font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-6"
+           style="text-shadow: 0 0 4px rgba(0,0,0,1), 0 0 10px rgba(0,0,0,1), 0 0 18px rgba(0,0,0,0.85);">
+          Version F &middot; 3-layer halo + bigger arched text
+        </p>
+
+        <div class="flex justify-center mb-10">
+          <picture>
+            <source srcset="/images/logos/countdown250-seal-navy-blue.webp" type="image/webp" />
+            <img
+              src="/images/logos/countdown250-seal-navy-blue.png"
+              alt="The Official Countdown 250 Ball — July 3, 2026 — Washington, D.C."
+              class="w-[340px] sm:w-[440px] md:w-[520px] h-auto drop-shadow-2xl"
+            />
+          </picture>
+        </div>
+
+        <div class="mb-10">
+
+          <!-- ===== ARCHED HEADER — Version F =====
+               viewBox 1200 wide so larger text fits along the arc.
+               Width forced to min(1024px, calc(100vw - 2rem)) so the
+               SVG renders at a known pixel size on desktop (1024px).
+                 scale = 1024 / 1200 = 0.853
+                 line 1 SVG font 50 → renders ~42 px (vs live 30, +42%)
+                 line 2 SVG font 78 → renders ~66 px (vs live 48, +37%)
+               Same arc depth (130) as Versions B/C/D/E.
+
+               Filter id is unique to Version F so it doesn't collide
+               with the other versions' SVG defs on the same page.
+          -->
+
+          <!-- DESKTOP arched SVG (md and up) — width FORCED -->
+          <svg
+            viewBox="0 -90 1200 380"
+            class="hidden md:block mx-auto h-auto mb-8"
+            style="width: min(1024px, calc(100vw - 2rem));"
+            aria-label="Where will you be… when the clock strikes 250?"
+            role="img"
+          >
+            <defs>
+              <!-- Dark halo filter: expand text alpha outward, blur,
+                   flood with near-black, then merge halo behind text.
+                   This produces a soft dark blob shaped per-letter
+                   that obscures the photo behind each glyph while
+                   the crisp text sits unblurred on top. -->
+              <filter id="dark-halo-F" x="-50%" y="-50%" width="200%" height="200%">
+                <feMorphology in="SourceAlpha" operator="dilate" radius="6" result="expanded"/>
+                <feGaussianBlur in="expanded" stdDeviation="10" result="blurred"/>
+                <feFlood flood-color="black" flood-opacity="0.95" result="darkfill"/>
+                <feComposite in="darkfill" in2="blurred" operator="in" result="halo"/>
+                <feMerge>
+                  <feMergeNode in="halo"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+
+              <path id="hero-line1-F-desk" d="M 30 130 Q 600 0 1170 130" fill="none" />
+              <path id="hero-line2-F-desk" d="M 30 240 Q 600 110 1170 240" fill="none" />
+            </defs>
+
+            <!-- Line 1: 'Where will you be…' -->
+            <text
+              fill="rgba(255,255,255,0.92)"
+              font-size="50"
+              font-weight="300"
+              font-style="italic"
+              font-family="'Playfair Display', Georgia, serif"
+              filter="url(#dark-halo-F)"
+            >
+              <textPath href="#hero-line1-F-desk" startOffset="50%" text-anchor="middle">
+                Where will you be&#8230;
+              </textPath>
+            </text>
+
+            <!-- Line 2: 'when the clock strikes 250?' -->
+            <text
+              fill="#ffffff"
+              font-size="78"
+              font-weight="400"
+              font-style="italic"
+              font-family="'Playfair Display', Georgia, serif"
+              filter="url(#dark-halo-F)"
+            >
+              <textPath href="#hero-line2-F-desk" startOffset="50%" text-anchor="middle">
+                when the clock strikes 250?
+              </textPath>
+            </text>
+          </svg>
+
+          <!-- MOBILE arched SVG (under md) — same halo treatment, smaller -->
+          <svg
+            viewBox="0 -50 720 240"
+            class="block md:hidden w-full max-w-md mx-auto h-auto mb-8"
+            aria-hidden="true"
+            role="img"
+          >
+            <defs>
+              <filter id="dark-halo-F-mob" x="-50%" y="-50%" width="200%" height="200%">
+                <feMorphology in="SourceAlpha" operator="dilate" radius="4" result="expanded"/>
+                <feGaussianBlur in="expanded" stdDeviation="6" result="blurred"/>
+                <feFlood flood-color="black" flood-opacity="0.95" result="darkfill"/>
+                <feComposite in="darkfill" in2="blurred" operator="in" result="halo"/>
+                <feMerge>
+                  <feMergeNode in="halo"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+
+              <path id="hero-line1-F-mob" d="M 30 90 Q 360 10 690 90" fill="none" />
+              <path id="hero-line2-F-mob" d="M 30 165 Q 360 85 690 165" fill="none" />
+            </defs>
+
+            <text
+              fill="rgba(255,255,255,0.92)"
+              font-size="42"
+              font-weight="300"
+              font-style="italic"
+              font-family="'Playfair Display', Georgia, serif"
+              filter="url(#dark-halo-F-mob)"
+            >
+              <textPath href="#hero-line1-F-mob" startOffset="50%" text-anchor="middle">
+                Where will you be&#8230;
+              </textPath>
+            </text>
+            <text
+              fill="#ffffff"
+              font-size="56"
+              font-weight="400"
+              font-style="italic"
+              font-family="'Playfair Display', Georgia, serif"
+              filter="url(#dark-halo-F-mob)"
+            >
+              <textPath href="#hero-line2-F-mob" startOffset="50%" text-anchor="middle">
+                when the clock strikes 250?
+              </textPath>
+            </text>
+          </svg>
+
+          <!-- HTML text below: stacked text-shadow chain creates the
+               same per-letter halo effect that the SVG filter does
+               for the arched lines. Many layers stacked = compounded
+               dark blob behind each letter. Browser still renders the
+               glyph itself crisp on top. -->
+          <p class="font-heading italic font-bold text-lg sm:text-xl md:text-2xl text-gold mb-2 tracking-wide"
+             style="text-shadow: 0 0 4px rgba(0,0,0,1), 0 0 10px rgba(0,0,0,1), 0 0 18px rgba(0,0,0,0.95), 0 0 28px rgba(0,0,0,0.85), 0 0 44px rgba(0,0,0,0.65);">
+            The Official
+          </p>
+
+          <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-white leading-[1.05] mb-6 tracking-tight"
+              style="text-shadow: 0 0 6px rgba(0,0,0,1), 0 0 14px rgba(0,0,0,1), 0 0 24px rgba(0,0,0,0.95), 0 0 38px rgba(0,0,0,0.85), 0 0 56px rgba(0,0,0,0.65);">
+            Countdown 250 Ball
+          </h1>
+
+          <div class="flex items-center justify-center gap-3 mb-6">
+            <span class="h-px w-12 bg-gold/70" style="box-shadow: 0 0 12px rgba(0,0,0,0.85), 0 0 24px rgba(0,0,0,0.65);"></span>
+            <span class="text-gold text-sm" style="text-shadow: 0 0 4px rgba(0,0,0,1), 0 0 12px rgba(0,0,0,0.85);">&#9733;</span>
+            <span class="h-px w-12 bg-gold/70" style="box-shadow: 0 0 12px rgba(0,0,0,0.85), 0 0 24px rgba(0,0,0,0.65);"></span>
+          </div>
+
+          <p class="text-white/85 text-sm sm:text-base tracking-wide"
+             style="text-shadow: 0 0 4px rgba(0,0,0,1), 0 0 10px rgba(0,0,0,1), 0 0 18px rgba(0,0,0,0.85);">
+            July 3, 2026 &middot; Washington, D.C.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
     <!-- Notes for review                                             -->
     <!-- ============================================================ -->
     <section class="bg-white py-14">
@@ -661,14 +867,15 @@ import Footer from '../components/Footer.astro';
         <div class="bg-navy/[0.02] border border-navy/20 rounded-lg p-6">
           <p class="text-navy font-semibold tracking-[0.2em] uppercase text-xs mb-3">Preview notes</p>
           <ul class="space-y-2 text-navy/85 text-sm leading-relaxed list-disc pl-5">
-            <li><strong class="text-navy">Five versions to compare:</strong> scroll top to bottom. Pick one.</li>
+            <li><strong class="text-navy">Six versions to compare:</strong> scroll top to bottom. Pick one.</li>
             <li><strong class="text-navy">Version A:</strong> arc depth = 80. Subtle bow.</li>
             <li><strong class="text-navy">Version B:</strong> arc depth = 130. Deeper, architectural curve. Same text size as A.</li>
-            <li><strong class="text-navy">Version C:</strong> same arc as B + bigger text fonts. Constrained by inline-block backdrop &mdash; rendered smaller than expected.</li>
-            <li><strong class="text-navy">Version D:</strong> tried to force SVG width via CSS. Backfired &mdash; the &lsquo;100%&rsquo; in the forced width still resolved against the shrunk inline-block, so the smaller SVG fonts rendered at an even smaller pixel size.</li>
-            <li><strong class="text-navy">Version E (newest, your idea):</strong> dropped the dark backdrop entirely. Each text element now has a triple-layered dark halo (drop-shadow filter) for legibility against the photo. Side benefit: with no inline-block constraint, the SVG fills max-w-4xl naturally and the arched text renders at the EXACT live hero size (~30 px / ~48 px on desktop, matches md:text-3xl / lg:text-5xl). Crispness preserved &mdash; drop-shadow adds shadow underneath, doesn&rsquo;t blur the glyphs.</li>
-            <li><strong class="text-navy">Mobile:</strong> A&ndash;D use the same mobile SVG. E&rsquo;s mobile gets the halo treatment too.</li>
-            <li>Tell me A, B, C, D, or E &mdash; or any tweak (more/less halo, etc.).</li>
+            <li><strong class="text-navy">Version C:</strong> same arc as B + bigger text fonts. Constrained by inline-block backdrop.</li>
+            <li><strong class="text-navy">Version D:</strong> tried to force SVG width via CSS. Backfired (constraint resolved against parent).</li>
+            <li><strong class="text-navy">Version E:</strong> dropped backdrop, added drop-shadow halo. Targeted exact live size but the arch curvature still made it read smaller than live.</li>
+            <li><strong class="text-navy">Version F (newest, hopefully the winner):</strong> two fixes at once. (1) Arched text bumped ~40% bigger than live nominally so the arch curvature compression brings the perceived size up to live. SVG width forced explicitly to 1024 px so it renders deterministically. (2) Per-letter dark halo using SVG filter (dilate + blur + flood + composite) for the arched text, and a 5-layer stacked text-shadow chain for the HTML text below. The photo sits at the back, the dark halo blobs sit in the middle, and the crisp text sits on top &mdash; exactly the 3-layer model you described. Letters never overlap each other&rsquo;s halos because the crisp text layer always sits in front.</li>
+            <li><strong class="text-navy">Mobile:</strong> Versions A&ndash;D share one mobile SVG. E uses drop-shadow halo. F uses the same per-letter SVG filter, scaled for phone width.</li>
+            <li>Tell me which version &mdash; or any tweak (halo size, text size, arch depth, etc.).</li>
           </ul>
         </div>
       </div>
