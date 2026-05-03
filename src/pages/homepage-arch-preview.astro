@@ -57,12 +57,17 @@ import Footer from '../components/Footer.astro';
           -->
 
           <!-- Both SVGs use the SAME viewBox width (1400) and container width
-               (max-w-6xl) so they scale identically. Both arc paths use the
-               SAME bow depth (110 units) for matching curvature. Font-size
-               ratio is tuned to match the live site (eyebrow ~26% of
-               headline, vs the live site's ~23%). -->
+               (max-w-6xl) so they scale identically and use parallel arcs.
+               Font sizes are tuned in SVG units so the rendered px sizes at
+               desktop EXACTLY MATCH the live site (text-sm eyebrow at 14 px,
+               text-6xl headline base at 60 px, 'Host a' span at 51.2 px =
+               85% of base, italic 'Party Inside the Party' inside straight
+               curly quotes). On smaller viewports the SVG scales down
+               proportionally — eyebrow text simply spans less of the arc. -->
 
-          <!-- Arched eyebrow — small white uppercase, proportionally tiny -->
+          <!-- Arched eyebrow — exact match to live: text-sm bold uppercase, white,
+               tracking-[0.25em]. Only the middle portion of the arc carries
+               text since this short line doesn't need the full path. -->
           <svg
             viewBox="0 0 1400 140"
             class="block w-full max-w-6xl mx-auto h-auto -mb-2"
@@ -70,14 +75,13 @@ import Footer from '../components/Footer.astro';
             role="img"
           >
             <defs>
-              <!-- Bow depth = 110 (steeper than first preview's 80) -->
               <path id="arch-pre-eyebrow" d="M 70 130 Q 700 20 1330 130" fill="none" />
             </defs>
             <text
               fill="#ffffff"
-              font-size="19"
+              font-size="17"
               font-weight="700"
-              letter-spacing="8"
+              letter-spacing="4.25"
               font-family="ui-sans-serif, system-ui, sans-serif"
               style="text-transform: uppercase;"
             >
@@ -87,7 +91,10 @@ import Footer from '../components/Footer.astro';
             </text>
           </svg>
 
-          <!-- Arched headline — large gold italic serif -->
+          <!-- Arched headline — exact match to live: 'Host a' (NOT italic) at
+               85% size + curly quotes (NOT italic) wrapping 'Party Inside
+               the Party' (italic) all in Playfair Display bold gold. tspans
+               handle the size + italic mix along the same arc path. -->
           <svg
             viewBox="0 0 1400 220"
             class="block w-full max-w-6xl mx-auto h-auto"
@@ -102,11 +109,10 @@ import Footer from '../components/Footer.astro';
               fill="#fdd835"
               font-size="73"
               font-weight="700"
-              font-style="italic"
               font-family="'Playfair Display', Georgia, serif"
             >
               <textPath href="#arch-pre-headline" startOffset="50%" text-anchor="middle">
-                Host a &#8220;Party Inside the Party&#8221;
+                <tspan font-size="62">Host a </tspan>&#8220;<tspan font-style="italic">Party Inside the Party</tspan>&#8221;
               </textPath>
             </text>
           </svg>
@@ -122,13 +128,13 @@ import Footer from '../components/Footer.astro';
         <div class="max-w-3xl mx-auto bg-white/5 border border-gold/30 rounded-lg p-6 mt-12 text-left">
           <p class="text-gold font-semibold tracking-[0.2em] uppercase text-xs mb-3">Preview notes</p>
           <ul class="space-y-2 text-white/85 text-sm leading-relaxed list-disc pl-5">
-            <li><strong class="text-white">Updated 2026-05-02 round 2:</strong></li>
-            <li>Both lines now use the SAME container width (max-w-6xl, ~1152px on desktop) so they stretch the same horizontal distance.</li>
-            <li>Both arc paths use the SAME bow depth (110 SVG units) for true parallel arches — and steeper than the first preview's 80.</li>
-            <li>Font-size ratio tuned to match the live site (eyebrow ~26% the size of the headline, vs the live site's ~23%): eyebrow 19 SVG units, headline 73 SVG units.</li>
-            <li>Eyebrow letter-spacing bumped to 8 so the small text spreads farther across the arc.</li>
-            <li>SVG viewBox stays 1400 wide — well clear of any letter-cutoff risk for the 41-character eyebrow.</li>
-            <li>Sub-line ('No Extra Costs / Easy to set up') retained for context.</li>
+            <li><strong class="text-white">Updated 2026-05-02 round 3 — exact font/size match to live site:</strong></li>
+            <li><strong class="text-white">Eyebrow:</strong> font-size 17 SVG units → renders ~14 px at desktop (matches live <code>text-sm</code>). letter-spacing 4.25 (matches live tracking-[0.25em]). Shorter text, doesn&rsquo;t fill the whole arc.</li>
+            <li><strong class="text-white">Headline:</strong> font-size 73 SVG units base → renders ~60 px at desktop (matches live <code>text-6xl</code>). 'Host a' tspan at 62 (85% = matches live's smaller <code>text-[3.2rem]</code>). 'Party Inside the Party' inside non-italic curly quotes — italic only on the words inside, just like live.</li>
+            <li>Both lines use SAME container (max-w-6xl) and SAME arc curvature (bow depth 110) — true parallel arches.</li>
+            <li>Eyebrow only fills the middle ~45% of its arc (correct — it&rsquo;s short text); headline fills ~90% of its arc (correct — it&rsquo;s longer).</li>
+            <li>SVG scales proportionally on mobile — text becomes smaller across the board, NOT bigger like the live site's responsive HTML typography. Trade-off of using SVG for the arched effect.</li>
+            <li>No letters cut off at any breakpoint — texts fit comfortably in the 1400-wide viewBox.</li>
           </ul>
         </div>
 
