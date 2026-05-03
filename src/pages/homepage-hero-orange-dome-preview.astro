@@ -227,16 +227,172 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- ============================================================ -->
-    <!-- Color legend so you can tell the layers apart                -->
+    <!-- V2 — How it would look LIVE                                  -->
+    <!-- Identical hero to the orange version above EXCEPT every      -->
+    <!-- debug color is swapped back to its real production color:    -->
+    <!--   - Ball/dome fill: BRIGHT ORANGE → BLACK (0.85 opacity)     -->
+    <!--   - Per-letter halos: YELLOW → BLACK                         -->
+    <!-- Everything else (shape, geometry, blur, positioning, text    -->
+    <!-- styling) is byte-identical to the orange version, so this    -->
+    <!-- is what we'd ship if you say 'go live'.                      -->
+    <!-- ============================================================ -->
+    <section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden border-t-4 border-gold/40">
+      <!-- Background image (same as live) -->
+      <div class="absolute inset-0">
+        <img
+          src="/images/event/hero-countdown250-toast.jpg"
+          alt="Black-tie guests toasting with champagne as Countdown 250 reaches 00:00:01 on stage"
+          class="w-full h-full object-cover object-center"
+        />
+        <div class="absolute inset-0" style="background: rgba(0,0,0,0.55);"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-28 pb-20">
+
+        <!-- V2 label -->
+        <p class="text-gold/85 font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-6"
+           style="text-shadow: 0 0 6px rgba(0,0,0,1), 0 0 14px rgba(0,0,0,1);">
+          V2 &middot; how it would look LIVE
+        </p>
+
+        <!-- Seal logo -->
+        <div class="flex justify-center mb-10 animate-fade-in">
+          <picture>
+            <source srcset="/images/logos/countdown250-seal-navy-blue.webp" type="image/webp" />
+            <img
+              src="/images/logos/countdown250-seal-navy-blue.png"
+              alt="The Official Countdown 250 Ball — July 3, 2026 — Washington, D.C."
+              class="w-[340px] sm:w-[440px] md:w-[520px] h-auto drop-shadow-2xl"
+            />
+          </picture>
+        </div>
+
+        <div class="relative mb-10">
+
+          <!-- ===== DOME — DARK (production color) ===== -->
+          <svg
+            class="absolute pointer-events-none z-0"
+            style="top: -30px; height: 670px; left: 50%; transform: translateX(-50%); width: min(820px, calc(100vw - 1rem)); overflow: visible;"
+            viewBox="0 0 1000 1500"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <defs>
+              <filter id="v2-dome-feather" x="-40%" y="-40%" width="180%" height="180%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="50"/>
+              </filter>
+            </defs>
+            <ellipse
+              cx="500"
+              cy="810"
+              rx="500"
+              ry="620"
+              fill="rgba(0,0,0,0.85)"
+              filter="url(#v2-dome-feather)"
+            />
+          </svg>
+
+          <div class="relative z-10">
+
+            <!-- DESKTOP arched SVG — DARK halos -->
+            <svg
+              viewBox="0 -65 1000 295"
+              class="hidden md:block mx-auto h-auto mb-8"
+              style="width: min(1024px, calc(100vw - 2rem));"
+              aria-label="Where will you be… when the clock strikes 250?"
+              role="img"
+            >
+              <defs>
+                <filter id="v2-arch-halo-desk" x="-50%" y="-50%" width="200%" height="200%">
+                  <feMorphology in="SourceAlpha" operator="dilate" radius="12" result="expanded"/>
+                  <feGaussianBlur in="expanded" stdDeviation="18" result="blurred"/>
+                  <feFlood flood-color="black" flood-opacity="1.0" result="darkfill"/>
+                  <feComposite in="darkfill" in2="blurred" operator="in" result="halo"/>
+                  <feMerge>
+                    <feMergeNode in="halo"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+                <path id="v2-arch-line1-desk" d="M 50 130 Q 500 0 950 130" fill="none" />
+                <path id="v2-arch-line2-desk" d="M 50 215 Q 500 85 950 215" fill="none" />
+              </defs>
+              <text fill="rgba(255,255,255,0.92)" font-size="30" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif" filter="url(#v2-arch-halo-desk)">
+                <textPath href="#v2-arch-line1-desk" startOffset="50%" text-anchor="middle">Where will you be&#8230;</textPath>
+              </text>
+              <text fill="#ffffff" font-size="47" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif" filter="url(#v2-arch-halo-desk)">
+                <textPath href="#v2-arch-line2-desk" startOffset="50%" text-anchor="middle">when the clock strikes 250?</textPath>
+              </text>
+            </svg>
+
+            <!-- MOBILE arched SVG -->
+            <svg
+              viewBox="0 -40 600 200"
+              class="block md:hidden w-full max-w-md mx-auto h-auto mb-8"
+              aria-hidden="true"
+              role="img"
+            >
+              <defs>
+                <filter id="v2-arch-halo-mob" x="-50%" y="-50%" width="200%" height="200%">
+                  <feMorphology in="SourceAlpha" operator="dilate" radius="7" result="expanded"/>
+                  <feGaussianBlur in="expanded" stdDeviation="11" result="blurred"/>
+                  <feFlood flood-color="black" flood-opacity="1.0" result="darkfill"/>
+                  <feComposite in="darkfill" in2="blurred" operator="in" result="halo"/>
+                  <feMerge>
+                    <feMergeNode in="halo"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+                <path id="v2-arch-line1-mob" d="M 30 95 Q 300 25 570 95" fill="none" />
+                <path id="v2-arch-line2-mob" d="M 30 150 Q 300 80 570 150" fill="none" />
+              </defs>
+              <text fill="rgba(255,255,255,0.92)" font-size="34" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif" filter="url(#v2-arch-halo-mob)">
+                <textPath href="#v2-arch-line1-mob" startOffset="50%" text-anchor="middle">Where will you be&#8230;</textPath>
+              </text>
+              <text fill="#ffffff" font-size="40" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif" filter="url(#v2-arch-halo-mob)">
+                <textPath href="#v2-arch-line2-mob" startOffset="50%" text-anchor="middle">when the clock strikes 250?</textPath>
+              </text>
+            </svg>
+
+            <p class="font-heading italic font-bold text-lg sm:text-xl md:text-2xl text-gold mb-2 tracking-wide">
+              The Official
+            </p>
+
+            <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-white leading-[1.05] mb-6 tracking-tight">
+              Countdown 250 Ball
+            </h1>
+
+            <div class="w-20 h-px bg-gold/70 mx-auto mb-5"></div>
+
+            <p class="font-heading italic font-light text-lg sm:text-xl md:text-2xl text-gold/95 mb-8">
+              A once-in-a-lifetime moment.
+            </p>
+
+            <div class="flex justify-center">
+              <a
+                href="/#tickets"
+                class="bg-red hover:bg-red-light text-white px-10 py-4 text-sm font-semibold tracking-[0.2em] uppercase transition-all rounded shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              >
+                Compare Ticket Options
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- Color legend                                                 -->
     <!-- ============================================================ -->
     <section class="bg-white py-10">
       <div class="max-w-3xl mx-auto px-4 sm:px-6">
         <div class="bg-navy/[0.02] border border-navy/20 rounded-lg p-6">
-          <p class="text-navy font-semibold tracking-[0.2em] uppercase text-xs mb-3">Color legend</p>
+          <p class="text-navy font-semibold tracking-[0.2em] uppercase text-xs mb-3">Compare</p>
           <ul class="space-y-2 text-navy/85 text-sm leading-relaxed">
-            <li><span class="inline-block w-4 h-4 align-middle mr-2" style="background: rgba(255,102,0,0.75);"></span><strong class="text-navy">Bright orange</strong> = the feathered dome (live this is dark black at 0.85 opacity). Now reshaped as a single smooth tall dome &mdash; no more shoulders / twin-towers look.</li>
-            <li><span class="inline-block w-4 h-4 align-middle mr-2" style="background: rgba(255,235,0,0.85);"></span><strong class="text-navy">Yellow</strong> = the per-letter halo behind each glyph (live this is dark black, sized to each letter)</li>
-            <li class="pt-2"><strong class="text-navy">The magenta extra-left feather has been removed.</strong> Tell me where to extend / shrink / shift the orange and I&rsquo;ll make ONLY that one change.</li>
+            <li><strong class="text-navy">Top section (orange):</strong> debug view &mdash; shows exactly where the dome and per-letter halos sit.</li>
+            <li><strong class="text-navy">Bottom section (V2 / dark):</strong> exactly the same shape and positioning, but with production colors (dark dome, dark halos). This is what would ship if you say &lsquo;go live&rsquo;.</li>
+            <li class="pt-2"><strong class="text-navy">Both sections share IDENTICAL geometry:</strong> ellipse cx=500 cy=810 rx=500 ry=620, blur stddev=50, SVG top: -30 / height: 670, viewBox 0 0 1000 1500. Only the fill colors differ.</li>
           </ul>
         </div>
       </div>
