@@ -545,8 +545,14 @@ import Footer from '../components/Footer.astro';
              side). -->
         <div class="flex justify-center mb-10 animate-fade-in">
           <div class="relative inline-block">
+            <!-- Per Mike: reduce the logo overlay's radius by 25%
+                 (so the new size is 75% of the prior size).
+                   360 × 0.75 = 270
+                   460 × 0.75 = 345
+                   540 × 0.75 = 405
+            -->
             <div
-              class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] sm:w-[460px] md:w-[540px] aspect-square rounded-full pointer-events-none"
+              class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[270px] sm:w-[345px] md:w-[405px] aspect-square rounded-full pointer-events-none"
               style="background: #00ff00;"
               aria-hidden="true"
             ></div>
