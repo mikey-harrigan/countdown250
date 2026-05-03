@@ -224,16 +224,31 @@ const faqs = [
             aria-hidden="true"
           >
             <defs>
+              <!-- Asymmetric feGaussianBlur: stdDeviation="x y" where
+                   x is horizontal blur (left/right edges) and y is
+                   vertical blur (top/bottom edges). Horizontal reduced
+                   from 50 → 35 so the SIDES are less pronounced.
+                   Vertical bumped 50 → 70 so the TOP feathers up further
+                   AND the area below the button is more feathered too. -->
               <filter id="hero-dome-feather" x="-40%" y="-40%" width="180%" height="180%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="50"/>
+                <feGaussianBlur in="SourceGraphic" stdDeviation="35 70"/>
               </filter>
             </defs>
+            <!-- Ellipse top edge raised: top viewBox y 190 → 130
+                 (extends ~27 px of additional feathered space above
+                 'Where will you be…' before the more-vertical blur is
+                 even applied). Bottom edge at viewBox y=1700 unchanged.
+                 Sides (rx=500) unchanged.
+                  - cy: 945 → 915
+                  - ry: 755 → 785
+                 Fill lightened from rgba(0,0,0,0.85) → rgba(0,0,0,0.70)
+                 — copy still pops, but the ball is less harshly dark. -->
             <ellipse
               cx="500"
-              cy="945"
+              cy="915"
               rx="500"
-              ry="755"
-              fill="rgba(0,0,0,0.85)"
+              ry="785"
+              fill="rgba(0,0,0,0.70)"
               filter="url(#hero-dome-feather)"
             />
           </svg>
