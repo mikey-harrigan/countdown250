@@ -367,17 +367,30 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- ============================================================ -->
-    <!-- Color legend                                                 -->
+    <!-- Color key                                                    -->
     <!-- ============================================================ -->
     <section class="bg-white py-10">
       <div class="max-w-3xl mx-auto px-4 sm:px-6">
         <div class="bg-navy/[0.02] border border-navy/20 rounded-lg p-6">
-          <p class="text-navy font-semibold tracking-[0.2em] uppercase text-xs mb-3">Compare</p>
-          <ul class="space-y-2 text-navy/85 text-sm leading-relaxed">
-            <li><strong class="text-navy">Top section (orange):</strong> debug view &mdash; shows exactly where the dome and per-letter halos sit.</li>
-            <li><strong class="text-navy">Bottom section (V2 / dark):</strong> exactly the same shape and positioning, but with production colors (dark dome, dark halos). This is what would ship if you say &lsquo;go live&rsquo;.</li>
-            <li class="pt-2"><strong class="text-navy">Both sections share IDENTICAL geometry &amp; blur:</strong> ellipse cx=500 cy=915 rx=500 ry=785, asymmetric blur stdDeviation=&ldquo;80 70&rdquo; (heavy horizontal so the sides feather softly), SVG top: -30 / height: 670, viewBox 0 0 1000 1500. The V2 dark section uses dark grey at 70% opacity (matches what&rsquo;s currently LIVE).</li>
+          <p class="text-navy font-semibold tracking-[0.2em] uppercase text-xs mb-4">Color key</p>
+
+          <p class="text-navy font-semibold text-sm mb-2">Top hero on this page (DEBUG view)</p>
+          <ul class="space-y-2 text-navy/85 text-sm leading-relaxed mb-5">
+            <li class="flex items-start"><span class="inline-block w-5 h-5 rounded-sm flex-shrink-0 mt-0.5 mr-3" style="background: rgba(255,102,0,0.90);"></span><span><strong class="text-navy">Bright orange</strong> &mdash; the feathered ball / dome behind the text. On the live site this same shape is dark grey; we paint it orange here so you can SEE exactly where it covers.</span></li>
+            <li class="flex items-start"><span class="inline-block w-5 h-5 rounded-sm flex-shrink-0 mt-0.5 mr-3" style="background: rgba(255,235,0,0.85); border: 1px solid rgba(0,0,0,0.15);"></span><span><strong class="text-navy">Bright yellow</strong> &mdash; the per-letter halo behind each glyph in the two arched lines. On the live site this is black, sized to each letter; we paint it yellow here so you can SEE each individual halo.</span></li>
           </ul>
+
+          <p class="text-navy font-semibold text-sm mb-2">Bottom hero on this page (LIVE look)</p>
+          <ul class="space-y-2 text-navy/85 text-sm leading-relaxed mb-5">
+            <li class="flex items-start"><span class="inline-block w-5 h-5 rounded-sm flex-shrink-0 mt-0.5 mr-3" style="background: rgba(40,40,40,0.70); border: 1px solid rgba(0,0,0,0.15);"></span><span><strong class="text-navy">Dark grey</strong> &mdash; the actual dome color shipping on the live home page right now (rgba(40,40,40,0.70) ≈ #282828 at 70% opacity).</span></li>
+            <li class="flex items-start"><span class="inline-block w-5 h-5 rounded-sm flex-shrink-0 mt-0.5 mr-3" style="background: rgba(0,0,0,0.95);"></span><span><strong class="text-navy">Black</strong> &mdash; the per-letter halos (live behavior, same as on the home page).</span></li>
+          </ul>
+
+          <p class="text-xs text-navy/70 leading-relaxed pt-2 border-t border-navy/10">
+            <strong class="text-navy">Geometry &amp; blur are IDENTICAL between the two heroes:</strong>
+            ellipse cx=500 cy=915 rx=500 ry=785, asymmetric blur stdDeviation=&ldquo;80 70&rdquo;
+            (heavy horizontal so the sides feather softly into the photo), SVG top: -30, height: 670, viewBox 0 0 1000 1500. <strong class="text-navy">Only the fill colors differ.</strong>
+          </p>
         </div>
       </div>
     </section>
