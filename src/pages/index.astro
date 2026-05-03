@@ -700,25 +700,30 @@ const faqs = [
 
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <!-- Centered premium header — arched (single SVG, two parallel arches).
-               Both lines render in one SVG so vertical spacing between them is
-               uniform (~16 px throughout, matching live mb-4). Arc depth 150
-               for the more dramatic 'Version B' curve Mike approved.
-               Font sizes match the prior flat header exactly: eyebrow text-sm
-               (17 SVG units), headline text-6xl (73 SVG units), 'Host a'
-               at 85% of base (62 SVG units), italic only on 'Party Inside
-               the Party' between non-italic curly quotes. -->
+          <!-- Centered premium header — arched, with separate SVGs for mobile
+               and desktop so each viewport gets a properly-tuned viewBox
+               (and therefore properly-sized text). DO NOT MERGE these into
+               one SVG — there's no responsive-viewBox mechanism that gives
+               us appropriate sizes at both widths. -->
         <div class="text-center mb-12 sm:mb-14">
+
+          <!-- DESKTOP arched header (md and up) — single SVG, two parallel
+               arches, arc depth 150 ('Version B' Mike approved).
+               Font sizes match the live flat header exactly:
+                 - Eyebrow: 17 SVG units → ~14 px desktop (text-sm)
+                 - Headline base: 73 SVG units → ~60 px desktop (text-6xl)
+                 - 'Host a': 62 (85% = matches text-[3.2rem])
+               Italic only on 'Party Inside the Party' between non-italic
+               curly quotes. Vertical shift between arcs: 83 SVG units = ~16 px
+               gap throughout (matches live mb-4). -->
           <svg
             viewBox="0 -40 1400 280"
-            class="block w-full max-w-6xl mx-auto h-auto"
+            class="hidden md:block w-full max-w-6xl mx-auto h-auto"
             aria-label="Maximize Your Statesman's Pass Experience — Host a Party Inside the Party"
             role="img"
           >
             <defs>
-              <!-- Eyebrow arc: baseline Y=130, peak Y=-20, depth 150 -->
               <path id="arch-home-eyebrow" d="M 70 130 Q 700 -20 1330 130" fill="none" />
-              <!-- Headline arc: same shape, shifted down 83 SVG units (uniform ~16 px gap) -->
               <path id="arch-home-headline" d="M 70 213 Q 700 63 1330 213" fill="none" />
             </defs>
             <text fill="#ffffff" font-size="17" font-weight="700" letter-spacing="4.25" font-family="ui-sans-serif, system-ui, sans-serif" style="text-transform: uppercase;">
@@ -729,6 +734,39 @@ const faqs = [
             <text fill="#fdd835" font-size="73" font-weight="700" font-family="'Playfair Display', Georgia, serif">
               <textPath href="#arch-home-headline" startOffset="50%" text-anchor="middle">
                 <tspan font-size="62">Host a </tspan>&#8220;<tspan font-style="italic">Party Inside the Party</tspan>&#8221;
+              </textPath>
+            </text>
+          </svg>
+
+          <!-- MOBILE arched header (below md) — much narrower viewBox so the
+               text renders at a bigger px size on phones. Text stretches the
+               full container width.
+                 - viewBox: 600 wide (vs desktop 1400)
+                 - On a typical 390-px phone, scale = 390/600 ≈ 0.65
+                 - Eyebrow: 18 SVG units → ~12 px (vs the 5 px we'd get from
+                   the desktop SVG scaling down). Tracking 1.5 (matches the
+                   text's natural tracking-[0.25em] feel at this size).
+                 - Headline base: 42 SVG units → ~27 px ('Host a' at 36 = ~23 px)
+                 - Same parallel-arch pattern as desktop, depth 120, vertical
+                   shift 75 (uniform ~10 px gap on mobile, scaled appropriately). -->
+          <svg
+            viewBox="0 -20 600 200"
+            class="block md:hidden w-full max-w-md mx-auto h-auto"
+            aria-label="Maximize Your Statesman's Pass Experience — Host a Party Inside the Party"
+            role="img"
+          >
+            <defs>
+              <path id="arch-mobile-eyebrow" d="M 20 100 Q 300 -20 580 100" fill="none" />
+              <path id="arch-mobile-headline" d="M 20 175 Q 300 55 580 175" fill="none" />
+            </defs>
+            <text fill="#ffffff" font-size="18" font-weight="700" letter-spacing="1.5" font-family="ui-sans-serif, system-ui, sans-serif" style="text-transform: uppercase;">
+              <textPath href="#arch-mobile-eyebrow" startOffset="50%" text-anchor="middle">
+                Maximize Your Statesman&#8217;s Pass Experience
+              </textPath>
+            </text>
+            <text fill="#fdd835" font-size="42" font-weight="700" font-family="'Playfair Display', Georgia, serif">
+              <textPath href="#arch-mobile-headline" startOffset="50%" text-anchor="middle">
+                <tspan font-size="36">Host a </tspan>&#8220;<tspan font-style="italic">Party Inside the Party</tspan>&#8221;
               </textPath>
             </text>
           </svg>
