@@ -79,24 +79,32 @@ import Footer from '../components/Footer.astro';
           -->
           <svg
             class="absolute pointer-events-none z-0"
-            style="top: -250px; bottom: -1500px; left: 50%; transform: translateX(-50%); width: min(820px, calc(100vw - 1rem)); overflow: visible;"
+            style="top: 0; bottom: -1500px; left: 50%; transform: translateX(-50%); width: min(820px, calc(100vw - 1rem)); overflow: visible;"
             viewBox="0 0 1000 1800"
             preserveAspectRatio="none"
             aria-hidden="true"
           >
             <defs>
               <filter id="orange-dome-feather" x="-40%" y="-40%" width="180%" height="180%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="80"/>
+                <feGaussianBlur in="SourceGraphic" stdDeviation="60"/>
               </filter>
             </defs>
-            <!-- Single tall-dome path:
-                   bottom-left → up the left straight side → smooth
-                   quadratic curve up to single rounded peak at top
-                   center → smooth quadratic curve down to right side
-                   → down the right straight side → close across
-                   the bottom. No interior shoulders. -->
+            <!-- Shortened tall-dome per Mike: visible peak now just
+                 above 'Where will you be…'. Changes vs previous:
+                  - SVG top: -250px → 0  (was extending way above
+                    the wrapper to cover the woman's hand; now sits
+                    flush with the wrapper top).
+                  - Path peak: viewBox (500, -100) → (500, 80)
+                    (peak now sits BELOW the SVG top edge by 80
+                    viewBox units, which after the heavy feather
+                    extends visibly only just above 'will').
+                  - Bezier control points moved accordingly:
+                    (0, -50)/(1000, -50) → (0, 180)/(1000, 180)
+                  - Blur stddev: 80 → 60 (slightly tighter feather
+                    so the dome top doesn't bleed too far above the
+                    text). -->
             <path
-              d="M 0 1800 L 0 380 Q 0 -50 500 -100 Q 1000 -50 1000 380 L 1000 1800 Z"
+              d="M 0 1800 L 0 380 Q 0 180 500 80 Q 1000 180 1000 380 L 1000 1800 Z"
               fill="rgba(255,102,0,0.75)"
               filter="url(#orange-dome-feather)"
             />
