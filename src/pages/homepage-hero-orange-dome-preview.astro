@@ -79,33 +79,40 @@ import Footer from '../components/Footer.astro';
           -->
           <svg
             class="absolute pointer-events-none z-0"
-            style="top: -40px; bottom: -1500px; left: 50%; transform: translateX(-50%); width: min(820px, calc(100vw - 1rem)); overflow: visible;"
-            viewBox="0 0 1000 1800"
+            style="top: -30px; height: 670px; left: 50%; transform: translateX(-50%); width: min(820px, calc(100vw - 1rem)); overflow: visible;"
+            viewBox="0 0 1000 1500"
             preserveAspectRatio="none"
             aria-hidden="true"
           >
             <defs>
               <filter id="orange-dome-feather" x="-40%" y="-40%" width="180%" height="180%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="60"/>
+                <feGaussianBlur in="SourceGraphic" stdDeviation="50"/>
               </filter>
             </defs>
-            <!-- Per Mike, two coordinated tweaks:
-                  (1) Raise the orange dome a little so the top arched
-                      line ('Where will you be…') is fully covered:
-                       - SVG top: 0 → -40px (whole dome lifts 40 px).
-                       - Path peak: (500, 80) → (500, 30) (peak rises
-                         50 viewBox units inside the SVG too).
-                       - Bezier controls: (0, 180)/(1000, 180) →
-                         (0, 130)/(1000, 130) so the curve still meets
-                         the new peak smoothly.
-                  (2) Make the orange a little darker so every line of
-                      copy from 'Where will you be…' down to the
-                      'Compare Ticket Options' button pops more:
-                       - fill opacity 0.75 → 0.90.
-                  Path GEOMETRY (single tall dome, no shoulders) and
-                  blur stdDeviation (60) unchanged. -->
-            <path
-              d="M 0 1800 L 0 380 Q 0 130 500 30 Q 1000 130 1000 380 L 1000 1800 Z"
+            <!-- Per Mike: round out the bottom too (was straight sides
+                 going to hero bottom). Dome is now a true ball / oval
+                 shape: rounded top AND rounded bottom, ending just
+                 below the 'Compare Ticket Options' button.
+                 Implementation:
+                  - SVG re-bounded vertically: top: -30, explicit
+                    height: 670 (no longer bottom: -1500). The SVG
+                    no longer extends way past the hero — it's
+                    constrained to roughly the text-block + button.
+                  - viewBox shortened 1800 → 1500 to match the new
+                    aspect ratio.
+                  - Path replaced with a single <ellipse> element:
+                    cx=500 cy=810 rx=500 ry=620. This produces a
+                    smooth oval (rounded on top AND bottom) that
+                    spans roughly viewBox y=190 to y=1430.
+                  - Blur stdDeviation 60 → 50 (slightly tighter so
+                    the rounded bottom doesn't bleed too far past
+                    the button).
+                 Fill (rgba(255,102,0,0.90)) UNCHANGED. -->
+            <ellipse
+              cx="500"
+              cy="810"
+              rx="500"
+              ry="620"
               fill="rgba(255,102,0,0.90)"
               filter="url(#orange-dome-feather)"
             />
