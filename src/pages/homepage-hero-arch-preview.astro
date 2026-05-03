@@ -1390,37 +1390,58 @@ import Footer from '../components/Footer.astro';
           -->
           <svg
             class="absolute pointer-events-none z-0"
-            style="top: -130px; bottom: -1500px; left: 50%; transform: translateX(-50%); width: min(820px, calc(100vw - 1rem)); overflow: visible;"
+            style="top: -250px; bottom: -1500px; left: 50%; transform: translateX(-50%); width: min(820px, calc(100vw - 1rem)); overflow: visible;"
             viewBox="0 0 1000 1800"
             preserveAspectRatio="none"
             aria-hidden="true"
           >
             <defs>
-              <!-- Heavier blur (38 → 70) for a softer, more feathered edge.
-                   Filter region also expanded so the wider blur halo isn't
-                   clipped at the bounding-box edge. -->
-              <filter id="dome-feather-I" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="70"/>
+              <!-- Main dome blur. -->
+              <filter id="dome-feather-I" x="-40%" y="-40%" width="180%" height="180%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="80"/>
+              </filter>
+              <!-- Heavier blur for the LEFT-only feather layer (below). -->
+              <filter id="dome-feather-I-left" x="-80%" y="-30%" width="200%" height="160%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="120"/>
               </filter>
             </defs>
-            <!-- Path tweaks vs the previous V-I dome:
-                  - Top arc ry bumped 130 → 220, so the rounded top is much
-                    taller / more dome-shaped instead of a flat ellipse.
-                    With overflow:visible on the SVG, the arc peak (at
-                    viewBox y = 130 - 220 = -90) renders ABOVE the SVG
-                    element's top edge.
-                  - Combined with SVG top: -130px (vs the old -50px) and
-                    the heavier blur (which extends the visible halo
-                    further above the path), the visible dome top now
-                    reaches noticeably higher above 'Where will you be…'.
-                  - Line 1 / line 2 / h1 shoulders at the same viewBox y
-                    coordinates so the widening waist still matches the
-                    text-line widths Mike spec'd.
+            <!-- Tweaks vs the previous V-I dome:
+                  (1) Extend dome upward to cover the woman's hand
+                      directly above 'you':
+                      - SVG top: -130 → -250 (lifts the whole dome
+                        ~120 px higher).
+                      - Top arc ry: 220 → 320 (rounded peak now at
+                        viewBox y = 130 - 320 = -190 — even more
+                        rounded and noticeably taller).
+                      With overflow:visible, the peak renders well
+                      above the SVG element's top edge.
+                  (2) Feather LEFT side more:
+                      - Path's left x coordinates shifted slightly
+                        leftward (10 → -10 at line 2 shoulder; 0 →
+                        -20 at h1 level + bottom corner) to give
+                        the extra-left feather room to bleed.
+                      - Second SVG element (an ellipse) rendered
+                        AFTER the main dome path: a tall soft dark
+                        ellipse running down the dome's left edge,
+                        with very heavy blur (stddev 120). Adds
+                        extra softness specifically on the left
+                        without touching the right. Reduced fill
+                        opacity (0.45) so it adds feather without
+                        making the left visibly darker than the
+                        right.
             -->
             <path
-              d="M 0 1800 L 0 380 Q 0 310 10 240 Q 248 240 248 130 A 252 220 0 0 0 752 130 Q 752 240 990 240 Q 1000 310 1000 380 L 1000 1800 Z"
+              d="M -20 1800 L -20 380 Q -20 310 -10 240 Q 248 240 248 130 A 252 320 0 0 0 752 130 Q 752 240 990 240 Q 1000 310 1000 380 L 1000 1800 Z"
               fill="rgba(0,0,0,0.85)"
               filter="url(#dome-feather-I)"
+            />
+            <ellipse
+              cx="-30"
+              cy="900"
+              rx="160"
+              ry="900"
+              fill="rgba(0,0,0,0.45)"
+              filter="url(#dome-feather-I-left)"
             />
           </svg>
 
