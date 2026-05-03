@@ -698,12 +698,44 @@ const faqs = [
 
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <!-- Centered premium header — aspirational lead -->
-        <div class="text-center mb-12 sm:mb-14">
-          <p class="text-white font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-4">Maximize Your Statesman&rsquo;s Pass Experience</p>
-          <h2 class="font-bold text-gold mb-2 font-heading leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-            <span class="text-[1.6rem] sm:text-[1.9rem] md:text-[2.55rem] lg:text-[3.2rem]">Host a</span> &ldquo;<em class="italic">Party Inside the Party</em>&rdquo;
-          </h2>
+          <!-- Centered premium header — arched-text variant. Each line is
+               an SVG with the text rendered along a gentle arc path. The
+               aria-label keeps the headlines accessible to screen readers. -->
+          <div class="text-center mb-10 sm:mb-12">
+
+            <!-- Arched eyebrow -->
+            <svg
+              viewBox="0 0 1000 90"
+              class="block w-full max-w-2xl mx-auto h-auto mb-3"
+              aria-label="Maximize Your Statesman's Pass Experience"
+              role="img"
+            >
+              <defs>
+                <path id="arch-eyebrow" d="M 60 80 Q 500 5 940 80" fill="none" />
+              </defs>
+              <text fill="#ffffff" font-size="34" font-weight="700" letter-spacing="5" font-family="ui-sans-serif, system-ui, sans-serif" style="text-transform: uppercase;">
+                <textPath href="#arch-eyebrow" startOffset="50%" text-anchor="middle">
+                  Maximize Your Statesman&#8217;s Pass Experience
+                </textPath>
+              </text>
+            </svg>
+
+            <!-- Arched headline -->
+            <svg
+              viewBox="0 0 1000 200"
+              class="block w-full max-w-3xl mx-auto h-auto mb-2"
+              aria-label="Host a Party Inside the Party"
+              role="img"
+            >
+              <defs>
+                <path id="arch-headline" d="M 40 180 Q 500 10 960 180" fill="none" />
+              </defs>
+              <text fill="#fdd835" font-size="78" font-weight="700" font-style="italic" font-family="'Playfair Display', Georgia, serif">
+                <textPath href="#arch-headline" startOffset="50%" text-anchor="middle">
+                  Host a &#8220;Party Inside the Party&#8221;
+                </textPath>
+              </text>
+            </svg>
           <p class="text-white font-semibold text-base sm:text-lg md:text-xl mb-5 leading-tight">
             <span class="block">No Extra Costs</span>
             <span class="block">Easy to set up (takes 2 minutes)</span>
