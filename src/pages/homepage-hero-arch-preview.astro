@@ -503,6 +503,157 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- ============================================================ -->
+    <!-- VERSION E — no backdrop, text halo                           -->
+    <!-- Mike's idea: drop the dark backdrop box (you could see its   -->
+    <!-- rounded outline against the photo) and instead give every    -->
+    <!-- piece of text a faint dark halo for legibility.              -->
+    <!--                                                              -->
+    <!-- Bonus: dropping the inline-block backdrop also fixes the     -->
+    <!-- shrink-to-fit problem that was constraining the SVG. Now the -->
+    <!-- arched SVG fills max-w-4xl naturally and renders at the      -->
+    <!-- EXACT live hero size (line 1 ~30 px, line 2 ~48 px).         -->
+    <!--                                                              -->
+    <!-- Halo: triple-stacked drop-shadow on each text element. One   -->
+    <!-- tight (2 px) layer for crisp edge against bright photo bits, -->
+    <!-- one medium (8 px) for depth, one wide (24 px) for ambient    -->
+    <!-- darkening. Crispness preserved — drop-shadow does not blur   -->
+    <!-- the text itself, only adds shadow underneath.                -->
+    <!-- ============================================================ -->
+    <section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0">
+        <img
+          src="/images/event/hero-countdown250-toast.jpg"
+          alt="Hero background"
+          class="w-full h-full object-cover object-center"
+        />
+        <div class="absolute inset-0" style="background: rgba(0,0,0,0.55);"></div>
+      </div>
+
+      <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-28 pb-20">
+
+        <p class="text-gold/85 font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-6" style="text-shadow: 0 2px 8px rgba(0,0,0,0.85), 0 0 24px rgba(0,0,0,0.6);">
+          Version E &middot; no backdrop, text halo &middot; arched text matches live size exactly
+        </p>
+
+        <div class="flex justify-center mb-10">
+          <picture>
+            <source srcset="/images/logos/countdown250-seal-navy-blue.webp" type="image/webp" />
+            <img
+              src="/images/logos/countdown250-seal-navy-blue.png"
+              alt="The Official Countdown 250 Ball — July 3, 2026 — Washington, D.C."
+              class="w-[340px] sm:w-[440px] md:w-[520px] h-auto drop-shadow-2xl"
+            />
+          </picture>
+        </div>
+
+        <!-- NO inline-block backdrop. Just a normal block container. -->
+        <div class="mb-10">
+
+          <!-- ===== ARCHED HEADER — Version E =====
+               Same arc shape as B, C, D (depth 130).
+               Container: w-full max-w-4xl, no inline-block constraint.
+               SVG renders at full 896 px on desktop.
+                 line 1 SVG font 34 → renders 30 px (matches md:text-3xl)
+                 line 2 SVG font 54 → renders 48 px (matches lg:text-5xl)
+               Halo: triple drop-shadow filter on each text element.
+          -->
+
+          <!-- DESKTOP arched SVG (md and up) -->
+          <svg
+            viewBox="0 -55 1000 270"
+            class="hidden md:block w-full max-w-4xl mx-auto h-auto mb-8"
+            aria-label="Where will you be… when the clock strikes 250?"
+            role="img"
+          >
+            <defs>
+              <path id="hero-line1-E-desk" d="M 50 130 Q 500 0 950 130" fill="none" />
+              <path id="hero-line2-E-desk" d="M 50 215 Q 500 85 950 215" fill="none" />
+            </defs>
+            <text
+              fill="rgba(255,255,255,0.85)"
+              font-size="34"
+              font-weight="300"
+              font-style="italic"
+              font-family="'Playfair Display', Georgia, serif"
+              style="filter: drop-shadow(0 0 2px rgba(0,0,0,0.95)) drop-shadow(0 2px 8px rgba(0,0,0,0.85)) drop-shadow(0 0 24px rgba(0,0,0,0.55));"
+            >
+              <textPath href="#hero-line1-E-desk" startOffset="50%" text-anchor="middle">
+                Where will you be&#8230;
+              </textPath>
+            </text>
+            <text
+              fill="#ffffff"
+              font-size="54"
+              font-weight="400"
+              font-style="italic"
+              font-family="'Playfair Display', Georgia, serif"
+              style="filter: drop-shadow(0 0 2px rgba(0,0,0,0.95)) drop-shadow(0 2px 10px rgba(0,0,0,0.85)) drop-shadow(0 0 28px rgba(0,0,0,0.55));"
+            >
+              <textPath href="#hero-line2-E-desk" startOffset="50%" text-anchor="middle">
+                when the clock strikes 250?
+              </textPath>
+            </text>
+          </svg>
+
+          <!-- MOBILE arched SVG (under md) -->
+          <svg
+            viewBox="0 -35 600 200"
+            class="block md:hidden w-full max-w-md mx-auto h-auto mb-8"
+            aria-hidden="true"
+            role="img"
+          >
+            <defs>
+              <path id="hero-line1-E-mob" d="M 30 95 Q 300 25 570 95" fill="none" />
+              <path id="hero-line2-E-mob" d="M 30 150 Q 300 80 570 150" fill="none" />
+            </defs>
+            <text
+              fill="rgba(255,255,255,0.85)"
+              font-size="34"
+              font-weight="300"
+              font-style="italic"
+              font-family="'Playfair Display', Georgia, serif"
+              style="filter: drop-shadow(0 0 2px rgba(0,0,0,0.95)) drop-shadow(0 2px 6px rgba(0,0,0,0.85));"
+            >
+              <textPath href="#hero-line1-E-mob" startOffset="50%" text-anchor="middle">
+                Where will you be&#8230;
+              </textPath>
+            </text>
+            <text
+              fill="#ffffff"
+              font-size="40"
+              font-weight="400"
+              font-style="italic"
+              font-family="'Playfair Display', Georgia, serif"
+              style="filter: drop-shadow(0 0 2px rgba(0,0,0,0.95)) drop-shadow(0 2px 6px rgba(0,0,0,0.85));"
+            >
+              <textPath href="#hero-line2-E-mob" startOffset="50%" text-anchor="middle">
+                when the clock strikes 250?
+              </textPath>
+            </text>
+          </svg>
+
+          <p class="font-heading italic font-bold text-lg sm:text-xl md:text-2xl text-gold mb-2 tracking-wide" style="text-shadow: 0 0 2px rgba(0,0,0,0.95), 0 2px 8px rgba(0,0,0,0.85), 0 0 24px rgba(0,0,0,0.55);">
+            The Official
+          </p>
+
+          <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-white leading-[1.05] mb-6 tracking-tight" style="text-shadow: 0 0 2px rgba(0,0,0,0.95), 0 2px 12px rgba(0,0,0,0.9), 0 0 32px rgba(0,0,0,0.6);">
+            Countdown 250 Ball
+          </h1>
+
+          <div class="flex items-center justify-center gap-3 mb-6">
+            <span class="h-px w-12 bg-gold/70" style="box-shadow: 0 0 8px rgba(0,0,0,0.6);"></span>
+            <span class="text-gold text-sm" style="text-shadow: 0 2px 6px rgba(0,0,0,0.85);">&#9733;</span>
+            <span class="h-px w-12 bg-gold/70" style="box-shadow: 0 0 8px rgba(0,0,0,0.6);"></span>
+          </div>
+
+          <p class="text-white/85 text-sm sm:text-base tracking-wide" style="text-shadow: 0 0 2px rgba(0,0,0,0.95), 0 2px 8px rgba(0,0,0,0.85);">
+            July 3, 2026 &middot; Washington, D.C.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
     <!-- Notes for review                                             -->
     <!-- ============================================================ -->
     <section class="bg-white py-14">
@@ -510,13 +661,14 @@ import Footer from '../components/Footer.astro';
         <div class="bg-navy/[0.02] border border-navy/20 rounded-lg p-6">
           <p class="text-navy font-semibold tracking-[0.2em] uppercase text-xs mb-3">Preview notes</p>
           <ul class="space-y-2 text-navy/85 text-sm leading-relaxed list-disc pl-5">
-            <li><strong class="text-navy">Four versions to compare:</strong> scroll top to bottom. Pick one.</li>
+            <li><strong class="text-navy">Five versions to compare:</strong> scroll top to bottom. Pick one.</li>
             <li><strong class="text-navy">Version A:</strong> arc depth = 80. Subtle bow.</li>
             <li><strong class="text-navy">Version B:</strong> arc depth = 130. Deeper, architectural curve. Same text size as A.</li>
-            <li><strong class="text-navy">Version C:</strong> same arc as B + bigger text. (Looked smaller than live because the inline-block backdrop was shrink-to-fit and constrained the SVG below max-w-4xl.)</li>
-            <li><strong class="text-navy">Version D (newest):</strong> same arc as B + text rendered at the EXACT live hero size. Achieved by forcing the SVG to a fixed pixel width via inline style, which breaks the inline-block shrink behavior and lets the SVG fill the full max-w-4xl. Line 1 ~32 px, line 2 ~50 px on desktop &mdash; matches the live md:text-3xl / lg:text-5xl pair.</li>
-            <li><strong class="text-navy">Mobile:</strong> all four use the same mobile SVG (already matches live xl/2xl mobile sizes ~20 px / ~24 px).</li>
-            <li>Tell me A, B, C, or D &mdash; or any further tweak.</li>
+            <li><strong class="text-navy">Version C:</strong> same arc as B + bigger text fonts. Constrained by inline-block backdrop &mdash; rendered smaller than expected.</li>
+            <li><strong class="text-navy">Version D:</strong> tried to force SVG width via CSS. Backfired &mdash; the &lsquo;100%&rsquo; in the forced width still resolved against the shrunk inline-block, so the smaller SVG fonts rendered at an even smaller pixel size.</li>
+            <li><strong class="text-navy">Version E (newest, your idea):</strong> dropped the dark backdrop entirely. Each text element now has a triple-layered dark halo (drop-shadow filter) for legibility against the photo. Side benefit: with no inline-block constraint, the SVG fills max-w-4xl naturally and the arched text renders at the EXACT live hero size (~30 px / ~48 px on desktop, matches md:text-3xl / lg:text-5xl). Crispness preserved &mdash; drop-shadow adds shadow underneath, doesn&rsquo;t blur the glyphs.</li>
+            <li><strong class="text-navy">Mobile:</strong> A&ndash;D use the same mobile SVG. E&rsquo;s mobile gets the halo treatment too.</li>
+            <li>Tell me A, B, C, D, or E &mdash; or any tweak (more/less halo, etc.).</li>
           </ul>
         </div>
       </div>
