@@ -1,0 +1,139 @@
+---
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Arched Header — Preview | Countdown 250 Ball"
+  description="PREVIEW — testing arched headline typography for the Hosted Groups section. NOT LIVE."
+  ogImage="/images/event/hero-countdown250-toast.jpg"
+>
+  <Navbar />
+
+  <!-- Internal preview banner — never confuse this with the live home page -->
+  <div class="bg-gold/15 border-b border-gold/40 text-navy py-2.5 text-center text-xs">
+    <p class="font-semibold tracking-wide">
+      PREVIEW &middot; arched header experiment for Hosted Groups section. Live page is at
+      <a href="/" class="underline hover:text-red ml-1">/</a>
+    </p>
+  </div>
+
+  <main>
+
+    <!-- Spacer so we're not flush with the navbar -->
+    <div class="bg-white pt-20"></div>
+
+    <!-- ============================================================ -->
+    <!-- The actual section being previewed — navy bg matches the live -->
+    <!-- 'Maximize Your Statesman's Pass' section on the home page.    -->
+    <!-- Only the HEADER (the two arched lines) is the experiment;     -->
+    <!-- the No Extra Costs sub-line is included for context.          -->
+    <!-- ============================================================ -->
+    <section class="bg-gradient-to-b from-navy-dark via-navy to-navy-dark text-white py-16 sm:py-20 relative overflow-hidden">
+      <!-- Top + bottom gold accent lines, same as live section -->
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent"></div>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <div class="text-center mb-10 sm:mb-12">
+
+          <!-- ===== ARCHED HEADER =====
+               Two SVG lines, both following matching arc curves so they read
+               as a parallel-arch architectural shape.
+
+               viewBox is generously wide (1400) so the text-on-path NEVER
+               gets clipped at the start or end of the arc, even with the
+               longer eyebrow line ('Maximize Your Statesman's Pass Experience'
+               — 41 characters).
+
+               Each line gets its own SVG so:
+                 - Line 1 (eyebrow) can use small sans-serif with letter-spacing
+                 - Line 2 (headline) can use large italic serif (Playfair-style)
+                 - Vertical spacing between them is controlled by margins
+                 - Both arcs use the same Q control offset so they curve identically
+          -->
+
+          <!-- Arched eyebrow — small white uppercase -->
+          <svg
+            viewBox="0 0 1400 130"
+            class="block w-full max-w-3xl mx-auto h-auto -mb-1"
+            aria-label="Maximize Your Statesman's Pass Experience"
+            role="img"
+          >
+            <defs>
+              <!-- Path: starts and ends at y=110 (low), peaks at y=30 in the middle.
+                   Wide horizontal extent (60 to 1340) leaves margin on both sides. -->
+              <path id="arch-pre-eyebrow" d="M 60 110 Q 700 30 1340 110" fill="none" />
+            </defs>
+            <text
+              fill="#ffffff"
+              font-size="40"
+              font-weight="700"
+              letter-spacing="6"
+              font-family="ui-sans-serif, system-ui, sans-serif"
+              style="text-transform: uppercase;"
+            >
+              <textPath href="#arch-pre-eyebrow" startOffset="50%" text-anchor="middle">
+                Maximize Your Statesman&#8217;s Pass Experience
+              </textPath>
+            </text>
+          </svg>
+
+          <!-- Arched headline — large gold italic serif -->
+          <svg
+            viewBox="0 0 1400 180"
+            class="block w-full max-w-4xl mx-auto h-auto"
+            aria-label="Host a Party Inside the Party"
+            role="img"
+          >
+            <defs>
+              <!-- Same arc shape as eyebrow above (Q control rises 80 from baseline,
+                   same horizontal extent). Just larger viewBox to fit the bigger
+                   text height. -->
+              <path id="arch-pre-headline" d="M 60 160 Q 700 30 1340 160" fill="none" />
+            </defs>
+            <text
+              fill="#fdd835"
+              font-size="72"
+              font-weight="700"
+              font-style="italic"
+              font-family="'Playfair Display', Georgia, serif"
+            >
+              <textPath href="#arch-pre-headline" startOffset="50%" text-anchor="middle">
+                Host a &#8220;Party Inside the Party&#8221;
+              </textPath>
+            </text>
+          </svg>
+
+          <!-- Sub-line under the arches (kept from the live section for context) -->
+          <p class="text-white font-semibold text-base sm:text-lg md:text-xl mt-3 mb-5 leading-tight">
+            <span class="block">No Extra Costs</span>
+            <span class="block">Easy to set up (takes 2 minutes)</span>
+          </p>
+        </div>
+
+        <!-- Notes for review -->
+        <div class="max-w-3xl mx-auto bg-white/5 border border-gold/30 rounded-lg p-6 mt-12 text-left">
+          <p class="text-gold font-semibold tracking-[0.2em] uppercase text-xs mb-3">Preview notes</p>
+          <ul class="space-y-2 text-white/85 text-sm leading-relaxed list-disc pl-5">
+            <li>Both lines follow the SAME arc curvature (parallel arches).</li>
+            <li>SVG viewBox is 1400 wide — generously wider than needed — so even at the longest character of the eyebrow, no letters get clipped.</li>
+            <li>Eyebrow: 40px sans-serif uppercase, 6px letter-spacing, white.</li>
+            <li>Headline: 72px Playfair Display italic, gold.</li>
+            <li>Negative bottom margin (-mb-1) on the eyebrow pulls the headline up just under it for tighter vertical packing.</li>
+            <li>Sub-line ('No Extra Costs / Easy to set up') retained for context — already on the live home page.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Spacer so the section doesn't slam into the footer -->
+    <div class="bg-white py-12"></div>
+
+  </main>
+  <Footer />
+</BaseLayout>
