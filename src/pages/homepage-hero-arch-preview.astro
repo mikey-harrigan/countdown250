@@ -1304,6 +1304,215 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- ============================================================ -->
+    <!-- VERSION I — G's halos PLUS a soft feathered dome overlay    -->
+    <!-- Mike's idea: a dark, dome-shaped overlay positioned behind  -->
+    <!-- the text area, with feathered edges so it blends into the   -->
+    <!-- photo with no visible boundary. Solves the lingering 'photo  -->
+    <!-- still distracts' issue without bringing back the visible    -->
+    <!-- rounded-rect outline of the original backdrop.              -->
+    <!--                                                              -->
+    <!-- Implementation: a single absolutely-positioned <div> sits   -->
+    <!-- behind the text block (z-0), painted with a CSS radial-     -->
+    <!-- gradient elliptical fill: dark at center, fully transparent -->
+    <!-- at the edges. No hard boundary anywhere, just smooth fall-  -->
+    <!-- off into the photo.                                          -->
+    <!--                                                              -->
+    <!-- Layer stack (back → front):                                  -->
+    <!--   1. Photo                                                   -->
+    <!--   2. Existing 0.55 dark overlay across the whole hero        -->
+    <!--   3. The new soft dome (denser dark, only behind the text)   -->
+    <!--   4. Per-letter SVG halos (G's settings)                     -->
+    <!--   5. Crisp text glyphs                                       -->
+    <!-- ============================================================ -->
+    <section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0">
+        <img
+          src="/images/event/hero-countdown250-toast.jpg"
+          alt="Hero background"
+          class="w-full h-full object-cover object-center"
+        />
+        <div class="absolute inset-0" style="background: rgba(0,0,0,0.55);"></div>
+      </div>
+
+      <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-28 pb-20">
+
+        <p class="text-gold/85 font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-6"
+           style="text-shadow: 0 0 6px rgba(0,0,0,1), 0 0 14px rgba(0,0,0,1), 0 0 24px rgba(0,0,0,0.95);">
+          Version I &middot; G&rsquo;s halos + soft feathered dome
+        </p>
+
+        <div class="flex justify-center mb-10">
+          <picture>
+            <source srcset="/images/logos/countdown250-seal-navy-blue.webp" type="image/webp" />
+            <img
+              src="/images/logos/countdown250-seal-navy-blue.png"
+              alt="The Official Countdown 250 Ball — July 3, 2026 — Washington, D.C."
+              class="w-[340px] sm:w-[440px] md:w-[520px] h-auto drop-shadow-2xl"
+            />
+          </picture>
+        </div>
+
+        <!-- Wrapper: relative so the absolute dome stacks correctly -->
+        <div class="relative mb-10">
+
+          <!-- ===== DOME OVERLAY =====
+               Sits behind the text block (z-0), extends beyond the
+               text's edges via negative insets so the radial-gradient
+               can feather smoothly into the photo without ever
+               touching a hard rectangular edge. Values are heavier
+               at center (0.88) and fade to fully transparent by 90%
+               radius — no hard boundary anywhere.
+               pointer-events-none so the underlying button is still
+               clickable.
+          -->
+          <div
+            class="absolute -inset-x-8 sm:-inset-x-16 -inset-y-10 sm:-inset-y-14 pointer-events-none z-0"
+            style="background: radial-gradient(ellipse at center, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.72) 25%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.25) 72%, rgba(0,0,0,0.08) 88%, transparent 100%);"
+          ></div>
+
+          <!-- All the text and the button sit ABOVE the dome on z-10 -->
+          <div class="relative z-10">
+
+            <!-- ===== ARCHED HEADER — Version I (same as G) =====
+                 viewBox 0 -65 1000 295. SVG width forced to
+                 min(1024px, 100vw - 2rem) so line 2 renders ~48 px
+                 (matches live lg:text-5xl). Arch depth 130. Halo
+                 settings carried over from G unchanged (dilate 12,
+                 blur 18, flood opacity 1.0).
+            -->
+
+            <!-- DESKTOP arched SVG -->
+            <svg
+              viewBox="0 -65 1000 295"
+              class="hidden md:block mx-auto h-auto mb-8"
+              style="width: min(1024px, calc(100vw - 2rem));"
+              aria-label="Where will you be… when the clock strikes 250?"
+              role="img"
+            >
+              <defs>
+                <filter id="dark-halo-I" x="-50%" y="-50%" width="200%" height="200%">
+                  <feMorphology in="SourceAlpha" operator="dilate" radius="12" result="expanded"/>
+                  <feGaussianBlur in="expanded" stdDeviation="18" result="blurred"/>
+                  <feFlood flood-color="black" flood-opacity="1.0" result="darkfill"/>
+                  <feComposite in="darkfill" in2="blurred" operator="in" result="halo"/>
+                  <feMerge>
+                    <feMergeNode in="halo"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+
+                <path id="hero-line1-I-desk" d="M 50 130 Q 500 0 950 130" fill="none" />
+                <path id="hero-line2-I-desk" d="M 50 215 Q 500 85 950 215" fill="none" />
+              </defs>
+
+              <text
+                fill="rgba(255,255,255,0.92)"
+                font-size="30"
+                font-weight="300"
+                font-style="italic"
+                font-family="'Playfair Display', Georgia, serif"
+                filter="url(#dark-halo-I)"
+              >
+                <textPath href="#hero-line1-I-desk" startOffset="50%" text-anchor="middle">
+                  Where will you be&#8230;
+                </textPath>
+              </text>
+
+              <text
+                fill="#ffffff"
+                font-size="47"
+                font-weight="400"
+                font-style="italic"
+                font-family="'Playfair Display', Georgia, serif"
+                filter="url(#dark-halo-I)"
+              >
+                <textPath href="#hero-line2-I-desk" startOffset="50%" text-anchor="middle">
+                  when the clock strikes 250?
+                </textPath>
+              </text>
+            </svg>
+
+            <!-- MOBILE arched SVG -->
+            <svg
+              viewBox="0 -40 600 200"
+              class="block md:hidden w-full max-w-md mx-auto h-auto mb-8"
+              aria-hidden="true"
+              role="img"
+            >
+              <defs>
+                <filter id="dark-halo-I-mob" x="-50%" y="-50%" width="200%" height="200%">
+                  <feMorphology in="SourceAlpha" operator="dilate" radius="7" result="expanded"/>
+                  <feGaussianBlur in="expanded" stdDeviation="11" result="blurred"/>
+                  <feFlood flood-color="black" flood-opacity="1.0" result="darkfill"/>
+                  <feComposite in="darkfill" in2="blurred" operator="in" result="halo"/>
+                  <feMerge>
+                    <feMergeNode in="halo"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+
+                <path id="hero-line1-I-mob" d="M 30 95 Q 300 25 570 95" fill="none" />
+                <path id="hero-line2-I-mob" d="M 30 150 Q 300 80 570 150" fill="none" />
+              </defs>
+
+              <text
+                fill="rgba(255,255,255,0.92)"
+                font-size="34"
+                font-weight="300"
+                font-style="italic"
+                font-family="'Playfair Display', Georgia, serif"
+                filter="url(#dark-halo-I-mob)"
+              >
+                <textPath href="#hero-line1-I-mob" startOffset="50%" text-anchor="middle">
+                  Where will you be&#8230;
+                </textPath>
+              </text>
+              <text
+                fill="#ffffff"
+                font-size="40"
+                font-weight="400"
+                font-style="italic"
+                font-family="'Playfair Display', Georgia, serif"
+                filter="url(#dark-halo-I-mob)"
+              >
+                <textPath href="#hero-line2-I-mob" startOffset="50%" text-anchor="middle">
+                  when the clock strikes 250?
+                </textPath>
+              </text>
+            </svg>
+
+            <p class="font-heading italic font-bold text-lg sm:text-xl md:text-2xl text-gold mb-2 tracking-wide"
+               style="text-shadow: 0 0 4px rgba(0,0,0,1), 0 0 10px rgba(0,0,0,0.9);">
+              The Official
+            </p>
+
+            <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-white leading-[1.05] mb-6 tracking-tight"
+                style="text-shadow: 0 0 6px rgba(0,0,0,1), 0 0 16px rgba(0,0,0,0.9), 0 0 28px rgba(0,0,0,0.6);">
+              Countdown 250 Ball
+            </h1>
+
+            <div class="w-20 h-px bg-gold/70 mx-auto mb-5"></div>
+
+            <p class="font-heading italic font-light text-lg sm:text-xl md:text-2xl text-gold/95 mb-8"
+               style="text-shadow: 0 0 4px rgba(0,0,0,1), 0 0 10px rgba(0,0,0,0.9);">
+              A once-in-a-lifetime moment.
+            </p>
+
+            <div class="flex justify-center">
+              <a
+                href="/#tickets"
+                class="bg-red hover:bg-red-light text-white px-10 py-4 text-sm font-semibold tracking-[0.2em] uppercase transition-all rounded shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              >
+                Compare Ticket Options
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
     <!-- Notes for review                                             -->
     <!-- ============================================================ -->
     <section class="bg-white py-14">
@@ -1311,7 +1520,7 @@ import Footer from '../components/Footer.astro';
         <div class="bg-navy/[0.02] border border-navy/20 rounded-lg p-6">
           <p class="text-navy font-semibold tracking-[0.2em] uppercase text-xs mb-3">Preview notes</p>
           <ul class="space-y-2 text-navy/85 text-sm leading-relaxed list-disc pl-5">
-            <li><strong class="text-navy">Eight versions to compare:</strong> scroll top to bottom. Pick one.</li>
+            <li><strong class="text-navy">Nine versions to compare:</strong> scroll top to bottom. Pick one.</li>
             <li><strong class="text-navy">A&ndash;F:</strong> earlier iterations on size, container, and halo &mdash; left in place for comparison.</li>
             <li><strong class="text-navy">Version G (newest):</strong> all four V-F issues addressed.
               <ul class="list-[circle] pl-5 mt-1 space-y-0.5">
@@ -1323,7 +1532,8 @@ import Footer from '../components/Footer.astro';
             </li>
             <li><strong class="text-navy">Hero structure now matches live exactly:</strong> arched lines → The Official → Countdown 250 Ball → simple gold rule → A once-in-a-lifetime moment. → Compare Ticket Options button. The decorative date + star divider from earlier preview iterations (not on live) have been removed.</li>
             <li>If G is the winner: say &ldquo;ship G&rdquo; and I&rsquo;ll port it to the live home page. Or any further tweak (halo bigger/smaller, line 2 width, etc.).</li>
-            <li><strong class="text-navy">Version H (newest):</strong> exactly G except every text element gets a halo whose radius equals its own font size &mdash; so each letter sits on a dark blob roughly 3&times; the letter&rsquo;s width and 3&times; its height. Halos overlap each other in the middle layer (which actually helps obscure the photo between letters), but the crisp glyph layer always sits on top, so letters are never covered &mdash; not even by their neighbors&rsquo; halos.</li>
+            <li><strong class="text-navy">Version H:</strong> exactly G except every text element gets a halo whose radius equals its own font size &mdash; so each letter sits on a dark blob roughly 3&times; the letter&rsquo;s width and 3&times; its height. Halos overlap each other in the middle layer (which actually helps obscure the photo between letters), but the crisp glyph layer always sits on top, so letters are never covered &mdash; not even by their neighbors&rsquo; halos.</li>
+            <li><strong class="text-navy">Version I (newest):</strong> back to G&rsquo;s halo settings, plus a soft feathered DOME overlay sitting between the photo and the per-letter halos. The dome is a CSS radial-gradient ellipse that&rsquo;s ~88% black at center and fades to fully transparent by its edges &mdash; no rectangular boundary anywhere, blends seamlessly into the photo. Layer stack: photo &rarr; existing 0.55 dark overlay &rarr; soft dome (only behind text) &rarr; per-letter halos &rarr; crisp text on top.</li>
           </ul>
         </div>
       </div>
