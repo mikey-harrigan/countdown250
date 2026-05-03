@@ -79,7 +79,7 @@ import Footer from '../components/Footer.astro';
           -->
           <svg
             class="absolute pointer-events-none z-0"
-            style="top: 0; bottom: -1500px; left: 50%; transform: translateX(-50%); width: min(820px, calc(100vw - 1rem)); overflow: visible;"
+            style="top: -40px; bottom: -1500px; left: 50%; transform: translateX(-50%); width: min(820px, calc(100vw - 1rem)); overflow: visible;"
             viewBox="0 0 1000 1800"
             preserveAspectRatio="none"
             aria-hidden="true"
@@ -89,23 +89,24 @@ import Footer from '../components/Footer.astro';
                 <feGaussianBlur in="SourceGraphic" stdDeviation="60"/>
               </filter>
             </defs>
-            <!-- Shortened tall-dome per Mike: visible peak now just
-                 above 'Where will you be…'. Changes vs previous:
-                  - SVG top: -250px → 0  (was extending way above
-                    the wrapper to cover the woman's hand; now sits
-                    flush with the wrapper top).
-                  - Path peak: viewBox (500, -100) → (500, 80)
-                    (peak now sits BELOW the SVG top edge by 80
-                    viewBox units, which after the heavy feather
-                    extends visibly only just above 'will').
-                  - Bezier control points moved accordingly:
-                    (0, -50)/(1000, -50) → (0, 180)/(1000, 180)
-                  - Blur stddev: 80 → 60 (slightly tighter feather
-                    so the dome top doesn't bleed too far above the
-                    text). -->
+            <!-- Per Mike, two coordinated tweaks:
+                  (1) Raise the orange dome a little so the top arched
+                      line ('Where will you be…') is fully covered:
+                       - SVG top: 0 → -40px (whole dome lifts 40 px).
+                       - Path peak: (500, 80) → (500, 30) (peak rises
+                         50 viewBox units inside the SVG too).
+                       - Bezier controls: (0, 180)/(1000, 180) →
+                         (0, 130)/(1000, 130) so the curve still meets
+                         the new peak smoothly.
+                  (2) Make the orange a little darker so every line of
+                      copy from 'Where will you be…' down to the
+                      'Compare Ticket Options' button pops more:
+                       - fill opacity 0.75 → 0.90.
+                  Path GEOMETRY (single tall dome, no shoulders) and
+                  blur stdDeviation (60) unchanged. -->
             <path
-              d="M 0 1800 L 0 380 Q 0 180 500 80 Q 1000 180 1000 380 L 1000 1800 Z"
-              fill="rgba(255,102,0,0.75)"
+              d="M 0 1800 L 0 380 Q 0 130 500 30 Q 1000 130 1000 380 L 1000 1800 Z"
+              fill="rgba(255,102,0,0.90)"
               filter="url(#orange-dome-feather)"
             />
           </svg>
