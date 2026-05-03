@@ -89,30 +89,20 @@ import Footer from '../components/Footer.astro';
                 <feGaussianBlur in="SourceGraphic" stdDeviation="50"/>
               </filter>
             </defs>
-            <!-- Per Mike: round out the bottom too (was straight sides
-                 going to hero bottom). Dome is now a true ball / oval
-                 shape: rounded top AND rounded bottom, ending just
-                 below the 'Compare Ticket Options' button.
-                 Implementation:
-                  - SVG re-bounded vertically: top: -30, explicit
-                    height: 670 (no longer bottom: -1500). The SVG
-                    no longer extends way past the hero — it's
-                    constrained to roughly the text-block + button.
-                  - viewBox shortened 1800 → 1500 to match the new
-                    aspect ratio.
-                  - Path replaced with a single <ellipse> element:
-                    cx=500 cy=810 rx=500 ry=620. This produces a
-                    smooth oval (rounded on top AND bottom) that
-                    spans roughly viewBox y=190 to y=1430.
-                  - Blur stdDeviation 60 → 50 (slightly tighter so
-                    the rounded bottom doesn't bleed too far past
-                    the button).
-                 Fill (rgba(255,102,0,0.90)) UNCHANGED. -->
+            <!-- Ball shape (rounded top AND rounded bottom).
+                 Per Mike's latest tweak: extend the BOTTOM downward
+                 so it fully covers the Compare Ticket Options button
+                 and beyond. TOP and SIDES kept exactly as they were.
+                  - cy 810 → 945, ry 620 → 755 (math: keep top edge
+                    at viewBox y=190, push bottom edge from viewBox
+                    y=1430 down to y=1700).
+                  - rx still 500 (sides unchanged).
+                 SVG positioning, viewBox, blur, fill ALL unchanged. -->
             <ellipse
               cx="500"
-              cy="810"
+              cy="945"
               rx="500"
-              ry="620"
+              ry="755"
               fill="rgba(255,102,0,0.90)"
               filter="url(#orange-dome-feather)"
             />
@@ -283,11 +273,13 @@ import Footer from '../components/Footer.astro';
                 <feGaussianBlur in="SourceGraphic" stdDeviation="50"/>
               </filter>
             </defs>
+            <!-- Same geometry as the orange section above so V2 stays
+                 byte-identical except for color. -->
             <ellipse
               cx="500"
-              cy="810"
+              cy="945"
               rx="500"
-              ry="620"
+              ry="755"
               fill="rgba(0,0,0,0.85)"
               filter="url(#v2-dome-feather)"
             />
@@ -392,7 +384,7 @@ import Footer from '../components/Footer.astro';
           <ul class="space-y-2 text-navy/85 text-sm leading-relaxed">
             <li><strong class="text-navy">Top section (orange):</strong> debug view &mdash; shows exactly where the dome and per-letter halos sit.</li>
             <li><strong class="text-navy">Bottom section (V2 / dark):</strong> exactly the same shape and positioning, but with production colors (dark dome, dark halos). This is what would ship if you say &lsquo;go live&rsquo;.</li>
-            <li class="pt-2"><strong class="text-navy">Both sections share IDENTICAL geometry:</strong> ellipse cx=500 cy=810 rx=500 ry=620, blur stddev=50, SVG top: -30 / height: 670, viewBox 0 0 1000 1500. Only the fill colors differ.</li>
+            <li class="pt-2"><strong class="text-navy">Both sections share IDENTICAL geometry:</strong> ellipse cx=500 cy=945 rx=500 ry=755, blur stddev=50, SVG top: -30 / height: 670, viewBox 0 0 1000 1500. Only the fill colors differ.</li>
           </ul>
         </div>
       </div>
