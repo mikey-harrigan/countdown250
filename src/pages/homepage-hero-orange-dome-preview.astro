@@ -535,24 +535,19 @@ import Footer from '../components/Footer.astro';
           V5 &middot; Countdown Pic_5 &middot; logo halo + per-line dark blobs
         </p>
 
-        <!-- Logo with a SEPARATE dark feathered CIRCLE positioned
-             behind it. Per Mike: drop-shadow filter wasn't reading
-             as 'a halo' because it just blurred the seal alpha
-             outward. Replace with a real circular overlay on its
-             own layer that's a little bigger than the logo. -->
+        <!-- Logo with a SEPARATE dark CIRCLE behind, only slightly
+             bigger than the logo per Mike. -m-3 sm:-m-4 = the dark
+             circle extends ~12-16 px past the logo on each side
+             instead of 48-64 px. Gradient stays mostly solid until
+             ~75% so the visible halo is a tight dark disc; only
+             the very outer rim feathers to transparent. -->
         <div class="flex justify-center mb-10 animate-fade-in">
           <div class="relative inline-block">
-            <!-- Dark feathered circle behind the logo. -m-12 sm:-m-16
-                 makes the circle extend ~48-64 px past the logo on
-                 every side. radial-gradient feathers from solid black
-                 at the center to transparent at the edge so there's
-                 no visible boundary. -->
             <div
-              class="absolute inset-0 -m-12 sm:-m-16 rounded-full pointer-events-none"
-              style="background: radial-gradient(circle, rgba(0,0,0,0.90) 30%, rgba(0,0,0,0.7) 55%, rgba(0,0,0,0.4) 75%, rgba(0,0,0,0.15) 90%, transparent 100%);"
+              class="absolute inset-0 -m-3 sm:-m-4 rounded-full pointer-events-none"
+              style="background: radial-gradient(circle, rgba(0,0,0,0.92) 60%, rgba(0,0,0,0.7) 80%, rgba(0,0,0,0.3) 95%, transparent 100%);"
               aria-hidden="true"
             ></div>
-            <!-- Logo above the dark circle -->
             <picture class="relative block">
               <source srcset="/images/logos/countdown250-seal-navy-blue.webp" type="image/webp" />
               <img
@@ -583,34 +578,28 @@ import Footer from '../components/Footer.astro';
               role="img"
             >
               <defs>
-                <!-- Single soft-feather filter applied to the dark
-                     ellipses (NOT to the text). Big stddev = very
-                     soft falloff so the dark ovals blend into the
-                     photo without a visible edge. -->
+                <!-- Tighter feather (stddev 35 → 18) so the visible
+                     dark area only extends slightly past the
+                     ellipse edge. -->
                 <filter id="v5-ellipse-feather-desk" x="-30%" y="-50%" width="160%" height="200%">
-                  <feGaussianBlur in="SourceGraphic" stdDeviation="35"/>
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="18"/>
                 </filter>
                 <path id="v5-arch-line1-desk" d="M 50 130 Q 500 0 950 130" fill="none" />
                 <path id="v5-arch-line2-desk" d="M 50 215 Q 500 85 950 215" fill="none" />
               </defs>
 
-              <!-- Dark feathered ellipse BEHIND line 1 ('Where will
-                   you be…'). Sized to roughly cover the visible
-                   text on the arch. Centered horizontally; cy
-                   between the arch peak and baseline. -->
-              <ellipse cx="500" cy="80" rx="280" ry="65" fill="rgba(0,0,0,0.85)" filter="url(#v5-ellipse-feather-desk)" />
-
-              <!-- Line 1 text — crisp, NO filter. -->
+              <!-- Dark ellipse BEHIND line 1 — tightened: rx 280→160,
+                   ry 65→42. Now only slightly bigger than the actual
+                   text on the arch. -->
+              <ellipse cx="500" cy="80" rx="160" ry="42" fill="rgba(0,0,0,0.85)" filter="url(#v5-ellipse-feather-desk)" />
               <text fill="rgba(255,255,255,0.92)" font-size="30" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v5-arch-line1-desk" startOffset="50%" text-anchor="middle">Where will you be&#8230;</textPath>
               </text>
 
-              <!-- Dark feathered ellipse BEHIND line 2 ('when the
-                   clock strikes 250?'). Wider since the line is
-                   long; cy between the arch peak and baseline. -->
-              <ellipse cx="500" cy="170" rx="490" ry="100" fill="rgba(0,0,0,0.85)" filter="url(#v5-ellipse-feather-desk)" />
-
-              <!-- Line 2 text — crisp, NO filter. -->
+              <!-- Dark ellipse BEHIND line 2 — tightened: rx 490→370,
+                   ry 100→65. Now only slightly bigger than the
+                   actual text on the arch. -->
+              <ellipse cx="500" cy="165" rx="370" ry="65" fill="rgba(0,0,0,0.85)" filter="url(#v5-ellipse-feather-desk)" />
               <text fill="#ffffff" font-size="47" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v5-arch-line2-desk" startOffset="50%" text-anchor="middle">when the clock strikes 250?</textPath>
               </text>
@@ -625,16 +614,16 @@ import Footer from '../components/Footer.astro';
             >
               <defs>
                 <filter id="v5-ellipse-feather-mob" x="-30%" y="-50%" width="160%" height="200%">
-                  <feGaussianBlur in="SourceGraphic" stdDeviation="22"/>
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="11"/>
                 </filter>
                 <path id="v5-arch-line1-mob" d="M 30 95 Q 300 25 570 95" fill="none" />
                 <path id="v5-arch-line2-mob" d="M 30 150 Q 300 80 570 150" fill="none" />
               </defs>
-              <ellipse cx="300" cy="55" rx="180" ry="40" fill="rgba(0,0,0,0.85)" filter="url(#v5-ellipse-feather-mob)" />
+              <ellipse cx="300" cy="55" rx="115" ry="28" fill="rgba(0,0,0,0.85)" filter="url(#v5-ellipse-feather-mob)" />
               <text fill="rgba(255,255,255,0.92)" font-size="34" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v5-arch-line1-mob" startOffset="50%" text-anchor="middle">Where will you be&#8230;</textPath>
               </text>
-              <ellipse cx="300" cy="120" rx="290" ry="60" fill="rgba(0,0,0,0.85)" filter="url(#v5-ellipse-feather-mob)" />
+              <ellipse cx="300" cy="115" rx="220" ry="42" fill="rgba(0,0,0,0.85)" filter="url(#v5-ellipse-feather-mob)" />
               <text fill="#ffffff" font-size="40" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v5-arch-line2-mob" startOffset="50%" text-anchor="middle">when the clock strikes 250?</textPath>
               </text>
@@ -658,14 +647,17 @@ import Footer from '../components/Footer.astro';
                  layers stack up to form a soft dark blob behind the
                  glyphs. The text itself stays crisp because the
                  browser renders text-shadow under the glyph alpha. -->
-            <!-- 'A once-in-a-lifetime moment.' wrapped so a separate
-                 dark feathered oval overlay can sit BEHIND it (same
-                 approach as the logo). text-shadow stack removed. -->
+            <!-- 'A once-in-a-lifetime moment.' overlay tightened —
+                 only slightly bigger than the text now. Negative
+                 margins reduced (-mx-12/16 → -mx-3/4, -my-3/4 →
+                 -my-1) so the dark oval just barely extends past
+                 the text. Gradient stays mostly opaque until the
+                 outer rim. -->
             <div class="flex justify-center mb-8">
               <div class="relative inline-block">
                 <div
-                  class="absolute inset-0 -mx-12 sm:-mx-16 -my-3 sm:-my-4 rounded-full pointer-events-none"
-                  style="background: radial-gradient(ellipse, rgba(0,0,0,0.85) 30%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.25) 85%, transparent 100%);"
+                  class="absolute inset-0 -mx-3 sm:-mx-4 -my-1 rounded-full pointer-events-none"
+                  style="background: radial-gradient(ellipse, rgba(0,0,0,0.90) 60%, rgba(0,0,0,0.65) 80%, rgba(0,0,0,0.25) 95%, transparent 100%);"
                   aria-hidden="true"
                 ></div>
                 <p class="relative font-heading italic font-light text-lg sm:text-xl md:text-2xl text-gold/95">
