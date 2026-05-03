@@ -166,10 +166,21 @@ const faqs = [
 
   <main>
     <!-- ============================================================ -->
-    <!-- 1. HERO -->
+    <!-- 1. HERO  — V-I shipped from /homepage-hero-arch-preview/      -->
+    <!--   - Two-line italic question is now arched (SVG textPath).    -->
+    <!--   - Each glyph carries its own dark halo via SVG filter so    -->
+    <!--     the text stays crisp against the busy photo.              -->
+    <!--   - A literal dome-shaped overlay sits behind the text block, -->
+    <!--     widening as it descends to match each text-line width,    -->
+    <!--     then straight-sided down to the bottom of the hero.       -->
+    <!--   - Heavily feathered edges (and an extra left-only feather)  -->
+    <!--     so the dome blends into the photo with no visible boundary. -->
+    <!--   - Seal logo, photo background, dark overlay, #tickets       -->
+    <!--     anchor on the CTA, and the section structure all UNCHANGED -->
+    <!--     from the previous live hero.                               -->
     <!-- ============================================================ -->
     <section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
-      <!-- Background image -->
+      <!-- Background image (unchanged) -->
       <div class="absolute inset-0">
         <img
           src="/images/event/hero-countdown250-toast.jpg"
@@ -181,7 +192,7 @@ const faqs = [
 
       <!-- Content -->
       <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-28 pb-20">
-        <!-- Seal logo -->
+        <!-- Seal logo (unchanged: same image, same animate-fade-in class) -->
         <div class="flex justify-center mb-10 animate-fade-in">
           <picture>
             <source srcset="/images/logos/countdown250-seal-navy-blue.webp" type="image/webp" />
@@ -193,45 +204,177 @@ const faqs = [
           </picture>
         </div>
 
-        <!-- Soft-edged dark backdrop wraps just the headline copy so the text -->
-        <!-- pops without darkening the photo around it. Uses a radial gradient -->
-        <!-- inside the box so the box edges fade naturally instead of hard-cutting. -->
-        <div class="inline-block max-w-full px-6 py-7 sm:px-12 sm:py-9 rounded-3xl mb-10" style="background: radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 70%, rgba(0,0,0,0.15) 100%);">
+        <!-- Wrapper: relative so the absolute dome stacks correctly -->
+        <div class="relative mb-10">
 
-          <!-- Poetic open: italic question, two staggered lines -->
-          <p class="font-heading italic font-light text-xl sm:text-2xl md:text-3xl text-white/85 leading-tight mb-1 tracking-tight">
-            Where will you be&hellip;
-          </p>
-          <p class="font-heading italic font-normal text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-10 tracking-tight">
-            when the clock strikes 250?
-          </p>
-
-          <!-- Masthead presentational line -->
-          <p class="font-heading italic font-bold text-lg sm:text-xl md:text-2xl text-gold mb-2 tracking-wide">
-            The Official
-          </p>
-
-          <!-- Display headline -->
-          <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-white leading-[1.05] mb-6 tracking-tight">
-            Countdown 250 Ball
-          </h1>
-
-          <!-- Gold flourish divider -->
-          <div class="w-20 h-px bg-gold/70 mx-auto mb-5"></div>
-
-          <!-- Italic close -->
-          <p class="font-heading italic font-light text-lg sm:text-xl md:text-2xl text-gold/95">
-            A once-in-a-lifetime moment.
-          </p>
-        </div>
-
-        <div class="flex justify-center">
-          <a
-            href="#tickets"
-            class="bg-red hover:bg-red-light text-white px-10 py-4 text-sm font-semibold tracking-[0.2em] uppercase transition-all rounded shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+          <!-- ===== DOME OVERLAY (V-I final) =====
+               LITERAL dome shape: rounded on top, widening as it
+               descends to match each text-line width, then straight-
+               sided down to the bottom of the hero. Heavily feathered
+               so it blends seamlessly into the photo with no visible
+               boundary. Extra left-only feather layer softens the
+               left edge specifically. pointer-events-none so the
+               underlying CTA button is still clickable. -->
+          <svg
+            class="absolute pointer-events-none z-0"
+            style="top: -250px; bottom: -1500px; left: 50%; transform: translateX(-50%); width: min(820px, calc(100vw - 1rem)); overflow: visible;"
+            viewBox="0 0 1000 1800"
+            preserveAspectRatio="none"
+            aria-hidden="true"
           >
-            Compare Ticket Options
-          </a>
+            <defs>
+              <filter id="hero-dome-feather" x="-40%" y="-40%" width="180%" height="180%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="80"/>
+              </filter>
+              <filter id="hero-dome-feather-left" x="-80%" y="-30%" width="200%" height="160%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="120"/>
+              </filter>
+            </defs>
+            <path
+              d="M -20 1800 L -20 380 Q -20 310 -10 240 Q 248 240 248 130 A 252 320 0 0 0 752 130 Q 752 240 990 240 Q 1000 310 1000 380 L 1000 1800 Z"
+              fill="rgba(0,0,0,0.85)"
+              filter="url(#hero-dome-feather)"
+            />
+            <ellipse
+              cx="-30"
+              cy="900"
+              rx="160"
+              ry="900"
+              fill="rgba(0,0,0,0.45)"
+              filter="url(#hero-dome-feather-left)"
+            />
+          </svg>
+
+          <!-- All the text + button sit ABOVE the dome on z-10 -->
+          <div class="relative z-10">
+
+            <!-- DESKTOP arched SVG (md and up) -->
+            <svg
+              viewBox="0 -65 1000 295"
+              class="hidden md:block mx-auto h-auto mb-8"
+              style="width: min(1024px, calc(100vw - 2rem));"
+              aria-label="Where will you be… when the clock strikes 250?"
+              role="img"
+            >
+              <defs>
+                <filter id="hero-arch-halo-desk" x="-50%" y="-50%" width="200%" height="200%">
+                  <feMorphology in="SourceAlpha" operator="dilate" radius="12" result="expanded"/>
+                  <feGaussianBlur in="expanded" stdDeviation="18" result="blurred"/>
+                  <feFlood flood-color="black" flood-opacity="1.0" result="darkfill"/>
+                  <feComposite in="darkfill" in2="blurred" operator="in" result="halo"/>
+                  <feMerge>
+                    <feMergeNode in="halo"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+                <path id="hero-arch-line1-desk" d="M 50 130 Q 500 0 950 130" fill="none" />
+                <path id="hero-arch-line2-desk" d="M 50 215 Q 500 85 950 215" fill="none" />
+              </defs>
+              <text
+                fill="rgba(255,255,255,0.92)"
+                font-size="30"
+                font-weight="300"
+                font-style="italic"
+                font-family="'Playfair Display', Georgia, serif"
+                filter="url(#hero-arch-halo-desk)"
+              >
+                <textPath href="#hero-arch-line1-desk" startOffset="50%" text-anchor="middle">
+                  Where will you be&#8230;
+                </textPath>
+              </text>
+              <text
+                fill="#ffffff"
+                font-size="47"
+                font-weight="400"
+                font-style="italic"
+                font-family="'Playfair Display', Georgia, serif"
+                filter="url(#hero-arch-halo-desk)"
+              >
+                <textPath href="#hero-arch-line2-desk" startOffset="50%" text-anchor="middle">
+                  when the clock strikes 250?
+                </textPath>
+              </text>
+            </svg>
+
+            <!-- MOBILE arched SVG (under md) -->
+            <svg
+              viewBox="0 -40 600 200"
+              class="block md:hidden w-full max-w-md mx-auto h-auto mb-8"
+              aria-hidden="true"
+              role="img"
+            >
+              <defs>
+                <filter id="hero-arch-halo-mob" x="-50%" y="-50%" width="200%" height="200%">
+                  <feMorphology in="SourceAlpha" operator="dilate" radius="7" result="expanded"/>
+                  <feGaussianBlur in="expanded" stdDeviation="11" result="blurred"/>
+                  <feFlood flood-color="black" flood-opacity="1.0" result="darkfill"/>
+                  <feComposite in="darkfill" in2="blurred" operator="in" result="halo"/>
+                  <feMerge>
+                    <feMergeNode in="halo"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+                <path id="hero-arch-line1-mob" d="M 30 95 Q 300 25 570 95" fill="none" />
+                <path id="hero-arch-line2-mob" d="M 30 150 Q 300 80 570 150" fill="none" />
+              </defs>
+              <text
+                fill="rgba(255,255,255,0.92)"
+                font-size="34"
+                font-weight="300"
+                font-style="italic"
+                font-family="'Playfair Display', Georgia, serif"
+                filter="url(#hero-arch-halo-mob)"
+              >
+                <textPath href="#hero-arch-line1-mob" startOffset="50%" text-anchor="middle">
+                  Where will you be&#8230;
+                </textPath>
+              </text>
+              <text
+                fill="#ffffff"
+                font-size="40"
+                font-weight="400"
+                font-style="italic"
+                font-family="'Playfair Display', Georgia, serif"
+                filter="url(#hero-arch-halo-mob)"
+              >
+                <textPath href="#hero-arch-line2-mob" startOffset="50%" text-anchor="middle">
+                  when the clock strikes 250?
+                </textPath>
+              </text>
+            </svg>
+
+            <!-- Masthead presentational line -->
+            <p class="font-heading italic font-bold text-lg sm:text-xl md:text-2xl text-gold mb-2 tracking-wide"
+               style="text-shadow: 0 0 4px rgba(0,0,0,1), 0 0 10px rgba(0,0,0,0.9);">
+              The Official
+            </p>
+
+            <!-- Display headline -->
+            <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-white leading-[1.05] mb-6 tracking-tight"
+                style="text-shadow: 0 0 6px rgba(0,0,0,1), 0 0 16px rgba(0,0,0,0.9), 0 0 28px rgba(0,0,0,0.6);">
+              Countdown 250 Ball
+            </h1>
+
+            <!-- Gold flourish divider -->
+            <div class="w-20 h-px bg-gold/70 mx-auto mb-5"></div>
+
+            <!-- Italic close -->
+            <p class="font-heading italic font-light text-lg sm:text-xl md:text-2xl text-gold/95 mb-8"
+               style="text-shadow: 0 0 4px rgba(0,0,0,1), 0 0 10px rgba(0,0,0,0.9);">
+              A once-in-a-lifetime moment.
+            </p>
+
+            <!-- CTA: anchor unchanged (#tickets) so existing scroll-to behavior continues to work -->
+            <div class="flex justify-center">
+              <a
+                href="#tickets"
+                class="bg-red hover:bg-red-light text-white px-10 py-4 text-sm font-semibold tracking-[0.2em] uppercase transition-all rounded shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              >
+                Compare Ticket Options
+              </a>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
