@@ -535,17 +535,15 @@ import Footer from '../components/Footer.astro';
           V5 &middot; Countdown Pic_5 &middot; logo halo + per-line dark blobs
         </p>
 
-        <!-- Logo with a SEPARATE dark CIRCLE behind, only slightly
-             bigger than the logo per Mike. -m-3 sm:-m-4 = the dark
-             circle extends ~12-16 px past the logo on each side
-             instead of 48-64 px. Gradient stays mostly solid until
-             ~75% so the visible halo is a tight dark disc; only
-             the very outer rim feathers to transparent. -->
+        <!-- Logo with a SOLID NEON-GREEN circle behind, only slightly
+             bigger than the logo. NO radial gradient = no soft halo
+             at the rim. Tightened to -m-2 sm:-m-3 (~8-12 px past the
+             image bounds) so we can see exactly where it sits. -->
         <div class="flex justify-center mb-10 animate-fade-in">
           <div class="relative inline-block">
             <div
-              class="absolute inset-0 -m-3 sm:-m-4 rounded-full pointer-events-none"
-              style="background: radial-gradient(circle, rgba(0,0,0,0.92) 60%, rgba(0,0,0,0.7) 80%, rgba(0,0,0,0.3) 95%, transparent 100%);"
+              class="absolute inset-0 -m-2 sm:-m-3 rounded-full pointer-events-none"
+              style="background: #00ff00;"
               aria-hidden="true"
             ></div>
             <picture class="relative block">
@@ -578,28 +576,22 @@ import Footer from '../components/Footer.astro';
               role="img"
             >
               <defs>
-                <!-- Tighter feather (stddev 35 → 18) so the visible
-                     dark area only extends slightly past the
-                     ellipse edge. -->
-                <filter id="v5-ellipse-feather-desk" x="-30%" y="-50%" width="160%" height="200%">
-                  <feGaussianBlur in="SourceGraphic" stdDeviation="18"/>
-                </filter>
+                <!-- Feather filter REMOVED — solid edges only so we
+                     can clearly see where the green sits. -->
                 <path id="v5-arch-line1-desk" d="M 50 130 Q 500 0 950 130" fill="none" />
                 <path id="v5-arch-line2-desk" d="M 50 215 Q 500 85 950 215" fill="none" />
               </defs>
 
-              <!-- Dark ellipse BEHIND line 1 — tightened: rx 280→160,
-                   ry 65→42. Now only slightly bigger than the actual
-                   text on the arch. -->
-              <ellipse cx="500" cy="80" rx="160" ry="42" fill="rgba(0,0,0,0.85)" filter="url(#v5-ellipse-feather-desk)" />
+              <!-- SOLID NEON GREEN ellipse behind line 1 — no filter,
+                   no feathering. -->
+              <ellipse cx="500" cy="80" rx="160" ry="42" fill="#00ff00" />
               <text fill="rgba(255,255,255,0.92)" font-size="30" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v5-arch-line1-desk" startOffset="50%" text-anchor="middle">Where will you be&#8230;</textPath>
               </text>
 
-              <!-- Dark ellipse BEHIND line 2 — tightened: rx 490→370,
-                   ry 100→65. Now only slightly bigger than the
-                   actual text on the arch. -->
-              <ellipse cx="500" cy="165" rx="370" ry="65" fill="rgba(0,0,0,0.85)" filter="url(#v5-ellipse-feather-desk)" />
+              <!-- SOLID NEON GREEN ellipse behind line 2 — no filter,
+                   no feathering. -->
+              <ellipse cx="500" cy="165" rx="370" ry="65" fill="#00ff00" />
               <text fill="#ffffff" font-size="47" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v5-arch-line2-desk" startOffset="50%" text-anchor="middle">when the clock strikes 250?</textPath>
               </text>
@@ -613,17 +605,14 @@ import Footer from '../components/Footer.astro';
               role="img"
             >
               <defs>
-                <filter id="v5-ellipse-feather-mob" x="-30%" y="-50%" width="160%" height="200%">
-                  <feGaussianBlur in="SourceGraphic" stdDeviation="11"/>
-                </filter>
                 <path id="v5-arch-line1-mob" d="M 30 95 Q 300 25 570 95" fill="none" />
                 <path id="v5-arch-line2-mob" d="M 30 150 Q 300 80 570 150" fill="none" />
               </defs>
-              <ellipse cx="300" cy="55" rx="115" ry="28" fill="rgba(0,0,0,0.85)" filter="url(#v5-ellipse-feather-mob)" />
+              <ellipse cx="300" cy="55" rx="115" ry="28" fill="#00ff00" />
               <text fill="rgba(255,255,255,0.92)" font-size="34" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v5-arch-line1-mob" startOffset="50%" text-anchor="middle">Where will you be&#8230;</textPath>
               </text>
-              <ellipse cx="300" cy="115" rx="220" ry="42" fill="rgba(0,0,0,0.85)" filter="url(#v5-ellipse-feather-mob)" />
+              <ellipse cx="300" cy="115" rx="220" ry="42" fill="#00ff00" />
               <text fill="#ffffff" font-size="40" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v5-arch-line2-mob" startOffset="50%" text-anchor="middle">when the clock strikes 250?</textPath>
               </text>
@@ -647,17 +636,13 @@ import Footer from '../components/Footer.astro';
                  layers stack up to form a soft dark blob behind the
                  glyphs. The text itself stays crisp because the
                  browser renders text-shadow under the glyph alpha. -->
-            <!-- 'A once-in-a-lifetime moment.' overlay tightened —
-                 only slightly bigger than the text now. Negative
-                 margins reduced (-mx-12/16 → -mx-3/4, -my-3/4 →
-                 -my-1) so the dark oval just barely extends past
-                 the text. Gradient stays mostly opaque until the
-                 outer rim. -->
+            <!-- 'A once-in-a-lifetime moment.' overlay — SOLID NEON
+                 GREEN, no gradient, no feathering. Tight to the text. -->
             <div class="flex justify-center mb-8">
               <div class="relative inline-block">
                 <div
                   class="absolute inset-0 -mx-3 sm:-mx-4 -my-1 rounded-full pointer-events-none"
-                  style="background: radial-gradient(ellipse, rgba(0,0,0,0.90) 60%, rgba(0,0,0,0.65) 80%, rgba(0,0,0,0.25) 95%, transparent 100%);"
+                  style="background: #00ff00;"
                   aria-hidden="true"
                 ></div>
                 <p class="relative font-heading italic font-light text-lg sm:text-xl md:text-2xl text-gold/95">
@@ -713,14 +698,14 @@ import Footer from '../components/Footer.astro';
             <li>Same setup: NO overlays, NO halos.</li>
           </ul>
 
-          <p class="text-navy font-semibold text-sm mb-2">V5 (bottom hero) &mdash; separate dark feathered overlays</p>
+          <p class="text-navy font-semibold text-sm mb-2">V5 (bottom hero) &mdash; NEON GREEN debug overlays</p>
           <ul class="space-y-2 text-navy/85 text-sm leading-relaxed mb-5">
-            <li><strong class="text-navy">Photo:</strong> &lsquo;Countdown Pic_5&rsquo; (1600&times;900, ~296 KB). NO full-hero overlay, NO dome.</li>
-            <li><strong class="text-navy">Logo:</strong> dark feathered CIRCLE on its own layer behind the seal (CSS radial-gradient on an absolutely-positioned div, extends ~48&ndash;64 px past the logo on every side, fades to transparent at the rim).</li>
-            <li><strong class="text-navy">&lsquo;Where will you be…&rsquo;:</strong> separate dark feathered ellipse on its own layer behind the line (SVG &lt;ellipse&gt; element with feGaussianBlur, drawn BEFORE the text so the text sits crisp on top).</li>
-            <li><strong class="text-navy">&lsquo;when the clock strikes 250?&rsquo;:</strong> same approach &mdash; separate dark feathered ellipse behind the line.</li>
-            <li><strong class="text-navy">&lsquo;A once-in-a-lifetime moment.&rsquo;:</strong> dark feathered oval on its own layer behind the text (CSS radial-gradient, same approach as the logo).</li>
-            <li>&lsquo;The Official&rsquo; and &lsquo;Countdown 250 Ball&rsquo; remain plain (no overlay).</li>
+            <li>All overlays painted SOLID NEON GREEN (#00ff00). NO gradients, NO feGaussianBlur, NO halos. Hard edges so we can see exactly where each shape sits.</li>
+            <li><strong class="text-navy">Logo:</strong> rounded green circle on its own layer behind the seal, extending ~8&ndash;12 px past the image bounds.</li>
+            <li><strong class="text-navy">&lsquo;Where will you be…&rsquo;:</strong> green &lt;ellipse&gt; behind the line, sized to be just slightly bigger than the text on the arch.</li>
+            <li><strong class="text-navy">&lsquo;when the clock strikes 250?&rsquo;:</strong> same &mdash; green &lt;ellipse&gt; behind the line.</li>
+            <li><strong class="text-navy">&lsquo;A once-in-a-lifetime moment.&rsquo;:</strong> green oval on its own layer behind the text.</li>
+            <li>&lsquo;The Official&rsquo; and &lsquo;Countdown 250 Ball&rsquo; have NO overlay.</li>
           </ul>
 
           <p class="text-xs text-navy/70 leading-relaxed pt-2 border-t border-navy/10">
