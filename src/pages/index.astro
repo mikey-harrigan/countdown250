@@ -237,19 +237,17 @@ const faqs = [
                 <feGaussianBlur in="SourceGraphic" stdDeviation="80 70"/>
               </filter>
             </defs>
-            <!-- Ellipse geometry unchanged from the prior tweak:
-                  cx=500, cy=915, rx=500, ry=785.
-                 Fill recolored from black to brand navy
-                 (rgba(0,40,104,0.70) = #002868 at 70% opacity) so
-                 the dome is on-brand with the navy seal + masthead
-                 + body sections instead of reading as a generic
-                 dark overlay. Opacity unchanged at 0.70. -->
+            <!-- Ellipse geometry unchanged. Fill recolored to brand
+                 DARK navy (rgba(0,26,69,0.70) = #001a45 at 70%
+                 opacity) — much darker / more subdued than the
+                 standard brand navy that was here before. Opacity
+                 unchanged at 0.70. -->
             <ellipse
               cx="500"
               cy="915"
               rx="500"
               ry="785"
-              fill="rgba(0,40,104,0.70)"
+              fill="rgba(0,26,69,0.70)"
               filter="url(#hero-dome-feather)"
             />
           </svg>
