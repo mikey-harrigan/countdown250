@@ -24,28 +24,26 @@ import Footer from '../components/Footer.astro';
 
     <!-- ============================================================ -->
     <!-- ORANGE-DOME DEBUG HERO                                       -->
-    <!-- Identical to the LIVE hero shipped in commit 4e65155 with    -->
-    <!-- two changes ONLY:                                            -->
-    <!--   (1) The dome's main path is painted BRIGHT ORANGE (not     -->
-    <!--       black) so we can see exactly where the dome covers.    -->
-    <!--   (2) The extra left-only feather ellipse is painted BRIGHT  -->
-    <!--       MAGENTA so we can see it as a distinct second layer.   -->
-    <!-- The per-letter SVG halos behind each glyph are also re-      -->
-    <!-- colored to bright YELLOW so they stand out as their own      -->
-    <!-- distinct layer.                                              -->
-    <!--                                                              -->
-    <!-- Path geometry, blur amounts, sizes, positions: ALL UNCHANGED -->
-    <!-- from the live hero. The only difference is fill color.       -->
+    <!-- Three distinct background layers, each painted in a clearly  -->
+    <!-- different debug color so Mike can tell them apart:           -->
+    <!--   (1) BRIGHT BLUE — the full-hero photo overlay (covers the  -->
+    <!--       entire hero, lives behind the dome). Live = black 0.55.-->
+    <!--   (2) BRIGHT ORANGE — the feathered ball/dome.               -->
+    <!--       Live = dark grey.                                      -->
+    <!--   (3) BRIGHT YELLOW — the per-letter halos behind each glyph -->
+    <!--       in the arched text (these merge into one blob per      -->
+    <!--       text line). Live = black.                              -->
+    <!-- All other geometry / blur / sizing matches live.             -->
     <!-- ============================================================ -->
     <section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
-      <!-- Background image (same as live) -->
+      <!-- Background image with FULL-HERO BLUE OVERLAY (debug color) -->
       <div class="absolute inset-0">
         <img
           src="/images/event/hero-countdown250-toast.jpg"
           alt="Black-tie guests toasting with champagne as Countdown 250 reaches 00:00:01 on stage"
           class="w-full h-full object-cover object-center"
         />
-        <div class="absolute inset-0" style="background: rgba(0,0,0,0.55);"></div>
+        <div class="absolute inset-0" style="background: rgba(40,120,255,0.55);"></div>
       </div>
 
       <!-- Content -->
@@ -374,10 +372,11 @@ import Footer from '../components/Footer.astro';
         <div class="bg-navy/[0.02] border border-navy/20 rounded-lg p-6">
           <p class="text-navy font-semibold tracking-[0.2em] uppercase text-xs mb-4">Color key</p>
 
-          <p class="text-navy font-semibold text-sm mb-2">Top hero on this page (DEBUG view)</p>
+          <p class="text-navy font-semibold text-sm mb-2">Top hero on this page (DEBUG view) &mdash; three distinct backgrounds</p>
           <ul class="space-y-2 text-navy/85 text-sm leading-relaxed mb-5">
-            <li class="flex items-start"><span class="inline-block w-5 h-5 rounded-sm flex-shrink-0 mt-0.5 mr-3" style="background: rgba(255,102,0,0.90);"></span><span><strong class="text-navy">Bright orange</strong> &mdash; the feathered ball / dome behind the text. On the live site this same shape is dark grey; we paint it orange here so you can SEE exactly where it covers.</span></li>
-            <li class="flex items-start"><span class="inline-block w-5 h-5 rounded-sm flex-shrink-0 mt-0.5 mr-3" style="background: rgba(255,235,0,0.85); border: 1px solid rgba(0,0,0,0.15);"></span><span><strong class="text-navy">Bright yellow</strong> &mdash; the per-letter halo behind each glyph in the two arched lines. On the live site this is black, sized to each letter; we paint it yellow here so you can SEE each individual halo.</span></li>
+            <li class="flex items-start"><span class="inline-block w-5 h-5 rounded-sm flex-shrink-0 mt-0.5 mr-3" style="background: rgba(40,120,255,0.55); border: 1px solid rgba(0,0,0,0.15);"></span><span><strong class="text-navy">Bright blue</strong> &mdash; the FULL-HERO photo overlay. Covers the entire hero behind everything else (this is what the perceived &lsquo;darker outer ring&rsquo; was on live &mdash; the photo overlay sitting outside the dome). On the live site this same layer is black at 0.55 opacity.</span></li>
+            <li class="flex items-start"><span class="inline-block w-5 h-5 rounded-sm flex-shrink-0 mt-0.5 mr-3" style="background: rgba(255,102,0,0.90);"></span><span><strong class="text-navy">Bright orange</strong> &mdash; the feathered ball/dome SVG ellipse. Sits in the middle of the hero, on top of the blue layer. On the live site this is dark grey at 0.70 opacity.</span></li>
+            <li class="flex items-start"><span class="inline-block w-5 h-5 rounded-sm flex-shrink-0 mt-0.5 mr-3" style="background: rgba(255,235,0,0.85); border: 1px solid rgba(0,0,0,0.15);"></span><span><strong class="text-navy">Bright yellow</strong> &mdash; the per-letter halos behind each glyph in the two arched lines. They merge into one blob per text line. On the live site this is black, sized to each letter.</span></li>
           </ul>
 
           <p class="text-navy font-semibold text-sm mb-2">Bottom hero on this page (LIVE look)</p>
