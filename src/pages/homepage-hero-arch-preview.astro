@@ -1355,30 +1355,57 @@ import Footer from '../components/Footer.astro';
         <!-- Wrapper: relative so the absolute dome stacks correctly -->
         <div class="relative mb-10">
 
-          <!-- ===== DOME OVERLAY =====
-               Sits behind the text block (z-0), extends beyond the
-               text's edges via negative insets so the radial-gradient
-               can feather smoothly into the photo without ever
-               touching a hard rectangular edge. Values are heavier
-               at center (0.88) and fade to fully transparent by 100%
-               radius — no hard boundary anywhere.
+          <!-- ===== DOME OVERLAY (V-I, redesigned per Mike's spec) =====
+               LITERAL dome shape: rounded on top, widening as it
+               descends to match the width of each text line, then
+               straight-sided down to the bottom of the hero.
+               Feathered edges via SVG feGaussianBlur so the shape
+               blends smoothly into the photo with no visible boundary.
 
-               Per Mike (V-I tweak): extended DOWNWARD only so the
-               visible dome reaches just below the 'Compare Ticket
-               Options' button. Top/left/right kept exactly as they
-               were. Bottom inset bumped from -inset-y-14 (~56 px)
-               to -bottom-28 sm:-bottom-36 (~112-144 px). The
-               gradient center is shifted up to 'center 40%' so the
-               dark spot stays centered on the text rather than
-               drifting downward as the box gets taller.
+               1 unit ≈ size of '0' in '250' ≈ 28-30 px on desktop.
 
-               pointer-events-none so the underlying button is still
-               clickable.
+               Path geometry (in viewBox 1000 × 1800 — viewBox stretches
+               vertically via preserveAspectRatio="none" so the
+               straight-sided lower portion can extend to hero bottom):
+                 - Top of dome at y=0 (positioned ~3 units above 'will'
+                   via SVG's negative top offset + feather extending
+                   the visible halo above the path edge)
+                 - At y=130: line 1 ('Where will you be…') level.
+                   Dome edges at x=248 / x=752  (width 504 viewBox units
+                   ≈ line 1 width + 6 units)
+                 - At y=240: line 2 ('when the clock strikes 250?')
+                   level. Dome edges at x=10 / x=990  (width 980 ≈
+                   line 2 width + 6 units)
+                 - At y=380: h1 ('Countdown 250 Ball') level. Dome
+                   edges at x=0 / x=1000  (width 1000 ≈ h1 width + 6
+                   units = max width)
+                 - From y=380 down to y=1800: STRAIGHT sides at the
+                   max width
+               feGaussianBlur stdDeviation=38 viewBox units feathers
+               the entire path edge so there's no hard boundary.
+
+               SVG positioned with top: -50px (above wrapper top) and
+               bottom: -1500px (extends past hero bottom; clipped by
+               section's overflow-hidden).
           -->
-          <div
-            class="absolute -inset-x-8 sm:-inset-x-16 -top-10 sm:-top-14 -bottom-28 sm:-bottom-36 pointer-events-none z-0"
-            style="background: radial-gradient(ellipse at center 40%, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.78) 25%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.35) 72%, rgba(0,0,0,0.15) 88%, transparent 100%);"
-          ></div>
+          <svg
+            class="absolute pointer-events-none z-0"
+            style="top: -50px; bottom: -1500px; left: 50%; transform: translateX(-50%); width: min(820px, calc(100vw - 1rem));"
+            viewBox="0 0 1000 1800"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <defs>
+              <filter id="dome-feather-I" x="-20%" y="-15%" width="140%" height="130%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="38"/>
+              </filter>
+            </defs>
+            <path
+              d="M 0 1800 L 0 380 Q 0 310 10 240 Q 248 240 248 130 A 252 130 0 0 0 752 130 Q 752 240 990 240 Q 1000 310 1000 380 L 1000 1800 Z"
+              fill="rgba(0,0,0,0.85)"
+              filter="url(#dome-feather-I)"
+            />
+          </svg>
 
           <!-- All the text and the button sit ABOVE the dome on z-10 -->
           <div class="relative z-10">
