@@ -207,41 +207,34 @@ const faqs = [
         <!-- Wrapper: relative so the absolute dome stacks correctly -->
         <div class="relative mb-10">
 
-          <!-- ===== DOME OVERLAY (V-I final) =====
-               LITERAL dome shape: rounded on top, widening as it
-               descends to match each text-line width, then straight-
-               sided down to the bottom of the hero. Heavily feathered
-               so it blends seamlessly into the photo with no visible
-               boundary. Extra left-only feather layer softens the
-               left edge specifically. pointer-events-none so the
-               underlying CTA button is still clickable. -->
+          <!-- ===== DOME OVERLAY (V2 — ball/oval shape) =====
+               Rounded ball/oval (rounded top AND bottom, no straight
+               sides). Spans from just above 'Where will you be…' down
+               to fully cover the Compare Ticket Options button.
+               Feathered edges via feGaussianBlur so it blends
+               seamlessly into the photo with no visible boundary.
+               pointer-events-none so the underlying CTA button is
+               still clickable.
+               Shipped from /homepage-hero-orange-dome-preview/ V2. -->
           <svg
             class="absolute pointer-events-none z-0"
-            style="top: -250px; bottom: -1500px; left: 50%; transform: translateX(-50%); width: min(820px, calc(100vw - 1rem)); overflow: visible;"
-            viewBox="0 0 1000 1800"
+            style="top: -30px; height: 670px; left: 50%; transform: translateX(-50%); width: min(820px, calc(100vw - 1rem)); overflow: visible;"
+            viewBox="0 0 1000 1500"
             preserveAspectRatio="none"
             aria-hidden="true"
           >
             <defs>
               <filter id="hero-dome-feather" x="-40%" y="-40%" width="180%" height="180%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="80"/>
-              </filter>
-              <filter id="hero-dome-feather-left" x="-80%" y="-30%" width="200%" height="160%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="120"/>
+                <feGaussianBlur in="SourceGraphic" stdDeviation="50"/>
               </filter>
             </defs>
-            <path
-              d="M -20 1800 L -20 380 Q -20 310 -10 240 Q 248 240 248 130 A 252 320 0 0 0 752 130 Q 752 240 990 240 Q 1000 310 1000 380 L 1000 1800 Z"
+            <ellipse
+              cx="500"
+              cy="945"
+              rx="500"
+              ry="755"
               fill="rgba(0,0,0,0.85)"
               filter="url(#hero-dome-feather)"
-            />
-            <ellipse
-              cx="-30"
-              cy="900"
-              rx="160"
-              ry="900"
-              fill="rgba(0,0,0,0.45)"
-              filter="url(#hero-dome-feather-left)"
             />
           </svg>
 
