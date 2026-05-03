@@ -56,23 +56,28 @@ import Footer from '../components/Footer.astro';
                  - Both arcs use the same Q control offset so they curve identically
           -->
 
-          <!-- Arched eyebrow — small white uppercase -->
+          <!-- Both SVGs use the SAME viewBox width (1400) and container width
+               (max-w-6xl) so they scale identically. Both arc paths use the
+               SAME bow depth (110 units) for matching curvature. Font-size
+               ratio is tuned to match the live site (eyebrow ~26% of
+               headline, vs the live site's ~23%). -->
+
+          <!-- Arched eyebrow — small white uppercase, proportionally tiny -->
           <svg
-            viewBox="0 0 1400 130"
-            class="block w-full max-w-3xl mx-auto h-auto -mb-1"
+            viewBox="0 0 1400 140"
+            class="block w-full max-w-6xl mx-auto h-auto -mb-2"
             aria-label="Maximize Your Statesman's Pass Experience"
             role="img"
           >
             <defs>
-              <!-- Path: starts and ends at y=110 (low), peaks at y=30 in the middle.
-                   Wide horizontal extent (60 to 1340) leaves margin on both sides. -->
-              <path id="arch-pre-eyebrow" d="M 60 110 Q 700 30 1340 110" fill="none" />
+              <!-- Bow depth = 110 (steeper than first preview's 80) -->
+              <path id="arch-pre-eyebrow" d="M 70 130 Q 700 20 1330 130" fill="none" />
             </defs>
             <text
               fill="#ffffff"
-              font-size="40"
+              font-size="19"
               font-weight="700"
-              letter-spacing="6"
+              letter-spacing="8"
               font-family="ui-sans-serif, system-ui, sans-serif"
               style="text-transform: uppercase;"
             >
@@ -84,20 +89,18 @@ import Footer from '../components/Footer.astro';
 
           <!-- Arched headline — large gold italic serif -->
           <svg
-            viewBox="0 0 1400 180"
-            class="block w-full max-w-4xl mx-auto h-auto"
+            viewBox="0 0 1400 220"
+            class="block w-full max-w-6xl mx-auto h-auto"
             aria-label="Host a Party Inside the Party"
             role="img"
           >
             <defs>
-              <!-- Same arc shape as eyebrow above (Q control rises 80 from baseline,
-                   same horizontal extent). Just larger viewBox to fit the bigger
-                   text height. -->
-              <path id="arch-pre-headline" d="M 60 160 Q 700 30 1340 160" fill="none" />
+              <!-- Same bow depth (110) as eyebrow — true parallel arches -->
+              <path id="arch-pre-headline" d="M 70 200 Q 700 90 1330 200" fill="none" />
             </defs>
             <text
               fill="#fdd835"
-              font-size="72"
+              font-size="73"
               font-weight="700"
               font-style="italic"
               font-family="'Playfair Display', Georgia, serif"
@@ -119,12 +122,13 @@ import Footer from '../components/Footer.astro';
         <div class="max-w-3xl mx-auto bg-white/5 border border-gold/30 rounded-lg p-6 mt-12 text-left">
           <p class="text-gold font-semibold tracking-[0.2em] uppercase text-xs mb-3">Preview notes</p>
           <ul class="space-y-2 text-white/85 text-sm leading-relaxed list-disc pl-5">
-            <li>Both lines follow the SAME arc curvature (parallel arches).</li>
-            <li>SVG viewBox is 1400 wide — generously wider than needed — so even at the longest character of the eyebrow, no letters get clipped.</li>
-            <li>Eyebrow: 40px sans-serif uppercase, 6px letter-spacing, white.</li>
-            <li>Headline: 72px Playfair Display italic, gold.</li>
-            <li>Negative bottom margin (-mb-1) on the eyebrow pulls the headline up just under it for tighter vertical packing.</li>
-            <li>Sub-line ('No Extra Costs / Easy to set up') retained for context — already on the live home page.</li>
+            <li><strong class="text-white">Updated 2026-05-02 round 2:</strong></li>
+            <li>Both lines now use the SAME container width (max-w-6xl, ~1152px on desktop) so they stretch the same horizontal distance.</li>
+            <li>Both arc paths use the SAME bow depth (110 SVG units) for true parallel arches — and steeper than the first preview's 80.</li>
+            <li>Font-size ratio tuned to match the live site (eyebrow ~26% the size of the headline, vs the live site's ~23%): eyebrow 19 SVG units, headline 73 SVG units.</li>
+            <li>Eyebrow letter-spacing bumped to 8 so the small text spreads farther across the arc.</li>
+            <li>SVG viewBox stays 1400 wide — well clear of any letter-cutoff risk for the 41-character eyebrow.</li>
+            <li>Sub-line ('No Extra Costs / Easy to set up') retained for context.</li>
           </ul>
         </div>
 
