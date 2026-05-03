@@ -374,6 +374,135 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- ============================================================ -->
+    <!-- VERSION D — exact live size                                  -->
+    <!-- The reason C looked smaller than live: the dark backdrop is  -->
+    <!-- an inline-block, which SHRINKS to its widest content. The    -->
+    <!-- 'Countdown 250 Ball' h1 ended up being narrower than max-w-  -->
+    <!-- 4xl, so the SVG could only fill that narrower width — and    -->
+    <!-- the arched text rendered correspondingly smaller.            -->
+    <!--                                                              -->
+    <!-- Fix: force the SVG to take a fixed pixel width via inline    -->
+    <!-- style so it ALWAYS renders at the target size, regardless    -->
+    <!-- of the inline-block parent's shrink behavior. This makes the -->
+    <!-- inline-block grow to accommodate the SVG, and the arched     -->
+    <!-- text now renders at the same pixel size as the live hero.    -->
+    <!-- ============================================================ -->
+    <section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0">
+        <img
+          src="/images/event/hero-countdown250-toast.jpg"
+          alt="Hero background"
+          class="w-full h-full object-cover object-center"
+        />
+        <div class="absolute inset-0" style="background: rgba(0,0,0,0.55);"></div>
+      </div>
+
+      <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-28 pb-20">
+
+        <p class="text-gold/85 font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-6">
+          Version D &middot; B&rsquo;s arc + EXACT live text size (forced width)
+        </p>
+
+        <div class="flex justify-center mb-10">
+          <picture>
+            <source srcset="/images/logos/countdown250-seal-navy-blue.webp" type="image/webp" />
+            <img
+              src="/images/logos/countdown250-seal-navy-blue.png"
+              alt="The Official Countdown 250 Ball — July 3, 2026 — Washington, D.C."
+              class="w-[340px] sm:w-[440px] md:w-[520px] h-auto drop-shadow-2xl"
+            />
+          </picture>
+        </div>
+
+        <div class="inline-block max-w-full px-6 py-7 sm:px-12 sm:py-9 rounded-3xl mb-10" style="background: radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 70%, rgba(0,0,0,0.15) 100%);">
+
+          <!-- ===== ARCHED HEADER — Version D =====
+               Same arc shape as B and C (depth 130).
+               KEY DIFFERENCE: SVG width is FORCED via inline style to
+               896 px (or full viewport width on smaller screens).
+               This breaks the inline-block shrink-to-fit constraint
+               that was making C render at only ~700-720 px wide.
+
+               With width FORCED to 896 px, scale = 896/1000 = 0.896.
+               To hit the live hero text sizes:
+                 line 1 target 30 px → SVG font 34 (renders 30.5 px)
+                 line 2 target 48 px → SVG font 54 (renders 48.4 px)
+               Bumped slightly to 36 / 56 (renders 32 / 50 px) so the
+               match looks bigger than C — easier to judge if it now
+               matches live.
+          -->
+
+          <!-- DESKTOP arched SVG (md and up) — width FORCED to 896 px -->
+          <svg
+            viewBox="0 -50 1000 260"
+            class="hidden md:block mx-auto h-auto mb-8"
+            style="width: min(896px, 100%);"
+            aria-label="Where will you be… when the clock strikes 250?"
+            role="img"
+          >
+            <defs>
+              <path id="hero-line1-D-desk" d="M 50 130 Q 500 0 950 130" fill="none" />
+              <path id="hero-line2-D-desk" d="M 50 215 Q 500 85 950 215" fill="none" />
+            </defs>
+            <!-- Line 1: 'Where will you be…' — italic light, white/85, target 30 px -->
+            <text fill="rgba(255,255,255,0.85)" font-size="36" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
+              <textPath href="#hero-line1-D-desk" startOffset="50%" text-anchor="middle">
+                Where will you be&#8230;
+              </textPath>
+            </text>
+            <!-- Line 2: 'when the clock strikes 250?' — italic normal, white, target 48 px -->
+            <text fill="#ffffff" font-size="56" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif">
+              <textPath href="#hero-line2-D-desk" startOffset="50%" text-anchor="middle">
+                when the clock strikes 250?
+              </textPath>
+            </text>
+          </svg>
+
+          <!-- MOBILE arched SVG (under md) — same as B and C -->
+          <svg
+            viewBox="0 -35 600 200"
+            class="block md:hidden w-full max-w-md mx-auto h-auto mb-8"
+            aria-hidden="true"
+            role="img"
+          >
+            <defs>
+              <path id="hero-line1-D-mob" d="M 30 95 Q 300 25 570 95" fill="none" />
+              <path id="hero-line2-D-mob" d="M 30 150 Q 300 80 570 150" fill="none" />
+            </defs>
+            <text fill="rgba(255,255,255,0.85)" font-size="34" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
+              <textPath href="#hero-line1-D-mob" startOffset="50%" text-anchor="middle">
+                Where will you be&#8230;
+              </textPath>
+            </text>
+            <text fill="#ffffff" font-size="40" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif">
+              <textPath href="#hero-line2-D-mob" startOffset="50%" text-anchor="middle">
+                when the clock strikes 250?
+              </textPath>
+            </text>
+          </svg>
+
+          <p class="font-heading italic font-bold text-lg sm:text-xl md:text-2xl text-gold mb-2 tracking-wide">
+            The Official
+          </p>
+
+          <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-white leading-[1.05] mb-6 tracking-tight">
+            Countdown 250 Ball
+          </h1>
+
+          <div class="flex items-center justify-center gap-3 mb-6">
+            <span class="h-px w-12 bg-gold/70"></span>
+            <span class="text-gold text-sm">&#9733;</span>
+            <span class="h-px w-12 bg-gold/70"></span>
+          </div>
+
+          <p class="text-white/85 text-sm sm:text-base tracking-wide">
+            July 3, 2026 &middot; Washington, D.C.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
     <!-- Notes for review                                             -->
     <!-- ============================================================ -->
     <section class="bg-white py-14">
@@ -381,12 +510,13 @@ import Footer from '../components/Footer.astro';
         <div class="bg-navy/[0.02] border border-navy/20 rounded-lg p-6">
           <p class="text-navy font-semibold tracking-[0.2em] uppercase text-xs mb-3">Preview notes</p>
           <ul class="space-y-2 text-navy/85 text-sm leading-relaxed list-disc pl-5">
-            <li><strong class="text-navy">Three versions to compare:</strong> scroll top to bottom. Pick one.</li>
-            <li><strong class="text-navy">Version A (top):</strong> arc depth = 80 SVG units. Subtle bow.</li>
-            <li><strong class="text-navy">Version B (middle):</strong> arc depth = 130 SVG units. Deeper, architectural curve. Same text size as A.</li>
-            <li><strong class="text-navy">Version C (bottom):</strong> same arc as B + BIGGER text (matches the live hero size: ~30 px / ~48 px on desktop). Container widened to max-w-4xl so the bigger text fits inside the arc.</li>
-            <li><strong class="text-navy">Mobile:</strong> all three use the same mobile SVG (already renders at ~20 px / ~24 px, matching live xl/2xl sizes).</li>
-            <li>Tell me A, B, or C &mdash; or any tweak (bigger arch, wider container, different size relationship between the two lines, etc.).</li>
+            <li><strong class="text-navy">Four versions to compare:</strong> scroll top to bottom. Pick one.</li>
+            <li><strong class="text-navy">Version A:</strong> arc depth = 80. Subtle bow.</li>
+            <li><strong class="text-navy">Version B:</strong> arc depth = 130. Deeper, architectural curve. Same text size as A.</li>
+            <li><strong class="text-navy">Version C:</strong> same arc as B + bigger text. (Looked smaller than live because the inline-block backdrop was shrink-to-fit and constrained the SVG below max-w-4xl.)</li>
+            <li><strong class="text-navy">Version D (newest):</strong> same arc as B + text rendered at the EXACT live hero size. Achieved by forcing the SVG to a fixed pixel width via inline style, which breaks the inline-block shrink behavior and lets the SVG fill the full max-w-4xl. Line 1 ~32 px, line 2 ~50 px on desktop &mdash; matches the live md:text-3xl / lg:text-5xl pair.</li>
+            <li><strong class="text-navy">Mobile:</strong> all four use the same mobile SVG (already matches live xl/2xl mobile sizes ~20 px / ~24 px).</li>
+            <li>Tell me A, B, C, or D &mdash; or any further tweak.</li>
           </ul>
         </div>
       </div>
