@@ -204,52 +204,14 @@ const faqs = [
           </picture>
         </div>
 
-        <!-- Wrapper: relative so the absolute dome stacks correctly -->
+        <!-- Wrapper kept (still hosts the relative-positioned text/halos
+             on z-10 below). Dome overlay temporarily REMOVED per Mike
+             while we sort out the perceived-ring issue on the preview
+             page. The hero now relies only on the existing 0.55 black
+             overlay across the photo + the per-letter halos behind the
+             arched glyphs. Restore the dome by re-adding the SVG block
+             that previously lived here. -->
         <div class="relative mb-10">
-
-          <!-- ===== DOME OVERLAY (V2 — ball/oval shape) =====
-               Rounded ball/oval (rounded top AND bottom, no straight
-               sides). Spans from just above 'Where will you be…' down
-               to fully cover the Compare Ticket Options button.
-               Feathered edges via feGaussianBlur so it blends
-               seamlessly into the photo with no visible boundary.
-               pointer-events-none so the underlying CTA button is
-               still clickable.
-               Shipped from /homepage-hero-orange-dome-preview/ V2. -->
-          <svg
-            class="absolute pointer-events-none z-0"
-            style="top: -30px; height: 670px; left: 50%; transform: translateX(-50%); width: min(820px, calc(100vw - 1rem)); overflow: visible;"
-            viewBox="0 0 1000 1500"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-          >
-            <defs>
-              <!-- Asymmetric feGaussianBlur: stdDeviation="x y" where
-                   x is horizontal blur (left/right edges) and y is
-                   vertical blur (top/bottom edges).
-                   Horizontal bumped 35 → 80 so the SIDES are heavily
-                   feathered — ball edge fades softly into the photo
-                   on the left and right rather than reading as a
-                   pronounced outline.
-                   Vertical kept at 70 (top extends up about a letter
-                   height, bottom feathers below the CTA button). -->
-              <filter id="hero-dome-feather" x="-40%" y="-40%" width="180%" height="180%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="80 70"/>
-              </filter>
-            </defs>
-            <!-- Ellipse geometry unchanged. Fill recolored to a
-                 neutral DARK GREY (rgba(40,40,40,0.70) ≈ #282828
-                 at 70% opacity) — no color tint, just a subtle
-                 darkening overlay. -->
-            <ellipse
-              cx="500"
-              cy="915"
-              rx="500"
-              ry="785"
-              fill="rgba(40,40,40,0.70)"
-              filter="url(#hero-dome-feather)"
-            />
-          </svg>
 
           <!-- All the text + button sit ABOVE the dome on z-10 -->
           <div class="relative z-10">
