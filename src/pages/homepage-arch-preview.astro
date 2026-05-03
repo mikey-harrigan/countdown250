@@ -65,18 +65,28 @@ import Footer from '../components/Footer.astro';
                curly quotes). On smaller viewports the SVG scales down
                proportionally — eyebrow text simply spans less of the arc. -->
 
-          <!-- Arched eyebrow — exact match to live: text-sm bold uppercase, white,
-               tracking-[0.25em]. Only the middle portion of the arc carries
-               text since this short line doesn't need the full path. -->
+          <!-- BOTH lines in a SINGLE SVG so the vertical shift between them is
+               precisely controlled (and uniform — same gap at edges and at the
+               peak). Two arc paths, both bow depth 110 (true parallel arches),
+               with the headline shifted DOWN by 83 SVG units relative to the
+               eyebrow. That shift = 16 px target gap (matches live mb-4) +
+               eyebrow descender + headline cap height. Result: ~16 px clear
+               distance between eyebrow text bottom and headline text top
+               throughout, NOT just at the center. -->
           <svg
-            viewBox="0 0 1400 140"
-            class="block w-full max-w-6xl mx-auto h-auto -mb-2"
-            aria-label="Maximize Your Statesman's Pass Experience"
+            viewBox="0 0 1400 240"
+            class="block w-full max-w-6xl mx-auto h-auto"
+            aria-label="Maximize Your Statesman's Pass Experience — Host a Party Inside the Party"
             role="img"
           >
             <defs>
+              <!-- Eyebrow arc: baseline Y=130, peak Y=20, depth 110 -->
               <path id="arch-pre-eyebrow" d="M 70 130 Q 700 20 1330 130" fill="none" />
+              <!-- Headline arc: same shape, shifted down 83 units (baseline Y=213, peak Y=103) -->
+              <path id="arch-pre-headline" d="M 70 213 Q 700 103 1330 213" fill="none" />
             </defs>
+
+            <!-- Eyebrow text -->
             <text
               fill="#ffffff"
               font-size="17"
@@ -89,21 +99,8 @@ import Footer from '../components/Footer.astro';
                 Maximize Your Statesman&#8217;s Pass Experience
               </textPath>
             </text>
-          </svg>
 
-          <!-- Arched headline — exact match to live: 'Host a' (NOT italic) at
-               85% size + curly quotes (NOT italic) wrapping 'Party Inside
-               the Party' (italic) all in Playfair Display bold gold. -->
-          <svg
-            viewBox="0 0 1400 220"
-            class="block w-full max-w-6xl mx-auto h-auto"
-            aria-label="Host a Party Inside the Party"
-            role="img"
-          >
-            <defs>
-              <!-- Same bow depth (110) as eyebrow — true parallel arches -->
-              <path id="arch-pre-headline" d="M 70 200 Q 700 90 1330 200" fill="none" />
-            </defs>
+            <!-- Headline text — mixed sizing via tspans for exact match to live H2 -->
             <text
               fill="#fdd835"
               font-size="73"
