@@ -65,7 +65,18 @@ import Footer from '../components/Footer.astro';
         <!-- Wrapper: relative so the absolute dome stacks correctly -->
         <div class="relative mb-10">
 
-          <!-- ===== DOME — painted BRIGHT ORANGE for debugging ===== -->
+          <!-- ===== DOME — painted BRIGHT ORANGE for debugging =====
+               Two changes per Mike:
+                 (1) Magenta extra-left feather REMOVED entirely.
+                 (2) Path rewritten as a SINGLE smooth tall-dome
+                     curve (rounded peak at viewBox (500, -100),
+                     straight sides at full max width from y=380
+                     down to the bottom). No more shoulders at line
+                     1 / line 2 / h1 levels — that was creating the
+                     'twin towers' effect with a narrow neck and a
+                     small dome on top. New shape: wide straight
+                     base, smooth taper, single rounded peak.
+          -->
           <svg
             class="absolute pointer-events-none z-0"
             style="top: -250px; bottom: -1500px; left: 50%; transform: translateX(-50%); width: min(820px, calc(100vw - 1rem)); overflow: visible;"
@@ -77,24 +88,17 @@ import Footer from '../components/Footer.astro';
               <filter id="orange-dome-feather" x="-40%" y="-40%" width="180%" height="180%">
                 <feGaussianBlur in="SourceGraphic" stdDeviation="80"/>
               </filter>
-              <filter id="orange-dome-feather-left" x="-80%" y="-30%" width="200%" height="160%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="120"/>
-              </filter>
             </defs>
-            <!-- MAIN dome shape: BRIGHT ORANGE (was rgba(0,0,0,0.85) on live) -->
+            <!-- Single tall-dome path:
+                   bottom-left → up the left straight side → smooth
+                   quadratic curve up to single rounded peak at top
+                   center → smooth quadratic curve down to right side
+                   → down the right straight side → close across
+                   the bottom. No interior shoulders. -->
             <path
-              d="M -20 1800 L -20 380 Q -20 310 -10 240 Q 248 240 248 130 A 252 320 0 0 0 752 130 Q 752 240 990 240 Q 1000 310 1000 380 L 1000 1800 Z"
+              d="M 0 1800 L 0 380 Q 0 -50 500 -100 Q 1000 -50 1000 380 L 1000 1800 Z"
               fill="rgba(255,102,0,0.75)"
               filter="url(#orange-dome-feather)"
-            />
-            <!-- LEFT-only extra feather ellipse: BRIGHT MAGENTA (was rgba(0,0,0,0.45) on live) -->
-            <ellipse
-              cx="-30"
-              cy="900"
-              rx="160"
-              ry="900"
-              fill="rgba(255,0,200,0.55)"
-              filter="url(#orange-dome-feather-left)"
             />
           </svg>
 
@@ -214,10 +218,9 @@ import Footer from '../components/Footer.astro';
         <div class="bg-navy/[0.02] border border-navy/20 rounded-lg p-6">
           <p class="text-navy font-semibold tracking-[0.2em] uppercase text-xs mb-3">Color legend</p>
           <ul class="space-y-2 text-navy/85 text-sm leading-relaxed">
-            <li><span class="inline-block w-4 h-4 align-middle mr-2" style="background: rgba(255,102,0,0.75);"></span><strong class="text-navy">Bright orange</strong> = the MAIN feathered dome (live this is dark black at 0.85 opacity)</li>
-            <li><span class="inline-block w-4 h-4 align-middle mr-2" style="background: rgba(255,0,200,0.55);"></span><strong class="text-navy">Magenta</strong> = the EXTRA left-only feather ellipse (live this is dark black at 0.45 opacity)</li>
+            <li><span class="inline-block w-4 h-4 align-middle mr-2" style="background: rgba(255,102,0,0.75);"></span><strong class="text-navy">Bright orange</strong> = the feathered dome (live this is dark black at 0.85 opacity). Now reshaped as a single smooth tall dome &mdash; no more shoulders / twin-towers look.</li>
             <li><span class="inline-block w-4 h-4 align-middle mr-2" style="background: rgba(255,235,0,0.85);"></span><strong class="text-navy">Yellow</strong> = the per-letter halo behind each glyph (live this is dark black, sized to each letter)</li>
-            <li class="pt-2"><strong class="text-navy">Path geometry, blur amounts, sizes, positions: ALL the same as live.</strong> Only the fill colors are changed so we can debug coverage. Tell me where to extend / shrink / shift the orange (the main dome) and I&rsquo;ll make ONLY that one change.</li>
+            <li class="pt-2"><strong class="text-navy">The magenta extra-left feather has been removed.</strong> Tell me where to extend / shrink / shift the orange and I&rsquo;ll make ONLY that one change.</li>
           </ul>
         </div>
       </div>
