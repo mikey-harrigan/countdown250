@@ -226,29 +226,30 @@ const faqs = [
             <defs>
               <!-- Asymmetric feGaussianBlur: stdDeviation="x y" where
                    x is horizontal blur (left/right edges) and y is
-                   vertical blur (top/bottom edges). Horizontal reduced
-                   from 50 → 35 so the SIDES are less pronounced.
-                   Vertical bumped 50 → 70 so the TOP feathers up further
-                   AND the area below the button is more feathered too. -->
+                   vertical blur (top/bottom edges).
+                   Horizontal bumped 35 → 80 so the SIDES are heavily
+                   feathered — ball edge fades softly into the photo
+                   on the left and right rather than reading as a
+                   pronounced outline.
+                   Vertical kept at 70 (top extends up about a letter
+                   height, bottom feathers below the CTA button). -->
               <filter id="hero-dome-feather" x="-40%" y="-40%" width="180%" height="180%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="35 70"/>
+                <feGaussianBlur in="SourceGraphic" stdDeviation="80 70"/>
               </filter>
             </defs>
-            <!-- Ellipse top edge raised: top viewBox y 190 → 130
-                 (extends ~27 px of additional feathered space above
-                 'Where will you be…' before the more-vertical blur is
-                 even applied). Bottom edge at viewBox y=1700 unchanged.
-                 Sides (rx=500) unchanged.
-                  - cy: 945 → 915
-                  - ry: 755 → 785
-                 Fill lightened from rgba(0,0,0,0.85) → rgba(0,0,0,0.70)
-                 — copy still pops, but the ball is less harshly dark. -->
+            <!-- Ellipse geometry unchanged from the prior tweak:
+                  cx=500, cy=915, rx=500, ry=785.
+                 Fill recolored from black to brand navy
+                 (rgba(0,40,104,0.70) = #002868 at 70% opacity) so
+                 the dome is on-brand with the navy seal + masthead
+                 + body sections instead of reading as a generic
+                 dark overlay. Opacity unchanged at 0.70. -->
             <ellipse
               cx="500"
               cy="915"
               rx="500"
               ry="785"
-              fill="rgba(0,0,0,0.70)"
+              fill="rgba(0,40,104,0.70)"
               filter="url(#hero-dome-feather)"
             />
           </svg>
