@@ -287,10 +287,14 @@ const faqs = [
               The Official
             </p>
 
-            <!-- Display headline. text-shadow on mobile ONLY. -->
-            <h1 class="hero-mobile-shadow-h1 font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-white leading-[1.05] mb-6 tracking-tight">
+            <!-- Display headline. Visually still the big hero
+                 headline, but the page <h1> is now the thin event-
+                 identity bar in the Navbar (per Mike). Downgraded
+                 from <h1> to <p> so the page has only ONE h1.
+                 All visual classes + mobile text-shadow preserved. -->
+            <p class="hero-mobile-shadow-h1 font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-white leading-[1.05] mb-6 tracking-tight">
               Countdown 250 Ball
-            </h1>
+            </p>
 
             <!-- Gold flourish divider -->
             <div class="w-20 h-px bg-gold/70 mx-auto mb-5"></div>
