@@ -8,7 +8,7 @@ export default defineConfig({
   integrations: [
     sitemap({
       filter: (page) =>
-        !/\/(homepage-|home-original-archive|hosted-group-tables-preview)/.test(page),
+        !/\/(homepage-|home-original-archive|hosted-group-tables-preview|tickets-preview)/.test(page),
     }),
   ],
   vite: {
