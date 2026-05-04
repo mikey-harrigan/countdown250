@@ -166,33 +166,44 @@ const faqs = [
 
   <main>
     <!-- ============================================================ -->
-    <!-- 1. HERO  — V9 from /homepage-hero-arch-preview/                -->
-    <!--   - New hero photo (hero-countdown-pic-8.jpg).                 -->
-    <!--   - Light full-hero dark overlay at rgba 0,0,0,0.25 so the     -->
-    <!--     photo stays bright while the text/logo still read.         -->
-    <!--   - Two-line italic question is arched (SVG textPath), no      -->
-    <!--     per-letter halos.                                          -->
-    <!--   - Masthead, h1, and 'A once-in-a-lifetime moment.' are       -->
-    <!--     plain text (no text-shadow stacks).                        -->
-    <!--   - Seal logo + #tickets CTA anchor + section structure all    -->
-    <!--     preserved from the previous live hero.                     -->
+    <!-- 1. HERO  — desktop/mobile SPLIT                                -->
+    <!--   DESKTOP (md and up): V9 — new hero photo (Countdown Pic_8), -->
+    <!--     light full-hero overlay at rgba 0,0,0,0.25, arched lines  -->
+    <!--     with NO per-letter halos, masthead/h1/closing line as     -->
+    <!--     plain text (no text-shadow stacks).                       -->
+    <!--   MOBILE (under md): reverted to the previous setup — original-->
+    <!--     toast hero photo (hero-countdown250-toast.jpg), full-hero -->
+    <!--     overlay at rgba 0,0,0,0.55, arched lines WITH per-letter  -->
+    <!--     halos, masthead/h1/closing line WITH text-shadow stacks.  -->
+    <!--   Seal logo + #tickets CTA anchor + section structure         -->
+    <!--     preserved across both.                                    -->
     <!-- ============================================================ -->
     <section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
-      <!-- Background image — new pic ('Countdown Pic_8') -->
-      <div class="absolute inset-0">
+
+      <!-- DESKTOP background (md and up): new pic + light 0.25 overlay -->
+      <div class="absolute inset-0 hidden md:block">
         <img
           src="/images/event/hero-countdown-pic-8.jpg"
           alt="Black-tie guests at the Countdown 250 Ball — Washington Hilton, July 3, 2026"
           class="w-full h-full object-cover object-center"
         />
-        <!-- Light dark overlay (0.55 → 0.25) so the photo shows
-             through more of its detail. -->
         <div class="absolute inset-0" style="background: rgba(0,0,0,0.25);"></div>
+      </div>
+
+      <!-- MOBILE background (under md): original toast photo + 0.55 overlay -->
+      <div class="absolute inset-0 block md:hidden">
+        <img
+          src="/images/event/hero-countdown250-toast.jpg"
+          alt="Black-tie guests toasting with champagne as Countdown 250 reaches 00:00:01 on stage"
+          class="w-full h-full object-cover object-center"
+        />
+        <div class="absolute inset-0" style="background: rgba(0,0,0,0.55);"></div>
       </div>
 
       <!-- Content -->
       <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-28 pb-20">
-        <!-- Seal logo (unchanged: same image, same animate-fade-in class, drop-shadow-2xl) -->
+        <!-- Seal logo (unchanged on both: same image, animate-fade-in,
+             drop-shadow-2xl, responsive widths) -->
         <div class="flex justify-center mb-10 animate-fade-in">
           <picture>
             <source srcset="/images/logos/countdown250-seal-navy-blue.webp" type="image/webp" />
@@ -207,7 +218,7 @@ const faqs = [
         <div class="relative mb-10">
           <div class="relative z-10">
 
-            <!-- DESKTOP arched SVG (md and up) — NO per-letter halo filter -->
+            <!-- DESKTOP arched SVG (md and up) — NO per-letter halo filter (V9) -->
             <svg
               viewBox="0 -65 1000 295"
               class="hidden md:block mx-auto h-auto mb-8"
@@ -231,7 +242,7 @@ const faqs = [
               </text>
             </svg>
 
-            <!-- MOBILE arched SVG (under md) — NO per-letter halo filter -->
+            <!-- MOBILE arched SVG (under md) — per-letter halo filter RESTORED -->
             <svg
               viewBox="0 -40 600 200"
               class="block md:hidden w-full max-w-md mx-auto h-auto mb-8"
@@ -239,40 +250,51 @@ const faqs = [
               role="img"
             >
               <defs>
+                <filter id="hero-arch-halo-mob" x="-50%" y="-50%" width="200%" height="200%">
+                  <feMorphology in="SourceAlpha" operator="dilate" radius="7" result="expanded"/>
+                  <feGaussianBlur in="expanded" stdDeviation="11" result="blurred"/>
+                  <feFlood flood-color="black" flood-opacity="1.0" result="darkfill"/>
+                  <feComposite in="darkfill" in2="blurred" operator="in" result="halo"/>
+                  <feMerge>
+                    <feMergeNode in="halo"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
                 <path id="hero-arch-line1-mob" d="M 30 95 Q 300 25 570 95" fill="none" />
                 <path id="hero-arch-line2-mob" d="M 30 150 Q 300 80 570 150" fill="none" />
               </defs>
-              <text fill="rgba(255,255,255,0.92)" font-size="34" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
+              <text fill="rgba(255,255,255,0.92)" font-size="34" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif" filter="url(#hero-arch-halo-mob)">
                 <textPath href="#hero-arch-line1-mob" startOffset="50%" text-anchor="middle">
                   Where will you be&#8230;
                 </textPath>
               </text>
-              <text fill="#ffffff" font-size="40" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif">
+              <text fill="#ffffff" font-size="40" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif" filter="url(#hero-arch-halo-mob)">
                 <textPath href="#hero-arch-line2-mob" startOffset="50%" text-anchor="middle">
                   when the clock strikes 250?
                 </textPath>
               </text>
             </svg>
 
-            <!-- Masthead presentational line (no text-shadow) -->
-            <p class="font-heading italic font-bold text-lg sm:text-xl md:text-2xl text-gold mb-2 tracking-wide">
+            <!-- Masthead presentational line. text-shadow applied on
+                 mobile ONLY via .hero-mobile-shadow CSS rule below. -->
+            <p class="hero-mobile-shadow font-heading italic font-bold text-lg sm:text-xl md:text-2xl text-gold mb-2 tracking-wide">
               The Official
             </p>
 
-            <!-- Display headline (no text-shadow) -->
-            <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-white leading-[1.05] mb-6 tracking-tight">
+            <!-- Display headline. text-shadow on mobile ONLY. -->
+            <h1 class="hero-mobile-shadow-h1 font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-white leading-[1.05] mb-6 tracking-tight">
               Countdown 250 Ball
             </h1>
 
             <!-- Gold flourish divider -->
             <div class="w-20 h-px bg-gold/70 mx-auto mb-5"></div>
 
-            <!-- Italic close (no text-shadow) -->
-            <p class="font-heading italic font-light text-lg sm:text-xl md:text-2xl text-gold/95 mb-8">
+            <!-- Italic close. text-shadow on mobile ONLY. -->
+            <p class="hero-mobile-shadow font-heading italic font-light text-lg sm:text-xl md:text-2xl text-gold/95 mb-8">
               A once-in-a-lifetime moment.
             </p>
 
-            <!-- CTA: anchor unchanged (#tickets) so existing scroll-to behavior continues to work -->
+            <!-- CTA: anchor unchanged (#tickets) -->
             <div class="flex justify-center">
               <a
                 href="#tickets"
@@ -285,6 +307,26 @@ const faqs = [
           </div>
         </div>
       </div>
+
+      <!-- Mobile-only text-shadow stacks. Tailwind doesn't ship a
+           text-shadow utility, so we declare these via CSS scoped
+           to widths under md (768 px). On md and up the text-shadow
+           is suppressed back to none, leaving the V9 desktop look. -->
+      <style>
+        @media (max-width: 767px) {
+          .hero-mobile-shadow {
+            text-shadow:
+              0 0 4px rgba(0,0,0,1),
+              0 0 10px rgba(0,0,0,0.9);
+          }
+          .hero-mobile-shadow-h1 {
+            text-shadow:
+              0 0 6px rgba(0,0,0,1),
+              0 0 16px rgba(0,0,0,0.9),
+              0 0 28px rgba(0,0,0,0.6);
+          }
+        }
+      </style>
     </section>
 
     <!-- ============================================================ -->
