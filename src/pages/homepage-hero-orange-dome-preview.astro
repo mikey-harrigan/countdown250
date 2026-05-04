@@ -694,11 +694,11 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- ============================================================ -->
-    <!-- V6 — V5 overlays painted in actual GRAPHITE color           -->
+    <!-- V6 — V5 overlays painted in pure BLACK                       -->
     <!-- Same hero photo, same overlay shapes / sizes / positions /  -->
     <!-- gradient stops as V5. Only the FILL COLOR changes from neon -->
-    <!-- green to dark graphite (rgba 45,45,45,X) so we can preview  -->
-    <!-- what the production version will actually look like.        -->
+    <!-- green to pure black (rgba 0,0,0,X) so we can preview what    -->
+    <!-- the production version will actually look like.              -->
     <!-- All element ids prefixed 'v6-' to avoid collisions with V5. -->
     <!-- ============================================================ -->
     <section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden border-t-4 border-gold/40">
@@ -723,7 +723,7 @@ import Footer from '../components/Footer.astro';
           <div class="relative inline-block">
             <div
               class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[270px] sm:w-[345px] md:w-[405px] aspect-square rounded-full pointer-events-none"
-              style="background: radial-gradient(circle, rgba(45,45,45,0.40) 0%, rgba(45,45,45,0.65) 45%, rgba(45,45,45,0.85) 75%, rgba(45,45,45,1.00) 100%);"
+              style="background: radial-gradient(circle, rgba(0,0,0,0.40) 0%, rgba(0,0,0,0.65) 45%, rgba(0,0,0,0.85) 75%, rgba(0,0,0,1.00) 100%);"
               aria-hidden="true"
             ></div>
             <picture class="relative block">
@@ -752,13 +752,13 @@ import Footer from '../components/Footer.astro';
                 <path id="v6-arch-line1-desk" d="M 50 130 Q 500 0 950 130" fill="none" />
                 <path id="v6-arch-line2-desk" d="M 50 215 Q 500 85 950 215" fill="none" />
                 <linearGradient id="v6-line2-grad-desk" x1="0%" y1="50%" x2="100%" y2="50%">
-                  <stop offset="0%" stop-color="#2d2d2d" stop-opacity="1.0" />
-                  <stop offset="35%" stop-color="#2d2d2d" stop-opacity="0.85" />
-                  <stop offset="100%" stop-color="#2d2d2d" stop-opacity="0.55" />
+                  <stop offset="0%" stop-color="#000000" stop-opacity="1.0" />
+                  <stop offset="35%" stop-color="#000000" stop-opacity="0.85" />
+                  <stop offset="100%" stop-color="#000000" stop-opacity="0.55" />
                 </linearGradient>
               </defs>
 
-              <ellipse cx="500" cy="50" rx="160" ry="42" fill="rgba(45,45,45,0.95)" />
+              <ellipse cx="500" cy="50" rx="160" ry="42" fill="rgba(0,0,0,0.95)" />
               <text fill="rgba(255,255,255,0.92)" font-size="30" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v6-arch-line1-desk" startOffset="50%" text-anchor="middle">Where will you be&#8230;</textPath>
               </text>
@@ -780,12 +780,12 @@ import Footer from '../components/Footer.astro';
                 <path id="v6-arch-line1-mob" d="M 30 95 Q 300 25 570 95" fill="none" />
                 <path id="v6-arch-line2-mob" d="M 30 150 Q 300 80 570 150" fill="none" />
                 <linearGradient id="v6-line2-grad-mob" x1="0%" y1="50%" x2="100%" y2="50%">
-                  <stop offset="0%" stop-color="#2d2d2d" stop-opacity="1.0" />
-                  <stop offset="35%" stop-color="#2d2d2d" stop-opacity="0.85" />
-                  <stop offset="100%" stop-color="#2d2d2d" stop-opacity="0.55" />
+                  <stop offset="0%" stop-color="#000000" stop-opacity="1.0" />
+                  <stop offset="35%" stop-color="#000000" stop-opacity="0.85" />
+                  <stop offset="100%" stop-color="#000000" stop-opacity="0.55" />
                 </linearGradient>
               </defs>
-              <ellipse cx="300" cy="35" rx="115" ry="28" fill="rgba(45,45,45,0.95)" />
+              <ellipse cx="300" cy="35" rx="115" ry="28" fill="rgba(0,0,0,0.95)" />
               <text fill="rgba(255,255,255,0.92)" font-size="34" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v6-arch-line1-mob" startOffset="50%" text-anchor="middle">Where will you be&#8230;</textPath>
               </text>
@@ -810,7 +810,7 @@ import Footer from '../components/Footer.astro';
               <div class="relative inline-block">
                 <div
                   class="absolute inset-0 -mx-7 sm:-mx-9 -my-2 rounded-full pointer-events-none"
-                  style="background: rgba(45,45,45,0.80);"
+                  style="background: rgba(0,0,0,0.80);"
                   aria-hidden="true"
                 ></div>
                 <p class="relative font-heading italic font-light text-lg sm:text-xl md:text-2xl text-gold/95">
@@ -875,9 +875,9 @@ import Footer from '../components/Footer.astro';
             <li>&lsquo;A once-in-a-lifetime moment.&rsquo;: solid green oval at 0.80 opacity.</li>
           </ul>
 
-          <p class="text-navy font-semibold text-sm mb-2">V6 (bottom hero) &mdash; same shapes / sizes / gradients as V5, painted in actual GRAPHITE production color</p>
+          <p class="text-navy font-semibold text-sm mb-2">V6 (bottom hero) &mdash; same shapes / sizes / gradients as V5, painted in BLACK</p>
           <ul class="space-y-2 text-navy/85 text-sm leading-relaxed mb-5">
-            <li>Identical to V5 in every way EXCEPT the fill colors are now graphite (rgba 45,45,45,X) instead of neon green. Same gradient stops, same opacity values, same ellipse sizes / positions / radii.</li>
+            <li>Identical to V5 in every way EXCEPT the fill colors are now pure black (rgba 0,0,0,X) instead of neon green. Same gradient stops, same opacity values, same ellipse sizes / positions / radii.</li>
             <li>Use this section to judge how the production version will read.</li>
           </ul>
 
