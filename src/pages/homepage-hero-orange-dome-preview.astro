@@ -694,6 +694,146 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- ============================================================ -->
+    <!-- V6 — V5 overlays painted in actual GRAPHITE color           -->
+    <!-- Same hero photo, same overlay shapes / sizes / positions /  -->
+    <!-- gradient stops as V5. Only the FILL COLOR changes from neon -->
+    <!-- green to dark graphite (rgba 45,45,45,X) so we can preview  -->
+    <!-- what the production version will actually look like.        -->
+    <!-- All element ids prefixed 'v6-' to avoid collisions with V5. -->
+    <!-- ============================================================ -->
+    <section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden border-t-4 border-gold/40">
+      <div class="absolute inset-0">
+        <img
+          src="/images/event/hero-countdown-pic-5.jpg"
+          alt="Countdown 250 Ball — alternative hero photo (Countdown Pic 5) with graphite overlays"
+          class="w-full h-full object-cover object-center"
+        />
+      </div>
+
+      <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-28 pb-20">
+
+        <p class="text-gold/85 font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-6"
+           style="text-shadow: 0 0 6px rgba(0,0,0,1), 0 0 14px rgba(0,0,0,1);">
+          V6 &middot; same layout as V5 &middot; GRAPHITE production color
+        </p>
+
+        <!-- Logo with graphite radial-gradient overlay (same shape +
+             sizes as V5, only color changed). -->
+        <div class="flex justify-center mb-10 animate-fade-in">
+          <div class="relative inline-block">
+            <div
+              class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[270px] sm:w-[345px] md:w-[405px] aspect-square rounded-full pointer-events-none"
+              style="background: radial-gradient(circle, rgba(45,45,45,0.40) 0%, rgba(45,45,45,0.65) 45%, rgba(45,45,45,0.85) 75%, rgba(45,45,45,1.00) 100%);"
+              aria-hidden="true"
+            ></div>
+            <picture class="relative block">
+              <source srcset="/images/logos/countdown250-seal-navy-blue.webp" type="image/webp" />
+              <img
+                src="/images/logos/countdown250-seal-navy-blue.png"
+                alt="The Official Countdown 250 Ball — July 3, 2026 — Washington, D.C."
+                class="w-[340px] sm:w-[440px] md:w-[520px] h-auto block"
+              />
+            </picture>
+          </div>
+        </div>
+
+        <div class="relative mb-10">
+          <div class="relative z-10">
+
+            <!-- DESKTOP arched SVG with graphite ellipses -->
+            <svg
+              viewBox="0 -65 1000 295"
+              class="hidden md:block mx-auto h-auto mb-8"
+              style="width: min(1024px, calc(100vw - 2rem));"
+              aria-label="Where will you be… when the clock strikes 250?"
+              role="img"
+            >
+              <defs>
+                <path id="v6-arch-line1-desk" d="M 50 130 Q 500 0 950 130" fill="none" />
+                <path id="v6-arch-line2-desk" d="M 50 215 Q 500 85 950 215" fill="none" />
+                <linearGradient id="v6-line2-grad-desk" x1="0%" y1="50%" x2="100%" y2="50%">
+                  <stop offset="0%" stop-color="#2d2d2d" stop-opacity="1.0" />
+                  <stop offset="35%" stop-color="#2d2d2d" stop-opacity="0.85" />
+                  <stop offset="100%" stop-color="#2d2d2d" stop-opacity="0.55" />
+                </linearGradient>
+              </defs>
+
+              <ellipse cx="500" cy="50" rx="160" ry="42" fill="rgba(45,45,45,0.95)" />
+              <text fill="rgba(255,255,255,0.92)" font-size="30" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
+                <textPath href="#v6-arch-line1-desk" startOffset="50%" text-anchor="middle">Where will you be&#8230;</textPath>
+              </text>
+
+              <ellipse cx="500" cy="165" rx="370" ry="65" fill="url(#v6-line2-grad-desk)" />
+              <text fill="#ffffff" font-size="47" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif">
+                <textPath href="#v6-arch-line2-desk" startOffset="50%" text-anchor="middle">when the clock strikes 250?</textPath>
+              </text>
+            </svg>
+
+            <!-- MOBILE arched SVG with graphite ellipses -->
+            <svg
+              viewBox="0 -40 600 200"
+              class="block md:hidden w-full max-w-md mx-auto h-auto mb-8"
+              aria-hidden="true"
+              role="img"
+            >
+              <defs>
+                <path id="v6-arch-line1-mob" d="M 30 95 Q 300 25 570 95" fill="none" />
+                <path id="v6-arch-line2-mob" d="M 30 150 Q 300 80 570 150" fill="none" />
+                <linearGradient id="v6-line2-grad-mob" x1="0%" y1="50%" x2="100%" y2="50%">
+                  <stop offset="0%" stop-color="#2d2d2d" stop-opacity="1.0" />
+                  <stop offset="35%" stop-color="#2d2d2d" stop-opacity="0.85" />
+                  <stop offset="100%" stop-color="#2d2d2d" stop-opacity="0.55" />
+                </linearGradient>
+              </defs>
+              <ellipse cx="300" cy="35" rx="115" ry="28" fill="rgba(45,45,45,0.95)" />
+              <text fill="rgba(255,255,255,0.92)" font-size="34" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
+                <textPath href="#v6-arch-line1-mob" startOffset="50%" text-anchor="middle">Where will you be&#8230;</textPath>
+              </text>
+              <ellipse cx="300" cy="115" rx="220" ry="42" fill="url(#v6-line2-grad-mob)" />
+              <text fill="#ffffff" font-size="40" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif">
+                <textPath href="#v6-arch-line2-mob" startOffset="50%" text-anchor="middle">when the clock strikes 250?</textPath>
+              </text>
+            </svg>
+
+            <p class="font-heading italic font-bold text-lg sm:text-xl md:text-2xl text-gold mb-2 tracking-wide">
+              The Official
+            </p>
+
+            <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-white leading-[1.05] mb-6 tracking-tight">
+              Countdown 250 Ball
+            </h1>
+
+            <div class="w-20 h-px bg-gold/70 mx-auto mb-5"></div>
+
+            <!-- 'A once-in-a-lifetime moment.' with graphite overlay -->
+            <div class="flex justify-center mb-8">
+              <div class="relative inline-block">
+                <div
+                  class="absolute inset-0 -mx-7 sm:-mx-9 -my-2 rounded-full pointer-events-none"
+                  style="background: rgba(45,45,45,0.80);"
+                  aria-hidden="true"
+                ></div>
+                <p class="relative font-heading italic font-light text-lg sm:text-xl md:text-2xl text-gold/95">
+                  A once-in-a-lifetime moment.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex justify-center">
+              <a
+                href="/#tickets"
+                class="bg-red hover:bg-red-light text-white px-10 py-4 text-sm font-semibold tracking-[0.2em] uppercase transition-all rounded shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              >
+                Compare Ticket Options
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
     <!-- Color key                                                    -->
     <!-- ============================================================ -->
     <section class="bg-white py-10">
@@ -726,14 +866,19 @@ import Footer from '../components/Footer.astro';
             <li>Same setup: NO overlays, NO halos.</li>
           </ul>
 
-          <p class="text-navy font-semibold text-sm mb-2">V5 (bottom hero) &mdash; NEON GREEN debug overlays</p>
+          <p class="text-navy font-semibold text-sm mb-2">V5 &mdash; neon-green debug overlays</p>
           <ul class="space-y-2 text-navy/85 text-sm leading-relaxed mb-5">
-            <li>All overlays painted SOLID NEON GREEN (#00ff00). NO gradients, NO feGaussianBlur, NO halos. Hard edges so we can see exactly where each shape sits.</li>
-            <li><strong class="text-navy">Logo:</strong> rounded green circle on its own layer behind the seal, extending ~8&ndash;12 px past the image bounds.</li>
-            <li><strong class="text-navy">&lsquo;Where will you be…&rsquo;:</strong> green &lt;ellipse&gt; behind the line, sized to be just slightly bigger than the text on the arch.</li>
-            <li><strong class="text-navy">&lsquo;when the clock strikes 250?&rsquo;:</strong> same &mdash; green &lt;ellipse&gt; behind the line.</li>
-            <li><strong class="text-navy">&lsquo;A once-in-a-lifetime moment.&rsquo;:</strong> green oval on its own layer behind the text.</li>
-            <li>&lsquo;The Official&rsquo; and &lsquo;Countdown 250 Ball&rsquo; have NO overlay.</li>
+            <li>All overlay shapes painted neon green so we can see precisely where each one sits.</li>
+            <li>Logo: radial gradient (lighter at center, fully opaque at outer rim).</li>
+            <li>&lsquo;Where will you be…&rsquo;: solid green ellipse at 0.95 opacity.</li>
+            <li>&lsquo;when the clock strikes 250?&rsquo;: horizontal linear gradient ellipse, fully opaque on the LEFT tip, fading to 0.55 on the right.</li>
+            <li>&lsquo;A once-in-a-lifetime moment.&rsquo;: solid green oval at 0.80 opacity.</li>
+          </ul>
+
+          <p class="text-navy font-semibold text-sm mb-2">V6 (bottom hero) &mdash; same shapes / sizes / gradients as V5, painted in actual GRAPHITE production color</p>
+          <ul class="space-y-2 text-navy/85 text-sm leading-relaxed mb-5">
+            <li>Identical to V5 in every way EXCEPT the fill colors are now graphite (rgba 45,45,45,X) instead of neon green. Same gradient stops, same opacity values, same ellipse sizes / positions / radii.</li>
+            <li>Use this section to judge how the production version will read.</li>
           </ul>
 
           <p class="text-xs text-navy/70 leading-relaxed pt-2 border-t border-navy/10">
