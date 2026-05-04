@@ -218,7 +218,8 @@ const faqs = [
         <div class="relative mb-10">
           <div class="relative z-10">
 
-            <!-- DESKTOP arched SVG (md and up) — NO per-letter halo filter (V9) -->
+            <!-- DESKTOP arched SVG (md and up) — NO per-letter halo filter (V9)
+                 plus a dark ellipse behind 'Where will you be…' (V11). -->
             <svg
               viewBox="0 -65 1000 295"
               class="hidden md:block mx-auto h-auto mb-8"
@@ -230,6 +231,11 @@ const faqs = [
                 <path id="hero-arch-line1-desk" d="M 50 130 Q 500 0 950 130" fill="none" />
                 <path id="hero-arch-line2-desk" d="M 50 215 Q 500 85 950 215" fill="none" />
               </defs>
+
+              <!-- Dark rounded ellipse behind line 1 only.
+                   cx/cy/rx/ry from V11; fill rgba(0,0,0,0.80). -->
+              <ellipse cx="500" cy="85" rx="145" ry="91" fill="rgba(0,0,0,0.80)" />
+
               <text fill="rgba(255,255,255,0.92)" font-size="30" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#hero-arch-line1-desk" startOffset="50%" text-anchor="middle">
                   Where will you be&#8230;
