@@ -166,33 +166,33 @@ const faqs = [
 
   <main>
     <!-- ============================================================ -->
-    <!-- 1. HERO  — V-I shipped from /homepage-hero-arch-preview/      -->
-    <!--   - Two-line italic question is now arched (SVG textPath).    -->
-    <!--   - Each glyph carries its own dark halo via SVG filter so    -->
-    <!--     the text stays crisp against the busy photo.              -->
-    <!--   - A literal dome-shaped overlay sits behind the text block, -->
-    <!--     widening as it descends to match each text-line width,    -->
-    <!--     then straight-sided down to the bottom of the hero.       -->
-    <!--   - Heavily feathered edges (and an extra left-only feather)  -->
-    <!--     so the dome blends into the photo with no visible boundary. -->
-    <!--   - Seal logo, photo background, dark overlay, #tickets       -->
-    <!--     anchor on the CTA, and the section structure all UNCHANGED -->
-    <!--     from the previous live hero.                               -->
+    <!-- 1. HERO  — V9 from /homepage-hero-arch-preview/                -->
+    <!--   - New hero photo (hero-countdown-pic-8.jpg).                 -->
+    <!--   - Light full-hero dark overlay at rgba 0,0,0,0.25 so the     -->
+    <!--     photo stays bright while the text/logo still read.         -->
+    <!--   - Two-line italic question is arched (SVG textPath), no      -->
+    <!--     per-letter halos.                                          -->
+    <!--   - Masthead, h1, and 'A once-in-a-lifetime moment.' are       -->
+    <!--     plain text (no text-shadow stacks).                        -->
+    <!--   - Seal logo + #tickets CTA anchor + section structure all    -->
+    <!--     preserved from the previous live hero.                     -->
     <!-- ============================================================ -->
     <section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
-      <!-- Background image (unchanged) -->
+      <!-- Background image — new pic ('Countdown Pic_8') -->
       <div class="absolute inset-0">
         <img
-          src="/images/event/hero-countdown250-toast.jpg"
-          alt="Black-tie guests toasting with champagne as Countdown 250 reaches 00:00:01 on stage"
+          src="/images/event/hero-countdown-pic-8.jpg"
+          alt="Black-tie guests at the Countdown 250 Ball — Washington Hilton, July 3, 2026"
           class="w-full h-full object-cover object-center"
         />
-        <div class="absolute inset-0" style="background: rgba(0,0,0,0.55);"></div>
+        <!-- Light dark overlay (0.55 → 0.25) so the photo shows
+             through more of its detail. -->
+        <div class="absolute inset-0" style="background: rgba(0,0,0,0.25);"></div>
       </div>
 
       <!-- Content -->
       <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-28 pb-20">
-        <!-- Seal logo (unchanged: same image, same animate-fade-in class) -->
+        <!-- Seal logo (unchanged: same image, same animate-fade-in class, drop-shadow-2xl) -->
         <div class="flex justify-center mb-10 animate-fade-in">
           <picture>
             <source srcset="/images/logos/countdown250-seal-navy-blue.webp" type="image/webp" />
@@ -204,19 +204,10 @@ const faqs = [
           </picture>
         </div>
 
-        <!-- Wrapper kept (still hosts the relative-positioned text/halos
-             on z-10 below). Dome overlay temporarily REMOVED per Mike
-             while we sort out the perceived-ring issue on the preview
-             page. The hero now relies only on the existing 0.55 black
-             overlay across the photo + the per-letter halos behind the
-             arched glyphs. Restore the dome by re-adding the SVG block
-             that previously lived here. -->
         <div class="relative mb-10">
-
-          <!-- All the text + button sit ABOVE the dome on z-10 -->
           <div class="relative z-10">
 
-            <!-- DESKTOP arched SVG (md and up) -->
+            <!-- DESKTOP arched SVG (md and up) — NO per-letter halo filter -->
             <svg
               viewBox="0 -65 1000 295"
               class="hidden md:block mx-auto h-auto mb-8"
@@ -225,46 +216,22 @@ const faqs = [
               role="img"
             >
               <defs>
-                <filter id="hero-arch-halo-desk" x="-50%" y="-50%" width="200%" height="200%">
-                  <feMorphology in="SourceAlpha" operator="dilate" radius="12" result="expanded"/>
-                  <feGaussianBlur in="expanded" stdDeviation="18" result="blurred"/>
-                  <feFlood flood-color="black" flood-opacity="1.0" result="darkfill"/>
-                  <feComposite in="darkfill" in2="blurred" operator="in" result="halo"/>
-                  <feMerge>
-                    <feMergeNode in="halo"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
-                </filter>
                 <path id="hero-arch-line1-desk" d="M 50 130 Q 500 0 950 130" fill="none" />
                 <path id="hero-arch-line2-desk" d="M 50 215 Q 500 85 950 215" fill="none" />
               </defs>
-              <text
-                fill="rgba(255,255,255,0.92)"
-                font-size="30"
-                font-weight="300"
-                font-style="italic"
-                font-family="'Playfair Display', Georgia, serif"
-                filter="url(#hero-arch-halo-desk)"
-              >
+              <text fill="rgba(255,255,255,0.92)" font-size="30" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#hero-arch-line1-desk" startOffset="50%" text-anchor="middle">
                   Where will you be&#8230;
                 </textPath>
               </text>
-              <text
-                fill="#ffffff"
-                font-size="47"
-                font-weight="400"
-                font-style="italic"
-                font-family="'Playfair Display', Georgia, serif"
-                filter="url(#hero-arch-halo-desk)"
-              >
+              <text fill="#ffffff" font-size="47" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#hero-arch-line2-desk" startOffset="50%" text-anchor="middle">
                   when the clock strikes 250?
                 </textPath>
               </text>
             </svg>
 
-            <!-- MOBILE arched SVG (under md) -->
+            <!-- MOBILE arched SVG (under md) — NO per-letter halo filter -->
             <svg
               viewBox="0 -40 600 200"
               class="block md:hidden w-full max-w-md mx-auto h-auto mb-8"
@@ -272,63 +239,36 @@ const faqs = [
               role="img"
             >
               <defs>
-                <filter id="hero-arch-halo-mob" x="-50%" y="-50%" width="200%" height="200%">
-                  <feMorphology in="SourceAlpha" operator="dilate" radius="7" result="expanded"/>
-                  <feGaussianBlur in="expanded" stdDeviation="11" result="blurred"/>
-                  <feFlood flood-color="black" flood-opacity="1.0" result="darkfill"/>
-                  <feComposite in="darkfill" in2="blurred" operator="in" result="halo"/>
-                  <feMerge>
-                    <feMergeNode in="halo"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
-                </filter>
                 <path id="hero-arch-line1-mob" d="M 30 95 Q 300 25 570 95" fill="none" />
                 <path id="hero-arch-line2-mob" d="M 30 150 Q 300 80 570 150" fill="none" />
               </defs>
-              <text
-                fill="rgba(255,255,255,0.92)"
-                font-size="34"
-                font-weight="300"
-                font-style="italic"
-                font-family="'Playfair Display', Georgia, serif"
-                filter="url(#hero-arch-halo-mob)"
-              >
+              <text fill="rgba(255,255,255,0.92)" font-size="34" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#hero-arch-line1-mob" startOffset="50%" text-anchor="middle">
                   Where will you be&#8230;
                 </textPath>
               </text>
-              <text
-                fill="#ffffff"
-                font-size="40"
-                font-weight="400"
-                font-style="italic"
-                font-family="'Playfair Display', Georgia, serif"
-                filter="url(#hero-arch-halo-mob)"
-              >
+              <text fill="#ffffff" font-size="40" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#hero-arch-line2-mob" startOffset="50%" text-anchor="middle">
                   when the clock strikes 250?
                 </textPath>
               </text>
             </svg>
 
-            <!-- Masthead presentational line -->
-            <p class="font-heading italic font-bold text-lg sm:text-xl md:text-2xl text-gold mb-2 tracking-wide"
-               style="text-shadow: 0 0 4px rgba(0,0,0,1), 0 0 10px rgba(0,0,0,0.9);">
+            <!-- Masthead presentational line (no text-shadow) -->
+            <p class="font-heading italic font-bold text-lg sm:text-xl md:text-2xl text-gold mb-2 tracking-wide">
               The Official
             </p>
 
-            <!-- Display headline -->
-            <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-white leading-[1.05] mb-6 tracking-tight"
-                style="text-shadow: 0 0 6px rgba(0,0,0,1), 0 0 16px rgba(0,0,0,0.9), 0 0 28px rgba(0,0,0,0.6);">
+            <!-- Display headline (no text-shadow) -->
+            <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-white leading-[1.05] mb-6 tracking-tight">
               Countdown 250 Ball
             </h1>
 
             <!-- Gold flourish divider -->
             <div class="w-20 h-px bg-gold/70 mx-auto mb-5"></div>
 
-            <!-- Italic close -->
-            <p class="font-heading italic font-light text-lg sm:text-xl md:text-2xl text-gold/95 mb-8"
-               style="text-shadow: 0 0 4px rgba(0,0,0,1), 0 0 10px rgba(0,0,0,0.9);">
+            <!-- Italic close (no text-shadow) -->
+            <p class="font-heading italic font-light text-lg sm:text-xl md:text-2xl text-gold/95 mb-8">
               A once-in-a-lifetime moment.
             </p>
 
