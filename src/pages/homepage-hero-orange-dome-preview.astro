@@ -1202,8 +1202,11 @@ import Footer from '../components/Footer.astro';
                 <path id="v10-arch-line2-desk" d="M 50 215 Q 500 85 950 215" fill="none" />
               </defs>
 
-              <!-- NEON GREEN rounded overlay over line 1. -->
-              <ellipse cx="500" cy="39" rx="145" ry="91" fill="#00ff00" />
+              <!-- NEON GREEN rounded overlay over line 1.
+                   Per Mike: move down 25% of own height.
+                   Height = 2×ry = 182, 25% = 45.5
+                   cy: 39 → 85 (down ~46 viewBox units). -->
+              <ellipse cx="500" cy="85" rx="145" ry="91" fill="#00ff00" />
 
               <text fill="rgba(255,255,255,0.92)" font-size="30" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v10-arch-line1-desk" startOffset="50%" text-anchor="middle">Where will you be&#8230;</textPath>
@@ -1227,7 +1230,7 @@ import Footer from '../components/Footer.astro';
                 <path id="v10-arch-line1-mob" d="M 30 95 Q 300 25 570 95" fill="none" />
                 <path id="v10-arch-line2-mob" d="M 30 150 Q 300 80 570 150" fill="none" />
               </defs>
-              <ellipse cx="300" cy="30" rx="105" ry="68" fill="#00ff00" />
+              <ellipse cx="300" cy="64" rx="105" ry="68" fill="#00ff00" />
               <text fill="rgba(255,255,255,0.92)" font-size="34" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v10-arch-line1-mob" startOffset="50%" text-anchor="middle">Where will you be&#8230;</textPath>
               </text>
