@@ -847,13 +847,17 @@ import Footer from '../components/Footer.astro';
           alt="Countdown 250 Ball — alternative hero photo (Countdown Pic 6)"
           class="w-full h-full object-cover object-center"
         />
+        <!-- Original full-hero dark overlay — covers the entire hero,
+             darkens the photo evenly so white/gold text reads against
+             it. Same value as the previous live hero. -->
+        <div class="absolute inset-0" style="background: rgba(0,0,0,0.55);"></div>
       </div>
 
       <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-28 pb-20">
 
         <p class="text-gold/85 font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-6"
            style="text-shadow: 0 0 6px rgba(0,0,0,1), 0 0 14px rgba(0,0,0,1);">
-          V7 &middot; Countdown Pic_6 &middot; NO overlays &middot; NO halos
+          V7 &middot; Countdown Pic_6 &middot; full-hero overlay (rgba 0,0,0,0.55) ONLY
         </p>
 
         <div class="flex justify-center mb-10 animate-fade-in">
@@ -986,7 +990,8 @@ import Footer from '../components/Footer.astro';
           <p class="text-navy font-semibold text-sm mb-2">V7 (bottom hero)</p>
           <ul class="space-y-2 text-navy/85 text-sm leading-relaxed mb-5">
             <li><strong class="text-navy">Photo:</strong> &lsquo;Countdown Pic_6&rsquo; (1600&times;900, ~331 KB).</li>
-            <li>Same clean setup as V2/V3/V4: NO overlays, NO halos. Pure photo + crisp text + button. Fresh start.</li>
+            <li>FULL-HERO dark overlay added (rgba 0,0,0,0.55) &mdash; same value as the original live hero. Covers the entire hero, darkens the photo evenly.</li>
+            <li>NO dome, NO per-line overlays, NO per-letter halos. Just the photo + the original full-hero overlay.</li>
           </ul>
 
           <p class="text-xs text-navy/70 leading-relaxed pt-2 border-t border-navy/10">
