@@ -1268,6 +1268,113 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- ============================================================ -->
+    <!-- V11 — same as V10 but with the overlay in a real DARK color  -->
+    <!-- (rgba 0,0,0,0.80). Same shape, same position, same size as   -->
+    <!-- V10. Lets us judge how the production version will look      -->
+    <!-- before swapping it onto the live home page.                  -->
+    <!-- ============================================================ -->
+    <section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden border-t-4 border-gold/40">
+      <div class="absolute inset-0">
+        <img
+          src="/images/event/hero-countdown-pic-8.jpg"
+          alt="Countdown 250 Ball — current live hero with dark overlay over line 1"
+          class="w-full h-full object-cover object-center"
+        />
+        <div class="absolute inset-0" style="background: rgba(0,0,0,0.25);"></div>
+      </div>
+
+      <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-28 pb-20">
+
+        <p class="text-gold/85 font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-6"
+           style="text-shadow: 0 0 6px rgba(0,0,0,1), 0 0 14px rgba(0,0,0,1);">
+          V11 &middot; same as V10 but DARK overlay (rgba 0,0,0,0.80) — production preview
+        </p>
+
+        <div class="flex justify-center mb-10 animate-fade-in">
+          <picture>
+            <source srcset="/images/logos/countdown250-seal-navy-blue.webp" type="image/webp" />
+            <img
+              src="/images/logos/countdown250-seal-navy-blue.png"
+              alt="The Official Countdown 250 Ball — July 3, 2026 — Washington, D.C."
+              class="w-[340px] sm:w-[440px] md:w-[520px] h-auto drop-shadow-2xl"
+            />
+          </picture>
+        </div>
+
+        <div class="relative mb-10">
+          <div class="relative z-10">
+
+            <svg
+              viewBox="0 -65 1000 295"
+              class="hidden md:block mx-auto h-auto mb-8"
+              style="width: min(1024px, calc(100vw - 2rem));"
+              aria-label="Where will you be… when the clock strikes 250?"
+              role="img"
+            >
+              <defs>
+                <path id="v11-arch-line1-desk" d="M 50 130 Q 500 0 950 130" fill="none" />
+                <path id="v11-arch-line2-desk" d="M 50 215 Q 500 85 950 215" fill="none" />
+              </defs>
+
+              <!-- DARK ellipse over line 1 — same geometry as V10. -->
+              <ellipse cx="500" cy="85" rx="145" ry="91" fill="rgba(0,0,0,0.80)" />
+
+              <text fill="rgba(255,255,255,0.92)" font-size="30" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
+                <textPath href="#v11-arch-line1-desk" startOffset="50%" text-anchor="middle">Where will you be&#8230;</textPath>
+              </text>
+              <text fill="#ffffff" font-size="47" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif">
+                <textPath href="#v11-arch-line2-desk" startOffset="50%" text-anchor="middle">when the clock strikes 250?</textPath>
+              </text>
+            </svg>
+
+            <svg
+              viewBox="0 -40 600 200"
+              class="block md:hidden w-full max-w-md mx-auto h-auto mb-8"
+              aria-hidden="true"
+              role="img"
+            >
+              <defs>
+                <path id="v11-arch-line1-mob" d="M 30 95 Q 300 25 570 95" fill="none" />
+                <path id="v11-arch-line2-mob" d="M 30 150 Q 300 80 570 150" fill="none" />
+              </defs>
+              <ellipse cx="300" cy="64" rx="105" ry="68" fill="rgba(0,0,0,0.80)" />
+              <text fill="rgba(255,255,255,0.92)" font-size="34" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
+                <textPath href="#v11-arch-line1-mob" startOffset="50%" text-anchor="middle">Where will you be&#8230;</textPath>
+              </text>
+              <text fill="#ffffff" font-size="40" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif">
+                <textPath href="#v11-arch-line2-mob" startOffset="50%" text-anchor="middle">when the clock strikes 250?</textPath>
+              </text>
+            </svg>
+
+            <p class="font-heading italic font-bold text-lg sm:text-xl md:text-2xl text-gold mb-2 tracking-wide">
+              The Official
+            </p>
+
+            <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-white leading-[1.05] mb-6 tracking-tight">
+              Countdown 250 Ball
+            </h1>
+
+            <div class="w-20 h-px bg-gold/70 mx-auto mb-5"></div>
+
+            <p class="font-heading italic font-light text-lg sm:text-xl md:text-2xl text-gold/95 mb-8">
+              A once-in-a-lifetime moment.
+            </p>
+
+            <div class="flex justify-center">
+              <a
+                href="/#tickets"
+                class="bg-red hover:bg-red-light text-white px-10 py-4 text-sm font-semibold tracking-[0.2em] uppercase transition-all rounded shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              >
+                Compare Ticket Options
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
     <!-- Color key                                                    -->
     <!-- ============================================================ -->
     <section class="bg-white py-10">
@@ -1333,11 +1440,15 @@ import Footer from '../components/Footer.astro';
             <li>Full-hero dark overlay at rgba 0,0,0,0.25 (lighter than the 0.55 original live hero so the photo shows through brighter while the text/logo still stand out). NO dome / per-line overlays / halos.</li>
           </ul>
 
-          <p class="text-navy font-semibold text-sm mb-2">V10 (bottom hero) &mdash; current live hero + neon-green debug overlay over &lsquo;Where will you be…&rsquo;</p>
+          <p class="text-navy font-semibold text-sm mb-2">V10 &mdash; live hero + neon-green debug overlay over &lsquo;Where will you be…&rsquo;</p>
           <ul class="space-y-2 text-navy/85 text-sm leading-relaxed mb-5">
-            <li>Mirrors the live home page hero (same photo Pic_8, same 0.25 full-hero overlay, plain text everywhere) except a single bright NEON GREEN rounded ellipse sits behind &lsquo;Where will you be…&rsquo;.</li>
-            <li>Ellipse extends ONE letter-height (~30 viewBox units, ~30 px on desktop) above the line, and runs all the way down to the path baseline at the arch endpoints. Width slightly wider than the visible text on the arc.</li>
-            <li>No other line gets an overlay. Once the position / size are right we swap the green for production color.</li>
+            <li>Mirrors the live hero (Pic_8 + 0.25 full overlay + plain text) except a bright neon-green rounded ellipse sits behind &lsquo;Where will you be…&rsquo;.</li>
+            <li>cx=500 cy=85 rx=145 ry=91 (desktop). Same shape mobile.</li>
+          </ul>
+
+          <p class="text-navy font-semibold text-sm mb-2">V11 (bottom hero) &mdash; same shape as V10 but in DARK production color</p>
+          <ul class="space-y-2 text-navy/85 text-sm leading-relaxed mb-5">
+            <li>Identical to V10 except the ellipse fill is now rgba(0,0,0,0.80) instead of #00ff00. Lets us judge how the production version will look before swapping it onto the live home page.</li>
           </ul>
 
           <p class="text-xs text-navy/70 leading-relaxed pt-2 border-t border-navy/10">
