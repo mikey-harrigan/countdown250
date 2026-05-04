@@ -551,9 +551,14 @@ import Footer from '../components/Footer.astro';
                    460 × 0.75 = 345
                    540 × 0.75 = 405
             -->
+            <!-- Logo overlay now uses a RADIAL GRADIENT so the green
+                 is lighter at the center (where the logo sits) and
+                 progressively MORE opaque toward the outer edge. Net
+                 effect: a green ring/vignette that's most dense
+                 right at the rim. -->
             <div
               class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[270px] sm:w-[345px] md:w-[405px] aspect-square rounded-full pointer-events-none"
-              style="background: rgba(0,255,0,0.80);"
+              style="background: radial-gradient(circle, rgba(0,255,0,0.40) 0%, rgba(0,255,0,0.65) 45%, rgba(0,255,0,0.85) 75%, rgba(0,255,0,1.00) 100%);"
               aria-hidden="true"
             ></div>
             <picture class="relative block">
@@ -586,18 +591,27 @@ import Footer from '../components/Footer.astro';
               role="img"
             >
               <defs>
-                <!-- Feather filter REMOVED — solid edges only so we
-                     can clearly see where the green sits. -->
                 <path id="v5-arch-line1-desk" d="M 50 130 Q 500 0 950 130" fill="none" />
                 <path id="v5-arch-line2-desk" d="M 50 215 Q 500 85 950 215" fill="none" />
+                <!-- Horizontal gradient for line 2 ellipse: LEFT tip
+                     fully opaque, fading toward the right. -->
+                <linearGradient id="v5-line2-grad-desk" x1="0%" y1="50%" x2="100%" y2="50%">
+                  <stop offset="0%" stop-color="#00ff00" stop-opacity="1.0" />
+                  <stop offset="35%" stop-color="#00ff00" stop-opacity="0.85" />
+                  <stop offset="100%" stop-color="#00ff00" stop-opacity="0.55" />
+                </linearGradient>
               </defs>
 
-              <ellipse cx="500" cy="50" rx="160" ry="42" fill="rgba(0,255,0,0.80)" />
+              <!-- 'Where will you be…' overlay — opacity bumped 0.80 → 0.95. -->
+              <ellipse cx="500" cy="50" rx="160" ry="42" fill="rgba(0,255,0,0.95)" />
               <text fill="rgba(255,255,255,0.92)" font-size="30" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v5-arch-line1-desk" startOffset="50%" text-anchor="middle">Where will you be&#8230;</textPath>
               </text>
 
-              <ellipse cx="500" cy="165" rx="370" ry="65" fill="rgba(0,255,0,0.80)" />
+              <!-- 'when the clock strikes 250?' overlay — fill is now
+                   the horizontal gradient so the LEFT tip is most
+                   opaque, fading toward the right. -->
+              <ellipse cx="500" cy="165" rx="370" ry="65" fill="url(#v5-line2-grad-desk)" />
               <text fill="#ffffff" font-size="47" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v5-arch-line2-desk" startOffset="50%" text-anchor="middle">when the clock strikes 250?</textPath>
               </text>
@@ -613,12 +627,17 @@ import Footer from '../components/Footer.astro';
               <defs>
                 <path id="v5-arch-line1-mob" d="M 30 95 Q 300 25 570 95" fill="none" />
                 <path id="v5-arch-line2-mob" d="M 30 150 Q 300 80 570 150" fill="none" />
+                <linearGradient id="v5-line2-grad-mob" x1="0%" y1="50%" x2="100%" y2="50%">
+                  <stop offset="0%" stop-color="#00ff00" stop-opacity="1.0" />
+                  <stop offset="35%" stop-color="#00ff00" stop-opacity="0.85" />
+                  <stop offset="100%" stop-color="#00ff00" stop-opacity="0.55" />
+                </linearGradient>
               </defs>
-              <ellipse cx="300" cy="35" rx="115" ry="28" fill="rgba(0,255,0,0.80)" />
+              <ellipse cx="300" cy="35" rx="115" ry="28" fill="rgba(0,255,0,0.95)" />
               <text fill="rgba(255,255,255,0.92)" font-size="34" font-weight="300" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v5-arch-line1-mob" startOffset="50%" text-anchor="middle">Where will you be&#8230;</textPath>
               </text>
-              <ellipse cx="300" cy="115" rx="220" ry="42" fill="rgba(0,255,0,0.80)" />
+              <ellipse cx="300" cy="115" rx="220" ry="42" fill="url(#v5-line2-grad-mob)" />
               <text fill="#ffffff" font-size="40" font-weight="400" font-style="italic" font-family="'Playfair Display', Georgia, serif">
                 <textPath href="#v5-arch-line2-mob" startOffset="50%" text-anchor="middle">when the clock strikes 250?</textPath>
               </text>
