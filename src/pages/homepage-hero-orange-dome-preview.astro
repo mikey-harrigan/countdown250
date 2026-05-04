@@ -1038,9 +1038,9 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- ============================================================ -->
-    <!-- V9 — Countdown Pic_8 with FULL-HERO overlay                   -->
-    <!-- (rgba 0,0,0,0.55, same as the original live hero) so the     -->
-    <!-- logo, text, and button stand out more.                       -->
+    <!-- V9 — Countdown Pic_8 with FULL-HERO overlay                  -->
+    <!-- Per Mike: dropped overlay opacity 0.55 → 0.35 so the photo   -->
+    <!-- shows through brighter while the text/logo still stand out.  -->
     <!-- ============================================================ -->
     <section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden border-t-4 border-gold/40">
       <div class="absolute inset-0">
@@ -1049,18 +1049,14 @@ import Footer from '../components/Footer.astro';
           alt="Countdown 250 Ball — alternative hero photo (Countdown Pic 8)"
           class="w-full h-full object-cover object-center"
         />
-        <!-- Full-hero dark overlay added (same value as the original
-             live hero). Darkens the entire photo evenly so the
-             logo / arched text / masthead / h1 / once-in-a-lifetime
-             / CTA all stand out more clearly. -->
-        <div class="absolute inset-0" style="background: rgba(0,0,0,0.55);"></div>
+        <div class="absolute inset-0" style="background: rgba(0,0,0,0.35);"></div>
       </div>
 
       <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-28 pb-20">
 
         <p class="text-gold/85 font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-6"
            style="text-shadow: 0 0 6px rgba(0,0,0,1), 0 0 14px rgba(0,0,0,1);">
-          V9 &middot; Countdown Pic_8 &middot; full-hero overlay (rgba 0,0,0,0.55)
+          V9 &middot; Countdown Pic_8 &middot; full-hero overlay (rgba 0,0,0,0.35)
         </p>
 
         <div class="flex justify-center mb-10 animate-fade-in">
@@ -1205,7 +1201,7 @@ import Footer from '../components/Footer.astro';
           <p class="text-navy font-semibold text-sm mb-2">V9 (bottom hero)</p>
           <ul class="space-y-2 text-navy/85 text-sm leading-relaxed mb-5">
             <li><strong class="text-navy">Photo:</strong> &lsquo;Countdown Pic_8&rsquo; (1600&times;899, ~290 KB).</li>
-            <li>Full-hero dark overlay added (rgba 0,0,0,0.55) &mdash; same value as the original live hero. Darkens the entire photo evenly so the logo / arched text / masthead / h1 / once-in-a-lifetime / CTA stand out more.</li>
+            <li>Full-hero dark overlay at rgba 0,0,0,0.35 (lighter than the 0.55 original live hero so the photo shows through brighter while the text/logo still stand out).</li>
             <li>NO dome, NO per-line overlays, NO per-letter halos.</li>
           </ul>
 
