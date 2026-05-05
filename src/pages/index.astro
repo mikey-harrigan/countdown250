@@ -710,15 +710,10 @@ const faqs = [
                 )}
 
                 {/* Umbrella heading above the categorized sections.
-                    Wrapped in a faint pill-button background (gold
-                    on dark cards, red on the highlighted Statesman
-                    card) so it reads as a clear section label.
                     Rendered with set:html so a tier can supply
                     multi-line markup via <span class="block">. */}
                 {ticket.sectionIntro && (
-                  <div class={`mb-4 px-3 py-2 rounded-md ${ticket.highlight ? 'bg-red/8 ring-1 ring-red/15' : 'bg-gold/10 ring-1 ring-gold/25'}`}>
-                    <p class={`text-sm font-extrabold tracking-wider uppercase leading-snug ${ticket.highlight ? 'text-red' : 'text-gold'}`} set:html={ticket.sectionIntro} />
-                  </div>
+                  <p class={`text-sm font-extrabold tracking-wider uppercase mb-3 leading-snug ${ticket.highlight ? 'text-red' : 'text-gold'}`} set:html={ticket.sectionIntro} />
                 )}
 
                 {/* Detail sections.
