@@ -28,9 +28,9 @@ const highlights = [
        ~134px tall; sm+ shows 1 line and the navbar is ~110px tall.
        pt-40 (160px) / sm:pt-32 (128px) clears both with 16px breathing
        room. -->
-  <div class="pt-40 sm:pt-32 bg-cream"></div>
+  <div class="pt-40 sm:pt-32"></div>
 
-  <section id="venue" class="pb-20 sm:pb-28 bg-cream">
+  <section id="venue" class="pb-20 sm:pb-28 ">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
         <!-- Image -->
@@ -48,10 +48,10 @@ const highlights = [
         <!-- Text -->
         <div class="order-1 md:order-2">
           <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">A Hotel Where History Happens</p>
-          <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-6 font-heading">The Washington Hilton</h1>
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gold mb-6 font-heading">The Washington Hilton</h1>
           <div class="w-16 h-1 bg-red mb-8"></div>
 
-          <p class="text-lg text-slate leading-relaxed mb-4">
+          <p class="text-lg text-white/90 leading-relaxed mb-4">
             The Washington Hilton isn&rsquo;t just a hotel &mdash; it&rsquo;s a landmark. The curved tower
             rising above Connecticut Avenue has been a fixture of Washington for over 60 years.
             If something important is happening in this city, there&rsquo;s a good chance it&rsquo;s happening here.
@@ -63,7 +63,7 @@ const highlights = [
               {highlights.map((h) => (
                 <div class="flex items-start gap-3">
                   <div class="mt-1.5 w-2 h-2 rounded-full bg-gold flex-shrink-0"></div>
-                  <p class="text-slate">{h}</p>
+                  <p class="text-white/90">{h}</p>
                 </div>
               ))}
             </div>
@@ -71,7 +71,7 @@ const highlights = [
 
           <button
             id="venue-toggle"
-            class="text-red font-medium text-sm tracking-wide hover:text-red-light transition-colors mb-6 flex items-center gap-1"
+            class="text-gold font-medium text-sm tracking-wide hover:text-red-light transition-colors mb-6 flex items-center gap-1"
           >
             <span id="venue-toggle-text">Read More</span>
             <svg id="venue-toggle-icon" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -79,7 +79,7 @@ const highlights = [
             </svg>
           </button>
 
-          <p class="text-lg font-medium text-navy">
+          <p class="text-lg font-medium text-gold">
             On the night of July 3rd, it adds one more chapter to that story &mdash; and you can be in the room when it happens.
           </p>
         </div>
@@ -89,17 +89,17 @@ const highlights = [
       <div class="mt-20 pt-16 border-t border-navy/10">
         <div class="max-w-3xl mx-auto text-center">
           <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">Exclusive Guest Rate</p>
-          <h2 class="text-2xl sm:text-3xl font-bold text-navy mb-4 font-heading">Book Your Stay</h2>
+          <h2 class="text-2xl sm:text-3xl font-bold text-gold mb-4 font-heading">Book Your Stay</h2>
           <div class="w-16 h-1 bg-red mx-auto mb-8"></div>
 
-          <p class="text-lg text-slate leading-relaxed mb-6">
+          <p class="text-lg text-white/90 leading-relaxed mb-6">
             A limited block of rooms has been reserved at the Washington Hilton at a special group rate
             exclusively for Countdown 250 Ball guests.
           </p>
 
           <button
             id="hotel-toggle"
-            class="text-red font-medium text-sm tracking-wide hover:text-red-light transition-colors mb-6 inline-flex items-center gap-1"
+            class="text-gold font-medium text-sm tracking-wide hover:text-red-light transition-colors mb-6 inline-flex items-center gap-1"
           >
             <span id="hotel-toggle-text">View Rate Details</span>
             <svg id="hotel-toggle-icon" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -156,7 +156,7 @@ const highlights = [
               >
                 Book Your Room Now
               </a>
-              <p class="text-slate/50 text-sm mt-3">Exclusive group rate &mdash; limited rooms available</p>
+              <p class="text-white/50 text-sm mt-3">Exclusive group rate &mdash; limited rooms available</p>
             </div>
           </div>
         </div>
