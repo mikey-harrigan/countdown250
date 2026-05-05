@@ -36,7 +36,7 @@ function formatDate(dateStr: string): string {
       <div class="max-w-3xl mx-auto px-4 sm:px-6">
         <div class="space-y-0">
           {updates.map((update, i) => (
-            <article class={`py-8 ${i > 0 ? 'border-t border-slate/10' : ''}`}>
+            <article class={`py-8 ${i > 0 ? 'border-t border-white/15' : ''}`}>
               <time class="text-sm text-gold font-medium tracking-wider uppercase">{formatDate(update.date)}</time>
               <h2 class="text-2xl font-bold text-gold mt-2 mb-4 font-heading">{update.headline}</h2>
               <p class="text-white/70 text-lg leading-relaxed">{update.body}</p>
@@ -44,7 +44,7 @@ function formatDate(dateStr: string): string {
           ))}
         </div>
 
-        <div class="text-center mt-12 pt-8 border-t border-slate/10">
+        <div class="text-center mt-12 pt-8 border-t border-white/15">
           <p class="text-white/50 text-sm italic mb-6">More updates will be posted as the event approaches.</p>
           <a
             href="/"
