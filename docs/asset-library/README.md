@@ -21,6 +21,7 @@ When in doubt, **save before deleting** — it's cheap to keep around, expensive
 
 ### Copy
 - `copy/home-tickets-section-headline-tagline.md` — *"Ticket sales are deliberately limited to ensure optimal comfort and an exceptional experience for every guest."* — REMOVED from the home page Tickets section 2026-05-02. Restore by pasting back into `src/pages/index.astro` just below the red divider in the "Three Ticket Options" header block.
+- `copy/statesmans-pass-benefits-4-section-format.md` — the old **4-section** Statesman's Pass benefits structure (Private Service / Exclusive Access / Personal Recognition / Gifts & Keepsakes), REPLACED on the home page 2026-05-05 with a flatter single-list version. Held for the future **Tickets sub-page** where the deeper structure earns its keep.
 
 ### Pages
 - `pages/schedule.astro` — the full event-evening schedule page (was at `/schedule/`). Removed from the live site 2026-05-02 because the actual evening run-of-show isn't finalized yet. Restore by copying back to `src/pages/schedule.astro` AND re-adding `{ label: "Schedule", href: "/schedule/" }` to the `moreLinks` array in `src/components/Navbar.astro`.
