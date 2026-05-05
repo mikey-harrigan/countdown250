@@ -66,10 +66,9 @@ const tickets = [
     futurePrice: "$700 / $1,000",
     id: "ticket-patriot-vip",
     description: "Early access, dinner, and a more elevated evening from start to finish (6:30 PM – 1 AM).",
-    inheritsFrom: "Liberty Ticket",
     sections: [
       {
-        heading: "Plus VIP Reception (7 PM – 9 PM), featuring:",
+        heading: "<span class='block'>Everything in the Liberty Ticket</span><span class='block mt-1'>Plus VIP Reception (7 PM – 9 PM), featuring:</span>",
         items: [
           "Early entry at 6:30 PM",
           "Buffet dinner",
@@ -719,15 +718,22 @@ const faqs = [
                   <p class={`text-sm font-extrabold tracking-wider uppercase mb-3 leading-snug ${ticket.highlight ? 'text-red' : 'text-gold'}`} set:html={ticket.sectionIntro} />
                 )}
 
-                {/* Detail sections */}
+                {/* Detail sections.
+                    section.heading is rendered with set:html so a
+                    tier can supply multi-line markup (e.g. two
+                    stacked <span class="block"> lines) when it
+                    needs to combine an inherits line and an
+                    upgrades intro into one heading. Plain-text
+                    headings still render identically. */}
                 <div class="space-y-3 mb-6 flex-grow">
                   {ticket.sections.map((section, si) => (
                     <div>
-                      <p class={`text-xs font-bold tracking-wider uppercase mb-1.5 ${
-                        ticket.highlight ? 'text-navy/70' : 'text-gold/90'
-                      } ${si > 0 ? 'pt-2.5 border-t ' + (ticket.highlight ? 'border-slate/10' : 'border-white/10') : ''}`}>
-                        {section.heading}
-                      </p>
+                      <p
+                        class={`text-xs font-bold tracking-wider uppercase mb-1.5 ${
+                          ticket.highlight ? 'text-navy/70' : 'text-gold/90'
+                        } ${si > 0 ? 'pt-2.5 border-t ' + (ticket.highlight ? 'border-slate/10' : 'border-white/10') : ''}`}
+                        set:html={section.heading}
+                      />
                       <ul class="space-y-1.5">
                         {section.items.map((f) => (
                           <li class="flex items-start gap-2">
