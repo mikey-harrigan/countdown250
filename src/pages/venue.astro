@@ -18,8 +18,13 @@ const highlights = [
 >
   <Navbar />
 
-  <!-- Spacer for fixed navbar -->
-  <div class="pt-24 bg-cream"></div>
+  <!-- Spacer for fixed navbar.
+       Sized for the two-row navbar (main bar h-20 + event-identity bar):
+       mobile shows 3 stacked lines in the event bar so the navbar is
+       ~134px tall; sm+ shows 1 line and the navbar is ~110px tall.
+       pt-40 (160px) / sm:pt-32 (128px) clears both with 16px breathing
+       room. -->
+  <div class="pt-40 sm:pt-32 bg-cream"></div>
 
   <section id="venue" class="pb-20 sm:pb-28 bg-cream">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
