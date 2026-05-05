@@ -41,9 +41,9 @@ const tickets = [
     futurePrice: "$350 / $500",
     id: "ticket-liberty",
     description: "Celebrate the Ball in classic style.",
+    sectionIntro: "Includes The Ball (9 PM – 1 AM)",
     sections: [
       {
-        heading: "Includes The Ball (9 PM – 1 AM)",
         items: [
           "4 ballrooms & 3 stages",
           "Top tier bands & DJs",
@@ -66,9 +66,9 @@ const tickets = [
     futurePrice: "$700 / $1,000",
     id: "ticket-patriot-vip",
     description: "Early access, dinner, and a more elevated evening from start to finish (6:30 PM – 1 AM).",
+    sectionIntro: "<span class='block'>Everything in the Liberty Ticket</span><span class='block mt-1'>Plus VIP Reception (7 PM – 9 PM), featuring:</span>",
     sections: [
       {
-        heading: "<span class='block'>Everything in the Liberty Ticket</span><span class='block mt-1'>Plus VIP Reception (7 PM – 9 PM), featuring:</span>",
         items: [
           "Early entry at 6:30 PM",
           "Buffet dinner",
@@ -710,30 +710,35 @@ const faqs = [
                 )}
 
                 {/* Umbrella heading above the categorized sections.
-                    Now rendered with set:html so it can contain
-                    multi-line markup (<span class="block">…</span>)
-                    when a tier wants both an inherits line and an
-                    upgrades line in a single combined heading. */}
+                    Wrapped in a faint pill-button background (gold
+                    on dark cards, red on the highlighted Statesman
+                    card) so it reads as a clear section label.
+                    Rendered with set:html so a tier can supply
+                    multi-line markup via <span class="block">. */}
                 {ticket.sectionIntro && (
-                  <p class={`text-sm font-extrabold tracking-wider uppercase mb-3 leading-snug ${ticket.highlight ? 'text-red' : 'text-gold'}`} set:html={ticket.sectionIntro} />
+                  <div class={`mb-4 px-3 py-2 rounded-md ${ticket.highlight ? 'bg-red/8 ring-1 ring-red/15' : 'bg-gold/10 ring-1 ring-gold/25'}`}>
+                    <p class={`text-sm font-extrabold tracking-wider uppercase leading-snug ${ticket.highlight ? 'text-red' : 'text-gold'}`} set:html={ticket.sectionIntro} />
+                  </div>
                 )}
 
                 {/* Detail sections.
-                    section.heading is rendered with set:html so a
-                    tier can supply multi-line markup (e.g. two
-                    stacked <span class="block"> lines) when it
-                    needs to combine an inherits line and an
-                    upgrades intro into one heading. Plain-text
-                    headings still render identically. */}
+                    section.heading is OPTIONAL — only rendered when
+                    a tier provides one (e.g. the Statesman's tier
+                    has sub-section headings like 'Private Service –
+                    All Night'). Liberty and Patriot tiers use only
+                    the umbrella sectionIntro above and have no
+                    per-section headings. */}
                 <div class="space-y-3 mb-6 flex-grow">
                   {ticket.sections.map((section, si) => (
                     <div>
-                      <p
-                        class={`text-xs font-bold tracking-wider uppercase mb-1.5 ${
-                          ticket.highlight ? 'text-navy/70' : 'text-gold/90'
-                        } ${si > 0 ? 'pt-2.5 border-t ' + (ticket.highlight ? 'border-slate/10' : 'border-white/10') : ''}`}
-                        set:html={section.heading}
-                      />
+                      {section.heading && (
+                        <p
+                          class={`text-xs font-bold tracking-wider uppercase mb-1.5 ${
+                            ticket.highlight ? 'text-navy/70' : 'text-gold/90'
+                          } ${si > 0 ? 'pt-2.5 border-t ' + (ticket.highlight ? 'border-slate/10' : 'border-white/10') : ''}`}
+                          set:html={section.heading}
+                        />
+                      )}
                       <ul class="space-y-1.5">
                         {section.items.map((f) => (
                           <li class="flex items-start gap-2">
