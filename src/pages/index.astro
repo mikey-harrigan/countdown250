@@ -1026,11 +1026,38 @@ const faqs = [
           </div>
         </div>
 
-        <!-- Scarcity line + primary CTA, centered below the benefits cards -->
+        <!-- CTA cluster: 2 primary action buttons (Create / Join) →
+             secondary gold 'See How' educational button → scarcity
+             line at the bottom. Centered below the benefits cards. -->
         <div class="text-center mt-8 sm:mt-10">
-          <p class="text-red/90 text-sm tracking-[0.2em] uppercase font-semibold mb-6">
-            Very Limited Hosted Group Opportunities
-          </p>
+
+          <!-- Primary actions: Create a Group + Join a Group (red).
+               Stack on mobile, side-by-side on sm+. Open the Google
+               Forms in a new tab so the user doesn't lose the home
+               page. -->
+          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-4 sm:mb-5">
+            <a
+              href="https://forms.gle/yT1YbicTbS3i1CNn9"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center gap-2 bg-red hover:bg-red-light text-white px-8 py-3.5 text-sm font-bold tracking-[0.12em] uppercase transition-all rounded shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+            >
+              <span>Create a Group</span>
+              <span class="text-base">&rarr;</span>
+            </a>
+            <a
+              href="https://forms.gle/J8v9jHB5ENqvYbaw5"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center gap-2 bg-red hover:bg-red-light text-white px-8 py-3.5 text-sm font-bold tracking-[0.12em] uppercase transition-all rounded shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+            >
+              <span>Join a Group</span>
+              <span class="text-base">&rarr;</span>
+            </a>
+          </div>
+
+          <!-- Secondary CTA: educational link to the dedicated
+               Hosted Groups page (gold treatment, original button). -->
           <a
             href="/hosted-group-tables"
             class="inline-flex items-center justify-center gap-2 bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-9 py-4 text-sm font-bold tracking-[0.12em] uppercase transition-all rounded shadow-xl hover:shadow-2xl hover:-translate-y-0.5 ring-1 ring-gold/30 ring-offset-2 ring-offset-navy"
@@ -1038,6 +1065,11 @@ const faqs = [
             <span class="text-navy-dark">&#9733;</span>
             <span>See How &ldquo;Hosted Groups&rdquo; Works</span>
           </a>
+
+          <!-- Scarcity line, moved to BOTTOM of the section. -->
+          <p class="text-red/90 text-sm tracking-[0.2em] uppercase font-semibold mt-6 sm:mt-7">
+            Limited Hosted Group Opportunities. While supplies last.
+          </p>
         </div>
       </div>
       </div>
