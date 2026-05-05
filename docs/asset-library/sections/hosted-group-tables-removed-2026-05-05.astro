@@ -1,0 +1,173 @@
+{/*
+ * ARCHIVED HOSTED GROUPS PAGE SECTIONS — REMOVED 2026-05-05
+ * ============================================================================
+ * On 2026-05-05 Mike asked for a major cleanup of the Hosted Groups page.
+ * This file preserves everything that was removed from
+ * src/pages/hosted-group-tables.astro so we can re-import any of it later
+ * if priorities change.
+ *
+ * Each block below shows the EXACT markup as it lived in the page right
+ * before removal, with the surrounding section comments intact. To restore
+ * any block, copy it back to its original position in
+ * src/pages/hosted-group-tables.astro.
+ * ============================================================================
+ */}
+
+{/* =====================================================================
+   ARCHIVE BLOCK 1
+   The Benefits-of-Hosted-Groups boxes (the SHORT version on this page).
+   Replaced on 2026-05-05 with the longer pre-edit home-page version
+   (more bullets per panel + 'WE do the work… YOU get the credit!' tagline).
+   Original location: src/pages/hosted-group-tables.astro after the picture
+   marquee, before 'Perfect for Groups of 4 or More'.
+   ===================================================================== */}
+
+<section class="py-10 sm:py-12 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="rounded-xl overflow-hidden border border-navy/15 shadow-md">
+      {/* Gold header bar */}
+      <div class="bg-gold py-3 sm:py-4 px-6 text-center">
+        <p class="text-navy-dark font-bold tracking-[0.25em] uppercase text-xs sm:text-sm leading-tight">
+          Benefits of Hosted Groups
+        </p>
+      </div>
+      {/* Two columns: Hosts | Guests */}
+      <div class="grid md:grid-cols-2">
+        {/* HOSTS PANEL — navy gradient */}
+        <div class="relative bg-gradient-to-br from-navy-dark via-navy to-navy-dark p-5 sm:p-6 text-white overflow-hidden">
+          <div class="hidden md:block absolute top-0 right-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold/40 to-transparent"></div>
+          <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs mb-3">Hosts&rsquo; Benefits</p>
+          <ul class="space-y-2 text-white/90 text-sm sm:text-[15px] leading-snug">
+            <li class="flex items-start"><span class="text-gold mr-2.5 flex-shrink-0 mt-1 text-xs">&#10022;</span><span>No additional cost beyond your Statesman&rsquo;s Pass Ticket</span></li>
+            <li class="flex items-start"><span class="text-gold mr-2.5 flex-shrink-0 mt-1 text-xs">&#10022;</span><span>We do the work &mdash; you enjoy <strong class="font-semibold text-white">YOUR</strong> party</span></li>
+            <li class="flex items-start"><span class="text-gold mr-2.5 flex-shrink-0 mt-1 text-xs">&#10022;</span><span>Premium party favors, decorations, and amenities</span></li>
+            <li class="flex items-start"><span class="text-gold mr-2.5 flex-shrink-0 mt-1 text-xs">&#10022;</span><span>Public &ldquo;Toast to the Hosts&rdquo;</span></li>
+            <li class="flex items-start"><span class="text-gold mr-2.5 flex-shrink-0 mt-1 text-xs">&#10022;</span><span>Named in event program &amp; website</span></li>
+            <li class="flex items-start"><span class="text-gold mr-2.5 flex-shrink-0 mt-1 text-xs">&#10022;</span><span>Personalized table signage</span></li>
+          </ul>
+        </div>
+        {/* GUESTS PANEL — cream */}
+        <div class="bg-cream p-5 sm:p-6">
+          <p class="text-navy/80 font-bold tracking-[0.25em] uppercase text-xs mb-3">Guests&rsquo; Benefits</p>
+          <ul class="space-y-2 text-slate/85 text-sm sm:text-[15px] leading-snug">
+            <li class="flex items-start"><span class="text-navy/40 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>No additional cost beyond your Statesman&rsquo;s Pass Ticket</span></li>
+            <li class="flex items-start"><span class="text-navy/40 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Reserved premium seating</span></li>
+            <li class="flex items-start"><span class="text-navy/40 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Seated with your group, even if tickets are bought separately</span></li>
+            <li class="flex items-start"><span class="text-navy/40 mr-2.5 font-bold flex-shrink-0 mt-0.5">&bull;</span><span>Seated near our distinguished guests</span></li>
+          </ul>
+        </div>
+      </div>
+      {/* Bottom info bar — full-width add-on clause for groups of 6+ */}
+      <div class="bg-navy-dark py-3 px-6 text-center border-t border-gold/30">
+        <p class="text-white/85 text-xs sm:text-sm italic leading-snug">
+          Groups of 6 or more, contact us at <a href="mailto:CountdownAmerica250@gmail.com?subject=Hosted%20Group%20%E2%80%94%20Group%20of%206%2B" class="text-gold not-italic font-semibold hover:underline">CountdownAmerica250@gmail.com</a> for enhanced accommodations.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* =====================================================================
+   ARCHIVE BLOCK 2
+   'Perfect for Groups of 4 or More' section.
+   Removed entirely on 2026-05-05.
+   Original location: between Benefits and How-It-Works (Instructions).
+   ===================================================================== */}
+
+<section class="py-10 sm:py-12 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="rounded-xl overflow-hidden border border-navy/15 shadow-md">
+      {/* Gold header bar */}
+      <div class="bg-gold py-3 sm:py-4 px-6 text-center">
+        <p class="text-navy-dark font-bold tracking-[0.25em] uppercase text-xs sm:text-sm leading-tight">
+          Perfect for Groups of 4 or More
+        </p>
+      </div>
+      {/* Body — cream, gold-star separators */}
+      <div class="bg-cream p-6 sm:p-7 text-center">
+        <p class="text-slate/85 text-base sm:text-lg leading-relaxed">
+          Company Parties &nbsp;<span class="text-gold">&#9733;</span>&nbsp; School Alumni &nbsp;<span class="text-gold">&#9733;</span>&nbsp; Professional Groups &nbsp;<span class="text-gold">&#9733;</span>&nbsp; Birthday Celebrations &nbsp;<span class="text-gold">&#9733;</span>&nbsp; Reunions &nbsp;<span class="text-gold">&#9733;</span>&nbsp; Neighborhood Groups &nbsp;<span class="text-gold">&#9733;</span>&nbsp; Civic Associations &nbsp;<span class="text-gold">&#9733;</span>&nbsp; Common-interest Groups
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* =====================================================================
+   ARCHIVE BLOCK 3
+   Two sub-headers removed from the Instructions box (How It Works section).
+   Removed on 2026-05-05.
+   Restore by re-inserting each <h3> directly below the eyebrow line on
+   its respective panel ('Create Your Hosted Group' / 'Join an Existing
+   Group').
+   ===================================================================== */}
+
+{/* Hosting panel sub-header */}
+<h3 class="font-heading font-bold text-xl text-navy mb-4 leading-tight">
+  You invite guests. We handle the rest.
+</h3>
+
+{/* Joining panel sub-header */}
+<h3 class="font-heading font-bold text-xl text-white mb-4 leading-tight">
+  Get ready to celebrate!
+</h3>
+
+{/* =====================================================================
+   ARCHIVE BLOCK 4
+   'Helpful Tips & Assets' section (Sample Email + Sample Text cards).
+   Removed entirely on 2026-05-05.
+   Original location: near the bottom of the Hosted Groups page, just
+   above the 'Don't Wait — Recruit Early' deadlines.
+   ===================================================================== */}
+
+<section class="py-12 sm:py-14 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="rounded-xl overflow-hidden border border-navy/15 shadow-md">
+      {/* Gold header bar */}
+      <div class="bg-gold py-3 sm:py-4 px-6 text-center">
+        <p class="text-navy-dark font-bold tracking-[0.25em] uppercase text-xs sm:text-sm leading-tight">
+          Helpful Tips &amp; Assets
+        </p>
+      </div>
+      {/* Cream body */}
+      <div class="bg-cream p-6 sm:p-8">
+        <div class="text-center mb-6">
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy font-heading">We&rsquo;ll Help You Get the Word Out</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4 sm:gap-5">
+          <div class="bg-white rounded-xl p-5 sm:p-6 border border-navy/10">
+            <p class="text-red font-bold tracking-[0.18em] uppercase text-xs mb-2">Sample Invitation Email</p>
+            <p class="text-slate/85 text-sm leading-relaxed">
+              Copy-and-paste email language Hosts can send to friends, family, colleagues, or alumni groups.
+            </p>
+          </div>
+          <div class="bg-white rounded-xl p-5 sm:p-6 border border-navy/10">
+            <p class="text-red font-bold tracking-[0.18em] uppercase text-xs mb-2">Sample Invitation Text</p>
+            <p class="text-slate/85 text-sm leading-relaxed">
+              Short text-message copy Hosts can send quickly by phone.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* =====================================================================
+   ARCHIVE BLOCK 5
+   'Don't Wait — Recruit Early' deadlines block.
+   Removed entirely on 2026-05-05.
+   Original location: just below 'Helpful Tips & Assets', just above the
+   'Let's celebrate!' closing CTA card.
+   ===================================================================== */}
+
+<section class="py-10 sm:py-12 bg-white">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+    <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-5">Don&rsquo;t Wait &mdash; Recruit Early</p>
+    <ul class="space-y-2 text-slate/85 text-sm sm:text-base leading-relaxed inline-block text-left">
+      <li><strong class="text-red">T-60 days:</strong> Hosts named in the printed program</li>
+      <li><strong class="text-red">T-30 days:</strong> Personalized signage deadline</li>
+      <li><strong class="text-red">T-7 days:</strong> Final seating chart locked</li>
+    </ul>
+  </div>
+</section>

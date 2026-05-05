@@ -26,7 +26,7 @@ When in doubt, **save before deleting** — it's cheap to keep around, expensive
 - `pages/schedule.astro` — the full event-evening schedule page (was at `/schedule/`). Removed from the live site 2026-05-02 because the actual evening run-of-show isn't finalized yet. Restore by copying back to `src/pages/schedule.astro` AND re-adding `{ label: "Schedule", href: "/schedule/" }` to the `moreLinks` array in `src/components/Navbar.astro`.
 
 ### Sections
-- *(none yet)*
+- `sections/hosted-group-tables-removed-2026-05-05.astro` — five archive blocks removed from `src/pages/hosted-group-tables.astro` on 2026-05-05: (1) the prior short Benefits-of-Hosted-Groups boxes, replaced with the longer pre-edit home-page version; (2) the 'Perfect for Groups of 4 or More' section; (3) two `<h3>` sub-headers from the Instructions box ('You invite guests. We handle the rest.' and 'Get ready to celebrate!'); (4) the 'Helpful Tips & Assets' section; (5) the 'Don't Wait — Recruit Early' T-60/T-30/T-7 deadlines block. Each archive block preserves the exact original markup with restoration notes.
 
 ### Images
 - *(none yet)*
