@@ -38,6 +38,7 @@ const tickets = [
     originalPrice: "$195",
     price: "$225",
     futurePrice: "$350 / $500",
+    availability: "Limited availability",
     id: "ticket-liberty",
     description: "Celebrate the Ball in classic style.",
     sectionIntro: "Includes The Ball (9 PM – 1 AM)",
@@ -62,6 +63,7 @@ const tickets = [
     originalPrice: "$395",
     price: "$450",
     futurePrice: "$700 / $1,000",
+    availability: "Very limited availability",
     id: "ticket-patriot-vip",
     description: "Early access, dinner, and a more elevated evening from start to finish (6:30 PM – 1 AM).",
     sectionIntro: "<span class='block'>Everything in the Liberty Ticket</span><span class='block mt-1'>Plus VIP Reception (7 PM – 9 PM), featuring:</span>",
@@ -85,6 +87,7 @@ const tickets = [
     originalPrice: "$1,495",
     price: "$1,700",
     futurePrice: "$3,000 / $5,000",
+    availability: "Very limited availability",
     id: "ticket-statesmans",
     description: "The Pinnacle Experience at the VIP Reception and the Ball (6:30 PM – 1 AM)",
     sectionIntro: "<span class='block'>Everything in the Patriot VIP Ticket</span><span class='block mt-1'>Plus These Elite Upgrades:</span>",
@@ -685,9 +688,6 @@ const faqs = [
                       <span class={`text-sm ${ticket.highlight ? 'text-slate/30' : 'text-white/25'}`}>{fp}</span>
                     ))}
                   </div>
-                  <p class={`text-xs mt-2 italic text-center ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
-                    Very limited availability
-                  </p>
                 </div>
 
                 {/* "Best for..." description */}
@@ -768,6 +768,16 @@ const faqs = [
                 {ticket.note && (
                   <p class={`text-xs mb-4 italic ${ticket.highlight ? 'text-slate/55' : 'text-white/40'}`}>
                     {ticket.note}
+                  </p>
+                )}
+
+                {/* Availability tag — sits directly above the Get
+                    Tickets CTA. Each tier supplies its own copy via
+                    the data field (e.g. 'Limited availability' on
+                    Liberty, 'Very limited availability' on the others). */}
+                {ticket.availability && (
+                  <p class={`text-xs mb-2 italic text-center ${ticket.highlight ? 'text-slate/55' : 'text-white/45'}`}>
+                    {ticket.availability}
                   </p>
                 )}
 
