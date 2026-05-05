@@ -35,7 +35,6 @@ const experienceIcons: Record<string, string> = {
 const tickets = [
   {
     name: "Liberty Ticket",
-    time: "The Ball: 9 PM – 1 AM",
     originalPrice: "$195",
     price: "$225",
     futurePrice: "$350 / $500",
@@ -60,7 +59,6 @@ const tickets = [
   },
   {
     name: "Patriot VIP Ticket",
-    time: "VIP Reception + Ball: 7 PM – 1 AM",
     originalPrice: "$395",
     price: "$450",
     futurePrice: "$700 / $1,000",
@@ -84,7 +82,6 @@ const tickets = [
   },
   {
     name: "Statesman's Concierge Pass",
-    time: "Premier Luxury: 7 PM – 1 AM",
     originalPrice: "$1,495",
     price: "$1,700",
     futurePrice: "$3,000 / $5,000",
@@ -660,11 +657,16 @@ const faqs = [
               </div>
 
               <div class="p-6 sm:p-7 flex flex-col flex-grow">
-                {/* Time + Name */}
+                {/* Time + Name. Time is OPTIONAL — when a tier
+                    omits the `time` field the small uppercase
+                    eyebrow label disappears and the name sits
+                    directly below the tier badge. */}
                 <div class="mb-4">
-                  <p class={`text-[11px] font-medium tracking-wider uppercase mb-2 ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
-                    {ticket.time}
-                  </p>
+                  {ticket.time && (
+                    <p class={`text-[11px] font-medium tracking-wider uppercase mb-2 ${ticket.highlight ? 'text-slate/50' : 'text-white/40'}`}>
+                      {ticket.time}
+                    </p>
+                  )}
                   <h3 class={`text-2xl font-bold mb-1 font-heading ${ticket.highlight ? 'text-navy' : 'text-white'}`}>
                     {ticket.name}
                   </h3>
