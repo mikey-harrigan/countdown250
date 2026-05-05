@@ -1,0 +1,168 @@
+---
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+/*
+ * LIQUID BLUE PREVIEW PAGE
+ * ----------------------------------------------------------------
+ * Sampled directly from public/images/logos/countdown250-seal-navy-blue.png:
+ *   AVG liquid-blue:    #002B77  rgb(0, 43, 119)
+ *   BRIGHTEST highlight: #043D9C  rgb(4, 61, 156)
+ *   DARKEST shadow:      #052058  rgb(5, 32, 88)
+ *
+ * The "liquid" feel comes from the bright-center → dark-edge gradient,
+ * not a flat color. This page shows 4 candidate treatments side-by-side
+ * with the logo overlaid for visual comparison.
+ *
+ * Excluded from sitemap via astro.config.mjs filter.
+ */
+---
+
+<BaseLayout
+  title="Liquid Blue Preview"
+  description="Internal preview of liquid-blue background candidates with logo overlay."
+>
+  <Navbar />
+
+  <main class="bg-white">
+
+    <!-- Page intro / control panel -->
+    <section class="py-10 sm:py-14 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <h1 class="text-3xl sm:text-4xl font-bold text-navy font-heading mb-3">
+          Liquid Blue &mdash; Background Candidates
+        </h1>
+        <p class="text-slate/80 text-base sm:text-lg leading-relaxed mb-6">
+          Sampled colors from the seal logo. Each section below is a different background treatment with the logo placed on top so you can judge how close it feels.
+        </p>
+        <div class="inline-block text-left bg-cream rounded-lg p-5 border border-navy/15">
+          <p class="text-xs sm:text-sm text-slate/85 font-mono leading-relaxed">
+            <strong>Avg:</strong> <span class="text-navy font-bold">#002B77</span> &middot;
+            <strong>Brightest:</strong> <span class="text-navy font-bold">#043D9C</span> &middot;
+            <strong>Darkest:</strong> <span class="text-navy font-bold">#052058</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- VARIANT A — Flat AVG color (#002B77)                          -->
+    <!-- ============================================================ -->
+    <section class="py-16 sm:py-20" style="background-color: #002B77;">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <p class="text-white/70 text-xs tracking-[0.3em] uppercase mb-2 font-bold">Variant A</p>
+        <p class="text-gold text-lg sm:text-xl font-heading italic mb-1">Flat &mdash; #002B77</p>
+        <p class="text-white/60 text-sm mb-8">The plain average blue. No gradient, no sheen.</p>
+        <picture>
+          <source srcset="/images/logos/countdown250-seal-navy-blue.webp" type="image/webp" />
+          <img
+            src="/images/logos/countdown250-seal-navy-blue.png"
+            alt="Countdown 250 seal logo"
+            class="mx-auto w-[260px] sm:w-[340px] md:w-[400px] h-auto drop-shadow-2xl"
+          />
+        </picture>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- VARIANT B — Radial gradient (mimics logo's center-glow)       -->
+    <!-- ============================================================ -->
+    <section
+      class="py-16 sm:py-20"
+      style="background: radial-gradient(ellipse at center, #043D9C 0%, #002B77 45%, #052058 100%);"
+    >
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <p class="text-white/70 text-xs tracking-[0.3em] uppercase mb-2 font-bold">Variant B</p>
+        <p class="text-gold text-lg sm:text-xl font-heading italic mb-1">Radial gradient &mdash; the &ldquo;liquid&rdquo; effect</p>
+        <p class="text-white/60 text-sm mb-8">Bright #043D9C center &rarr; #002B77 mid &rarr; #052058 edge. Mirrors how the logo&rsquo;s blue is lit.</p>
+        <picture>
+          <source srcset="/images/logos/countdown250-seal-navy-blue.webp" type="image/webp" />
+          <img
+            src="/images/logos/countdown250-seal-navy-blue.png"
+            alt="Countdown 250 seal logo"
+            class="mx-auto w-[260px] sm:w-[340px] md:w-[400px] h-auto drop-shadow-2xl"
+          />
+        </picture>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- VARIANT C — Linear gradient top-to-bottom                     -->
+    <!-- ============================================================ -->
+    <section
+      class="py-16 sm:py-20"
+      style="background: linear-gradient(to bottom, #043D9C 0%, #002B77 50%, #052058 100%);"
+    >
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <p class="text-white/70 text-xs tracking-[0.3em] uppercase mb-2 font-bold">Variant C</p>
+        <p class="text-gold text-lg sm:text-xl font-heading italic mb-1">Linear top &rarr; bottom gradient</p>
+        <p class="text-white/60 text-sm mb-8">Same 3 colors but stacked top-down. Calmer than the radial.</p>
+        <picture>
+          <source srcset="/images/logos/countdown250-seal-navy-blue.webp" type="image/webp" />
+          <img
+            src="/images/logos/countdown250-seal-navy-blue.png"
+            alt="Countdown 250 seal logo"
+            class="mx-auto w-[260px] sm:w-[340px] md:w-[400px] h-auto drop-shadow-2xl"
+          />
+        </picture>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- VARIANT D — Diagonal gradient + subtle radial highlight       -->
+    <!-- ============================================================ -->
+    <section
+      class="py-16 sm:py-20 relative overflow-hidden"
+      style="background: linear-gradient(135deg, #052058 0%, #002B77 50%, #043D9C 100%);"
+    >
+      <!-- Soft radial sheen overlay -->
+      <div
+        class="absolute inset-0 pointer-events-none"
+        style="background: radial-gradient(circle at 30% 30%, rgba(4, 61, 156, 0.45) 0%, transparent 55%);"
+      ></div>
+      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <p class="text-white/70 text-xs tracking-[0.3em] uppercase mb-2 font-bold">Variant D</p>
+        <p class="text-gold text-lg sm:text-xl font-heading italic mb-1">Diagonal gradient + sheen</p>
+        <p class="text-white/60 text-sm mb-8">Most &ldquo;liquid&rdquo; reading &mdash; diagonal base layer with a soft top-left highlight blob.</p>
+        <picture>
+          <source srcset="/images/logos/countdown250-seal-navy-blue.webp" type="image/webp" />
+          <img
+            src="/images/logos/countdown250-seal-navy-blue.png"
+            alt="Countdown 250 seal logo"
+            class="mx-auto w-[260px] sm:w-[340px] md:w-[400px] h-auto drop-shadow-2xl"
+          />
+        </picture>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- COMPARISON — current navy palette for reference                -->
+    <!-- ============================================================ -->
+    <section class="py-16 sm:py-20 bg-gradient-to-br from-navy-dark via-navy to-navy-dark">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <p class="text-white/70 text-xs tracking-[0.3em] uppercase mb-2 font-bold">For reference</p>
+        <p class="text-gold text-lg sm:text-xl font-heading italic mb-1">Current site navy gradient</p>
+        <p class="text-white/60 text-sm mb-8">navy-dark <span class="font-mono">#001a45</span> &rarr; navy <span class="font-mono">#002868</span>. This is what the existing dark sections use.</p>
+        <picture>
+          <source srcset="/images/logos/countdown250-seal-navy-blue.webp" type="image/webp" />
+          <img
+            src="/images/logos/countdown250-seal-navy-blue.png"
+            alt="Countdown 250 seal logo"
+            class="mx-auto w-[260px] sm:w-[340px] md:w-[400px] h-auto drop-shadow-2xl"
+          />
+        </picture>
+      </div>
+    </section>
+
+    <!-- Back-to-home -->
+    <section class="py-10 bg-white text-center">
+      <a href="/" class="inline-block bg-white border-2 border-navy text-navy hover:bg-navy hover:text-white px-8 py-3 text-sm font-semibold tracking-wider uppercase transition-all rounded">
+        Back to Home
+      </a>
+    </section>
+
+  </main>
+  <Footer />
+</BaseLayout>
