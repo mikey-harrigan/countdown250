@@ -21,7 +21,10 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
 >
   <Navbar />
 
-  <main>
+  <main
+    class="relative"
+    style="background: radial-gradient(circle at 30% 30%, rgba(4, 61, 156, 0.45) 0%, transparent 55%), linear-gradient(135deg, #052058 0%, #002B77 50%, #043D9C 100%); background-attachment: fixed;"
+  >
 
     <!-- ============================================================ -->
     <!-- HERO — navy bg, mirrors the Partners page hero pattern -->
@@ -45,24 +48,24 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
     <!-- ============================================================ -->
     <!-- INTRO — white bg starts here, same as Partners body sections -->
     <!-- ============================================================ -->
-    <section class="pt-10 pb-10 sm:pt-12 sm:pb-12 bg-white">
+    <section class="pt-10 pb-10 sm:pt-12 sm:pb-12">
       <div class="max-w-4xl mx-auto px-4 sm:px-6">
-        <!-- Tagline moved here from the hero — italic navy, slightly larger -->
-        <p class="text-navy italic text-xl sm:text-2xl font-light tracking-wide text-center mb-8">
+        <!-- Tagline (italic gold on liquid-blue bg) -->
+        <p class="text-gold italic text-xl sm:text-2xl font-light tracking-wide text-center mb-8">
           Your &ldquo;Party Inside the Party&rdquo;
         </p>
-        <div class="space-y-5 text-slate/80 text-base sm:text-lg leading-relaxed">
+        <div class="space-y-5 text-white/90 text-base sm:text-lg leading-relaxed">
           <p>
-            Are you planning a <strong class="text-red">company event</strong>, <strong class="text-red">reunion</strong>, <strong class="text-red">birthday celebration</strong>, <strong class="text-red">alumni gathering</strong> &mdash; or simply a <strong class="text-red">night out with friends</strong>?
+            Are you planning a <strong class="text-gold">company event</strong>, <strong class="text-gold">reunion</strong>, <strong class="text-gold">birthday celebration</strong>, <strong class="text-gold">alumni gathering</strong> &mdash; or simply a <strong class="text-gold">night out with friends</strong>?
           </p>
           <p>
-            <strong class="text-red font-bold tracking-wide">HOSTED GROUPS</strong> lets you celebrate together at your private &ldquo;Party Inside the Party&rdquo; &mdash; within one of the <strong class="text-red">most anticipated events in America</strong>.
+            <strong class="text-gold font-bold tracking-wide">HOSTED GROUPS</strong> lets you celebrate together at your private &ldquo;Party Inside the Party&rdquo; &mdash; within one of the <strong class="text-gold">most anticipated events in America</strong>.
           </p>
           <p>
-            <strong class="text-red font-bold tracking-wide">HOSTED GROUPS</strong> is a <strong class="text-red">no-cost benefit exclusively</strong> for Statesman&rsquo;s Concierge Pass holders which allows you to <strong class="text-red">host your own private group</strong> &mdash; or <strong class="text-red">join an existing group</strong> &mdash; and enjoy a <strong class="text-red">once-in-a-lifetime shared experience within the historic Countdown 250 Gala.</strong>
+            <strong class="text-gold font-bold tracking-wide">HOSTED GROUPS</strong> is a <strong class="text-gold">no-cost benefit exclusively</strong> for Statesman&rsquo;s Concierge Pass holders which allows you to <strong class="text-gold">host your own private group</strong> &mdash; or <strong class="text-gold">join an existing group</strong> &mdash; and enjoy a <strong class="text-gold">once-in-a-lifetime shared experience within the historic Countdown 250 Gala.</strong>
           </p>
           <p>
-            Each Hosted Group enjoys a <strong class="text-red">dedicated gathering space</strong> in the exclusive Statesman&rsquo;s Concierge Area, with reserved seating, custom signage, and coordinated details designed to create your special &ldquo;Party Inside the Party.&rdquo; And group members are seated together even if tickets are purchased separately.
+            Each Hosted Group enjoys a <strong class="text-gold">dedicated gathering space</strong> in the exclusive Statesman&rsquo;s Concierge Area, with reserved seating, custom signage, and coordinated details designed to create your special &ldquo;Party Inside the Party.&rdquo; And group members are seated together even if tickets are purchased separately.
           </p>
         </div>
       </div>
@@ -72,7 +75,7 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
     <!-- HOSTED GROUPS PICTURE MARQUEE — full-width auto-scrolling -->
     <!-- (Option A: scroller between Intro and Benefits) -->
     <!-- ============================================================ -->
-    <section class="py-6 sm:py-8 bg-white overflow-hidden">
+    <section class="py-6 sm:py-8 overflow-hidden">
       <div class="hosted-marquee relative">
         <!-- Edge fade overlays so images appear to dissolve into the white page -->
         <div class="hosted-marquee-fade hosted-marquee-fade-left"></div>
@@ -110,7 +113,7 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
     <!-- YOU get the credit!' tagline; guest panel is cream + 5       -->
     <!-- supporting bullets. Bottom info bar for 6+ groups kept.      -->
     <!-- ============================================================ -->
-    <section class="py-10 sm:py-12 bg-white">
+    <section class="py-10 sm:py-12">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <!-- Outer rounded shell with gold border + soft glow -->
         <div class="rounded-xl overflow-hidden border border-gold/40 shadow-[0_0_28px_rgba(197,164,78,0.20)]">
@@ -182,7 +185,7 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
     <!-- ============================================================ -->
     <!-- HOW IT WORKS — HOSTING / JOINING side-by-side on white -->
     <!-- ============================================================ -->
-    <section id="how-it-works" class="scroll-mt-24 py-14 sm:py-16 bg-white">
+    <section id="how-it-works" class="scroll-mt-24 py-14 sm:py-16">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
 
         <!-- One unified graphic, mirroring the Benefits-of-Hosted-Groups card -->
@@ -256,7 +259,7 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
     <!-- ============================================================ -->
     <!-- LIVE ROSTER — wrapped in a gold-header / navy-body box -->
     <!-- ============================================================ -->
-    <section class="py-14 sm:py-16 bg-white">
+    <section class="py-14 sm:py-16">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="rounded-xl overflow-hidden border border-navy/15 shadow-md">
           <!-- Gold header bar -->
@@ -318,7 +321,7 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
     <!-- ============================================================ -->
     <!-- FAQ — wrapped in gold-header / cream-body box, condensed -->
     <!-- ============================================================ -->
-    <section class="py-10 sm:py-12 bg-white">
+    <section class="py-10 sm:py-12">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="rounded-xl overflow-hidden border border-navy/15 shadow-md">
           <!-- Gold header bar -->
@@ -476,7 +479,7 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
     <!-- ============================================================ -->
     <!-- CLOSING CTA — navy rounded card on white (Partners pattern) -->
     <!-- ============================================================ -->
-    <section class="py-14 sm:py-16 bg-white">
+    <section class="py-14 sm:py-16">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="bg-navy rounded-2xl p-10 text-center">
           <svg class="w-12 h-12 text-gold mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -587,13 +590,16 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
   @media (min-width: 1024px) {
     .hosted-marquee-fade { width: 100px; }
   }
+  /* Fade overlays match the liquid-blue page background so the
+     marquee dissolves into the gradient at both edges. Using the
+     average liquid-blue (#002B77) for the opaque end. */
   .hosted-marquee-fade-left {
     left: 0;
-    background: linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(to right, #002B77 0%, rgba(0,40,119,0) 100%);
   }
   .hosted-marquee-fade-right {
     right: 0;
-    background: linear-gradient(to left, #ffffff 0%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(to left, #002B77 0%, rgba(0,40,119,0) 100%);
   }
 
   @keyframes hosted-marquee-scroll {
