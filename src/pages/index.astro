@@ -762,7 +762,12 @@ const faqs = [
         <!-- Image (left, prominent) + Content (right) -->
         <div class="grid md:grid-cols-[3fr_2fr] gap-10 lg:gap-14 items-center mb-14 sm:mb-16">
 
-          <!-- Image: 3-slide carousel with rich premium treatment -->
+          <!-- Image: 6-slide carousel with rich premium treatment.
+               Slides 4–6 added 2026-05-05 (drawn from the Hosted
+               Groups page marquee) — these JPGs already ship on the
+               site so the browser caches a single copy across both
+               pages. All non-active slides use loading="lazy" +
+               decoding="async" so they don't block initial paint. -->
           <div class="relative">
             <div class="hosted-groups-carousel relative rounded-lg overflow-hidden shadow-2xl aspect-[16/9] bg-navy/50">
 
@@ -772,6 +777,7 @@ const faqs = [
                   alt="A Hosted Group seated together at their reserved round table inside the Statesman&rsquo;s Concierge Area &mdash; American flags glowing on the back wall, candlelit dinner setting"
                   class="absolute inset-0 w-full h-full object-cover"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy/75 via-navy/35 to-transparent pointer-events-none"></div>
                 <p class="absolute bottom-3 left-4 right-4 text-white/95 text-[11px] sm:text-xs italic tracking-wide z-10">
@@ -785,6 +791,7 @@ const faqs = [
                   alt="A real Hosted Group at a recent All-American Inaugural Ball — friends gathered around a candlelit round table sharing dinner together"
                   class="absolute inset-0 w-full h-full object-cover"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy/75 via-navy/35 to-transparent pointer-events-none"></div>
                 <p class="absolute bottom-3 left-4 right-4 text-white/95 text-[11px] sm:text-xs italic tracking-wide z-10">
@@ -798,10 +805,53 @@ const faqs = [
                   alt="A formal group of guests and medal-recipient honorees on stage at a recent All-American Inaugural Ball — presidential seal and American flag projected behind them"
                   class="absolute inset-0 w-full h-full object-cover"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy/75 via-navy/35 to-transparent pointer-events-none"></div>
                 <p class="absolute bottom-3 left-4 right-4 text-white/95 text-[11px] sm:text-xs italic tracking-wide z-10">
                   Hosts and honorees, side by side &mdash; on the inaugural stage.
+                </p>
+              </div>
+
+              <div class="carousel-slide">
+                <img
+                  src="/images/event/reserved-table-jmu-alumni-signage.jpg"
+                  alt="JMU Alumni Hosted Group toasting at their reserved table beneath custom JMU Alumni signage"
+                  class="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy/75 via-navy/35 to-transparent pointer-events-none"></div>
+                <p class="absolute bottom-3 left-4 right-4 text-white/95 text-[11px] sm:text-xs italic tracking-wide z-10">
+                  JMU Alumni &mdash; your group&rsquo;s name on a custom table sign.
+                </p>
+              </div>
+
+              <div class="carousel-slide">
+                <img
+                  src="/images/event/reserved-table-formal-dinner.jpg"
+                  alt="Five guests sharing dinner at a candlelit round table beneath an American flag"
+                  class="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy/75 via-navy/35 to-transparent pointer-events-none"></div>
+                <p class="absolute bottom-3 left-4 right-4 text-white/95 text-[11px] sm:text-xs italic tracking-wide z-10">
+                  Reserved, candlelit, just for your group.
+                </p>
+              </div>
+
+              <div class="carousel-slide">
+                <img
+                  src="/images/event/reserved-table-hors-doeuvres.jpg"
+                  alt="A server presenting passed hors d'oeuvres to two guests in formal attire"
+                  class="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy/75 via-navy/35 to-transparent pointer-events-none"></div>
+                <p class="absolute bottom-3 left-4 right-4 text-white/95 text-[11px] sm:text-xs italic tracking-wide z-10">
+                  Premium hospitality, served at your table.
                 </p>
               </div>
 
@@ -816,6 +866,9 @@ const faqs = [
                 <button type="button" class="carousel-dot active" data-go="0" aria-label="Slide 1"></button>
                 <button type="button" class="carousel-dot" data-go="1" aria-label="Slide 2"></button>
                 <button type="button" class="carousel-dot" data-go="2" aria-label="Slide 3"></button>
+                <button type="button" class="carousel-dot" data-go="3" aria-label="Slide 4"></button>
+                <button type="button" class="carousel-dot" data-go="4" aria-label="Slide 5"></button>
+                <button type="button" class="carousel-dot" data-go="5" aria-label="Slide 6"></button>
               </div>
             </div>
             <!-- Gold corner accents -->
