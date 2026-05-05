@@ -92,8 +92,7 @@ const tickets = [
     futurePrice: "$3,000 / $5,000",
     id: "ticket-statesmans",
     description: "The Pinnacle Experience at VIP Reception and Ball — Elevated with Exclusive Access, Concierge Service, Personal Recognition, Official Event Gifts, and more.",
-    inheritsFrom: "Patriot VIP Ticket",
-    sectionIntro: "Plus These Elite Upgrades:",
+    sectionIntro: "<span class='block'>Everything in the Patriot VIP Ticket</span><span class='block mt-1'>Plus These Elite Upgrades:</span>",
     sections: [
       {
         heading: "Private Service – All Night",
@@ -711,11 +710,13 @@ const faqs = [
                   </div>
                 )}
 
-                {/* Umbrella heading above the categorized sections (e.g. "Plus These Elite Upgrades:") */}
+                {/* Umbrella heading above the categorized sections.
+                    Now rendered with set:html so it can contain
+                    multi-line markup (<span class="block">…</span>)
+                    when a tier wants both an inherits line and an
+                    upgrades line in a single combined heading. */}
                 {ticket.sectionIntro && (
-                  <p class={`text-sm font-extrabold tracking-wider uppercase mb-3 leading-snug ${ticket.highlight ? 'text-red' : 'text-gold'}`}>
-                    {ticket.sectionIntro}
-                  </p>
+                  <p class={`text-sm font-extrabold tracking-wider uppercase mb-3 leading-snug ${ticket.highlight ? 'text-red' : 'text-gold'}`} set:html={ticket.sectionIntro} />
                 )}
 
                 {/* Detail sections */}
