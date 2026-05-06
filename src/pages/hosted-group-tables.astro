@@ -27,21 +27,38 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
   >
 
     <!-- ============================================================ -->
-    <!-- HERO — navy bg, mirrors the Partners page hero pattern -->
-    <!-- (tightened: tagline moved into white intro, red divider removed) -->
+    <!-- HERO — image-led with gold title bar overlay.                -->
+    <!-- Background: a real Hosted Group entering the Private Hosted   -->
+    <!-- Area beneath custom Whitbeck Beglis Family Law signage.       -->
+    <!-- Gold bar overlays the image with the page title in navy.      -->
+    <!-- Image extends behind the fixed navbar; a soft top scrim       -->
+    <!-- keeps the navbar legible against bright/light parts of pic.  -->
     <!-- ============================================================ -->
-    <section class="relative pt-20 pb-10 sm:pt-24 sm:pb-12 bg-navy text-white overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-b from-navy-dark/90 to-navy"></div>
-      <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <!-- Eyebrow -->
-        <p class="text-white font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-7">
-          Maximize Your Statesman&rsquo;s Pass Experience
-        </p>
+    <section class="relative overflow-hidden">
+      <div class="relative w-full h-[440px] sm:h-[540px] md:h-[620px]">
+        <!-- Background image -->
+        <img
+          src="/images/event/header-hosted-groups-whitbeck-beglis.jpg"
+          alt="A Hosted Group from Whitbeck Beglis Family Law entering their Private Hosted Area beneath custom signage, with a sparkling star chandelier and patriotic ballroom decor in the background"
+          class="absolute inset-0 w-full h-full object-cover"
+          decoding="async"
+        />
+        <!-- Soft top scrim so the translucent navbar always reads. -->
+        <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-navy-dark/55 to-transparent pointer-events-none"></div>
 
-        <!-- H1 — same font and styling family as the Partners page H1 -->
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gold font-heading leading-tight">
-          Hosted Groups
-        </h1>
+        <!-- Gold title bar overlay — navy text on gold pill. Slightly
+             below center so the navbar + chandelier above stay visible
+             and the Whitbeck Beglis signage below stays readable. -->
+        <div class="absolute inset-0 flex items-center justify-center pt-16 sm:pt-20">
+          <div class="bg-gold py-5 sm:py-6 md:py-7 px-8 sm:px-14 md:px-20 text-center border-y-2 border-navy-dark/30 shadow-2xl">
+            <p class="text-navy-dark/85 font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-1.5">
+              Maximize Your Statesman&rsquo;s Pass Experience
+            </p>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-navy font-heading leading-tight">
+              Hosted Groups
+            </h1>
+          </div>
+        </div>
       </div>
     </section>
 
