@@ -38,35 +38,38 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
     <!-- <h1> text. Keep the rest identical for visual consistency.    -->
     <!-- ============================================================ -->
     <section class="relative overflow-hidden">
-      <!-- Hero container.
-           - aspect-[5/3] matches the source image (1620x971) so the
-             image is NEVER cropped at any viewport width.
-           - max-w-[1067px] mx-auto caps the box at the natural width
-             that produces a 640px-tall hero — past that point, the
-             liquid-blue page bg shows on the left and right as
-             elegant 'frame' bands.
-           Net result: image always fully visible, hero never taller
-           than ~640px on any screen, title pill always above-the-fold. -->
-      <div class="relative w-full max-w-[1067px] mx-auto aspect-[5/3]">
+      <!-- Hero container — Option C (Band-Aid until 16:9 source images
+           are available). Adaptive per breakpoint so the same 5:3 image
+           reads OK on every device:
+             • mobile portrait (default): aspect-[4/3] — short hero,
+               ~5% side crop only, group stays in frame.
+             • tablet (sm: 640+):         aspect-[5/3] — matches the
+               image exactly, NO cropping at any tablet width.
+             • desktop (lg: 1024+):       full-width with fixed height,
+               object-cover crops top/bottom but image bleeds to both
+               viewport edges (no side bands). Focal point is biased
+               slightly above center via object-position so the group
+               + sign stay visible while losing some chandelier/floor.
+           Title pill scales text-xl → text-3xl → text-4xl → text-5xl
+           so it never overwhelms the hero on small screens. -->
+      <div class="relative w-full aspect-[4/3] sm:aspect-[5/3] lg:aspect-auto lg:h-[560px] xl:h-[600px]">
         <!-- Background image -->
         <img
           src="/images/event/header-hosted-groups-whitbeck-beglis.jpg"
           alt="A Hosted Group from Whitbeck Beglis Family Law entering their Private Hosted Area beneath custom signage, with a sparkling star chandelier and patriotic ballroom decor in the background"
           class="absolute inset-0 w-full h-full object-cover"
+          style="object-position: center 38%;"
           decoding="async"
         />
         <!-- Soft top scrim so the translucent navbar always reads. -->
         <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-navy-dark/55 to-transparent pointer-events-none"></div>
 
-        <!-- LEFT-ANCHORED GOLD TITLE BANNER (smaller + lower on image).
-             - Flush with the left edge of the hero container.
-             - Anchored to the BOTTOM-left of the image so the chandelier
-               and ballroom backdrop above stay clean.
-             - Smaller padding + smaller title than v1 so the banner
-               doesn't dominate the hero. -->
-        <div class="absolute inset-y-0 left-0 flex items-end pb-6 sm:pb-10 md:pb-14 pointer-events-none">
-          <div class="bg-gradient-to-r from-gold to-[#f4d847] py-3 sm:py-4 md:py-5 pl-4 sm:pl-10 md:pl-16 lg:pl-24 pr-6 sm:pr-10 md:pr-14 border-y-2 border-r-2 border-navy-dark/35 rounded-r-2xl shadow-[0_14px_32px_-10px_rgba(0,0,0,0.55)] pointer-events-auto">
-            <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy font-heading leading-none tracking-tight">
+        <!-- LEFT-ANCHORED GOLD TITLE RIBBON.
+             Flush left, anchored to bottom-left, padding + font size
+             scale per breakpoint so the ribbon stays proportional. -->
+        <div class="absolute inset-y-0 left-0 flex items-end pb-4 sm:pb-8 md:pb-12 lg:pb-16 pointer-events-none">
+          <div class="bg-gradient-to-r from-gold to-[#f4d847] py-2.5 sm:py-3.5 md:py-4 lg:py-5 pl-3 sm:pl-8 md:pl-14 lg:pl-20 xl:pl-28 pr-5 sm:pr-8 md:pr-12 lg:pr-14 border-y-2 border-r-2 border-navy-dark/35 rounded-r-2xl shadow-[0_14px_32px_-10px_rgba(0,0,0,0.55)] pointer-events-auto">
+            <h1 class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy font-heading leading-none tracking-tight">
               Hosted Groups
             </h1>
           </div>
