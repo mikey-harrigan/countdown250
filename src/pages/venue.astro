@@ -22,13 +22,11 @@ const highlights = [
     style="background: radial-gradient(circle at 30% 30%, rgba(4, 61, 156, 0.45) 0%, transparent 55%), linear-gradient(135deg, #052058 0%, #002B77 50%, #043D9C 100%); background-attachment: fixed;"
   >
 
-  <!-- Spacer for fixed navbar.
-       Sized for the two-row navbar (main bar h-20 + event-identity bar):
-       mobile shows 3 stacked lines in the event bar so the navbar is
-       ~134px tall; sm+ shows 1 line and the navbar is ~110px tall.
-       pt-40 (160px) / sm:pt-32 (128px) clears both with 16px breathing
-       room. -->
-  <div class="pt-40 sm:pt-32"></div>
+  <!-- Spacer for fixed navbar + extra breathing room at top of page.
+       Navbar is ~134px on mobile (3-line event bar) / ~110px on sm+
+       (1-line event bar). pt-48 (192px) / sm:pt-40 (160px) gives
+       roughly 50–60px of breathing room above the first content. -->
+  <div class="pt-48 sm:pt-40"></div>
 
   <section id="venue" class="pb-20 sm:pb-28 ">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
