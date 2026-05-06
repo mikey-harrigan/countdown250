@@ -67,8 +67,17 @@ import Footer from '../components/Footer.astro';
           <p class="text-white/70 text-lg mb-6">
             We are currently accepting partnership and sponsorship inquiries. Multiple tiers of sponsorship are available to match your goals and budget.
           </p>
-          <a href="mailto:CountdownAmerica250@gmail.com?subject=Sponsorship%20Inquiry%20-%20Countdown%20250%20Ball" class="inline-block bg-red hover:bg-red-light text-white px-8 py-3 text-sm font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5">
-            Inquire About Sponsorship
+
+          <!-- Email CTA. The mailto opens the user's default email client
+               (with subject pre-filled). The email address is rendered as
+               visible text inside the button so it's still copy-able even
+               if the visitor doesn't have a default email client configured. -->
+          <p class="text-white/85 text-sm sm:text-base mb-3">To inquire, email us at:</p>
+          <a
+            href="mailto:CountdownAmerica250@gmail.com?subject=Sponsorship%20Inquiry%20-%20Countdown%20250%20Ball"
+            class="inline-block bg-red hover:bg-red-light text-white px-6 sm:px-8 py-3 text-sm sm:text-base font-semibold tracking-wide transition-all rounded shadow-lg hover:-translate-y-0.5 break-all"
+          >
+            CountdownAmerica250@gmail.com
           </a>
           <p class="text-white/40 text-sm mt-4">Official sponsor announcements coming soon.</p>
         </div>
