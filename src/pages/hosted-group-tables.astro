@@ -38,27 +38,17 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
     <!-- <h1> text. Keep the rest identical for visual consistency.    -->
     <!-- ============================================================ -->
     <section class="relative overflow-hidden">
-      <!-- Hero container — Option C (Band-Aid until 16:9 source images
-           are available). Adaptive per breakpoint so the same 5:3 image
-           reads OK on every device:
-             • mobile portrait (default): aspect-[4/3] — short hero,
-               ~5% side crop only, group stays in frame.
-             • tablet (sm: 640+):         aspect-[5/3] — matches the
-               image exactly, NO cropping at any tablet width.
-             • desktop (lg: 1024+):       full-width with fixed height,
-               object-cover crops top/bottom but image bleeds to both
-               viewport edges (no side bands). Focal point is biased
-               slightly above center via object-position so the group
-               + sign stay visible while losing some chandelier/floor.
-           Title pill scales text-xl → text-3xl → text-4xl → text-5xl
-           so it never overwhelms the hero on small screens. -->
-      <div class="relative w-full aspect-[4/3] sm:aspect-[5/3] lg:aspect-auto lg:h-[560px] xl:h-[600px]">
+      <!-- Hero container — uniform aspect-[16/9] across every viewport.
+           Source image is now true 16:9 (1672x941), so the image fills
+           the container perfectly at any width with NO cropping and
+           NO side bands. Hero bleeds to both viewport edges everywhere.
+           Title ribbon scales text-xl → text-5xl across breakpoints. -->
+      <div class="relative w-full aspect-[16/9]">
         <!-- Background image -->
         <img
           src="/images/event/header-hosted-groups-whitbeck-beglis.jpg"
           alt="A Hosted Group from Whitbeck Beglis Family Law entering their Private Hosted Area beneath custom signage, with a sparkling star chandelier and patriotic ballroom decor in the background"
           class="absolute inset-0 w-full h-full object-cover"
-          style="object-position: center 38%;"
           decoding="async"
         />
         <!-- Soft top scrim so the translucent navbar always reads. -->
