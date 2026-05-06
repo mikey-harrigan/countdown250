@@ -50,11 +50,19 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
            viewport shape — focal point in the middle of the image
            is always preserved. -->
       <div class="relative w-full h-[55vh] sm:h-[60vh] min-h-[320px] max-h-[680px]">
-        <!-- Background image -->
+        <!-- Background image. object-position 60% 30% biases the
+             visible window slightly RIGHT (so the Whitbeck Beglis sign
+             on the right stays in frame on portrait-phone crops) and
+             slightly UPWARD (so the sign top + group's heads stay
+             visible when wide-desktop crops top+bottom). Future
+             hero images should be composed with all critical content
+             in the center 60% of the frame so a default object-position
+             works without per-image biasing. -->
         <img
           src="/images/event/header-hosted-groups-whitbeck-beglis.jpg"
           alt="A Hosted Group from Whitbeck Beglis Family Law entering their Private Hosted Area beneath custom signage, with a sparkling star chandelier and patriotic ballroom decor in the background"
           class="absolute inset-0 w-full h-full object-cover"
+          style="object-position: 60% 30%;"
           decoding="async"
         />
         <!-- Soft top scrim so the translucent navbar always reads. -->
