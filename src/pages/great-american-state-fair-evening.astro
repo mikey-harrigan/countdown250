@@ -52,14 +52,36 @@ const faqs = [
     class="relative"
     style="background: radial-gradient(circle at 30% 30%, rgba(4, 61, 156, 0.45) 0%, transparent 55%), linear-gradient(135deg, #052058 0%, #002B77 50%, #043D9C 100%); background-attachment: fixed;"
   >
-    <!-- Hero -->
-    <section class="relative pt-32 pb-20 bg-navy text-white overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-b from-navy-dark/90 to-navy"></div>
-      <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
-        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">Great American State Fair Week</p>
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 font-heading leading-tight">
+    <!-- Hero — canonical image-led pattern with flag background -->
+    <section class="relative overflow-hidden">
+      <div class="relative w-full h-[55vh] sm:h-[60vh] min-h-[320px] max-h-[680px]">
+        <img
+          src="/images/event/header-flag.jpg"
+          alt="A close-up of the American flag, the stars on the blue field at the upper-left curving into the red and white stripes flowing across the frame"
+          class="absolute inset-0 w-full h-full object-cover"
+          decoding="async"
+        />
+        <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-navy-dark/55 to-transparent pointer-events-none"></div>
+        <div class="absolute inset-y-0 left-0 flex items-end pb-4 sm:pb-8 md:pb-12 lg:pb-16 pointer-events-none">
+          <div class="bg-gradient-to-r from-gold to-[#f4d847] py-2.5 sm:py-3.5 md:py-4 lg:py-5 pl-3 sm:pl-8 md:pl-14 lg:pl-20 xl:pl-28 pr-5 sm:pr-8 md:pr-12 lg:pr-14 border-y-2 border-r-2 border-navy-dark/35 rounded-r-2xl shadow-[0_14px_32px_-10px_rgba(0,0,0,0.55)] pointer-events-auto">
+            <h1 class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy font-heading leading-none tracking-tight">
+              GASF Evening
+            </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Eyebrow + subhead + hero CTAs (moved here from the hero overlay
+         2026-05-06 when the hero adopted the image-led pattern). -->
+    <section class="pt-12 pb-6 sm:pt-16 sm:pb-8">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <p class="text-white font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-4">
+          Great American State Fair Week
+        </p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gold mb-6 font-heading leading-tight">
           The Formal Evening Finale of Great American State Fair Week
-        </h1>
+        </h2>
         <p class="text-xl sm:text-2xl text-white/85 mb-8 max-w-3xl mx-auto leading-relaxed">
           While the Great American State Fair celebrates America&rsquo;s 250th by day on the National Mall,
           The Official Countdown 250 Ball delivers the black-tie evening finale &mdash; July 3, 2026, at the historic Washington Hilton.
@@ -72,7 +94,6 @@ const faqs = [
             How They Pair
           </a>
         </div>
-        <div class="w-20 h-1 bg-red mx-auto mt-10"></div>
       </div>
     </section>
 

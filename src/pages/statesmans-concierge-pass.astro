@@ -56,111 +56,28 @@ const faqs = [
   >
 
   <!-- ============================================================ -->
-  <!-- 1. HERO — Real ballroom stage photograph as the backdrop.   -->
-  <!-- The truss, fixtures, screens, and house are all photo —     -->
-  <!-- not CSS. A darkened overlay keeps the headline screen       -->
-  <!-- legible on top. Velvet curtains animate open on page load. -->
+  <!-- HERO — canonical image-led pattern with flag background.
+       (Previous custom 'stage screen' hero with ballroom-stage.jpg
+       backdrop and animated curtains was replaced 2026-05-06 to
+       align with the rest of the sub-pages.) -->
   <!-- ============================================================ -->
-  <section class="stage-hero relative min-h-screen flex items-center justify-center pt-32 pb-20 sm:pt-40 sm:pb-24 bg-[#040D1C] text-white overflow-hidden">
-
-    <!-- REAL STAGE PHOTOGRAPH — zoomed in on the back-of-house stage. -->
-    <img
-      src="/images/event/ballroom-stage.jpg"
-      alt=""
-      aria-hidden="true"
-      class="hero-stage-img absolute inset-0 w-full h-full object-cover"
-    />
-
-    <!-- Lighter overlay — let the stage read clearly through it -->
-    <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, rgba(4,13,28,0.40) 0%, rgba(11,31,58,0.25) 45%, rgba(2,6,15,0.75) 100%);"></div>
-    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.55) 100%);"></div>
-
-    <!-- Hairline gold proscenium edges (subtle, framing) -->
-    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E]/55 to-transparent z-[5]"></div>
-    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A44E]/55 to-transparent z-[5]"></div>
-
-    <!-- ============================================================ -->
-    <!-- THE SCREEN — sits ON the back-of-stage area in the photo. -->
-    <!-- Narrower so the actual stage shows on either side. -->
-    <!-- ============================================================ -->
-    <div class="relative z-20 max-w-2xl mx-auto px-6 sm:px-8 w-full -mt-8 sm:-mt-12">
-      <div class="stage-screen relative">
-        <!-- Top mounting cleat (the bar the screen hangs from) -->
-        <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-32 sm:w-40 h-1.5 bg-gradient-to-b from-[#3a3a3a] to-[#1a1a1a] rounded-sm shadow-md z-10"></div>
-        <!-- Two cables from cleat down into the screen frame -->
-        <div class="absolute -top-2 left-1/2 -translate-x-12 w-px h-3 bg-[#1a1a1a]"></div>
-        <div class="absolute -top-2 left-1/2 translate-x-12 w-px h-3 bg-[#1a1a1a]"></div>
-
-        <!-- The screen panel -->
-        <div class="screen-panel relative bg-gradient-to-b from-[#FBF6E0] via-[#F7F3E8] to-[#E8DAB0] border-[6px] border-[#C5A44E] rounded-sm shadow-[0_0_140px_rgba(255,220,150,0.55),0_35px_80px_rgba(0,0,0,0.75)]">
-          <!-- Backlit inner glow -->
-          <div class="absolute inset-0 pointer-events-none rounded-sm" style="box-shadow: inset 0 0 100px rgba(197,164,78,0.22);"></div>
-          <!-- Inner darker frame edge -->
-          <div class="absolute inset-0 pointer-events-none rounded-sm border border-[#9C7E2F]/40"></div>
-
-          <!-- Gold L-bracket corners -->
-          <span class="absolute -top-3 -left-3 w-7 h-7 border-t-2 border-l-2 border-[#C5A44E]"></span>
-          <span class="absolute -top-3 -right-3 w-7 h-7 border-t-2 border-r-2 border-[#C5A44E]"></span>
-          <span class="absolute -bottom-3 -left-3 w-7 h-7 border-b-2 border-l-2 border-[#C5A44E]"></span>
-          <span class="absolute -bottom-3 -right-3 w-7 h-7 border-b-2 border-r-2 border-[#C5A44E]"></span>
-
-          <!-- Screen content -->
-          <div class="relative px-6 py-12 sm:px-12 sm:py-16 md:px-14 md:py-20 text-center">
-            <!-- Headline -->
-            <h1 class="font-heading font-black text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-[#0B1F3A] leading-[1.1] tracking-tight mb-7 sm:mb-9">
-              Welcome to the<br />
-              <span class="text-[#C5A44E]">Statesman&rsquo;s Pass</span><br />
-              Info Page
-            </h1>
-
-            <!-- Gold ornament -->
-            <div class="flex items-center justify-center gap-3 sm:gap-4 mb-7 sm:mb-9">
-              <div class="w-12 sm:w-16 h-px bg-[#C5A44E]"></div>
-              <div class="w-2 h-2 bg-[#C5A44E] rotate-45"></div>
-              <div class="w-12 sm:w-16 h-px bg-[#C5A44E]"></div>
-            </div>
-
-            <!-- Subhead -->
-            <p class="font-heading italic text-[#163A70] text-lg sm:text-xl md:text-2xl font-medium tracking-wide mb-10 sm:mb-12">
-              For guests who expect the very best.
-            </p>
-
-            <!-- Two buttons inside the same screen -->
-            <div class="grid sm:grid-cols-2 gap-3 sm:gap-4 max-w-2xl mx-auto">
-              <a
-                href="#statesman"
-                class="screen-btn group inline-flex items-center justify-center gap-3 bg-[#0B1F3A] hover:bg-[#163A70] text-white border-2 border-[#C5A44E] rounded-sm px-5 py-4 text-[13px] sm:text-sm font-semibold tracking-wide transition-all hover:-translate-y-0.5 shadow-md leading-snug"
-              >
-                <span>What Is the Statesman&rsquo;s Pass?</span>
-                <svg class="w-3.5 h-3.5 flex-shrink-0 text-[#C5A44E] group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-              <a
-                href="#hosted-tables"
-                class="screen-btn group inline-flex items-center justify-center gap-3 bg-[#0B1F3A] hover:bg-[#163A70] text-white border-2 border-[#C5A44E] rounded-sm px-5 py-4 text-[13px] sm:text-sm font-semibold tracking-wide transition-all hover:-translate-y-0.5 shadow-md leading-snug"
-              >
-                <span>Party Inside the Party?</span>
-                <svg class="w-3.5 h-3.5 flex-shrink-0 text-[#C5A44E] group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-            </div>
-          </div>
+  <section class="relative overflow-hidden">
+    <div class="relative w-full h-[55vh] sm:h-[60vh] min-h-[320px] max-h-[680px]">
+      <img
+        src="/images/event/header-flag.jpg"
+        alt="A close-up of the American flag, the stars on the blue field at the upper-left curving into the red and white stripes flowing across the frame"
+        class="absolute inset-0 w-full h-full object-cover"
+        decoding="async"
+      />
+      <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-navy-dark/55 to-transparent pointer-events-none"></div>
+      <div class="absolute inset-y-0 left-0 flex items-end pb-4 sm:pb-8 md:pb-12 lg:pb-16 pointer-events-none">
+        <div class="bg-gradient-to-r from-gold to-[#f4d847] py-2.5 sm:py-3.5 md:py-4 lg:py-5 pl-3 sm:pl-8 md:pl-14 lg:pl-20 xl:pl-28 pr-5 sm:pr-8 md:pr-12 lg:pr-14 border-y-2 border-r-2 border-navy-dark/35 rounded-r-2xl shadow-[0_14px_32px_-10px_rgba(0,0,0,0.55)] pointer-events-auto">
+          <h1 class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy font-heading leading-none tracking-tight">
+            Statesman&rsquo;s Concierge Pass
+          </h1>
         </div>
-
-        <!-- Cast shadow on the stage floor below the screen -->
-        <div class="absolute -bottom-6 left-[8%] right-[8%] h-4 pointer-events-none rounded-full" style="background: radial-gradient(ellipse, rgba(0,0,0,0.55) 0%, transparent 70%); filter: blur(8px);"></div>
       </div>
     </div>
-
-    <!-- ============================================================ -->
-    <!-- RED VELVET CURTAINS — animate open on page load. -->
-    <!-- Each curtain starts at 50% width covering its half of the -->
-    <!-- stage; CSS animation slides them off to the wings. -->
-    <!-- ============================================================ -->
-    <div class="curtain curtain-velvet curtain-left absolute top-0 bottom-0 left-0 w-1/2 z-50 pointer-events-none"></div>
-    <div class="curtain curtain-velvet curtain-right absolute top-0 bottom-0 right-0 w-1/2 z-50 pointer-events-none"></div>
   </section>
 
   <!-- ============================================================ -->

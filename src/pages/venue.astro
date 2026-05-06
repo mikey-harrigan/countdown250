@@ -22,13 +22,29 @@ const highlights = [
     style="background: radial-gradient(circle at 30% 30%, rgba(4, 61, 156, 0.45) 0%, transparent 55%), linear-gradient(135deg, #052058 0%, #002B77 50%, #043D9C 100%); background-attachment: fixed;"
   >
 
-  <!-- Spacer for fixed navbar + extra breathing room at top of page.
-       Navbar is ~134px on mobile (3-line event bar) / ~110px on sm+
-       (1-line event bar). pt-48 (192px) / sm:pt-40 (160px) gives
-       roughly 50–60px of breathing room above the first content. -->
-  <div class="pt-48 sm:pt-40"></div>
+  <!-- Hero — canonical image-led pattern with flag background.
+       (Previously this page started with a pt-48/40 spacer + content;
+       added a hero in line with all other sub-pages 2026-05-06.) -->
+  <section class="relative overflow-hidden">
+    <div class="relative w-full h-[55vh] sm:h-[60vh] min-h-[320px] max-h-[680px]">
+      <img
+        src="/images/event/header-flag.jpg"
+        alt="A close-up of the American flag, the stars on the blue field at the upper-left curving into the red and white stripes flowing across the frame"
+        class="absolute inset-0 w-full h-full object-cover"
+        decoding="async"
+      />
+      <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-navy-dark/55 to-transparent pointer-events-none"></div>
+      <div class="absolute inset-y-0 left-0 flex items-end pb-4 sm:pb-8 md:pb-12 lg:pb-16 pointer-events-none">
+        <div class="bg-gradient-to-r from-gold to-[#f4d847] py-2.5 sm:py-3.5 md:py-4 lg:py-5 pl-3 sm:pl-8 md:pl-14 lg:pl-20 xl:pl-28 pr-5 sm:pr-8 md:pr-12 lg:pr-14 border-y-2 border-r-2 border-navy-dark/35 rounded-r-2xl shadow-[0_14px_32px_-10px_rgba(0,0,0,0.55)] pointer-events-auto">
+          <h1 class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy font-heading leading-none tracking-tight">
+            Venue
+          </h1>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <section id="venue" class="pb-20 sm:pb-28 ">
+  <section id="venue" class="pt-12 pb-20 sm:pt-16 sm:pb-28 ">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
         <!-- Image -->
@@ -46,7 +62,7 @@ const highlights = [
         <!-- Text -->
         <div class="order-1 md:order-2">
           <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">A Hotel Where History Happens</p>
-          <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gold mb-6 font-heading">The Washington Hilton</h1>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gold mb-6 font-heading">The Washington Hilton</h2>
           <div class="w-16 h-1 bg-red mb-8"></div>
 
           <p class="text-lg text-white/90 leading-relaxed mb-4">
