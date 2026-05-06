@@ -38,10 +38,16 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
     <!-- <h1> text. Keep the rest identical for visual consistency.    -->
     <!-- ============================================================ -->
     <section class="relative overflow-hidden">
-      <!-- Container aspect ratio matches the source image (1620x971 ≈ 5:3),
-           so object-cover never crops top/bottom or sides at any viewport
-           width. Image always shows in full. -->
-      <div class="relative w-full aspect-[5/3]">
+      <!-- Hero container.
+           - aspect-[5/3] matches the source image (1620x971) so the
+             image is NEVER cropped at any viewport width.
+           - max-w-[1067px] mx-auto caps the box at the natural width
+             that produces a 640px-tall hero — past that point, the
+             liquid-blue page bg shows on the left and right as
+             elegant 'frame' bands.
+           Net result: image always fully visible, hero never taller
+           than ~640px on any screen, title pill always above-the-fold. -->
+      <div class="relative w-full max-w-[1067px] mx-auto aspect-[5/3]">
         <!-- Background image -->
         <img
           src="/images/event/header-hosted-groups-whitbeck-beglis.jpg"
@@ -53,9 +59,9 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
         <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-navy-dark/55 to-transparent pointer-events-none"></div>
 
         <!-- LEFT-ANCHORED GOLD TITLE BANNER (smaller + lower on image).
-             - Flush with the left edge of the viewport.
-             - Anchored to the BOTTOM-left of the image (items-end + pb-X)
-               so the chandelier and ballroom backdrop above stay clean.
+             - Flush with the left edge of the hero container.
+             - Anchored to the BOTTOM-left of the image so the chandelier
+               and ballroom backdrop above stay clean.
              - Smaller padding + smaller title than v1 so the banner
                doesn't dominate the hero. -->
         <div class="absolute inset-y-0 left-0 flex items-end pb-6 sm:pb-10 md:pb-14 pointer-events-none">
