@@ -193,21 +193,27 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
   >
 
     <!-- ============================================================ -->
-    <!-- HERO — navy bg with gold headline, mirrors Partners/Hosted hero -->
+    <!-- HERO — canonical sub-page pattern (same as hosted-group-tables). -->
+    <!-- 16:9 image bleeds to all viewport edges, gold title ribbon       -->
+    <!-- anchored bottom-left, soft top scrim for navbar legibility.      -->
     <!-- ============================================================ -->
-    <section class="relative pt-32 pb-20 bg-navy text-white overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-b from-navy-dark/90 to-navy"></div>
-      <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <p class="text-white font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-4">
-          Independence Eve Entertainment &middot; July 3, 2026
-        </p>
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gold font-heading leading-tight mb-4">
-          Entertainment
-        </h1>
-        <p class="text-white font-heading italic text-lg sm:text-xl md:text-2xl">
-          A celebration for the ages.
-        </p>
-        <div class="w-20 h-1 bg-red mx-auto mt-6"></div>
+    <section class="relative overflow-hidden">
+      <div class="relative w-full aspect-[16/9]">
+        <img
+          src="/images/event/header-entertainment-stage-crowd.jpg"
+          alt="A band performing on a brightly lit stage with the crowd's raised hands silhouetted in the foreground and confetti exploding overhead"
+          class="absolute inset-0 w-full h-full object-cover"
+          decoding="async"
+        />
+        <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-navy-dark/55 to-transparent pointer-events-none"></div>
+
+        <div class="absolute inset-y-0 left-0 flex items-end pb-4 sm:pb-8 md:pb-12 lg:pb-16 pointer-events-none">
+          <div class="bg-gradient-to-r from-gold to-[#f4d847] py-2.5 sm:py-3.5 md:py-4 lg:py-5 pl-3 sm:pl-8 md:pl-14 lg:pl-20 xl:pl-28 pr-5 sm:pr-8 md:pr-12 lg:pr-14 border-y-2 border-r-2 border-navy-dark/35 rounded-r-2xl shadow-[0_14px_32px_-10px_rgba(0,0,0,0.55)] pointer-events-auto">
+            <h1 class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy font-heading leading-none tracking-tight">
+              Entertainment
+            </h1>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -216,6 +222,15 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
     <!-- ============================================================ -->
     <section class="pt-12 pb-10 sm:pt-16 sm:pb-12">
       <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <!-- Eyebrow + italic subhead (moved here from the hero overlay
+             2026-05-06 when the hero adopted the image-led pattern). -->
+        <p class="text-white font-bold tracking-[0.3em] uppercase text-xs sm:text-sm text-center mb-3">
+          Independence Eve Entertainment &middot; July 3, 2026
+        </p>
+        <p class="text-gold font-heading italic text-xl sm:text-2xl font-light tracking-wide text-center mb-8">
+          A celebration for the ages.
+        </p>
+
         <div class="space-y-5 text-white/90 text-base sm:text-lg leading-relaxed">
           <p>
             For decades, the <strong class="text-gold">All-American Balls</strong> have been the go-to celebrations for landmark moments in American history &mdash; and the Countdown 250 Ball is set to be our <strong class="text-gold">most spectacular event ever</strong>.
