@@ -198,7 +198,9 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
     <!-- anchored bottom-left, soft top scrim for navbar legibility.      -->
     <!-- ============================================================ -->
     <section class="relative overflow-hidden">
-      <div class="relative w-full aspect-[16/9]">
+      <!-- Hero container — viewport-HEIGHT based so the hero always fits
+           the user's screen (see hosted-group-tables for full notes). -->
+      <div class="relative w-full h-[55vh] sm:h-[60vh] min-h-[320px] max-h-[680px]">
         <img
           src="/images/event/header-entertainment-stage-crowd.jpg"
           alt="A band performing on a brightly lit stage with the crowd's raised hands silhouetted in the foreground and confetti exploding overhead"

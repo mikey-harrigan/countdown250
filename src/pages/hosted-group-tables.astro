@@ -38,12 +38,18 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
     <!-- <h1> text. Keep the rest identical for visual consistency.    -->
     <!-- ============================================================ -->
     <section class="relative overflow-hidden">
-      <!-- Hero container — uniform aspect-[16/9] across every viewport.
-           Source image is now true 16:9 (1672x941), so the image fills
-           the container perfectly at any width with NO cropping and
-           NO side bands. Hero bleeds to both viewport edges everywhere.
-           Title ribbon scales text-xl → text-5xl across breakpoints. -->
-      <div class="relative w-full aspect-[16/9]">
+      <!-- Hero container — viewport-HEIGHT based so the hero is
+           always proportional to what the user can see:
+             • h-[55vh] on phones, h-[60vh] on tablet+
+             • min-h-[320px] so phone hero never feels cramped under
+               the navbar
+             • max-h-[680px] so wide desktops don't push the title
+               pill below the fold
+           Image bleeds to both viewport edges. Some edge cropping
+           (10–25%) is the cost of fitting a 16:9 image into every
+           viewport shape — focal point in the middle of the image
+           is always preserved. -->
+      <div class="relative w-full h-[55vh] sm:h-[60vh] min-h-[320px] max-h-[680px]">
         <!-- Background image -->
         <img
           src="/images/event/header-hosted-groups-whitbeck-beglis.jpg"
