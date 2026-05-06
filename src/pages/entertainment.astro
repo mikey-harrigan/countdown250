@@ -69,11 +69,9 @@ import Footer from '../components/Footer.astro';
           <p class="text-white/40 text-sm">Follow us on social media and check our <a href="/updates/" class="text-gold hover:text-gold/80 underline">News & Updates</a> page for the latest announcements.</p>
         </div>
 
-        <div class="text-center mt-12">
-          <a href="/#tickets" class="inline-block bg-red hover:bg-red-light text-white px-8 py-3 text-sm font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5">
-            Get Your Tickets
-          </a>
-        </div>
+        {/* Removed page-level 'Get Your Tickets' button — the Footer's
+            larger 'Get Tickets' CTA appears right below this section
+            already, so the page-level button was duplicate stacking. */}
       </div>
     </section>
   </main>
