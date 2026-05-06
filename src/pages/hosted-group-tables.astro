@@ -38,7 +38,10 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
     <!-- <h1> text. Keep the rest identical for visual consistency.    -->
     <!-- ============================================================ -->
     <section class="relative overflow-hidden">
-      <div class="relative w-full h-[440px] sm:h-[540px] md:h-[620px]">
+      <!-- Container aspect ratio matches the source image (1620x971 ≈ 5:3),
+           so object-cover never crops top/bottom or sides at any viewport
+           width. Image always shows in full. -->
+      <div class="relative w-full aspect-[5/3]">
         <!-- Background image -->
         <img
           src="/images/event/header-hosted-groups-whitbeck-beglis.jpg"
@@ -47,17 +50,17 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
           decoding="async"
         />
         <!-- Soft top scrim so the translucent navbar always reads. -->
-        <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-navy-dark/55 to-transparent pointer-events-none"></div>
+        <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-navy-dark/55 to-transparent pointer-events-none"></div>
 
-        <!-- LEFT-ANCHORED GOLD TITLE BANNER.
-             Banner is flush with the left edge of the viewport
-             (no left padding, no left border, no left rounding).
-             Rounded right edge + 2px navy border on top/right/bottom
-             gives the polished ribbon shape. Vertical-center'd within
-             the hero with a small top offset for navbar clearance. -->
-        <div class="absolute inset-y-0 left-0 flex items-center pt-12 sm:pt-16 pointer-events-none">
-          <div class="bg-gradient-to-r from-gold to-[#f4d847] py-5 sm:py-7 md:py-9 pl-6 sm:pl-12 md:pl-20 lg:pl-28 pr-10 sm:pr-14 md:pr-20 border-y-2 border-r-2 border-navy-dark/35 rounded-r-2xl shadow-[0_18px_40px_-12px_rgba(0,0,0,0.55)] pointer-events-auto">
-            <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold text-navy font-heading leading-none tracking-tight">
+        <!-- LEFT-ANCHORED GOLD TITLE BANNER (smaller + lower on image).
+             - Flush with the left edge of the viewport.
+             - Anchored to the BOTTOM-left of the image (items-end + pb-X)
+               so the chandelier and ballroom backdrop above stay clean.
+             - Smaller padding + smaller title than v1 so the banner
+               doesn't dominate the hero. -->
+        <div class="absolute inset-y-0 left-0 flex items-end pb-6 sm:pb-10 md:pb-14 pointer-events-none">
+          <div class="bg-gradient-to-r from-gold to-[#f4d847] py-3 sm:py-4 md:py-5 pl-4 sm:pl-10 md:pl-16 lg:pl-24 pr-6 sm:pr-10 md:pr-14 border-y-2 border-r-2 border-navy-dark/35 rounded-r-2xl shadow-[0_14px_32px_-10px_rgba(0,0,0,0.55)] pointer-events-auto">
+            <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy font-heading leading-none tracking-tight">
               Hosted Groups
             </h1>
           </div>
