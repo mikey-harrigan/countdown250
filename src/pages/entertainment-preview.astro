@@ -1,0 +1,399 @@
+---
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+/*
+ * ENTERTAINMENT PREVIEW PAGE
+ * ----------------------------------------------------------------
+ * Format adapted from the All-American Inaugural Ball entertainment
+ * page (allamericanball.com/entertainment-2/), re-themed for the
+ * Countdown 250 Ball brand:
+ *   - Liquid-blue page bg (sampled from the seal logo)
+ *   - Gold/navy/red palette
+ *   - July 3, 2026 / Washington Hilton / midnight countdown framing
+ *
+ * Per Mike (2026-05-05): "assume we have all the same performers,
+ * entertainment zones, etc for this event as we had for the
+ * inaugural ball." — using inaugural lineup as placeholder content
+ * so the structure can be reviewed before swapping in final names.
+ *
+ * Excluded from sitemap via astro.config.mjs filter.
+ */
+
+// Entertainment Zones — 6 themed party rooms.
+// Names lightly adapted from inaugural's zones for Countdown 250 brand.
+const zones = [
+  {
+    name: "All-American Hero Ballroom",
+    note: "Live music, DJs, and the All-American Hero Lifetime Achievement Awards",
+    icon: "&#9733;",
+    description: "The flagship room. Multiple live bands rotate across the main stage, the All-American Hero Lifetime Achievement Awards are presented here, and the signature midnight countdown unfolds beneath a 30-foot gold seal.",
+  },
+  {
+    name: "Decades Dance Club",
+    note: "70s &mdash; 80s &mdash; 90s &mdash; 2000s hits all night",
+    icon: "&#9835;",
+    description: "Disco lights, retro vibes, and four decades of crowd-favorite hits, mixed by a high-energy DJ who keeps the floor moving from Donna Summer to Beyoncé.",
+  },
+  {
+    name: "Modern Dance Club",
+    note: "Today&rsquo;s top hits and club bangers",
+    icon: "&#9836;",
+    description: "A second dance floor for current chart hits, EDM, and modern club music. Perfect for guests who want what&rsquo;s on the radio right now.",
+  },
+  {
+    name: "Interactive Zone",
+    note: "Hands-on activations &amp; the live broadcast studio",
+    icon: "&#9728;",
+    description: "Roaming entertainers, a paparazzi photo experience, immersive 250th-anniversary activations, and the live VETS TV broadcast studio capturing the night for veterans nationwide.",
+  },
+  {
+    name: "Patriot VIP Lounge",
+    note: "Reception-style for Patriot VIP and Statesman&rsquo;s guests",
+    icon: "&#9670;",
+    description: "Cocktail-style lounge with Rat-Pack-era live music, premium open bar, and elevated hors d&rsquo;oeuvres. Open during the 7&ndash;9 PM VIP Reception and again later in the evening.",
+  },
+  {
+    name: "Statesman&rsquo;s Concierge Lounge",
+    note: "Reserved exclusively for Statesman&rsquo;s Concierge Pass holders",
+    icon: "&#10022;",
+    description: "Premium reserved seating, personal concierge service, top-shelf bar, and quiet luxury. Where Hosted Groups gather, distinguished guests mingle, and the Toast to the Hosts ceremony takes place.",
+  },
+];
+
+// Entertainment Lineup — placeholder roster carried over from
+// the inaugural ball. Swap names/photos as confirmations come in.
+const performers = [
+  {
+    name: "Sean Spicer",
+    role: "Master of Ceremonies",
+    img: "",
+    bio: "Former White House Press Secretary turned media personality and host. Bringing his trademark sharp wit and unmistakable Washington presence as MC for the evening.",
+  },
+  {
+    name: "Buzz Aldrin",
+    role: "Honored Guest",
+    img: "/images/event/buzz-aldrin.png",
+    bio: "Apollo 11 astronaut, second person to walk on the moon, and lifelong American icon. Joining us as one of the night&rsquo;s honored guests.",
+  },
+  {
+    name: "Lee Greenwood",
+    role: "Patriotic Country Performance",
+    img: "/images/event/lee-greenwood-hero.jpg",
+    bio: "Country music legend behind &ldquo;God Bless the U.S.A.&rdquo; A signature voice of American patriotism for over four decades.",
+  },
+  {
+    name: "Thunderball",
+    role: "Live Band &mdash; Main Stage",
+    img: "",
+    bio: "Maryland&rsquo;s premier party band. Twelve-piece ensemble covering rock, pop, R&amp;B, and dance hits across every era. Perennial Capitol-region favorite.",
+  },
+  {
+    name: "The Sicilian Tenors",
+    role: "Opera &amp; Broadway",
+    img: "",
+    bio: "Award-winning operatic trio blending Italian classics, Broadway showstoppers, and patriotic standards. A featured Tribute to America performance.",
+  },
+  {
+    name: "Julian Awari",
+    role: "National Anthem",
+    img: "",
+    bio: "Air Force veteran and powerhouse vocalist. Performs the National Anthem to open the evening&rsquo;s formal program.",
+  },
+  {
+    name: "Mark Fletcher",
+    role: "Featured Vocalist",
+    img: "",
+    bio: "Veteran entertainer with deep roots in military and civic celebrations. A favorite at All-American events.",
+  },
+  {
+    name: "Doug Segree",
+    role: "Acoustic / Rock / Pop",
+    img: "",
+    bio: "Twenty-five years on the stage, mixing acoustic favorites with rock and pop crowd-pleasers. Featured in the Patriot VIP Lounge.",
+  },
+  {
+    name: "JJ Rupp",
+    role: "Country / Rock / Blues",
+    img: "",
+    bio: "Pennsylvania-born singer-songwriter blending country, rock, and blues with a Springsteen-meets-Garth-Brooks energy.",
+  },
+  {
+    name: "Matt Oakley",
+    role: "Emerging Country Artist",
+    img: "",
+    bio: "Rising country talent with multiple Spotify editorial placements. Bringing a fresh Nashville sound to the Decades Dance Club stage.",
+  },
+  {
+    name: "Dan Sch&oslash;ener",
+    role: "Mentalist &amp; Mind-Reader",
+    img: "",
+    bio: "World-class mentalist who blends psychology, humor, and apparent mind-reading into can&rsquo;t-look-away performances. Roaming throughout the Interactive Zone.",
+  },
+  {
+    name: "DJ Freedom",
+    role: "Multi-Genre DJ",
+    img: "/images/misc/dj-cartoon.jpg",
+    bio: "Multi-genre DJ taking requests all night. Spinning between sets in the All-American Hero Ballroom and the Modern Dance Club.",
+  },
+  {
+    name: "DJ Tharp",
+    role: "Modern Dance Club",
+    img: "",
+    bio: "Resident DJ for the Modern Dance Club. High-energy mixing of today&rsquo;s biggest hits, club anthems, and festival drops.",
+  },
+  {
+    name: "VETS TV",
+    role: "Official Live Broadcaster",
+    img: "/images/misc/usvets-logo.jpg",
+    bio: "Veteran-focused network broadcasting the evening live for our nation&rsquo;s service members and their families. Sixth consecutive year as our official broadcast partner.",
+  },
+];
+
+// Special Features — the moments that make this event unique vs.
+// any other gala. These get prominent treatment near the bottom.
+const specialFeatures = [
+  {
+    icon: "&#10022;",
+    title: "Midnight Countdown to America&rsquo;s 250th",
+    blurb: "The signature moment. At the stroke of midnight on July 3rd into July 4th, 3,000 guests count down together to the exact instant America enters its 250th year. Multi-sensory production with patriotic music, lights, and a synchronized confetti cascade.",
+  },
+  {
+    icon: "&#9733;",
+    title: "All-American Hero Lifetime Achievement Awards",
+    blurb: "Inaugural presentation of the All-American Hero Lifetime Achievement Awards, recognizing extraordinary Americans whose courage, leadership, and selfless service have strengthened our nation. A live ceremony in the All-American Hero Ballroom.",
+  },
+  {
+    icon: "&#9836;",
+    title: "Tribute to America &mdash; 250 Years",
+    blurb: "An original Tribute to America featuring The Sicilian Tenors, a color guard processional, and a multi-decade musical journey through 250 years of American history. Performed once in the evening.",
+  },
+  {
+    icon: "&#9728;",
+    title: "Roaming Entertainers &amp; Immersive Experiences",
+    blurb: "Throughout the night, roaming entertainers, a paparazzi photo experience, and immersive 250th-anniversary activations bring the event to life across all six ballrooms.",
+  },
+];
+
+const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
+---
+
+<BaseLayout
+  title="Entertainment Preview &mdash; The Official Countdown 250 Ball | July 3, 2026"
+  description="Preview of the entertainment lineup for the Countdown 250 Ball — six ballrooms, four stages, headline performers, the All-American Hero Lifetime Achievement Awards, and the signature midnight countdown to America's 250th."
+  ogImage="/images/event/ballroom-crowd.jpg"
+>
+  <Navbar />
+
+  <main
+    class="relative"
+    style="background: radial-gradient(circle at 30% 30%, rgba(4, 61, 156, 0.45) 0%, transparent 55%), linear-gradient(135deg, #052058 0%, #002B77 50%, #043D9C 100%); background-attachment: fixed;"
+  >
+
+    <!-- ============================================================ -->
+    <!-- HERO — navy bg with gold headline, mirrors Partners/Hosted hero -->
+    <!-- ============================================================ -->
+    <section class="relative pt-32 pb-20 bg-navy text-white overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-navy-dark/90 to-navy"></div>
+      <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <p class="text-white font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-4">
+          Independence Eve Entertainment &middot; July 3, 2026
+        </p>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gold font-heading leading-tight mb-4">
+          Entertainment
+        </h1>
+        <p class="text-white font-heading italic text-lg sm:text-xl md:text-2xl">
+          A celebration for the ages.
+        </p>
+        <div class="w-20 h-1 bg-red mx-auto mt-6"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- INTRO — sets the scene -->
+    <!-- ============================================================ -->
+    <section class="pt-12 pb-10 sm:pt-16 sm:pb-12">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="space-y-5 text-white/90 text-base sm:text-lg leading-relaxed">
+          <p>
+            The Countdown 250 Ball is the formal evening finale of America&rsquo;s 250th anniversary weekend. On the night of <strong class="text-gold">July 3, 2026</strong>, the historic <strong class="text-gold">Washington Hilton</strong> will be transformed into a patriotic wonderland for <strong class="text-gold">3,000 guests</strong>.
+          </p>
+          <p>
+            <strong class="text-gold">Six grand ballrooms.</strong> <strong class="text-gold">Four live stages.</strong> <strong class="text-gold">Three dance floors.</strong> Premium open bars all night, gourmet cuisine, roaming entertainers, immersive experiences, and a once-in-a-generation midnight countdown to the exact instant America enters its 250th year.
+          </p>
+          <p>
+            From the National Anthem at 7 PM to the final notes after midnight, every moment is designed to deliver a celebration of a lifetime.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- NON-STOP ENTERTAINMENT — gold-bordered callout box -->
+    <!-- ============================================================ -->
+    <section class="py-8 sm:py-10">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="rounded-xl overflow-hidden border border-gold/40 shadow-[0_0_28px_rgba(197,164,78,0.20)]">
+          <div class="bg-gold py-4 sm:py-5 px-6 text-center">
+            <p class="text-navy-dark font-bold tracking-[0.3em] uppercase text-xs sm:text-sm">
+              Non-Stop Entertainment
+            </p>
+          </div>
+          <div class="bg-gradient-to-br from-navy-dark via-navy to-navy-dark p-7 sm:p-8 md:p-10 text-white">
+            <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-[15px] sm:text-base leading-snug">
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span><strong class="font-semibold text-white">6 ballrooms</strong> &amp; party zones</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span><strong class="font-semibold text-white">4 live stages</strong> with rotating performers</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span><strong class="font-semibold text-white">3 dance floors</strong> all night</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span><strong class="font-semibold text-white">Premium open bars</strong> for every guest</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span><strong class="font-semibold text-white">Gourmet cuisine</strong> &amp; first-class service</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span><strong class="font-semibold text-white">Stunning patriotic decor</strong> throughout</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span><strong class="font-semibold text-white">Roaming entertainers</strong> &amp; immersive experiences</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span><strong class="font-semibold text-white">Live broadcast</strong> for our nation&rsquo;s veterans</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 6 PARTY ZONES — grid of zone cards -->
+    <!-- ============================================================ -->
+    <section class="py-12 sm:py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10 sm:mb-12">
+          <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-3">
+            Six Themed Party Zones
+          </p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gold font-heading leading-tight mb-3">
+            Every Floor, A Different Energy
+          </h2>
+          <div class="w-16 h-1 bg-red mx-auto"></div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          {zones.map((z) => (
+            <div class="bg-cream rounded-xl p-6 sm:p-7 border border-gold/30 shadow-md flex flex-col">
+              <p class="text-gold text-2xl mb-3 leading-none" set:html={z.icon} />
+              <h3 class="font-heading font-bold text-xl sm:text-2xl text-navy mb-1.5 leading-tight">{z.name}</h3>
+              <p class="text-red font-semibold text-sm tracking-wide mb-4" set:html={z.note} />
+              <p class="text-slate text-sm sm:text-[15px] leading-relaxed" set:html={z.description} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ENTERTAINMENT LINEUP — performer card grid -->
+    <!-- ============================================================ -->
+    <section class="py-12 sm:py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10 sm:mb-12 max-w-3xl mx-auto">
+          <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-3">
+            The 2026 Lineup &mdash; So Far
+          </p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gold font-heading leading-tight mb-4">
+            Headliners &amp; Featured Performers
+          </h2>
+          <div class="w-16 h-1 bg-red mx-auto mb-6"></div>
+          <p class="text-white/85 text-base sm:text-lg leading-relaxed">
+            This page will be updated regularly as additional performers are confirmed.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          {performers.map((p) => (
+            <div class="bg-cream rounded-xl overflow-hidden border border-gold/30 shadow-md flex flex-col">
+              {/* Image area — falls back to a navy gradient placeholder when
+                  no image is available yet. */}
+              {p.img ? (
+                <div class="aspect-[4/3] overflow-hidden bg-navy/50">
+                  <img src={p.img} alt={p.name} class="w-full h-full object-cover" loading="lazy" decoding="async" />
+                </div>
+              ) : (
+                <div class="aspect-[4/3] bg-gradient-to-br from-navy-dark via-navy to-navy-light flex items-center justify-center">
+                  <span class="text-gold/60 text-5xl font-heading italic">{p.name.charAt(0)}</span>
+                </div>
+              )}
+              <div class="p-5 sm:p-6 flex flex-col flex-1">
+                <h3 class="font-heading font-bold text-lg sm:text-xl text-navy mb-1 leading-tight" set:html={p.name} />
+                <p class="text-red font-semibold text-xs tracking-[0.12em] uppercase mb-3" set:html={p.role} />
+                <p class="text-slate text-sm leading-relaxed" set:html={p.bio} />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Coming-soon teaser */}
+        <div class="text-center mt-12 sm:mt-14">
+          <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-2">
+            More Announcements Coming Soon
+          </p>
+          <p class="text-white/85 text-base sm:text-lg max-w-2xl mx-auto">
+            Headliner reveals, additional performers, and the full Tribute to America program will be announced in the coming weeks.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SPECIAL FEATURES — moments that make this event unique -->
+    <!-- ============================================================ -->
+    <section class="py-12 sm:py-16">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10 sm:mb-12">
+          <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-3">
+            Signature Moments
+          </p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gold font-heading leading-tight mb-3">
+            Once-in-a-Generation
+          </h2>
+          <div class="w-16 h-1 bg-red mx-auto"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5 sm:gap-6">
+          {specialFeatures.map((f) => (
+            <div class="bg-gradient-to-br from-navy-dark via-navy to-navy-dark border border-gold/30 rounded-xl p-7 sm:p-8 shadow-md">
+              <p class="text-gold text-3xl mb-3 leading-none" set:html={f.icon} />
+              <h3 class="font-heading font-bold text-xl sm:text-2xl text-gold mb-3 leading-tight" set:html={f.title} />
+              <p class="text-white/85 text-sm sm:text-base leading-relaxed" set:html={f.blurb} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CLOSING CTA — navy rounded card on liquid blue (Partners pattern) -->
+    <!-- ============================================================ -->
+    <section class="py-14 sm:py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="bg-navy rounded-2xl p-8 sm:p-10 text-center">
+          <svg class="w-12 h-12 text-gold mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+          </svg>
+          <h3 class="text-2xl sm:text-3xl font-bold text-gold mb-3 font-heading">Be in the Room When It Happens</h3>
+          <p class="text-white/85 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-7">
+            Three thousand seats. Six ballrooms. One unforgettable night. Reserve your place at the celebration of a lifetime.
+          </p>
+          <a
+            href={ticketUrl}
+            class="eventbrite-checkout inline-block bg-red hover:bg-red-light text-white px-8 py-3 text-sm sm:text-base font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+          >
+            Get Your Tickets
+          </a>
+        </div>
+
+        <div class="text-center mt-10">
+          <a href="/" class="inline-block bg-white border-2 border-navy text-navy hover:bg-navy hover:text-white px-8 py-3 text-sm font-semibold tracking-wider uppercase transition-all rounded hover:-translate-y-0.5">
+            Back to Home
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</BaseLayout>
