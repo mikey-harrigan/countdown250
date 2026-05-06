@@ -27,12 +27,15 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
   >
 
     <!-- ============================================================ -->
-    <!-- HERO — image-led with gold title bar overlay.                -->
-    <!-- Background: a real Hosted Group entering the Private Hosted   -->
-    <!-- Area beneath custom Whitbeck Beglis Family Law signage.       -->
-    <!-- Gold bar overlays the image with the page title in navy.      -->
-    <!-- Image extends behind the fixed navbar; a soft top scrim       -->
-    <!-- keeps the navbar legible against bright/light parts of pic.  -->
+    <!-- HERO — standard sub-page image-led pattern.                  -->
+    <!-- Layout: full-bleed photo + left-anchored gold title banner.   -->
+    <!-- The banner runs from the left edge of the viewport (no left  -->
+    <!-- padding/border) and stops at a rounded right edge, like a    -->
+    <!-- ribbon flying off a pole. Top scrim keeps the navbar legible.-->
+    <!--                                                               -->
+    <!-- This is the canonical pattern for all sub-pages going         -->
+    <!-- forward. To re-use elsewhere: swap the <img> src/alt and the  -->
+    <!-- <h1> text. Keep the rest identical for visual consistency.    -->
     <!-- ============================================================ -->
     <section class="relative overflow-hidden">
       <div class="relative w-full h-[440px] sm:h-[540px] md:h-[620px]">
@@ -46,15 +49,15 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
         <!-- Soft top scrim so the translucent navbar always reads. -->
         <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-navy-dark/55 to-transparent pointer-events-none"></div>
 
-        <!-- Gold title bar overlay — navy text on gold pill. Slightly
-             below center so the navbar + chandelier above stay visible
-             and the Whitbeck Beglis signage below stays readable. -->
-        <div class="absolute inset-0 flex items-center justify-center pt-16 sm:pt-20">
-          <div class="bg-gold py-5 sm:py-6 md:py-7 px-8 sm:px-14 md:px-20 text-center border-y-2 border-navy-dark/30 shadow-2xl">
-            <p class="text-navy-dark/85 font-bold tracking-[0.3em] uppercase text-[10px] sm:text-xs mb-1.5">
-              Maximize Your Statesman&rsquo;s Pass Experience
-            </p>
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-navy font-heading leading-tight">
+        <!-- LEFT-ANCHORED GOLD TITLE BANNER.
+             Banner is flush with the left edge of the viewport
+             (no left padding, no left border, no left rounding).
+             Rounded right edge + 2px navy border on top/right/bottom
+             gives the polished ribbon shape. Vertical-center'd within
+             the hero with a small top offset for navbar clearance. -->
+        <div class="absolute inset-y-0 left-0 flex items-center pt-12 sm:pt-16 pointer-events-none">
+          <div class="bg-gradient-to-r from-gold to-[#f4d847] py-5 sm:py-7 md:py-9 pl-6 sm:pl-12 md:pl-20 lg:pl-28 pr-10 sm:pr-14 md:pr-20 border-y-2 border-r-2 border-navy-dark/35 rounded-r-2xl shadow-[0_18px_40px_-12px_rgba(0,0,0,0.55)] pointer-events-auto">
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold text-navy font-heading leading-none tracking-tight">
               Hosted Groups
             </h1>
           </div>
@@ -67,6 +70,11 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
     <!-- ============================================================ -->
     <section class="pt-10 pb-10 sm:pt-12 sm:pb-12">
       <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <!-- Eyebrow line (moved here from the hero overlay 2026-05-06).
+             Sets the page context above the italic Party-Inside tagline. -->
+        <p class="text-white font-bold tracking-[0.3em] uppercase text-xs sm:text-sm text-center mb-4">
+          Maximize Your Statesman&rsquo;s Pass Experience
+        </p>
         <!-- Tagline (italic gold on liquid-blue bg) -->
         <p class="text-gold italic text-xl sm:text-2xl font-light tracking-wide text-center mb-8">
           Your &ldquo;Party Inside the Party&rdquo;
