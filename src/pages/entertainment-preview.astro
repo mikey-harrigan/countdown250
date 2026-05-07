@@ -24,56 +24,53 @@ import Footer from '../components/Footer.astro';
 
 // Entertainment Zones — 7 areas split into 2 access tiers per Mike
 // 2026-05-07: 4 open to all guests + 3 Statesman's Pass exclusive.
+//
+// `summary` is the short one-liner shown in the inaugural-style
+// text-list layout. `description` is the longer card version — kept
+// in the data so we can swap back to a card grid easily later.
 const zones = [
   // ---- Open to ALL guests ----
   {
     tier: "all",
     name: "All-American Hero Ballroom",
-    note: "Live music, DJs, and the Hero Awards",
-    icon: "&#9733;",
+    summary: "Live music, DJs, the All-American Hero Awards, and the signature midnight countdown.",
     description: "The flagship room. Multiple live bands rotate across the main stage, the All-American Hero Lifetime Achievement Awards are presented here, and the signature midnight countdown unfolds beneath a 30-foot gold seal.",
   },
   {
     tier: "all",
     name: "Decades Dance Club",
-    note: "70s &mdash; 80s &mdash; 90s &mdash; 2000s hits all night",
-    icon: "&#9835;",
+    summary: "70s, 80s, 90s, and 2000s hits all night long.",
     description: "Disco lights, retro vibes, and four decades of crowd-favorite hits, mixed by a high-energy DJ who keeps the floor moving from Donna Summer to Beyoncé.",
   },
   {
     tier: "all",
     name: "Studio 250",
-    note: "Today&rsquo;s top hits and club bangers",
-    icon: "&#9836;",
+    summary: "Modern dance club with today&rsquo;s top hits and club bangers.",
     description: "Modern dance club for current chart hits, EDM, and high-energy club music. Cinematic lighting, immersive sound, and a packed dance floor all night long.",
   },
   {
     tier: "all",
     name: "Interactive Zone",
-    note: "Hands-on activations &amp; live broadcast studio",
-    icon: "&#9728;",
+    summary: "Immersive 250th-anniversary activations, paparazzi photo experience, Media &amp; Press area, interview station &amp; live broadcast studio, roving entertainers.",
     description: "Immersive 250th-anniversary activations, paparazzi photo experience, Media &amp; Press area, interview station &amp; live broadcast studio, roving entertainers.",
   },
   // ---- Statesman's Pass EXCLUSIVE ----
   {
     tier: "statesman",
     name: "Statesman&rsquo;s Balcony",
-    note: "Statesman&rsquo;s Pass exclusive",
-    icon: "&#10022;",
+    summary: "Raised area with premium hospitality and a bird&rsquo;s-eye view of the main stage.",
     description: "A large raised area with premium hospitality and a bird&rsquo;s-eye view of the main stage. Reserved seating, top-shelf bar, and the best sightlines in the house.",
   },
   {
     tier: "statesman",
     name: "Presidents Walk",
-    note: "Statesman&rsquo;s Pass exclusive",
-    icon: "&#9670;",
+    summary: "Exclusive promenade with intimate sitting areas.",
     description: "An exclusive promenade with intimate sitting areas for quiet conversation away from the main floor. Reserved for Statesman&rsquo;s Pass holders.",
   },
   {
     tier: "statesman",
     name: "Speakeasy Lounge",
-    note: "Statesman&rsquo;s Pass exclusive",
-    icon: "&#9889;",
+    summary: "Speakeasy-styled hidden lounge with classic cocktails and vintage ambience.",
     description: "A speakeasy-styled hidden lounge with classic cocktails, vintage music, and intimate ambience. Reserved for Statesman&rsquo;s Pass holders only.",
   },
 ];
@@ -293,53 +290,61 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
     <!-- ============================================================ -->
     <!-- 6 PARTY ZONES — grid of zone cards -->
     <!-- ============================================================ -->
+    <!-- ============================================================ -->
+    <!-- 7 EXCITING ENTERTAINMENT AREAS — text-list format mirroring   -->
+    <!-- the inaugural ball entertainment page. Two access groups.     -->
+    <!-- ============================================================ -->
     <section class="py-12 sm:py-16">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
         <div class="text-center mb-10 sm:mb-12">
           <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-3">
-            7 Entertainment Areas &amp; 4 Stages
+            Inside the Ball
           </p>
-          <h2 class="text-3xl sm:text-4xl font-bold text-gold font-heading leading-tight mb-3">
-            Every Area, A Different Energy
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gold font-heading leading-tight mb-3">
+            7 Exciting Entertainment Areas
           </h2>
           <div class="w-16 h-1 bg-red mx-auto mb-6"></div>
           <p class="text-white/85 text-base sm:text-lg leading-relaxed">
-            Full open bars throughout &middot; Roving entertainers throughout
+            Full open bars throughout &middot; Roving entertainers throughout &middot; 4 stages
           </p>
         </div>
 
         {/* GROUP 1 — Open to all guests */}
-        <div class="mb-12">
-          <p class="text-gold font-semibold tracking-[0.25em] uppercase text-xs sm:text-sm mb-5 text-center">
+        <div class="mb-10 sm:mb-12">
+          <p class="text-gold font-semibold tracking-[0.25em] uppercase text-xs sm:text-sm mb-5">
             Entertainment Zones
           </p>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+          <ul class="space-y-4 text-white/90 text-base sm:text-lg leading-relaxed">
             {zones.filter((z) => z.tier === "all").map((z) => (
-              <div class="bg-cream rounded-xl p-6 sm:p-7 border border-gold/30 shadow-md flex flex-col">
-                <p class="text-gold text-2xl mb-3 leading-none" set:html={z.icon} />
-                <h3 class="font-heading font-bold text-xl sm:text-2xl text-navy mb-1.5 leading-tight" set:html={z.name} />
-                <p class="text-red font-semibold text-sm tracking-wide mb-4" set:html={z.note} />
-                <p class="text-slate text-sm sm:text-[15px] leading-relaxed" set:html={z.description} />
-              </div>
+              <li class="flex items-start">
+                <span class="text-gold mr-3 sm:mr-4 flex-shrink-0 mt-1.5 text-sm">&#10022;</span>
+                <span>
+                  <strong class="text-gold font-bold" set:html={z.name} />
+                  <span class="text-white/85"> &mdash; </span>
+                  <span class="text-white/85" set:html={z.summary} />
+                </span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
 
         {/* GROUP 2 — Statesman's Pass exclusive */}
         <div>
-          <p class="text-gold font-semibold tracking-[0.25em] uppercase text-xs sm:text-sm mb-5 text-center">
+          <p class="text-gold font-semibold tracking-[0.25em] uppercase text-xs sm:text-sm mb-5">
             Statesman&rsquo;s Pass Only
           </p>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          <ul class="space-y-4 text-white/90 text-base sm:text-lg leading-relaxed">
             {zones.filter((z) => z.tier === "statesman").map((z) => (
-              <div class="bg-cream rounded-xl p-6 sm:p-7 border-2 border-gold shadow-md flex flex-col">
-                <p class="text-gold text-2xl mb-3 leading-none" set:html={z.icon} />
-                <h3 class="font-heading font-bold text-xl sm:text-2xl text-navy mb-1.5 leading-tight" set:html={z.name} />
-                <p class="text-red font-semibold text-sm tracking-wide mb-4" set:html={z.note} />
-                <p class="text-slate text-sm sm:text-[15px] leading-relaxed" set:html={z.description} />
-              </div>
+              <li class="flex items-start">
+                <span class="text-gold mr-3 sm:mr-4 flex-shrink-0 mt-1.5 text-sm">&#10022;</span>
+                <span>
+                  <strong class="text-gold font-bold" set:html={z.name} />
+                  <span class="text-white/85"> &mdash; </span>
+                  <span class="text-white/85" set:html={z.summary} />
+                </span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
     </section>
@@ -349,16 +354,13 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
     <!-- ============================================================ -->
     <section class="py-12 sm:py-16">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-10 sm:mb-12 max-w-3xl mx-auto">
-          <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-3">
-            The 2026 Lineup &mdash; So Far
-          </p>
-          <h2 class="text-3xl sm:text-4xl font-bold text-gold font-heading leading-tight mb-4">
-            Headliners &amp; Featured Performers
+        <div class="text-center mb-10 sm:mb-12 max-w-4xl mx-auto">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gold font-heading leading-tight mb-5">
+            Here is a look at the 2026 entertainment lineup&hellip; so far
           </h2>
           <div class="w-16 h-1 bg-red mx-auto mb-6"></div>
           <p class="text-white/85 text-base sm:text-lg leading-relaxed">
-            This page will be updated regularly as additional performers are confirmed.
+            This page will be updated daily as we announce more performers and attractions&hellip;
           </p>
         </div>
 
