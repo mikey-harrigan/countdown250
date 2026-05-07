@@ -3,17 +3,188 @@ import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+
+/*
+ * ENTERTAINMENT PAGE (LIVE)
+ * ----------------------------------------------------------------
+ * Promoted from /entertainment-preview/ on 2026-05-07 after Mike's
+ * sign-off on the new format. The preview page is preserved at
+ * /entertainment-preview/ (excluded from sitemap) for future
+ * iteration; both pages share the same content/data structure so
+ * edits made on preview can be promoted here in one shot.
+ *
+ * Format adapted from the All-American Inaugural Ball entertainment
+ * page (allamericanball.com/entertainment-2/), re-themed for the
+ * Countdown 250 Ball brand:
+ *   - Liquid-blue page bg (sampled from the seal logo)
+ *   - Gold/navy/red palette
+ *   - July 3, 2026 / Washington Hilton / midnight countdown framing
+ */
+
+// Entertainment Zones — 7 areas split into 2 access tiers per Mike
+// 2026-05-07: 4 open to all guests + 3 Statesman's Pass exclusive.
+const zones = [
+  // ---- Open to ALL guests ----
+  {
+    tier: "all",
+    name: "All-American Hero Ballroom",
+    summary: "Live music, DJs, the All-American Hero Awards, and the signature midnight countdown.",
+    description: "The flagship room. Multiple live bands rotate across the main stage, the All-American Hero Lifetime Achievement Awards are presented here, and the signature midnight countdown unfolds beneath a 30-foot gold seal.",
+  },
+  {
+    tier: "all",
+    name: "Decades Dance Club",
+    summary: "70s, 80s, 90s, and 2000s hits all night long.",
+    description: "Disco lights, retro vibes, and four decades of crowd-favorite hits, mixed by a high-energy DJ who keeps the floor moving from Donna Summer to Beyoncé.",
+  },
+  {
+    tier: "all",
+    name: "Club 250",
+    summary: "Modern dance club with today&rsquo;s top hits and club bangers.",
+    description: "Modern dance club for current chart hits, EDM, and high-energy club music. Cinematic lighting, immersive sound, and a packed dance floor all night long.",
+  },
+  {
+    tier: "all",
+    name: "Interactive Zone",
+    summary: "Immersive 250th-anniversary activations, paparazzi photo experience, Media &amp; Press area, interview station &amp; live broadcast studio, roving entertainers.",
+    description: "Immersive 250th-anniversary activations, paparazzi photo experience, Media &amp; Press area, interview station &amp; live broadcast studio, roving entertainers.",
+  },
+  // ---- Statesman's Pass EXCLUSIVE ----
+  {
+    tier: "statesman",
+    name: "Statesman&rsquo;s Balcony",
+    summary: "Raised area with premium hospitality and a bird&rsquo;s-eye view of the main stage.",
+    description: "A large raised area with premium hospitality and a bird&rsquo;s-eye view of the main stage. Reserved seating, top-shelf bar, and the best sightlines in the house.",
+  },
+  {
+    tier: "statesman",
+    name: "Presidents Walk",
+    summary: "Exclusive promenade with intimate sitting areas.",
+    description: "An exclusive promenade with intimate sitting areas for quiet conversation away from the main floor. Reserved for Statesman&rsquo;s Pass holders.",
+  },
+  {
+    tier: "statesman",
+    name: "Speakeasy Lounge",
+    summary: "Speakeasy-styled hidden lounge with classic cocktails and vintage ambience.",
+    description: "A speakeasy-styled hidden lounge with classic cocktails, vintage music, and intimate ambience. Reserved for Statesman&rsquo;s Pass holders only.",
+  },
+];
+
+// Entertainment Lineup — confirmed announcements + key attractions.
+const performers = [
+  {
+    name: "MARCEY",
+    role: "DJ &amp; Producer",
+    img: "/images/event/dj-marcey.jpg",
+    bio: "MARCEY is a Washington, D.C. based DJ and producer known for delivering high-energy sets that blend underground grit with mainstream appeal. He has established a strong presence in the D.C. dance music scene, performing at top venues including Echostage, The Anthem, Soundcheck, and Zebbie&rsquo;s Garden. MARCEY has also supported major artists such as Martin Garrix, D.O.D, Ian Asher, and Matt Sassari &mdash; further solidifying his position as a rising act. With additional performances across the East Coast &mdash; including New York City, Tampa, and Fort Lauderdale &mdash; MARCEY continues to build momentum, driven by a passion to recreate the same energy and emotion that first drew him to dance music.",
+  },
+  {
+    name: "Julian Awari",
+    role: "National Anthem",
+    img: "/images/event/julian-awari.jpg",
+    bio: "Air Force veteran and powerhouse vocalist. Performs the National Anthem to open the evening&rsquo;s formal program &mdash; a signature moment that sets the tone for the entire night.",
+  },
+  {
+    name: "DJ Freedom",
+    role: "Multi-Genre DJ",
+    img: "/images/misc/dj-cartoon.jpg",
+    bio: "Set your feet free and dance like no one is watching! DJ Freedom will get you in the mood to celebrate. With a deep catalog of tunes from all genres, DJ Freedom will be taking requests and spinning all your favorite dance tunes.",
+  },
+  {
+    name: "Live Broadcast",
+    role: "Television &amp; Webcast Coverage",
+    img: "/images/misc/usvets-logo.jpg",
+    bio: "The Countdown 250 Ball will be broadcast live to viewers nationwide, capturing every moment of America&rsquo;s premier 250th anniversary celebration. Cameras, hosts, and the interview station inside the Interactive Zone bring the evening to the world.",
+  },
+  {
+    name: "Midnight Countdown to America&rsquo;s 250th",
+    role: "The Signature Moment",
+    img: "/images/event/countdown-toast.jpg",
+    bio: "The signature moment. At the stroke of midnight on July 3rd into July 4th, 3,000 guests count down together to the exact instant America enters its 250th year. Multi-sensory production with patriotic music, lights, and a synchronized confetti cascade.",
+  },
+  {
+    name: "All-American Hero Lifetime Achievement Awards",
+    role: "Awards Ceremony",
+    img: "/images/event/hero-medal-presentation.jpg",
+    bio: "Inaugural presentation of the All-American Hero Lifetime Achievement Awards, recognizing extraordinary Americans whose courage, leadership, and selfless service have strengthened our nation. A live ceremony in the All-American Hero Ballroom.",
+  },
+  {
+    name: "Tribute to America &mdash; 250 Years",
+    role: "Featured Performance",
+    img: "/images/event/color-guard.jpg",
+    bio: "An original Tribute to America featuring The Sicilian Tenors, a color guard processional, and a multi-decade musical journey through 250 years of American history. Performed once in the evening.",
+  },
+  {
+    name: "Roaming Entertainers &amp; Immersive Experiences",
+    role: "Roaming Throughout the Night",
+    img: "/images/event/roving-entertainers-patriotic.jpg",
+    bio: "Throughout the night, an array of entertaining and mesmerizing performers &mdash; costumed characters, magicians, mentalists, dancers, living statues, and more &mdash; will be dazzling guests across the massive ballroom complex. Every corner of the venue comes alive with surprise, spectacle, and wonder.",
+  },
+  {
+    name: "All-American Hero Ballroom",
+    role: "Entertainment Zone",
+    img: "/images/event/zone-hero-ballroom.jpg",
+    bio: "The flagship room. Multiple live bands rotate across the main stage, the All-American Hero Lifetime Achievement Awards are presented here, and the signature midnight countdown unfolds beneath a 30-foot gold seal.",
+  },
+  {
+    name: "Decades Dance Club",
+    role: "Entertainment Zone",
+    img: "/images/event/dj-party-lights.jpg",
+    bio: "Disco lights, retro vibes, and four decades of crowd-favorite hits &mdash; 70s, 80s, 90s, and 2000s &mdash; mixed by a high-energy DJ who keeps the floor moving all night long.",
+  },
+  {
+    name: "Club 250",
+    role: "Entertainment Zone",
+    img: "/images/event/zone-club-250.jpg",
+    bio: "Modern dance club for current chart hits, EDM, and high-energy club music. Cinematic lighting, immersive sound, and a packed dance floor.",
+  },
+  {
+    name: "Interactive Zone",
+    role: "Entertainment Zone",
+    img: "/images/event/zone-interactive.jpg",
+    bio: "Immersive 250th-anniversary activations, paparazzi photo experience, Media &amp; Press area, interview station &amp; live broadcast studio, and roving entertainers throughout.",
+  },
+  {
+    name: "Statesman&rsquo;s Balcony",
+    role: "Statesman&rsquo;s Pass Exclusive",
+    img: "/images/event/elegant-dinner-flags.png",
+    bio: "A large raised area with premium hospitality and a bird&rsquo;s-eye view of the main stage. Reserved seating, top-shelf bar, and the best sightlines in the house. Reserved for Statesman&rsquo;s Pass holders only.",
+  },
+  {
+    name: "Presidents Walk",
+    role: "Statesman&rsquo;s Pass Exclusive",
+    img: "/images/event/zone-presidents-walk.jpg",
+    bio: "Tucked behind the International Ballroom runs one of Washington&rsquo;s most quietly historic corridors &mdash; the President&rsquo;s Walk, the private, secure passageway built into the Washington Hilton&rsquo;s original 1965 blueprints to give visiting Presidents a protected route in and out of the building. More than 100 sitting U.S. Presidents have walked this corridor &mdash; a tally believed to be unmatched by any other hotel in America. What makes it unforgettable is what lines the walls: portraits of every U.S. President and every First Lady, sourced from the Library of Congress.",
+    bioExpanded: "Branching off the Walk, hidden behind concrete-and-steel walls, lies the Holding Room &mdash; a sanctum reserved for the sitting President alone. A short entry hall curves past a private elevator and an antique secretary desk before opening into a marble-and-granite rotunda whose floor is etched with the Presidential Seal (added in 1985). Beyond the rotunda, a private sitting area and powder room are appointed with paintings of George Washington and the capital city. Lyndon B. Johnson was the first sitting President to use the room; every President since has followed.<br /><br />On the night of the Countdown 250 Ball, complimentary guided tours of the President&rsquo;s Walk, the Holding Room, and other exclusive dignitaries-only spaces inside the hotel will be offered throughout the evening &mdash; a once-in-a-lifetime chance to step inside rooms most Americans will never see.",
+  },
+  {
+    name: "Speakeasy Lounge",
+    role: "Statesman&rsquo;s Pass Exclusive",
+    img: "/images/event/zone-speakeasy.jpg",
+    bio: "A speakeasy-styled hidden lounge with classic cocktails, vintage music, and intimate ambience. Reserved for Statesman&rsquo;s Pass holders only.",
+  },
+];
+
+const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
 ---
 
-<BaseLayout title="Live Entertainment | America's Biggest 250th Anniversary Gala | Countdown 250 Ball Washington DC" description="4 stages, 6 party zones & world-class performers at America's Ball — the biggest July 4th celebration ever. Washington Hilton, DC. July 3, 2026. Get tickets!" ogImage="/images/event/diverse-live-band.png">
+<BaseLayout
+  title="Entertainment | The Official Countdown 250 Ball — July 3, 2026, Washington Hilton"
+  description="7 entertainment areas, 4 stages, headline performers, the All-American Hero Lifetime Achievement Awards, and a once-in-a-generation midnight countdown to America's 250th. Washington Hilton, DC. July 3, 2026. Get tickets!"
+  ogImage="/images/event/header-entertainment-stage-crowd.jpg"
+>
   <Navbar />
+
   <main
     class="relative"
     style="background: radial-gradient(circle at 30% 30%, rgba(4, 61, 156, 0.45) 0%, transparent 55%), linear-gradient(135deg, #052058 0%, #002B77 50%, #043D9C 100%); background-attachment: fixed;"
   >
-    <!-- Hero — canonical image-led pattern (concert stage + crowd photo).
-         Same image used on entertainment-preview. Hero ONLY swap per Mike;
-         body content below is unchanged until preview content is finalized. -->
+
+    <!-- ============================================================ -->
+    <!-- HERO — canonical sub-page pattern (same as hosted-group-tables). -->
+    <!-- 16:9 image bleeds to all viewport edges, gold title ribbon       -->
+    <!-- anchored bottom-left, soft top scrim for navbar legibility.      -->
+    <!-- ============================================================ -->
     <section class="relative overflow-hidden">
       <div class="relative w-full h-[55vh] sm:h-[60vh] min-h-[320px] max-h-[680px]">
         <img
@@ -23,6 +194,7 @@ import Footer from '../components/Footer.astro';
           decoding="async"
         />
         <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-navy-dark/55 to-transparent pointer-events-none"></div>
+
         <div class="absolute inset-y-0 left-0 flex items-end pb-4 sm:pb-8 md:pb-12 lg:pb-16 pointer-events-none">
           <div class="bg-gradient-to-r from-gold to-[#f4d847] py-2.5 sm:py-3.5 md:py-4 lg:py-5 pl-3 sm:pl-8 md:pl-14 lg:pl-20 xl:pl-28 pr-5 sm:pr-8 md:pr-12 lg:pr-14 border-y-2 border-r-2 border-navy-dark/35 rounded-r-2xl shadow-[0_14px_32px_-10px_rgba(0,0,0,0.55)] pointer-events-auto">
             <h1 class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy font-heading leading-none tracking-tight">
@@ -33,66 +205,190 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <section class="py-20 ">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6">
-        <!-- Eyebrow (moved here from the hero overlay 2026-05-06 when
-             the hero adopted the image-led pattern). -->
-        <p class="text-white font-bold tracking-[0.3em] uppercase text-xs sm:text-sm text-center mb-8">
-          Bands, DJs & Performers
-        </p>
+    <!-- ============================================================ -->
+    <!-- INTRO — sets the scene -->
+    <!-- ============================================================ -->
+    <section class="pt-12 pb-10 sm:pt-16 sm:pb-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gold leading-tight tracking-tight text-center mb-8">
+          A celebration for the ages!
+        </h2>
 
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-gold mb-6 font-heading">A Night of Unforgettable Entertainment</h2>
-          <div class="w-16 h-1 bg-gold mx-auto"></div>
-        </div>
-
-        <div class="text-white/70 text-lg leading-relaxed space-y-6 mb-16">
+        <div class="space-y-5 text-white/90 text-base sm:text-lg leading-relaxed">
           <p>
-            The All-American Countdown 250 Ball will feature a spectacular lineup of live entertainment
-            across <strong class="text-gold">4 stages</strong> and <strong class="text-gold">6 party zones</strong> —
-            ensuring an electrifying atmosphere from the moment you arrive until the final note at 1 AM.
+            For decades, the <strong class="text-gold">All-American Balls</strong> have been the go-to celebrations for landmark moments in American history &mdash; and the Countdown 250 Ball is set to be our <strong class="text-gold">most spectacular event ever</strong>.
+          </p>
+          <p>
+            On <strong class="text-gold">July 3, 2026</strong>, the renowned <strong class="text-gold">Washington Hilton</strong> will be transformed into a patriotic wonderland of music, energy, celebration, and surprise.
+          </p>
+          <p>
+            Your evening features open bars, delicious cuisine, an extraordinary lineup of live entertainment, and a <strong class="text-gold">once-in-a-generation midnight countdown</strong> to the exact instant America enters its 250th year.
+          </p>
+          <p>
+            From the <strong class="text-gold">National Anthem at 7 PM</strong> to the final notes after midnight, every performance, toast, and unforgettable moment is designed to deliver the <strong class="text-gold">celebration of a lifetime</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- NON-STOP ENTERTAINMENT — gold-bordered callout box -->
+    <!-- ============================================================ -->
+    <section class="py-8 sm:py-10">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="rounded-xl overflow-hidden border border-gold/40 shadow-[0_0_28px_rgba(197,164,78,0.20)]">
+          <div class="bg-gold py-4 sm:py-5 px-6 text-center">
+            <p class="text-navy-dark font-bold tracking-[0.3em] uppercase text-xs sm:text-sm">
+              Non-Stop Entertainment
+            </p>
+          </div>
+          <div class="bg-gradient-to-br from-navy-dark via-navy to-navy-dark p-7 sm:p-8 md:p-10 text-white">
+            <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-[15px] sm:text-base leading-snug">
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span>7 entertainment areas</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span>4 stages</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span>Premium open bars &amp; gourmet cuisine</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span>Stunning patriotic d&eacute;cor</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span>First class service</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span>Unforgettable midnight countdown</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span>Renowned bands, DJs, and performers</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span>Roving entertainers &amp; interactive activities</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span>Show-stopping Midnight Countdown</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span>Inspiring All-American Hero Award Ceremony</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 7 ENTERTAINMENT AREAS ★ 4 STAGES                             -->
+    <!-- Heading + tight zone list. Red divider above heading was      -->
+    <!-- removed 2026-05-07 per Mike. Spacing tightened same day.      -->
+    <!-- First 4 zones in white, last 3 in gold with an asterisk.      -->
+    <!-- Footnote at the bottom flags the Statesman's Pass requirement.-->
+    <!-- ============================================================ -->
+    <section class="py-10 sm:py-12">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gold leading-tight tracking-tight mb-5 sm:mb-6">
+          7 Entertainment Areas
+          <span class="inline-block mx-2 sm:mx-3 align-middle text-gold">&#9733;</span>
+          4 Stages
+        </h2>
+
+        <ul class="space-y-0.5 sm:space-y-1 text-lg sm:text-xl md:text-2xl font-medium tracking-wide leading-tight">
+          {zones.map((z) => (
+            <li class={z.tier === "all" ? "text-white" : "text-gold"}>
+              <span set:html={z.name} />
+              {z.tier === "statesman" && <span> *</span>}
+            </li>
+          ))}
+        </ul>
+
+        <p class="text-white/65 text-sm sm:text-base italic mt-4 sm:mt-5">
+          *Statesman&rsquo;s Pass Required
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ENTERTAINMENT LINEUP — performer card grid -->
+    <!-- ============================================================ -->
+    <section class="py-12 sm:py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10 sm:mb-12 max-w-5xl mx-auto">
+          <div class="w-16 h-1 bg-red mx-auto mb-6"></div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gold leading-tight tracking-tight mb-5">
+            Countdown 250 Lineup&hellip; so far
+          </h2>
+          <p class="text-white/85 text-base sm:text-lg leading-relaxed">
+            Lineup will be updated daily as more performers and attractions are announced&hellip;
           </p>
         </div>
 
-        <div class="grid sm:grid-cols-2 gap-6 mb-16">
-          <div class="bg-cream rounded-xl p-6">
-            <div class="text-3xl mb-3">🎵</div>
-            <h3 class="text-lg font-bold text-navy mb-2">Multiple Live Bands</h3>
-            <p class="text-slate/60 text-sm">Top-tier bands performing across multiple stages throughout the evening.</p>
-          </div>
-          <div class="bg-cream rounded-xl p-6">
-            <div class="text-3xl mb-3">🎧</div>
-            <h3 class="text-lg font-bold text-navy mb-2">DJs & Dance Floors</h3>
-            <p class="text-slate/60 text-sm">High-energy DJs keeping the dance floors packed all night long.</p>
-          </div>
-          <div class="bg-cream rounded-xl p-6">
-            <div class="text-3xl mb-3">🎭</div>
-            <h3 class="text-lg font-bold text-navy mb-2">Immersive Experiences</h3>
-            <p class="text-slate/60 text-sm">Roaming entertainers and immersive performances creating unforgettable moments.</p>
-          </div>
-          <div class="bg-cream rounded-xl p-6">
-            <div class="text-3xl mb-3">🇺🇸</div>
-            <h3 class="text-lg font-bold text-navy mb-2">Tribute to America</h3>
-            <p class="text-slate/60 text-sm">Stirring patriotic performances honoring 250 years of American history.</p>
-          </div>
+        {/* HORIZONTAL CARDS — uniform dimensions per Mike. All cards
+            share the same fixed height and image width on tablet+,
+            with bios clamped so content boxes line up. Cards with a
+            `bioExpanded` field grow to fit and reveal a Read more
+            <details>/<summary> toggle (e.g. Presidents Walk).
+            On mobile (< sm), cards stack vertically. */}
+        <div class="space-y-5 sm:space-y-6">
+          {performers.map((p) => (
+            <div class={`bg-cream rounded-xl overflow-hidden border border-gold/30 shadow-md flex flex-col sm:flex-row ${p.bioExpanded ? 'sm:min-h-56' : 'sm:h-56'}`}>
+              {p.img ? (
+                <div class="sm:w-72 sm:flex-shrink-0 bg-navy/50">
+                  <div class="aspect-[4/3] sm:aspect-auto sm:h-full overflow-hidden">
+                    <img src={p.img} alt={p.name} class="w-full h-full object-cover" loading="lazy" decoding="async" />
+                  </div>
+                </div>
+              ) : (
+                <div class="sm:w-72 sm:flex-shrink-0 bg-gradient-to-br from-navy-dark via-navy to-navy-light flex items-center justify-center aspect-[4/3] sm:aspect-auto">
+                  <span class="text-gold/60 text-5xl font-heading italic">{p.name.charAt(0)}</span>
+                </div>
+              )}
+              <div class={`flex-1 p-5 sm:p-6 flex flex-col ${p.bioExpanded ? '' : 'overflow-hidden'}`}>
+                <h3 class="font-heading font-bold text-lg sm:text-xl text-navy mb-3 leading-tight" set:html={p.name} />
+                {p.bioExpanded ? (
+                  <details class="text-slate text-sm leading-relaxed group">
+                    <summary class="list-none cursor-pointer marker:hidden">
+                      <span set:html={p.bio} />
+                      <span class="block mt-2 text-red-700 font-bold uppercase tracking-wider text-xs hover:text-red-900 group-open:hidden">Read more &rarr;</span>
+                    </summary>
+                    <div class="mt-3" set:html={p.bioExpanded} />
+                    <span class="block mt-3 text-red-700 font-bold uppercase tracking-wider text-xs hover:text-red-900 hidden group-open:inline-block cursor-pointer" onclick="this.closest('details').open = false">&larr; Show less</span>
+                  </details>
+                ) : (
+                  <p class="text-slate text-sm leading-relaxed line-clamp-4 sm:line-clamp-5" set:html={p.bio} />
+                )}
+              </div>
+            </div>
+          ))}
         </div>
 
-        <div class="bg-navy rounded-2xl p-10 text-center">
+        {/* Coming-soon teaser */}
+        <div class="text-center mt-12 sm:mt-14">
+          <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-2">
+            More Announcements Coming Soon
+          </p>
+          <p class="text-white/85 text-base sm:text-lg max-w-2xl mx-auto">
+            Headliner reveals, additional performers, and the full Tribute to America program will be announced in the coming weeks.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CLOSING CTA — navy rounded card on liquid blue (Partners pattern) -->
+    <!-- ============================================================ -->
+    <section class="py-14 sm:py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="bg-navy rounded-2xl p-8 sm:p-10 text-center">
           <svg class="w-12 h-12 text-gold mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
           </svg>
-          <h3 class="text-xl font-bold text-gold mb-3">Major Announcements Coming Soon</h3>
-          <p class="text-white/70 text-lg mb-6">
-            We are finalizing an extraordinary entertainment lineup. Performer announcements will be made in the coming weeks.
+          <h3 class="text-2xl sm:text-3xl font-bold text-gold mb-3 font-heading">Be in the Room When It Happens</h3>
+          <p class="text-white/85 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-7">
+            Three thousand seats. Six ballrooms. One unforgettable night. Reserve your place at the celebration of a lifetime.
           </p>
-          <p class="text-white/40 text-sm">Follow us on social media and check our <a href="/updates/" class="text-gold hover:text-gold/80 underline">News & Updates</a> page for the latest announcements.</p>
+          <a
+            href={ticketUrl}
+            class="eventbrite-checkout inline-block bg-red hover:bg-red-light text-white px-8 py-3 text-sm sm:text-base font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+          >
+            Get Your Tickets
+          </a>
         </div>
 
-        {/* Removed page-level 'Get Your Tickets' button — the Footer's
-            larger 'Get Tickets' CTA appears right below this section
-            already, so the page-level button was duplicate stacking. */}
+        <p class="text-center text-white/60 text-xs sm:text-sm italic mt-8">
+          * The entertainment lineup is subject to change.
+        </p>
+
+        <div class="text-center mt-10">
+          <a href="/" class="inline-block bg-white border-2 border-navy text-navy hover:bg-navy hover:text-white px-8 py-3 text-sm font-semibold tracking-wider uppercase transition-all rounded hover:-translate-y-0.5">
+            Back to Home
+          </a>
+        </div>
       </div>
     </section>
+
   </main>
   <Footer />
 </BaseLayout>
