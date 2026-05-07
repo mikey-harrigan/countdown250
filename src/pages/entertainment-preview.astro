@@ -22,44 +22,59 @@ import Footer from '../components/Footer.astro';
  * Excluded from sitemap via astro.config.mjs filter.
  */
 
-// Entertainment Zones — 6 themed party rooms.
-// Names lightly adapted from inaugural's zones for Countdown 250 brand.
+// Entertainment Zones — 7 areas split into 2 access tiers per Mike
+// 2026-05-07: 4 open to all guests + 3 Statesman's Pass exclusive.
 const zones = [
+  // ---- Open to ALL guests ----
   {
+    tier: "all",
     name: "All-American Hero Ballroom",
-    note: "Live music, DJs, and the All-American Hero Lifetime Achievement Awards",
+    note: "Live music, DJs, and the Hero Awards",
     icon: "&#9733;",
     description: "The flagship room. Multiple live bands rotate across the main stage, the All-American Hero Lifetime Achievement Awards are presented here, and the signature midnight countdown unfolds beneath a 30-foot gold seal.",
   },
   {
+    tier: "all",
     name: "Decades Dance Club",
     note: "70s &mdash; 80s &mdash; 90s &mdash; 2000s hits all night",
     icon: "&#9835;",
     description: "Disco lights, retro vibes, and four decades of crowd-favorite hits, mixed by a high-energy DJ who keeps the floor moving from Donna Summer to Beyoncé.",
   },
   {
-    name: "Modern Dance Club",
+    tier: "all",
+    name: "Studio 250",
     note: "Today&rsquo;s top hits and club bangers",
     icon: "&#9836;",
-    description: "A second dance floor for current chart hits, EDM, and modern club music. Perfect for guests who want what&rsquo;s on the radio right now.",
+    description: "Modern dance club for current chart hits, EDM, and high-energy club music. Cinematic lighting, immersive sound, and a packed dance floor all night long.",
   },
   {
+    tier: "all",
     name: "Interactive Zone",
-    note: "Hands-on activations &amp; the live broadcast studio",
+    note: "Hands-on activations &amp; live broadcast studio",
     icon: "&#9728;",
-    description: "Roaming entertainers, a paparazzi photo experience, immersive 250th-anniversary activations, and the live VETS TV broadcast studio capturing the night for veterans nationwide.",
+    description: "Roving entertainers, a paparazzi photo experience, immersive 250th-anniversary activations, and the live VETS TV broadcast studio capturing the night for veterans nationwide.",
   },
+  // ---- Statesman's Pass EXCLUSIVE ----
   {
-    name: "Patriot VIP Lounge",
-    note: "Reception-style for Patriot VIP and Statesman&rsquo;s guests",
-    icon: "&#9670;",
-    description: "Cocktail-style lounge with Rat-Pack-era live music, premium open bar, and elevated hors d&rsquo;oeuvres. Open during the 7&ndash;9 PM VIP Reception and again later in the evening.",
-  },
-  {
-    name: "Statesman&rsquo;s Concierge Lounge",
-    note: "Reserved exclusively for Statesman&rsquo;s Concierge Pass holders",
+    tier: "statesman",
+    name: "Statesman&rsquo;s Balcony",
+    note: "Statesman&rsquo;s Pass exclusive",
     icon: "&#10022;",
-    description: "Premium reserved seating, personal concierge service, top-shelf bar, and quiet luxury. Where Hosted Groups gather, distinguished guests mingle, and the Toast to the Hosts ceremony takes place.",
+    description: "A large raised area with premium hospitality and a bird&rsquo;s-eye view of the main stage. Reserved seating, top-shelf bar, and the best sightlines in the house.",
+  },
+  {
+    tier: "statesman",
+    name: "Presidents Walk",
+    note: "Statesman&rsquo;s Pass exclusive",
+    icon: "&#9670;",
+    description: "An exclusive promenade with intimate sitting areas for quiet conversation away from the main floor. Reserved for Statesman&rsquo;s Pass holders.",
+  },
+  {
+    tier: "statesman",
+    name: "Speakeasy Lounge",
+    note: "Statesman&rsquo;s Pass exclusive",
+    icon: "&#9889;",
+    description: "A speakeasy-styled hidden lounge with classic cocktails, vintage music, and intimate ambience. Reserved for Statesman&rsquo;s Pass holders only.",
   },
 ];
 
@@ -259,8 +274,8 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
           </div>
           <div class="bg-gradient-to-br from-navy-dark via-navy to-navy-dark p-7 sm:p-8 md:p-10 text-white">
             <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-[15px] sm:text-base leading-snug">
-              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span>6 entertainment zones</span></li>
-              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span>4 stages &amp; 3 dance floors</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span>7 entertainment areas</span></li>
+              <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span>4 stages</span></li>
               <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span>Premium open bars &amp; gourmet cuisine</span></li>
               <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span>Stunning patriotic d&eacute;cor</span></li>
               <li class="flex items-start"><span class="text-gold mr-3 flex-shrink-0 mt-1 text-sm">&#10022;</span><span>First class service</span></li>
@@ -279,26 +294,52 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
     <!-- 6 PARTY ZONES — grid of zone cards -->
     <!-- ============================================================ -->
     <section class="py-12 sm:py-16">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="text-center mb-10 sm:mb-12">
           <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-3">
-            Six Themed Party Zones
+            7 Entertainment Areas &amp; 4 Stages
           </p>
           <h2 class="text-3xl sm:text-4xl font-bold text-gold font-heading leading-tight mb-3">
-            Every Floor, A Different Energy
+            Every Area, A Different Energy
           </h2>
-          <div class="w-16 h-1 bg-red mx-auto"></div>
+          <div class="w-16 h-1 bg-red mx-auto mb-6"></div>
+          <p class="text-white/85 text-base sm:text-lg leading-relaxed">
+            Full open bars throughout &middot; Roving entertainers throughout
+          </p>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-          {zones.map((z) => (
-            <div class="bg-cream rounded-xl p-6 sm:p-7 border border-gold/30 shadow-md flex flex-col">
-              <p class="text-gold text-2xl mb-3 leading-none" set:html={z.icon} />
-              <h3 class="font-heading font-bold text-xl sm:text-2xl text-navy mb-1.5 leading-tight">{z.name}</h3>
-              <p class="text-red font-semibold text-sm tracking-wide mb-4" set:html={z.note} />
-              <p class="text-slate text-sm sm:text-[15px] leading-relaxed" set:html={z.description} />
-            </div>
-          ))}
+        {/* GROUP 1 — Open to all guests */}
+        <div class="mb-12">
+          <p class="text-gold font-semibold tracking-[0.25em] uppercase text-xs sm:text-sm mb-5 text-center">
+            Entertainment Zones
+          </p>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+            {zones.filter((z) => z.tier === "all").map((z) => (
+              <div class="bg-cream rounded-xl p-6 sm:p-7 border border-gold/30 shadow-md flex flex-col">
+                <p class="text-gold text-2xl mb-3 leading-none" set:html={z.icon} />
+                <h3 class="font-heading font-bold text-xl sm:text-2xl text-navy mb-1.5 leading-tight" set:html={z.name} />
+                <p class="text-red font-semibold text-sm tracking-wide mb-4" set:html={z.note} />
+                <p class="text-slate text-sm sm:text-[15px] leading-relaxed" set:html={z.description} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* GROUP 2 — Statesman's Pass exclusive */}
+        <div>
+          <p class="text-gold font-semibold tracking-[0.25em] uppercase text-xs sm:text-sm mb-5 text-center">
+            Statesman&rsquo;s Pass Only
+          </p>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+            {zones.filter((z) => z.tier === "statesman").map((z) => (
+              <div class="bg-cream rounded-xl p-6 sm:p-7 border-2 border-gold shadow-md flex flex-col">
+                <p class="text-gold text-2xl mb-3 leading-none" set:html={z.icon} />
+                <h3 class="font-heading font-bold text-xl sm:text-2xl text-navy mb-1.5 leading-tight" set:html={z.name} />
+                <p class="text-red font-semibold text-sm tracking-wide mb-4" set:html={z.note} />
+                <p class="text-slate text-sm sm:text-[15px] leading-relaxed" set:html={z.description} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
