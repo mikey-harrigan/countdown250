@@ -354,31 +354,37 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
     <!-- ============================================================ -->
     <section class="py-12 sm:py-16">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-10 sm:mb-12 max-w-4xl mx-auto">
+        <div class="text-center mb-10 sm:mb-12 max-w-5xl mx-auto">
           <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gold font-heading leading-tight mb-5">
-            Here is a look at the 2026 entertainment lineup&hellip; so far
+            Countdown 250 Lineup&hellip; so far
           </h2>
           <div class="w-16 h-1 bg-red mx-auto mb-6"></div>
           <p class="text-white/85 text-base sm:text-lg leading-relaxed">
-            This page will be updated daily as we announce more performers and attractions&hellip;
+            Lineup will be updated daily as more performers and attractions are announced&hellip;
           </p>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
+        {/* HORIZONTAL CARDS — image LEFT, content RIGHT (mirrors the
+            inaugural ball entertainment page layout). Stacks vertically
+            on mobile (< sm). 2 cards per row on lg+. */}
+        <div class="grid lg:grid-cols-2 gap-5 sm:gap-6">
           {performers.map((p) => (
-            <div class="bg-cream rounded-xl overflow-hidden border border-gold/30 shadow-md flex flex-col">
-              {/* Image area — falls back to a navy gradient placeholder when
-                  no image is available yet. */}
+            <div class="bg-cream rounded-xl overflow-hidden border border-gold/30 shadow-md flex flex-col sm:flex-row">
+              {/* Image area (LEFT on sm+, TOP on mobile) — falls back
+                  to a navy gradient placeholder when no image. */}
               {p.img ? (
-                <div class="aspect-[4/3] overflow-hidden bg-navy/50">
-                  <img src={p.img} alt={p.name} class="w-full h-full object-cover" loading="lazy" decoding="async" />
+                <div class="sm:w-2/5 sm:flex-shrink-0 bg-navy/50">
+                  <div class="aspect-[4/3] sm:aspect-auto sm:h-full overflow-hidden">
+                    <img src={p.img} alt={p.name} class="w-full h-full object-cover" loading="lazy" decoding="async" />
+                  </div>
                 </div>
               ) : (
-                <div class="aspect-[4/3] bg-gradient-to-br from-navy-dark via-navy to-navy-light flex items-center justify-center">
+                <div class="sm:w-2/5 sm:flex-shrink-0 bg-gradient-to-br from-navy-dark via-navy to-navy-light flex items-center justify-center aspect-[4/3] sm:aspect-auto sm:min-h-[180px]">
                   <span class="text-gold/60 text-5xl font-heading italic">{p.name.charAt(0)}</span>
                 </div>
               )}
-              <div class="p-5 sm:p-6 flex flex-col flex-1">
+              {/* Content area (RIGHT on sm+, BELOW on mobile) */}
+              <div class="flex-1 p-5 sm:p-6 flex flex-col">
                 <h3 class="font-heading font-bold text-lg sm:text-xl text-navy mb-1 leading-tight" set:html={p.name} />
                 <p class="text-red font-semibold text-xs tracking-[0.12em] uppercase mb-3" set:html={p.role} />
                 <p class="text-slate text-sm leading-relaxed" set:html={p.bio} />
