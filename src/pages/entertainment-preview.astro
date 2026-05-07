@@ -83,7 +83,8 @@ const performers = [
     name: "MARCEY",
     role: "DJ &amp; Producer",
     img: "/images/event/dj-marcey.jpg",
-    bio: "MARCEY is a Washington, D.C. based DJ and producer known for delivering high-energy sets that blend underground grit with mainstream appeal. He has established a strong presence in the D.C. dance music scene, performing at top venues including Echostage, The Anthem, Soundcheck, and Zebbie&rsquo;s Garden. MARCEY has also supported major artists such as Martin Garrix, D.O.D, Ian Asher, and Matt Sassari &mdash; further solidifying his position as a rising act. With additional performances across the East Coast &mdash; including New York City, Tampa, and Fort Lauderdale &mdash; MARCEY continues to build momentum, driven by a passion to recreate the same energy and emotion that first drew him to dance music.",
+    bio: "MARCEY is a Washington, D.C. based DJ and producer known for delivering high-energy sets that blend underground grit with mainstream appeal. He has established a strong presence in the D.C. dance music scene, performing at top venues including Echostage, The Anthem, Soundcheck, and Zebbie&rsquo;s Garden.",
+    bioExpanded: "MARCEY has also supported major artists such as Martin Garrix, D.O.D, Ian Asher, and Matt Sassari &mdash; further solidifying his position as a rising act. With additional performances across the East Coast &mdash; including New York City, Tampa, and Fort Lauderdale &mdash; MARCEY continues to build momentum, driven by a passion to recreate the same energy and emotion that first drew him to dance music.<br /><br /><a href='https://www.instagram.com/marcey.mp3' target='_blank' rel='noopener noreferrer' class='inline-block text-red-700 font-bold uppercase tracking-wider text-xs hover:text-red-900'>Follow MARCEY on Instagram &rarr;</a>",
   },
   {
     name: "Julian Awari",
@@ -319,7 +320,7 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
           4 Stages
         </h2>
 
-        <ul class="space-y-0.5 sm:space-y-1 text-lg sm:text-xl md:text-2xl font-medium tracking-wide leading-tight">
+        <ul class="space-y-0.5 sm:space-y-1 text-base sm:text-lg md:text-xl font-medium leading-snug">
           {zones.map((z) => (
             <li class={z.tier === "all" ? "text-white" : "text-gold"}>
               <span set:html={z.name} />
@@ -328,7 +329,7 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
           ))}
         </ul>
 
-        <p class="text-white/65 text-sm sm:text-base italic mt-4 sm:mt-5">
+        <p class="text-white/65 text-xs sm:text-sm italic mt-4 sm:mt-5">
           *Statesman&rsquo;s Pass Required
         </p>
       </div>
