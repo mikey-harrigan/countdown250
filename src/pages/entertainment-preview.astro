@@ -75,92 +75,69 @@ const zones = [
   },
 ];
 
-// Entertainment Lineup — placeholder roster carried over from
-// the inaugural ball. Swap names/photos as confirmations come in.
+// Entertainment Lineup — confirmed announcements + key attractions.
+// 1 confirmed performer + 2 signature attractions + 7 entertainment
+// zones = 10 cards, one per row. Updated 2026-05-07 per Mike.
 const performers = [
-  {
-    name: "Sean Spicer",
-    role: "Master of Ceremonies",
-    img: "",
-    bio: "Former White House Press Secretary turned media personality and host. Bringing his trademark sharp wit and unmistakable Washington presence as MC for the evening.",
-  },
-  {
-    name: "Buzz Aldrin",
-    role: "Honored Guest",
-    img: "/images/event/buzz-aldrin.png",
-    bio: "Apollo 11 astronaut, second person to walk on the moon, and lifelong American icon. Joining us as one of the night&rsquo;s honored guests.",
-  },
-  {
-    name: "Lee Greenwood",
-    role: "Patriotic Country Performance",
-    img: "/images/event/lee-greenwood-hero.jpg",
-    bio: "Country music legend behind &ldquo;God Bless the U.S.A.&rdquo; A signature voice of American patriotism for over four decades.",
-  },
-  {
-    name: "Thunderball",
-    role: "Live Band &mdash; Main Stage",
-    img: "",
-    bio: "Maryland&rsquo;s premier party band. Twelve-piece ensemble covering rock, pop, R&amp;B, and dance hits across every era. Perennial Capitol-region favorite.",
-  },
-  {
-    name: "The Sicilian Tenors",
-    role: "Opera &amp; Broadway",
-    img: "",
-    bio: "Award-winning operatic trio blending Italian classics, Broadway showstoppers, and patriotic standards. A featured Tribute to America performance.",
-  },
   {
     name: "Julian Awari",
     role: "National Anthem",
-    img: "",
-    bio: "Air Force veteran and powerhouse vocalist. Performs the National Anthem to open the evening&rsquo;s formal program.",
+    img: "", // Awaiting photo download from inaugural site (Mike to provide)
+    bio: "Air Force veteran and powerhouse vocalist. Performs the National Anthem to open the evening&rsquo;s formal program &mdash; a signature moment that sets the tone for the entire night.",
   },
   {
-    name: "Mark Fletcher",
-    role: "Featured Vocalist",
-    img: "",
-    bio: "Veteran entertainer with deep roots in military and civic celebrations. A favorite at All-American events.",
-  },
-  {
-    name: "Doug Segree",
-    role: "Acoustic / Rock / Pop",
-    img: "",
-    bio: "Twenty-five years on the stage, mixing acoustic favorites with rock and pop crowd-pleasers. Featured in the Patriot VIP Lounge.",
-  },
-  {
-    name: "JJ Rupp",
-    role: "Country / Rock / Blues",
-    img: "",
-    bio: "Pennsylvania-born singer-songwriter blending country, rock, and blues with a Springsteen-meets-Garth-Brooks energy.",
-  },
-  {
-    name: "Matt Oakley",
-    role: "Emerging Country Artist",
-    img: "",
-    bio: "Rising country talent with multiple Spotify editorial placements. Bringing a fresh Nashville sound to the Decades Dance Club stage.",
-  },
-  {
-    name: "Dan Sch&oslash;ener",
-    role: "Mentalist &amp; Mind-Reader",
-    img: "",
-    bio: "World-class mentalist who blends psychology, humor, and apparent mind-reading into can&rsquo;t-look-away performances. Roaming throughout the Interactive Zone.",
-  },
-  {
-    name: "DJ Freedom",
-    role: "Multi-Genre DJ",
-    img: "/images/misc/dj-cartoon.jpg",
-    bio: "Multi-genre DJ taking requests all night. Spinning between sets in the All-American Hero Ballroom and the Modern Dance Club.",
-  },
-  {
-    name: "DJ Tharp",
-    role: "Modern Dance Club",
-    img: "",
-    bio: "Resident DJ for the Modern Dance Club. High-energy mixing of today&rsquo;s biggest hits, club anthems, and festival drops.",
-  },
-  {
-    name: "VETS TV",
-    role: "Official Live Broadcaster",
+    name: "Live Broadcast",
+    role: "Television &amp; Webcast Coverage",
     img: "/images/misc/usvets-logo.jpg",
-    bio: "Veteran-focused network broadcasting the evening live for our nation&rsquo;s service members and their families. Sixth consecutive year as our official broadcast partner.",
+    bio: "The Countdown 250 Ball will be broadcast live to viewers nationwide, capturing every moment of America&rsquo;s premier 250th anniversary celebration. Cameras, hosts, and the interview station inside the Interactive Zone bring the evening to millions.",
+  },
+  {
+    name: "Midnight Countdown to America&rsquo;s 250th",
+    role: "The Signature Moment",
+    img: "/images/event/countdown-toast.jpg",
+    bio: "The signature moment of the evening. At the stroke of midnight on July 3rd into July 4th, 3,000 guests count down together to the exact instant America enters its 250th year. A multi-sensory production with patriotic music, dramatic lighting, and a synchronized confetti cascade.",
+  },
+  {
+    name: "All-American Hero Ballroom",
+    role: "Entertainment Zone",
+    img: "/images/event/ballroom-stage.jpg",
+    bio: "The flagship room. Multiple live bands rotate across the main stage, the All-American Hero Lifetime Achievement Awards are presented here, and the signature midnight countdown unfolds beneath a 30-foot gold seal.",
+  },
+  {
+    name: "Decades Dance Club",
+    role: "Entertainment Zone",
+    img: "/images/event/dj-party-lights.jpg",
+    bio: "Disco lights, retro vibes, and four decades of crowd-favorite hits &mdash; 70s, 80s, 90s, and 2000s &mdash; mixed by a high-energy DJ who keeps the floor moving all night long.",
+  },
+  {
+    name: "Studio 250",
+    role: "Entertainment Zone",
+    img: "/images/event/dj-dance-floor.png",
+    bio: "Modern dance club for current chart hits, EDM, and high-energy club music. Cinematic lighting, immersive sound, and a packed dance floor.",
+  },
+  {
+    name: "Interactive Zone",
+    role: "Entertainment Zone",
+    img: "/images/event/diverse-immersive.png",
+    bio: "Immersive 250th-anniversary activations, paparazzi photo experience, Media &amp; Press area, interview station &amp; live broadcast studio, and roving entertainers throughout.",
+  },
+  {
+    name: "Statesman&rsquo;s Balcony",
+    role: "Statesman&rsquo;s Pass Exclusive",
+    img: "/images/event/elegant-dinner-flags.png",
+    bio: "A large raised area with premium hospitality and a bird&rsquo;s-eye view of the main stage. Reserved seating, top-shelf bar, and the best sightlines in the house. Reserved for Statesman&rsquo;s Pass holders only.",
+  },
+  {
+    name: "Presidents Walk",
+    role: "Statesman&rsquo;s Pass Exclusive",
+    img: "/images/event/guests-cocktail-mingling.png",
+    bio: "An exclusive promenade with intimate sitting areas for quiet conversation away from the main floor. Reserved for Statesman&rsquo;s Pass holders only.",
+  },
+  {
+    name: "Speakeasy Lounge",
+    role: "Statesman&rsquo;s Pass Exclusive",
+    img: "/images/event/formal-dinner-table.png",
+    bio: "A speakeasy-styled hidden lounge with classic cocktails, vintage music, and intimate ambience. Reserved for Statesman&rsquo;s Pass holders only.",
   },
 ];
 
@@ -366,8 +343,10 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
 
         {/* HORIZONTAL CARDS — image LEFT, content RIGHT (mirrors the
             inaugural ball entertainment page layout). Stacks vertically
-            on mobile (< sm). 2 cards per row on lg+. */}
-        <div class="grid lg:grid-cols-2 gap-5 sm:gap-6">
+            on mobile (< sm). ONE card per row at every breakpoint while
+            the lineup is small; bump to lg:grid-cols-2 later as more
+            performers are confirmed. */}
+        <div class="space-y-5 sm:space-y-6">
           {performers.map((p) => (
             <div class="bg-cream rounded-xl overflow-hidden border border-gold/30 shadow-md flex flex-col sm:flex-row">
               {/* Image area (LEFT on sm+, TOP on mobile) — falls back
