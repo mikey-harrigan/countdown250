@@ -308,18 +308,18 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
     <!-- 4 in red, last 3 in gold with an asterisk. Footnote at the   -->
     <!-- bottom calls out the Statesman's Pass requirement.           -->
     <!-- ============================================================ -->
-    <section class="py-12 sm:py-16">
+    <section class="py-10 sm:py-12">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-        {/* Red divider ABOVE the heading per Mike */}
-        <div class="w-16 h-1 bg-red mx-auto mb-6"></div>
+        {/* Red divider above the heading was removed 2026-05-07
+            per Mike — heading now leads the section directly. */}
 
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gold leading-tight tracking-tight mb-8 sm:mb-10">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gold leading-tight tracking-tight mb-5 sm:mb-6">
           7 Entertainment Areas
           <span class="inline-block mx-2 sm:mx-3 align-middle text-gold">&#9733;</span>
           4 Stages
         </h2>
 
-        <ul class="space-y-2 sm:space-y-3 text-lg sm:text-xl md:text-2xl font-medium tracking-wide leading-snug">
+        <ul class="space-y-0.5 sm:space-y-1 text-lg sm:text-xl md:text-2xl font-medium tracking-wide leading-tight">
           {zones.map((z) => (
             <li class={z.tier === "all" ? "text-white" : "text-gold"}>
               <span set:html={z.name} />
@@ -328,7 +328,7 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
           ))}
         </ul>
 
-        <p class="text-white/65 text-sm sm:text-base italic mt-8">
+        <p class="text-white/65 text-sm sm:text-base italic mt-4 sm:mt-5">
           *Statesman&rsquo;s Pass Required
         </p>
       </div>
