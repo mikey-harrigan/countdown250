@@ -338,32 +338,33 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
           </p>
         </div>
 
-        {/* HORIZONTAL CARDS — image LEFT, content RIGHT (mirrors the
-            inaugural ball entertainment page layout). Stacks vertically
-            on mobile (< sm). ONE card per row at every breakpoint while
-            the lineup is small; bump to lg:grid-cols-2 later as more
-            performers are confirmed. */}
+        {/* HORIZONTAL CARDS — uniform dimensions per Mike. All cards
+            share the same fixed height and image width on tablet+,
+            with bios clamped to 3 lines so content boxes line up.
+            On mobile (< sm), cards stack vertically and use natural
+            height (aspect-[4/3] image on top, content below). */}
         <div class="space-y-5 sm:space-y-6">
           {performers.map((p) => (
-            <div class="bg-cream rounded-xl overflow-hidden border border-gold/30 shadow-md flex flex-col sm:flex-row">
-              {/* Image area (LEFT on sm+, TOP on mobile) — falls back
-                  to a navy gradient placeholder when no image. */}
+            <div class="bg-cream rounded-xl overflow-hidden border border-gold/30 shadow-md flex flex-col sm:flex-row sm:h-56">
+              {/* Image area (LEFT on sm+, TOP on mobile) — fixed width
+                  on tablet+ so all card images are identical size. */}
               {p.img ? (
-                <div class="sm:w-2/5 sm:flex-shrink-0 bg-navy/50">
+                <div class="sm:w-72 sm:flex-shrink-0 bg-navy/50">
                   <div class="aspect-[4/3] sm:aspect-auto sm:h-full overflow-hidden">
                     <img src={p.img} alt={p.name} class="w-full h-full object-cover" loading="lazy" decoding="async" />
                   </div>
                 </div>
               ) : (
-                <div class="sm:w-2/5 sm:flex-shrink-0 bg-gradient-to-br from-navy-dark via-navy to-navy-light flex items-center justify-center aspect-[4/3] sm:aspect-auto sm:min-h-[180px]">
+                <div class="sm:w-72 sm:flex-shrink-0 bg-gradient-to-br from-navy-dark via-navy to-navy-light flex items-center justify-center aspect-[4/3] sm:aspect-auto">
                   <span class="text-gold/60 text-5xl font-heading italic">{p.name.charAt(0)}</span>
                 </div>
               )}
-              {/* Content area (RIGHT on sm+, BELOW on mobile) */}
-              <div class="flex-1 p-5 sm:p-6 flex flex-col">
+              {/* Content area (RIGHT on sm+, BELOW on mobile). Overflow
+                  is hidden on the card; bio is line-clamped to 3 lines. */}
+              <div class="flex-1 p-5 sm:p-6 flex flex-col overflow-hidden">
                 <h3 class="font-heading font-bold text-lg sm:text-xl text-navy mb-1 leading-tight" set:html={p.name} />
                 <p class="text-red font-semibold text-xs tracking-[0.12em] uppercase mb-3" set:html={p.role} />
-                <p class="text-slate text-sm leading-relaxed" set:html={p.bio} />
+                <p class="text-slate text-sm leading-relaxed line-clamp-3 sm:line-clamp-4" set:html={p.bio} />
               </div>
             </div>
           ))}
