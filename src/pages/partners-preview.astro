@@ -45,6 +45,7 @@ const partners = [
     img: "/images/partners/mikedrop-events.png",
     blurb: "For over thirty-five years, we have helped shape America&rsquo;s event landscape, producing some of the nation&rsquo;s most groundbreaking, imaginative and impactful live experiences.",
     // url intentionally omitted 2026-05-08 per Mike — no Visit website link on this card
+    wellClass: "p-2", // tighter padding so the round seal renders bigger in the card
   },
   {
     name: "The BRAINing Center",
@@ -133,7 +134,7 @@ const partners = [
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {partners.map((p) => (
             <div class={`bg-cream rounded-xl overflow-hidden border border-gold/20 shadow-md flex flex-col ${p.gridClass ?? ''}`}>
-              <div class="bg-white p-6 flex items-center justify-center h-36 sm:h-40">
+              <div class={`bg-white flex items-center justify-center h-36 sm:h-40 ${p.wellClass ?? 'p-6'}`}>
                 <img src={p.img} alt={p.name} class="max-h-full max-w-full object-contain" loading="lazy" decoding="async" />
               </div>
               <div class="p-5 flex-1 flex flex-col">
