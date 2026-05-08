@@ -27,17 +27,18 @@ import Footer from '../components/Footer.astro';
  */
 
 const partners = [
+  // Layout per Mike (2026-05-08):
+  //   Row 1 (lg 3-col): ORHF | MikeDrop | BRAINing
+  //   Row 2 (lg 3-col): _____ | GTG | _____
+  // Achieved with lg:col-start-2 on the GTG card so it lands in
+  // the centre column of row 2. On sm/mobile the grid collapses
+  // to 2 cols and 1 col, where the col-start hint is harmless and
+  // cards just stack in array order.
   {
     name: "Operation Renewed Hope Foundation",
     img: "/images/logos/orhf-logo.png",
     blurb: "Ending Veteran homelessness. ORHF has helped more than 1,500 Veterans and their family members out of homelessness since 2011.",
     url: "https://www.operationrenewedhopefoundation.org",
-  },
-  {
-    name: "Getting The Gig (GTG)",
-    img: "/images/logos/getting-the-gig.png",
-    blurb: "Maryland, Virginia, and DC&rsquo;s leading booking agency for professional artists and DJs.",
-    url: "https://gettingthegig.com",
   },
   {
     name: "MikeDrop Events",
@@ -50,6 +51,13 @@ const partners = [
     img: "/images/partners/braining-center.png",
     blurb: "Training systems for brain health and real-life skills &mdash; focus, stress management, memory, and visual processing.",
     url: "https://thebrainingcenter.com",
+  },
+  {
+    name: "Getting The Gig (GTG)",
+    img: "/images/logos/getting-the-gig.png",
+    blurb: "Maryland, Virginia, and DC&rsquo;s leading booking agency for professional artists and DJs.",
+    url: "https://gettingthegig.com",
+    gridClass: "lg:col-start-2",
   },
 ];
 ---
@@ -124,7 +132,7 @@ const partners = [
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {partners.map((p) => (
-            <div class="bg-cream rounded-xl overflow-hidden border border-gold/20 shadow-md flex flex-col">
+            <div class={`bg-cream rounded-xl overflow-hidden border border-gold/20 shadow-md flex flex-col ${p.gridClass ?? ''}`}>
               <div class="bg-white p-6 flex items-center justify-center h-36 sm:h-40">
                 <img src={p.img} alt={p.name} class="max-h-full max-w-full object-contain" loading="lazy" decoding="async" />
               </div>
