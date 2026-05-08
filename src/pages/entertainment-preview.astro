@@ -33,24 +33,28 @@ const zones = [
   {
     tier: "all",
     name: "All-American Hero Ballroom",
+    img: "/images/event/zone-hero-ballroom.jpg",
     summary: "Non-stop programming from 7 PM to 1 AM &mdash; top-notch bands &amp; DJs, patriotic performers, the Hero Awards, the midnight countdown, and a closing set from MARCEY.",
     description: "From 7 PM until 1 AM, the main stage delivers non-stop, can&rsquo;t-miss programming &mdash; top-notch bands and DJs, a powerful program of patriotic performers, the inaugural All-American Hero Lifetime Achievement Awards, and the signature midnight countdown to America&rsquo;s 250th. The night closes with a final celebration set from MARCEY.",
   },
   {
     tier: "all",
     name: "Decades Dance Club",
+    img: "/images/event/dj-party-lights.jpg",
     summary: "70s, 80s, 90s, and 2000s hits all night long.",
     description: "Disco lights, retro vibes, and four decades of crowd-favorite hits, mixed by a high-energy DJ who keeps the floor moving from Donna Summer to Beyoncé.",
   },
   {
     tier: "all",
     name: "Club 250",
+    img: "/images/event/zone-club-250.jpg",
     summary: "Modern dance club with today&rsquo;s top hits and club bangers.",
     description: "Modern dance club for current chart hits, EDM, and high-energy club music. Cinematic lighting, immersive sound, and a packed dance floor all night long.",
   },
   {
     tier: "all",
     name: "Interactive Zone",
+    img: "/images/event/zone-interactive.jpg",
     summary: "Immersive 250th-anniversary activations, paparazzi photo experience, Media &amp; Press area, interview station &amp; live broadcast studio, roving entertainers.",
     description: "Immersive 250th-anniversary activations, paparazzi photo experience, Media &amp; Press area, interview station &amp; live broadcast studio, roving entertainers.",
   },
@@ -58,18 +62,21 @@ const zones = [
   {
     tier: "statesman",
     name: "Statesman&rsquo;s Balcony",
+    img: "/images/event/elegant-dinner-flags.png",
     summary: "Raised area with premium hospitality and a bird&rsquo;s-eye view of the main stage.",
     description: "A large raised area with premium hospitality and a bird&rsquo;s-eye view of the main stage. Reserved seating, top-shelf bar, and the best sightlines in the house.",
   },
   {
     tier: "statesman",
     name: "Presidents Walk",
-    summary: "Exclusive promenade with intimate sitting areas.",
-    description: "An exclusive promenade with intimate sitting areas for quiet conversation away from the main floor. Reserved for Statesman&rsquo;s Pass holders.",
+    img: "/images/event/zone-presidents-walk.jpg",
+    summary: "Hidden corridor lined with portraits of every U.S. President and First Lady &mdash; the private passage used by 100+ sitting Presidents.",
+    description: "Tucked behind the International Ballroom runs one of Washington&rsquo;s most quietly historic corridors &mdash; the private passageway built into the Washington Hilton&rsquo;s 1965 blueprints to give visiting Presidents a protected route in and out of the building. The walls are lined with portraits of every U.S. President and First Lady, sourced from the Library of Congress. Complimentary guided tours of the Walk and other dignitaries-only spaces will be offered throughout the evening.",
   },
   {
     tier: "statesman",
     name: "Speakeasy Lounge",
+    img: "/images/event/zone-speakeasy.jpg",
     summary: "Speakeasy-styled hidden lounge with classic cocktails and vintage ambience.",
     description: "A speakeasy-styled hidden lounge with classic cocktails, vintage music, and intimate ambience. Reserved for Statesman&rsquo;s Pass holders only.",
   },
@@ -319,29 +326,84 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
     <!-- 4 in red, last 3 in gold with an asterisk. Footnote at the   -->
     <!-- bottom calls out the Statesman's Pass requirement.           -->
     <!-- ============================================================ -->
+    <!-- ============================================================ -->
+    <!-- 7 PARTY ZONES * 4 STAGES — exploration variant 2026-05-08      -->
+    <!-- Replaces the simple bulleted list with a 2-column grid of      -->
+    <!-- compact zone cards (image left, name + summary + Read more    -->
+    <!-- right). Left column = "Open to All" tier, right column =      -->
+    <!-- "Statesman's Pass" tier (gold cards, asterisk footer).        -->
+    <!-- Lineup section below stays untouched per Mike's instruction.  -->
+    <!-- ============================================================ -->
     <section class="py-10 sm:py-12">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-        {/* Red divider above the heading was removed 2026-05-07
-            per Mike — heading now leads the section directly. */}
-
-        <h2 class="font-body text-3xl sm:text-4xl md:text-5xl font-bold text-gold leading-tight tracking-tight uppercase mb-5 sm:mb-6">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 class="font-body text-3xl sm:text-4xl md:text-5xl font-bold text-gold leading-tight tracking-tight uppercase mb-8 sm:mb-10 text-center">
           7 Party Zones
           <span class="inline-block mx-2 sm:mx-3 align-middle text-gold">&#9733;</span>
           4 Stages
         </h2>
 
-        <ul class="space-y-0.5 sm:space-y-1 text-lg sm:text-xl md:text-2xl font-medium leading-snug">
-          {zones.map((z) => (
-            <li class={z.tier === "all" ? "text-white" : "text-gold"}>
-              <span set:html={z.name} />
-              {z.tier === "statesman" && <span> *</span>}
-            </li>
-          ))}
-        </ul>
+        <div class="grid lg:grid-cols-2 gap-6 lg:gap-8">
+          {/* LEFT COLUMN — Open to All */}
+          <div>
+            <p class="text-white font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-4 text-center lg:text-left">
+              Open to All Guests
+            </p>
+            <div class="space-y-4 sm:space-y-5">
+              {zones.filter((z) => z.tier === "all").map((z) => (
+                <div class="bg-cream rounded-xl overflow-hidden border border-gold/30 shadow-md flex flex-col sm:flex-row sm:min-h-40">
+                  <div class="sm:w-40 sm:flex-shrink-0 bg-navy/50">
+                    <div class="aspect-[4/3] sm:aspect-auto sm:h-full overflow-hidden">
+                      <img src={z.img} alt={z.name} class="w-full h-full object-cover" loading="lazy" decoding="async" />
+                    </div>
+                  </div>
+                  <div class="flex-1 p-4 sm:p-4 flex flex-col">
+                    <h3 class="font-heading font-bold text-base sm:text-lg text-navy mb-2 leading-tight" set:html={z.name} />
+                    <details class="text-slate text-xs sm:text-sm leading-relaxed group">
+                      <summary class="list-none cursor-pointer marker:hidden">
+                        <span set:html={z.summary} />
+                        <span class="block mt-2 text-red-700 font-bold uppercase tracking-wider text-[10px] hover:text-red-900 group-open:hidden">Read more &rarr;</span>
+                      </summary>
+                      <div class="mt-2" set:html={z.description} />
+                      <span class="block mt-2 text-red-700 font-bold uppercase tracking-wider text-[10px] hover:text-red-900 hidden group-open:inline-block cursor-pointer" onclick="this.closest('details').open = false">&larr; Show less</span>
+                    </details>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
 
-        <p class="text-white/65 text-sm sm:text-base italic mt-4 sm:mt-5">
-          *Statesman&rsquo;s Pass Required
-        </p>
+          {/* RIGHT COLUMN — Statesman's Pass */}
+          <div>
+            <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-4 text-center lg:text-left">
+              Statesman&rsquo;s Pass Exclusive
+            </p>
+            <div class="space-y-4 sm:space-y-5">
+              {zones.filter((z) => z.tier === "statesman").map((z) => (
+                <div class="bg-gold rounded-xl overflow-hidden border border-gold shadow-md flex flex-col sm:flex-row sm:min-h-40">
+                  <div class="sm:w-40 sm:flex-shrink-0 bg-navy/50">
+                    <div class="aspect-[4/3] sm:aspect-auto sm:h-full overflow-hidden">
+                      <img src={z.img} alt={z.name} class="w-full h-full object-cover" loading="lazy" decoding="async" />
+                    </div>
+                  </div>
+                  <div class="flex-1 p-4 sm:p-4 flex flex-col">
+                    <h3 class="font-heading font-bold text-base sm:text-lg text-navy mb-2 leading-tight" set:html={z.name} />
+                    <details class="text-navy-dark text-xs sm:text-sm leading-relaxed group">
+                      <summary class="list-none cursor-pointer marker:hidden">
+                        <span set:html={z.summary} />
+                        <span class="block mt-2 text-red-800 font-bold uppercase tracking-wider text-[10px] hover:text-red-900 group-open:hidden">Read more &rarr;</span>
+                      </summary>
+                      <div class="mt-2" set:html={z.description} />
+                      <span class="block mt-2 text-red-800 font-bold uppercase tracking-wider text-[10px] hover:text-red-900 hidden group-open:inline-block cursor-pointer" onclick="this.closest('details').open = false">&larr; Show less</span>
+                    </details>
+                    <p class="mt-2 text-navy-dark/80 italic font-bold uppercase tracking-wider text-[10px]">
+                      * Statesman&rsquo;s Pass entry only
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
