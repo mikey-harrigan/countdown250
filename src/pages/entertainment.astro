@@ -148,12 +148,14 @@ const performers = [
   {
     name: "Statesman&rsquo;s Balcony",
     role: "Statesman&rsquo;s Pass Exclusive",
+    tier: "statesman",
     img: "/images/event/elegant-dinner-flags.png",
-    bio: "A large raised area with premium hospitality and a bird&rsquo;s-eye view of the main stage. Reserved seating, top-shelf bar, and the best sightlines in the house. Reserved for Statesman&rsquo;s Pass holders only.",
+    bio: "A large raised area with premium hospitality and a bird&rsquo;s-eye view of the main stage. Reserved seating, top-shelf bar, and the best sightlines in the house.",
   },
   {
     name: "Presidents Walk",
     role: "Statesman&rsquo;s Pass Exclusive",
+    tier: "statesman",
     img: "/images/event/zone-presidents-walk.jpg",
     bio: "Tucked behind the International Ballroom runs one of Washington&rsquo;s most quietly historic corridors &mdash; the President&rsquo;s Walk, the private, secure passageway built into the Washington Hilton&rsquo;s original 1965 blueprints to give visiting Presidents a protected route in and out of the building. More than 100 sitting U.S. Presidents have walked this corridor &mdash; a tally believed to be unmatched by any other hotel in America. What makes it unforgettable is what lines the walls: portraits of every U.S. President and every First Lady, sourced from the Library of Congress.",
     bioExpanded: "Branching off the Walk, hidden behind concrete-and-steel walls, lies the Holding Room &mdash; a sanctum reserved for the sitting President alone. A short entry hall curves past a private elevator and an antique secretary desk before opening into a marble-and-granite rotunda whose floor is etched with the Presidential Seal (added in 1985). Beyond the rotunda, a private sitting area and powder room are appointed with paintings of George Washington and the capital city. Lyndon B. Johnson was the first sitting President to use the room; every President since has followed.<br /><br />On the night of the Countdown 250 Ball, complimentary guided tours of the President&rsquo;s Walk, the Holding Room, and other exclusive dignitaries-only spaces inside the hotel will be offered throughout the evening &mdash; a once-in-a-lifetime chance to step inside rooms most Americans will never see.",
@@ -161,8 +163,9 @@ const performers = [
   {
     name: "Speakeasy Lounge",
     role: "Statesman&rsquo;s Pass Exclusive",
+    tier: "statesman",
     img: "/images/event/zone-speakeasy.jpg",
-    bio: "A speakeasy-styled hidden lounge with classic cocktails, vintage music, and intimate ambience. Reserved for Statesman&rsquo;s Pass holders only.",
+    bio: "A speakeasy-styled hidden lounge with classic cocktails, vintage music, and intimate ambience.",
   },
 ];
 
@@ -314,7 +317,7 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
             On mobile (< sm), cards stack vertically. */}
         <div class="space-y-5 sm:space-y-6">
           {performers.map((p) => (
-            <div class={`bg-cream rounded-xl overflow-hidden border border-gold/30 shadow-md flex flex-col sm:flex-row ${p.bioExpanded ? 'sm:min-h-56' : 'sm:h-56'}`}>
+            <div class={`${p.tier === "statesman" ? 'bg-gold border-gold' : 'bg-cream border-gold/30'} rounded-xl overflow-hidden border shadow-md flex flex-col sm:flex-row ${p.bioExpanded ? 'sm:min-h-56' : 'sm:h-56'}`}>
               {p.img ? (
                 <div class="sm:w-72 sm:flex-shrink-0 bg-navy/50">
                   <div class="aspect-[4/3] sm:aspect-auto sm:h-full overflow-hidden">
@@ -329,16 +332,21 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
               <div class={`flex-1 p-5 sm:p-6 flex flex-col ${p.bioExpanded ? '' : 'overflow-hidden'}`}>
                 <h3 class="font-heading font-bold text-lg sm:text-xl text-navy mb-3 leading-tight" set:html={p.name} />
                 {p.bioExpanded ? (
-                  <details class="text-slate text-sm leading-relaxed group">
+                  <details class={`${p.tier === "statesman" ? 'text-navy-dark' : 'text-slate'} text-sm leading-relaxed group`}>
                     <summary class="list-none cursor-pointer marker:hidden">
                       <span set:html={p.bio} />
-                      <span class="block mt-2 text-red-700 font-bold uppercase tracking-wider text-xs hover:text-red-900 group-open:hidden">Read more &rarr;</span>
+                      <span class={`block mt-2 ${p.tier === "statesman" ? 'text-red-800 hover:text-red-900' : 'text-red-700 hover:text-red-900'} font-bold uppercase tracking-wider text-xs group-open:hidden`}>Read more &rarr;</span>
                     </summary>
                     <div class="mt-3" set:html={p.bioExpanded} />
-                    <span class="block mt-3 text-red-700 font-bold uppercase tracking-wider text-xs hover:text-red-900 hidden group-open:inline-block cursor-pointer" onclick="this.closest('details').open = false">&larr; Show less</span>
+                    <span class={`block mt-3 ${p.tier === "statesman" ? 'text-red-800 hover:text-red-900' : 'text-red-700 hover:text-red-900'} font-bold uppercase tracking-wider text-xs hidden group-open:inline-block cursor-pointer`} onclick="this.closest('details').open = false">&larr; Show less</span>
                   </details>
                 ) : (
-                  <p class="text-slate text-sm leading-relaxed line-clamp-4 sm:line-clamp-5" set:html={p.bio} />
+                  <p class={`${p.tier === "statesman" ? 'text-navy-dark' : 'text-slate'} text-sm leading-relaxed line-clamp-4 sm:line-clamp-5`} set:html={p.bio} />
+                )}
+                {p.tier === "statesman" && (
+                  <p class="mt-3 text-navy-dark/80 italic font-bold uppercase tracking-wider text-[11px] sm:text-xs">
+                    * Statesman&rsquo;s Pass entry only
+                  </p>
                 )}
               </div>
             </div>
