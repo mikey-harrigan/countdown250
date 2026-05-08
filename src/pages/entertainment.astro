@@ -83,7 +83,7 @@ const performers = [
     name: "Bob Anderson",
     role: "American Icon &amp; World&rsquo;s Greatest Singing Impressionist",
     img: "/images/event/bob-anderson.jpg",
-    bio: "<em class='block mb-3 text-navy/80 not-italic font-semibold uppercase tracking-wider text-xs'>American Icon and the World&rsquo;s Greatest Singing Impressionist</em>Bob Anderson&rsquo;s career began with the kind of only-in-Las-Vegas moment that becomes legend. A Vietnam veteran from a musical family of six brothers known as &ldquo;The Detroit Osmonds,&rdquo; Anderson arrived in Las Vegas in his early twenties and, within hours, found himself on stage at the famed Sahara Hotel &amp; Casino. What began as an unexpected opportunity to sing with Nancy Sinatra quickly led to an appearance on The Merv Griffin Show, where his remarkable ability to recreate the voices of the world&rsquo;s greatest singers brought him national attention.",
+    bio: "<em class='block mb-3 text-navy/80 not-italic font-semibold uppercase tracking-wider text-xs'>American Icon and the World&rsquo;s Greatest Singing Impressionist</em>Bob Anderson&rsquo;s career began with the kind of only-in-Las-Vegas moment that becomes legend. A Vietnam veteran from a musical family of six brothers known as &ldquo;The Detroit Osmonds,&rdquo; Anderson arrived in Las Vegas in his early twenties and, within hours, found himself on stage at the famed Sahara Hotel &amp; Casino. What began as an unexpected opportunity to sing with Nancy Sinatra quickly led to an appearance on The Merv Griffin Show, where his remarkable ability to recreate the voices of the world&rsquo;s greatest singers brought him national attention.<br /><a href='https://youtu.be/iGRT3H-XDkM' target='_blank' rel='noopener noreferrer' class='youtube-modal-trigger inline-flex items-center justify-center gap-2 mt-4 bg-navy-dark hover:bg-navy border-2 border-gold text-gold hover:text-gold-light px-4 sm:px-5 py-2.5 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 no-underline' data-yt-id='iGRT3H-XDkM' data-yt-title='Bob Anderson &mdash; &ldquo;The House I Live In&rdquo;'><span class='text-gold'>&#9654;</span> Listen to Bob Anderson&rsquo;s &ldquo;The House I Live In&rdquo;</a>",
     bioExpanded: "Over the next five decades, Anderson became one of the most sought-after entertainers on the Las Vegas Strip, performing in every major casino showroom and earning acclaim for his extraordinary recreations of legendary vocalists, including his celebrated tribute to Frank Sinatra. His career has included performances for two U.S. Presidents, the Royal Family, and audiences at Carnegie Hall, where his Sinatra performance earned multiple standing ovations.<br /><br />Inducted into both the Casino Legends Hall of Fame and the Las Vegas Entertainers Hall of Fame, Bob Anderson has been hailed by <em>People</em> Magazine as &ldquo;America&rsquo;s Greatest Singing Impressionist,&rdquo; praised by Simon Cowell as the best on the planet, and summed up best by Frank Sinatra himself: &ldquo;Bob Anderson has a hell of an act.&rdquo;",
   },
   {
@@ -387,6 +387,77 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
       </div>
     </section>
 
+    {/* ============================================================ */}
+    {/* YOUTUBE MODAL — reusable on-site video popup. Listens for     */}
+    {/* clicks on any `.youtube-modal-trigger` element with a         */}
+    {/* `data-yt-id` attribute (the YouTube video ID). Currently      */}
+    {/* used on Bob Anderson's lineup card; reusable for future       */}
+    {/* performer videos. Falls back to opening the YouTube link in  */}
+    {/* a new tab if JS fails (graceful degradation).                */}
+    {/* ============================================================ */}
+    <div id="yt-modal" class="hidden fixed inset-0 z-50 items-center justify-center bg-black/80 backdrop-blur-sm p-4 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="yt-modal-title" aria-hidden="true">
+      <div class="relative w-full max-w-4xl bg-navy-dark rounded-2xl border-2 border-gold shadow-2xl overflow-hidden">
+        <button id="yt-modal-close" type="button" aria-label="Close video" class="absolute top-2 right-2 sm:-top-4 sm:-right-4 z-10 bg-gold hover:bg-gold-light text-navy-dark rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center font-bold text-2xl shadow-lg transition-all leading-none">
+          &times;
+        </button>
+        <p id="yt-modal-title" class="px-5 py-3 border-b border-gold/30 text-gold font-heading font-bold text-sm sm:text-base text-center pr-12 sm:pr-5 truncate">Now Playing</p>
+        <div class="relative w-full bg-black" style="aspect-ratio: 16 / 9;">
+          <iframe id="yt-modal-iframe" class="absolute inset-0 w-full h-full" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
   </main>
+
+  <script>
+    // YouTube modal — opens on click of any .youtube-modal-trigger.
+    // Reusable across the page; reads data-yt-id and data-yt-title
+    // from the trigger element. Stops click propagation so the
+    // surrounding <details>/<summary> Read-more toggle doesn't fire
+    // when the user clicks the button. Pressing Esc or clicking
+    // the dark backdrop also closes the modal.
+    (function () {
+      const modal = document.getElementById('yt-modal');
+      const iframe = document.getElementById('yt-modal-iframe') as HTMLIFrameElement | null;
+      const titleEl = document.getElementById('yt-modal-title');
+      const closeBtn = document.getElementById('yt-modal-close');
+      if (!modal || !iframe || !titleEl || !closeBtn) return;
+
+      function openModal(id: string, title?: string) {
+        if (!iframe || !modal || !titleEl) return;
+        iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
+        titleEl.textContent = title ?? 'Now Playing';
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeModal() {
+        if (!iframe || !modal) return;
+        iframe.src = ''; // unload to stop playback
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll<HTMLAnchorElement>('.youtube-modal-trigger').forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          const id = btn.dataset.ytId;
+          if (!id) return; // no id -> let browser fall through to href (new tab)
+          e.preventDefault();
+          e.stopPropagation();
+          openModal(id, btn.dataset.ytTitle);
+        });
+      });
+
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+      });
+    })();
+  </script>
+
   <Footer />
 </BaseLayout>
