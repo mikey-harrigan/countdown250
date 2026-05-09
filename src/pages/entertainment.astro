@@ -7,45 +7,52 @@ import Footer from '../components/Footer.astro';
 /*
  * ENTERTAINMENT PAGE (LIVE)
  * ----------------------------------------------------------------
- * Promoted from /entertainment-preview/ on 2026-05-07 after Mike's
- * sign-off on the new format. The preview page is preserved at
- * /entertainment-preview/ (excluded from sitemap) for future
- * iteration; both pages share the same content/data structure so
- * edits made on preview can be promoted here in one shot.
+ * Promoted from /entertainment-preview/ on 2026-05-08 after Mike's
+ * sign-off. The preview page is preserved at /entertainment-preview/
+ * (excluded from sitemap) for future iteration; both pages share
+ * the same data structure so edits made on preview can be promoted
+ * here in one shot.
  *
- * Format adapted from the All-American Inaugural Ball entertainment
- * page (allamericanball.com/entertainment-2/), re-themed for the
- * Countdown 250 Ball brand:
- *   - Liquid-blue page bg (sampled from the seal logo)
- *   - Gold/navy/red palette
- *   - July 3, 2026 / Washington Hilton / midnight countdown framing
+ * Major sections:
+ *   - Hero (16:9 stage + crowd photo)
+ *   - "A celebration for the ages!" intro copy
+ *   - Non-Stop Entertainment gold callout
+ *   - "7 Party Zones * 4 Stages" — 2-column compact zone grid
+ *     (left: Open to All; right: Statesman's Pass with gold cards)
+ *   - "Countdown 250 Lineup… so far" — 9 performer/attraction cards
+ *     (Bob Anderson, MARCEY, Julian Awari, DJ Freedom, Live
+ *      Broadcast, Midnight Countdown, Hero Awards, Tribute to
+ *      America, Roving Entertainers)
+ *   - Reusable YouTube modal (Bob Anderson's "House I Live In" video)
  */
 
-// Entertainment Zones — 7 areas split into 2 access tiers per Mike
-// 2026-05-07: 4 open to all guests + 3 Statesman's Pass exclusive.
 const zones = [
   // ---- Open to ALL guests ----
   {
     tier: "all",
     name: "All-American Hero Ballroom",
+    img: "/images/event/zone-hero-ballroom.jpg",
     summary: "Non-stop programming from 7 PM to 1 AM &mdash; top-notch bands &amp; DJs, patriotic performers, the Hero Awards, the midnight countdown, and a closing set from MARCEY.",
     description: "From 7 PM until 1 AM, the main stage delivers non-stop, can&rsquo;t-miss programming &mdash; top-notch bands and DJs, a powerful program of patriotic performers, the inaugural All-American Hero Lifetime Achievement Awards, and the signature midnight countdown to America&rsquo;s 250th. The night closes with a final celebration set from MARCEY.",
   },
   {
     tier: "all",
     name: "Decades Dance Club",
+    img: "/images/event/dj-party-lights.jpg",
     summary: "70s, 80s, 90s, and 2000s hits all night long.",
     description: "Disco lights, retro vibes, and four decades of crowd-favorite hits, mixed by a high-energy DJ who keeps the floor moving from Donna Summer to Beyoncé.",
   },
   {
     tier: "all",
     name: "Club 250",
+    img: "/images/event/zone-club-250.jpg",
     summary: "Modern dance club with today&rsquo;s top hits and club bangers.",
     description: "Modern dance club for current chart hits, EDM, and high-energy club music. Cinematic lighting, immersive sound, and a packed dance floor all night long.",
   },
   {
     tier: "all",
     name: "Interactive Zone",
+    img: "/images/event/zone-interactive.jpg",
     summary: "Immersive 250th-anniversary activations, paparazzi photo experience, Media &amp; Press area, interview station &amp; live broadcast studio, roving entertainers.",
     description: "Immersive 250th-anniversary activations, paparazzi photo experience, Media &amp; Press area, interview station &amp; live broadcast studio, roving entertainers.",
   },
@@ -53,38 +60,41 @@ const zones = [
   {
     tier: "statesman",
     name: "Statesman&rsquo;s Balcony",
+    img: "/images/event/elegant-dinner-flags.png",
     summary: "Raised area with premium hospitality and a bird&rsquo;s-eye view of the main stage.",
     description: "A large raised area with premium hospitality and a bird&rsquo;s-eye view of the main stage. Reserved seating, top-shelf bar, and the best sightlines in the house.",
   },
   {
     tier: "statesman",
     name: "Presidents Walk",
-    summary: "Exclusive promenade with intimate sitting areas.",
-    description: "An exclusive promenade with intimate sitting areas for quiet conversation away from the main floor. Reserved for Statesman&rsquo;s Pass holders.",
+    img: "/images/event/zone-presidents-walk.jpg",
+    summary: "Hidden corridor lined with portraits of every U.S. President and First Lady &mdash; the private passage used by 100+ sitting Presidents.",
+    description: "Tucked behind the International Ballroom runs one of Washington&rsquo;s most quietly historic corridors &mdash; the private passageway built into the Washington Hilton&rsquo;s 1965 blueprints to give visiting Presidents a protected route in and out of the building. The walls are lined with portraits of every U.S. President and First Lady, sourced from the Library of Congress. Complimentary guided tours of the Walk and other dignitaries-only spaces will be offered throughout the evening.",
   },
   {
     tier: "statesman",
     name: "Speakeasy Lounge",
+    img: "/images/event/zone-speakeasy.jpg",
     summary: "Speakeasy-styled hidden lounge with classic cocktails and vintage ambience.",
     description: "A speakeasy-styled hidden lounge with classic cocktails, vintage music, and intimate ambience. Reserved for Statesman&rsquo;s Pass holders only.",
   },
 ];
 
-// Entertainment Lineup — confirmed announcements + key attractions.
+// Entertainment Lineup — Bob Anderson at top per Mike (2026-05-08).
 const performers = [
-  {
-    name: "MARCEY",
-    role: "DJ &amp; Producer",
-    img: "/images/event/dj-marcey.jpg",
-    bio: "MARCEY is a Washington, D.C. based DJ and producer known for delivering high-energy sets that blend underground grit with mainstream appeal. He has established a strong presence in the D.C. dance music scene, performing at top venues including Echostage, The Anthem, Soundcheck, and Zebbie&rsquo;s Garden.",
-    bioExpanded: "MARCEY has also supported major artists such as Martin Garrix, D.O.D, Ian Asher, and Matt Sassari &mdash; further solidifying his position as a rising act. With additional performances across the East Coast &mdash; including New York City, Tampa, and Fort Lauderdale &mdash; MARCEY continues to build momentum, driven by a passion to recreate the same energy and emotion that first drew him to dance music.<br /><br /><a href='https://www.instagram.com/marcey.mp3' target='_blank' rel='noopener noreferrer' class='inline-block text-red-700 font-bold uppercase tracking-wider text-xs hover:text-red-900'>Follow MARCEY on Instagram &rarr;</a>",
-  },
   {
     name: "Bob Anderson",
     role: "American Icon &amp; World&rsquo;s Greatest Singing Impressionist",
     img: "/images/event/bob-anderson.jpg",
     bio: "<em class='block mb-3 text-navy/80 not-italic font-semibold uppercase tracking-wider text-xs'>American Icon and the World&rsquo;s Greatest Singing Impressionist</em>Bob Anderson&rsquo;s career began with the kind of only-in-Las-Vegas moment that becomes legend. A Vietnam veteran from a musical family of six brothers known as &ldquo;The Detroit Osmonds,&rdquo; Anderson arrived in Las Vegas in his early twenties and, within hours, found himself on stage at the famed Sahara Hotel &amp; Casino. What began as an unexpected opportunity to sing with Nancy Sinatra quickly led to an appearance on The Merv Griffin Show, where his remarkable ability to recreate the voices of the world&rsquo;s greatest singers brought him national attention.<br /><a href='https://youtu.be/iGRT3H-XDkM' target='_blank' rel='noopener noreferrer' class='youtube-modal-trigger inline-flex items-center justify-center gap-2 mt-4 bg-navy-dark hover:bg-navy border-2 border-gold text-gold hover:text-gold-light px-4 sm:px-5 py-2.5 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 no-underline' data-yt-id='iGRT3H-XDkM' data-yt-title='Bob Anderson &mdash; &ldquo;The House I Live In&rdquo;'><span class='text-gold'>&#9654;</span> Listen to Bob Anderson&rsquo;s &ldquo;The House I Live In&rdquo;</a>",
     bioExpanded: "Over the next five decades, Anderson became one of the most sought-after entertainers on the Las Vegas Strip, performing in every major casino showroom and earning acclaim for his extraordinary recreations of legendary vocalists, including his celebrated tribute to Frank Sinatra. His career has included performances for two U.S. Presidents, the Royal Family, and audiences at Carnegie Hall, where his Sinatra performance earned multiple standing ovations.<br /><br />Inducted into both the Casino Legends Hall of Fame and the Las Vegas Entertainers Hall of Fame, Bob Anderson has been hailed by <em>People</em> Magazine as &ldquo;America&rsquo;s Greatest Singing Impressionist,&rdquo; praised by Simon Cowell as the best on the planet, and summed up best by Frank Sinatra himself: &ldquo;Bob Anderson has a hell of an act.&rdquo;",
+  },
+  {
+    name: "MARCEY",
+    role: "DJ &amp; Producer",
+    img: "/images/event/dj-marcey.jpg",
+    bio: "MARCEY is a Washington, D.C. based DJ and producer known for delivering high-energy sets that blend underground grit with mainstream appeal. He has established a strong presence in the D.C. dance music scene, performing at top venues including Echostage, The Anthem, Soundcheck, and Zebbie&rsquo;s Garden.",
+    bioExpanded: "MARCEY has also supported major artists such as Martin Garrix, D.O.D, Ian Asher, and Matt Sassari &mdash; further solidifying his position as a rising act. With additional performances across the East Coast &mdash; including New York City, Tampa, and Fort Lauderdale &mdash; MARCEY continues to build momentum, driven by a passion to recreate the same energy and emotion that first drew him to dance music.<br /><br /><a href='https://www.instagram.com/marcey.mp3' target='_blank' rel='noopener noreferrer' class='inline-block text-red-700 font-bold uppercase tracking-wider text-xs hover:text-red-900'>Follow MARCEY on Instagram &rarr;</a>",
   },
   {
     name: "Julian Awari",
@@ -128,52 +138,6 @@ const performers = [
     img: "/images/event/roving-entertainers-patriotic.jpg",
     bio: "Throughout the night, an array of entertaining and mesmerizing performers &mdash; costumed characters, magicians, mentalists, dancers, living statues, and more &mdash; will be dazzling guests across the massive ballroom complex. Every corner of the venue comes alive with surprise, spectacle, and wonder.",
   },
-  {
-    name: "All-American Hero Ballroom",
-    role: "Entertainment Zone",
-    img: "/images/event/zone-hero-ballroom.jpg",
-    bio: "From 7 PM until 1 AM, the main stage delivers non-stop, can&rsquo;t-miss programming &mdash; top-notch bands and DJs, a powerful program of patriotic performers, the inaugural All-American Hero Lifetime Achievement Awards, and the signature midnight countdown to America&rsquo;s 250th. The night closes with a final celebration set from MARCEY.",
-  },
-  {
-    name: "Decades Dance Club",
-    role: "Entertainment Zone",
-    img: "/images/event/dj-party-lights.jpg",
-    bio: "Disco lights, retro vibes, and four decades of crowd-favorite hits &mdash; 70s, 80s, 90s, and 2000s &mdash; mixed by a high-energy DJ who keeps the floor moving all night long.",
-  },
-  {
-    name: "Club 250",
-    role: "Entertainment Zone",
-    img: "/images/event/zone-club-250.jpg",
-    bio: "Modern dance club for current chart hits, EDM, and high-energy club music. Cinematic lighting, immersive sound, and a packed dance floor.",
-  },
-  {
-    name: "Interactive Zone",
-    role: "Entertainment Zone",
-    img: "/images/event/zone-interactive.jpg",
-    bio: "Immersive 250th-anniversary activations, paparazzi photo experience, Media &amp; Press area, interview station &amp; live broadcast studio, and roving entertainers throughout.",
-  },
-  {
-    name: "Statesman&rsquo;s Balcony",
-    role: "Statesman&rsquo;s Pass Exclusive",
-    tier: "statesman",
-    img: "/images/event/elegant-dinner-flags.png",
-    bio: "A large raised area with premium hospitality and a bird&rsquo;s-eye view of the main stage. Reserved seating, top-shelf bar, and the best sightlines in the house.",
-  },
-  {
-    name: "Presidents Walk",
-    role: "Statesman&rsquo;s Pass Exclusive",
-    tier: "statesman",
-    img: "/images/event/zone-presidents-walk.jpg",
-    bio: "Tucked behind the International Ballroom runs one of Washington&rsquo;s most quietly historic corridors &mdash; the President&rsquo;s Walk, the private, secure passageway built into the Washington Hilton&rsquo;s original 1965 blueprints to give visiting Presidents a protected route in and out of the building. More than 100 sitting U.S. Presidents have walked this corridor &mdash; a tally believed to be unmatched by any other hotel in America. What makes it unforgettable is what lines the walls: portraits of every U.S. President and every First Lady, sourced from the Library of Congress.",
-    bioExpanded: "Branching off the Walk, hidden behind concrete-and-steel walls, lies the Holding Room &mdash; a sanctum reserved for the sitting President alone. A short entry hall curves past a private elevator and an antique secretary desk before opening into a marble-and-granite rotunda whose floor is etched with the Presidential Seal (added in 1985). Beyond the rotunda, a private sitting area and powder room are appointed with paintings of George Washington and the capital city. Lyndon B. Johnson was the first sitting President to use the room; every President since has followed.<br /><br />On the night of the Countdown 250 Ball, complimentary guided tours of the President&rsquo;s Walk, the Holding Room, and other exclusive dignitaries-only spaces inside the hotel will be offered throughout the evening &mdash; a once-in-a-lifetime chance to step inside rooms most Americans will never see.",
-  },
-  {
-    name: "Speakeasy Lounge",
-    role: "Statesman&rsquo;s Pass Exclusive",
-    tier: "statesman",
-    img: "/images/event/zone-speakeasy.jpg",
-    bio: "A speakeasy-styled hidden lounge with classic cocktails, vintage music, and intimate ambience.",
-  },
 ];
 
 const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
@@ -181,7 +145,7 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
 
 <BaseLayout
   title="Entertainment | The Official Countdown 250 Ball — July 3, 2026, Washington Hilton"
-  description="7 entertainment areas, 4 stages, headline performers, the All-American Hero Lifetime Achievement Awards, and a once-in-a-generation midnight countdown to America's 250th. Washington Hilton, DC. July 3, 2026. Get tickets!"
+  description="7 entertainment areas, 4 stages, headline performers including Bob Anderson, MARCEY, and Julian Awari, the All-American Hero Lifetime Achievement Awards, and a once-in-a-generation midnight countdown to America's 250th. Washington Hilton, DC. July 3, 2026. Get tickets!"
   ogImage="/images/event/header-entertainment-stage-crowd.jpg"
 >
   <Navbar />
@@ -192,9 +156,7 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
   >
 
     <!-- ============================================================ -->
-    <!-- HERO — canonical sub-page pattern (same as hosted-group-tables). -->
-    <!-- 16:9 image bleeds to all viewport edges, gold title ribbon       -->
-    <!-- anchored bottom-left, soft top scrim for navbar legibility.      -->
+    <!-- HERO -->
     <!-- ============================================================ -->
     <section class="relative overflow-hidden">
       <div class="relative w-full h-[55vh] sm:h-[60vh] min-h-[320px] max-h-[680px]">
@@ -217,7 +179,7 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
     </section>
 
     <!-- ============================================================ -->
-    <!-- INTRO — sets the scene -->
+    <!-- INTRO -->
     <!-- ============================================================ -->
     <section class="pt-12 pb-10 sm:pt-16 sm:pb-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -272,37 +234,85 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
     </section>
 
     <!-- ============================================================ -->
-    <!-- 7 ENTERTAINMENT AREAS ★ 4 STAGES                             -->
-    <!-- Heading + tight zone list. Red divider above heading was      -->
-    <!-- removed 2026-05-07 per Mike. Spacing tightened same day.      -->
-    <!-- First 4 zones in white, last 3 in gold with an asterisk.      -->
-    <!-- Footnote at the bottom flags the Statesman's Pass requirement.-->
+    <!-- 7 PARTY ZONES * 4 STAGES — 2-column compact zone grid          -->
+    <!-- Left column = Open to All; right column = Statesman's Pass    -->
+    <!-- (gold cards + asterisk footer).                               -->
     <!-- ============================================================ -->
     <section class="py-10 sm:py-12">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-        <h2 class="font-body text-3xl sm:text-4xl md:text-5xl font-bold text-gold leading-tight tracking-tight uppercase mb-5 sm:mb-6">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 class="font-body text-3xl sm:text-4xl md:text-5xl font-bold text-gold leading-tight tracking-tight uppercase mb-8 sm:mb-10 text-center">
           7 Party Zones
           <span class="inline-block mx-2 sm:mx-3 align-middle text-gold">&#9733;</span>
           4 Stages
         </h2>
 
-        <ul class="space-y-0.5 sm:space-y-1 text-lg sm:text-xl md:text-2xl font-medium leading-snug">
-          {zones.map((z) => (
-            <li class={z.tier === "all" ? "text-white" : "text-gold"}>
-              <span set:html={z.name} />
-              {z.tier === "statesman" && <span> *</span>}
-            </li>
-          ))}
-        </ul>
+        <div class="grid lg:grid-cols-2 gap-6 lg:gap-8">
+          {/* LEFT COLUMN — Open to All */}
+          <div>
+            <p class="text-white font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-4 text-center lg:text-left">
+              Open to All Guests
+            </p>
+            <div class="space-y-4 sm:space-y-5">
+              {zones.filter((z) => z.tier === "all").map((z) => (
+                <div class="bg-cream rounded-xl overflow-hidden border border-gold/30 shadow-md flex flex-col sm:flex-row sm:min-h-40">
+                  <div class="sm:w-40 sm:flex-shrink-0 bg-navy/50">
+                    <div class="aspect-[4/3] sm:aspect-auto sm:h-full overflow-hidden">
+                      <img src={z.img} alt={z.name} class="w-full h-full object-cover" loading="lazy" decoding="async" />
+                    </div>
+                  </div>
+                  <div class="flex-1 p-4 sm:p-4 flex flex-col">
+                    <h3 class="font-heading font-bold text-base sm:text-lg text-navy mb-2 leading-tight" set:html={z.name} />
+                    <details class="text-slate text-xs sm:text-sm leading-relaxed group">
+                      <summary class="list-none cursor-pointer marker:hidden">
+                        <span set:html={z.summary} />
+                        <span class="block mt-2 text-red-700 font-bold uppercase tracking-wider text-[10px] hover:text-red-900 group-open:hidden">Read more &rarr;</span>
+                      </summary>
+                      <div class="mt-2" set:html={z.description} />
+                      <span class="block mt-2 text-red-700 font-bold uppercase tracking-wider text-[10px] hover:text-red-900 hidden group-open:inline-block cursor-pointer" onclick="this.closest('details').open = false">&larr; Show less</span>
+                    </details>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
 
-        <p class="text-white/65 text-sm sm:text-base italic mt-4 sm:mt-5">
-          *Statesman&rsquo;s Pass Required
-        </p>
+          {/* RIGHT COLUMN — Statesman's Pass */}
+          <div>
+            <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-4 text-center lg:text-left">
+              Statesman&rsquo;s Pass Exclusive
+            </p>
+            <div class="space-y-4 sm:space-y-5">
+              {zones.filter((z) => z.tier === "statesman").map((z) => (
+                <div class="bg-gold rounded-xl overflow-hidden border border-gold shadow-md flex flex-col sm:flex-row sm:min-h-40">
+                  <div class="sm:w-40 sm:flex-shrink-0 bg-navy/50">
+                    <div class="aspect-[4/3] sm:aspect-auto sm:h-full overflow-hidden">
+                      <img src={z.img} alt={z.name} class="w-full h-full object-cover" loading="lazy" decoding="async" />
+                    </div>
+                  </div>
+                  <div class="flex-1 p-4 sm:p-4 flex flex-col">
+                    <h3 class="font-heading font-bold text-base sm:text-lg text-navy mb-2 leading-tight" set:html={z.name} />
+                    <details class="text-navy-dark text-xs sm:text-sm leading-relaxed group">
+                      <summary class="list-none cursor-pointer marker:hidden">
+                        <span set:html={z.summary} />
+                        <span class="block mt-2 text-red-800 font-bold uppercase tracking-wider text-[10px] hover:text-red-900 group-open:hidden">Read more &rarr;</span>
+                      </summary>
+                      <div class="mt-2" set:html={z.description} />
+                      <span class="block mt-2 text-red-800 font-bold uppercase tracking-wider text-[10px] hover:text-red-900 hidden group-open:inline-block cursor-pointer" onclick="this.closest('details').open = false">&larr; Show less</span>
+                    </details>
+                    <p class="mt-2 text-navy-dark/80 italic font-bold uppercase tracking-wider text-[10px]">
+                      * Statesman&rsquo;s Pass entry only
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ============================================================ -->
-    <!-- ENTERTAINMENT LINEUP — performer card grid -->
+    <!-- ENTERTAINMENT LINEUP — 9 performer/attraction cards            -->
     <!-- ============================================================ -->
     <section class="py-12 sm:py-16">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
@@ -316,12 +326,6 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
           </p>
         </div>
 
-        {/* HORIZONTAL CARDS — uniform dimensions per Mike. All cards
-            share the same fixed height and image width on tablet+,
-            with bios clamped so content boxes line up. Cards with a
-            `bioExpanded` field grow to fit and reveal a Read more
-            <details>/<summary> toggle (e.g. Presidents Walk).
-            On mobile (< sm), cards stack vertically. */}
         <div class="space-y-5 sm:space-y-6">
           {performers.map((p) => (
             <div class={`${p.tier === "statesman" ? 'bg-gold border-gold' : 'bg-cream border-gold/30'} rounded-xl overflow-hidden border shadow-md flex flex-col sm:flex-row ${p.bioExpanded ? 'sm:min-h-56' : 'sm:h-56'}`}>
@@ -372,13 +376,6 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
       </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- LINEUP DISCLAIMER — closing CTA box and 'Back to Home' button   -->
-    <!-- removed 2026-05-07 per Mike. The slogan 'Be in the Room When  -->
-    <!-- It Happens' moved into the sitewide Footer (replacing 'Be A   -->
-    <!-- Part Of History'). Page now ends with just the disclaimer;    -->
-    <!-- the Footer's Get Tickets CTA carries the conversion ask.      -->
-    <!-- ============================================================ -->
     <section class="py-10 sm:py-12">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <p class="text-center text-white/60 text-xs sm:text-sm italic">
@@ -390,10 +387,7 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
     {/* ============================================================ */}
     {/* YOUTUBE MODAL — reusable on-site video popup. Listens for     */}
     {/* clicks on any `.youtube-modal-trigger` element with a         */}
-    {/* `data-yt-id` attribute (the YouTube video ID). Currently      */}
-    {/* used on Bob Anderson's lineup card; reusable for future       */}
-    {/* performer videos. Falls back to opening the YouTube link in  */}
-    {/* a new tab if JS fails (graceful degradation).                */}
+    {/* `data-yt-id` attribute (the YouTube video ID).                */}
     {/* ============================================================ */}
     <div id="yt-modal" class="hidden fixed inset-0 z-50 items-center justify-center bg-black/80 backdrop-blur-sm p-4 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="yt-modal-title" aria-hidden="true">
       <div class="relative w-full max-w-4xl bg-navy-dark rounded-2xl border-2 border-gold shadow-2xl overflow-hidden">
@@ -410,12 +404,6 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
   </main>
 
   <script>
-    // YouTube modal — opens on click of any .youtube-modal-trigger.
-    // Reusable across the page; reads data-yt-id and data-yt-title
-    // from the trigger element. Stops click propagation so the
-    // surrounding <details>/<summary> Read-more toggle doesn't fire
-    // when the user clicks the button. Pressing Esc or clicking
-    // the dark backdrop also closes the modal.
     (function () {
       const modal = document.getElementById('yt-modal');
       const iframe = document.getElementById('yt-modal-iframe') as HTMLIFrameElement | null;
@@ -434,7 +422,7 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
       }
       function closeModal() {
         if (!iframe || !modal) return;
-        iframe.src = ''; // unload to stop playback
+        iframe.src = '';
         modal.classList.add('hidden');
         modal.classList.remove('flex');
         modal.setAttribute('aria-hidden', 'true');
@@ -444,7 +432,7 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
       document.querySelectorAll<HTMLAnchorElement>('.youtube-modal-trigger').forEach((btn) => {
         btn.addEventListener('click', (e) => {
           const id = btn.dataset.ytId;
-          if (!id) return; // no id -> let browser fall through to href (new tab)
+          if (!id) return;
           e.preventDefault();
           e.stopPropagation();
           openModal(id, btn.dataset.ytTitle);
