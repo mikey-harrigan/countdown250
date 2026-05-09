@@ -1174,6 +1174,53 @@ const faqs = [
     </section>
 
     <!-- ============================================================ -->
+    <!-- 5.4 THANK YOU TO OUR PARTNERS — gratitude strip just above the -->
+    <!-- social proof section. 4-logo row + link to /partners/ for the -->
+    <!-- full list and descriptions. Added 2026-05-09 per Mike.        -->
+    <!-- ============================================================ -->
+    <section id="partners" class="scroll-mt-24 relative py-14 sm:py-16 bg-cream overflow-hidden border-t border-gold/30">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10 sm:mb-12">
+          <p class="text-navy font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-4">
+            With Heartfelt Gratitude
+          </p>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-4 font-heading leading-tight">
+            Thank You to Our Partners
+          </h2>
+          <p class="text-slate/80 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
+            We are deeply grateful to the mission-driven organizations and industry leaders who stand beside us as we build the celebration of a lifetime.
+          </p>
+        </div>
+
+        {/* Logo row — 2-up on mobile, 4-up on tablet+. Each logo sits in
+            a white well with a gold border so the round MikeDrop seal,
+            the ORHF horizontal lockup, the BRAINing wordmark, and the
+            GTG lockup all read cleanly on the cream section bg. */}
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-10 max-w-4xl mx-auto">
+          <div class="bg-white rounded-xl border border-gold/30 shadow-md p-6 flex items-center justify-center h-28 sm:h-32">
+            <img src="/images/logos/orhf-logo.png" alt="Operation Renewed Hope Foundation" class="max-h-full max-w-full object-contain" loading="lazy" decoding="async" />
+          </div>
+          <div class="bg-white rounded-xl border border-gold/30 shadow-md p-2 flex items-center justify-center h-28 sm:h-32">
+            <img src="/images/partners/mikedrop-events.png" alt="MikeDrop Events" class="max-h-full max-w-full object-contain" loading="lazy" decoding="async" />
+          </div>
+          <div class="bg-white rounded-xl border border-gold/30 shadow-md p-6 flex items-center justify-center h-28 sm:h-32">
+            <img src="/images/partners/braining-center.png" alt="The BRAINing Center" class="max-h-full max-w-full object-contain" loading="lazy" decoding="async" />
+          </div>
+          <div class="bg-white rounded-xl border border-gold/30 shadow-md p-6 flex items-center justify-center h-28 sm:h-32">
+            <img src="/images/logos/getting-the-gig.png" alt="Getting The Gig" class="max-h-full max-w-full object-contain" loading="lazy" decoding="async" />
+          </div>
+        </div>
+
+        {/* View-all link */}
+        <div class="text-center">
+          <a href="/partners/" class="inline-block text-red font-bold uppercase tracking-wider text-sm hover:text-red-light transition-colors">
+            View All Our Partners &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
     <!-- 5.5 SOCIAL PROOF — real testimonial, premium card treatment -->
     <!-- ============================================================ -->
     <section class="py-20 sm:py-24 bg-navy text-white relative overflow-hidden">
