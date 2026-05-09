@@ -1217,7 +1217,48 @@ const faqs = [
             View All Our Partners &rarr;
           </a>
         </div>
+
+        {/* Sponsorships-available footer band — thin, dignified, gold-divided */}
+        <div class="mt-12 sm:mt-14 pt-8 sm:pt-10 border-t border-gold/40 max-w-3xl mx-auto text-center">
+          <p class="text-navy font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-3">
+            Partnership Opportunities Available
+          </p>
+          <p class="text-slate/80 text-sm sm:text-base leading-relaxed mb-5">
+            A select number of partnership opportunities remain across multiple tiers. We welcome conversations with organizations whose missions align with the spirit of America&rsquo;s 250th.
+          </p>
+          <p class="text-slate/85 text-sm sm:text-base mb-3">To inquire, email us at:</p>
+          <a
+            href="mailto:CountdownAmerica250@gmail.com?subject=Sponsorship%20Inquiry%20-%20Countdown%20250%20Ball"
+            class="email-cta-btn-home inline-block bg-navy hover:bg-navy-dark text-white px-5 sm:px-7 py-2.5 text-sm font-semibold tracking-wide transition-all rounded shadow-md hover:-translate-y-0.5 break-all"
+            data-email="CountdownAmerica250@gmail.com"
+          >
+            CountdownAmerica250@gmail.com
+          </a>
+          <p class="email-cta-toast-home text-red text-sm font-semibold mt-3 opacity-0 transition-opacity duration-300">
+            &#10003; Copied! Paste into your email app.
+          </p>
+        </div>
       </div>
+
+      <script>
+        // Email-CTA helper for the homepage Partners section: clicking
+        // the email button (a) lets the browser try the mailto handler
+        // and (b) copies the address to clipboard with a 'Copied!' toast.
+        // Same pattern as /partners/ page so the click never feels dead.
+        document.querySelectorAll<HTMLAnchorElement>('.email-cta-btn-home').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const email = btn.dataset.email;
+            if (email && navigator.clipboard) {
+              navigator.clipboard.writeText(email).catch(() => {});
+            }
+            const toast = btn.parentElement?.querySelector<HTMLElement>('.email-cta-toast-home');
+            if (toast) {
+              toast.style.opacity = '1';
+              setTimeout(() => { toast.style.opacity = '0'; }, 3000);
+            }
+          });
+        });
+      </script>
     </section>
 
     <!-- ============================================================ -->
