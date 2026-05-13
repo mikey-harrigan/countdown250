@@ -1,0 +1,301 @@
+---
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+/*
+ * ALL-AMERICAN ICON AWARDS — PREVIEW PAGE
+ * ----------------------------------------------------------------
+ * Sister page to /honorees/ (which hosts the All-American Hero
+ * Lifetime Achievement Award). Where the Hero Award honors a
+ * lifetime of selfless SERVICE to others, the Icon Award honors a
+ * lifetime of singular ACHIEVEMENT in one's field.
+ *
+ * Structure mirrors honorees.astro for visual consistency. Excluded
+ * from sitemap via astro.config.mjs filter.
+ *
+ * Hero image placeholder: header-flag.jpg (generic) until a dedicated
+ * icon-themed hero is produced.
+ */
+
+// Fields icons can come from (suggestion — different from Hero categories)
+const iconFields = [
+  {
+    icon: "🎬",
+    title: "Entertainment & Arts",
+    desc: "Actors, musicians, performers, filmmakers whose work has defined American culture",
+  },
+  {
+    icon: "🏆",
+    title: "Sports & Competition",
+    desc: "Athletes whose excellence shaped an era and inspired generations",
+  },
+  {
+    icon: "💼",
+    title: "Business & Entrepreneurship",
+    desc: "Founders, builders, and visionaries who built American institutions from the ground up",
+  },
+  {
+    icon: "🔬",
+    title: "Science, Tech & Innovation",
+    desc: "Inventors, researchers, and pioneers whose discoveries reshaped what was possible",
+  },
+  {
+    icon: "📺",
+    title: "Media & Voice",
+    desc: "Journalists, broadcasters, and authors whose voices have shaped national conversation",
+  },
+  {
+    icon: "🍴",
+    title: "Culture & Cuisine",
+    desc: "Tastemakers, chefs, designers, and creators who shaped how America lives and dreams",
+  },
+];
+---
+
+<BaseLayout
+  title="All-American Icon Award (Preview) | Honor America's Greatest Achievers | Countdown 250 Ball, July 3, 2026"
+  description="Honoring the men and women whose pursuit of the American dream has lifted them to the pinnacle of their field — whose work has become part of the fabric of American life. Countdown 250 Ball, July 3, 2026."
+  ogImage="/images/event/header-flag.jpg"
+>
+  <Navbar />
+  <main
+    class="relative"
+    style="background: radial-gradient(circle at 30% 30%, rgba(4, 61, 156, 0.45) 0%, transparent 55%), linear-gradient(135deg, #052058 0%, #002B77 50%, #043D9C 100%); background-attachment: fixed;"
+  >
+    <!-- ============================================================ -->
+    <!-- HERO — canonical sub-page pattern (matches /honorees/).       -->
+    <!-- Placeholder hero image; swap in icon-themed hero when ready.  -->
+    <!-- ============================================================ -->
+    <section class="relative overflow-hidden">
+      <div class="relative w-full h-[55vh] sm:h-[60vh] min-h-[320px] max-h-[680px]">
+        <img
+          src="/images/event/header-flag.jpg"
+          alt="An American flag with golden light streaming across the stars and stripes — the symbol of the achievement and ambition that defines an American Icon"
+          class="absolute inset-0 w-full h-full object-cover"
+          decoding="async"
+        />
+        <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-navy-dark/55 to-transparent pointer-events-none"></div>
+
+        <div class="absolute inset-y-0 left-0 flex items-end pb-4 sm:pb-8 md:pb-12 lg:pb-16 pointer-events-none">
+          <div class="bg-gradient-to-r from-gold to-[#f4d847] py-2.5 sm:py-3.5 md:py-4 lg:py-5 pl-3 sm:pl-8 md:pl-14 lg:pl-20 xl:pl-28 pr-5 sm:pr-8 md:pr-12 lg:pr-14 border-y-2 border-r-2 border-navy-dark/35 rounded-r-2xl shadow-[0_14px_32px_-10px_rgba(0,0,0,0.55)] pointer-events-auto">
+            <h1 class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy font-heading leading-none tracking-tight">
+              All-American Icons
+            </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About the Awards -->
+    <section class="py-20">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <p class="text-white font-bold tracking-[0.3em] uppercase text-xs sm:text-sm text-center mb-8">
+          Honoring the American Dream
+        </p>
+
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gold font-heading leading-tight mb-2">All-American Icons</h2>
+          <p class="text-2xl sm:text-3xl md:text-4xl font-bold text-gold font-heading leading-tight mb-5">Lifetime Achievement Awards</p>
+          <div class="w-16 h-1 bg-gold mx-auto mb-6"></div>
+          <p class="text-white/75 text-lg max-w-2xl mx-auto leading-relaxed">
+            Honoring the men and women whose pursuit of the American dream has lifted them to the pinnacle of their field — whose work has become part of the fabric of American life.
+          </p>
+        </div>
+
+        <div class="text-white/70 text-lg leading-relaxed space-y-6">
+          <p>
+            At the <strong class="text-gold">Official Countdown 250 Ball</strong> on July 3, 2026, we present
+            the inaugural <strong class="text-gold">All-American Icon Awards</strong> — honoring extraordinary
+            Americans whose lifetime of relentless pursuit, mastery of craft, and singular achievement
+            has made them part of our shared national story.
+          </p>
+          <p>
+            An <strong class="text-gold">American Icon</strong> is someone who has lived the American
+            dream out loud. They came from somewhere, worked relentlessly, mastered their craft, and rose
+            to the very top of their field. Their name carries weight. Their work shaped a generation.
+            They are, in every sense, woven into the fabric of American life.
+          </p>
+          <p>
+            While the <strong class="text-gold">All-American Hero Award</strong> honors a lifetime of
+            selfless service to others, the <strong class="text-gold">All-American Icon Award</strong>
+            honors a lifetime of relentless pursuit and singular achievement — Americans who chased
+            greatness and caught it. Together, the two awards celebrate the full breadth of what makes
+            this country what it is.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fields -->
+    <section class="py-12 sm:py-14">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-7">
+          <h2 class="text-2xl sm:text-3xl font-bold text-gold mb-3 font-heading">Fields of Achievement</h2>
+          <p class="text-white/65 text-base sm:text-lg max-w-2xl mx-auto leading-snug">
+            All-American Icon Award recipients can come from any field of achievement — what unites them is the height to which they rose and the imprint they left on American life.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          {iconFields.map((cat) => (
+            <div class="bg-white rounded-xl p-4 sm:p-5 shadow-sm border border-slate/5">
+              <div class="text-2xl mb-2">{cat.icon}</div>
+              <h3 class="text-base font-bold text-navy mb-1.5">{cat.title}</h3>
+              <p class="text-slate/65 text-sm leading-snug">{cat.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- What Makes an American Icon -->
+    <section class="py-12 sm:py-14">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-6">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gold mb-3 font-heading">What Makes an All-American Icon?</h2>
+          <div class="w-16 h-1 bg-gold mx-auto"></div>
+        </div>
+
+        <p class="text-center text-white/70 text-base sm:text-lg leading-snug mb-6">Recipients are chosen based on the following criteria:</p>
+
+        <div class="space-y-3 sm:space-y-4">
+          <div class="flex items-start gap-3 sm:gap-4">
+            <svg class="w-7 h-7 flex-shrink-0 mt-0.5 drop-shadow" viewBox="0 0 24 24" aria-hidden="true">
+              <defs>
+                <linearGradient id="iconBlue1" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:#6ea0e8"/>
+                  <stop offset="50%" style="stop-color:#1a4ba8"/>
+                  <stop offset="100%" style="stop-color:#001a45"/>
+                </linearGradient>
+              </defs>
+              <path fill="url(#iconBlue1)" stroke="#C5A44E" stroke-width="0.6" d="M12 2 L14.39 8.45 L21.11 8.45 L15.86 12.55 L18.25 19 L12 14.91 L5.75 19 L8.14 12.55 L2.89 8.45 L9.61 8.45 Z"/>
+            </svg>
+            <p class="text-white/80 text-sm sm:text-base leading-snug">
+              <strong class="text-gold font-bold">Pursuit of the American Dream</strong> &mdash; Built their success from determination, drive, and the willingness to bet on themselves.
+            </p>
+          </div>
+          <div class="flex items-start gap-3 sm:gap-4">
+            <svg class="w-7 h-7 flex-shrink-0 mt-0.5 drop-shadow" viewBox="0 0 24 24" aria-hidden="true">
+              <defs>
+                <linearGradient id="iconBlue2" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:#6ea0e8"/>
+                  <stop offset="50%" style="stop-color:#1a4ba8"/>
+                  <stop offset="100%" style="stop-color:#001a45"/>
+                </linearGradient>
+              </defs>
+              <path fill="url(#iconBlue2)" stroke="#C5A44E" stroke-width="0.6" d="M12 2 L14.39 8.45 L21.11 8.45 L15.86 12.55 L18.25 19 L12 14.91 L5.75 19 L8.14 12.55 L2.89 8.45 L9.61 8.45 Z"/>
+            </svg>
+            <p class="text-white/80 text-sm sm:text-base leading-snug">
+              <strong class="text-gold font-bold">Mastery of Field</strong> &mdash; Reached the highest levels of their profession through unmatched skill, sustained work, and singular vision.
+            </p>
+          </div>
+          <div class="flex items-start gap-3 sm:gap-4">
+            <svg class="w-7 h-7 flex-shrink-0 mt-0.5 drop-shadow" viewBox="0 0 24 24" aria-hidden="true">
+              <defs>
+                <linearGradient id="iconBlue3" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:#6ea0e8"/>
+                  <stop offset="50%" style="stop-color:#1a4ba8"/>
+                  <stop offset="100%" style="stop-color:#001a45"/>
+                </linearGradient>
+              </defs>
+              <path fill="url(#iconBlue3)" stroke="#C5A44E" stroke-width="0.6" d="M12 2 L14.39 8.45 L21.11 8.45 L15.86 12.55 L18.25 19 L12 14.91 L5.75 19 L8.14 12.55 L2.89 8.45 L9.61 8.45 Z"/>
+            </svg>
+            <p class="text-white/80 text-sm sm:text-base leading-snug">
+              <strong class="text-gold font-bold">Generational Impact</strong> &mdash; Defined their generation and influenced the next. Their work changed what was possible.
+            </p>
+          </div>
+          <div class="flex items-start gap-3 sm:gap-4">
+            <svg class="w-7 h-7 flex-shrink-0 mt-0.5 drop-shadow" viewBox="0 0 24 24" aria-hidden="true">
+              <defs>
+                <linearGradient id="iconBlue4" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:#6ea0e8"/>
+                  <stop offset="50%" style="stop-color:#1a4ba8"/>
+                  <stop offset="100%" style="stop-color:#001a45"/>
+                </linearGradient>
+              </defs>
+              <path fill="url(#iconBlue4)" stroke="#C5A44E" stroke-width="0.6" d="M12 2 L14.39 8.45 L21.11 8.45 L15.86 12.55 L18.25 19 L12 14.91 L5.75 19 L8.14 12.55 L2.89 8.45 L9.61 8.45 Z"/>
+            </svg>
+            <p class="text-white/80 text-sm sm:text-base leading-snug">
+              <strong class="text-gold font-bold">Part of American Life</strong> &mdash; Their name, their work, their story has become woven into the national identity itself.
+            </p>
+          </div>
+          <div class="flex items-start gap-3 sm:gap-4">
+            <svg class="w-7 h-7 flex-shrink-0 mt-0.5 drop-shadow" viewBox="0 0 24 24" aria-hidden="true">
+              <defs>
+                <linearGradient id="iconBlue5" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:#6ea0e8"/>
+                  <stop offset="50%" style="stop-color:#1a4ba8"/>
+                  <stop offset="100%" style="stop-color:#001a45"/>
+                </linearGradient>
+              </defs>
+              <path fill="url(#iconBlue5)" stroke="#C5A44E" stroke-width="0.6" d="M12 2 L14.39 8.45 L21.11 8.45 L15.86 12.55 L18.25 19 L12 14.91 L5.75 19 L8.14 12.55 L2.89 8.45 L9.61 8.45 Z"/>
+            </svg>
+            <p class="text-white/80 text-sm sm:text-base leading-snug">
+              <strong class="text-gold font-bold">Inspiring Greatness</strong> &mdash; Inspires the next generation of Americans to dream bigger, work harder, and pursue their own version of the American dream.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nominations -->
+    <section class="py-20 bg-navy text-white">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">Nominations Now Open</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6 font-heading">Nominate an All-American Icon</h2>
+        <div class="w-16 h-1 bg-gold mx-auto mb-8"></div>
+
+        <div class="text-white/70 text-lg leading-relaxed space-y-6 text-left max-w-2xl mx-auto mb-12">
+          <p>
+            We are now accepting nominations for the inaugural 2026 All-American Icon Lifetime
+            Achievement Awards. Do you know someone whose pursuit of the American dream has lifted
+            them to the pinnacle of their field — whose name has become part of American life?
+          </p>
+          <p>
+            We invite you to submit their name for consideration. Nominees can come from any field —
+            what matters is the height to which they rose, the impact they made, and the way their
+            story exemplifies the American dream.
+          </p>
+          <p class="text-white/50 text-base">
+            <strong class="text-white/70">To submit a nomination, please include:</strong>
+          </p>
+          <ul class="text-white/60 text-base space-y-2 list-none">
+            <li class="flex items-start gap-3">
+              <span class="text-gold mt-0.5">★</span>
+              <span>Nominee&rsquo;s full name and location</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-gold mt-0.5">★</span>
+              <span>Their field of achievement</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-gold mt-0.5">★</span>
+              <span>A brief description of their lifetime of accomplishments (250 words or less)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-gold mt-0.5">★</span>
+              <span>Why you believe they exemplify the spirit of an All-American Icon</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-gold mt-0.5">★</span>
+              <span>Your name and contact information</span>
+            </li>
+          </ul>
+        </div>
+
+        <a
+          href="mailto:CountdownAmerica250@gmail.com?subject=All-American%20Icon%20Award%20Nomination"
+          class="inline-block bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-10 py-4 text-lg font-bold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+        >
+          Submit a Nomination
+        </a>
+        <p class="text-white/40 text-sm mt-4">Nominations will be reviewed by our Awards Committee. All submissions are confidential.</p>
+      </div>
+    </section>
+
+  </main>
+  <div class="h-1.5 w-full bg-gradient-to-r from-gold/70 via-gold to-gold/70"></div>
+  <Footer />
+</BaseLayout>
