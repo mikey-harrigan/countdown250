@@ -1050,6 +1050,14 @@ const faqs = [
     <!-- Premium patriotic section honoring extraordinary Americans. -->
     <!-- Sits after the Sponsorship Contact Bar, before Social Proof. -->
     <!-- ============================================================ -->
+    {/* =============================================================
+        ALL-AMERICAN AWARDS — promoted to live 2026-05-13.
+        Two awards (Hero + Icon) presented side-by-side with their own
+        medals, copy, and CTAs. Below: a full-width auto-scrolling
+        marquee of past honorees / event photos. Section id preserved
+        so the live primary nav anchor /#heroes still lands here.
+        Marquee CSS lives in the page's <style> block below.
+        ============================================================= */}
     <section id="heroes" class="scroll-mt-24 relative pt-12 pb-10 sm:pt-16 sm:pb-14 bg-cream overflow-hidden">
       <!-- Hairline gold edges, subtle premium framing -->
       <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
@@ -1057,117 +1065,118 @@ const faqs = [
 
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <!-- Headline only -->
-        <div class="text-center mb-10 sm:mb-12 max-w-4xl mx-auto">
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-4 font-heading leading-tight">
-            Celebrating American Heroes
+        <!-- Top headline -->
+        <div class="text-center mb-2 sm:mb-3 max-w-4xl mx-auto">
+          <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-3">Honoring America&rsquo;s Finest</p>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-navy mb-3 font-heading leading-tight">
+            All-American Awards
           </h2>
+          <p class="font-heading italic text-navy/70 text-base sm:text-lg md:text-xl font-medium leading-snug mb-4">
+            Join us in celebrating America&rsquo;s brightest stars.
+          </p>
           <div class="w-24 h-px bg-gold mx-auto"></div>
         </div>
 
-        <!-- Single row: body copy + scroller (left) | medal + statement (right) -->
-        <div class="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-14 md:items-stretch mb-10 sm:mb-12">
+        <!-- TWO COLUMN AWARDS BLOCK -->
+        <div class="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-14 mt-8 sm:mt-10 mb-10 sm:mb-12">
 
-          <!-- LEFT COLUMN: top body copy + heroes mini-scroller below it -->
-          <div class="md:flex md:flex-col md:h-full">
-            <div class="space-y-5 text-slate text-lg leading-relaxed text-center md:text-left mb-7 md:mb-10">
-              <p>
-                America&rsquo;s greatness is reflected in the citizens who dedicate their lives to serving others.
-              </p>
-              <p>
-                At the Countdown 250 Ball we will recognize several extraordinary Americans whose courage, leadership, and selfless service have strengthened our nation.
-              </p>
-            </div>
-
-            <!-- HEROES MINI-SCROLLER -->
-            <div class="heroes-carousel relative rounded-md overflow-hidden aspect-[16/9] md:aspect-auto md:flex-1 md:min-h-[18rem] shadow-lg ring-1 ring-gold/25">
-              <div class="carousel-slide active">
-                <img src="/images/event/buzz-aldrin.png" alt="Astronaut Buzz Aldrin at a past All-American Inaugural Ball" class="absolute inset-0 w-full h-full object-cover" loading="eager" />
-                <div class="carousel-caption">Buzz Aldrin &mdash; past honored guest</div>
-              </div>
-              <div class="carousel-slide">
-                <img src="/images/event/hero-medal-presentation.jpg" alt="Ashley Judd presenting a Lifetime Achievement medal to a U.S. Army officer" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-                <div class="carousel-caption">Ashley Judd &mdash; honoring our heroes</div>
-              </div>
-              <div class="carousel-slide">
-                <img src="/images/event/lee-greenwood-hero.jpg" alt="Lee Greenwood, country music legend and patriot" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-                <div class="carousel-caption">Lee Greenwood &mdash; voice of a nation</div>
-              </div>
-              <div class="carousel-slide">
-                <img src="/images/event-photos/aab-2025-medal-recipients-stage.jpg" alt="Multiple All-American Hero Lifetime Achievement Award recipients standing on stage with their red, white, and blue medals, presidential seal and American flag projected behind them" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-                <div class="carousel-caption">Medal recipients on the inaugural stage</div>
-              </div>
-              <div class="carousel-slide">
-                <img src="/images/event/military-guard-sword.jpg" alt="Ceremonial military guard with raised sword at a past ball" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-                <div class="carousel-caption">Pomp, ceremony, and salute</div>
-              </div>
-              <div class="carousel-slide">
-                <img src="/images/event/hero-veteran-honored.jpg" alt="Lt. Luis Avila, a wounded Army officer, honored at the 2025 ball" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-                <div class="carousel-caption">Wounded warriors, honored guests</div>
-              </div>
-              <div class="carousel-slide">
-                <img src="/images/event/inaugural-ceremony-flag.jpg" alt="Color guard ceremony with American flag" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-                <div class="carousel-caption">A signature ceremonial moment</div>
-              </div>
-
-              <button type="button" class="carousel-prev" aria-label="Previous hero">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" /></svg>
-              </button>
-              <button type="button" class="carousel-next" aria-label="Next hero">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" /></svg>
-              </button>
-
-              <div class="carousel-dots">
-                <button type="button" class="carousel-dot active" data-go="0" aria-label="Slide 1"></button>
-                <button type="button" class="carousel-dot" data-go="1" aria-label="Slide 2"></button>
-                <button type="button" class="carousel-dot" data-go="2" aria-label="Slide 3"></button>
-                <button type="button" class="carousel-dot" data-go="3" aria-label="Slide 4"></button>
-                <button type="button" class="carousel-dot" data-go="4" aria-label="Slide 5"></button>
-                <button type="button" class="carousel-dot" data-go="5" aria-label="Slide 6"></button>
-                <button type="button" class="carousel-dot" data-go="6" aria-label="Slide 7"></button>
-              </div>
-            </div>
-          </div>
-
-          <!-- RIGHT COLUMN: medal on top, statement centered below -->
-          <div class="flex flex-col items-center">
-            <div class="relative w-72 sm:w-80 md:w-[22rem] lg:w-[26rem]">
+          <!-- ============ LEFT: ALL-AMERICAN HEROES ============ -->
+          <div class="flex flex-col sm:flex-row gap-4 sm:gap-5 items-center sm:items-start text-center sm:text-left">
+            <div class="flex-shrink-0 w-24 sm:w-28 md:w-32">
               <picture>
                 <source srcset="/images/misc/all-amer-heroes-medal.webp" type="image/webp" />
                 <img
                   src="/images/misc/all-amer-heroes-medal.png"
-                  alt="All-American Heroes Lifetime Achievement Award medal"
+                  alt="All-American Hero Lifetime Achievement Award medal"
                   class="w-full h-auto"
-                  style="filter: drop-shadow(0 22px 40px rgba(0,0,0,0.40)) drop-shadow(0 6px 14px rgba(197,164,78,0.45));"
+                  style="filter: drop-shadow(0 14px 26px rgba(0,0,0,0.32)) drop-shadow(0 4px 10px rgba(197,164,78,0.38));"
                   loading="lazy"
                 />
               </picture>
             </div>
-
-            <div class="text-center mt-8 sm:mt-10 mx-auto">
-              <p class="font-heading italic text-navy/85 text-base sm:text-lg font-medium leading-snug mb-3">
-                These Honored Guests will receive our inaugural
-              </p>
-              <p class="text-[#0B1F3A] font-bold font-heading leading-tight mb-4">
-                <span class="block text-[1.7rem] sm:text-[2rem] md:text-[2.7rem]">All-American Hero</span>
-                <span class="block text-[1.35rem] sm:text-[1.7rem] md:text-[2rem]">Lifetime Achievement Awards</span>
-              </p>
-              <div class="w-20 h-px bg-gold mx-auto mb-6"></div>
-              <p class="font-heading italic text-navy/85 text-base sm:text-lg font-medium leading-snug">
-                celebrating the very best of America&rsquo;s spirit.
-              </p>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-[#0B1F3A] font-bold font-heading leading-tight mb-2">
+                <span class="block text-[1.3rem] sm:text-[1.4rem] md:text-[1.6rem]">All-American Hero</span>
+                <span class="block text-[0.95rem] sm:text-[1.05rem] md:text-[1.15rem]">Lifetime Achievement Award</span>
+              </h3>
+              <div class="w-12 h-px bg-gold mb-3 mx-auto sm:mx-0"></div>
+              <div class="space-y-2.5 text-slate text-sm sm:text-base leading-relaxed mb-3">
+                <p>America&rsquo;s greatness is reflected in the citizens who dedicate their lives to serving others.</p>
+                <p>The All-American Hero Lifetime Achievement Awards recognize several extraordinary Americans whose <strong class="text-navy">courage, leadership, and selfless service</strong> have strengthened our nation.</p>
+              </div>
+              <div class="flex flex-col gap-1 items-center sm:items-start">
+                <a href="/honorees" class="inline-flex items-center gap-1.5 text-red font-bold uppercase tracking-wider text-xs hover:text-red-light group">
+                  <span>Learn More</span>
+                  <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                </a>
+                <a href="https://forms.gle/23Hcnc4qg41kuPxm9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-red font-bold uppercase tracking-wider text-xs hover:text-red-light group">
+                  <span>Submit a Nomination</span>
+                  <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                </a>
+              </div>
             </div>
           </div>
+
+          <!-- ============ RIGHT: ALL-AMERICAN ICONS ============ -->
+          <div class="flex flex-col sm:flex-row gap-4 sm:gap-5 items-center sm:items-start text-center sm:text-left">
+            <div class="flex-shrink-0 w-24 sm:w-28 md:w-32">
+              <picture>
+                <source srcset="/images/misc/all-amer-icon-medal.webp" type="image/webp" />
+                <img
+                  src="/images/misc/all-amer-icon-medal.png"
+                  alt="All-American Icon Award medal"
+                  class="w-full h-auto"
+                  style="filter: drop-shadow(0 14px 26px rgba(0,0,0,0.32)) drop-shadow(0 4px 10px rgba(197,164,78,0.38));"
+                  loading="lazy"
+                />
+              </picture>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-[#0B1F3A] font-bold font-heading leading-tight mb-2">
+                <span class="block text-[1.3rem] sm:text-[1.4rem] md:text-[1.6rem]">All-American Icon</span>
+                <span class="block text-[0.95rem] sm:text-[1.05rem] md:text-[1.15rem]">Award</span>
+              </h3>
+              <div class="w-12 h-px bg-gold mb-3 mx-auto sm:mx-0"></div>
+              <div class="space-y-2.5 text-slate text-sm sm:text-base leading-relaxed mb-3">
+                <p>The All-American Icon Award honors individuals who have pursued the American Dream with <strong class="text-navy">extraordinary tenacity and grace</strong> &mdash; men and women whose work, vision, character, and achievement have lifted them to the highest levels of their field.</p>
+              </div>
+              <div class="flex flex-col gap-1 items-center sm:items-start">
+                <a href="/icons" class="inline-flex items-center gap-1.5 text-red font-bold uppercase tracking-wider text-xs hover:text-red-light group">
+                  <span>Learn More</span>
+                  <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                </a>
+                <a href="https://forms.gle/SXdwyqMqNnu1Y4Kj6" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-red font-bold uppercase tracking-wider text-xs hover:text-red-light group">
+                  <span>Submit a Nomination</span>
+                  <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        <!-- Centered CTA beneath both columns -->
-        <div class="text-center pt-8 border-t border-navy/15 max-w-3xl mx-auto">
-          <a href="/honorees" class="inline-flex items-center gap-3 border-2 border-red text-red hover:bg-red hover:text-cream font-bold tracking-[0.18em] uppercase px-8 py-3.5 rounded-sm transition-colors text-xs sm:text-[13px] group">
-            <span>Submit a Nomination &amp; Meet the Honorees</span>
-            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
+        <!-- MULTI-IMAGE AUTO-SCROLLING MARQUEE — 2-3 visible at once -->
+        <div class="mt-4 mb-2">
+          <p class="text-center text-gold font-bold tracking-[0.25em] uppercase text-[11px] sm:text-xs mb-3">From Past Celebrations</p>
+          <div class="awards-marquee">
+            <div class="awards-marquee-track">
+              <div class="awards-marquee-item"><img src="/images/event/buzz-aldrin.png" alt="Astronaut Buzz Aldrin at a past All-American Inaugural Ball" loading="eager" /><div class="awards-marquee-cap">Buzz Aldrin</div></div>
+              <div class="awards-marquee-item"><img src="/images/event/hero-medal-presentation.jpg" alt="Ashley Judd presenting a Lifetime Achievement medal" loading="lazy" /><div class="awards-marquee-cap">Honoring our heroes</div></div>
+              <div class="awards-marquee-item"><img src="/images/event/lee-greenwood-hero.jpg" alt="Lee Greenwood, country music legend and patriot" loading="lazy" /><div class="awards-marquee-cap">Lee Greenwood</div></div>
+              <div class="awards-marquee-item"><img src="/images/event-photos/aab-2025-medal-recipients-stage.jpg" alt="All-American Hero Lifetime Achievement Award recipients on stage" loading="lazy" /><div class="awards-marquee-cap">Medal recipients on stage</div></div>
+              <div class="awards-marquee-item"><img src="/images/event/military-guard-sword.jpg" alt="Ceremonial military guard with raised sword" loading="lazy" /><div class="awards-marquee-cap">Pomp and salute</div></div>
+              <div class="awards-marquee-item"><img src="/images/event/hero-veteran-honored.jpg" alt="Wounded Army officer honored at the 2025 ball" loading="lazy" /><div class="awards-marquee-cap">Wounded warriors honored</div></div>
+              <div class="awards-marquee-item"><img src="/images/event/inaugural-ceremony-flag.jpg" alt="Color guard ceremony with American flag" loading="lazy" /><div class="awards-marquee-cap">A signature ceremonial moment</div></div>
+              <!-- Duplicate set for seamless loop -->
+              <div class="awards-marquee-item" aria-hidden="true"><img src="/images/event/buzz-aldrin.png" alt="" loading="lazy" /><div class="awards-marquee-cap">Buzz Aldrin</div></div>
+              <div class="awards-marquee-item" aria-hidden="true"><img src="/images/event/hero-medal-presentation.jpg" alt="" loading="lazy" /><div class="awards-marquee-cap">Honoring our heroes</div></div>
+              <div class="awards-marquee-item" aria-hidden="true"><img src="/images/event/lee-greenwood-hero.jpg" alt="" loading="lazy" /><div class="awards-marquee-cap">Lee Greenwood</div></div>
+              <div class="awards-marquee-item" aria-hidden="true"><img src="/images/event-photos/aab-2025-medal-recipients-stage.jpg" alt="" loading="lazy" /><div class="awards-marquee-cap">Medal recipients on stage</div></div>
+              <div class="awards-marquee-item" aria-hidden="true"><img src="/images/event/military-guard-sword.jpg" alt="" loading="lazy" /><div class="awards-marquee-cap">Pomp and salute</div></div>
+              <div class="awards-marquee-item" aria-hidden="true"><img src="/images/event/hero-veteran-honored.jpg" alt="" loading="lazy" /><div class="awards-marquee-cap">Wounded warriors honored</div></div>
+              <div class="awards-marquee-item" aria-hidden="true"><img src="/images/event/inaugural-ceremony-flag.jpg" alt="" loading="lazy" /><div class="awards-marquee-cap">A signature ceremonial moment</div></div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -1668,6 +1677,65 @@ const faqs = [
     .carousel-dot { transition: none; }
     .carousel-prev,
     .carousel-next { transition: none; }
+  }
+
+  /* ==========================================================
+     AWARDS MARQUEE — auto-scrolling multi-image scroller used
+     in the All-American Awards section. Shows 3 images on
+     desktop, 2 on tablet/mobile. CSS-only, pauses on hover.
+     4:3 aspect per image so faces aren't cropped. Track is
+     duplicated for seamless loop.
+     ========================================================== */
+  .awards-marquee {
+    overflow: hidden;
+    border-radius: 0.375rem;
+    box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.18);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+  }
+  .awards-marquee-track {
+    display: flex;
+    gap: 0.75rem;
+    width: max-content;
+    animation: awards-marquee-scroll 60s linear infinite;
+  }
+  .awards-marquee:hover .awards-marquee-track {
+    animation-play-state: paused;
+  }
+  .awards-marquee-item {
+    position: relative;
+    flex: 0 0 auto;
+    width: clamp(220px, 30vw, 360px);
+    aspect-ratio: 4 / 3;
+    border-radius: 0.375rem;
+    overflow: hidden;
+    box-shadow: 0 6px 18px -6px rgba(0, 0, 0, 0.25);
+  }
+  .awards-marquee-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .awards-marquee-cap {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 0.5rem 0.75rem;
+    color: white;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    text-align: center;
+  }
+  @media (max-width: 768px) {
+    .awards-marquee-item { width: clamp(180px, 44vw, 260px); }
+  }
+  @keyframes awards-marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .awards-marquee-track { animation: none; }
   }
 
   /* ==========================================================
