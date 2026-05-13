@@ -8,9 +8,11 @@ import Footer from '../components/Footer.astro';
  * ALL-AMERICAN ICON AWARDS — PREVIEW PAGE
  * ----------------------------------------------------------------
  * Sister page to /honorees/ (which hosts the All-American Hero
- * Lifetime Achievement Award). Where the Hero Award honors a
- * lifetime of selfless SERVICE to others, the Icon Award honors a
- * lifetime of singular ACHIEVEMENT in one's field.
+ * Lifetime Achievement Award). The Icon Award is NOT a lifetime
+ * achievement award — it honors achievement at the highest level
+ * of one's field, contemporary or historical. The Hero Award is
+ * the lifetime-service award; the Icon Award is the symbol-of-
+ * American-excellence award.
  *
  * Structure mirrors honorees.astro for visual consistency. Excluded
  * from sitemap via astro.config.mjs filter.
@@ -96,8 +98,8 @@ const iconFields = [
         </p>
 
         <div class="text-center mb-12">
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gold font-heading leading-tight mb-2">All-American Icons</h2>
-          <p class="text-2xl sm:text-3xl md:text-4xl font-bold text-gold font-heading leading-tight mb-5">Lifetime Achievement Awards</p>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gold font-heading leading-tight mb-2">All-American Icon</h2>
+          <p class="text-2xl sm:text-3xl md:text-4xl font-bold text-gold font-heading leading-tight mb-5">Award</p>
           <div class="w-16 h-1 bg-gold mx-auto mb-6"></div>
           <p class="text-white/75 text-lg max-w-2xl mx-auto leading-relaxed">
             Symbols of American excellence, perseverance, and possibility &mdash; honoring those who pursued the Dream and reached the highest levels of their field.
@@ -245,9 +247,9 @@ const iconFields = [
 
         <div class="text-white/70 text-lg leading-relaxed space-y-6 text-left max-w-2xl mx-auto mb-12">
           <p>
-            We are now accepting nominations for the inaugural 2026 All-American Icon Lifetime
-            Achievement Awards. Do you know someone whose pursuit of the American dream has lifted
-            them to the pinnacle of their field — whose name has become part of American life?
+            We are now accepting nominations for the inaugural 2026 All-American Icon Awards.
+            Do you know someone whose pursuit of the American Dream has lifted them to the
+            highest levels of their field?
           </p>
           <p>
             We invite you to submit their name for consideration. Nominees can come from any field —
@@ -268,7 +270,7 @@ const iconFields = [
             </li>
             <li class="flex items-start gap-3">
               <span class="text-gold mt-0.5">★</span>
-              <span>A brief description of their lifetime of accomplishments (250 words or less)</span>
+              <span>A brief description of their body of work and accomplishments (250 words or less)</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-gold mt-0.5">★</span>
