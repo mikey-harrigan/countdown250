@@ -21,39 +21,6 @@ import Footer from '../components/Footer.astro';
  * icon-themed hero is produced.
  */
 
-// Fields icons can come from (suggestion — different from Hero categories)
-const iconFields = [
-  {
-    icon: "🎬",
-    title: "Entertainment & Arts",
-    desc: "Actors, musicians, performers, filmmakers whose work has defined American culture",
-  },
-  {
-    icon: "🏆",
-    title: "Sports & Competition",
-    desc: "Athletes whose excellence shaped an era and inspired generations",
-  },
-  {
-    icon: "💼",
-    title: "Business & Entrepreneurship",
-    desc: "Founders, builders, and visionaries who built American institutions from the ground up",
-  },
-  {
-    icon: "🔬",
-    title: "Science, Tech & Innovation",
-    desc: "Inventors, researchers, and pioneers whose discoveries reshaped what was possible",
-  },
-  {
-    icon: "📺",
-    title: "Media & Voice",
-    desc: "Journalists, broadcasters, and authors whose voices have shaped national conversation",
-  },
-  {
-    icon: "🍴",
-    title: "Culture & Cuisine",
-    desc: "Tastemakers, chefs, designers, and creators who shaped how America lives and dreams",
-  },
-];
 ---
 
 <BaseLayout
@@ -137,27 +104,7 @@ const iconFields = [
       </div>
     </section>
 
-    <!-- Fields -->
-    <section class="py-12 sm:py-14">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-7">
-          <h2 class="text-2xl sm:text-3xl font-bold text-gold mb-3 font-heading">Fields of Achievement</h2>
-          <p class="text-white/65 text-base sm:text-lg max-w-2xl mx-auto leading-snug">
-            All-American Icon Award recipients can come from any field of achievement — what unites them is the height to which they rose and the imprint they left on American life.
-          </p>
-        </div>
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-          {iconFields.map((cat) => (
-            <div class="bg-white rounded-xl p-4 sm:p-5 shadow-sm border border-slate/5">
-              <div class="text-2xl mb-2">{cat.icon}</div>
-              <h3 class="text-base font-bold text-navy mb-1.5">{cat.title}</h3>
-              <p class="text-slate/65 text-sm leading-snug">{cat.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    {/* Fields of Achievement category cards removed 2026-05-13 per Mike. */}
 
     <!-- What Makes an American Icon -->
     <section class="py-12 sm:py-14">
