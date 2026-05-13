@@ -22,19 +22,19 @@ export const updates: Update[] = [
     date: "2026-03-30",
     headline: "Tickets Are Moving — Early Pricing Won't Last Long",
     slug: "tickets-moving-early-pricing",
-    body: "Initial ticket sales are well ahead of pace, and the early response has been incredible. If you've been on the fence, now is the time — early release pricing is the lowest it will ever be, and prices are going up soon. Liberty tickets start at $225, Patriot VIP at $450, and the Statesman's Concierge Pass at $1,700. Once the next price increase hits, it's gone for good. Grab your spot before that happens.",
+    body: "Initial ticket sales are well ahead of pace, and the early response has been incredible. If you've been on the fence, now is the time — early release pricing is the lowest it will ever be, and prices are going up soon. Once the next price increase hits, it's gone for good. Grab your spot before that happens.",
   },
   {
     date: "2026-03-26",
     headline: "Official Countdown 250 Ball Partners with Operation Renewed Hope Foundation",
     slug: "orhf-partnership",
-    body: "The official All-American Countdown 250 Ball is proud to announce its partnership with Operation Renewed Hope Foundation (ORHF), a veteran-led nonprofit dedicated to eradicating homelessness among our patriotic and selfless U.S. Veterans. ORHF provides quality housing and supportive services to homeless Veterans in the Greater DC Metropolitan region, serving over 100 Veterans and their families each year. With more than 90% of donations going directly to helping Veterans, ORHF is making a real difference in the lives of those who served our nation. ORHF will help select the All-American Hero Lifetime Achievement Award recipients and manage the awards ceremony at the Ball. Learn more at operationrenewedhopefoundation.org.",
+    body: "The official All-American Countdown 250 Ball is proud to announce its partnership with Operation Renewed Hope Foundation (ORHF), a veteran-led nonprofit dedicated to eradicating homelessness among our patriotic and selfless U.S. Veterans. ORHF provides quality housing and supportive services to homeless Veterans in the Greater DC Metropolitan region, serving over 100 Veterans and their families each year. With more than 90% of donations going directly to helping Veterans, ORHF is making a real difference in the lives of those who served our nation. ORHF will help select the All-American Heroes Lifetime Achievement Award recipients and manage the awards ceremony at the Ball. Learn more at operationrenewedhopefoundation.org.",
   },
   {
     date: "2026-03-20",
     headline: "Early Release Tickets Now Available",
     slug: "early-release-tickets",
-    body: "Early release pricing is live for The Official Countdown 250 Ball. Lock in the current rates before the next wave of increases. Liberty tickets at $225, Patriot VIP at $450, and Statesman's Concierge at $1,700 (limited to 200 seats). Prices rise as the event approaches, so secure your spot today.",
+    body: "Early release pricing is live for The Official Countdown 250 Ball. Lock in the current rates before the next wave of increases. Prices rise as the event approaches, so secure your spot today.",
   },
   {
     date: "2026-03-10",
@@ -44,9 +44,9 @@ export const updates: Update[] = [
   },
   {
     date: "2026-02-28",
-    headline: "All-American Hero Award Nominations Now Open",
+    headline: "All-American Heroes Award Nominations Now Open",
     slug: "hero-nominations-open",
-    body: "Nominations are now being accepted for the 2026 All-American Hero Lifetime Achievement Awards. Know someone who has dedicated their life to service and sacrifice? Submit your nomination and help us honor the extraordinary Americans who make our nation stronger.",
+    body: "Nominations are now being accepted for the 2026 All-American Heroes Lifetime Achievement Awards. Know someone who has dedicated their life to service and sacrifice? Submit your nomination and help us honor the extraordinary Americans who make our nation stronger.",
   },
   {
     date: "2026-02-15",
