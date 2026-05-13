@@ -104,14 +104,50 @@ def compress_jpg(path: Path) -> tuple[int, int, str]:
         return before, after, "jpg re-encode" + (" + " + " + ".join(action_parts) if action_parts else "")
 
 
+def _alpha_is_effectively_opaque(im: "Image.Image") -> bool:
+    """Return True if the alpha channel is fully (or essentially fully) opaque.
+
+    Many 'PNG with alpha' photos out in the wild have an alpha channel that
+    is just 255 everywhere — the alpha is redundant. For those we want to
+    drop the channel and recompress as JPG instead of forcing the
+    quality-destroying palette-quantize path. 'Essentially opaque' lets a
+    handful of stray non-255 pixels (sub-1%) slip through, since true
+    cutouts/feathers usually have many translucent pixels."""
+    try:
+        alpha = im.getchannel("A")
+    except (KeyError, ValueError):
+        return True
+    # Fast check: getextrema returns (min, max). If min is 255, it's fully opaque.
+    lo, hi = alpha.getextrema()
+    if lo == 255:
+        return True
+    # Slow check: count near-transparent pixels.
+    # Histogram of the alpha channel: index = alpha value, count = pixels.
+    hist = alpha.histogram()
+    translucent = sum(hist[:250])  # alpha < 250
+    total = im.size[0] * im.size[1]
+    return translucent / total < 0.01
+
+
 def compress_png(path: Path) -> tuple[int, int, str]:
     before = path.stat().st_size
     with Image.open(path) as im:
         im.load()
         has_alpha = "A" in im.getbands()
 
+        # If the "alpha" channel is effectively opaque, treat this PNG as
+        # if it had no alpha — drop the channel and take the JPG-bytes
+        # path. This avoids posterizing photo portraits whose alpha
+        # channel is just dead weight.
+        if has_alpha and _alpha_is_effectively_opaque(im):
+            has_alpha = False
+
         if has_alpha:
-            # Keep PNG. Try palette quantize if big.
+            # Truly transparent PNG (logo with cutout, etc). Try optimize;
+            # only quantize if EITHER the source already looks paletted
+            # (<10k unique colours) OR the optimize path didn't shrink it
+            # enough. Quantize on a photo is destructive so we gate it
+            # carefully.
             best = before
             best_bytes = None
             best_action = ""
@@ -126,15 +162,22 @@ def compress_png(path: Path) -> tuple[int, int, str]:
             except Exception:
                 pass
 
-            # Attempt 2: quantize down to 256 colours (preserves alpha via mode P + transparency)
+            # Attempt 2: quantize down to 256 colours — ONLY if the image
+            # already has few unique colours (flat-color logo territory).
+            # Photo-style alpha PNGs would have tens of thousands of
+            # colours and quantize would destroy them.
             if before > PNG_SIZE_THRESHOLD:
                 try:
-                    q = im.quantize(colors=256, method=2)
-                    buf = io.BytesIO()
-                    q.save(buf, format="PNG", optimize=True)
-                    cand = buf.getvalue()
-                    if len(cand) < best:
-                        best, best_bytes, best_action = len(cand), cand, "png quantize(256)"
+                    # getcolors returns None if there are more than maxcolors.
+                    unique_count = im.getcolors(maxcolors=8192)
+                    looks_like_logo = unique_count is not None
+                    if looks_like_logo:
+                        q = im.quantize(colors=256, method=2)
+                        buf = io.BytesIO()
+                        q.save(buf, format="PNG", optimize=True)
+                        cand = buf.getvalue()
+                        if len(cand) < best:
+                            best, best_bytes, best_action = len(cand), cand, "png quantize(256)"
                 except Exception:
                     pass
 
