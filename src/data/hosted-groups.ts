@@ -30,7 +30,7 @@ export const hostedTables: HostedTable[] = [
   { name: "H Tragle 50th Bday",            count: 6  },
   { name: "Univ. of MD Alumni",            count: 6  },
   { name: "Walter Family Reunion",         count: 8  },
-  { name: "Knuckle Dragger Cattle Co.",    count: 0  },
+  { name: "Knuckle Dragger Cattle Co.",    count: 2  },
 ];
 
 /** Convenience: derived flat list of names, kept for any legacy imports. */
