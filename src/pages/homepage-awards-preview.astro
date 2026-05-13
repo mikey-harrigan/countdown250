@@ -1180,54 +1180,30 @@ const faqs = [
 
         </div>
 
-        <!-- FULL-WIDTH PHOTO SCROLLER (same 7 images as current heroes-carousel) -->
-        <div class="mt-2 mb-2">
+        <!-- MULTI-IMAGE MARQUEE — 2-3 visible at once, auto-scrolling.
+             Better aspect ratio per photo (4:3) so faces aren't cropped.
+             CSS-only animation, pauses on hover, respects prefers-reduced-motion.
+             Each image appears twice (track is duplicated) for seamless loop. -->
+        <div class="mt-4 mb-2">
           <p class="text-center text-gold font-bold tracking-[0.25em] uppercase text-[11px] sm:text-xs mb-3">From Past Celebrations</p>
-          <div class="heroes-carousel relative rounded-md overflow-hidden aspect-[16/9] sm:aspect-[24/9] md:aspect-[28/9] shadow-lg ring-1 ring-gold/25">
-            <div class="carousel-slide active">
-              <img src="/images/event/buzz-aldrin.png" alt="Astronaut Buzz Aldrin at a past All-American Inaugural Ball" class="absolute inset-0 w-full h-full object-cover" loading="eager" />
-              <div class="carousel-caption">Buzz Aldrin &mdash; past honored guest</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/event/hero-medal-presentation.jpg" alt="Ashley Judd presenting a Lifetime Achievement medal to a U.S. Army officer" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">Ashley Judd &mdash; honoring our heroes</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/event/lee-greenwood-hero.jpg" alt="Lee Greenwood, country music legend and patriot" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">Lee Greenwood &mdash; voice of a nation</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/event-photos/aab-2025-medal-recipients-stage.jpg" alt="Multiple All-American Hero Lifetime Achievement Award recipients standing on stage with their red, white, and blue medals, presidential seal and American flag projected behind them" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">Medal recipients on the inaugural stage</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/event/military-guard-sword.jpg" alt="Ceremonial military guard with raised sword at a past ball" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">Pomp, ceremony, and salute</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/event/hero-veteran-honored.jpg" alt="Lt. Luis Avila, a wounded Army officer, honored at the 2025 ball" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">Wounded warriors, honored guests</div>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/event/inaugural-ceremony-flag.jpg" alt="Color guard ceremony with American flag" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">A signature ceremonial moment</div>
-            </div>
-
-            <button type="button" class="carousel-prev" aria-label="Previous photo">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" /></svg>
-            </button>
-            <button type="button" class="carousel-next" aria-label="Next photo">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" /></svg>
-            </button>
-
-            <div class="carousel-dots">
-              <button type="button" class="carousel-dot active" data-go="0" aria-label="Slide 1"></button>
-              <button type="button" class="carousel-dot" data-go="1" aria-label="Slide 2"></button>
-              <button type="button" class="carousel-dot" data-go="2" aria-label="Slide 3"></button>
-              <button type="button" class="carousel-dot" data-go="3" aria-label="Slide 4"></button>
-              <button type="button" class="carousel-dot" data-go="4" aria-label="Slide 5"></button>
-              <button type="button" class="carousel-dot" data-go="5" aria-label="Slide 6"></button>
-              <button type="button" class="carousel-dot" data-go="6" aria-label="Slide 7"></button>
+          <div class="awards-marquee">
+            <div class="awards-marquee-track">
+              <!-- First copy of the 7 images -->
+              <div class="awards-marquee-item"><img src="/images/event/buzz-aldrin.png" alt="Astronaut Buzz Aldrin at a past All-American Inaugural Ball" loading="eager" /><div class="awards-marquee-cap">Buzz Aldrin</div></div>
+              <div class="awards-marquee-item"><img src="/images/event/hero-medal-presentation.jpg" alt="Ashley Judd presenting a Lifetime Achievement medal" loading="lazy" /><div class="awards-marquee-cap">Honoring our heroes</div></div>
+              <div class="awards-marquee-item"><img src="/images/event/lee-greenwood-hero.jpg" alt="Lee Greenwood, country music legend and patriot" loading="lazy" /><div class="awards-marquee-cap">Lee Greenwood</div></div>
+              <div class="awards-marquee-item"><img src="/images/event-photos/aab-2025-medal-recipients-stage.jpg" alt="All-American Hero Lifetime Achievement Award recipients on stage" loading="lazy" /><div class="awards-marquee-cap">Medal recipients on stage</div></div>
+              <div class="awards-marquee-item"><img src="/images/event/military-guard-sword.jpg" alt="Ceremonial military guard with raised sword" loading="lazy" /><div class="awards-marquee-cap">Pomp and salute</div></div>
+              <div class="awards-marquee-item"><img src="/images/event/hero-veteran-honored.jpg" alt="Wounded Army officer honored at the 2025 ball" loading="lazy" /><div class="awards-marquee-cap">Wounded warriors honored</div></div>
+              <div class="awards-marquee-item"><img src="/images/event/inaugural-ceremony-flag.jpg" alt="Color guard ceremony with American flag" loading="lazy" /><div class="awards-marquee-cap">A signature ceremonial moment</div></div>
+              <!-- Duplicate set for seamless loop -->
+              <div class="awards-marquee-item" aria-hidden="true"><img src="/images/event/buzz-aldrin.png" alt="" loading="lazy" /><div class="awards-marquee-cap">Buzz Aldrin</div></div>
+              <div class="awards-marquee-item" aria-hidden="true"><img src="/images/event/hero-medal-presentation.jpg" alt="" loading="lazy" /><div class="awards-marquee-cap">Honoring our heroes</div></div>
+              <div class="awards-marquee-item" aria-hidden="true"><img src="/images/event/lee-greenwood-hero.jpg" alt="" loading="lazy" /><div class="awards-marquee-cap">Lee Greenwood</div></div>
+              <div class="awards-marquee-item" aria-hidden="true"><img src="/images/event-photos/aab-2025-medal-recipients-stage.jpg" alt="" loading="lazy" /><div class="awards-marquee-cap">Medal recipients on stage</div></div>
+              <div class="awards-marquee-item" aria-hidden="true"><img src="/images/event/military-guard-sword.jpg" alt="" loading="lazy" /><div class="awards-marquee-cap">Pomp and salute</div></div>
+              <div class="awards-marquee-item" aria-hidden="true"><img src="/images/event/hero-veteran-honored.jpg" alt="" loading="lazy" /><div class="awards-marquee-cap">Wounded warriors honored</div></div>
+              <div class="awards-marquee-item" aria-hidden="true"><img src="/images/event/inaugural-ceremony-flag.jpg" alt="" loading="lazy" /><div class="awards-marquee-cap">A signature ceremonial moment</div></div>
             </div>
           </div>
         </div>
@@ -1734,6 +1710,65 @@ const faqs = [
     .carousel-dot { transition: none; }
     .carousel-prev,
     .carousel-next { transition: none; }
+  }
+
+  /* ==========================================================
+     AWARDS MARQUEE — auto-scrolling multi-image scroller.
+     Shows 3 images on desktop, 2 on tablet/mobile. CSS-only
+     animation, pauses on hover. 4:3 aspect ratio per image so
+     faces aren't cropped. Track is duplicated for seamless loop.
+     ========================================================== */
+  .awards-marquee {
+    overflow: hidden;
+    border-radius: 0.375rem;
+    box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.18);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+  }
+  .awards-marquee-track {
+    display: flex;
+    gap: 0.75rem;
+    width: max-content;
+    animation: awards-marquee-scroll 60s linear infinite;
+  }
+  .awards-marquee:hover .awards-marquee-track {
+    animation-play-state: paused;
+  }
+  .awards-marquee-item {
+    position: relative;
+    flex: 0 0 auto;
+    width: clamp(220px, 30vw, 360px);
+    aspect-ratio: 4 / 3;
+    border-radius: 0.375rem;
+    overflow: hidden;
+    ring: 1px solid rgba(197, 164, 78, 0.25);
+    box-shadow: 0 6px 18px -6px rgba(0, 0, 0, 0.25);
+  }
+  .awards-marquee-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .awards-marquee-cap {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 0.5rem 0.75rem;
+    color: white;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    text-align: center;
+  }
+  @media (max-width: 768px) {
+    .awards-marquee-item { width: clamp(180px, 44vw, 260px); }
+  }
+  @keyframes awards-marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .awards-marquee-track { animation: none; }
   }
 
   /* ==========================================================
