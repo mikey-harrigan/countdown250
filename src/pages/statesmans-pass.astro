@@ -1,371 +1,50 @@
 ---
-import '../styles/global.css';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
-
-const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
-
-const faqs = [
-  {
-    q: "Who typically buys the Statesman's Concierge Pass?",
-    a: "DC business leaders, political and civic figures, senior military officers, government contractors, legal and consulting partners, lobbyists, veteran community leaders, and out-of-town attendees who expect premium service. The pass is designed for buyers who value signaling, access, and concierge-level care over ticket price."
-  },
-  {
-    q: "How is the Statesman's Concierge Pass different from the Patriot VIP tier?",
-    a: "Patriot VIP ($450) includes the VIP reception dinner and ballroom access. Statesman's ($1,700) adds reserved Presidential Stage seating, a dedicated personal concierge for the evening, a private VIP entrance and photographer, premium fine dining, backstage access, and recognition in the official event program."
-  },
-  {
-    q: "Is the $1,700 price final, or will it increase?",
-    a: "Current pricing is early-release. The Statesman's Concierge Pass is limited to 200 guests total across the entire event. Prices increase as the event approaches and as inventory decreases. Buyers who lock in early receive the best rate and are typically recognized with preferential seat selection."
-  },
-  {
-    q: "Can I buy multiple Statesman's passes for a group or company?",
-    a: "Yes. Companies often purchase 2, 4, 6, or 10 passes for client entertainment, senior executive teams, board members, or guest-of-honor parties. Groups of 10 or more receive formal Host recognition — see the Hosted Group Tables page for details and recognition benefits. Contact us for group coordination."
-  },
-  {
-    q: "Is the charitable component tax-deductible?",
-    a: "The Countdown 250 Ball's charity partner is Operation Renewed Hope Foundation, which provides housing for U.S. veterans. Ticket purchases are not direct charitable contributions — they are event admission. However, if you or your company would like to structure a philanthropic component alongside your ticket purchase, contact us to coordinate directly with the foundation."
-  },
-  {
-    q: "What should I wear?",
-    a: "Creative Patriotic Black Tie Optional. Think elegant, festive, and fun. Men often choose a suit or tuxedo. Women often choose gowns, cocktail dresses, or chic evening attire. Many guests add touches of patriotic flair — red, white, blue, or uniquely American style. Military dress uniforms are welcome and respected. Most importantly: be comfortable, celebrate, and enjoy the night."
-  },
-  {
-    q: "Can I purchase directly on Eventbrite, or do I need to use the inquiry form?",
-    a: "Both options are live. Many guests purchase directly on Eventbrite and request specific concierge preferences afterward (arrival time, seating, dietary needs). Others prefer to speak with our VIP team first via the inquiry form — especially for groups of 4+, complex logistics, or when coordinating with a corporate travel office. Use whichever fits your style."
-  },
-  {
-    q: "What happens after I purchase?",
-    a: "You'll receive immediate Eventbrite confirmation. Within 48 hours, a member of our VIP concierge team contacts you personally to arrange arrival details, seating placement, dietary requirements, photography preferences, and any special requests for the evening."
-  }
-];
+/*
+ * /statesmans-pass/ — REDIRECT STUB (2026-05-13)
+ * ----------------------------------------------------------------
+ * The Statesman's tier is a single product: the Statesman's
+ * Concierge Pass. We previously had two near-duplicate pages
+ * (/statesmans-pass/ and /statesmans-concierge-pass/) describing
+ * the same tier, which split SEO equity and risked the two pages
+ * drifting out of sync. We standardised on
+ * /statesmans-concierge-pass/ as the canonical URL and replaced
+ * this page with a meta-refresh + JS redirect so any inbound
+ * traffic (search results, old links, cached pages) lands on the
+ * live page automatically.
+ *
+ * Sitemap: excluded via astro.config.mjs filter so search engines
+ * stop indexing this URL going forward.
+ *
+ * Canonical link tag points to the live page so any crawler that
+ * lands here before the redirect fires understands the merge.
+ */
+const target = "/statesmans-concierge-pass/";
 ---
-
-<BaseLayout
-  title="Statesman's Concierge Pass — $1,700 Premium VIP Tickets | The Official Countdown 250 Ball | Washington D.C. July 3, 2026"
-  description="The premier VIP experience at America's 250th anniversary black-tie gala. Reserved Presidential Stage seating, dedicated concierge, private VIP entrance, backstage access, premium fine dining. Washington Hilton, July 3, 2026. Limited to 200 guests."
-  ogImage="/images/event/statesman-vip-dinner.png"
->
-  <Navbar />
-  <main
-    class="relative"
-    style="background: radial-gradient(circle at 30% 30%, rgba(4, 61, 156, 0.45) 0%, transparent 55%), linear-gradient(135deg, #052058 0%, #002B77 50%, #043D9C 100%); background-attachment: fixed;"
-  >
-
-  <!-- Hero — canonical image-led pattern with flag background -->
-  <section class="relative overflow-hidden">
-    <div class="relative w-full h-[55vh] sm:h-[60vh] min-h-[320px] max-h-[680px]">
-      <img
-        src="/images/event/header-flag.jpg"
-        alt="A close-up of the American flag, the stars on the blue field at the upper-left curving into the red and white stripes flowing across the frame"
-        class="absolute inset-0 w-full h-full object-cover"
-        decoding="async"
-      />
-      <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-navy-dark/55 to-transparent pointer-events-none"></div>
-      <div class="absolute inset-y-0 left-0 flex items-end pb-4 sm:pb-8 md:pb-12 lg:pb-16 pointer-events-none">
-        <div class="bg-gradient-to-r from-gold to-[#f4d847] py-2.5 sm:py-3.5 md:py-4 lg:py-5 pl-3 sm:pl-8 md:pl-14 lg:pl-20 xl:pl-28 pr-5 sm:pr-8 md:pr-12 lg:pr-14 border-y-2 border-r-2 border-navy-dark/35 rounded-r-2xl shadow-[0_14px_32px_-10px_rgba(0,0,0,0.55)] pointer-events-auto">
-          <h1 class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy font-heading leading-none tracking-tight">
-            Statesman&rsquo;s Concierge Pass
-          </h1>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Eyebrow + subhead + price + hero CTAs (moved here from the
-       hero overlay 2026-05-06 when the hero adopted the image-led
-       pattern). -->
-  <section class="pt-12 pb-6 sm:pt-16 sm:pb-8">
-    <div class="max-w-5xl mx-auto px-4 text-center">
-      <p class="text-gold font-medium tracking-[0.3em] uppercase text-sm mb-4">
-        July 3, 2026 &middot; Washington Hilton
-      </p>
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gold mb-6 font-heading leading-tight">
-        The Statesman&rsquo;s Concierge Pass
-      </h2>
-      <div class="w-24 h-0.5 bg-gold mx-auto mb-8"></div>
-      <p class="text-white/80 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
-        The premier VIP experience at America&rsquo;s 250th anniversary black-tie gala.
-        Reserved Presidential Stage seating, dedicated personal concierge, private VIP entrance,
-        backstage access. Limited to 200 guests.
-      </p>
-      <p class="text-gold text-3xl font-bold mt-8">$1,700 <span class="text-white/50 text-base font-normal">per guest &middot; early release pricing</span></p>
-
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
-        <a href={ticketUrl} class="eventbrite-checkout inline-block bg-red hover:bg-red-light text-white px-10 py-4 text-base font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5">
-          Buy on Eventbrite
-        </a>
-        <a href="#inquiry" class="inline-block border-2 border-gold/60 hover:border-gold text-gold px-10 py-4 text-base font-semibold tracking-wider uppercase transition-all rounded">
-          Request Concierge Service
-        </a>
-      </div>
-      <p class="text-white/40 text-sm mt-4 max-w-xl mx-auto">
-        Buy directly to lock in current pricing and your concierge will follow up within 48 hours. Prefer to speak first? Use the inquiry form below.
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, follow" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={`https://countdown250.allamericanball.com${target}`} />
+    <title>Redirecting to the Statesman&rsquo;s Concierge Pass &mdash; Countdown 250 Ball</title>
+    <style>
+      html, body { margin: 0; padding: 0; background: #002B77; color: #ffffff; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+      .wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; text-align: center; }
+      a { color: #C5A44E; font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <p>
+        Redirecting to the Statesman&rsquo;s Concierge Pass&hellip;<br />
+        If you are not redirected automatically, <a href={target}>click here</a>.
       </p>
     </div>
-  </section>
-
-  <!-- Who this is for -->
-  <section class="py-16 ">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      <div class="text-white/70 text-lg leading-relaxed space-y-6">
-        <p>
-          The Statesman&rsquo;s Concierge Pass is built for the guests whose evening demands more than a seat.
-          DC business leaders. Senior military officers. Political and civic figures. Defense, legal, and consulting
-          partners. Government contractors hosting clients. Out-of-town travelers who expect premium service from
-          arrival to encore.
-        </p>
-        <p>
-          On the eve of America&rsquo;s 250th birthday, 3,000 guests will gather at the historic Washington Hilton.
-          Two hundred of them will do so in the Statesman&rsquo;s tier &mdash; the room within the room, with the access,
-          the seating, and the personal care that turns a remarkable evening into a career-defining one.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- What's Included -->
-  <section class="py-20 bg-navy">
-    <div class="max-w-5xl mx-auto px-4">
-      <h2 class="text-2xl sm:text-3xl font-bold text-white text-center mb-4 font-heading">Your Experience Includes</h2>
-      <div class="w-16 h-0.5 bg-gold mx-auto mb-12"></div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Card 1 -->
-        <div class="bg-white/5 border border-gold/20 rounded-xl p-6 text-center hover:border-gold/40 transition-colors">
-          <div class="text-gold mb-4 flex justify-center">
-            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" /></svg>
-          </div>
-          <h3 class="text-white font-semibold text-lg mb-2">Presidential Stage Seating</h3>
-          <p class="text-white/60 text-sm">Reserved seats at the premier Presidential Stage with unobstructed views of the main entertainment and midnight countdown.</p>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="bg-white/5 border border-gold/20 rounded-xl p-6 text-center hover:border-gold/40 transition-colors">
-          <div class="text-gold mb-4 flex justify-center">
-            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
-          </div>
-          <h3 class="text-white font-semibold text-lg mb-2">Dedicated Concierge</h3>
-          <p class="text-white/60 text-sm">Your personal concierge handles every detail — from arrival coordination to special requests throughout the evening.</p>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="bg-white/5 border border-gold/20 rounded-xl p-6 text-center hover:border-gold/40 transition-colors">
-          <div class="text-gold mb-4 flex justify-center">
-            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" /></svg>
-          </div>
-          <h3 class="text-white font-semibold text-lg mb-2">Private VIP Entrance</h3>
-          <p class="text-white/60 text-sm">Skip the main entrance. Arrive through a private entry with expedited check-in and red carpet welcome.</p>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="bg-white/5 border border-gold/20 rounded-xl p-6 text-center hover:border-gold/40 transition-colors">
-          <div class="text-gold mb-4 flex justify-center">
-            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" /></svg>
-          </div>
-          <h3 class="text-white font-semibold text-lg mb-2">Premium Open Bar</h3>
-          <p class="text-white/60 text-sm">Top-shelf spirits, artisanal cocktails, and champagne service all evening at dedicated VIP bars.</p>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="bg-white/5 border border-gold/20 rounded-xl p-6 text-center hover:border-gold/40 transition-colors">
-          <div class="text-gold mb-4 flex justify-center">
-            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 8.25v-1.5m-6 1.5v-1.5m12 9.75l-1.5.75a3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0L3 16.5m15-12.75H6A2.25 2.25 0 003.75 6v12a2.25 2.25 0 002.25 2.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75z" /></svg>
-          </div>
-          <h3 class="text-white font-semibold text-lg mb-2">Fine Dining</h3>
-          <p class="text-white/60 text-sm">Exquisite multi-course cuisine prepared by premier chefs, served at your reserved table.</p>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="bg-white/5 border border-gold/20 rounded-xl p-6 text-center hover:border-gold/40 transition-colors">
-          <div class="text-gold mb-4 flex justify-center">
-            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5z" /></svg>
-          </div>
-          <h3 class="text-white font-semibold text-lg mb-2">Backstage Access</h3>
-          <p class="text-white/60 text-sm">Go behind the scenes. Meet performers, explore exclusive areas, and enjoy access unavailable to other guests.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Hosted Group Tables benefit block -->
-  <section class="py-20 ">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      <div class="bg-white rounded-2xl shadow-lg border-l-4 border-gold p-8 sm:p-12">
-        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">New Statesman's Concierge Benefit</p>
-        <h2 class="text-2xl sm:text-3xl font-bold text-navy mb-4 font-heading">Hosted Group Tables</h2>
-        <p class="text-slate/80 leading-relaxed mb-4">
-          Any Statesman's guest may create or join a named group of any size and be seated together at the same table or tables in the Statesman's Concierge Area &mdash; alongside special guests and All-American Heroes Awardees, with opportunities to mix and mingle throughout the evening.
-        </p>
-        <p class="text-slate/80 leading-relaxed mb-6">
-          Rally 10 or more paid Statesman's guests and earn <strong class="text-navy">Host recognition</strong>: your name on the table signage, a Hosts callout in the official program, named stage recognition, and a public <em>Toast to the Hosts</em> in front of the full ballroom.
-        </p>
-        <a
-          href="/hosted-group-tables"
-          class="inline-block bg-navy hover:bg-navy-light text-white px-8 py-3 text-sm font-semibold tracking-wider uppercase transition-all rounded shadow hover:-translate-y-0.5"
-        >
-          View Hosted Groups or Start Your Own
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Evening timeline -->
-  <section class="py-20 ">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-12">
-        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">The Evening</p>
-        <h2 class="text-2xl sm:text-3xl font-bold text-gold mb-4 font-heading">Your Statesman&rsquo;s Evening, Hour by Hour</h2>
-        <div class="w-16 h-0.5 bg-gold mx-auto"></div>
-      </div>
-      <div class="space-y-6 text-white/70 text-base leading-relaxed">
-        <div class="bg-white rounded-xl p-6 border-l-4 border-gold">
-          <p class="text-navy font-bold mb-1">6:45 PM &mdash; Private Arrival</p>
-          <p>Private VIP entrance, separate from the main 9 PM general entry. Expedited check-in. Red carpet welcome. Dedicated concierge meets you at arrival.</p>
-        </div>
-        <div class="bg-white rounded-xl p-6 border-l-4 border-gold">
-          <p class="text-navy font-bold mb-1">7:00 PM &mdash; VIP Reception</p>
-          <p>Champagne reception with fellow Statesman&rsquo;s guests and select dignitaries. Hors d&rsquo;oeuvres, photo opportunities, and brief mingling in a private reception space.</p>
-        </div>
-        <div class="bg-white rounded-xl p-6 border-l-4 border-gold">
-          <p class="text-navy font-bold mb-1">7:45 PM &mdash; Premium Fine Dining</p>
-          <p>Multi-course plated dinner at your reserved Presidential Stage table. Premium wines throughout. All dietary requirements accommodated on request.</p>
-        </div>
-        <div class="bg-white rounded-xl p-6 border-l-4 border-gold">
-          <p class="text-navy font-bold mb-1">9:00 PM &mdash; Ball Opens, All-American Heroes Awards</p>
-          <p>Main ball doors open. You remain at your reserved table on the Presidential Stage &mdash; the best sightlines for the All-American Heroes Lifetime Achievement Awards ceremony and evening entertainment.</p>
-        </div>
-        <div class="bg-white rounded-xl p-6 border-l-4 border-gold">
-          <p class="text-navy font-bold mb-1">10:30 PM &mdash; Backstage Access</p>
-          <p>Meet performers, explore exclusive backstage areas, and enjoy private lounges reserved for Statesman&rsquo;s guests.</p>
-        </div>
-        <div class="bg-white rounded-xl p-6 border-l-4 border-red">
-          <p class="text-navy font-bold mb-1">12:00 AM &mdash; Midnight Countdown</p>
-          <p>The moment America enters its 250th year. Your reserved Presidential Stage seating places you at the heart of the spectacle &mdash; the best view in the ballroom of the multi-sensory countdown production.</p>
-        </div>
-        <div class="bg-white rounded-xl p-6 border-l-4 border-gold">
-          <p class="text-navy font-bold mb-1">1:00 AM &mdash; Departure</p>
-          <p>Concierge-coordinated departure. Commemorative gift presented. Professional photography available for pickup within 48 hours.</p>
-        </div>
-      </div>
-      <div class="text-center mt-12">
-        <a href={ticketUrl} class="eventbrite-checkout inline-block bg-red hover:bg-red-light text-white px-10 py-4 text-base font-semibold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5">
-          Secure Your Statesman&rsquo;s Pass &mdash; $1,700
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="py-20 ">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-12">
-        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-4">Frequently Asked</p>
-        <h2 class="text-2xl sm:text-3xl font-bold text-gold mb-4 font-heading">Premium Buyer Questions</h2>
-        <div class="w-16 h-0.5 bg-gold mx-auto"></div>
-      </div>
-
-      <div class="space-y-4">
-        {faqs.map(({ q, a }) => (
-          <div class="bg-cream rounded-xl p-6">
-            <h3 class="text-lg font-bold text-navy mb-2 font-heading">{q}</h3>
-            <p class="text-slate/70 leading-relaxed">{a}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Inquiry Form -->
-  <section id="inquiry" class="py-20 bg-navy-dark">
-    <div class="max-w-2xl mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4 font-heading">Request Concierge Service</h2>
-        <div class="w-16 h-0.5 bg-gold mx-auto mb-6"></div>
-        <p class="text-white/60">
-          Prefer to speak with our VIP team before purchasing? Complete the form below and a member of our concierge team will contact you within 24 hours to arrange every detail. For immediate purchase, use the Eventbrite button at the top of this page.
-        </p>
-      </div>
-
-      <form action="https://formspree.io/f/xrgnoqkl" method="POST" class="space-y-6">
-        <input type="hidden" name="_subject" value="Statesman's Concierge Pass Inquiry" />
-
-        <div class="grid sm:grid-cols-2 gap-6">
-          <div>
-            <label for="name" class="block text-white/80 text-sm font-medium mb-2">Full Name *</label>
-            <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-gold/60 focus:ring-1 focus:ring-gold/30 transition-colors" placeholder="Your full name" />
-          </div>
-          <div>
-            <label for="email" class="block text-white/80 text-sm font-medium mb-2">Email Address *</label>
-            <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-gold/60 focus:ring-1 focus:ring-gold/30 transition-colors" placeholder="you@example.com" />
-          </div>
-        </div>
-
-        <div class="grid sm:grid-cols-2 gap-6">
-          <div>
-            <label for="phone" class="block text-white/80 text-sm font-medium mb-2">Phone Number *</label>
-            <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-gold/60 focus:ring-1 focus:ring-gold/30 transition-colors" placeholder="(555) 123-4567" />
-          </div>
-          <div>
-            <label for="company" class="block text-white/80 text-sm font-medium mb-2">Company / Organization</label>
-            <input type="text" id="company" name="company" class="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-gold/60 focus:ring-1 focus:ring-gold/30 transition-colors" placeholder="Optional" />
-          </div>
-        </div>
-
-        <div>
-          <label for="passes" class="block text-white/80 text-sm font-medium mb-2">Number of Passes *</label>
-          <select id="passes" name="passes" required class="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white focus:outline-none focus:border-gold/60 focus:ring-1 focus:ring-gold/30 transition-colors">
-            <option value="" class="bg-navy-dark">Select</option>
-            <option value="1" class="bg-navy-dark">1 Guest — $1,700</option>
-            <option value="2" class="bg-navy-dark">2 Guests — $3,400</option>
-            <option value="3" class="bg-navy-dark">3 Guests — $5,100</option>
-            <option value="4" class="bg-navy-dark">4 Guests — $6,800</option>
-            <option value="5" class="bg-navy-dark">5 Guests — $8,500</option>
-            <option value="6" class="bg-navy-dark">6 Guests — $10,200</option>
-            <option value="7" class="bg-navy-dark">7 Guests — $11,900</option>
-            <option value="8" class="bg-navy-dark">8 Guests — $13,600</option>
-            <option value="9" class="bg-navy-dark">9 Guests — $15,300</option>
-            <option value="10" class="bg-navy-dark">10 Guests — $17,000</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="message" class="block text-white/80 text-sm font-medium mb-2">Message / Special Requests</label>
-          <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-gold/60 focus:ring-1 focus:ring-gold/30 transition-colors resize-none" placeholder="Dietary requirements, seating preferences, group details, or any questions..."></textarea>
-        </div>
-
-        <button type="submit" class="w-full py-4 bg-gold text-navy-dark font-bold text-lg tracking-wider uppercase rounded-lg hover:bg-gold-light transition-colors shadow-lg">
-          Submit Inquiry
-        </button>
-      </form>
-
-      <div class="text-center mt-8 space-y-4">
-        <p class="text-white/40 text-sm">
-          Prefer to speak directly? Email us at
-          <a href="mailto:CountdownAmerica250@gmail.com" class="text-gold/70 hover:text-gold underline">CountdownAmerica250@gmail.com</a>
-        </p>
-        <a href="/#tickets" class="inline-block text-white/50 hover:text-white text-sm transition-colors">
-          &larr; View All Ticket Tiers
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ Structured Data for SEO -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map(({ q, a }) => ({
-      "@type": "Question",
-      "name": q,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": a
-      }
-    }))
-  })} />
-
-  </main>
-  <Footer />
-</BaseLayout>
+    <script is:inline define:vars={{ target }}>
+      // Fire as soon as JS is parsed; meta-refresh is the fallback.
+      window.location.replace(target);
+    </script>
+  </body>
+</html>
