@@ -14,12 +14,13 @@ import Footer from '../components/Footer.astro';
  * promoted here in one shot.
  *
  * Page leads with gratitude (Thank You to Our Partners), shows
- * the 5-card partner grid in a uniform 3-col layout, then drops a
+ * the 6-card partner grid in a uniform 3-col layout, then drops a
  * quiet 'Sponsorship Opportunities Available' email CTA below.
  *
  * Partners (in render order): ORHF, MikeDrop Events,
- * WhitbeckBeglis, Getting The Gig (GTG), The BRAINing Center.
- * Grid is sm:2-col / lg:3-col; cards just flow in array order.
+ * WhitbeckBeglis, Getting The Gig (GTG), The BRAINing Center,
+ * Highly Rated Local. Grid is sm:2-col / lg:3-col; cards just
+ * flow in array order.
  */
 
 const partners = [
@@ -53,6 +54,12 @@ const partners = [
     img: "/images/partners/braining-center.png",
     blurb: "Training systems for brain health and real-life skills &mdash; focus, stress management, memory, and visual processing.",
     url: "https://brainingcenter.com",
+  },
+  {
+    name: "Highly Rated Local",
+    img: "/images/partners/highly-rated-local.png",
+    blurb: "Northern Virginia&rsquo;s only directory and guide for verified 4&ndash;5 star-rated local businesses &mdash; top-rated restaurants, home professionals and contractors, health experts, financial and legal advisors, and more. Every listing is verified, so you find only trusted local businesses.",
+    url: "https://www.HighlyRatedLocal.com",
   },
 ];
 ---
@@ -118,7 +125,7 @@ const partners = [
     </section>
 
     <!-- ============================================================ -->
-    <!-- OUR PARTNERS — 5 cards in a uniform sm:2-col / lg:3-col grid  -->
+    <!-- OUR PARTNERS — 6 cards in a uniform sm:2-col / lg:3-col grid  -->
     <!-- Each card: white logo well + name + short blurb + optional    -->
     <!-- 'Visit website ↗' link.                                       -->
     <!-- ============================================================ -->
