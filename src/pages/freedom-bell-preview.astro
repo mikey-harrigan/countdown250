@@ -105,54 +105,44 @@ const mediaAngles = [
     style="background: radial-gradient(circle at 30% 30%, rgba(4, 61, 156, 0.45) 0%, transparent 55%), linear-gradient(135deg, #052058 0%, #002B77 50%, #043D9C 100%); background-attachment: fixed;"
   >
     <!-- ============================================================ -->
-    <!-- 1. HERO BANNER — canonical sub-page pattern (matches /icons/,  -->
-    <!-- /honorees/, /partners/): full-bleed 16:9 image + gold ribbon  -->
-    <!-- flush-left holding the page H1. Uses the clean flag header so  -->
-    <!-- it is not the same photo as the content hero directly below.  -->
+    <!-- 1. HERO BANNER — features the framed Freedom Bell photo        -->
+    <!-- (transparent PNG with its own navy/gold star frame) centered  -->
+    <!-- over the page's liquid-blue gradient, with the canonical gold -->
+    <!-- ribbon flush-left holding the page H1.                         -->
+    <!-- IMAGE: freedom-bell-framed.png (810x752 RGBA, ~678 KB after    -->
+    <!-- resize). Kept PNG: the frame corners are transparent, so JPG  -->
+    <!-- would add a box and quantize would posterize the photo.       -->
     <!-- ============================================================ -->
     <section class="relative overflow-hidden">
-      <div class="relative w-full h-[55vh] sm:h-[60vh] min-h-[320px] max-h-[680px]">
+      <div class="relative w-full min-h-[60vh] max-h-[760px] flex items-center justify-center px-4 pt-28 sm:pt-32 pb-20 sm:pb-24">
         <img
-          src="/images/event/header-flag.jpg"
-          alt="A close-up of the American flag rippling in the wind — banner for America's Freedom Bell × Countdown 250"
-          class="absolute inset-0 w-full h-full object-cover"
+          src="/images/event/freedom-bell-framed.png"
+          alt="Service members from across the branches gathered around America's Freedom Bell at the World War II Memorial in Washington, D.C., holding American flags — in a navy and gold commemorative frame"
+          class="max-h-[52vh] sm:max-h-[58vh] w-auto max-w-full object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.55)]"
           decoding="async"
         />
-        <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-navy-dark/55 to-transparent pointer-events-none"></div>
+      </div>
 
-        <div class="absolute inset-y-0 left-0 flex items-end pb-4 sm:pb-8 md:pb-12 lg:pb-16 pointer-events-none">
-          <div class="bg-gradient-to-r from-gold to-[#f4d847] py-2.5 sm:py-3.5 md:py-4 lg:py-5 pl-3 sm:pl-8 md:pl-14 lg:pl-20 xl:pl-28 pr-5 sm:pr-8 md:pr-12 lg:pr-14 border-y-2 border-r-2 border-navy-dark/35 rounded-r-2xl shadow-[0_14px_32px_-10px_rgba(0,0,0,0.55)] pointer-events-auto">
-            <h1 class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy font-heading leading-none tracking-tight">
-              America&rsquo;s Freedom Bell
-            </h1>
-          </div>
+      <div class="absolute inset-y-0 left-0 flex items-end pb-4 sm:pb-8 md:pb-10 lg:pb-12 pointer-events-none">
+        <div class="bg-gradient-to-r from-gold to-[#f4d847] py-2.5 sm:py-3.5 md:py-4 lg:py-5 pl-3 sm:pl-8 md:pl-14 lg:pl-20 xl:pl-28 pr-5 sm:pr-8 md:pr-12 lg:pr-14 border-y-2 border-r-2 border-navy-dark/35 rounded-r-2xl shadow-[0_14px_32px_-10px_rgba(0,0,0,0.55)] pointer-events-auto">
+          <h1 class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy font-heading leading-none tracking-tight">
+            America&rsquo;s Freedom Bell
+          </h1>
         </div>
       </div>
     </section>
 
     <!-- ============================================================ -->
-    <!-- 2. TOP SECTION — full-bleed photo background + inset gold      -->
-    <!-- frame. Left column: 3-line headline / kicker / body / tagline -->
-    <!-- / LET FREEDOM RING! / gold-star divider / 2 CTAs. Right       -->
-    <!-- (stacks below on mobile): "The Midnight Moment" card.         -->
-    <!--                                                                -->
-    <!-- IMAGE: freedom-bell-hero.jpg is the real, text-free photo      -->
-    <!-- supplied by Mike (service members around the bell at the WWII -->
-    <!-- Memorial). NOTE: source is only 600x400 — it is soft when      -->
-    <!-- stretched on wide desktops. Replace with a higher-res version  -->
-    <!-- if one becomes available.                                      -->
+    <!-- 2. TOP SECTION — sits on the page's liquid-blue gradient.     -->
+    <!-- (The full-bleed background photo was removed: the framed      -->
+    <!-- Freedom Bell photo is now featured in the hero banner above,  -->
+    <!-- so a second, softer copy of the same shot as a stretched bg   -->
+    <!-- was redundant.) Inset gold frame kept. Left column: 3-line    -->
+    <!-- headline / kicker / body / tagline / divider / 2 CTAs.        -->
+    <!-- Right: "The Midnight Moment" card. LET FREEDOM RING! closes   -->
+    <!-- the section full-width.                                        -->
     <!-- ============================================================ -->
     <section class="relative overflow-hidden">
-      <!-- Background photo + legibility scrims -->
-      <img
-        src="/images/event/freedom-bell-hero.jpg"
-        alt="Service members from across the branches kneeling and standing around America's Freedom Bell at the World War II Memorial in Washington, D.C., holding American flags"
-        class="absolute inset-0 w-full h-full object-cover"
-        decoding="async"
-      />
-      <div class="absolute inset-0 bg-gradient-to-r from-navy-dark via-navy-dark/90 to-navy-dark/55 pointer-events-none"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-navy-dark/85 via-transparent to-navy-dark/40 pointer-events-none"></div>
-
       <!-- Inset decorative gold frame -->
       <div class="absolute inset-3 sm:inset-5 lg:inset-6 border border-gold/40 rounded-xl pointer-events-none"></div>
 
@@ -161,7 +151,7 @@ const mediaAngles = [
           <!-- Left column -->
           <div>
             <h2 class="font-heading font-bold text-gold uppercase leading-[1.05] tracking-tight text-3xl sm:text-4xl lg:text-5xl mb-7">
-              <span class="block">A Coast-to-Capital Journey.</span>
+              <span class="block">A Coast-to-Coast Journey.</span>
               <span class="block">A Midnight Ringing.</span>
               <span class="block">A Nation Turning 250.</span>
             </h2>
@@ -179,9 +169,6 @@ const mediaAngles = [
               </p>
               <p class="text-white font-heading font-bold uppercase tracking-wide text-lg sm:text-xl leading-snug">
                 Our country - Our bells - Our freedom
-              </p>
-              <p class="text-white font-heading font-extrabold uppercase tracking-[0.1em] text-3xl sm:text-4xl lg:text-5xl mt-3">
-                LET FREEDOM RING!
               </p>
             </div>
 
@@ -226,6 +213,11 @@ const mediaAngles = [
             </div>
           </div>
         </div>
+
+        <!-- LET FREEDOM RING! — closes the section, full width, one line -->
+        <p class="text-white font-heading font-extrabold uppercase tracking-[0.12em] text-3xl sm:text-5xl lg:text-6xl text-center mt-12 sm:mt-16">
+          LET FREEDOM RING!
+        </p>
       </div>
     </section>
 
