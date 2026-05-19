@@ -42,10 +42,19 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
 const mediaMailto = "mailto:CountdownAmerica250@gmail.com?subject=Media%20Partnership%20%E2%80%94%20America%27s%20Freedom%20Bell%20%C3%97%20Countdown%20250";
 
 const heroDetails = [
-  { label: "One Historic Bell", text: "A powerful symbol of service, remembrance, liberty, and national unity." },
-  { label: "Thousands of Small Bells", text: "Guests joining together in a shared chorus of freedom." },
-  { label: "One Nation Turning 250", text: "A once-in-a-generation moment at the heart of Independence Weekend." },
+  { icon: "bell",     label: "One Historic Bell", text: "A powerful symbol of service, remembrance, liberty, and national unity." },
+  { icon: "bells",    label: "Thousands of Small Bells", text: "Guests joining together in a shared chorus of freedom." },
+  { icon: "stars250", label: "One Nation Turning 250", text: "A once-in-a-generation moment at the heart of Independence Weekend." },
 ];
+
+// Small inline-SVG set for the "Midnight Moment" card's 3-up detail
+// row (mirrors the mockup: a single bell, a cluster of small bells,
+// and a 250-with-stars mark). Gold stroke to match the site palette.
+const heroIcons: Record<string, string> = {
+  bell: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-9 h-9 mx-auto"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" /></svg>`,
+  bells: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-9 h-9 mx-auto"><path stroke-linecap="round" stroke-linejoin="round" d="M9 16.5a3 3 0 0 1-6 0v-.4a5.6 5.6 0 0 0 1.5-3.8V11A3.5 3.5 0 0 1 8 7.5 3.5 3.5 0 0 1 11.5 11v1.3a5.6 5.6 0 0 0 1.5 3.8v.4M16.5 13a2.5 2.5 0 0 1-4.9 0M19.5 9.5a2.5 2.5 0 0 1-5 0V8a2.5 2.5 0 0 1 5 0Z" /></svg>`,
+  stars250: `<svg viewBox="0 0 24 24" fill="currentColor" class="w-9 h-9 mx-auto"><path d="M12 2.5l1 2.2 2.4.2-1.8 1.6.6 2.3L12 7.6 9.8 8.8l.6-2.3L8.6 4.9 11 4.7zM5 7.5l.7 1.5 1.6.1-1.2 1 .4 1.6L5 10.9l-1.5.8.4-1.6-1.2-1 1.6-.1zM19 7.5l.7 1.5 1.6.1-1.2 1 .4 1.6-1.5-.8-1.5.8.4-1.6-1.2-1 1.6-.1z"/><text x="12" y="20" text-anchor="middle" font-size="8" font-weight="700" font-family="Georgia, serif">250</text></svg>`,
+};
 
 const storyCards = [
   { title: "The Journey", copy: "A cross-country patriotic tour beginning in San Diego and moving toward Washington, D.C. during Independence Weekend." },
@@ -96,64 +105,71 @@ const mediaAngles = [
     style="background: radial-gradient(circle at 30% 30%, rgba(4, 61, 156, 0.45) 0%, transparent 55%), linear-gradient(135deg, #052058 0%, #002B77 50%, #043D9C 100%); background-attachment: fixed;"
   >
     <!-- ============================================================ -->
-    <!-- 1. HERO — canonical sub-page banner (matches /icons/,         -->
-    <!-- /honorees/, /partners/): full-bleed 16:9 image + gold ribbon  -->
-    <!-- flush-left holding the page H1.                                -->
-    <!-- PLACEHOLDER image (header-flag.jpg) — swap in a real           -->
-    <!-- America's Freedom Bell photo when supplied.                    -->
+    <!-- 1. HERO — full-bleed photo background + inset gold frame,      -->
+    <!-- matching the approved mockup. Left column: eyebrow / 3-line   -->
+    <!-- H1 / body / tagline / LET FREEDOM RING! / gold-star divider / -->
+    <!-- 2 CTAs. Right (stacks below on mobile): "The Midnight Moment" -->
+    <!-- card with a 3-up icon detail row.                              -->
+    <!--                                                                -->
+    <!-- IMAGE: header-flag.jpg is a PLACEHOLDER background. To match   -->
+    <!-- the mockup exactly this needs the real, text-free Freedom     -->
+    <!-- Bell photograph (service members around the bell at the WWII  -->
+    <!-- Memorial) supplied as a clean image file — the pasted mockup  -->
+    <!-- has the headline/card baked into it and can't be used as a    -->
+    <!-- background.                                                    -->
     <!-- ============================================================ -->
     <section class="relative overflow-hidden">
-      <div class="relative w-full h-[55vh] sm:h-[60vh] min-h-[320px] max-h-[680px]">
-        <img
-          src="/images/event/header-flag.jpg"
-          alt="The American flag rippling in the wind — placeholder hero banner for America's Freedom Bell × Countdown 250"
-          class="absolute inset-0 w-full h-full object-cover"
-          decoding="async"
-        />
-        <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-navy-dark/55 to-transparent pointer-events-none"></div>
+      <!-- Background photo + legibility scrims -->
+      <img
+        src="/images/event/header-flag.jpg"
+        alt=""
+        aria-hidden="true"
+        class="absolute inset-0 w-full h-full object-cover"
+        decoding="async"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy-dark via-navy-dark/90 to-navy-dark/55 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-navy-dark/85 via-transparent to-navy-dark/40 pointer-events-none"></div>
 
-        <div class="absolute inset-y-0 left-0 flex items-end pb-4 sm:pb-8 md:pb-12 lg:pb-16 pointer-events-none">
-          <div class="bg-gradient-to-r from-gold to-[#f4d847] py-2.5 sm:py-3.5 md:py-4 lg:py-5 pl-3 sm:pl-8 md:pl-14 lg:pl-20 xl:pl-28 pr-5 sm:pr-8 md:pr-12 lg:pr-14 border-y-2 border-r-2 border-navy-dark/35 rounded-r-2xl shadow-[0_14px_32px_-10px_rgba(0,0,0,0.55)] pointer-events-auto">
-            <h1 class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy font-heading leading-none tracking-tight">
-              America&rsquo;s Freedom Bell
-            </h1>
-          </div>
-        </div>
-      </div>
-    </section>
+      <!-- Inset decorative gold frame -->
+      <div class="absolute inset-3 sm:inset-5 lg:inset-6 border border-gold/40 rounded-xl pointer-events-none"></div>
 
-    <!-- ============================================================ -->
-    <!-- 1b. PARTNERSHIP LEAD — two-column: left text + CTAs, right    -->
-    <!-- feature card. Mobile: text stacks first, then the card.       -->
-    <!-- ============================================================ -->
-    <section class="relative overflow-hidden py-16 sm:py-20">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-14 pt-28 sm:pt-32 pb-14 sm:pb-20">
         <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           <!-- Left column -->
           <div>
-            <p class="text-gold font-bold tracking-[0.22em] uppercase text-xs sm:text-sm mb-5">
-              America&rsquo;s Freedom Bell &times; Countdown 250
+            <p class="text-white font-bold tracking-[0.22em] uppercase text-xs sm:text-sm mb-6">
+              America&rsquo;s Freedom Bell <span class="text-red">&times;</span> Countdown 250
             </p>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-heading leading-tight mb-6">
-              A Coast-to-Capital Journey. A Midnight Ringing. A Nation Turning 250.
-            </h2>
-            <div class="mb-5">
-              <p class="text-gold font-heading font-bold text-xl sm:text-2xl leading-snug">
-                The midnight celebration of our lifetime.
-              </p>
-              <p class="text-gold font-heading font-bold text-xl sm:text-2xl leading-snug">
-                Our country. Our bells. Our freedom.
-              </p>
-            </div>
-            <p class="text-white font-heading font-extrabold tracking-[0.12em] text-2xl sm:text-3xl mb-7">
-              LET FREEDOM RING!
-            </p>
-            <p class="text-white/75 text-base sm:text-lg leading-relaxed mb-8">
+            <h1 class="font-heading font-bold text-gold uppercase leading-[1.05] tracking-tight text-3xl sm:text-4xl lg:text-5xl mb-6">
+              <span class="block">A Coast-to-Capital Journey.</span>
+              <span class="block">A Midnight Ringing.</span>
+              <span class="block">A Nation Turning 250.</span>
+            </h1>
+            <p class="text-white/85 text-base sm:text-lg leading-relaxed max-w-xl mb-7">
               America&rsquo;s Freedom Bell and the Official Countdown 250 Ball are joining together to create
               a historic patriotic journey culminating in Washington, D.C. during Independence Weekend 2026
               &mdash; with the marquee moment coming at midnight, when Freedom rings as America enters its
               250th birthday.
             </p>
+            <div class="mb-2">
+              <p class="text-gold font-heading font-bold uppercase tracking-wide text-lg sm:text-xl leading-snug">
+                The midnight celebration of our lifetime.
+              </p>
+              <p class="text-white font-heading font-bold uppercase tracking-wide text-lg sm:text-xl leading-snug">
+                Our country. Our bells. Our freedom.
+              </p>
+            </div>
+            <p class="text-white font-heading font-extrabold uppercase tracking-[0.1em] text-3xl sm:text-4xl lg:text-5xl mb-6">
+              LET FREEDOM RING!
+            </p>
+
+            <!-- Gold star divider -->
+            <div class="flex items-center gap-3 mb-8" aria-hidden="true">
+              <span class="h-px w-16 sm:w-24 bg-gold/60"></span>
+              <span class="text-gold text-sm">&#9733;</span>
+              <span class="h-px w-16 sm:w-24 bg-gold/60"></span>
+            </div>
+
             <div class="flex flex-col sm:flex-row gap-4">
               <a
                 href="#national-story"
@@ -163,25 +179,26 @@ const mediaAngles = [
               </a>
               <a
                 href="#media-partnership"
-                class="inline-block text-center border-2 border-gold text-gold hover:bg-gold hover:text-navy-dark px-8 py-4 text-base font-bold tracking-wider uppercase transition-all rounded"
+                class="inline-block text-center border-2 border-gold text-gold hover:bg-gold hover:text-navy-dark px-8 py-4 text-base font-bold tracking-wider uppercase transition-all rounded backdrop-blur-sm"
               >
                 Media Partnership Inquiries
               </a>
             </div>
           </div>
 
-          <!-- Right column — feature card -->
-          <div class="bg-white/[0.06] border border-gold/30 rounded-2xl p-7 sm:p-8 backdrop-blur-sm shadow-[0_18px_40px_-16px_rgba(0,0,0,0.55)]">
-            <h2 class="text-2xl sm:text-3xl font-bold text-gold font-heading mb-3">The Midnight Moment</h2>
-            <p class="text-white/75 text-sm sm:text-base leading-relaxed mb-7">
+          <!-- Right column — "The Midnight Moment" card -->
+          <div class="bg-navy-dark/70 border border-gold/40 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-[0_18px_40px_-16px_rgba(0,0,0,0.65)]">
+            <h2 class="text-xl sm:text-2xl font-bold text-white font-heading uppercase tracking-wide mb-3">The Midnight Moment</h2>
+            <p class="text-white/80 text-sm sm:text-base leading-relaxed mb-7">
               At the stroke of midnight, America&rsquo;s Freedom Bell will ring out in Washington, D.C.
               &mdash; followed by a joyful chorus of small bells rung by guests throughout the ballroom.
             </p>
-            <div class="space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-4 border-t border-gold/25 pt-6">
               {heroDetails.map((d) => (
-                <div class="border-l-2 border-gold/50 pl-4">
-                  <p class="text-gold font-bold text-sm sm:text-base tracking-wide mb-1">{d.label}</p>
-                  <p class="text-white/70 text-sm leading-relaxed">{d.text}</p>
+                <div class="text-center">
+                  <div class="text-gold mb-2" set:html={heroIcons[d.icon]} />
+                  <p class="text-gold font-bold uppercase tracking-wide text-xs sm:text-sm mb-1.5">{d.label}</p>
+                  <p class="text-white/70 text-xs sm:text-sm leading-relaxed">{d.text}</p>
                 </div>
               ))}
             </div>
