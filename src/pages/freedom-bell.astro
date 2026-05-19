@@ -1,0 +1,584 @@
+---
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+/*
+ * AMERICA'S FREEDOM BELL × COUNTDOWN 250 — LIVE SUB-PAGE
+ * ----------------------------------------------------------------
+ * Promoted from /freedom-bell-preview/ on 2026-05-19 per Mike.
+ * Live URL: /freedom-bell/. Linked from the "More" nav dropdown
+ * and included in the sitemap (the astro.config.mjs filter only
+ * excludes the hyphenated "freedom-bell-" preview variants, so
+ * "/freedom-bell/" is indexed while "/freedom-bell-preview/" and
+ * "/freedom-bell-home-section-preview/" stay out). The preview
+ * page is preserved for future iteration; both share the same
+ * structure so edits can be promoted here in one shot.
+ *
+ * Repositioned 2026-05-15 per Mike: this is framed as a
+ * PARTNERSHIP between America's Freedom Bell and Countdown 250 —
+ * a national America 250 storytelling opportunity built to attract
+ * a media partner — NOT "the Freedom Bell is coming to our event."
+ * Tagline added 2026-05-15: "The midnight celebration of our
+ * lifetime. Our country. Our bells. Our freedom. LET FREEDOM
+ * RING!" — appears in the hero (near top), the Marquee Moment
+ * panel, and the final CTA.
+ *
+ * Copy on this page is provided verbatim by Mike and must not be
+ * rewritten, shortened, or expanded. Global header/footer/nav,
+ * site-wide fonts and colors are intentionally left untouched —
+ * only the body content of this page changed.
+ *
+ * Section order (also the mobile stacking order):
+ *   1 Hero  2 National Story  3 Midnight Moment  4 About the Bell
+ *   5 Coast-to-Capital Route  6 Family Mission  7 Media Partnership
+ *   8 Final Ticket / Participation CTA
+ *
+ * CTA targets:
+ *   - "Explore the Partnership"  -> #national-story (in-page)
+ *   - "Media Partnership Inquiries" / "Request Media Partnership
+ *     Information" -> #media-partnership then mailto
+ *   - "Get Tickets" -> site-wide Eventbrite ticketUrl
+ *   - "Learn About the Countdown 250 Ball" -> /
+ */
+
+const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
+const mediaMailto = "mailto:CountdownAmerica250@gmail.com?subject=Media%20Partnership%20%E2%80%94%20America%27s%20Freedom%20Bell%20%C3%97%20Countdown%20250";
+
+const heroDetails = [
+  { icon: "bell",     label: "One Historic Bell", text: "A powerful symbol of service, remembrance, liberty, and national unity." },
+  { icon: "bells",    label: "Thousands of Small Bells", text: "Guests joining together in a shared chorus of freedom." },
+  { icon: "stars250", label: "One Nation Turning 250", text: "A once-in-a-generation moment at the heart of Independence Weekend." },
+];
+
+// Small inline-SVG set for the "Midnight Moment" card's 3-up detail
+// row (mirrors the mockup: a single bell, a cluster of small bells,
+// and a 250-with-stars mark). Gold stroke to match the site palette.
+const heroIcons: Record<string, string> = {
+  bell: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-9 h-9 mx-auto"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" /></svg>`,
+  bells: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-9 h-9 mx-auto"><path stroke-linecap="round" stroke-linejoin="round" d="M9 16.5a3 3 0 0 1-6 0v-.4a5.6 5.6 0 0 0 1.5-3.8V11A3.5 3.5 0 0 1 8 7.5 3.5 3.5 0 0 1 11.5 11v1.3a5.6 5.6 0 0 0 1.5 3.8v.4M16.5 13a2.5 2.5 0 0 1-4.9 0M19.5 9.5a2.5 2.5 0 0 1-5 0V8a2.5 2.5 0 0 1 5 0Z" /></svg>`,
+  stars250: `<svg viewBox="0 0 24 24" fill="currentColor" class="w-9 h-9 mx-auto"><path d="M12 2.5l1 2.2 2.4.2-1.8 1.6.6 2.3L12 7.6 9.8 8.8l.6-2.3L8.6 4.9 11 4.7zM5 7.5l.7 1.5 1.6.1-1.2 1 .4 1.6L5 10.9l-1.5.8.4-1.6-1.2-1 1.6-.1zM19 7.5l.7 1.5 1.6.1-1.2 1 .4 1.6-1.5-.8-1.5.8.4-1.6-1.2-1 1.6-.1z"/><text x="12" y="20" text-anchor="middle" font-size="8" font-weight="700" font-family="Georgia, serif">250</text></svg>`,
+};
+
+const storyCards = [
+  { title: "The Journey", copy: "A cross-country patriotic tour beginning in San Diego and moving toward Washington, D.C. during Independence Weekend." },
+  { title: "The Mission", copy: "Honoring service members, veterans, military families, first responders, and the ideals of liberty and freedom." },
+  { title: "The Finale", copy: "A dramatic midnight ringing of America&rsquo;s Freedom Bell at Countdown 250, joined by guests ringing small commemorative bells throughout the ballroom." },
+];
+
+const bellFacts = [
+  { stat: "330 lbs", text: "of bronze" },
+  { stat: "11 lbs", text: "of steel from the World Trade Center" },
+  { stat: "D-Day 2013", text: "the year and date the bell was cast" },
+  { stat: "Past Stops", text: "including Normandy and Pearl Harbor" },
+];
+
+const routeLine = ["San Diego", "Phoenix", "Grand Canyon", "Texas", "Little Rock", "Nashville", "Washington, D.C."];
+
+const routeStops = [
+  "San Diego, California &mdash; Tour launch at Balboa Park",
+  "Phoenix, Arizona &mdash; Community events and veteran organization engagement",
+  "Grand Canyon, Arizona &mdash; Patriotic gathering and public bell display",
+  "Amarillo, Texas &mdash; Travel and community stop",
+  "Oklahoma City, Oklahoma &mdash; Civic and community engagement",
+  "Dallas/Fort Worth, Texas &mdash; Regional events and community engagement",
+  "Austin, Texas &mdash; Civic meetings and patriotic programming",
+  "Houston, Texas &mdash; Community events and veteran-focused engagement",
+  "Little Rock, Arkansas &mdash; Civic and community gathering",
+  "Nashville, Tennessee &mdash; Music, veterans, and community events",
+  "Washington, D.C. &mdash; Grand finale during Independence Weekend",
+];
+
+const mediaAngles = [
+  { title: "The Bell of Freedom Across America", copy: "Following the coast-to-capital journey from San Diego to Washington, D.C." },
+  { title: "Veterans and Families Along the Route", copy: "Local human-interest stories honoring service, sacrifice, and remembrance." },
+  { title: "America at 250", copy: "A national conversation about liberty, unity, service, and the next chapter of the American story." },
+  { title: "The Midnight Moment", copy: "The dramatic ringing of America&rsquo;s Freedom Bell as the nation enters its 250th birthday." },
+  { title: "The Chorus of Bells", copy: "Thousands of guests joining the moment by ringing small commemorative bells throughout the ballroom." },
+];
+---
+
+<BaseLayout
+  title="America's Freedom Bell × Countdown 250 | A Coast-to-Coast Journey | July 3, 2026, Washington Hilton"
+  description="America's Freedom Bell and the Official Countdown 250 Ball are joining together for a historic patriotic journey from San Diego to Washington, D.C. — culminating in a dramatic midnight ringing of the Freedom Bell as America enters its 250th birthday, joined by a chorus of small bells throughout the ballroom."
+  ogImage="/images/event/freedom-bell-hero.jpg"
+>
+  <Navbar />
+  <main
+    class="relative"
+    style="background: radial-gradient(circle at 30% 30%, rgba(4, 61, 156, 0.45) 0%, transparent 55%), linear-gradient(135deg, #052058 0%, #002B77 50%, #043D9C 100%); background-attachment: fixed;"
+  >
+    <!-- ============================================================ -->
+    <!-- 1. HERO BANNER — features the framed Freedom Bell photo        -->
+    <!-- (transparent PNG with its own navy/gold star frame) centered  -->
+    <!-- over the page's liquid-blue gradient, with the canonical gold -->
+    <!-- ribbon flush-left holding the page H1.                         -->
+    <!-- IMAGE: freedom-bell-framed.png (810x752 RGBA, ~678 KB after    -->
+    <!-- resize). Kept PNG: the frame corners are transparent, so JPG  -->
+    <!-- would add a box and quantize would posterize the photo.       -->
+    <!-- ============================================================ -->
+    <section class="relative overflow-hidden">
+      <div class="relative w-full min-h-[60vh] max-h-[760px] flex pt-28 sm:pt-32">
+        <!-- Constrained to the same content column as the headline/body so
+             the picture's right edge lines up with the text's right edge
+             (where the 'Washington, D.C.' line reaches). Bottom padding
+             matches the gold ribbon's bottom offset below, so the picture's
+             bottom lines up with the bottom of the gold tab. -->
+        <div class="max-w-6xl w-full mx-auto px-6 sm:px-10 lg:px-14 flex items-end justify-end pb-4 sm:pb-8 md:pb-10 lg:pb-12">
+          <img
+            src="/images/event/freedom-bell-framed.png"
+            alt="Service members from across the branches gathered around America's Freedom Bell at the World War II Memorial in Washington, D.C., holding American flags — in a navy and gold commemorative frame"
+            class="max-h-[34vh] sm:max-h-[40vh] w-auto max-w-[42%] object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.55)]"
+            decoding="async"
+          />
+        </div>
+      </div>
+
+      <div class="absolute inset-y-0 left-0 flex items-end pb-4 sm:pb-8 md:pb-10 lg:pb-12 pointer-events-none">
+        <div class="bg-gradient-to-r from-gold to-[#f4d847] py-2.5 sm:py-3.5 md:py-4 lg:py-5 pl-3 sm:pl-8 md:pl-14 lg:pl-20 xl:pl-28 pr-5 sm:pr-8 md:pr-12 lg:pr-14 border-y-2 border-r-2 border-navy-dark/35 rounded-r-2xl shadow-[0_14px_32px_-10px_rgba(0,0,0,0.55)] pointer-events-auto">
+          <h1 class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy font-heading leading-none tracking-tight">
+            America&rsquo;s Freedom Bell
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 2. TOP SECTION — sits on the page's liquid-blue gradient.     -->
+    <!-- (The full-bleed background photo was removed: the framed      -->
+    <!-- Freedom Bell photo is now featured in the hero banner above,  -->
+    <!-- so a second, softer copy of the same shot as a stretched bg   -->
+    <!-- was redundant.) Inset gold frame kept. Left column: 3-line    -->
+    <!-- headline / kicker / body / tagline / divider / 2 CTAs.        -->
+    <!-- Right: "The Midnight Moment" card. LET FREEDOM RING! closes   -->
+    <!-- the section full-width.                                        -->
+    <!-- ============================================================ -->
+    <section class="relative overflow-hidden">
+      <!-- Inset decorative gold frame -->
+      <div class="absolute inset-3 sm:inset-5 lg:inset-6 border border-gold/40 rounded-xl pointer-events-none"></div>
+
+      <div class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-14 py-14 sm:py-20">
+        <!-- Headline pulled full-width (out of the 2-col grid) so it can be
+             large and legible while keeping each sentence on its own line.
+             Uses the clean body font (Inter) in normal case for readability,
+             not the decorative Playfair heading face. -->
+        <h2
+          style="font-family: var(--font-body)"
+          class="font-bold text-gold leading-[1.12] text-lg sm:text-3xl md:text-4xl lg:text-5xl mb-8 sm:mb-10"
+        >
+          <span class="block whitespace-nowrap">A Coast-to-Coast Journey.</span>
+          <span class="block whitespace-nowrap">A Midnight Ringing.</span>
+          <span class="block whitespace-nowrap">A Nation Turning 250.</span>
+        </h2>
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+          <!-- Left column -->
+          <div>
+            <p class="text-gold font-heading font-bold uppercase tracking-[0.18em] text-sm sm:text-base mb-5">
+              The Bell of the Ball Is Coming
+            </p>
+            <p class="text-white/85 text-base sm:text-lg leading-relaxed max-w-xl mb-7">
+              America&rsquo;s Freedom Bell and the Official Countdown 250 Ball are joining together to create
+              a historic patriotic journey culminating in Washington, D.C., on July 3, 2026 &mdash; with the
+              marquee moment coming at midnight, as America enters its 250th birthday.
+            </p>
+            <div class="mb-6">
+              <p class="text-gold font-heading font-bold uppercase tracking-wide text-lg sm:text-xl leading-snug">
+                The midnight moment of a lifetime.
+              </p>
+              <p class="text-white font-heading font-bold uppercase tracking-wide text-lg sm:text-xl leading-snug">
+                Our country - Our bells - Our freedom
+              </p>
+            </div>
+
+            <!-- Gold star divider -->
+            <div class="flex items-center gap-3 mb-8" aria-hidden="true">
+              <span class="h-px w-16 sm:w-24 bg-gold/60"></span>
+              <span class="text-gold text-sm">&#9733;</span>
+              <span class="h-px w-16 sm:w-24 bg-gold/60"></span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a
+                href="#national-story"
+                class="inline-block text-center bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-8 py-4 text-base font-bold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+              >
+                Explore the Partnership
+              </a>
+              <a
+                href="#media-partnership"
+                class="inline-block text-center border-2 border-gold text-gold hover:bg-gold hover:text-navy-dark px-8 py-4 text-base font-bold tracking-wider uppercase transition-all rounded backdrop-blur-sm"
+              >
+                Media Partnership Inquiries
+              </a>
+            </div>
+          </div>
+
+          <!-- Right column — "The Midnight Moment" card -->
+          <div class="bg-navy-dark/70 border border-gold/40 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-[0_18px_40px_-16px_rgba(0,0,0,0.65)]">
+            <h2 class="text-xl sm:text-2xl font-bold text-white font-heading uppercase tracking-wide mb-3">The Midnight Moment</h2>
+            <p class="text-white/80 text-sm sm:text-base leading-relaxed mb-7">
+              At the stroke of midnight, America&rsquo;s Freedom Bell will ring out in Washington, D.C.
+              &mdash; accompanied by a joyful chorus of small bells rung by guests throughout the ballroom.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-4 border-t border-gold/25 pt-6">
+              {heroDetails.map((d) => (
+                <div class="text-center">
+                  <div class="text-gold mb-2" set:html={heroIcons[d.icon]} />
+                  <p class="text-gold font-bold uppercase tracking-wide text-xs sm:text-sm mb-1.5">{d.label}</p>
+                  <p class="text-white/70 text-xs sm:text-sm leading-relaxed">{d.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- LET FREEDOM RING! — closes the section, full width, one line -->
+        <p class="text-white font-heading font-extrabold uppercase tracking-[0.12em] text-3xl sm:text-5xl lg:text-6xl text-center mt-12 sm:mt-16">
+          LET FREEDOM RING!
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 2. NATIONAL STORY — centered intro + 3 cards                  -->
+    <!-- ============================================================ -->
+    <section id="national-story" class="scroll-mt-24 py-16 sm:py-20">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10">
+          <p class="text-white font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-5">
+            A National Storyline for America&rsquo;s 250th
+          </p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gold font-heading leading-tight mb-5">
+            One bell traveling across America. One unforgettable finale in the nation&rsquo;s capital.
+          </h2>
+          <div class="w-16 h-1 bg-gold mx-auto"></div>
+        </div>
+
+        <div class="text-white/75 text-lg leading-relaxed space-y-6 max-w-3xl mx-auto mb-12">
+          <p>
+            America&rsquo;s Freedom Bell and Countdown 250 are partnering to create a coast-to-capital
+            patriotic story for America&rsquo;s 250th birthday &mdash; a journey honoring service,
+            sacrifice, remembrance, and unity across America, culminating in a dramatic midnight ringing
+            in Washington, D.C.
+          </p>
+          <p>
+            This is more than an event feature. It is a national story waiting to be told.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-5 sm:gap-6">
+          {storyCards.map((c) => (
+            <div class="bg-white/[0.06] border border-gold/25 rounded-xl p-6 backdrop-blur-sm">
+              <h3 class="text-xl font-bold text-gold font-heading mb-3">{c.title}</h3>
+              <p class="text-white/75 text-sm sm:text-base leading-relaxed" set:html={c.copy} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 3. MIDNIGHT MOMENT — left emotional copy, right feature panel -->
+    <!-- ============================================================ -->
+    <section class="py-16 sm:py-20 bg-navy text-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+          <div>
+            <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">
+              The Marquee Moment
+            </p>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white font-heading mb-5">
+              Freedom rings at midnight.
+            </h2>
+            <div class="w-16 h-1 bg-gold mb-7"></div>
+            <div class="text-white/75 text-base sm:text-lg leading-relaxed space-y-5">
+              <p>
+                As the countdown reaches zero and America enters its 250th year, America&rsquo;s Freedom
+                Bell will ring out in Washington, D.C. &mdash; while guests throughout the ballroom raise
+                their own small commemorative bells and ring them in unison.
+              </p>
+              <p>
+                One historic bell becomes a chorus. One ballroom becomes a national moment. One birthday
+                becomes history.
+              </p>
+            </div>
+          </div>
+
+          <!-- Stylized "Midnight Ringing" feature panel + highlighted tagline -->
+          <div class="bg-gradient-to-br from-navy-dark to-navy border border-gold/30 rounded-2xl p-8 sm:p-10 text-center shadow-[0_18px_40px_-16px_rgba(0,0,0,0.6)]">
+            <svg class="w-16 h-16 text-gold mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+            </svg>
+            <p class="text-xl sm:text-2xl font-bold text-gold font-heading leading-snug">
+              The midnight celebration of our lifetime.
+            </p>
+            <p class="text-xl sm:text-2xl font-bold text-gold font-heading leading-snug">
+              Our country. Our bells. Our freedom.
+            </p>
+            <p class="text-2xl sm:text-3xl font-extrabold text-white font-heading tracking-[0.12em] mt-4">
+              LET FREEDOM RING!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 4. ABOUT THE FREEDOM BELL — left text, right 4 fact cards     -->
+    <!-- ============================================================ -->
+    <section class="py-16 sm:py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+          <div>
+            <p class="text-white font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-5">
+              A Bell Forged from History
+            </p>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gold font-heading leading-tight mb-5">
+              A Symbol Forged from Sacred Steel
+            </h2>
+            <div class="w-16 h-1 bg-gold mb-7"></div>
+            <div class="text-white/75 text-base sm:text-lg leading-relaxed space-y-5">
+              <p>
+                America&rsquo;s Freedom Bell was created by the Spirit of Liberty Foundation as a tribute
+                to America&rsquo;s Armed Forces and the enduring ideals of liberty. The bell carries a
+                powerful inscription: &ldquo;Honoring Our Armed Forces Past, Present and Future.&rdquo;
+              </p>
+              <p>
+                Its history and symbolism make it an especially meaningful centerpiece for America&rsquo;s
+                250th birthday celebration. Through this partnership, the Freedom Bell&rsquo;s message of
+                service, sacrifice, resilience, and unity will be carried into the heart of Independence
+                Weekend in Washington, D.C.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-5 sm:gap-6">
+            {bellFacts.map((f) => (
+              <div class="bg-white/[0.06] border border-gold/25 rounded-xl p-6 backdrop-blur-sm text-center">
+                <p class="text-2xl sm:text-3xl font-bold text-gold font-heading mb-2">{f.stat}</p>
+                <p class="text-white/75 text-sm sm:text-base leading-relaxed">{f.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 5. COAST-TO-CAPITAL ROUTE — route line, then detailed list    -->
+    <!-- ============================================================ -->
+    <section class="py-16 sm:py-20 bg-navy text-white">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10">
+          <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">
+            From Coast to Capital
+          </p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white font-heading mb-5">
+            The 2026 National Tour
+          </h2>
+          <div class="w-16 h-1 bg-gold mx-auto"></div>
+        </div>
+
+        <p class="text-white/75 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto text-center mb-10">
+          The 2026 Freedom Bell journey is planned as a coast-to-capital mission of patriotism,
+          remembrance, and civic pride. At each stop, the bell will serve as a gathering point for
+          veterans, military families, civic leaders, community organizations, and everyday Americans
+          whose stories reflect the meaning of freedom.
+        </p>
+
+        <!-- Simple visual route line -->
+        <p class="text-gold font-bold tracking-[0.18em] uppercase text-xs sm:text-sm text-center mb-4">
+          Planned Route Highlights
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-x-2 gap-y-3 max-w-4xl mx-auto mb-12">
+          {routeLine.map((city, i) => (
+            <span class="inline-flex items-center gap-x-2">
+              <span class="bg-white/[0.08] border border-gold/30 text-white/90 text-xs sm:text-sm font-semibold rounded-full px-3 py-1.5">{city}</span>
+              {i < routeLine.length - 1 && <span class="text-gold/70 text-sm" aria-hidden="true">&rarr;</span>}
+            </span>
+          ))}
+        </div>
+
+        <!-- Detailed planned/proposed route list -->
+        <p class="text-white/85 text-base sm:text-lg font-semibold text-center mb-6">
+          Planned and proposed stops include:
+        </p>
+        <ul class="max-w-3xl mx-auto space-y-3 mb-8">
+          {routeStops.map((stop) => (
+            <li class="flex items-start gap-3 text-white/75 text-sm sm:text-base leading-relaxed">
+              <span class="text-gold mt-1 flex-shrink-0" aria-hidden="true">&#9733;</span>
+              <span set:html={stop} />
+            </li>
+          ))}
+        </ul>
+
+        <p class="text-white/40 text-xs sm:text-sm text-center max-w-2xl mx-auto">
+          Schedule details are subject to confirmation and may be updated as the Freedom Bell journey
+          develops.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 6. FAMILY MISSION — warm human-interest card treatment        -->
+    <!-- ============================================================ -->
+    <section class="py-16 sm:py-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="bg-cream rounded-2xl p-8 sm:p-12 shadow-lg">
+          <div class="text-center mb-8">
+            <p class="text-red font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-4">
+              The Family Behind the Journey
+            </p>
+            <h2 class="text-3xl sm:text-4xl font-bold text-navy font-heading leading-tight mb-5">
+              Serving Those Who Served
+            </h2>
+            <div class="w-16 h-1 bg-gold mx-auto"></div>
+          </div>
+
+          <div class="text-slate/80 text-base sm:text-lg leading-relaxed space-y-5 max-w-3xl mx-auto">
+            <p>
+              The Freedom Bell journey is being carried forward by Kevin Fahlund and his family as a
+              personal mission to honor America&rsquo;s service members, veterans, and military families.
+              Their goal is to transport the Freedom Bell from San Diego to Washington, D.C., sharing its
+              message of liberty, remembrance, and gratitude at stops across the country.
+            </p>
+            <p>
+              That human story is a powerful part of the partnership. A family traveling across America
+              with a symbol of freedom. Communities gathering along the way. Veterans and families invited
+              to ring the bell. And a final Independence Weekend moment in Washington, D.C. as America
+              turns 250.
+            </p>
+            <p>
+              The Freedom Bell journey is being aligned with Countdown 250 to create a marquee national
+              finale in Washington, D.C. during Independence Weekend.
+            </p>
+          </div>
+
+          <div class="mt-8 max-w-3xl mx-auto border-t border-navy/15 pt-6">
+            <p class="text-slate/60 text-xs sm:text-sm leading-relaxed text-center">
+              This tour is being undertaken in a private citizen capacity and does not represent the
+              United States Navy, the Department of Defense, or any official government endorsement.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 7. MEDIA PARTNERSHIP — distinct invitation to a media outlet  -->
+    <!-- ============================================================ -->
+    <section id="media-partnership" class="scroll-mt-24 py-16 sm:py-20 bg-navy-dark text-white border-y border-gold/25">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 mb-10">
+          <div>
+            <p class="text-gold font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-5">
+              Media Partnership Opportunity
+            </p>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white font-heading leading-tight mb-5">
+              A national story built for television, digital, radio, print, podcasts, and social media.
+            </h2>
+            <div class="w-16 h-1 bg-gold mb-7"></div>
+            <div class="text-white/75 text-base sm:text-lg leading-relaxed space-y-5">
+              <p>
+                The America&rsquo;s Freedom Bell &times; Countdown 250 partnership offers a rare and
+                compelling media opportunity: a patriotic journey across America, emotional local stories
+                in multiple markets, and a dramatic midnight finale in Washington, D.C. as the nation
+                enters its 250th birthday.
+              </p>
+              <p>
+                A media partner can help tell the story as it unfolds &mdash; from the tour launch in
+                San Diego, through major stops across the country, to the final ringing of the Freedom
+                Bell at the Official Countdown 250 Ball.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-gold font-bold tracking-[0.18em] uppercase text-xs sm:text-sm mb-5">
+              Potential Story Angles
+            </p>
+            <div class="space-y-4">
+              {mediaAngles.map((a) => (
+                <div class="bg-white/[0.06] border border-gold/25 rounded-xl p-5">
+                  <p class="text-gold font-bold text-base sm:text-lg font-heading mb-1">{a.title}</p>
+                  <p class="text-white/70 text-sm sm:text-base leading-relaxed" set:html={a.copy} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto text-center">
+          <p class="text-white/75 text-base sm:text-lg leading-relaxed mb-7">
+            Interested media partners are invited to connect with the Countdown 250 team to explore
+            coverage opportunities, partnership concepts, and ways to help bring this national story to
+            audiences across America.
+          </p>
+          <a
+            href={mediaMailto}
+            class="inline-block text-center bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-10 py-4 text-base sm:text-lg font-bold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+          >
+            Request Media Partnership Information
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 8. FINAL CTA — guests / ticket buyers                          -->
+    <!-- ============================================================ -->
+    <section class="py-16 sm:py-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <p class="text-white font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-5">
+          Be There When Freedom Rings
+        </p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gold font-heading leading-tight mb-6">
+          Be in the Room When It Happens
+        </h2>
+        <div class="w-16 h-1 bg-gold mx-auto mb-8"></div>
+
+        <div class="text-white/75 text-base sm:text-lg leading-relaxed space-y-5 max-w-2xl mx-auto mb-8">
+          <p>
+            On July 3, 2026, the Official Countdown 250 Ball will bring together Americans from across
+            the country for an extraordinary evening of elegance, entertainment, remembrance, and
+            celebration.
+          </p>
+          <p>
+            Through this historic partnership, America&rsquo;s Freedom Bell will help mark the moment
+            when the nation enters its 250th birthday.
+          </p>
+          <p class="text-white/90 font-semibold">
+            At midnight, Freedom will ring. And the people will ring with it.
+          </p>
+        </div>
+
+        <div class="max-w-2xl mx-auto mb-10">
+          <p class="text-gold font-heading font-bold text-xl sm:text-2xl leading-snug">
+            The midnight celebration of our lifetime.
+          </p>
+          <p class="text-gold font-heading font-bold text-xl sm:text-2xl leading-snug">
+            Our country. Our bells. Our freedom.
+          </p>
+          <p class="text-white font-heading font-extrabold tracking-[0.12em] text-2xl sm:text-3xl mt-3">
+            LET FREEDOM RING!
+          </p>
+        </div>
+
+        <div class="flex justify-center">
+          <a
+            href={ticketUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block text-center bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-10 py-4 text-base sm:text-lg font-bold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+          >
+            Get Tickets
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div class="h-1.5 w-full bg-gradient-to-r from-gold/70 via-gold to-gold/70"></div>
+  <Footer />
+</BaseLayout>
