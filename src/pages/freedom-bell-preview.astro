@@ -147,14 +147,21 @@ const mediaAngles = [
       <div class="absolute inset-3 sm:inset-5 lg:inset-6 border border-gold/40 rounded-xl pointer-events-none"></div>
 
       <div class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-14 py-14 sm:py-20">
+        <!-- Headline pulled full-width (out of the 2-col grid) so it can be
+             large and legible while keeping each sentence on its own line.
+             Uses the clean body font (Inter) in normal case for readability,
+             not the decorative Playfair heading face. -->
+        <h2
+          style="font-family: var(--font-body)"
+          class="font-bold text-gold leading-[1.12] text-lg sm:text-3xl md:text-4xl lg:text-5xl mb-8 sm:mb-10"
+        >
+          <span class="block whitespace-nowrap">A Coast-to-Coast Journey.</span>
+          <span class="block whitespace-nowrap">A Midnight Ringing.</span>
+          <span class="block whitespace-nowrap">A Nation Turning 250.</span>
+        </h2>
         <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           <!-- Left column -->
           <div>
-            <h2 class="font-heading font-bold text-gold uppercase leading-[1.1] tracking-tight text-lg sm:text-2xl lg:text-2xl xl:text-3xl mb-7">
-              <span class="block whitespace-nowrap">A Coast-to-Coast Journey.</span>
-              <span class="block whitespace-nowrap">A Midnight Ringing.</span>
-              <span class="block whitespace-nowrap">A Nation Turning 250.</span>
-            </h2>
             <p class="text-gold font-heading font-bold uppercase tracking-[0.18em] text-sm sm:text-base mb-5">
               The Bell of the Ball Is Coming
             </p>
