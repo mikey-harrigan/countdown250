@@ -8,7 +8,7 @@ export default defineConfig({
   integrations: [
     sitemap({
       filter: (page) =>
-        !/\/(homepage-|home-original-archive|hosted-group-tables-preview|tickets-preview|liquid-blue-preview|entertainment-preview|partners-preview|american-icons-preview|statesmans-pass|freedom-bell-preview)/.test(page),
+        !/\/(homepage-|home-original-archive|hosted-group-tables-preview|tickets-preview|liquid-blue-preview|entertainment-preview|partners-preview|american-icons-preview|statesmans-pass|freedom-bell-)/.test(page),
     }),
   ],
   vite: {
