@@ -418,47 +418,113 @@ const mediaAngles = [
     </section>
 
     <!-- ============================================================ -->
-    <!-- 6. FAMILY MISSION — warm human-interest card treatment        -->
+    <!-- 6. FAMILY MISSION — 2-col warm human-interest section.        -->
+    <!-- Stays AFTER 'The 2026 National Tour' and BEFORE 'Media        -->
+    <!-- Partnership Opportunity'. The midnight ringing of America's   -->
+    <!-- Freedom Bell at the Official Countdown 250 Ball remains the   -->
+    <!-- page's headline storyline; this section is the human-         -->
+    <!-- interest layer behind the journey, not the lead.              -->
+    <!-- Mobile stack order matches Mike's spec: eyebrow -> heading -> -->
+    <!-- 4 paragraphs -> feature card (3 highlights) -> disclosure.    -->
     <!-- ============================================================ -->
     <section class="py-16 sm:py-20">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="bg-cream rounded-2xl p-8 sm:p-12 shadow-lg">
-          <div class="text-center mb-8">
-            <p class="text-red font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-4">
-              The Family Behind the Journey
-            </p>
-            <h2 class="text-3xl sm:text-4xl font-bold text-navy font-heading leading-tight mb-5">
-              Serving Those Who Served
-            </h2>
-            <div class="w-16 h-1 bg-gold mx-auto"></div>
+          <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-start">
+
+            <!-- Left column: eyebrow, heading, 4 body paragraphs -->
+            <div>
+              <p class="text-red font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-4">
+                The Family Behind the Journey
+              </p>
+              <h2 class="text-3xl sm:text-4xl font-bold text-navy font-heading leading-tight mb-5">
+                A private patriotic mission to serve those who served.
+              </h2>
+              <div class="w-16 h-1 bg-gold mb-7"></div>
+
+              <div class="text-slate/80 text-base sm:text-lg leading-relaxed space-y-5">
+                <p>
+                  As America approaches its 250th birthday, Kevin Fahlund is nearing the conclusion of a
+                  30-year career in the United States Navy. Rather than simply marking the end of that
+                  chapter, Kevin and his family are undertaking a cross-country mission of patriotism,
+                  remembrance, and gratitude.
+                </p>
+                <p>
+                  Joined by his wife, Susan, and their children, Reagan and Gage, Kevin plans to help
+                  escort America&rsquo;s Freedom Bell from San Diego to Washington, D.C., sharing its
+                  message of liberty and service at stops across the country.
+                </p>
+                <p>
+                  For Kevin and his family, the journey is deeply personal: a way to honor service
+                  members, veterans, military families, and all those who have sacrificed for the
+                  freedoms America celebrates.
+                </p>
+                <p>
+                  That human story is a powerful part of the Freedom Bell&rsquo;s journey to Countdown
+                  250 &mdash; a family carrying a symbol of freedom across America, communities gathering
+                  along the way, and a final midnight ringing in Washington, D.C. as America enters its
+                  250th birthday.
+                </p>
+              </div>
+            </div>
+
+            <!-- Right column: feature card with 3 highlight rows -->
+            <div class="bg-navy text-white rounded-xl p-7 sm:p-8 shadow-md border border-navy-dark/30">
+              <p class="text-gold font-bold tracking-[0.18em] uppercase text-xs sm:text-sm mb-6">
+                The Human Story Behind the Journey
+              </p>
+
+              <div class="space-y-6">
+                <div>
+                  <p class="text-gold font-heading font-bold text-base sm:text-lg mb-1.5">30-Year Navy Career</p>
+                  <p class="text-white/80 text-sm sm:text-base leading-relaxed">
+                    Kevin Fahlund is nearing the conclusion of three decades of service in the United
+                    States Navy.
+                  </p>
+                </div>
+                <div>
+                  <p class="text-gold font-heading font-bold text-base sm:text-lg mb-1.5">A Family Mission</p>
+                  <p class="text-white/80 text-sm sm:text-base leading-relaxed">
+                    Kevin, Susan, Reagan, and Gage are helping carry the Freedom Bell&rsquo;s message
+                    across America.
+                  </p>
+                </div>
+                <div>
+                  <p class="text-gold font-heading font-bold text-base sm:text-lg mb-1.5">Serving Those Who Served</p>
+                  <p class="text-white/80 text-sm sm:text-base leading-relaxed">
+                    The journey honors service members, veterans, military families, and the freedoms
+                    they helped protect.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="text-slate/80 text-base sm:text-lg leading-relaxed space-y-5 max-w-3xl mx-auto">
-            <p>
-              The Freedom Bell journey is being carried forward by Kevin Fahlund and his family as a
-              personal mission to honor America&rsquo;s service members, veterans, and military families.
-              Their goal is to transport the Freedom Bell from San Diego to Washington, D.C., sharing its
-              message of liberty, remembrance, and gratitude at stops across the country.
-            </p>
-            <p>
-              That human story is a powerful part of the partnership. A family traveling across America
-              with a symbol of freedom. Communities gathering along the way. Veterans and families invited
-              to ring the bell. And a final Independence Weekend moment in Washington, D.C. as America
-              turns 250.
-            </p>
-            <p>
-              The Freedom Bell journey is being aligned with Countdown 250 to create a marquee national
-              finale in Washington, D.C. during Independence Weekend.
-            </p>
-          </div>
-
-          <div class="mt-8 max-w-3xl mx-auto border-t border-navy/15 pt-6">
+          <!-- Personal-capacity disclosure: below the 2-col, visually -->
+          <!-- secondary (smaller, lower-contrast, centered).           -->
+          <div class="mt-10 border-t border-navy/15 pt-6 max-w-3xl mx-auto">
             <p class="text-slate/60 text-xs sm:text-sm leading-relaxed text-center">
+              <strong class="text-slate/75 font-semibold">Personal-capacity disclosure:</strong>
               This tour is being undertaken in a private citizen capacity and does not represent the
               United States Navy, the Department of Defense, or any official government endorsement.
             </p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 6b. TRANSITION sentence into the Media Partnership section.  -->
+    <!-- Short statement, not a full section: reduced vertical padding -->
+    <!-- vs. neighbouring sections so it reads as a bridge.            -->
+    <!-- ============================================================ -->
+    <section class="pt-2 pb-10 sm:pb-14">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <p class="text-white/80 text-base sm:text-lg leading-relaxed text-center italic max-w-3xl mx-auto">
+          For media partners, Kevin Fahlund&rsquo;s family mission adds a deeply human dimension to the
+          national story: a Navy family carrying a bell of remembrance across America on the road to the
+          nation&rsquo;s 250th birthday.
+        </p>
       </div>
     </section>
 
