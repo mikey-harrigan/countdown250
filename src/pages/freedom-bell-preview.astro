@@ -1,0 +1,271 @@
+---
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+/*
+ * AMERICA'S FREEDOM BELL — PREVIEW PAGE
+ * ----------------------------------------------------------------
+ * STANDALONE PREVIEW — accessible only by direct URL. Not linked
+ * from the main navigation. Excluded from the sitemap via the
+ * astro.config.mjs filter (freedom-bell-preview).
+ *
+ * Source: partner outreach from Kevin Fahlund (Spirit of Liberty
+ * Foundation / America's Freedom Bell national tour, 2026). The
+ * Countdown 250 Ball is being positioned as the MARQUEE / finale
+ * moment of the bell's cross-country journey: the midnight ringing
+ * of the Freedom Bell at the Washington Hilton on July 3, 2026,
+ * accompanied by 3,000 guests ringing miniature bells the Ball
+ * provides.
+ *
+ * EDITORIAL FLAGS FOR MIKE (review before promoting to live):
+ *   1. HERO IMAGE IS A PLACEHOLDER — using /images/event/header-flag.jpg.
+ *      Swap in a real America's Freedom Bell photo when supplied.
+ *   2. The tour-schedule highlights (meetings with governors, the
+ *      Toby Keith family, Congressman Marcus Luttrell, Pentagon/
+ *      White House/Congress) are PARTNER-SUPPLIED and largely
+ *      marked TBD in the source. They are intentionally softened
+ *      here to "planned engagements with state and community
+ *      leaders" — confirm specifics with Kevin before any go live.
+ *   3. The personal-capacity disclosure (active-duty Navy, private
+ *      citizen on leave, no DoD endorsement, no monetary gain) is
+ *      included verbatim-in-spirit because it is legally/ethically
+ *      important. Keep it if this page is promoted.
+ *
+ * Structure mirrors the canonical sub-page pattern (hero ribbon +
+ * liquid-blue gradient main + gold-rule section dividers + navy
+ * CTA band + gold footer rule), matching /honorees/ and /icons/.
+ */
+
+const tour = [
+  { date: "June 11", place: "San Diego, CA", note: "Tour launch at Balboa Park." },
+  { date: "June 12&ndash;14", place: "Phoenix, AZ", note: "Events with local veteran organizations and community partners." },
+  { date: "June 14&ndash;16", place: "Grand Canyon, AZ", note: "Bell on display and open for ringing at one of America&rsquo;s great landmarks." },
+  { date: "June 18", place: "Amarillo, TX", note: "Travel and community stop." },
+  { date: "June 19", place: "Oklahoma City, OK", note: "Planned engagements with state and community leaders." },
+  { date: "June 20&ndash;21", place: "Dallas / Fort Worth, TX", note: "Regional events and community engagement." },
+  { date: "June 22&ndash;23", place: "Austin, TX", note: "Planned engagements with state leaders." },
+  { date: "June 24&ndash;26", place: "Houston, TX", note: "City and community engagements; regional events." },
+  { date: "June 27&ndash;28", place: "Fort Worth, TX", note: "Event at the Fort Worth Stockyards with local veteran organizations." },
+  { date: "June 29", place: "Little Rock, AR", note: "Planned engagements with state leaders." },
+  { date: "June 30&ndash;July 1", place: "Nashville, TN", note: "Events with music artists, veteran organizations, and community leaders." },
+  { date: "July 3", place: "Washington, D.C.", note: "<strong class='text-gold'>The marquee moment.</strong> The Freedom Bell rings in America&rsquo;s 250th year at midnight, at the Countdown 250 Ball.", marquee: true },
+  { date: "July 4 Weekend", place: "Washington, D.C.", note: "Tour conclusion in the Nation&rsquo;s Capital." },
+];
+
+const bellFacts = [
+  { label: "Composition", value: "330 lbs of bronze and 11 lbs of steel recovered from the 9/11 World Trade Center Twin Towers." },
+  { label: "Legacy", value: "Cast on D-Day 2013; has traveled to hallowed ground including Normandy and Pearl Harbor." },
+  { label: "Inscription", value: "&ldquo;Honoring Our Armed Forces Past, Present and Future.&rdquo;" },
+  { label: "The Experience", value: "Created to be rung by the public &mdash; each ring a personal gesture of honor and remembrance." },
+];
+---
+
+<BaseLayout
+  title="America's Freedom Bell at the Countdown 250 Ball (Preview) | July 3, 2026, Washington Hilton"
+  description="America's Freedom Bell — forged with bronze and steel from the 9/11 Twin Towers and cast on D-Day 2013 — concludes its national tour at the Countdown 250 Ball. At midnight on July 3, 2026, the bell rings in America's 250th year while 3,000 guests ring miniature bells together at the Washington Hilton."
+  ogImage="/images/event/header-flag.jpg"
+>
+  <Navbar />
+  <main
+    class="relative"
+    style="background: radial-gradient(circle at 30% 30%, rgba(4, 61, 156, 0.45) 0%, transparent 55%), linear-gradient(135deg, #052058 0%, #002B77 50%, #043D9C 100%); background-attachment: fixed;"
+  >
+    <!-- ============================================================ -->
+    <!-- HERO — canonical sub-page pattern.                            -->
+    <!-- PLACEHOLDER hero image (header-flag.jpg) — swap in a real     -->
+    <!-- America's Freedom Bell photo when supplied.                   -->
+    <!-- ============================================================ -->
+    <section class="relative overflow-hidden">
+      <div class="relative w-full h-[55vh] sm:h-[60vh] min-h-[320px] max-h-[680px]">
+        <img
+          src="/images/event/header-flag.jpg"
+          alt="The American flag rippling in the wind — placeholder hero for America's Freedom Bell"
+          class="absolute inset-0 w-full h-full object-cover"
+          decoding="async"
+        />
+        <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-navy-dark/55 to-transparent pointer-events-none"></div>
+
+        <div class="absolute inset-y-0 left-0 flex items-end pb-4 sm:pb-8 md:pb-12 lg:pb-16 pointer-events-none">
+          <div class="bg-gradient-to-r from-gold to-[#f4d847] py-2.5 sm:py-3.5 md:py-4 lg:py-5 pl-3 sm:pl-8 md:pl-14 lg:pl-20 xl:pl-28 pr-5 sm:pr-8 md:pr-12 lg:pr-14 border-y-2 border-r-2 border-navy-dark/35 rounded-r-2xl shadow-[0_14px_32px_-10px_rgba(0,0,0,0.55)] pointer-events-auto">
+            <h1 class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy font-heading leading-none tracking-tight">
+              America&rsquo;s Freedom Bell
+            </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- LEAD — the marquee announcement                                -->
+    <!-- ============================================================ -->
+    <section class="py-20">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <p class="text-white font-bold tracking-[0.3em] uppercase text-xs sm:text-sm text-center mb-8">
+          The Finale of a Cross-Country Journey
+        </p>
+
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gold font-heading leading-tight mb-5">
+            One Bell. One Nation.<br class="hidden sm:block" /> One Midnight.
+          </h2>
+          <div class="w-16 h-1 bg-gold mx-auto"></div>
+        </div>
+
+        <div class="text-white/75 text-lg leading-relaxed space-y-6 max-w-3xl mx-auto">
+          <p>
+            For weeks, <strong class="text-gold">America&rsquo;s Freedom Bell</strong> travels the country
+            &mdash; from San Diego to the Grand Canyon, across Texas, through Nashville &mdash; carried by
+            one family on a personal mission of patriotism. At every stop, Americans step forward to ring it.
+          </p>
+          <p>
+            That journey has a finale. The Spirit of Liberty Foundation and the Fahlund family have chosen
+            the <strong class="text-gold">Countdown 250 Ball</strong> as the marquee moment of the entire
+            tour: on the night of July 3, 2026, at the Washington Hilton, the Freedom Bell will ring in
+            America&rsquo;s 250th year at the stroke of midnight.
+          </p>
+          <p>
+            And it will not ring alone. As the bell sounds, <strong class="text-gold">3,000 guests will
+            ring miniature bells together</strong> &mdash; bells the Ball provides to every guest &mdash;
+            so the entire room becomes one resounding moment of honor and remembrance as the nation turns 250.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- THE BELL — facts grid                                          -->
+    <!-- ============================================================ -->
+    <section class="py-12 sm:py-14">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gold mb-3 font-heading">A Symbol Forged from Sacred Steel</h2>
+          <div class="w-16 h-1 bg-gold mx-auto"></div>
+        </div>
+
+        <p class="text-center text-white/70 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto mb-10">
+          The Spirit of Liberty Foundation created America&rsquo;s Freedom Bell specifically to honor those
+          who serve. It carries the weight of history in its very metal.
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-5 sm:gap-6">
+          {bellFacts.map((f) => (
+            <div class="bg-white/[0.06] border border-gold/25 rounded-xl p-6 backdrop-blur-sm">
+              <p class="text-gold font-bold uppercase tracking-[0.18em] text-xs sm:text-sm mb-2">{f.label}</p>
+              <p class="text-white/80 text-sm sm:text-base leading-relaxed" set:html={f.value} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- THE JOURNEY — 2026 tour timeline                               -->
+    <!-- ============================================================ -->
+    <section class="py-14 sm:py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10">
+          <p class="text-white font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-4">
+            San Diego to Washington, D.C.
+          </p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gold mb-3 font-heading">The 2026 National Tour</h2>
+          <div class="w-16 h-1 bg-gold mx-auto"></div>
+        </div>
+
+        <ol class="relative border-l-2 border-gold/30 ml-3 sm:ml-4 space-y-7">
+          {tour.map((stop) => (
+            <li class="relative pl-6 sm:pl-8">
+              <span class={`absolute -left-[9px] top-1.5 w-4 h-4 rounded-full border-2 ${stop.marquee ? 'bg-gold border-gold shadow-[0_0_0_4px_rgba(197,164,78,0.25)]' : 'bg-navy border-gold/60'}`}></span>
+              <p class="text-gold font-bold text-sm sm:text-base tracking-wide" set:html={stop.date} />
+              <p class="text-white font-heading font-semibold text-base sm:text-lg leading-tight mb-1">{stop.place}</p>
+              <p class="text-white/70 text-sm sm:text-base leading-relaxed" set:html={stop.note} />
+            </li>
+          ))}
+        </ol>
+
+        <p class="text-white/40 text-xs sm:text-sm text-center mt-10 max-w-2xl mx-auto leading-relaxed">
+          Route and dates are subject to change. Several stops include planned engagements with state and
+          community leaders that are still being confirmed by the tour.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- THE MIDNIGHT MOMENT — navy CTA-style band                      -->
+    <!-- ============================================================ -->
+    <section class="py-16 sm:py-20 bg-navy text-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <svg class="w-12 h-12 text-gold mx-auto mb-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+        </svg>
+        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">July 3, 2026 &middot; The Stroke of Midnight</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-5 font-heading">The Honor of Ringing the Bell</h2>
+        <div class="w-16 h-1 bg-gold mx-auto mb-7"></div>
+
+        <div class="text-white/75 text-base sm:text-lg leading-relaxed space-y-5 max-w-2xl mx-auto">
+          <p>
+            As the countdown reaches zero and America enters its 250th year, an honoree selected for this
+            distinction will ring America&rsquo;s Freedom Bell &mdash; while every guest in the room raises
+            a miniature bell and rings it in unison.
+          </p>
+          <p class="text-white/85">
+            It is the kind of moment that happens once in a nation&rsquo;s history. The Countdown 250 Ball
+            is where it will happen.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- THE MISSION & THE FAMILY                                       -->
+    <!-- ============================================================ -->
+    <section class="py-16 sm:py-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gold mb-3 font-heading">Serving Those Who Served</h2>
+          <div class="w-16 h-1 bg-gold mx-auto"></div>
+        </div>
+
+        <div class="text-white/75 text-lg leading-relaxed space-y-6 max-w-3xl mx-auto">
+          <p>
+            The tour is led by <strong class="text-gold">Kevin Fahlund</strong>, who is closing a
+            30-year career in the United States Navy. Alongside his wife Susan and their children,
+            Reagan and Gage, he is driving the Freedom Bell across the country as a family &mdash;
+            an endeavor to advocate for service members, veterans, and their families, past, present,
+            and future, and to carry the values of liberty and freedom to every stop along the way.
+          </p>
+          <p>
+            The bell itself is a project of the <strong class="text-gold">Spirit of Liberty
+            Foundation</strong>, founded by Richard Rovsek, which created America&rsquo;s Freedom Bell
+            to honor the nation&rsquo;s armed forces.
+          </p>
+        </div>
+
+        <div class="mt-10 max-w-3xl mx-auto bg-white/[0.05] border border-white/15 rounded-xl p-5 sm:p-6">
+          <p class="text-white/55 text-xs sm:text-sm leading-relaxed">
+            <strong class="text-white/70">Personal-capacity disclosure:</strong> Mr. Fahlund undertakes
+            this tour strictly as a private American citizen while on a leave status. He does not represent
+            the United States Navy or the Department of Defense in any official capacity during this tour,
+            and receives no personal monetary gain from it.
+          </p>
+        </div>
+
+        <div class="text-center mt-12">
+          <a
+            href="https://spiritoflibertyfoundation.org/portfolio-items/americas-freedom-bell/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-10 py-4 text-base sm:text-lg font-bold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+          >
+            Learn About America&rsquo;s Freedom Bell &nearr;
+          </a>
+          <p class="text-white/40 text-sm mt-4">Opens the Spirit of Liberty Foundation in a new tab.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div class="h-1.5 w-full bg-gradient-to-r from-gold/70 via-gold to-gold/70"></div>
+  <Footer />
+</BaseLayout>
