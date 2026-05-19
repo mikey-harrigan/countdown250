@@ -114,13 +114,20 @@ const mediaAngles = [
     <!-- would add a box and quantize would posterize the photo.       -->
     <!-- ============================================================ -->
     <section class="relative overflow-hidden">
-      <div class="relative w-full min-h-[60vh] max-h-[760px] flex items-center justify-center px-4 pt-28 sm:pt-32 pb-24 sm:pb-28">
-        <img
-          src="/images/event/freedom-bell-framed.png"
-          alt="Service members from across the branches gathered around America's Freedom Bell at the World War II Memorial in Washington, D.C., holding American flags — in a navy and gold commemorative frame"
-          class="max-h-[34vh] sm:max-h-[40vh] w-auto max-w-[42%] object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.55)]"
-          decoding="async"
-        />
+      <div class="relative w-full min-h-[60vh] max-h-[760px] flex pt-28 sm:pt-32">
+        <!-- Constrained to the same content column as the headline/body so
+             the picture's right edge lines up with the text's right edge
+             (where the 'Washington, D.C.' line reaches). Bottom padding
+             matches the gold ribbon's bottom offset below, so the picture's
+             bottom lines up with the bottom of the gold tab. -->
+        <div class="max-w-6xl w-full mx-auto px-6 sm:px-10 lg:px-14 flex items-end justify-end pb-4 sm:pb-8 md:pb-10 lg:pb-12">
+          <img
+            src="/images/event/freedom-bell-framed.png"
+            alt="Service members from across the branches gathered around America's Freedom Bell at the World War II Memorial in Washington, D.C., holding American flags — in a navy and gold commemorative frame"
+            class="max-h-[34vh] sm:max-h-[40vh] w-auto max-w-[42%] object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.55)]"
+            decoding="async"
+          />
+        </div>
       </div>
 
       <div class="absolute inset-y-0 left-0 flex items-end pb-4 sm:pb-8 md:pb-10 lg:pb-12 pointer-events-none">
