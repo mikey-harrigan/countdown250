@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 
 /*
- * AMERICA'S FREEDOM BELL × COUNTDOWN 250 — LIVE SUB-PAGE
+ * AMERICA'S FREEDOM BELL AT COUNTDOWN 250 — LIVE SUB-PAGE
  * ----------------------------------------------------------------
  * Promoted from /freedom-bell-preview/ on 2026-05-19 per Mike.
  * Live URL: /freedom-bell/. Linked from the "More" nav dropdown
@@ -100,7 +100,7 @@ const mediaAngles = [
 ---
 
 <BaseLayout
-  title="America's Freedom Bell × Countdown 250 | The Bell of the Ball Rings at Midnight | July 3, 2026, Washington Hilton"
+  title="America's Freedom Bell at Countdown 250 | The Bell of the Ball Rings at Midnight | July 3, 2026, Washington Hilton"
   description="America's Freedom Bell and the Official Countdown 250 Ball are joining together for a historic patriotic journey from San Diego to Washington, D.C. — culminating in a dramatic midnight ringing of the Freedom Bell as America enters its 250th birthday, joined by a chorus of small bells throughout the ballroom."
   ogImage="/images/event/freedom-bell-hero.jpg"
 >
@@ -163,35 +163,45 @@ const mediaAngles = [
              large and legible while keeping each sentence on its own line.
              Uses the clean body font (Inter) in normal case for readability,
              not the decorative Playfair heading face. -->
+        <!-- Hero title block: eyebrow / main heading / subheading -->
+        <p class="text-gold font-heading font-bold uppercase tracking-[0.22em] text-xs sm:text-sm text-center mb-4">
+          A Historic America 250 Moment
+        </p>
         <h2
           style="font-family: var(--font-body)"
-          class="font-bold text-gold leading-[1.12] whitespace-nowrap text-[clamp(0.78rem,4vw,2.75rem)] text-center mb-8 sm:mb-10"
+          class="font-bold text-gold leading-tight text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3"
         >
-          The Bell of the Ball Rings at Midnight
+          America&rsquo;s Freedom Bell
         </h2>
+        <p class="text-gold font-heading font-bold text-center leading-snug text-xl sm:text-2xl md:text-3xl mb-8 sm:mb-10">
+          The Bell of the Ball Rings at Midnight
+        </p>
         <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           <!-- Left column -->
           <div>
-            <p class="text-gold font-heading font-bold uppercase tracking-[0.18em] text-sm sm:text-base mb-5">
-              The midnight moment of a lifetime.
-            </p>
-            <p class="text-white/85 text-base sm:text-lg leading-relaxed max-w-xl mb-7">
-              America&rsquo;s Freedom Bell has partnered with the Official Countdown 250 Ball to create the
-              most emotional, patriotic, and uplifting midnight moment in America. The Freedom Bell&rsquo;s
-              cross-country tour climaxes in Washington, D.C., on July 3, 2026 &mdash; with the marquee
-              moment coming at midnight, as America enters its 250th birthday.
-            </p>
-            <div class="mb-6">
-              <p class="text-gold font-heading font-bold uppercase tracking-wide text-lg sm:text-xl leading-snug">
-                Our country <span class="text-white text-[0.6em] align-middle" aria-hidden="true">&#9733;</span> Our bells <span class="text-white text-[0.6em] align-middle" aria-hidden="true">&#9733;</span> Our freedom
+            <div class="text-white/85 text-base sm:text-lg leading-relaxed max-w-xl space-y-5 mb-7">
+              <p>
+                America&rsquo;s Freedom Bell has partnered with the Official Countdown 250 Ball to create
+                one of the most emotional, patriotic, and uplifting midnight moments of America&rsquo;s
+                250th birthday celebration.
+              </p>
+              <p>
+                At the stroke of midnight on July 3, 2026 &mdash; as America enters its 250th birthday
+                &mdash; the Freedom Bell will ring out in Washington, D.C. Then guests throughout the
+                ballroom will join in, raising and ringing small commemorative bells in a joyful chorus
+                of freedom.
               </p>
             </div>
-
-            <!-- Gold star divider -->
-            <div class="flex items-center gap-3 mb-8" aria-hidden="true">
-              <span class="h-px w-16 sm:w-24 bg-gold/60"></span>
-              <span class="text-gold text-sm">&#9733;</span>
-              <span class="h-px w-16 sm:w-24 bg-gold/60"></span>
+            <div class="mb-8">
+              <p class="text-gold font-heading font-bold uppercase tracking-wide text-lg sm:text-xl leading-snug">
+                The midnight celebration of our lifetime.
+              </p>
+              <p class="text-gold font-heading font-bold uppercase tracking-wide text-lg sm:text-xl leading-snug">
+                Our country. Our bells. Our freedom.
+              </p>
+              <p class="text-white font-heading font-extrabold uppercase tracking-[0.1em] text-2xl sm:text-3xl mt-3">
+                LET FREEDOM RING!
+              </p>
             </div>
 
             <div class="flex flex-col sm:flex-row gap-4">
@@ -226,13 +236,12 @@ const mediaAngles = [
                 </div>
               ))}
             </div>
+            <p class="text-white font-heading font-extrabold uppercase tracking-[0.1em] text-lg sm:text-xl text-center mt-7">
+              LET FREEDOM RING!
+            </p>
           </div>
         </div>
 
-        <!-- LET FREEDOM RING! — closes the section, full width, one line -->
-        <p class="text-white font-heading font-extrabold uppercase tracking-[0.12em] text-3xl sm:text-5xl lg:text-6xl text-center mt-12 sm:mt-16">
-          LET FREEDOM RING!
-        </p>
       </div>
     </section>
 
@@ -254,7 +263,7 @@ const mediaAngles = [
 
         <div class="text-white/75 text-lg leading-relaxed space-y-6 max-w-3xl mx-auto mb-12">
           <p>
-            America&rsquo;s Freedom Bell and Countdown 250 are partnering to create a coast-to-capital
+            America&rsquo;s Freedom Bell and Countdown 250 are joining together to create a coast-to-capital
             patriotic story for America&rsquo;s 250th birthday &mdash; a journey honoring service,
             sacrifice, remembrance, and unity across America, culminating in a dramatic midnight ringing
             in Washington, D.C.
@@ -544,7 +553,7 @@ const mediaAngles = [
             <div class="w-16 h-1 bg-gold mb-7"></div>
             <div class="text-white/75 text-base sm:text-lg leading-relaxed space-y-5">
               <p>
-                The America&rsquo;s Freedom Bell &times; Countdown 250 partnership offers a rare and
+                The America&rsquo;s Freedom Bell and Countdown 250 collaboration offers a rare and
                 compelling media opportunity: a patriotic journey across America, emotional local stories
                 in multiple markets, and a dramatic midnight finale in Washington, D.C. as the nation
                 enters its 250th birthday.
@@ -608,8 +617,8 @@ const mediaAngles = [
             celebration.
           </p>
           <p>
-            Through this historic partnership, America&rsquo;s Freedom Bell will help mark the moment
-            when the nation enters its 250th birthday.
+            America&rsquo;s Freedom Bell will help mark the moment when the nation enters its 250th
+            birthday.
           </p>
           <p class="text-white/90 font-semibold">
             At midnight, Freedom will ring. And the people will ring with it.
