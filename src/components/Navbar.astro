@@ -127,7 +127,7 @@ const moreLinks = [
          shortened title + "X days to go". -->
     <div class="bg-navy-dark/95 border-t border-gold/30">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 py-1.5 sm:py-2">
-        <div class="flex items-center justify-between gap-3 text-[11px] sm:text-xs md:text-sm leading-tight">
+        <div class="flex items-center justify-center flex-wrap gap-x-4 sm:gap-x-6 md:gap-x-8 gap-y-1 text-[11px] sm:text-xs md:text-sm leading-tight">
           <h1 class="min-w-0">
             <span class="hidden sm:inline">
               <span class="font-heading italic font-bold text-gold tracking-wide">The Official Countdown 250 Ball</span>
@@ -192,11 +192,12 @@ const moreLinks = [
         var days = Math.floor(diff / 86400000);
         var hours = Math.floor((diff / 3600000) % 24);
         var minutes = Math.floor((diff / 60000) % 60);
-        dEls.forEach(function (el) { el.textContent = days + 'd ' + hours + 'h ' + minutes + 'm'; });
+        var seconds = Math.floor((diff / 1000) % 60);
+        dEls.forEach(function (el) { el.textContent = days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's'; });
         mEls.forEach(function (el) { el.textContent = days + ' days'; });
       }
       tick();
-      setInterval(tick, 30000);
+      setInterval(tick, 1000);
     })();
   </script>
 )}
