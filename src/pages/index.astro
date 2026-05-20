@@ -1,13 +1,28 @@
 ---
-// LIVE HOMEPAGE — conversion-focused inline layout (formerly homepage-preview).
-// The /homepage-preview route is preserved as a fallback / reference copy.
+// LIVE HOMEPAGE — conversion-focused inline layout. Promoted 2026-05-20
+// from /homepage-news-bar-preview/ (enhanced top bar + news-ticker
+// band replacing the prior <Countdown /> component). The preview file
+// /homepage-news-bar-preview/ is preserved as a fallback / reference.
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
-import Countdown from '../components/Countdown.astro';
 import Footer from '../components/Footer.astro';
 
 const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
+
+// 'THE COUNTDOWN IS BUILDING' news-ticker headlines — hand-curated
+// per Mike, not pulled from src/data/updates.ts. Most are forward-
+// looking teasers with no destination page yet, so the marquee
+// renders them as non-clickable <span>s. Convert to {headline, slug}
+// objects later if/when each becomes its own /updates/ entry.
+const tickerItems = [
+  'America’s Freedom Bell to Ring at Midnight in the “1,000 Bells of Freedom” Moment',
+  'Space Blue’s Interactive Space Museum Joins Countdown 250',
+  'Robot Signs On for Countdown 250 Ball',
+  'All-American Heroes and Icons Coming Soon',
+  'Entertainment and Special Guest Announcements Ahead',
+  'Be in the Room When America Turns 250',
+];
 
 const experienceFeatures = [
   { icon: "party",     title: "6 Gala Zones",         desc: "Each with its own ambiance, music, and atmosphere" },
@@ -137,7 +152,7 @@ const faqs = [
   description="The Official Countdown 250 Ball — Washington's premier America 250 black-tie gala at the legendary Washington Hilton. July 3, 2026. Live entertainment, premium open bars, and a midnight countdown to America's 250th birthday."
   ogImage="/images/event/hero-countdown250-toast.jpg"
 >
-  <Navbar />
+  <Navbar enhancedTopBar={true} />
 
   <main>
     <!-- ============================================================ -->
@@ -336,9 +351,88 @@ const faqs = [
     </section>
 
     <!-- ============================================================ -->
-    <!-- 1.6 COUNTDOWN TIMER — premium, static-feeling band -->
+    <!-- 1.6 'THE COUNTDOWN IS BUILDING' — news-ticker band             -->
+    <!-- (promoted from /homepage-news-bar-preview/ 2026-05-20).        -->
+    <!-- Desktop: gold label flush-left + scrolling marquee of the     -->
+    <!-- latest curated headlines (right-to-left, seamless loop,       -->
+    <!-- paused on hover, respects prefers-reduced-motion).            -->
+    <!-- Mobile: a single 'July 3, 2026 ✦ Washington, D.C. ✦ X Days   -->
+    <!-- to Go' line (no marquee, simpler, no horizontal scroll).      -->
     <!-- ============================================================ -->
-    <Countdown />
+    <section class="bg-navy text-white border-y border-gold/30 py-3 sm:py-4 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- DESKTOP: label + scrolling marquee -->
+        <div class="hidden sm:flex items-center gap-6">
+          <p style="font-family: var(--font-body)" class="text-gold font-bold tracking-tight text-base md:text-lg flex-shrink-0">
+            THE COUNTDOWN IS BUILDING:
+          </p>
+          <div class="flex-1 overflow-hidden news-marquee">
+            <div class="news-marquee-track inline-flex items-center whitespace-nowrap">
+              {tickerItems.map((headline) => (
+                <span class="text-white/90 text-sm md:text-base font-medium inline-flex items-center mr-12">
+                  <span class="text-gold mr-2">&#10022;</span>{headline}
+                </span>
+              ))}
+              {/* Duplicated for seamless looping */}
+              {tickerItems.map((headline) => (
+                <span
+                  class="text-white/90 text-sm md:text-base font-medium inline-flex items-center mr-12"
+                  aria-hidden="true"
+                >
+                  <span class="text-gold mr-2">&#10022;</span>{headline}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- MOBILE: simple date + city + days-to-go line -->
+        <p class="sm:hidden text-center text-white/90 text-[11px] leading-tight tracking-[0.08em] uppercase">
+          <span>July 3, 2026</span>
+          <span class="mx-1.5 text-gold/60">&#10022;</span>
+          <span>Washington, D.C.</span>
+          <span class="mx-1.5 text-gold/60">&#10022;</span>
+          <span class="text-gold" data-news-mobile-days>—</span>
+          <span class="text-gold ml-0.5">Days to Go</span>
+        </p>
+      </div>
+    </section>
+
+    <style>
+      /* Seamless right-to-left ticker: track is duplicated content; shift -50%. */
+      .news-marquee {
+        mask-image: linear-gradient(to right, transparent 0, black 4%, black 96%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0, black 4%, black 96%, transparent 100%);
+      }
+      .news-marquee-track {
+        animation: news-marquee-scroll 55s linear infinite;
+      }
+      .news-marquee-track:hover {
+        animation-play-state: paused;
+      }
+      @keyframes news-marquee-scroll {
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .news-marquee-track { animation: none; transform: translateX(0); }
+      }
+    </style>
+
+    <script is:inline>
+      (function () {
+        var target = new Date('2026-07-03T19:00:00-04:00').getTime();
+        var els = document.querySelectorAll('[data-news-mobile-days]');
+        function tick() {
+          var diff = target - Date.now();
+          var days = diff > 0 ? Math.floor(diff / 86400000) : 0;
+          els.forEach(function (el) { el.textContent = days; });
+        }
+        tick();
+        setInterval(tick, 60000);
+      })();
+    </script>
 
     <!-- ============================================================ -->
     <!-- 2. ALL-INCLUSIVE EXPERIENCE -->
