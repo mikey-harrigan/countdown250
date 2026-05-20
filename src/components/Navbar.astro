@@ -144,10 +144,15 @@ const moreLinks = [
               <span class="text-white/90 tracking-[0.08em] uppercase">Washington, D.C.</span>
             </span>
           </h1>
-          <div class="flex-shrink-0 text-right whitespace-nowrap">
-            <span class="hidden sm:inline">
-              <span class="text-gold uppercase tracking-[0.15em] font-bold">Countdown:</span>
-              <span class="text-white/90 ml-1 tabular-nums" data-topbar-cd-desktop>—</span>
+          <div class="flex-shrink-0 whitespace-nowrap">
+            <span class="hidden sm:inline-flex items-baseline gap-3 md:gap-4">
+              <span class="text-gold uppercase tracking-[0.15em] font-bold">Countdown</span>
+              <span class="inline-flex items-baseline gap-2.5 md:gap-3 tabular-nums">
+                <span><span class="text-white" data-cd-d>—</span><span class="text-gold/70 ml-0.5 text-[0.78em] uppercase">d</span></span>
+                <span><span class="text-white" data-cd-h>—</span><span class="text-gold/70 ml-0.5 text-[0.78em] uppercase">h</span></span>
+                <span><span class="text-white" data-cd-m>—</span><span class="text-gold/70 ml-0.5 text-[0.78em] uppercase">m</span></span>
+                <span><span class="text-white" data-cd-s>—</span><span class="text-gold/70 ml-0.5 text-[0.78em] uppercase">s</span></span>
+              </span>
             </span>
             <span class="sm:hidden">
               <span class="text-white/90 tabular-nums" data-topbar-cd-mobile>—</span>
@@ -180,12 +185,19 @@ const moreLinks = [
   <script is:inline>
     (function () {
       var target = new Date('2026-07-03T19:00:00-04:00').getTime();
-      var dEls = document.querySelectorAll('[data-topbar-cd-desktop]');
+      var dDays = document.querySelectorAll('[data-cd-d]');
+      var dHours = document.querySelectorAll('[data-cd-h]');
+      var dMin = document.querySelectorAll('[data-cd-m]');
+      var dSec = document.querySelectorAll('[data-cd-s]');
       var mEls = document.querySelectorAll('[data-topbar-cd-mobile]');
+      function pad(n) { return n < 10 ? '0' + n : String(n); }
       function tick() {
         var diff = target - Date.now();
         if (diff <= 0) {
-          dEls.forEach(function (el) { el.textContent = 'It’s here'; });
+          dDays.forEach(function (el) { el.textContent = '0'; });
+          dHours.forEach(function (el) { el.textContent = '00'; });
+          dMin.forEach(function (el) { el.textContent = '00'; });
+          dSec.forEach(function (el) { el.textContent = '00'; });
           mEls.forEach(function (el) { el.textContent = '0 days'; });
           return;
         }
@@ -193,7 +205,10 @@ const moreLinks = [
         var hours = Math.floor((diff / 3600000) % 24);
         var minutes = Math.floor((diff / 60000) % 60);
         var seconds = Math.floor((diff / 1000) % 60);
-        dEls.forEach(function (el) { el.textContent = days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's'; });
+        dDays.forEach(function (el) { el.textContent = days; });
+        dHours.forEach(function (el) { el.textContent = pad(hours); });
+        dMin.forEach(function (el) { el.textContent = pad(minutes); });
+        dSec.forEach(function (el) { el.textContent = pad(seconds); });
         mEls.forEach(function (el) { el.textContent = days + ' days'; });
       }
       tick();
