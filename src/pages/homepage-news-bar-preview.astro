@@ -21,14 +21,21 @@ import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import { updates } from '../data/updates.ts';
-
-// Latest update headlines for the scrolling marquee. Sorted newest-
-// first in src/data/updates.ts already; just take the first N.
-const tickerItems = updates.slice(0, 7).map((u) => ({
-  headline: u.headline,
-  slug: u.slug,
-}));
+// Marquee items — custom, hand-curated list per Mike (no longer
+// pulled from src/data/updates.ts; these are the headlines Mike
+// wants shown in the 'THE COUNTDOWN IS BUILDING' ticker bar).
+// Plain strings; the marquee template renders them as non-clickable
+// announcement chips because several are 'coming soon' teasers with
+// no anchor target yet. Move to {headline, slug} objects later if/
+// when each becomes its own /updates/#slug entry.
+const tickerItems = [
+  'America’s Freedom Bell to Ring at Midnight in the “1,000 Bells of Freedom” Moment',
+  'Space Blue’s Interactive Space Museum Joins Countdown 250',
+  'Robot Signs On for Countdown 250 Ball',
+  'All-American Heroes and Icons Coming Soon',
+  'Entertainment and Special Guest Announcements Ahead',
+  'Be in the Room When America Turns 250',
+];
 
 const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
 
@@ -372,28 +379,23 @@ const faqs = [
         <!-- DESKTOP: label + scrolling marquee -->
         <div class="hidden sm:flex items-center gap-6">
           <p style="font-family: var(--font-body)" class="text-gold font-bold tracking-tight text-base md:text-lg flex-shrink-0">
-            Breaking News
+            THE COUNTDOWN IS BUILDING:
           </p>
           <div class="flex-1 overflow-hidden news-marquee">
             <div class="news-marquee-track inline-flex items-center whitespace-nowrap">
-              {tickerItems.map((item) => (
-                <a
-                  href={`/updates/#${item.slug}`}
-                  class="text-white/85 hover:text-gold text-sm md:text-base font-medium inline-flex items-center mr-12"
-                >
-                  <span class="text-gold mr-2">&#10022;</span>{item.headline}
-                </a>
+              {tickerItems.map((headline) => (
+                <span class="text-white/90 text-sm md:text-base font-medium inline-flex items-center mr-12">
+                  <span class="text-gold mr-2">&#10022;</span>{headline}
+                </span>
               ))}
               {/* Duplicated for seamless looping */}
-              {tickerItems.map((item) => (
-                <a
-                  href={`/updates/#${item.slug}`}
-                  class="text-white/85 hover:text-gold text-sm md:text-base font-medium inline-flex items-center mr-12"
+              {tickerItems.map((headline) => (
+                <span
+                  class="text-white/90 text-sm md:text-base font-medium inline-flex items-center mr-12"
                   aria-hidden="true"
-                  tabindex="-1"
                 >
-                  <span class="text-gold mr-2">&#10022;</span>{item.headline}
-                </a>
+                  <span class="text-gold mr-2">&#10022;</span>{headline}
+                </span>
               ))}
             </div>
           </div>
