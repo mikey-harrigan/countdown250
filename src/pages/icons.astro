@@ -16,8 +16,26 @@ import Footer from '../components/Footer.astro';
  * American-excellence award.
  *
  * Structure mirrors honorees.astro for visual consistency.
+ *
+ * 2026 honoree feature cards are data-driven via the iconHonorees
+ * array below (Bob Anderson, Tony Orlando — added 2026-05-21).
+ * Order matches the entertainment lineup (Bob Anderson first).
  */
 
+const iconHonorees = [
+  {
+    name: "Bob Anderson",
+    img: "/images/event/bob-anderson.jpg",
+    role: "World’s Greatest Singing Impressionist",
+    citation: "<p>Hailed by <em>People</em> magazine as &ldquo;America&rsquo;s Greatest Singing Impressionist,&rdquo; Bob Anderson has spent five decades as one of the most celebrated entertainers on the Las Vegas Strip, performing in every major casino showroom.</p><p>A Vietnam veteran, his extraordinary gift for recreating the voices of the world&rsquo;s greatest singers &mdash; most famously Frank Sinatra &mdash; has earned standing ovations at Carnegie Hall and performances for two U.S. Presidents and the Royal Family. He is an inductee of both the Casino Legends Hall of Fame and the Las Vegas Entertainers Hall of Fame.</p>",
+  },
+  {
+    name: "Tony Orlando",
+    img: "/images/event/tony-orlando.jpg",
+    role: "Legendary Entertainer",
+    citation: "<p>A Billboard Top 6 artist of the 1970s and a Hollywood Walk of Fame honoree, Tony Orlando has sold more than 70 million records and given America some of its most enduring songs, including &ldquo;Tie a Yellow Ribbon Round the Ole Oak Tree.&rdquo;</p><p>With Dawn, he earned five #1 singles and a place in the Vocal Group Hall of Fame, and Tony Orlando &amp; Dawn became the first multi-racial group to host a prime-time network variety show. Across six decades on records, on Broadway, and on television &mdash; and through a lifetime of service to America&rsquo;s veterans &mdash; he has become a true symbol of American excellence.</p>",
+  },
+];
 ---
 
 <BaseLayout
@@ -108,41 +126,32 @@ import Footer from '../components/Footer.astro';
     <section class="py-12 sm:py-16">
       <div class="max-w-5xl mx-auto px-4 sm:px-6">
         <div class="text-center mb-8 sm:mb-10">
-          <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-3">Inaugural 2026 Honoree</p>
-          <h2 class="text-3xl sm:text-4xl font-bold text-gold font-heading leading-tight">Celebrating an American Icon</h2>
+          <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-3">Inaugural 2026 Honorees</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gold font-heading leading-tight">Celebrating American Icons</h2>
           <div class="w-16 h-1 bg-gold mx-auto mt-5"></div>
         </div>
 
-        <div class="bg-gradient-to-br from-navy-dark via-navy to-navy-dark border border-gold/40 rounded-2xl overflow-hidden shadow-[0_18px_40px_-16px_rgba(0,0,0,0.6)] flex flex-col sm:flex-row">
-          <div class="sm:w-2/5 sm:flex-shrink-0 bg-navy/50">
-            <div class="aspect-[4/3] sm:aspect-auto sm:h-full overflow-hidden">
-              <img
-                src="/images/event/tony-orlando.jpg"
-                alt="Tony Orlando"
-                class="w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
+        <div class="space-y-8">
+          {iconHonorees.map((h) => (
+            <div class="bg-gradient-to-br from-navy-dark via-navy to-navy-dark border border-gold/40 rounded-2xl overflow-hidden shadow-[0_18px_40px_-16px_rgba(0,0,0,0.6)] flex flex-col sm:flex-row">
+              <div class="sm:w-2/5 sm:flex-shrink-0 bg-navy/50">
+                <div class="aspect-[4/3] sm:aspect-auto sm:h-full overflow-hidden">
+                  <img
+                    src={h.img}
+                    alt={h.name}
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </div>
+              <div class="flex-1 p-6 sm:p-8 md:p-10">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gold font-heading leading-tight mb-1">{h.name}</h3>
+                <p class="text-white/55 text-xs sm:text-sm uppercase tracking-[0.18em] font-semibold mb-5">{h.role}</p>
+                <div class="text-white/75 text-sm sm:text-base leading-relaxed space-y-4" set:html={h.citation} />
+              </div>
             </div>
-          </div>
-          <div class="flex-1 p-6 sm:p-8 md:p-10">
-            <h3 class="text-2xl sm:text-3xl font-bold text-gold font-heading leading-tight mb-1">Tony Orlando</h3>
-            <p class="text-white/55 text-xs sm:text-sm uppercase tracking-[0.18em] font-semibold mb-5">Legendary Entertainer</p>
-            <div class="text-white/75 text-sm sm:text-base leading-relaxed space-y-4">
-              <p>
-                A Billboard Top 6 artist of the 1970s and a Hollywood Walk of Fame honoree, Tony Orlando
-                has sold more than 70 million records and given America some of its most enduring songs,
-                including &ldquo;Tie a Yellow Ribbon Round the Ole Oak Tree.&rdquo;
-              </p>
-              <p>
-                With Dawn, he earned five #1 singles and a place in the Vocal Group Hall of Fame, and
-                Tony Orlando &amp; Dawn became the first multi-racial group to host a prime-time network
-                variety show. Across six decades on records, on Broadway, and on television &mdash; and
-                through a lifetime of service to America&rsquo;s veterans &mdash; he has become a true
-                symbol of American excellence.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
