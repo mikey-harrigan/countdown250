@@ -32,6 +32,7 @@ const iconHonorees = [
   {
     name: "Tony Orlando",
     img: "/images/event/tony-orlando.jpg",
+    imgFit: "object-contain",
     role: "Legendary Entertainer",
     citation: "<p>A Billboard Top 6 artist of the 1970s and a Hollywood Walk of Fame honoree, Tony Orlando has sold more than 70 million records and given America some of its most enduring songs, including &ldquo;Tie a Yellow Ribbon Round the Ole Oak Tree.&rdquo;</p><p>With Dawn, he earned five #1 singles and a place in the Vocal Group Hall of Fame, and Tony Orlando &amp; Dawn became the first multi-racial group to host a prime-time network variety show. Across six decades on records, on Broadway, and on television &mdash; and through a lifetime of service to America&rsquo;s veterans &mdash; he has become a true symbol of American excellence.</p>",
   },
@@ -139,7 +140,7 @@ const iconHonorees = [
                   <img
                     src={h.img}
                     alt={h.name}
-                    class="w-full h-full object-cover"
+                    class={`w-full h-full ${h.imgFit ?? "object-cover"}`}
                     loading="lazy"
                     decoding="async"
                   />

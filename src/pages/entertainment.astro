@@ -93,6 +93,7 @@ const performers = [
     name: "Tony Orlando",
     role: "American Icon &amp; Legendary Entertainer",
     img: "/images/event/tony-orlando.jpg",
+    imgFit: "object-contain",
     bio: "For more than six decades, Tony Orlando has been one of America&rsquo;s most beloved entertainers. As the voice behind timeless #1 hits including &ldquo;Tie a Yellow Ribbon Round the Ole Oak Tree,&rdquo; &ldquo;Knock Three Times,&rdquo; and &ldquo;Candida,&rdquo; he has sold more than 70 million records and earned a star on the Hollywood Walk of Fame. Billboard ranks him among the Top 6 artists of the 1970s and one of the greatest artists of all time.",
     bioExpanded: "With Dawn (Telma Hopkins and Joyce Vincent), Tony Orlando notched five #1 singles, multiple gold and platinum records, and a place in the Vocal Group Hall of Fame &mdash; and Tony Orlando &amp; Dawn became the first multi-racial group to host a prime-time network variety show. He starred twice on Broadway, in the Tony Award-winning &ldquo;Barnum&rdquo; and &ldquo;Smokey Joe&rsquo;s Cafe,&rdquo; co-hosted the MDA Telethon alongside Jerry Lewis for 33 years, and was inducted into the New Jersey Hall of Fame in 2023. A tireless advocate for America&rsquo;s veterans since 1973, he was honored with the Lee Greenwood Patriot Award, and today hosts his own show on the legendary Music Radio 77 WABC.",
   },
@@ -346,7 +347,7 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
               {p.img ? (
                 <div class="sm:w-72 sm:flex-shrink-0 bg-navy/50">
                   <div class="aspect-[4/3] sm:aspect-auto sm:h-full overflow-hidden">
-                    <img src={p.img} alt={p.name} class="w-full h-full object-cover" loading="lazy" decoding="async" />
+                    <img src={p.img} alt={p.name} class={`w-full h-full ${p.imgFit ?? "object-cover"}`} loading="lazy" decoding="async" />
                   </div>
                 </div>
               ) : (
