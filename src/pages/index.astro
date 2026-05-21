@@ -361,12 +361,14 @@ const faqs = [
     <section class="bg-navy text-white border-y border-gold/30 py-3 sm:py-4 overflow-hidden">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <!-- DESKTOP: label + scrolling marquee -->
-        <div class="hidden sm:flex items-center gap-6">
-          <p style="font-family: var(--font-body)" class="text-gold font-bold tracking-tight text-base md:text-lg flex-shrink-0">
+        <!-- Label + scrolling marquee. Stacks on mobile (label centered
+             above the scroller), sits in a row on sm+. The marquee now
+             shows on ALL screen sizes (was desktop-only). -->
+        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
+          <p style="font-family: var(--font-body)" class="text-gold font-bold tracking-tight text-sm sm:text-base md:text-lg flex-shrink-0 text-center sm:text-left">
             THE COUNTDOWN IS BUILDING:
           </p>
-          <div class="flex-1 overflow-hidden news-marquee">
+          <div class="w-full sm:flex-1 overflow-hidden news-marquee">
             <div class="news-marquee-track inline-flex items-center whitespace-nowrap">
               {tickerItems.map((headline) => (
                 <span class="text-white/90 text-sm md:text-base font-medium inline-flex items-center mr-12">
@@ -385,16 +387,6 @@ const faqs = [
             </div>
           </div>
         </div>
-
-        <!-- MOBILE: simple date + city + days-to-go line -->
-        <p class="sm:hidden text-center text-white/90 text-[11px] leading-tight tracking-[0.08em] uppercase">
-          <span>July 3, 2026</span>
-          <span class="mx-1.5 text-gold/60">&#10022;</span>
-          <span>Washington, D.C.</span>
-          <span class="mx-1.5 text-gold/60">&#10022;</span>
-          <span class="text-gold" data-news-mobile-days>—</span>
-          <span class="text-gold ml-0.5">Days to Go</span>
-        </p>
       </div>
     </section>
 
@@ -418,20 +410,6 @@ const faqs = [
         .news-marquee-track { animation: none; transform: translateX(0); }
       }
     </style>
-
-    <script is:inline>
-      (function () {
-        var target = new Date('2026-07-03T19:00:00-04:00').getTime();
-        var els = document.querySelectorAll('[data-news-mobile-days]');
-        function tick() {
-          var diff = target - Date.now();
-          var days = diff > 0 ? Math.floor(diff / 86400000) : 0;
-          els.forEach(function (el) { el.textContent = days; });
-        }
-        tick();
-        setInterval(tick, 60000);
-      })();
-    </script>
 
     <!-- ============================================================ -->
     <!-- 2. ALL-INCLUSIVE EXPERIENCE -->
