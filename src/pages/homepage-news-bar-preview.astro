@@ -28,12 +28,18 @@ import Footer from '../components/Footer.astro';
 // announcement chips because several are 'coming soon' teasers with
 // no anchor target yet. Move to {headline, slug} objects later if/
 // when each becomes its own /updates/#slug entry.
+// Ticker items are now objects so a single item can carry an optional
+// link. The marquee template renders an <a> when `href` is present and
+// a plain <span> otherwise. Space Blue's Lunar Museum is the first item
+// and links to its preview page. (The earlier 'Interactive Space Museum'
+// line was the unlinked precursor to this one and was replaced rather
+// than kept, to avoid two near-identical Space Blue headlines.)
 const tickerItems = [
-  'America’s Freedom Bell to Ring at Midnight in the “1,000 Bells of Freedom” Moment',
-  'Space Blue’s Interactive Space Museum Joins Countdown 250',
-  'All-American Heroes and Icons',
-  'More Entertainment and Special Guest Announcements Ahead',
-  'Be in the Room When America Turns 250',
+  { text: 'Space Blue’s Interactive Lunar Museum Joins Countdown 250', href: '/space-blue-preview/' },
+  { text: 'America’s Freedom Bell to Ring at Midnight in the “1,000 Bells of Freedom” Moment' },
+  { text: 'All-American Heroes and Icons' },
+  { text: 'More Entertainment and Special Guest Announcements Ahead' },
+  { text: 'Be in the Room When America Turns 250' },
 ];
 
 const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
@@ -384,19 +390,28 @@ const faqs = [
           </p>
           <div class="w-full sm:flex-1 overflow-hidden news-marquee">
             <div class="news-marquee-track inline-flex items-center whitespace-nowrap">
-              {tickerItems.map((headline) => (
-                <span class="text-white/90 text-sm md:text-base font-medium inline-flex items-center mr-12">
-                  <span class="text-gold mr-2">&#10022;</span>{headline}
-                </span>
+              {tickerItems.map((item) => (
+                item.href ? (
+                  <a href={item.href} class="text-white/90 hover:text-gold transition-colors text-sm md:text-base font-medium inline-flex items-center mr-12">
+                    <span class="text-gold mr-2">&#10022;</span>{item.text}
+                  </a>
+                ) : (
+                  <span class="text-white/90 text-sm md:text-base font-medium inline-flex items-center mr-12">
+                    <span class="text-gold mr-2">&#10022;</span>{item.text}
+                  </span>
+                )
               ))}
               {/* Duplicated for seamless looping */}
-              {tickerItems.map((headline) => (
-                <span
-                  class="text-white/90 text-sm md:text-base font-medium inline-flex items-center mr-12"
-                  aria-hidden="true"
-                >
-                  <span class="text-gold mr-2">&#10022;</span>{headline}
-                </span>
+              {tickerItems.map((item) => (
+                item.href ? (
+                  <a href={item.href} class="text-white/90 hover:text-gold transition-colors text-sm md:text-base font-medium inline-flex items-center mr-12" aria-hidden="true" tabindex="-1">
+                    <span class="text-gold mr-2">&#10022;</span>{item.text}
+                  </a>
+                ) : (
+                  <span class="text-white/90 text-sm md:text-base font-medium inline-flex items-center mr-12" aria-hidden="true">
+                    <span class="text-gold mr-2">&#10022;</span>{item.text}
+                  </span>
+                )
               ))}
             </div>
           </div>
@@ -550,6 +565,101 @@ const faqs = [
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
+    <!-- 3.4 SPACE BLUE — immersive-experience announcement (preview    -->
+    <!-- only, added 2026-05-21). Sits after the All-Inclusive          -->
+    <!-- Experience section and before the Midnight Moment section.    -->
+    <!-- Deep navy band, gold accents; 2-col on desktop (left copy +   -->
+    <!-- 2 CTAs, right 'Featured Space Blue Activations' card). Links   -->
+    <!-- to /space-blue-preview/ (placeholder page).                    -->
+    <!-- ============================================================ -->
+    <section id="space-blue-homepage-feature" class="bg-navy-dark text-white py-12 sm:py-[4.5rem] border-y border-gold/25">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+
+          <!-- LEFT: eyebrow, headline, body, punch line, 2 CTAs -->
+          <div>
+            <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-5">
+              Immersive Experience Announcement
+            </p>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-heading leading-tight mb-5">
+              Space Blue Brings the Moon, American Icons, and Immersive History to Countdown 250
+            </h2>
+            <div class="w-20 h-1 bg-gold mb-7"></div>
+
+            <div class="text-white/80 text-base sm:text-lg leading-relaxed space-y-5 mb-7">
+              <p>
+                <a href="https://www.spaceblue.club" target="_blank" rel="noopener noreferrer" class="text-gold underline decoration-gold/40 hover:decoration-gold underline-offset-2">Space Blue</a>
+                will be on site at the Official Countdown 250 Ball with multiple interactive activations
+                celebrating American history, space exploration, art, innovation, and the spirit of
+                discovery.
+              </p>
+              <p>
+                Featured experiences will include the Lunaprise Lunar Museum curated by Space Blue,
+                certified lunar art collectibles, lifelike hologram-style exhibits, iconic art, and
+                immersive moments celebrating America&rsquo;s greatest achievements.
+              </p>
+              <p class="text-white/95 font-semibold">
+                History. Innovation. Art. Exploration. All in one unforgettable night.
+              </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a
+                href="/space-blue-preview/"
+                class="inline-block text-center bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-8 py-4 text-sm sm:text-base font-bold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+              >
+                Explore the Space Blue Experience
+              </a>
+              <a
+                href="#tickets"
+                class="inline-block text-center border-2 border-gold text-gold hover:bg-gold hover:text-navy-dark px-8 py-4 text-sm sm:text-base font-bold tracking-wider uppercase transition-all rounded"
+              >
+                Get Tickets
+              </a>
+            </div>
+          </div>
+
+          <!-- RIGHT: Featured Space Blue Activations card -->
+          <div class="bg-white/[0.05] border border-gold/40 rounded-2xl p-7 sm:p-8 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.6)]">
+            <p class="text-gold font-bold tracking-[0.18em] uppercase text-sm sm:text-base mb-6">
+              Featured Space Blue Activations
+            </p>
+            <div class="space-y-5">
+              <div>
+                <p class="text-white font-heading font-bold text-base sm:text-lg mb-1">Lunaprise Lunar Museum</p>
+                <p class="text-white/75 text-sm sm:text-base leading-relaxed">
+                  A lunar museum experience curated by Space Blue and connected to certified art
+                  reproductions sent to the Moon.
+                </p>
+              </div>
+              <div>
+                <p class="text-white font-heading font-bold text-base sm:text-lg mb-1">Historic Hologram-Style Exhibits</p>
+                <p class="text-white/75 text-sm sm:text-base leading-relaxed">
+                  Lifelike exhibits bringing pivotal American moments, iconic speeches, and cultural
+                  milestones to life.
+                </p>
+              </div>
+              <div>
+                <p class="text-white font-heading font-bold text-base sm:text-lg mb-1">Certified Lunar Art Collectibles</p>
+                <p class="text-white/75 text-sm sm:text-base leading-relaxed">
+                  Certified prints, canvas works, and digital art tied to reproductions sent to the Moon.
+                </p>
+              </div>
+              <div>
+                <p class="text-white font-heading font-bold text-base sm:text-lg mb-1">Iconic Art &amp; American Heroes</p>
+                <p class="text-white/75 text-sm sm:text-base leading-relaxed">
+                  Music, sports, space, modern, and classic art connected to a mission to support
+                  American heroes.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

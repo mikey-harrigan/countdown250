@@ -1,0 +1,147 @@
+---
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+/*
+ * SPACE BLUE — PREVIEW PAGE (PLACEHOLDER)
+ * ----------------------------------------------------------------
+ * STANDALONE PREVIEW — direct-URL only, excluded from the sitemap
+ * via the astro.config.mjs filter (space-blue-preview).
+ *
+ * Created 2026-05-21 as the landing target for the new Space Blue
+ * homepage feature section + news-ticker item on
+ * /homepage-news-bar-preview/. This is intentionally MINIMAL for
+ * now — it reuses only the approved homepage copy so the homepage
+ * links have somewhere meaningful to go. The fuller dedicated page
+ * (with the specific icons/exhibits, imagery, and any sales copy)
+ * is the next step, pending final approval.
+ *
+ * HERO IMAGE is a PLACEHOLDER (header-flag.jpg). Swap in an approved
+ * Space Blue / lunar image when one is available in the project.
+ *
+ * Constraints carried over from the homepage spec: no NASA/SpaceX
+ * endorsement language, no named icons (JFK/MLK/Elvis/etc.), no
+ * shopping/cart, no video, no logo asset, no new claims beyond the
+ * approved copy.
+ */
+
+const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
+
+const activations = [
+  { title: "Lunaprise Lunar Museum", copy: "A lunar museum experience curated by Space Blue and connected to certified art reproductions sent to the Moon." },
+  { title: "Historic Hologram-Style Exhibits", copy: "Lifelike exhibits bringing pivotal American moments, iconic speeches, and cultural milestones to life." },
+  { title: "Certified Lunar Art Collectibles", copy: "Certified prints, canvas works, and digital art tied to reproductions sent to the Moon." },
+  { title: "Iconic Art &amp; American Heroes", copy: "Music, sports, space, modern, and classic art connected to a mission to support American heroes." },
+];
+---
+
+<BaseLayout
+  title="Space Blue at Countdown 250 (Preview) | Lunaprise Lunar Museum & Immersive Exhibits | July 3, 2026"
+  description="Space Blue brings the Moon, American icons, and immersive history to the Official Countdown 250 Ball — the Lunaprise Lunar Museum, certified lunar art collectibles, hologram-style exhibits, and more. July 3, 2026, Washington Hilton."
+  ogImage="/images/event/header-flag.jpg"
+>
+  <Navbar />
+  <main
+    class="relative"
+    style="background: radial-gradient(circle at 30% 30%, rgba(4, 61, 156, 0.45) 0%, transparent 55%), linear-gradient(135deg, #052058 0%, #002B77 50%, #043D9C 100%); background-attachment: fixed;"
+  >
+    <!-- ============================================================ -->
+    <!-- HERO BANNER — canonical sub-page pattern. PLACEHOLDER flag    -->
+    <!-- image; swap in an approved Space Blue / lunar image later.    -->
+    <!-- ============================================================ -->
+    <section class="relative overflow-hidden">
+      <div class="relative w-full h-[55vh] sm:h-[60vh] min-h-[320px] max-h-[680px]">
+        <img
+          src="/images/event/header-flag.jpg"
+          alt="A close-up of the American flag — placeholder hero for the Space Blue experience at the Countdown 250 Ball"
+          class="absolute inset-0 w-full h-full object-cover"
+          decoding="async"
+        />
+        <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-navy-dark/55 to-transparent pointer-events-none"></div>
+        <div class="absolute inset-y-0 left-0 flex items-end pb-4 sm:pb-8 md:pb-12 lg:pb-16 pointer-events-none">
+          <div class="bg-gradient-to-r from-gold to-[#f4d847] py-2.5 sm:py-3.5 md:py-4 lg:py-5 pl-3 sm:pl-8 md:pl-14 lg:pl-20 xl:pl-28 pr-5 sm:pr-8 md:pr-12 lg:pr-14 border-y-2 border-r-2 border-navy-dark/35 rounded-r-2xl shadow-[0_14px_32px_-10px_rgba(0,0,0,0.55)] pointer-events-auto">
+            <h1 class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy font-heading leading-none tracking-tight">
+              Space Blue
+            </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEAD -->
+    <section class="py-16 sm:py-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-5">
+          Immersive Experience Announcement
+        </p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-heading leading-tight mb-5">
+          Space Blue Brings the Moon, American Icons, and Immersive History to Countdown 250
+        </h2>
+        <div class="w-20 h-1 bg-gold mx-auto mb-8"></div>
+
+        <div class="text-white/80 text-base sm:text-lg leading-relaxed space-y-5 max-w-3xl mx-auto">
+          <p>
+            <a href="https://www.spaceblue.club" target="_blank" rel="noopener noreferrer" class="text-gold underline decoration-gold/40 hover:decoration-gold underline-offset-2">Space Blue</a>
+            will be on site at the Official Countdown 250 Ball with multiple interactive activations
+            celebrating American history, space exploration, art, innovation, and the spirit of discovery.
+          </p>
+          <p>
+            Featured experiences will include the Lunaprise Lunar Museum curated by Space Blue, certified
+            lunar art collectibles, lifelike hologram-style exhibits, iconic art, and immersive moments
+            celebrating America&rsquo;s greatest achievements.
+          </p>
+          <p class="text-white/95 font-semibold">
+            History. Innovation. Art. Exploration. All in one unforgettable night.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED ACTIVATIONS -->
+    <section class="pb-16 sm:pb-20">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <h2 class="text-center text-2xl sm:text-3xl font-bold text-gold font-heading mb-10">Featured Space Blue Activations</h2>
+        <div class="grid sm:grid-cols-2 gap-5 sm:gap-6">
+          {activations.map((a) => (
+            <div class="bg-white/[0.06] border border-gold/30 rounded-xl p-6 backdrop-blur-sm">
+              <h3 class="text-white font-heading font-bold text-lg mb-2" set:html={a.title} />
+              <p class="text-white/75 text-sm sm:text-base leading-relaxed" set:html={a.copy} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="pb-20 sm:pb-24">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <div class="w-16 h-1 bg-gold mx-auto mb-8"></div>
+        <p class="text-white/85 text-base sm:text-lg leading-relaxed mb-8">
+          Experience it live on July 3, 2026 at the Washington Hilton.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href={ticketUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block text-center bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-10 py-4 text-base sm:text-lg font-bold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+          >
+            Get Tickets
+          </a>
+          <a
+            href="https://www.spaceblue.club"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block text-center border-2 border-gold text-gold hover:bg-gold hover:text-navy-dark px-10 py-4 text-base sm:text-lg font-bold tracking-wider uppercase transition-all rounded"
+          >
+            Visit Space Blue &nearr;
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="h-1.5 w-full bg-gradient-to-r from-gold/70 via-gold to-gold/70"></div>
+  <Footer />
+</BaseLayout>
