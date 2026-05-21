@@ -76,11 +76,48 @@ const heroesCards = [
     style="background: radial-gradient(circle at 30% 20%, rgba(4, 61, 156, 0.5) 0%, transparent 55%), linear-gradient(135deg, #04143f 0%, #021a4d 50%, #04205a 100%); background-attachment: fixed;"
   >
     <!-- ============================================================ -->
-    <!-- 1. HERO — two-column (left copy + 2 CTAs, right visual card). -->
-    <!-- Mobile stacks: eyebrow, headline, subhead, body, buttons,     -->
-    <!-- visual card, chips.                                            -->
+    <!-- 1. HERO BANNER — canonical sub-page pattern (matches /icons/, -->
+    <!-- /honorees/, /partners/, /freedom-bell/): full-width navy band  -->
+    <!-- + flush-left gold ribbon with the page H1. The Space Blue logo -->
+    <!-- is a square brand mark on navy, so it is shown as a centered,  -->
+    <!-- gold-framed card (object-contain) rather than a cropped        -->
+    <!-- full-bleed photo, to keep the wordmark and star intact.        -->
     <!-- ============================================================ -->
-    <section class="relative overflow-hidden pt-28 sm:pt-32 pb-16 sm:pb-20">
+    <section class="relative overflow-hidden">
+      <div
+        class="relative w-full h-[56vh] sm:h-[60vh] min-h-[360px] max-h-[620px]"
+        style="background: radial-gradient(120% 90% at 50% 40%, rgba(40, 88, 172, 0.5) 0%, rgba(10, 22, 58, 0.85) 46%, #070f2b 80%);"
+      >
+        <!-- top scrim behind the transparent fixed navbar -->
+        <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-navy-dark/70 to-transparent pointer-events-none"></div>
+
+        <!-- logo card, centered & contained -->
+        <div class="absolute inset-0 flex items-center justify-center px-6 pt-16 pb-20">
+          <img
+            src="/images/partners/space-blue-logo.jpg"
+            alt="Space Blue logo"
+            class="h-full w-auto max-h-[300px] sm:max-h-[360px] lg:max-h-[400px] object-contain rounded-2xl ring-1 ring-gold/25 shadow-[0_18px_50px_-12px_rgba(0,0,0,0.6)]"
+            decoding="async"
+          />
+        </div>
+
+        <!-- flush-left gold ribbon with the page H1 -->
+        <div class="absolute inset-y-0 left-0 flex items-end pb-4 sm:pb-8 md:pb-10 pointer-events-none">
+          <div class="bg-gradient-to-r from-gold to-[#f4d847] py-2.5 sm:py-3.5 md:py-4 lg:py-5 pl-3 sm:pl-8 md:pl-14 lg:pl-20 xl:pl-28 pr-5 sm:pr-8 md:pr-12 lg:pr-14 border-y-2 border-r-2 border-navy-dark/35 rounded-r-2xl shadow-[0_14px_32px_-10px_rgba(0,0,0,0.55)] pointer-events-auto">
+            <h1 class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy font-heading leading-none tracking-tight">
+              Space Blue at Countdown 250
+            </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 1b. INTRO — two-column (left copy + 2 CTAs, right visual      -->
+    <!-- card). Mobile stacks: eyebrow, headline, subhead, body,       -->
+    <!-- buttons, visual card, chips.                                  -->
+    <!-- ============================================================ -->
+    <section class="relative overflow-hidden pt-12 sm:pt-16 pb-16 sm:pb-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
 
@@ -89,10 +126,10 @@ const heroesCards = [
             <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-5">
               Immersive Experiences at Countdown 250
             </p>
-            <h1 class="font-heading font-bold text-white leading-tight text-3xl sm:text-4xl lg:text-5xl mb-5">
+            <h2 class="font-heading font-bold text-white leading-tight text-3xl sm:text-4xl lg:text-5xl mb-5">
               <span class="block">Space Blue Makes History...</span>
               <span class="block text-gold">And Brings It to Life at Countdown 250</span>
-            </h1>
+            </h2>
             <div class="w-20 h-1 bg-gold mb-7"></div>
 
             <p class="text-white/90 text-lg sm:text-xl leading-relaxed mb-6">
