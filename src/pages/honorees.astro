@@ -36,6 +36,17 @@ const pastCategories = [
     desc: "Leaders in government and civic life who have dedicated their careers to the public good"
   },
 ];
+
+// Honoree feature cards (mirrors /icons/). Added 2026-05-21 per Mike.
+// img: null renders a name placeholder box until a headshot is provided.
+const heroHonorees = [
+  {
+    name: "Elizabeth Dole",
+    img: null,
+    role: "U.S. Senator · Cabinet Secretary · Humanitarian",
+    citation: "<p>Elizabeth Dole has devoted her life to service at the highest levels of American leadership &mdash; one of the few people in history to serve in the Cabinets of two presidents, as Secretary of Transportation under Ronald Reagan and Secretary of Labor under George H. W. Bush.</p><p>She went on to lead the American Red Cross as its President and CEO, then was elected to the United States Senate, representing North Carolina. Through the Elizabeth Dole Foundation, she built a nationwide movement that has raised hundreds of millions of dollars and reshaped how the nation recognizes and supports its military and veteran caregivers.</p><p>Across decades of public service, humanitarian leadership, and advocacy for those too often overlooked, Senator Dole has used every platform not for personal recognition, but to leave the country stronger than she found it &mdash; the very definition of an All-American Hero.</p>",
+  },
+];
 ---
 
 <BaseLayout title="All-American Heroes Award | Nominate Outstanding Americans | Countdown 250 Ball Washington DC" description="Honor modern-day American heroes at the historic 250th anniversary Countdown 250 Ball, July 3, 2026 Washington DC. Nominate military, first responders & more." ogImage="/images/event/buzz-aldrin.png">
@@ -116,6 +127,48 @@ const pastCategories = [
             inspire us all. Each honoree is recognized on stage during a stirring awards ceremony that promises to
             be one of the most powerful and memorable moments of your life.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- HONOREES — feature cards (mirrors /icons/). Added 2026-05-21  -->
+    <!-- per Mike. Photo-less honorees show a name placeholder until a -->
+    <!-- headshot is provided. "More announcements" teaser sits at top. -->
+    <!-- ============================================================ -->
+    <section class="py-12 sm:py-16">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-8 sm:mb-10">
+          <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-3">Honorees</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gold font-heading leading-tight">Celebrating American Heroes</h2>
+          <div class="w-16 h-1 bg-gold mx-auto mt-5 mb-6"></div>
+          <p class="text-gold font-bold tracking-[0.25em] uppercase text-sm sm:text-base">More Major Announcements Coming Soon</p>
+        </div>
+
+        <div class="space-y-8">
+          {heroHonorees.map((h) => (
+            <div class="bg-gradient-to-br from-navy-dark via-navy to-navy-dark border border-gold/40 rounded-2xl overflow-hidden shadow-[0_18px_40px_-16px_rgba(0,0,0,0.6)] flex flex-col sm:flex-row">
+              <div class="sm:w-2/5 sm:flex-shrink-0 bg-navy/50">
+                <div class="aspect-[4/3] sm:aspect-auto sm:h-full overflow-hidden">
+                  {h.img ? (
+                    <img src={h.img} alt={h.name} class="w-full h-full object-cover" loading="lazy" decoding="async" />
+                  ) : (
+                    <div class="w-full h-full min-h-[180px] flex items-center justify-center bg-gradient-to-br from-navy via-navy-dark to-navy p-6 text-center">
+                      <div>
+                        <p class="text-gold font-heading font-bold text-xl sm:text-2xl leading-tight">{h.name}</p>
+                        <p class="text-white/40 text-[10px] sm:text-xs uppercase tracking-[0.2em] mt-3">Photo coming soon</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div class="flex-1 p-6 sm:p-8 md:p-10">
+                <h3 class="text-2xl sm:text-3xl font-bold text-gold font-heading leading-tight mb-1">{h.name}</h3>
+                <p class="text-white/55 text-xs sm:text-sm uppercase tracking-[0.18em] font-semibold mb-5">{h.role}</p>
+                <div class="text-white/75 text-sm sm:text-base leading-relaxed space-y-4" set:html={h.citation} />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
