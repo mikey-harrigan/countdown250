@@ -27,14 +27,16 @@ const iconHonorees = [
     name: "Bob Anderson",
     img: "/images/event/bob-anderson.jpg",
     role: "World’s Greatest Singing Impressionist",
-    citation: "<p>Hailed by <em>People</em> magazine as &ldquo;America&rsquo;s Greatest Singing Impressionist,&rdquo; Bob Anderson has spent five decades as one of the most celebrated entertainers on the Las Vegas Strip, performing in every major casino showroom.</p><p>A Vietnam veteran, his extraordinary gift for recreating the voices of the world&rsquo;s greatest singers &mdash; most famously Frank Sinatra &mdash; has earned standing ovations at Carnegie Hall and performances for two U.S. Presidents and the Royal Family. He is an inductee of both the Casino Legends Hall of Fame and the Las Vegas Entertainers Hall of Fame.</p>",
+    bio: "Hailed by <em>People</em> magazine as &ldquo;America&rsquo;s Greatest Singing Impressionist,&rdquo; Bob Anderson has spent five decades as one of the most celebrated entertainers on the Las Vegas Strip.",
+    bioExpanded: "<p>A Vietnam veteran from a musical family, Anderson arrived in Las Vegas in his early twenties and was on stage at the famed Sahara within hours. His extraordinary gift for recreating the voices of the world&rsquo;s greatest singers &mdash; most famously Frank Sinatra &mdash; has earned standing ovations at Carnegie Hall and performances for two U.S. Presidents and the Royal Family.</p><p>He is an inductee of both the Casino Legends Hall of Fame and the Las Vegas Entertainers Hall of Fame, was praised by Simon Cowell as the best on the planet, and was summed up by Frank Sinatra himself: &ldquo;Bob Anderson has a hell of an act.&rdquo;</p>",
   },
   {
     name: "Tony Orlando",
     img: "/images/event/tony-orlando.jpg",
     imgFit: "object-contain",
     role: "Legendary Entertainer",
-    citation: "<p>A Billboard Top 6 artist of the 1970s and a Hollywood Walk of Fame honoree, Tony Orlando has sold more than 70 million records and given America some of its most enduring songs, including &ldquo;Tie a Yellow Ribbon Round the Ole Oak Tree.&rdquo;</p><p>With Dawn, he earned five #1 singles and a place in the Vocal Group Hall of Fame, and Tony Orlando &amp; Dawn became the first multi-racial group to host a prime-time network variety show. Across six decades on records, on Broadway, and on television &mdash; and through a lifetime of service to America&rsquo;s veterans &mdash; he has become a true symbol of American excellence.</p>",
+    bio: "A Billboard Top 6 artist of the 1970s and a Hollywood Walk of Fame honoree, Tony Orlando has sold more than 70 million records across six decades and given America some of its most enduring songs.",
+    bioExpanded: "<p>His five #1 hits with Dawn (Telma Hopkins and Joyce Vincent) &mdash; including &ldquo;Tie a Yellow Ribbon Round the Ole Oak Tree,&rdquo; &ldquo;Knock Three Times,&rdquo; and &ldquo;Candida&rdquo; &mdash; earned multiple gold and platinum records and a place in the Vocal Group Hall of Fame. Tony Orlando &amp; Dawn became the first multi-racial group to host a prime-time network variety show.</p><p>Beyond music, he starred twice on Broadway, in the Tony Award-winning &ldquo;Barnum&rdquo; and &ldquo;Smokey Joe&rsquo;s Cafe,&rdquo; co-hosted the MDA Telethon alongside Jerry Lewis for 33 years, and was a four-time Entertainer of the Year in Las Vegas. He was inducted into the New Jersey Hall of Fame in 2023.</p><p>A tireless advocate for America&rsquo;s veterans since 1973, he was honored with the Lee Greenwood Patriot Award, and today hosts his own show on the legendary Music Radio 77 WABC.</p>",
   },
 ];
 ---
@@ -149,7 +151,14 @@ const iconHonorees = [
               <div class="flex-1 p-6 sm:p-8 md:p-10">
                 <h3 class="text-2xl sm:text-3xl font-bold text-gold font-heading leading-tight mb-1">{h.name}</h3>
                 <p class="text-white/55 text-xs sm:text-sm uppercase tracking-[0.18em] font-semibold mb-5">{h.role}</p>
-                <div class="text-white/75 text-sm sm:text-base leading-relaxed space-y-4" set:html={h.citation} />
+                <details class="text-white/75 text-sm sm:text-base leading-relaxed group">
+                  <summary class="list-none cursor-pointer marker:hidden">
+                    <span class="block" set:html={h.bio} />
+                    <span class="mt-3 inline-block text-gold hover:text-gold-light font-bold uppercase tracking-wider text-xs group-open:hidden">Read more &rarr;</span>
+                  </summary>
+                  <div class="mt-4 space-y-4" set:html={h.bioExpanded} />
+                  <span class="mt-3 hidden group-open:inline-block text-gold hover:text-gold-light font-bold uppercase tracking-wider text-xs cursor-pointer" onclick="this.closest('details').open = false">&larr; Show less</span>
+                </details>
               </div>
             </div>
           ))}

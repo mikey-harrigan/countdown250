@@ -44,7 +44,8 @@ const heroHonorees = [
     name: "Elizabeth Dole",
     img: null,
     role: "U.S. Senator · Cabinet Secretary · Humanitarian",
-    citation: "<p>Elizabeth Dole has devoted her life to service at the highest levels of American leadership &mdash; one of the few people in history to serve in the Cabinets of two presidents, as Secretary of Transportation under Ronald Reagan and Secretary of Labor under George H. W. Bush.</p><p>She went on to lead the American Red Cross as its President and CEO, then was elected to the United States Senate, representing North Carolina. Through the Elizabeth Dole Foundation, she built a nationwide movement that has raised hundreds of millions of dollars and reshaped how the nation recognizes and supports its military and veteran caregivers.</p><p>Across decades of public service, humanitarian leadership, and advocacy for those too often overlooked, Senator Dole has used every platform not for personal recognition, but to leave the country stronger than she found it &mdash; the very definition of an All-American Hero.</p>",
+    bio: "Elizabeth Dole has devoted her life to service at the highest levels of American leadership &mdash; one of the few people in history to serve in the Cabinets of two presidents, as Secretary of Transportation under Ronald Reagan and Secretary of Labor under George H. W. Bush.",
+    bioExpanded: "<p>She later served as President and CEO of the American Red Cross, leading one of the nation&rsquo;s most important humanitarian institutions through a period of modernization and expanded global impact, before being elected to the United States Senate, representing North Carolina with distinction.</p><p>In the years since, her legacy has only deepened through the Elizabeth Dole Foundation. What began as a personal mission has grown into a nationwide movement &mdash; raising hundreds of millions of dollars, driving landmark policy and legislative advances, and fundamentally reshaping how the nation recognizes and supports military and veteran caregivers. Millions of caregivers who were once invisible are now seen, supported, and woven into the national conversation.</p><p>Senator Dole exemplifies an All-American Hero because her life reflects the very best of what this country asks of its citizens: a deep sense of duty, an unwavering commitment to others, and the courage to lead when it matters most. An All-American Hero leaves the country stronger than they found it &mdash; and Senator Elizabeth Dole has done exactly that, with grace, integrity, and a lifetime of impact.</p>",
   },
 ];
 ---
@@ -165,7 +166,14 @@ const heroHonorees = [
               <div class="flex-1 p-6 sm:p-8 md:p-10">
                 <h3 class="text-2xl sm:text-3xl font-bold text-gold font-heading leading-tight mb-1">{h.name}</h3>
                 <p class="text-white/55 text-xs sm:text-sm uppercase tracking-[0.18em] font-semibold mb-5">{h.role}</p>
-                <div class="text-white/75 text-sm sm:text-base leading-relaxed space-y-4" set:html={h.citation} />
+                <details class="text-white/75 text-sm sm:text-base leading-relaxed group">
+                  <summary class="list-none cursor-pointer marker:hidden">
+                    <span class="block" set:html={h.bio} />
+                    <span class="mt-3 inline-block text-gold hover:text-gold-light font-bold uppercase tracking-wider text-xs group-open:hidden">Read more &rarr;</span>
+                  </summary>
+                  <div class="mt-4 space-y-4" set:html={h.bioExpanded} />
+                  <span class="mt-3 hidden group-open:inline-block text-gold hover:text-gold-light font-bold uppercase tracking-wider text-xs cursor-pointer" onclick="this.closest('details').open = false">&larr; Show less</span>
+                </details>
               </div>
             </div>
           ))}
