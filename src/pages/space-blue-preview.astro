@@ -46,10 +46,12 @@ const activations = [
   { title: "Iconic Art & American Heroes", copy: "Encounter music, sports, space, modern, and classic art connected to a mission to support American heroes. This activation brings together creativity, patriotism, culture, and purpose." },
 ];
 
-const momentCards = [
-  { title: "Historic Speeches", copy: "Iconic words and voices that helped shape America&rsquo;s identity, ideals, and future." },
-  { title: "American Achievement", copy: "Space exploration, sports milestones, cultural moments, and national breakthroughs." },
-  { title: "Immersive Storytelling", copy: "Lifelike hologram-style experiences designed to make history feel close, vivid, and unforgettable." },
+// Hologram-style display-case figures (approved Space Blue assets).
+const holograms = [
+  { img: "/images/space-blue/holo-washington.jpg", name: "George Washington" },
+  { img: "/images/space-blue/holo-jfk.jpg", name: "John F. Kennedy" },
+  { img: "/images/space-blue/holo-elvis.jpg", name: "Elvis" },
+  { img: "/images/space-blue/holo-astronaut.jpg", name: "American Astronaut" },
 ];
 
 const lunarItems = [
@@ -177,16 +179,15 @@ const heroesCards = [
 
           <!-- RIGHT — visual card -->
           <div class="bg-navy-dark/70 border border-gold/40 rounded-2xl p-6 sm:p-8 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.65)] backdrop-blur-sm">
-            <!-- Placeholder lunar/star visual (decorative; no AI faces) -->
-            <div
-              class="relative h-40 sm:h-48 rounded-xl border border-gold/25 overflow-hidden mb-6"
-              style="background: radial-gradient(circle at 78% 28%, rgba(255,240,200,0.85) 0%, rgba(214,184,100,0.35) 9%, transparent 22%), radial-gradient(circle at 30% 70%, rgba(4,61,156,0.5) 0%, transparent 60%), linear-gradient(135deg, #021539 0%, #04205a 100%);"
-              aria-hidden="true"
-            >
-              <span class="absolute left-[14%] top-[26%] text-gold/70 text-[10px]">&#9733;</span>
-              <span class="absolute left-[42%] top-[62%] text-gold/50 text-[8px]">&#9733;</span>
-              <span class="absolute left-[24%] top-[74%] text-gold/60 text-[9px]">&#9733;</span>
-              <span class="absolute left-[60%] top-[18%] text-gold/50 text-[8px]">&#9733;</span>
+            <!-- Space Blue / Lunaprise lander poster (approved asset) -->
+            <div class="rounded-xl border border-gold/25 overflow-hidden mb-6 shadow-[0_14px_34px_-12px_rgba(0,0,0,0.6)]">
+              <img
+                src="/images/space-blue/lunaprise-lander.jpg"
+                alt="Lunaprise — First Art Museum on the Moon: the IM-1 lunar lander with American flags above Earth, presented by Space Blue"
+                class="w-full h-auto block"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
 
             <h2 class="text-gold font-heading font-bold text-xl sm:text-2xl mb-3">From the Moon to Countdown 250</h2>
@@ -218,6 +219,24 @@ const heroesCards = [
             A historic lunar story comes to Washington, D.C.
           </h2>
           <div class="w-16 h-1 bg-gold mx-auto"></div>
+        </div>
+
+        <!-- Commemorative mission emblems (approved Space Blue assets) -->
+        <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12 mb-12">
+          <img
+            src="/images/space-blue/usa250-seal.jpg"
+            alt="U.S.A. 250 · Lunaprise · Space Blue commemorative seal"
+            class="w-28 sm:w-36 h-28 sm:h-36 rounded-full object-cover ring-2 ring-gold/40 shadow-[0_12px_30px_-8px_rgba(0,0,0,0.65)]"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            src="/images/space-blue/lunaprise-emblem.jpg"
+            alt="Lunaprise lunar south pole mission emblem, landed February 22, 2024"
+            class="w-28 sm:w-36 h-28 sm:h-36 rounded-full object-cover ring-2 ring-gold/40 shadow-[0_12px_30px_-8px_rgba(0,0,0,0.65)]"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
 
         <div class="text-white/80 text-base sm:text-lg leading-relaxed space-y-5 max-w-3xl mx-auto mb-12">
@@ -266,6 +285,17 @@ const heroesCards = [
           </p>
         </div>
 
+        <!-- Lunaprise overview banner (approved Space Blue asset) -->
+        <div class="mb-10 sm:mb-12 rounded-2xl overflow-hidden border border-gold/30 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.6)]">
+          <img
+            src="/images/space-blue/lunaprise-overview.jpg"
+            alt="Lunaprise — First Art Museum on the Moon: lunar landing and iconic moments in American art history, presented by Space Blue"
+            class="w-full h-auto block"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
         <div class="grid sm:grid-cols-2 gap-5 sm:gap-6">
           {activations.map((a) => (
             <div class="bg-white/[0.05] border border-gold/30 rounded-xl p-6 sm:p-7">
@@ -312,12 +342,18 @@ const heroesCards = [
             </p>
           </div>
 
-          <div class="space-y-5">
-            {momentCards.map((m) => (
-              <div class="bg-white/[0.05] border border-gold/30 rounded-xl p-6">
-                <h3 class="text-gold font-heading font-bold text-lg mb-1.5">{m.title}</h3>
-                <p class="text-white/80 text-sm sm:text-base leading-relaxed" set:html={m.copy} />
-              </div>
+          <div class="grid grid-cols-2 gap-4 sm:gap-5">
+            {holograms.map((h) => (
+              <figure class="rounded-xl overflow-hidden border border-gold/30 bg-navy-dark shadow-[0_14px_30px_-12px_rgba(0,0,0,0.6)]">
+                <img
+                  src={h.img}
+                  alt={`Hologram-style display of ${h.name}`}
+                  class="w-full aspect-[3/4] object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption class="text-center text-white/75 text-xs sm:text-sm font-semibold tracking-wide py-2.5 px-1">{h.name}</figcaption>
+              </figure>
             ))}
           </div>
         </div>
@@ -352,6 +388,16 @@ const heroesCards = [
                 This is not just art inspired by space. It is art connected to a lunar time capsule and a
                 new chapter in America&rsquo;s space story.
               </p>
+            </div>
+            <!-- Iconic-art auction poster (approved Space Blue asset) -->
+            <div class="mt-8 rounded-2xl overflow-hidden border border-gold/30 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.6)]">
+              <img
+                src="/images/space-blue/lunaprise-art-auction.jpg"
+                alt="Lunaprise lunar art silent charity auction — iconic moments in American art history, certified rare reproductions connected to the Moon landing"
+                class="w-full h-auto block"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
 
