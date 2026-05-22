@@ -10,17 +10,16 @@ import Footer from '../components/Footer.astro';
 
 const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
 
-// 'THE COUNTDOWN IS BUILDING' news-ticker headlines — hand-curated
-// per Mike, not pulled from src/data/updates.ts. Most are forward-
-// looking teasers with no destination page yet, so the marquee
-// renders them as non-clickable <span>s. Convert to {headline, slug}
-// objects later if/when each becomes its own /updates/ entry.
+// 'THE COUNTDOWN IS BUILDING' news-ticker items. Objects so an item
+// can carry an optional `href`; the marquee renders an <a> when href
+// is present, otherwise a non-clickable <span>. Space Blue leads and
+// links to its live page (/space-blue/).
 const tickerItems = [
-  'America’s Freedom Bell to Ring at Midnight in the “1,000 Bells of Freedom” Moment',
-  'Space Blue’s Interactive Space Museum Joins Countdown 250',
-  'All-American Heroes and Icons',
-  'More Entertainment and Special Guest Announcements Ahead',
-  'Be in the Room When America Turns 250',
+  { text: 'Space Blue Makes History — and Brings It to Life at Countdown 250', href: '/space-blue/' },
+  { text: 'America’s Freedom Bell to Ring at Midnight in the “1,000 Bells of Freedom” Moment' },
+  { text: 'All-American Heroes and Icons' },
+  { text: 'More Entertainment and Special Guest Announcements Ahead' },
+  { text: 'Be in the Room When America Turns 250' },
 ];
 
 const experienceFeatures = [
@@ -30,8 +29,8 @@ const experienceFeatures = [
   { icon: "food",      title: "Fine Dining",         desc: "Exquisite food prepared by premier chefs" },
   { icon: "star",      title: "Hero Awards",         desc: "All-American Heroes Lifetime Achievement Awards ceremony" },
   { icon: "sparkle",   title: "Midnight Countdown",  desc: "Historic countdown to America's big 250!" },
-  { icon: "camera",    title: "Immersive Fun",       desc: "Roaming entertainers & interactive attractions" },
-  { icon: "broadcast", title: "National Broadcast",  desc: "Be part of a nationally broadcast celebration" },
+  { icon: "camera",    title: "Total Immersion",     desc: "Interactive booths & performers" },
+  { icon: "broadcast", title: "Live Broadcast",      desc: "Be part of a nationally broadcast celebration" },
 ];
 
 const experienceIcons: Record<string, string> = {
@@ -336,11 +335,11 @@ const faqs = [
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 text-center">
         <!-- Line 1: supportive lead-in (italic, lighter) -->
         <p class="text-navy/70 text-base sm:text-lg md:text-xl font-medium italic tracking-wide mb-1.5">
-          America&rsquo;s Formal Kickoff to the
+          The Official Countdown 250 Ball
         </p>
         <!-- Line 2: hero positioning statement (bolder, slightly bigger) -->
         <p class="font-extrabold text-navy text-lg sm:text-xl md:text-2xl leading-tight tracking-tight mb-4">
-          Biggest Celebration in American History
+          America&rsquo;s Freedom Eve Celebration
         </p>
         <!-- Line 3: trust / credentials line (tracked editorial uppercase) -->
         <p class="text-navy/70 text-[11px] sm:text-xs font-semibold tracking-[0.25em] uppercase">
@@ -370,19 +369,28 @@ const faqs = [
           </p>
           <div class="w-full sm:flex-1 overflow-hidden news-marquee">
             <div class="news-marquee-track inline-flex items-center whitespace-nowrap">
-              {tickerItems.map((headline) => (
-                <span class="text-white/90 text-sm md:text-base font-medium inline-flex items-center mr-12">
-                  <span class="text-gold mr-2">&#10022;</span>{headline}
-                </span>
+              {tickerItems.map((item) => (
+                item.href ? (
+                  <a href={item.href} class="text-white/90 hover:text-gold transition-colors text-sm md:text-base font-medium inline-flex items-center mr-12">
+                    <span class="text-gold mr-2">&#10022;</span>{item.text}
+                  </a>
+                ) : (
+                  <span class="text-white/90 text-sm md:text-base font-medium inline-flex items-center mr-12">
+                    <span class="text-gold mr-2">&#10022;</span>{item.text}
+                  </span>
+                )
               ))}
               {/* Duplicated for seamless looping */}
-              {tickerItems.map((headline) => (
-                <span
-                  class="text-white/90 text-sm md:text-base font-medium inline-flex items-center mr-12"
-                  aria-hidden="true"
-                >
-                  <span class="text-gold mr-2">&#10022;</span>{headline}
-                </span>
+              {tickerItems.map((item) => (
+                item.href ? (
+                  <a href={item.href} class="text-white/90 hover:text-gold transition-colors text-sm md:text-base font-medium inline-flex items-center mr-12" aria-hidden="true" tabindex="-1">
+                    <span class="text-gold mr-2">&#10022;</span>{item.text}
+                  </a>
+                ) : (
+                  <span class="text-white/90 text-sm md:text-base font-medium inline-flex items-center mr-12" aria-hidden="true">
+                    <span class="text-gold mr-2">&#10022;</span>{item.text}
+                  </span>
+                )
               ))}
             </div>
           </div>
@@ -536,6 +544,102 @@ const faqs = [
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
+    <!-- 3.4 SPACE BLUE — immersive-experience announcement (live,      -->
+    <!-- promoted 2026-05-22 from the news-bar preview). Sits after the -->
+    <!-- All-Inclusive Experience section and before the Midnight       -->
+    <!-- Moment section. Deep navy band, gold accents; 2-col on desktop -->
+    <!-- (left copy + 2 CTAs, right 'Featured Space Blue Activations'   -->
+    <!-- card). Links to the live /space-blue/ page.                     -->
+    <!-- ============================================================ -->
+    <section id="space-blue-homepage-feature" class="bg-navy-dark text-white py-12 sm:py-[4.5rem] border-y border-gold/25">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+
+          <!-- LEFT: eyebrow, headline, body, punch line, 2 CTAs -->
+          <div>
+            <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-5">
+              Immersive Experience Announcement
+            </p>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-snug mb-5" style="font-family: var(--font-body)">
+              <span class="block">Space Blue Makes History...</span>
+              <span class="block">And Brings It to Life</span>
+              <span class="block">at the Countdown 250 Ball</span>
+            </h2>
+            <div class="w-20 h-1 bg-gold mb-7"></div>
+
+            <div class="text-white/80 text-base sm:text-lg leading-relaxed space-y-5 mb-7">
+              <p>
+                <a href="https://www.spaceblue.club" target="_blank" rel="noopener noreferrer" class="text-gold underline decoration-gold/40 hover:decoration-gold underline-offset-2">Space Blue</a>
+                made history with the Lunaprise lunar time capsule that landed on the Moon. Now Space Blue
+                brings that same spirit of exploration to the Official Countdown 250 Ball.
+              </p>
+              <p>
+                You will see, hear, and feel America&rsquo;s story come to life through hands-on
+                activations, lunar art, lifelike hologram-style exhibits, and immersive storytelling.
+              </p>
+              <p class="text-white/95 font-semibold">
+                Walk through it. Experience it. Photograph it. Remember it.
+              </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a
+                href="/space-blue/"
+                class="inline-block text-center bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-8 py-4 text-sm sm:text-base font-bold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+              >
+                Explore the Space Blue Experience
+              </a>
+              <a
+                href="#tickets"
+                class="inline-block text-center border-2 border-gold text-gold hover:bg-gold hover:text-navy-dark px-8 py-4 text-sm sm:text-base font-bold tracking-wider uppercase transition-all rounded"
+              >
+                Get Tickets
+              </a>
+            </div>
+          </div>
+
+          <!-- RIGHT: Featured Space Blue Activations card -->
+          <div class="bg-white/[0.05] border border-gold/40 rounded-2xl p-7 sm:p-8 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.6)]">
+            <p class="text-gold font-bold tracking-[0.18em] uppercase text-sm sm:text-base mb-6">
+              Featured Space Blue Activations
+            </p>
+            <div class="space-y-6">
+              <div>
+                <p class="text-white font-bold text-base sm:text-lg mb-1">Lunaprise Lunar Museum</p>
+                <p class="text-white/75 text-sm sm:text-base leading-relaxed">
+                  Explore a lunar museum experience curated by Space Blue and connected to certified art
+                  reproductions sent to the Moon.
+                </p>
+              </div>
+              <div>
+                <p class="text-white font-bold text-base sm:text-lg mb-1">Hologram-Style Historic Moments</p>
+                <p class="text-white/75 text-sm sm:text-base leading-relaxed">
+                  Experience lifelike exhibits bringing pivotal American moments, iconic speeches, and
+                  cultural milestones to life.
+                </p>
+              </div>
+              <div>
+                <p class="text-white font-bold text-base sm:text-lg mb-1">Certified Lunar Art Collectibles</p>
+                <p class="text-white/75 text-sm sm:text-base leading-relaxed">
+                  Discover certified prints, canvas works, and digital art tied to reproductions sent to
+                  the Moon.
+                </p>
+              </div>
+              <div>
+                <p class="text-white font-bold text-base sm:text-lg mb-1">Iconic Art &amp; American Heroes</p>
+                <p class="text-white/75 text-sm sm:text-base leading-relaxed">
+                  Encounter music, sports, space, modern, and classic art connected to a mission to
+                  support American heroes.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
