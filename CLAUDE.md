@@ -17,7 +17,7 @@ This is the official website for the **All-American Countdown 250 Ball**, a once
 - **Venue**: Washington Hilton, 1919 Connecticut Avenue NW, Washington, D.C. 20009
 - **Capacity**: ~3,000 guests
 - **Format**: 6 party zones, 4 stages, midnight countdown celebration
-- **Dress Code**: Black tie / formal
+- **Dress Code**: Stylish Patriotic Attire (festive patriotic spirit; suits, cocktail dresses, gowns, patriotic accents, and tuxedos all welcome — black tie is NOT required)
 - **Eventbrite**: https://www.eventbrite.com/e/all-american-countdown-250-ball-tickets-1982528927390
 - **Refund Policy**: No refunds
 
