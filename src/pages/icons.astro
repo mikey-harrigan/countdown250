@@ -5,31 +5,30 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 
 /*
- * ALL-AMERICAN ICON AWARDS — LIVE PAGE
+ * ALL-AMERICAN ICONS — LIVE (promoted 2026-05-31)
  * ----------------------------------------------------------------
- * Promoted from /american-icons-preview/ on 2026-05-13 per Mike.
- * Sister page to /honorees/ (which hosts the All-American Hero
- * Lifetime Achievement Award). The Icon Award is NOT a lifetime
- * achievement award — it honors achievement at the highest level
- * of one's field, contemporary or historical. The Hero Award is
- * the lifetime-service award; the Icon Award is the symbol-of-
- * American-excellence award.
+ * Public-voting / nomination / sharing campaign page for the 2026
+ * All-American Icon Awards. Nominees organized into TWO main
+ * category groups (Sports & Athletics; Arts, Entertainment, Media
+ * & Influence). Subcategories render as premium cards with inline
+ * "View Nominees" expansion (one open at a time, JS controller at
+ * the bottom of the page).
  *
- * Structure mirrors honorees.astro for visual consistency.
+ * All voting buttons point to the existing Google Form used for
+ * write-in nominations.
  *
- * 2026 honoree feature cards are data-driven via the iconHonorees
- * array below (Bob Anderson, Tony Orlando — added 2026-05-21).
- * Order matches the entertainment lineup (Bob Anderson first).
+ * Tony Orlando and Bob Anderson are tagged `honoree: true` in the
+ * Music subcategory and also appear in the Featured 2026 Honorees
+ * bio cards section with a "2026 Honoree" gold badge.
  */
 
+const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
+const voteFormUrl = "https://forms.gle/SXdwyqMqNnu1Y4Kj6"; // existing Google Form (vote + write-in nominations)
+
+// Order: Tony Orlando first (bigger national profile — 5 #1 hits,
+// Hollywood Walk of Fame, network variety show, decades of veterans
+// advocacy), Bob Anderson second. Swapped 2026-05-31 per Mike.
 const iconHonorees = [
-  {
-    name: "Bob Anderson",
-    img: "/images/event/bob-anderson.jpg",
-    role: "World’s Greatest Singing Impressionist",
-    bio: "Hailed by <em>People</em> magazine as &ldquo;America&rsquo;s Greatest Singing Impressionist,&rdquo; Bob Anderson has spent five decades as one of the most celebrated entertainers on the Las Vegas Strip.",
-    bioExpanded: "<p>A Vietnam veteran from a musical family, Anderson arrived in Las Vegas in his early twenties and was on stage at the famed Sahara within hours. His extraordinary gift for recreating the voices of the world&rsquo;s greatest singers &mdash; most famously Frank Sinatra &mdash; has earned standing ovations at Carnegie Hall and performances for two U.S. Presidents and the Royal Family.</p><p>He is an inductee of both the Casino Legends Hall of Fame and the Las Vegas Entertainers Hall of Fame, was praised by Simon Cowell as the best on the planet, and was summed up by Frank Sinatra himself: &ldquo;Bob Anderson has a hell of an act.&rdquo;</p>",
-  },
   {
     name: "Tony Orlando",
     img: "/images/event/tony-orlando.jpg",
@@ -38,12 +37,215 @@ const iconHonorees = [
     bio: "Tony Orlando is one of America&rsquo;s most beloved entertainers &mdash; a Grammy-nominated, Hollywood Walk of Fame icon celebrating more than six decades in show business, with five #1 hits and millions of records sold.",
     bioExpanded: "<p>He has sold millions of records, including five #1 hits &mdash; &ldquo;Tie a Yellow Ribbon &rsquo;Round the Ole Oak Tree,&rdquo; &ldquo;Knock Three Times,&rdquo; &ldquo;Candida,&rdquo; &ldquo;My Sweet Gypsy Rose,&rdquo; and &ldquo;He Don&rsquo;t Love You (Like I Love You)&rdquo; &mdash; plus two platinum and three gold albums and 15 Top 40 hits. &ldquo;Tie a Yellow Ribbon&rdquo; was Billboard&rsquo;s #1 Song of the Year in 1973 and grew into an American anthem of hope, homecoming, and renewal.</p><p>The enormously popular <em>Tony Orlando and Dawn</em> variety show ran for four seasons on CBS (1973&ndash;1977) &mdash; the first television show to feature a multi-racial singing group, with Tony the first and only Latin American to host a network variety series. Tony Orlando and Dawn rank among Billboard&rsquo;s Top 100 artists of all time.</p><p>Few entertainers have excelled in so many realms: recording artist, songwriter, concert headliner, network television star, motion-picture actor, Broadway performer, and author. As VP of CBS&rsquo;s April-Blackwood Music (1966&ndash;1970) he signed and produced Barry Manilow&rsquo;s first recordings and represented songwriters including James Taylor, Laura Nyro, and Blood, Sweat &amp; Tears alongside the legendary Clive Davis. He first reached the charts in 1961 as the first pop vocalist signed to Epic Records, with &ldquo;Halfway to Paradise.&rdquo;</p><p>His honors include a star on the Hollywood Walk of Fame, the American Eagle Lifetime Achievement Award, the Ellis Island Medal of Honor, the Lee Greenwood Patriot Award, induction into the New Jersey Hall of Fame (2023) and the East Coast Music Hall of Fame (2022), two American Music Awards, and the People&rsquo;s Choice Award for Best Male Entertainer.</p><p>A devoted champion of America&rsquo;s veterans, Tony has performed for troops around the world and for several U.S. Presidents, from Carnegie Hall to the White House, and received the Bob Hope Award for excellence in entertainment from the Congressional Medal of Honor Society. In 2023 he marked the 50th anniversary of &ldquo;Tie a Yellow Ribbon&rdquo; and the return of America&rsquo;s Vietnam POWs &mdash; whom he first honored at Bob Hope&rsquo;s invitation at the 1973 Cotton Bowl &mdash; and for two decades welcomed some 175,000 veterans each year to his Yellow Ribbon Music Theatre in Branson, Missouri.</p><p>For 33 years he co-hosted the Muscular Dystrophy Telethon alongside Jerry Lewis, and today hosts &ldquo;Saturday Nights with Tony Orlando&rdquo; on 77WABC Music Radio, streaming worldwide. Tony and his wife, Francine, are the parents of Jenny and Jon.</p>",
   },
+  {
+    name: "Bob Anderson",
+    img: "/images/event/bob-anderson.jpg",
+    role: "World’s Greatest Singing Impressionist",
+    bio: "Hailed by <em>People</em> magazine as &ldquo;America&rsquo;s Greatest Singing Impressionist,&rdquo; Bob Anderson has spent five decades as one of the most celebrated entertainers on the Las Vegas Strip.",
+    bioExpanded: "<p>A Vietnam veteran from a musical family, Anderson arrived in Las Vegas in his early twenties and was on stage at the famed Sahara within hours. His extraordinary gift for recreating the voices of the world&rsquo;s greatest singers &mdash; most famously Frank Sinatra &mdash; has earned standing ovations at Carnegie Hall and performances for two U.S. Presidents and the Royal Family.</p><p>He is an inductee of both the Casino Legends Hall of Fame and the Las Vegas Entertainers Hall of Fame, was praised by Simon Cowell as the best on the planet, and was summed up by Frank Sinatra himself: &ldquo;Bob Anderson has a hell of an act.&rdquo;</p>",
+  },
+];
+
+// Restructured 2026-05-31 per Mike: nominees now organized into TWO
+// main category groups (Sports & Athletics; Arts, Entertainment, Media
+// & Influence). Main groups render as always-visible section headers;
+// subcategories render as collapsed accordions with a Vote button on
+// every nominee row. `honoree: true` flags the gold "2026 HONOREE"
+// badge — currently Tony Orlando + Bob Anderson.
+//
+// Honorees NOT carried forward from the previous structure (cut):
+//   Ilona Maher, Shedeur Sanders, Cooper Flagg.
+const mainCategories = [
+  {
+    name: "Sports & Athletics",
+    anchor: "sports-athletics",
+    intro: "Athletes and competitors whose accomplishments, influence, and impact have helped define generations of American sports.",
+    subcategories: [
+      {
+        name: "Professional Sports Legends",
+        desc: "Explore household names and legendary athletes whose achievements helped shape American sports.",
+        nominees: [
+          { name: "Tom Brady", desc: "Seven-time Super Bowl champion and widely regarded as the greatest quarterback of all time" },
+          { name: "Peyton Manning", desc: "NFL legend and beloved sports personality with broad cultural appeal" },
+          { name: "Serena Williams", desc: "Tennis icon and global trailblazer whose influence transcends sports" },
+          { name: "Tiger Woods", desc: "Generational golf icon who transformed the popularity and visibility of the sport" },
+          { name: "Michael Phelps", desc: "Most decorated Olympian in history and one of the greatest athletes of all time" },
+          { name: "Katie Ledecky", desc: "Most decorated American female Olympian and dominant force in international swimming" },
+          { name: "Caeleb Dressel", desc: "Olympic swimming champion and world-record holder" },
+        ],
+      },
+      {
+        name: "Women's Basketball",
+        desc: "WNBA stars, college standouts, and cultural figures expanding the visibility of women’s basketball.",
+        nominees: [
+          { name: "Caitlin Clark", desc: "Record-breaking basketball superstar and cultural phenomenon" },
+          { name: "Angel Reese", desc: "National champion and major women’s sports influencer" },
+          { name: "A'ja Wilson", desc: "WNBA MVP and Olympic gold medalist" },
+          { name: "Paige Bueckers", desc: "College basketball superstar and NIL-era icon" },
+          { name: "JuJu Watkins", desc: "Explosive young college basketball superstar" },
+          { name: "Sophie Cunningham", desc: "WNBA fan favorite and rising media personality" },
+        ],
+      },
+      {
+        name: "Wrestling",
+        desc: "NCAA, World, and Olympic champions plus emerging American wrestling stars.",
+        nominees: [
+          { name: "Dan Gable", desc: "NCAA, World, and Olympic wrestling legend" },
+          { name: "Jordan Burroughs", desc: "NCAA, World, and Olympic wrestling champion" },
+          { name: "David Taylor", desc: "Olympic and World wrestling champion" },
+          { name: "Spencer Lee", desc: "NCAA champion and Olympic medalist" },
+          { name: "Bo Bassett", desc: "World champion wrestler and youth wrestling phenomenon" },
+          { name: "Jax Forrest", desc: "Emerging American wrestling standout under consideration" },
+          { name: "Daniel Zepeda", desc: "Emerging American wrestling standout under consideration" },
+          { name: "Melvin Miller", desc: "Emerging American wrestling standout under consideration" },
+          { name: "Jayden James", desc: "Emerging American wrestling standout under consideration" },
+          { name: "Aaron Seidel", desc: "Emerging American wrestling standout under consideration" },
+        ],
+      },
+      {
+        name: "Gymnastics & Performance Sports",
+        desc: "Olympic gymnasts and performance-sport stars representing American excellence on the world stage.",
+        nominees: [
+          { name: "Simone Biles", desc: "Most decorated American gymnast in history and global symbol of excellence and resilience" },
+          { name: "Sunisa Lee", desc: "Olympic all-around gymnastics champion and inspirational American sports figure" },
+          { name: "Livvy Dunne", desc: "Gymnastics and NIL-era social media superstar" },
+        ],
+      },
+      {
+        name: "Motorsports",
+        desc: "NASCAR icons and modern racing stars whose careers define generations of American motorsports.",
+        nominees: [
+          { name: "Richard Petty", desc: "Legendary NASCAR champion whose legacy helped define generations of American racing culture" },
+          { name: "Dale Earnhardt Jr.", desc: "NASCAR icon and broadcaster with one of the most loyal fan followings in American motorsports" },
+          { name: "Danica Patrick", desc: "Trailblazing driver and media personality who helped expand the national visibility of motorsports" },
+          { name: "Kyle Busch", desc: "Two-time NASCAR Cup Series champion" },
+          { name: "Chase Elliott", desc: "NASCAR Cup Series champion and fan favorite" },
+          { name: "Denny Hamlin", desc: "NASCAR superstar and Daytona 500 winner" },
+          { name: "Ryan Blaney", desc: "NASCAR Cup Series champion" },
+          { name: "Hailie Deegan", desc: "Motorsports star and social media personality" },
+        ],
+      },
+      {
+        name: "Combat Sports",
+        desc: "UFC champions, MMA pioneers, and combat-sports legends who helped bring the sport into the American mainstream.",
+        nominees: [
+          { name: "Jon Jones", desc: "One of the most dominant champions in MMA history" },
+          { name: "Ronda Rousey", desc: "Women’s MMA pioneer and UFC superstar" },
+          { name: "Georges St-Pierre", desc: "Multi-time UFC world champion and MMA legend" },
+          { name: "Chuck Liddell", desc: "UFC icon and pioneer of mainstream MMA" },
+          { name: "Randy Couture", desc: "UFC Hall of Famer and Army veteran" },
+          { name: "Daniel Cormier", desc: "Olympian and two-division UFC world champion" },
+          { name: "Sean O'Malley", desc: "UFC champion and major social media personality" },
+          { name: "Logan Paul", desc: "Influencer, wrestler, and combat sports personality" },
+        ],
+      },
+      {
+        name: "Action & Winter Sports",
+        desc: "Skateboarding, snowboarding, skiing, figure-skating, and ice-hockey figures bringing American excellence to the world stage.",
+        nominees: [
+          { name: "Tony Hawk", desc: "Skateboarding pioneer and global icon who helped bring action sports into the mainstream" },
+          { name: "Shaun White", desc: "Olympic snowboarding legend and one of the most recognizable figures in action sports" },
+          { name: "Mikaela Shiffrin", desc: "Most decorated alpine skier in World Cup history" },
+          { name: "Chloe Kim", desc: "Olympic snowboarding champion and international action-sports superstar" },
+          { name: "Ilia Malinin", desc: "Figure skating sensation known internationally as the “Quad God”" },
+          { name: "Nyjah Huston", desc: "Championship skateboarder and Olympic competitor known for redefining modern street skating" },
+          { name: "U.S. Men's National Ice Hockey Team", desc: "2026 Olympic gold medal champions representing American excellence on the international stage" },
+          { name: "U.S. Women's National Ice Hockey Team", desc: "2026 Olympic gold medal champions and leaders in women’s international hockey" },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Arts, Entertainment, Media & Influence",
+    anchor: "arts-entertainment",
+    intro: "Artists, entertainers, creators, storytellers, and influential voices whose work has shaped American culture and conversation.",
+    subcategories: [
+      {
+        name: "Music",
+        desc: "Country, patriotic, vocal, and crossover artists shaping modern American music.",
+        nominees: [
+          { name: "Dolly Parton", desc: "Country music legend; philanthropist and cultural icon" },
+          { name: "Garth Brooks", desc: "Stadium-selling country music superstar" },
+          { name: "Reba McEntire", desc: "Country music legend and entertainer whose decades-long career helped shape modern American country music and television culture" },
+          { name: "Chris Stapleton", desc: "Grammy-winning singer-songwriter celebrated for his powerful vocals and authentic Americana sound" },
+          { name: "Jelly Roll", desc: "Award-winning artist known for his redemption story, crossover success, and connection with working-class America" },
+          { name: "Luke Combs", desc: "Chart-topping country music superstar with one of the most loyal fan bases in live music" },
+          { name: "Zach Bryan", desc: "Rising Americana and country artist recognized for heartfelt songwriting and military background" },
+          { name: "Lainey Wilson", desc: "Award-winning country artist and one of the leading new voices in modern country music" },
+          { name: "Lee Greenwood", desc: "Patriotic music icon; performer of “God Bless the USA”" },
+          { name: "Craig Morgan", desc: "Country artist and U.S. Army veteran" },
+          { name: "John Rich", desc: "Country music performer and entrepreneur" },
+          { name: "Tony Orlando", desc: "Award-winning entertainer and patriotic icon", honoree: true, photo: "/images/event/tony-orlando.jpg" },
+          { name: "Bob Anderson", desc: "Award-winning vocal impressionist and performer", honoree: true, photo: "/images/event/bob-anderson.jpg" },
+        ],
+      },
+      {
+        name: "Film & Television",
+        desc: "Actors, filmmakers, and television stars whose work has shaped American film and storytelling.",
+        nominees: [
+          { name: "Clint Eastwood", desc: "Oscar-winning actor/director and American film legend" },
+          { name: "Tom Hanks", desc: "Beloved actor and veterans advocate" },
+          { name: "Denzel Washington", desc: "Two-time Academy Award-winning actor" },
+          { name: "Tim Allen", desc: "Actor and comedian known for iconic television roles and humor rooted in everyday American life" },
+          { name: "Dean Cain", desc: "Actor and producer, best known for his iconic portrayal of Superman in Lois & Clark" },
+        ],
+      },
+      {
+        name: "Comedy",
+        desc: "Comedians whose voices and humor have defined modern American comedy.",
+        nominees: [
+          { name: "Jerry Seinfeld", desc: "Legendary comedian and television creator whose work helped define modern American comedy" },
+          { name: "Theo Von", desc: "Comedian and podcast host known for his storytelling style and devoted fan following" },
+          { name: "Nate Bargatze", desc: "Stand-up comedian celebrated for his clean humor and broad cross-generational appeal" },
+          { name: "Shane Gillis", desc: "Stand-up comedian and podcast personality with a rapidly growing national audience" },
+          { name: "Katt Williams", desc: "Award-winning comedian and actor recognized for his distinctive voice and cultural impact in stand-up comedy" },
+        ],
+      },
+      {
+        name: "Podcasting & Broadcasting",
+        desc: "Podcasters, broadcasters, and media voices with massive American audiences.",
+        nominees: [
+          { name: "Joe Rogan", desc: "Influential podcaster, comedian, and UFC commentator with one of the largest audiences in digital media" },
+          { name: "Pat McAfee", desc: "Former NFL player turned major sports media personality and broadcaster" },
+          { name: "Shawn Ryan", desc: "Former Navy SEAL and podcast host focused on veterans, leadership, and American life" },
+          { name: "Mike Rowe", desc: "Television host and advocate for skilled trades, hard work, and American grit" },
+        ],
+      },
+      {
+        name: "Digital Creators & Influencers",
+        desc: "YouTubers, creators, and digital-first personalities shaping today’s media landscape.",
+        nominees: [
+          { name: "MrBeast", desc: "YouTube megastar and philanthropy influencer" },
+          { name: "Mark Rober", desc: "Former NASA engineer and science creator known for making innovation and discovery engaging for millions online" },
+          { name: "Jake Paul", desc: "Influencer, YouTuber, and combat sports personality" },
+          { name: "Cleetus McFarland", desc: "Automotive creator with a massive fan community" },
+          { name: "Nick Bare", desc: "Fitness entrepreneur and military-inspired creator" },
+        ],
+      },
+      {
+        name: "American Voices & Leadership",
+        desc: "Veterans, leaders, authors, and public figures whose lives reflect service, courage, and the American spirit.",
+        nominees: [
+          { name: "Gary Sinise", desc: "Actor, humanitarian, and longtime advocate for America’s veterans and military families" },
+          { name: "Pat Tillman", desc: "NFL player turned Army Ranger whose service and sacrifice became a lasting American symbol" },
+          { name: "Chris Kyle", desc: "Navy SEAL veteran and bestselling author recognized for his military service and enduring cultural impact" },
+          { name: "Marcus Luttrell", desc: "Former Navy SEAL and Lone Survivor author" },
+          { name: "Dakota Meyer", desc: "Medal of Honor recipient and veterans advocate" },
+          { name: "Jocko Willink", desc: "Retired Navy SEAL, bestselling author, and leadership and discipline advocate" },
+          { name: "David Goggins", desc: "Endurance athlete and mental toughness icon" },
+          { name: "Cameron Hanes", desc: "Endurance athlete and outdoor personality" },
+          { name: "Arch Manning", desc: "High-profile college football quarterback and NIL superstar" },
+          { name: "Travis Hunter", desc: "Heisman Trophy winner and elite two-way football star" },
+        ],
+      },
+    ],
+  },
 ];
 ---
 
 <BaseLayout
-  title="All-American Icon Award | Honor America's Greatest Achievers | Countdown 250 Ball, July 3, 2026"
-  description="The All-American Icon Award honors individuals who have pursued the American Dream with extraordinary tenacity — men and women whose work, vision, character, and achievement have lifted them to the highest levels of their field. Whether in our own time or in generations past, these honorees have become symbols of American excellence whose contributions continue to inspire us and remind us of the promise of America."
+  title="All-American Icons (Preview) | Help Select America's Icons | Countdown 250 Ball, July 3, 2026"
+  description="Public voting is now open for the 2026 All-American Icon Awards. Review nominees by category, cast your vote, submit a write-in nomination, and share the campaign. Awards presented at the Countdown 250 Ball on July 3, 2026."
   ogImage="/images/event/header-icons-flag-medal.jpg"
 >
   <Navbar />
@@ -52,8 +254,7 @@ const iconHonorees = [
     style="background: radial-gradient(circle at 30% 30%, rgba(4, 61, 156, 0.45) 0%, transparent 55%), linear-gradient(135deg, #052058 0%, #002B77 50%, #043D9C 100%); background-attachment: fixed;"
   >
     <!-- ============================================================ -->
-    <!-- HERO — canonical sub-page pattern (matches /honorees/).       -->
-    <!-- Placeholder hero image; swap in icon-themed hero when ready.  -->
+    <!-- HERO — canonical sub-page pattern (UNCHANGED).                 -->
     <!-- ============================================================ -->
     <section class="relative overflow-hidden">
       <div class="relative w-full h-[55vh] sm:h-[60vh] min-h-[320px] max-h-[680px]">
@@ -75,63 +276,315 @@ const iconHonorees = [
       </div>
     </section>
 
-    <!-- About the Awards -->
-    <section class="py-20">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6">
-        <p class="text-white font-bold tracking-[0.3em] uppercase text-xs sm:text-sm text-center mb-8">
-          Honoring the American Dream
-        </p>
+    <!-- "Honoring the American Dream" eyebrow + medal + title block    -->
+    <!-- removed 2026-05-31 per Mike to shorten the page vertically.    -->
+    <!-- The hero medal image at the top of the page now stands alone.  -->
 
-        <div class="text-center mb-12">
-          {/* All-American Icon medal — anchor the section visually */}
-          <picture>
-            <source srcset="/images/misc/all-amer-icon-medal.webp" type="image/webp" />
-            <img
-              src="/images/misc/all-amer-icon-medal.png"
-              alt="All-American Icon Award medal"
-              class="w-32 sm:w-40 md:w-48 h-auto mx-auto mb-6"
-              style="filter: drop-shadow(0 14px 28px rgba(0,0,0,0.18)) drop-shadow(0 4px 10px rgba(197,164,78,0.32));"
-              loading="eager"
-            />
-          </picture>
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gold font-heading leading-tight mb-2">All-American Icon</h2>
-          <p class="text-2xl sm:text-3xl md:text-4xl font-bold text-gold font-heading leading-tight mb-5">Award</p>
-          <div class="w-16 h-1 bg-gold mx-auto"></div>
-        </div>
-
-        <div class="text-white/70 text-lg leading-relaxed space-y-6">
-          <p>
-            The <strong class="text-gold">All-American Icon Award</strong> honors individuals who have
-            pursued the American Dream with extraordinary tenacity &mdash; men and women whose work,
-            vision, character, and achievement have lifted them to the highest levels of their field.
+    <!-- ============================================================ -->
+    <!-- 1. PUBLIC VOTING NOW OPEN — campaign hook + primary CTA.       -->
+    <!-- ============================================================ -->
+    <section class="pt-12 sm:pt-14 pb-8 sm:pb-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="bg-gradient-to-br from-navy-dark via-navy to-navy-dark rounded-2xl border-2 border-gold/55 p-6 sm:p-8 md:p-10 text-center shadow-[0_20px_44px_-16px_rgba(0,0,0,0.55)]">
+          <p class="text-gold font-bold tracking-[0.28em] uppercase text-xs sm:text-sm mb-3">Public Voting Now Open</p>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-heading leading-tight mb-4">
+            Help Select America&rsquo;s Icons
+          </h2>
+          <div class="w-16 h-1 bg-gold mx-auto mb-5"></div>
+          <p class="text-white/90 text-lg sm:text-xl leading-relaxed max-w-6xl mx-auto mb-3 italic font-medium">
+            Be part of history by helping recognize the people whose achievements, service,
+            creativity, leadership, courage, and character have helped shape the American story.
           </p>
-          <p>
-            Whether in our own time or in generations past, these honorees rose to become
-            <strong class="text-gold">symbols of American excellence, perseverance, and possibility</strong>.
-            Through their contributions, they have inspired others, enriched American life, and earned
-            a lasting place in the story of their generation.
+          <p class="text-white/80 text-base sm:text-lg leading-relaxed max-w-6xl mx-auto mb-6">
+            The All-American Ball Committee is inviting the public to help recognize individuals
+            whose lives and work have left a lasting mark on American life. Review the nominees
+            currently under consideration, cast your vote, submit a write-in nomination, and share
+            the campaign with others who should have a voice in recognizing America&rsquo;s
+            All-American Icons.
           </p>
-          <p>
-            Their work and legacy continue to resonate today, reminding us of the promise of America
-            and the enduring power of a life dedicated to excellence.
+          <a
+            href={voteFormUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-10 py-4 text-base sm:text-lg font-bold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+          >
+            Vote, Nominate &amp; Share
+          </a>
+          <p class="text-white/55 text-xs sm:text-sm mt-4 italic">
+            Browse nominees by category, cast your vote, and submit write-in nominations using the official form.
           </p>
         </div>
       </div>
     </section>
 
-    {/* Fields of Achievement category cards removed 2026-05-13 per Mike. */}
+    <!-- ============================================================ -->
+    <!-- 2. WHAT IS AN ALL-AMERICAN ICON? — definition.                 -->
+    <!-- ============================================================ -->
+    <section class="py-8 sm:py-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-6">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gold font-heading leading-tight mb-3">
+            What Is an All-American Icon?
+          </h2>
+          <div class="w-16 h-1 bg-gold mx-auto"></div>
+        </div>
+
+        <div class="text-white/85 text-base sm:text-lg leading-relaxed space-y-3">
+          <p>
+            An All-American Icon is someone whose life, work, accomplishments, or leadership has
+            helped shape their field, define their generation, or leave a lasting mark on the
+            American story.
+          </p>
+          <p>
+            They may be an athlete, artist, entertainer, scientist, entrepreneur, public servant,
+            humanitarian, military leader, first responder, business leader, or cultural figure.
+            Some are household names; others may be less widely known. But each has made a
+            meaningful contribution to the larger American tapestry.
+          </p>
+          <p class="text-white font-semibold">
+            They are not just successful &mdash; they are significant. They inspire admiration,
+            represent excellence, and reflect something special and enduring about the American
+            spirit.
+          </p>
+        </div>
+      </div>
+    </section>
 
     <!-- ============================================================ -->
-    <!-- 2026 HONOREE — feature card (Tony Orlando). Added 2026-05-21  -->
-    <!-- per Mike. Dark navy/gold card to match this page's palette;   -->
-    <!-- headshot left, citation right, stacks on mobile.              -->
+    <!-- 3. REVIEW THE NOMINEE CATEGORIES — accordion (collapsed).      -->
     <!-- ============================================================ -->
-    <section class="py-12 sm:py-16">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-8 sm:mb-10">
-          <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-3">Honorees</p>
-          <h2 class="text-3xl sm:text-4xl font-bold text-gold font-heading leading-tight">Celebrating American Icons</h2>
-          <div class="w-16 h-1 bg-gold mx-auto mt-5"></div>
+    <section class="py-10 sm:py-12 bg-navy-dark border-y border-gold/25">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-7">
+          <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3">
+            Nominees Under Consideration
+          </p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white font-heading leading-tight mb-3">
+            Review the Nominee Categories
+          </h2>
+          <div class="w-16 h-1 bg-gold mx-auto mb-5"></div>
+          <p class="text-white/80 text-base sm:text-lg leading-relaxed max-w-5xl mx-auto">
+            Choose a category card below to jump to the section. Inside each section, click
+            <span class="text-gold font-semibold">View Nominees</span> on any subcategory to see
+            the All-American Icons under consideration and cast your vote. Honorees already
+            selected are marked <span class="text-gold font-semibold">2026 Honoree</span>.
+          </p>
+        </div>
+
+        {/* ====================================================== */}
+        {/* TWO LARGE NAVIGATION CARDS — Sports vs. Arts.          */}
+        {/* Click smoothly scrolls to the matching anchor section.  */}
+        {/* ====================================================== */}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-7 mb-14 sm:mb-20">
+          {mainCategories.map((main) => (
+            <a
+              href={`#${main.anchor}`}
+              data-jump-card
+              class="group relative overflow-hidden rounded-2xl border-2 border-gold/55 bg-gradient-to-br from-navy/80 via-navy-dark/90 to-navy/80 hover:border-gold transition-all p-8 sm:p-10 md:p-12 text-center shadow-[0_18px_44px_-18px_rgba(0,0,0,0.55)] hover:-translate-y-1 hover:shadow-[0_24px_52px_-18px_rgba(0,0,0,0.7)] duration-300"
+            >
+              <span class="block text-gold/70 text-xs sm:text-sm font-bold uppercase tracking-[0.25em] mb-4 group-hover:text-gold transition-colors">
+                Browse Category
+              </span>
+              <h3 class="font-heading font-bold text-white text-2xl sm:text-3xl md:text-4xl leading-tight uppercase tracking-[0.02em] mb-4">
+                {main.name}
+              </h3>
+              <div class="w-12 h-0.5 bg-gold mx-auto mb-4"></div>
+              <p class="text-white/65 text-sm sm:text-base leading-relaxed mb-6">
+                {main.subcategories.length} subcategories &middot; {main.subcategories.reduce((sum, s) => sum + s.nominees.length, 0)} nominees
+              </p>
+              <span class="inline-block bg-gold/15 border border-gold/60 group-hover:bg-gold group-hover:text-navy-dark text-gold px-7 py-2.5 text-xs sm:text-sm font-bold uppercase tracking-wider rounded transition-colors">
+                Explore {main.name.split(",")[0]}
+              </span>
+            </a>
+          ))}
+        </div>
+
+        {/* ====================================================== */}
+        {/* MAIN CATEGORY SECTIONS — large divider, intro, then a   */}
+        {/* 2-column grid of subcategory cards. Clicking "View      */}
+        {/* Nominees" expands a full-width panel below the row that */}
+        {/* lists nominee cards (only ONE panel open at a time      */}
+        {/* across the entire page; JS controller at bottom of      */}
+        {/* page enforces this).                                    */}
+        {/* ====================================================== */}
+        <div class="space-y-20 sm:space-y-28">
+          {mainCategories.map((main) => {
+            // Chunk subcategories into pairs for row-based layout so the
+            // expansion panels can be inserted as full-width row siblings.
+            const rows = [];
+            for (let i = 0; i < main.subcategories.length; i += 2) {
+              rows.push(main.subcategories.slice(i, i + 2));
+            }
+            return (
+              <div id={main.anchor} class="scroll-mt-28 sm:scroll-mt-32">
+                {/* Large section divider with eyebrow + headline + rule + intro */}
+                <div class="text-center mb-12 sm:mb-14">
+                  <div class="flex items-center justify-center gap-4 mb-6">
+                    <span class="hidden sm:block flex-1 max-w-[180px] h-px bg-gradient-to-l from-gold/70 to-transparent"></span>
+                    <span class="text-gold text-2xl sm:text-3xl" aria-hidden="true">&#10022;</span>
+                    <span class="hidden sm:block flex-1 max-w-[180px] h-px bg-gradient-to-r from-gold/70 to-transparent"></span>
+                  </div>
+                  <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-4">Category</p>
+                  <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-heading leading-tight uppercase tracking-[0.04em] mb-5">
+                    {main.name}
+                  </h3>
+                  <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
+                  <p class="text-white/75 text-base sm:text-lg leading-relaxed max-w-4xl mx-auto italic">
+                    {main.intro}
+                  </p>
+                </div>
+
+                {/* Subcategory grid + interleaved row expansion panels */}
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-7 items-stretch">
+                  {rows.map((row) => (
+                    <>
+                      {row.map((sub) => (
+                        <div
+                          class="subcategory-card group relative overflow-hidden rounded-2xl border-2 border-gold/40 bg-gradient-to-br from-navy via-navy-dark to-navy hover:border-gold/80 transition-all p-7 sm:p-9 md:p-10 flex flex-col shadow-[0_14px_36px_-16px_rgba(0,0,0,0.5)]"
+                          data-sub-card={`${main.anchor}-${sub.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                        >
+                          <div class="flex items-center justify-between mb-5">
+                            <span class="text-gold/35 text-3xl leading-none" aria-hidden="true">&#10022;</span>
+                            <span class="text-gold/80 text-[11px] sm:text-xs uppercase tracking-[0.2em] font-bold">
+                              {sub.nominees.length} Nominee{sub.nominees.length === 1 ? "" : "s"}
+                            </span>
+                          </div>
+                          <h4 class="font-heading font-bold text-gold text-2xl sm:text-[28px] leading-tight mb-3">
+                            {sub.name}
+                          </h4>
+                          <div class="w-12 h-0.5 bg-gold/60 mb-4"></div>
+                          <p class="text-white/75 text-sm sm:text-base leading-relaxed mb-6 flex-1">
+                            {sub.desc}
+                          </p>
+                          <button
+                            type="button"
+                            data-view-nominees={`${main.anchor}-${sub.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                            class="self-start inline-flex items-center gap-2 bg-gold/15 border border-gold/60 hover:bg-gold hover:text-navy-dark text-gold px-6 py-2.5 text-xs sm:text-sm font-bold uppercase tracking-wider rounded transition-colors"
+                            aria-expanded="false"
+                          >
+                            <span data-view-nominees-label>View Nominees</span>
+                            <svg class="w-3.5 h-3.5 transition-transform" data-view-nominees-icon fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                          </button>
+                        </div>
+                      ))}
+
+                      {/* Row expansion slot — one panel per subcategory in this
+                          row. Hidden until the matching card's "View Nominees"
+                          button is clicked. Spans full grid width on lg+. */}
+                      {row.map((sub) => (
+                        <div
+                          data-sub-expansion={`${main.anchor}-${sub.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                          class="hidden lg:col-span-2 rounded-2xl border-2 border-gold/40 bg-gradient-to-b from-navy-dark via-navy to-navy-dark p-6 sm:p-8 md:p-10 shadow-[0_18px_46px_-18px_rgba(0,0,0,0.6)]"
+                        >
+                          <div class="text-center mb-7 sm:mb-8">
+                            <p class="text-gold/80 font-bold tracking-[0.22em] uppercase text-xs sm:text-sm mb-2">
+                              {sub.name} &middot; {sub.nominees.length} Nominee{sub.nominees.length === 1 ? "" : "s"}
+                            </p>
+                            <div class="w-12 h-0.5 bg-gold mx-auto"></div>
+                          </div>
+
+                          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+                            {sub.nominees.map((n) => (
+                              <li class="flex flex-col items-center text-center bg-white/[0.04] border border-gold/30 rounded-xl p-5 sm:p-6 hover:border-gold/60 hover:bg-white/[0.06] transition-colors">
+                                <div class="w-24 h-24 sm:w-28 sm:h-28 mb-4 rounded-full overflow-hidden bg-gold/10 border-2 border-gold/50 flex items-center justify-center flex-shrink-0">
+                                  {n.photo ? (
+                                    <img src={n.photo} alt={n.name} class="w-full h-full object-cover" loading="lazy" decoding="async" />
+                                  ) : (
+                                    <picture>
+                                      <source srcset="/images/misc/all-amer-icon-medal.webp" type="image/webp" />
+                                      <img
+                                        src="/images/misc/all-amer-icon-medal.png"
+                                        alt=""
+                                        class="w-2/3 h-2/3 object-contain opacity-70"
+                                        loading="lazy"
+                                        decoding="async"
+                                      />
+                                    </picture>
+                                  )}
+                                </div>
+                                <h5 class="font-heading font-bold text-white text-base sm:text-lg leading-tight mb-2">{n.name}</h5>
+                                {n.honoree && (
+                                  <span class="inline-block bg-gold/20 border border-gold/60 text-gold text-[10px] font-bold uppercase tracking-[0.1em] px-2 py-0.5 rounded mb-3">
+                                    2026 Honoree
+                                  </span>
+                                )}
+                                <p class="text-white/65 text-sm leading-relaxed mb-5 flex-1">
+                                  {n.desc}
+                                </p>
+                                <a
+                                  href={voteFormUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  class="mt-auto inline-block bg-gold/15 border border-gold/60 hover:bg-gold hover:text-navy-dark text-gold px-6 py-2 text-xs font-bold uppercase tracking-wider rounded transition-colors"
+                                  aria-label={`Vote for ${n.name}`}
+                                >
+                                  Vote
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 4. OFFICIAL VOTING FORM CTA — strong call to action.           -->
+    <!-- ============================================================ -->
+    <section class="py-10 sm:py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+        <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-4">
+          Official Voting Form
+        </p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white font-heading leading-tight mb-5">
+          Cast Your Vote. Submit a Nomination. Share the Campaign.
+        </h2>
+        <div class="w-16 h-1 bg-gold mx-auto mb-7"></div>
+        <p class="text-white/85 text-base sm:text-lg leading-relaxed max-w-6xl mx-auto mb-8">
+          Use the official All-American Icons voting and nomination form to review current
+          nominees, cast your vote, and suggest additional individuals who deserve to be
+          considered.
+        </p>
+        <a
+          href={voteFormUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-10 py-4 text-base sm:text-lg font-bold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+        >
+          Open the Official Voting Form
+        </a>
+        <p class="text-white/55 text-xs sm:text-sm mt-5 italic max-w-2xl mx-auto leading-relaxed">
+          Public input will help inform the selection process. Final selections may also consider
+          committee review, eligibility, availability, and overall fit with the mission of the
+          All-American Icon Awards.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 5. FEATURED 2026 ALL-AMERICAN ICONS — Bob Anderson + Tony O.   -->
+    <!-- "Selected 2026 Honoree" badge on each card.                    -->
+    <!-- ============================================================ -->
+    <section class="py-10 sm:py-12 bg-navy-dark border-y border-gold/25">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-8">
+          <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-3">Current Honorees</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gold font-heading leading-tight mb-3">2026 All-American Icon Honorees</h2>
+          <div class="w-16 h-1 bg-gold mx-auto mb-5"></div>
+          <p class="text-white/80 text-base sm:text-lg leading-relaxed max-w-5xl mx-auto">
+            These are the All-American Icons already selected for recognition in 2026. Additional
+            honorees will be announced as the event nears &mdash; don&rsquo;t forget to vote for
+            your favorites to help shape the final list. All honorees will be celebrated at the
+            official All-American Icon Awards presentation on July 3, 2026 at the Countdown 250
+            Ball.
+          </p>
         </div>
 
         <div class="space-y-8">
@@ -149,7 +602,12 @@ const iconHonorees = [
                 </div>
               </div>
               <div class="flex-1 p-6 sm:p-8 md:p-10">
-                <h3 class="text-2xl sm:text-3xl font-bold text-gold font-heading leading-tight mb-1">{h.name}</h3>
+                <div class="flex flex-wrap items-center gap-3 mb-2">
+                  <h3 class="text-2xl sm:text-3xl font-bold text-gold font-heading leading-tight">{h.name}</h3>
+                  <span class="inline-block bg-gold/20 border border-gold/60 text-gold text-[10px] sm:text-xs font-bold uppercase tracking-[0.1em] px-2.5 py-1 rounded">
+                    Selected 2026 Honoree
+                  </span>
+                </div>
                 <p class="text-white/55 text-xs sm:text-sm uppercase tracking-[0.18em] font-semibold mb-5">{h.role}</p>
                 <details class="text-white/75 text-sm sm:text-base leading-relaxed group">
                   <summary class="list-none cursor-pointer marker:hidden">
@@ -170,153 +628,137 @@ const iconHonorees = [
       </div>
     </section>
 
-    <!-- What Makes an American Icon -->
-    <section class="py-12 sm:py-14">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-6">
-          <h2 class="text-3xl sm:text-4xl font-bold text-gold mb-3 font-heading">What Makes an All-American Icon?</h2>
-          <div class="w-16 h-1 bg-gold mx-auto"></div>
-        </div>
+    <!-- Sections 6 ("What Makes an All-American Icon?" 5-criteria block)  -->
+    <!-- and 7 ("Vote or Submit a Write-In Nomination" duplicate CTA       -->
+    <!-- block) removed 2026-05-31 per Mike. Both were redundant with      -->
+    <!-- section 2 ("What Is an All-American Icon?") and the section 1 /    -->
+    <!-- section 4 voting CTAs already on the page.                        -->
 
-        <p class="text-center text-white/70 text-base sm:text-lg leading-snug mb-6">Recipients are chosen based on the following criteria:</p>
-
-        <div class="space-y-3 sm:space-y-4">
-          <div class="flex items-start gap-3 sm:gap-4">
-            <svg class="w-7 h-7 flex-shrink-0 mt-0.5 drop-shadow" viewBox="0 0 24 24" aria-hidden="true">
-              <defs>
-                <linearGradient id="iconBlue1" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" style="stop-color:#6ea0e8"/>
-                  <stop offset="50%" style="stop-color:#1a4ba8"/>
-                  <stop offset="100%" style="stop-color:#001a45"/>
-                </linearGradient>
-              </defs>
-              <path fill="url(#iconBlue1)" stroke="#C5A44E" stroke-width="0.6" d="M12 2 L14.39 8.45 L21.11 8.45 L15.86 12.55 L18.25 19 L12 14.91 L5.75 19 L8.14 12.55 L2.89 8.45 L9.61 8.45 Z"/>
-            </svg>
-            <p class="text-white/80 text-sm sm:text-base leading-snug">
-              <strong class="text-gold font-bold">Pursuit of the American Dream</strong> &mdash; Built their success from determination, drive, and the willingness to bet on themselves.
-            </p>
-          </div>
-          <div class="flex items-start gap-3 sm:gap-4">
-            <svg class="w-7 h-7 flex-shrink-0 mt-0.5 drop-shadow" viewBox="0 0 24 24" aria-hidden="true">
-              <defs>
-                <linearGradient id="iconBlue2" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" style="stop-color:#6ea0e8"/>
-                  <stop offset="50%" style="stop-color:#1a4ba8"/>
-                  <stop offset="100%" style="stop-color:#001a45"/>
-                </linearGradient>
-              </defs>
-              <path fill="url(#iconBlue2)" stroke="#C5A44E" stroke-width="0.6" d="M12 2 L14.39 8.45 L21.11 8.45 L15.86 12.55 L18.25 19 L12 14.91 L5.75 19 L8.14 12.55 L2.89 8.45 L9.61 8.45 Z"/>
-            </svg>
-            <p class="text-white/80 text-sm sm:text-base leading-snug">
-              <strong class="text-gold font-bold">Mastery of Field</strong> &mdash; Reached the highest levels of their profession.
-            </p>
-          </div>
-          <div class="flex items-start gap-3 sm:gap-4">
-            <svg class="w-7 h-7 flex-shrink-0 mt-0.5 drop-shadow" viewBox="0 0 24 24" aria-hidden="true">
-              <defs>
-                <linearGradient id="iconBlue3" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" style="stop-color:#6ea0e8"/>
-                  <stop offset="50%" style="stop-color:#1a4ba8"/>
-                  <stop offset="100%" style="stop-color:#001a45"/>
-                </linearGradient>
-              </defs>
-              <path fill="url(#iconBlue3)" stroke="#C5A44E" stroke-width="0.6" d="M12 2 L14.39 8.45 L21.11 8.45 L15.86 12.55 L18.25 19 L12 14.91 L5.75 19 L8.14 12.55 L2.89 8.45 L9.61 8.45 Z"/>
-            </svg>
-            <p class="text-white/80 text-sm sm:text-base leading-snug">
-              <strong class="text-gold font-bold">Impact</strong> &mdash; Helped define their generation and/or field of pursuit. Their work changed what was possible.
-            </p>
-          </div>
-          <div class="flex items-start gap-3 sm:gap-4">
-            <svg class="w-7 h-7 flex-shrink-0 mt-0.5 drop-shadow" viewBox="0 0 24 24" aria-hidden="true">
-              <defs>
-                <linearGradient id="iconBlue4" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" style="stop-color:#6ea0e8"/>
-                  <stop offset="50%" style="stop-color:#1a4ba8"/>
-                  <stop offset="100%" style="stop-color:#001a45"/>
-                </linearGradient>
-              </defs>
-              <path fill="url(#iconBlue4)" stroke="#C5A44E" stroke-width="0.6" d="M12 2 L14.39 8.45 L21.11 8.45 L15.86 12.55 L18.25 19 L12 14.91 L5.75 19 L8.14 12.55 L2.89 8.45 L9.61 8.45 Z"/>
-            </svg>
-            <p class="text-white/80 text-sm sm:text-base leading-snug">
-              <strong class="text-gold font-bold">Part of American Life</strong> &mdash; Their name, their work, their story has become woven into the national identity itself.
-            </p>
-          </div>
-          <div class="flex items-start gap-3 sm:gap-4">
-            <svg class="w-7 h-7 flex-shrink-0 mt-0.5 drop-shadow" viewBox="0 0 24 24" aria-hidden="true">
-              <defs>
-                <linearGradient id="iconBlue5" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" style="stop-color:#6ea0e8"/>
-                  <stop offset="50%" style="stop-color:#1a4ba8"/>
-                  <stop offset="100%" style="stop-color:#001a45"/>
-                </linearGradient>
-              </defs>
-              <path fill="url(#iconBlue5)" stroke="#C5A44E" stroke-width="0.6" d="M12 2 L14.39 8.45 L21.11 8.45 L15.86 12.55 L18.25 19 L12 14.91 L5.75 19 L8.14 12.55 L2.89 8.45 L9.61 8.45 Z"/>
-            </svg>
-            <p class="text-white/80 text-sm sm:text-base leading-snug">
-              <strong class="text-gold font-bold">Inspiring Greatness</strong> &mdash; Inspire the next generation of Americans to dream bigger, work harder, and pursue their version of the American dream.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Nominations — widened body + 2-col star list for less vertical space -->
-    <section class="py-14 sm:py-16 bg-navy text-white">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
-        <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">Nominations Now Open</p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-5 font-heading">Nominate an All-American Icon</h2>
-        <div class="w-16 h-1 bg-gold mx-auto mb-6"></div>
-
-        <div class="text-white/75 text-base sm:text-lg leading-relaxed space-y-4 text-left max-w-4xl mx-auto mb-7">
+    <!-- ============================================================ -->
+    <!-- 8. SEE THE AWARDS PRESENTED LIVE — Event CTA.                  -->
+    <!-- ============================================================ -->
+    <section class="py-10 sm:py-12">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-4">
+          See the Awards Presented Live
+        </p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white font-heading leading-tight mb-5">
+          Join Us July 3, 2026
+        </h2>
+        <div class="w-16 h-1 bg-gold mx-auto mb-7"></div>
+        <div class="text-white/85 text-base sm:text-lg leading-relaxed space-y-4 mb-8">
           <p>
-            We are now accepting nominations for the inaugural 2026 All-American Icon Awards. Do you know someone whose pursuit of the American Dream has lifted them to the highest levels of their field?
+            The All-American Icon Awards will be presented during the historic Countdown 250 Ball
+            at the Washington Hilton in Washington, D.C., as America begins its 250th anniversary
+            celebration.
           </p>
-          <p>
-            We invite you to submit their name for consideration. Nominees can come from any field &mdash; what matters is the height to which they rose, the impact they made, and the way their story exemplifies the American dream.
+          <p class="text-white font-semibold">
+            Vote, nominate, share the campaign &mdash; then be in the room when America&rsquo;s
+            Icons are recognized.
           </p>
         </div>
-
-        <div class="max-w-4xl mx-auto mb-8 text-left">
-          <p class="text-white/70 text-base mb-3 text-center sm:text-left">
-            <strong class="text-white/85">To submit a nomination, please include:</strong>
-          </p>
-          <ul class="text-white/70 text-sm sm:text-base grid sm:grid-cols-2 gap-x-6 gap-y-2 list-none">
-            <li class="flex items-start gap-3">
-              <span class="text-gold mt-0.5 flex-shrink-0">★</span>
-              <span>Nominee&rsquo;s full name and location</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-gold mt-0.5 flex-shrink-0">★</span>
-              <span>Their field of achievement</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-gold mt-0.5 flex-shrink-0">★</span>
-              <span>A brief description of their body of work and accomplishments (250 words or less)</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-gold mt-0.5 flex-shrink-0">★</span>
-              <span>Why you believe they exemplify the spirit of an All-American Icon</span>
-            </li>
-            <li class="flex items-start gap-3 sm:col-span-2">
-              <span class="text-gold mt-0.5 flex-shrink-0">★</span>
-              <span>Your name and contact information</span>
-            </li>
-          </ul>
-        </div>
-
         <a
-          href="https://forms.gle/SXdwyqMqNnu1Y4Kj6"
+          href={ticketUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-block bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-10 py-4 text-lg font-bold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+          class="inline-block bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-10 py-4 text-base sm:text-lg font-bold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
         >
-          Submit a Nomination
+          Purchase Tickets
         </a>
-        <p class="text-white/40 text-sm mt-4">Nominations will be reviewed by our Awards Committee. All submissions are confidential.</p>
       </div>
     </section>
+
+    <!-- Section 9 "Be in the Room When America Counts Down to 250"   -->
+    <!-- final CTA band removed 2026-05-31 per Mike. Redundant with   -->
+    <!-- section 8 ticket CTA directly above it (which has the        -->
+    <!-- icons-specific framing) and the site-wide Footer below it    -->
+    <!-- (which already does the "Be in the Room" closing pitch).     -->
 
   </main>
   <div class="h-1.5 w-full bg-gradient-to-r from-gold/70 via-gold to-gold/70"></div>
   <Footer />
+
+  {/* ====================================================== */}
+  {/* Subcategory "View Nominees" controller.                 */}
+  {/* - Click toggles the matching expansion panel.           */}
+  {/* - Only ONE expansion open at a time across whole page.  */}
+  {/* - Opening a new one closes the previous.                */}
+  {/* - Smooth-scrolls to keep the clicked card in view       */}
+  {/*   (offset accounts for the fixed navbar).               */}
+  {/* - Button label flips View Nominees <-> Hide Nominees    */}
+  {/*   and the chevron rotates 180deg when open.             */}
+  {/* ====================================================== */}
+  <script is:inline>
+    (function () {
+      var NAV_OFFSET = 110; // px — navbar + identity bar height cushion
+
+      function getButtons() {
+        return document.querySelectorAll("[data-view-nominees]");
+      }
+      function getExpansions() {
+        return document.querySelectorAll("[data-sub-expansion]");
+      }
+
+      function closeAll() {
+        getExpansions().forEach(function (panel) {
+          panel.classList.add("hidden");
+        });
+        getButtons().forEach(function (btn) {
+          btn.setAttribute("aria-expanded", "false");
+          var label = btn.querySelector("[data-view-nominees-label]");
+          var icon = btn.querySelector("[data-view-nominees-icon]");
+          if (label) label.textContent = "View Nominees";
+          if (icon) icon.classList.remove("rotate-180");
+        });
+      }
+
+      function openOne(id) {
+        var panel = document.querySelector('[data-sub-expansion="' + id + '"]');
+        var btn = document.querySelector('[data-view-nominees="' + id + '"]');
+        if (!panel || !btn) return;
+        panel.classList.remove("hidden");
+        btn.setAttribute("aria-expanded", "true");
+        var label = btn.querySelector("[data-view-nominees-label]");
+        var icon = btn.querySelector("[data-view-nominees-icon]");
+        if (label) label.textContent = "Hide Nominees";
+        if (icon) icon.classList.add("rotate-180");
+
+        // Smooth-scroll the clicked card into view (offset for nav).
+        var card = document.querySelector('[data-sub-card="' + id + '"]');
+        if (card) {
+          var rect = card.getBoundingClientRect();
+          var targetY = rect.top + window.pageYOffset - NAV_OFFSET;
+          window.scrollTo({ top: targetY, behavior: "smooth" });
+        }
+      }
+
+      function onClick(e) {
+        var btn = e.currentTarget;
+        var id = btn.getAttribute("data-view-nominees");
+        var panel = document.querySelector('[data-sub-expansion="' + id + '"]');
+        if (!panel) return;
+        var alreadyOpen = !panel.classList.contains("hidden");
+        closeAll();
+        if (!alreadyOpen) openOne(id);
+      }
+
+      getButtons().forEach(function (btn) {
+        btn.addEventListener("click", onClick);
+      });
+
+      // Smooth-scroll for the top "Browse Category" jump cards.
+      document.querySelectorAll("[data-jump-card]").forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          var href = link.getAttribute("href") || "";
+          if (!href.startsWith("#")) return;
+          var target = document.querySelector(href);
+          if (!target) return;
+          e.preventDefault();
+          var rect = target.getBoundingClientRect();
+          var targetY = rect.top + window.pageYOffset - NAV_OFFSET;
+          window.scrollTo({ top: targetY, behavior: "smooth" });
+        });
+      });
+    })();
+  </script>
 </BaseLayout>

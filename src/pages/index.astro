@@ -17,7 +17,7 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
 const tickerItems = [
   { text: 'Space Blue Makes History — and Brings It to Life at Countdown 250', href: '/space-blue/' },
   { text: 'America’s Freedom Bell to Ring at Midnight in the “1,000 Bells of Freedom” Moment', href: '#midnight-moment-homepage' },
-  { text: 'All-American Heroes and Icons', href: '#heroes' },
+  { text: 'All-American Heroes and Icons', href: '#awards' },
   { text: 'More Entertainment and Special Guest Announcements Ahead', href: '/entertainment/' },
   { text: 'Be in the Room When America Turns 250' },
 ];
@@ -1351,11 +1351,18 @@ const faqs = [
         ALL-AMERICAN AWARDS — promoted to live 2026-05-13.
         Two awards (Hero + Icon) presented side-by-side with their own
         medals, copy, and CTAs. Below: a full-width auto-scrolling
-        marquee of past honorees / event photos. Section id preserved
-        so the live primary nav anchor /#heroes still lands here.
+        marquee of past honorees / event photos.
+        2026-05-31 per Mike:
+          - Section id renamed `heroes` -> `awards`.
+          - Top-nav label "Honorees" -> "Awards" (in Navbar component).
+          - Standalone "Help Select America's Icons" CTA block REMOVED
+            and merged into the right-side Icons card so the program
+            reads as one unified block.
+          - Right card CTAs updated to point to the now-live /icons/
+            page (which was promoted from /icons-preview/).
         Marquee CSS lives in the page's <style> block below.
         ============================================================= */}
-    <section id="heroes" class="scroll-mt-24 relative pt-12 pb-10 sm:pt-16 sm:pb-14 bg-cream overflow-hidden">
+    <section id="awards" class="scroll-mt-24 relative pt-12 pb-10 sm:pt-16 sm:pb-14 bg-cream overflow-hidden">
       <!-- Hairline gold edges, subtle premium framing -->
       <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
       <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
@@ -1415,6 +1422,10 @@ const faqs = [
           </div>
 
           <!-- ============ RIGHT: ALL-AMERICAN ICONS ============ -->
+          <!-- 2026-05-31 per Mike: the standalone "Public Voting Now Open"  -->
+          <!-- block previously below the two-column grid has been folded    -->
+          <!-- INTO this right card so the Icons program reads as one        -->
+          <!-- unified block. CTAs point to the now-live /icons/ page.        -->
           <div class="flex flex-col sm:flex-row gap-4 sm:gap-5 items-center sm:items-start text-center sm:text-left">
             <div class="flex-shrink-0 w-24 sm:w-28 md:w-32">
               <picture>
@@ -1434,16 +1445,22 @@ const faqs = [
                 <span class="block text-[0.95rem] sm:text-[1.05rem] md:text-[1.15rem]">Award</span>
               </h3>
               <div class="w-12 h-px bg-gold mb-3 mx-auto sm:mx-0"></div>
-              <div class="space-y-2.5 text-slate text-sm sm:text-base leading-relaxed mb-3">
-                <p>The All-American Icon Award honors individuals who have pursued the American Dream with <strong class="text-navy">extraordinary tenacity and grace</strong> &mdash; men and women whose work, vision, character, and achievement have lifted them to the highest levels of their field.</p>
+              <div class="space-y-3 text-slate text-sm sm:text-base leading-relaxed mb-4">
+                <p>The All-American Icon Award honors individuals who have pursued the American Dream with <strong class="text-navy">extraordinary tenacity and grace</strong> &mdash; men and women whose work, vision, character, and achievement have lifted them to the highest levels of their field. Each icon has had a uniquely powerful impact on their field of pursuit and/or their generation, adding an important chapter to the American story.</p>
+                <p class="pt-1">
+                  <span class="block text-navy font-bold uppercase tracking-[0.12em] text-xs sm:text-sm mb-1.5">Be a Part of History. Help Us Select the All-American Icons.</span>
+                  <strong class="text-navy">Public voting is now open</strong> &mdash; cast your vote, submit a write-in nomination, and share the campaign.
+                </p>
               </div>
-              <div class="flex flex-col gap-1 items-center sm:items-start">
-                <a href="/icons" class="inline-flex items-center gap-1.5 text-red font-bold uppercase tracking-wider text-xs hover:text-red-light group">
-                  <span>Learn More</span>
-                  <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+              <div class="flex flex-col gap-2.5 items-center sm:items-start">
+                <a
+                  href="/icons/"
+                  class="inline-block bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-6 py-2.5 text-xs sm:text-sm font-bold tracking-wider uppercase transition-all rounded shadow-md hover:-translate-y-0.5"
+                >
+                  Vote, Nominate &amp; Share
                 </a>
-                <a href="https://forms.gle/SXdwyqMqNnu1Y4Kj6" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-red font-bold uppercase tracking-wider text-xs hover:text-red-light group">
-                  <span>Submit a Nomination</span>
+                <a href="/icons/" class="inline-flex items-center gap-1.5 text-red font-bold uppercase tracking-wider text-xs hover:text-red-light group">
+                  <span>Learn More</span>
                   <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 </a>
               </div>
@@ -1452,34 +1469,10 @@ const faqs = [
 
         </div>
 
-        <!-- ============================================================ -->
-        <!-- 3.1 ALL-AMERICAN ICONS — Public voting CTA. Links to the     -->
-        <!-- voting preview page (/icons-vote-preview/) for now; swap to  -->
-        <!-- the live Google Form / final icons page when ready.           -->
-        <!-- ============================================================ -->
-        <div class="mt-2 mb-10 sm:mb-12 bg-gradient-to-br from-navy-dark via-navy to-navy-dark rounded-2xl border-2 border-gold/50 p-6 sm:p-8 md:p-10 text-center shadow-[0_18px_40px_-16px_rgba(0,0,0,0.4)]">
-          <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-4">Public Voting Now Open</p>
-          <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white font-heading leading-tight mb-5">
-            Help Select America&rsquo;s Icons
-          </h3>
-          <div class="text-white/85 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto space-y-4 mb-7">
-            <p>
-              Be part of history by helping us recognize the individuals whose achievements,
-              service, creativity, leadership, and character have left a lasting mark on the
-              American story.
-            </p>
-            <p>
-              Cast your vote, submit a nomination, and share the campaign with others who should
-              have a voice in selecting the All-American Icons.
-            </p>
-          </div>
-          <a
-            href="/icons-vote-preview/"
-            class="inline-block bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-10 py-4 text-base sm:text-lg font-bold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
-          >
-            Vote Now &amp; Share
-          </a>
-        </div>
+        <!-- Standalone "Help Select America's Icons" CTA block removed -->
+        <!-- 2026-05-31 per Mike: voting copy + CTA merged into the      -->
+        <!-- right-side Icons card above to consolidate the program into -->
+        <!-- a single unified block.                                     -->
 
         <!-- MULTI-IMAGE AUTO-SCROLLING MARQUEE — 2-3 visible at once -->
         <div class="mt-4 mb-2">
