@@ -355,19 +355,35 @@ const mainCategories = [
     <!-- ============================================================ -->
     <section class="py-10 sm:py-12 bg-navy-dark border-y border-gold/25">
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-7">
+        <div class="text-center mb-9 sm:mb-10">
           <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-3">
             Nominees Under Consideration
           </p>
           <h2 class="text-3xl sm:text-4xl font-bold text-white font-heading leading-tight mb-3">
             Review the Nominee Categories
           </h2>
-          <div class="w-16 h-1 bg-gold mx-auto mb-5"></div>
-          <p class="text-white/80 text-base sm:text-lg leading-relaxed max-w-5xl mx-auto">
-            Browse by category, expand a subcategory to see the nominees under consideration, and
-            cast your vote with the Vote button on any nominee row. Honorees already selected
-            are marked <span class="text-gold font-semibold">2026 Honoree</span>.
-          </p>
+          <div class="w-16 h-1 bg-gold mx-auto mb-6"></div>
+          <div class="text-white/85 text-base sm:text-lg leading-relaxed max-w-5xl mx-auto space-y-4 mb-7">
+            <p>
+              <strong class="text-white">Be part of the process.</strong> Explore the individuals
+              currently under consideration as All-American Icons. Browse the categories, discover
+              the nominees, cast your vote, or suggest additional individuals who deserve to be
+              considered.
+            </p>
+            <p>
+              After you vote, please share this page so others can participate as well. Public
+              input will help inform the selection process. Final selections will be made at the
+              sole discretion of the All-American Ball Committee.
+            </p>
+          </div>
+          <a
+            href={voteFormUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-10 py-4 text-base sm:text-lg font-bold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+          >
+            Open the Official Voting Form
+          </a>
         </div>
 
         {/* ====================================================== */}
@@ -435,38 +451,11 @@ const mainCategories = [
       </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- 4. OFFICIAL VOTING FORM CTA — strong call to action.           -->
-    <!-- ============================================================ -->
-    <section class="py-10 sm:py-12">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
-        <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-4">
-          Official Voting Form
-        </p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-white font-heading leading-tight mb-5">
-          Cast Your Vote. Submit a Nomination. Share the Campaign.
-        </h2>
-        <div class="w-16 h-1 bg-gold mx-auto mb-7"></div>
-        <p class="text-white/85 text-base sm:text-lg leading-relaxed max-w-6xl mx-auto mb-8">
-          Use the official All-American Icons voting and nomination form to review current
-          nominees, cast your vote, and suggest additional individuals who deserve to be
-          considered.
-        </p>
-        <a
-          href={voteFormUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-block bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-10 py-4 text-base sm:text-lg font-bold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
-        >
-          Open the Official Voting Form
-        </a>
-        <p class="text-white/55 text-xs sm:text-sm mt-5 italic max-w-2xl mx-auto leading-relaxed">
-          Public input will help inform the selection process. Final selections may also consider
-          committee review, eligibility, availability, and overall fit with the mission of the
-          All-American Icon Awards.
-        </p>
-      </div>
-    </section>
+    <!-- Section 4 "Official Voting Form" CTA removed 2026-05-31 per   -->
+    <!-- Mike: its copy + gold button were merged into the "Review the -->
+    <!-- Nominee Categories" intro header above, so visitors see the   -->
+    <!-- voting CTA right at the top of the categories section instead -->
+    <!-- of as a separate band below it.                                -->
 
     <!-- ============================================================ -->
     <!-- 5. FEATURED 2026 ALL-AMERICAN ICONS — Bob Anderson + Tony O.   -->
