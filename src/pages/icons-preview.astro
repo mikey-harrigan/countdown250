@@ -49,170 +49,181 @@ const iconHonorees = [
   },
 ];
 
-// Nominee categories — collapsed by default via native <details>.
-// Each nominee in EXACTLY ONE category to keep the list clean.
-// Bob Anderson + Tony Orlando carry `selected: true` so the accordion
-// renders a "Selected 2026 Honoree" badge next to their names.
-const nomineeCategories = [
+// Restructured 2026-05-31 per Mike: nominees now organized into TWO
+// main category groups (Sports & Athletics; Arts, Entertainment, Media
+// & Influence). Main groups render as always-visible section headers;
+// subcategories render as collapsed accordions with a Vote button on
+// every nominee row. `honoree: true` flags the gold "2026 HONOREE"
+// badge — currently Tony Orlando + Bob Anderson.
+//
+// Honorees NOT carried forward from the previous structure (cut):
+//   Ilona Maher, Shedeur Sanders, Cooper Flagg.
+const mainCategories = [
   {
-    name: "Music Icons",
-    description: "Country, patriotic, vocal, and crossover artists shaping modern American music.",
-    nominees: [
-      { name: "Dolly Parton", desc: "Country music legend; philanthropist and cultural icon" },
-      { name: "Garth Brooks", desc: "Stadium-selling country music superstar" },
-      { name: "Reba McEntire", desc: "Country music legend and entertainer whose decades-long career helped shape modern American country music and television culture" },
-      { name: "Chris Stapleton", desc: "Grammy-winning singer-songwriter celebrated for his powerful vocals and authentic Americana sound" },
-      { name: "Jelly Roll", desc: "Award-winning artist known for his redemption story, crossover success, and connection with working-class America" },
-      { name: "Luke Combs", desc: "Chart-topping country music superstar with one of the most loyal fan bases in live music" },
-      { name: "Zach Bryan", desc: "Rising Americana and country artist recognized for heartfelt songwriting and military background" },
-      { name: "Lainey Wilson", desc: "Award-winning country artist and one of the leading new voices in modern country music" },
-      { name: "Lee Greenwood", desc: "Patriotic music icon; performer of “God Bless the USA”" },
-      { name: "Craig Morgan", desc: "Country artist and U.S. Army veteran" },
-      { name: "John Rich", desc: "Country music performer and entrepreneur" },
-      { name: "Tony Orlando", desc: "Award-winning entertainer and patriotic icon", selected: true },
-      { name: "Bob Anderson", desc: "Award-winning vocal impressionist and performer", selected: true },
+    name: "Sports & Athletics",
+    subcategories: [
+      {
+        name: "Professional Sports Legends",
+        nominees: [
+          { name: "Tom Brady", desc: "Seven-time Super Bowl champion and widely regarded as the greatest quarterback of all time" },
+          { name: "Peyton Manning", desc: "NFL legend and beloved sports personality with broad cultural appeal" },
+          { name: "Serena Williams", desc: "Tennis icon and global trailblazer whose influence transcends sports" },
+          { name: "Tiger Woods", desc: "Generational golf icon who transformed the popularity and visibility of the sport" },
+          { name: "Michael Phelps", desc: "Most decorated Olympian in history and one of the greatest athletes of all time" },
+          { name: "Katie Ledecky", desc: "Most decorated American female Olympian and dominant force in international swimming" },
+          { name: "Caeleb Dressel", desc: "Olympic swimming champion and world-record holder" },
+        ],
+      },
+      {
+        name: "Women's Basketball",
+        nominees: [
+          { name: "Caitlin Clark", desc: "Record-breaking basketball superstar and cultural phenomenon" },
+          { name: "Angel Reese", desc: "National champion and major women’s sports influencer" },
+          { name: "A'ja Wilson", desc: "WNBA MVP and Olympic gold medalist" },
+          { name: "Paige Bueckers", desc: "College basketball superstar and NIL-era icon" },
+          { name: "JuJu Watkins", desc: "Explosive young college basketball superstar" },
+          { name: "Sophie Cunningham", desc: "WNBA fan favorite and rising media personality" },
+        ],
+      },
+      {
+        name: "Wrestling",
+        nominees: [
+          { name: "Dan Gable", desc: "NCAA, World, and Olympic wrestling legend" },
+          { name: "Jordan Burroughs", desc: "NCAA, World, and Olympic wrestling champion" },
+          { name: "David Taylor", desc: "Olympic and World wrestling champion" },
+          { name: "Spencer Lee", desc: "NCAA champion and Olympic medalist" },
+          { name: "Bo Bassett", desc: "World champion wrestler and youth wrestling phenomenon" },
+          { name: "Jax Forrest", desc: "Emerging American wrestling standout under consideration" },
+          { name: "Daniel Zepeda", desc: "Emerging American wrestling standout under consideration" },
+          { name: "Melvin Miller", desc: "Emerging American wrestling standout under consideration" },
+          { name: "Jayden James", desc: "Emerging American wrestling standout under consideration" },
+          { name: "Aaron Seidel", desc: "Emerging American wrestling standout under consideration" },
+        ],
+      },
+      {
+        name: "Gymnastics & Performance Sports",
+        nominees: [
+          { name: "Simone Biles", desc: "Most decorated American gymnast in history and global symbol of excellence and resilience" },
+          { name: "Sunisa Lee", desc: "Olympic all-around gymnastics champion and inspirational American sports figure" },
+          { name: "Livvy Dunne", desc: "Gymnastics and NIL-era social media superstar" },
+        ],
+      },
+      {
+        name: "Motorsports",
+        nominees: [
+          { name: "Richard Petty", desc: "Legendary NASCAR champion whose legacy helped define generations of American racing culture" },
+          { name: "Dale Earnhardt Jr.", desc: "NASCAR icon and broadcaster with one of the most loyal fan followings in American motorsports" },
+          { name: "Danica Patrick", desc: "Trailblazing driver and media personality who helped expand the national visibility of motorsports" },
+          { name: "Kyle Busch", desc: "Two-time NASCAR Cup Series champion" },
+          { name: "Chase Elliott", desc: "NASCAR Cup Series champion and fan favorite" },
+          { name: "Denny Hamlin", desc: "NASCAR superstar and Daytona 500 winner" },
+          { name: "Ryan Blaney", desc: "NASCAR Cup Series champion" },
+          { name: "Hailie Deegan", desc: "Motorsports star and social media personality" },
+        ],
+      },
+      {
+        name: "Combat Sports",
+        nominees: [
+          { name: "Jon Jones", desc: "One of the most dominant champions in MMA history" },
+          { name: "Ronda Rousey", desc: "Women’s MMA pioneer and UFC superstar" },
+          { name: "Georges St-Pierre", desc: "Multi-time UFC world champion and MMA legend" },
+          { name: "Chuck Liddell", desc: "UFC icon and pioneer of mainstream MMA" },
+          { name: "Randy Couture", desc: "UFC Hall of Famer and Army veteran" },
+          { name: "Daniel Cormier", desc: "Olympian and two-division UFC world champion" },
+          { name: "Sean O'Malley", desc: "UFC champion and major social media personality" },
+          { name: "Logan Paul", desc: "Influencer, wrestler, and combat sports personality" },
+        ],
+      },
+      {
+        name: "Action & Winter Sports",
+        nominees: [
+          { name: "Tony Hawk", desc: "Skateboarding pioneer and global icon who helped bring action sports into the mainstream" },
+          { name: "Shaun White", desc: "Olympic snowboarding legend and one of the most recognizable figures in action sports" },
+          { name: "Mikaela Shiffrin", desc: "Most decorated alpine skier in World Cup history" },
+          { name: "Chloe Kim", desc: "Olympic snowboarding champion and international action-sports superstar" },
+          { name: "Ilia Malinin", desc: "Figure skating sensation known internationally as the “Quad God”" },
+          { name: "Nyjah Huston", desc: "Championship skateboarder and Olympic competitor known for redefining modern street skating" },
+          { name: "U.S. Men's National Ice Hockey Team", desc: "2026 Olympic gold medal champions representing American excellence on the international stage" },
+          { name: "U.S. Women's National Ice Hockey Team", desc: "2026 Olympic gold medal champions and leaders in women’s international hockey" },
+        ],
+      },
     ],
   },
   {
-    name: "Veterans, Leadership & American Spirit",
-    description: "Service members, veterans, authors, and leaders whose lives reflect duty, courage, grit, and the American spirit.",
-    nominees: [
-      { name: "Gary Sinise", desc: "Actor, humanitarian, and longtime advocate for America’s veterans and military families" },
-      { name: "Pat Tillman", desc: "NFL player turned Army Ranger whose service and sacrifice became a lasting American symbol" },
-      { name: "Chris Kyle", desc: "Navy SEAL veteran and bestselling author recognized for his military service and enduring cultural impact" },
-      { name: "Marcus Luttrell", desc: "Former Navy SEAL and Lone Survivor author" },
-      { name: "Dakota Meyer", desc: "Medal of Honor recipient and veterans advocate" },
-      { name: "Jocko Willink", desc: "Retired Navy SEAL, bestselling author, and leadership and discipline advocate" },
-      { name: "David Goggins", desc: "Endurance athlete and mental toughness icon" },
-      { name: "Mike Rowe", desc: "Television host and advocate for skilled trades, hard work, and American grit" },
-      { name: "Nick Bare", desc: "Fitness entrepreneur and military-inspired creator" },
-      { name: "Cameron Hanes", desc: "Endurance athlete and outdoor personality" },
-    ],
-  },
-  {
-    name: "Comedy, Cultural Voices & Digital Creators",
-    description: "Comedians, podcasters, broadcasters, YouTubers, and digital-first voices whose audiences have shaped modern American humor, conversation, and media.",
-    nominees: [
-      { name: "Jerry Seinfeld", desc: "Legendary comedian and television creator whose work helped define modern American comedy" },
-      { name: "Joe Rogan", desc: "Influential podcaster, comedian, and UFC commentator with one of the largest audiences in digital media" },
-      { name: "Theo Von", desc: "Comedian and podcast host known for his storytelling style and devoted fan following" },
-      { name: "Nate Bargatze", desc: "Stand-up comedian celebrated for his clean humor and broad cross-generational appeal" },
-      { name: "Shane Gillis", desc: "Stand-up comedian and podcast personality with a rapidly growing national audience" },
-      { name: "Katt Williams", desc: "Award-winning comedian and actor recognized for his distinctive voice and cultural impact in stand-up comedy" },
-      { name: "Jake Paul", desc: "Influencer, YouTuber, and combat sports personality" },
-      { name: "MrBeast", desc: "YouTube megastar and philanthropy influencer" },
-      { name: "Pat McAfee", desc: "Former NFL player turned major sports media personality and broadcaster" },
-      { name: "Mark Rober", desc: "Former NASA engineer and science creator known for making innovation and discovery engaging for millions online" },
-      { name: "Shawn Ryan", desc: "Former Navy SEAL and podcast host focused on veterans, leadership, and American life" },
-      { name: "Cleetus McFarland", desc: "Automotive creator with a massive fan community" },
-    ],
-  },
-  {
-    name: "Wrestling Icons",
-    description: "NCAA, World, and Olympic wrestling champions plus emerging American wrestlers under consideration.",
-    nominees: [
-      { name: "Dan Gable", desc: "NCAA, World, and Olympic wrestling legend" },
-      { name: "Jordan Burroughs", desc: "NCAA, World, and Olympic wrestling champion" },
-      { name: "David Taylor", desc: "Olympic and World wrestling champion" },
-      { name: "Spencer Lee", desc: "NCAA champion and Olympic medalist" },
-      { name: "Bo Bassett", desc: "World champion wrestler and youth wrestling phenomenon" },
-      { name: "Jax Forrest" },
-      { name: "Daniel Zepeda" },
-      { name: "Melvin Miller" },
-      { name: "Jayden James" },
-      { name: "Aaron Seidel" },
-    ],
-  },
-  {
-    name: "NASCAR & Motorsports Icons",
-    description: "Legendary and modern American racing figures whose careers helped define generations of motorsports culture.",
-    nominees: [
-      { name: "Richard Petty", desc: "Legendary NASCAR champion whose legacy helped define generations of American racing culture" },
-      { name: "Dale Earnhardt Jr.", desc: "NASCAR icon and broadcaster with one of the most loyal fan followings in American motorsports" },
-      { name: "Danica Patrick", desc: "Trailblazing driver and media personality who helped expand the national visibility of motorsports" },
-      { name: "Kyle Busch", desc: "Two-time NASCAR Cup Series champion" },
-      { name: "Chase Elliott", desc: "NASCAR Cup Series champion and fan favorite" },
-      { name: "Denny Hamlin", desc: "NASCAR superstar and Daytona 500 winner" },
-      { name: "Ryan Blaney", desc: "NASCAR Cup Series champion" },
-      { name: "Hailie Deegan", desc: "Motorsports star and social media personality" },
-    ],
-  },
-  {
-    name: "Women's Basketball & Cultural Impact Icons",
-    description: "WNBA stars, college standouts, and cultural figures expanding the visibility of women’s basketball.",
-    nominees: [
-      { name: "Caitlin Clark", desc: "Record-breaking basketball superstar and cultural phenomenon" },
-      { name: "Angel Reese", desc: "National champion and major women’s sports influencer" },
-      { name: "A'ja Wilson", desc: "WNBA MVP and Olympic gold medalist" },
-      { name: "Paige Bueckers", desc: "College basketball superstar and NIL-era icon" },
-      { name: "JuJu Watkins", desc: "Explosive young college basketball superstar" },
-      { name: "Sophie Cunningham", desc: "WNBA fan favorite and rising media personality" },
-    ],
-  },
-  {
-    name: "MMA & Combat Sports Icons",
-    description: "Champions and pioneers who helped bring mixed martial arts and combat sports into the American mainstream.",
-    nominees: [
-      { name: "Jon Jones", desc: "One of the most dominant champions in MMA history" },
-      { name: "Ronda Rousey", desc: "Women’s MMA pioneer and UFC superstar" },
-      { name: "Georges St-Pierre", desc: "Multi-time UFC world champion and MMA legend" },
-      { name: "Chuck Liddell", desc: "UFC icon and pioneer of mainstream MMA" },
-      { name: "Randy Couture", desc: "UFC Hall of Famer and Army veteran" },
-      { name: "Daniel Cormier", desc: "Olympian and two-division UFC world champion" },
-      { name: "Sean O'Malley", desc: "UFC champion and major social media personality" },
-      { name: "Logan Paul", desc: "Influencer, wrestler, and combat sports personality" },
-    ],
-  },
-  {
-    name: "Olympic & International Sports Icons",
-    description: "Olympic medalists and global American sports figures whose excellence transcends a single discipline.",
-    nominees: [
-      { name: "Michael Phelps", desc: "Most decorated Olympian in history and one of the greatest athletes of all time" },
-      { name: "Simone Biles", desc: "Most decorated American gymnast in history and global symbol of excellence and resilience" },
-      { name: "Serena Williams", desc: "Tennis icon and global trailblazer whose influence transcends sports" },
-      { name: "Tiger Woods", desc: "Generational golf icon who transformed the popularity and visibility of the sport" },
-      { name: "Katie Ledecky", desc: "Most decorated American female Olympian and dominant force in international swimming" },
-      { name: "Peyton Manning", desc: "NFL legend and beloved sports personality with broad cultural appeal" },
-      { name: "Sunisa Lee", desc: "Olympic all-around gymnastics champion and inspirational American sports figure" },
-      { name: "Ilona Maher", desc: "Olympic rugby star and social media phenomenon helping grow women’s sports globally" },
-      { name: "Caeleb Dressel", desc: "Olympic swimming champion and world-record holder" },
-      { name: "Tom Brady", desc: "Seven-time Super Bowl champion and widely regarded as the greatest quarterback of all time" },
-    ],
-  },
-  {
-    name: "Winter & Action Sports Icons",
-    description: "Skateboarding, snowboarding, skiing, figure-skating, and ice-hockey figures bringing American excellence to the world stage.",
-    nominees: [
-      { name: "Tony Hawk", desc: "Skateboarding pioneer and global icon who helped bring action sports into the mainstream" },
-      { name: "Shaun White", desc: "Olympic snowboarding legend and one of the most recognizable figures in action sports" },
-      { name: "Mikaela Shiffrin", desc: "Most decorated alpine skier in World Cup history" },
-      { name: "Chloe Kim", desc: "Olympic snowboarding champion and international action-sports superstar" },
-      { name: "Ilia Malinin", desc: "Figure skating sensation known internationally as the “Quad God”" },
-      { name: "U.S. Men's National Ice Hockey Team", desc: "2026 Olympic gold medal champions representing American excellence on the international stage" },
-      { name: "U.S. Women's National Ice Hockey Team", desc: "2026 Olympic gold medal champions and leaders in women’s international hockey" },
-      { name: "Nyjah Huston", desc: "Championship skateboarder and Olympic competitor known for redefining modern street skating" },
-    ],
-  },
-  {
-    name: "College Sports & NIL Icons",
-    description: "College stars and NIL-era figures whose performance and personalities have shaped the new landscape of college sports.",
-    nominees: [
-      { name: "Arch Manning", desc: "High-profile college football quarterback and NIL superstar" },
-      { name: "Travis Hunter", desc: "Heisman Trophy winner and elite two-way football star" },
-      { name: "Livvy Dunne", desc: "Gymnastics and NIL-era social media superstar" },
-      { name: "Shedeur Sanders", desc: "Football star and major media personality" },
-      { name: "Cooper Flagg", desc: "Basketball phenom and national sports sensation" },
-    ],
-  },
-  {
-    name: "Film, Television & Media Icons",
-    description: "Actors, filmmakers, and television figures whose work has shaped American film, TV, and storytelling.",
-    nominees: [
-      { name: "Clint Eastwood", desc: "Oscar-winning actor/director and American film legend" },
-      { name: "Tom Hanks", desc: "Beloved actor and veterans advocate" },
-      { name: "Denzel Washington", desc: "Two-time Academy Award-winning actor" },
-      { name: "Tim Allen", desc: "Actor and comedian known for iconic television roles and humor rooted in everyday American life" },
-      { name: "Dean Cain", desc: "Actor and producer, best known for his iconic portrayal of Superman in Lois & Clark" },
+    name: "Arts, Entertainment, Media & Influence",
+    subcategories: [
+      {
+        name: "Music",
+        nominees: [
+          { name: "Dolly Parton", desc: "Country music legend; philanthropist and cultural icon" },
+          { name: "Garth Brooks", desc: "Stadium-selling country music superstar" },
+          { name: "Reba McEntire", desc: "Country music legend and entertainer whose decades-long career helped shape modern American country music and television culture" },
+          { name: "Chris Stapleton", desc: "Grammy-winning singer-songwriter celebrated for his powerful vocals and authentic Americana sound" },
+          { name: "Jelly Roll", desc: "Award-winning artist known for his redemption story, crossover success, and connection with working-class America" },
+          { name: "Luke Combs", desc: "Chart-topping country music superstar with one of the most loyal fan bases in live music" },
+          { name: "Zach Bryan", desc: "Rising Americana and country artist recognized for heartfelt songwriting and military background" },
+          { name: "Lainey Wilson", desc: "Award-winning country artist and one of the leading new voices in modern country music" },
+          { name: "Lee Greenwood", desc: "Patriotic music icon; performer of “God Bless the USA”" },
+          { name: "Craig Morgan", desc: "Country artist and U.S. Army veteran" },
+          { name: "John Rich", desc: "Country music performer and entrepreneur" },
+          { name: "Tony Orlando", desc: "Award-winning entertainer and patriotic icon", honoree: true },
+          { name: "Bob Anderson", desc: "Award-winning vocal impressionist and performer", honoree: true },
+        ],
+      },
+      {
+        name: "Film & Television",
+        nominees: [
+          { name: "Clint Eastwood", desc: "Oscar-winning actor/director and American film legend" },
+          { name: "Tom Hanks", desc: "Beloved actor and veterans advocate" },
+          { name: "Denzel Washington", desc: "Two-time Academy Award-winning actor" },
+          { name: "Tim Allen", desc: "Actor and comedian known for iconic television roles and humor rooted in everyday American life" },
+          { name: "Dean Cain", desc: "Actor and producer, best known for his iconic portrayal of Superman in Lois & Clark" },
+        ],
+      },
+      {
+        name: "Comedy",
+        nominees: [
+          { name: "Jerry Seinfeld", desc: "Legendary comedian and television creator whose work helped define modern American comedy" },
+          { name: "Theo Von", desc: "Comedian and podcast host known for his storytelling style and devoted fan following" },
+          { name: "Nate Bargatze", desc: "Stand-up comedian celebrated for his clean humor and broad cross-generational appeal" },
+          { name: "Shane Gillis", desc: "Stand-up comedian and podcast personality with a rapidly growing national audience" },
+          { name: "Katt Williams", desc: "Award-winning comedian and actor recognized for his distinctive voice and cultural impact in stand-up comedy" },
+        ],
+      },
+      {
+        name: "Podcasting & Broadcasting",
+        nominees: [
+          { name: "Joe Rogan", desc: "Influential podcaster, comedian, and UFC commentator with one of the largest audiences in digital media" },
+          { name: "Pat McAfee", desc: "Former NFL player turned major sports media personality and broadcaster" },
+          { name: "Shawn Ryan", desc: "Former Navy SEAL and podcast host focused on veterans, leadership, and American life" },
+          { name: "Mike Rowe", desc: "Television host and advocate for skilled trades, hard work, and American grit" },
+        ],
+      },
+      {
+        name: "Digital Creators & Influencers",
+        nominees: [
+          { name: "MrBeast", desc: "YouTube megastar and philanthropy influencer" },
+          { name: "Mark Rober", desc: "Former NASA engineer and science creator known for making innovation and discovery engaging for millions online" },
+          { name: "Jake Paul", desc: "Influencer, YouTuber, and combat sports personality" },
+          { name: "Cleetus McFarland", desc: "Automotive creator with a massive fan community" },
+          { name: "Nick Bare", desc: "Fitness entrepreneur and military-inspired creator" },
+        ],
+      },
+      {
+        name: "American Voices & Leadership",
+        nominees: [
+          { name: "Gary Sinise", desc: "Actor, humanitarian, and longtime advocate for America’s veterans and military families" },
+          { name: "Pat Tillman", desc: "NFL player turned Army Ranger whose service and sacrifice became a lasting American symbol" },
+          { name: "Chris Kyle", desc: "Navy SEAL veteran and bestselling author recognized for his military service and enduring cultural impact" },
+          { name: "Marcus Luttrell", desc: "Former Navy SEAL and Lone Survivor author" },
+          { name: "Dakota Meyer", desc: "Medal of Honor recipient and veterans advocate" },
+          { name: "Jocko Willink", desc: "Retired Navy SEAL, bestselling author, and leadership and discipline advocate" },
+          { name: "David Goggins", desc: "Endurance athlete and mental toughness icon" },
+          { name: "Cameron Hanes", desc: "Endurance athlete and outdoor personality" },
+          { name: "Arch Manning", desc: "High-profile college football quarterback and NIL superstar" },
+          { name: "Travis Hunter", desc: "Heisman Trophy winner and elite two-way football star" },
+        ],
+      },
     ],
   },
 ];
@@ -339,55 +350,72 @@ const nomineeCategories = [
           </h2>
           <div class="w-16 h-1 bg-gold mx-auto mb-5"></div>
           <p class="text-white/80 text-base sm:text-lg leading-relaxed max-w-5xl mx-auto">
-            Explore the categories below, review the nominees currently under consideration, and
-            cast your vote using the official voting form. Some All-American Icons have already
-            been selected and are noted below as <span class="text-gold font-semibold">2026 Honorees</span>.
-            Additional nominees remain under consideration, and public voting will help inform the
-            final selections.
+            Browse by category, expand a subcategory to see the nominees under consideration, and
+            cast your vote with the Vote button on any nominee row. Honorees already selected
+            are marked <span class="text-gold font-semibold">2026 Honoree</span>. Additional
+            nominees remain under consideration, and public voting will help inform the final
+            selections.
           </p>
         </div>
 
-        <div class="space-y-3 sm:space-y-4">
-          {nomineeCategories.map((cat) => (
-            <details class="group rounded-xl border border-gold/40 bg-white/[0.05] overflow-hidden shadow-[0_10px_24px_-12px_rgba(0,0,0,0.45)] open:shadow-[0_16px_36px_-12px_rgba(0,0,0,0.55)]">
-              <summary class="cursor-pointer list-none p-5 sm:p-6 hover:bg-white/[0.08] transition-colors marker:hidden">
-                <div class="flex items-start justify-between gap-4">
-                  <div class="flex-1 min-w-0">
-                    <h3 class="font-heading font-bold text-gold text-lg sm:text-xl leading-tight mb-1.5">{cat.name}</h3>
-                    <p class="text-white/65 text-xs sm:text-sm leading-relaxed">{cat.description}</p>
-                  </div>
-                  <div class="flex items-center gap-3 flex-shrink-0 pt-1">
-                    {cat.nominees.length > 0 && (
-                      <span class="text-white/55 text-xs sm:text-sm font-medium">{cat.nominees.length}</span>
-                    )}
-                    <span class="text-gold text-2xl leading-none transition-transform group-open:rotate-45" aria-hidden="true">+</span>
-                  </div>
-                </div>
-              </summary>
-              <div class="px-5 sm:px-7 pb-6 pt-5 border-t border-gold/20">
-                {cat.nominees.length > 0 ? (
-                  <ul class="space-y-3">
-                    {cat.nominees.map((n) => (
-                      <li class="text-sm sm:text-base leading-relaxed">
-                        <span class="text-white font-bold">{n.name}</span>
-                        {n.desc && (
-                          <span class="text-white/65"> &mdash; {n.desc}</span>
-                        )}
-                        {n.selected && (
-                          <span class="ml-2 inline-block bg-gold/20 border border-gold/60 text-gold text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.08em] px-2 py-0.5 rounded align-middle whitespace-nowrap">
-                            Selected 2026 Honoree
-                          </span>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p class="text-white/55 italic text-sm sm:text-base">
-                    Nominees in this category will be announced soon.
-                  </p>
-                )}
+        {/* Two-level structure:
+            - Main category header (always visible, large)
+            - Subcategory accordions inside (collapsed by default, click
+              to expand a list of nominee rows with a per-nominee Vote
+              button). Mobile: subcategory header and per-row Vote
+              button wrap to a stacked layout via flex-wrap. */}
+        <div class="space-y-12 sm:space-y-16">
+          {mainCategories.map((main) => (
+            <div>
+              <div class="text-center mb-6 sm:mb-7">
+                <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white font-heading leading-tight uppercase tracking-[0.05em]">{main.name}</h3>
+                <div class="w-24 h-1 bg-gold mx-auto mt-3"></div>
               </div>
-            </details>
+
+              <div class="space-y-3 sm:space-y-4">
+                {main.subcategories.map((sub) => (
+                  <details class="group rounded-xl border border-gold/40 bg-white/[0.05] overflow-hidden shadow-[0_10px_24px_-12px_rgba(0,0,0,0.45)] open:shadow-[0_16px_36px_-12px_rgba(0,0,0,0.55)]">
+                    <summary class="cursor-pointer list-none p-4 sm:p-5 hover:bg-white/[0.08] transition-colors marker:hidden">
+                      <div class="flex items-center justify-between gap-4">
+                        <h4 class="font-heading font-bold text-gold text-lg sm:text-xl leading-tight">{sub.name}</h4>
+                        <div class="flex items-center gap-3 flex-shrink-0">
+                          <span class="text-white/55 text-xs sm:text-sm font-medium">{sub.nominees.length} nominee{sub.nominees.length === 1 ? "" : "s"}</span>
+                          <span class="text-gold text-2xl leading-none transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                        </div>
+                      </div>
+                    </summary>
+                    <ul class="divide-y divide-white/10 border-t border-gold/20">
+                      {sub.nominees.map((n) => (
+                        <li class="flex flex-wrap sm:flex-nowrap items-start sm:items-center justify-between gap-3 sm:gap-5 px-4 sm:px-6 py-3.5 sm:py-4 hover:bg-white/[0.03] transition-colors">
+                          <div class="flex-1 min-w-0 basis-full sm:basis-auto">
+                            <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1 mb-0.5">
+                              <span class="text-white font-bold text-base sm:text-[17px] leading-tight">{n.name}</span>
+                              {n.honoree && (
+                                <span class="inline-block bg-gold/20 border border-gold/60 text-gold text-[10px] font-bold uppercase tracking-[0.1em] px-2 py-0.5 rounded align-middle whitespace-nowrap">
+                                  2026 Honoree
+                                </span>
+                              )}
+                            </div>
+                            {n.desc && (
+                              <p class="text-white/65 text-sm leading-snug">{n.desc}</p>
+                            )}
+                          </div>
+                          <a
+                            href={voteFormUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex-shrink-0 inline-block bg-gold/15 border border-gold/60 hover:bg-gold hover:text-navy-dark text-gold px-4 py-1.5 text-xs font-bold uppercase tracking-wider rounded transition-colors"
+                            aria-label={`Vote for ${n.name}`}
+                          >
+                            Vote
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>
