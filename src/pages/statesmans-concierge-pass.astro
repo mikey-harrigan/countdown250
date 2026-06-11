@@ -10,7 +10,7 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
 const statesmanDetails = [
   { title: "Arrival & Access", items: ["Priority entry", "Personal concierge throughout the evening", "VIP arrival treatment"] },
   { title: "Food & Beverage", items: ["Premium bars all evening", "Elevated dining", "Refined hospitality from start to finish"] },
-  { title: "Exclusive Access & Recognition", items: ["Private historic spaces", "Premium gathering areas", "Official program recognition", "Signature keepsake gift"] },
+  { title: "Exclusive Access & Recognition", items: ["Private historic spaces", "Premium gathering areas", "Official program recognition *", "Signature keepsake gift"], note: "* These benefits are lead-time dependent — guaranteed for purchases made by June 15, 2026." },
   { title: "Hosted Group Privileges", items: ["Host your own Party Inside the Party", "Group gathering privileges", "No additional hosting fee"] },
 ];
 
@@ -150,7 +150,7 @@ const faqs = [
 
       <!-- Accordion details -->
       <div class="border-t border-[#C5A44E]/20">
-        {statesmanDetails.map(({ title, items }) => (
+        {statesmanDetails.map(({ title, items, note }) => (
           <details class="group border-b border-[#C5A44E]/20">
             <summary class="flex items-center justify-between gap-4 py-6 cursor-pointer list-none">
               <h3 class="font-heading text-lg sm:text-xl text-white font-medium">{title}</h3>
@@ -158,7 +158,7 @@ const faqs = [
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
             </summary>
-            <ul class="pb-7 space-y-2 text-white/80 text-base leading-relaxed">
+            <ul class="space-y-2 text-white/80 text-base leading-relaxed">
               {items.map((item) => (
                 <li class="flex items-start">
                   <span class="text-[#C5A44E] mr-3 mt-2 flex-shrink-0 text-[6px]">&#9679;</span>
@@ -166,6 +166,10 @@ const faqs = [
                 </li>
               ))}
             </ul>
+            {note && (
+              <p class="text-white/50 text-xs italic pl-5 pt-3 pb-7 leading-snug">{note}</p>
+            )}
+            {!note && <div class="pb-7"></div>}
           </details>
         ))}
       </div>
