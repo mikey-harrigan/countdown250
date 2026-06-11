@@ -25,9 +25,10 @@ import Footer from '../components/Footer.astro';
 const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
 const voteFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfpvYYii5Kq5afy70yWcTrAWMb8pvrcurZ0lDW0aW1vX0ousw/viewform?usp=dialog"; // Google Form — All-American Icon Awards public voting (vote + write-in nominations)
 
-// Order: Tony Orlando first (bigger national profile — 5 #1 hits,
-// Hollywood Walk of Fame, network variety show, decades of veterans
-// advocacy), Bob Anderson second. Swapped 2026-05-31 per Mike.
+// Order: Music icons first (Tony Orlando, Bob Anderson, Lee Greenwood)
+// grouped together as the three patriotic music legends, then Jordan
+// Burroughs as the wrestling icon. Lee Greenwood + Jordan Burroughs
+// added 2026-06-01 per Mike.
 const iconHonorees = [
   {
     name: "Tony Orlando",
@@ -43,6 +44,20 @@ const iconHonorees = [
     role: "World’s Greatest Singing Impressionist",
     bio: "Hailed by <em>People</em> magazine as &ldquo;America&rsquo;s Greatest Singing Impressionist,&rdquo; Bob Anderson has spent five decades as one of the most celebrated entertainers on the Las Vegas Strip.",
     bioExpanded: "<p>A Vietnam veteran from a musical family, Anderson arrived in Las Vegas in his early twenties and was on stage at the famed Sahara within hours. His extraordinary gift for recreating the voices of the world&rsquo;s greatest singers &mdash; most famously Frank Sinatra &mdash; has earned standing ovations at Carnegie Hall and performances for two U.S. Presidents and the Royal Family.</p><p>He is an inductee of both the Casino Legends Hall of Fame and the Las Vegas Entertainers Hall of Fame, was praised by Simon Cowell as the best on the planet, and was summed up by Frank Sinatra himself: &ldquo;Bob Anderson has a hell of an act.&rdquo;</p>",
+  },
+  {
+    name: "Lee Greenwood",
+    img: "/images/event/lee-greenwood-hero.jpg",
+    role: "American Patriotic Music Icon",
+    bio: "Lee Greenwood is one of America&rsquo;s most beloved country music artists and the voice behind &ldquo;God Bless the USA&rdquo; &mdash; an unofficial national anthem that has defined patriotic American music for more than four decades.",
+    bioExpanded: "<p>Greenwood&rsquo;s career spans more than forty years, over 20 studio albums, and 38 Top 40 hits on the country charts. He is a Grammy Award winner for Best Male Country Vocal Performance, a two-time Country Music Association Male Vocalist of the Year, and a member of the Grand Ole Opry.</p><p>Released in 1984, &ldquo;God Bless the USA&rdquo; became one of the most-played patriotic anthems in American history. The song resurged powerfully after the September 11, 2001 attacks and has remained a defining sound of national pride at inaugurations, military ceremonies, civic events, and stadiums across the country.</p><p>Greenwood has performed for every U.S. President since Ronald Reagan and is one of the most consistent and visible champions of America&rsquo;s veterans and active military in American entertainment. Through countless USO tours, military fundraisers, and veterans events, he has spent his career standing alongside those who serve. He is an honorary member of the U.S. Army Special Forces and has been recognized by national veterans organizations for his lifetime of service to military families.</p><p>His honors also include induction into the Music City Walk of Fame, multiple American Music Awards, and a body of patriotic music that has become inseparable from the soundtrack of modern American life.</p>",
+  },
+  {
+    name: "Jordan Burroughs",
+    img: null,
+    role: "Olympic Gold Medalist · World & NCAA Champion",
+    bio: "Jordan Burroughs is one of the most decorated wrestlers in American history &mdash; an Olympic gold medalist, four-time World Champion, and two-time NCAA Division I National Champion who has spent his career redefining what is possible for U.S. wrestling on the world stage.",
+    bioExpanded: "<p>Burroughs captured Olympic gold at the 2012 London Olympics, winning the 74 kg freestyle wrestling division and becoming one of the faces of American wrestling for a generation. He has since added four World Championships (2011, 2013, 2015, 2017) along with multiple World silver and bronze medals, ranking him among the most decorated American wrestlers ever to compete on the international stage.</p><p>Before his international dominance, Burroughs was a force in collegiate wrestling. As a Nebraska Cornhusker, he won two NCAA Division I National Championships (2009 and 2011), going undefeated in his senior season. In 2011 he was awarded the Dan Hodge Trophy &mdash; college wrestling&rsquo;s equivalent of the Heisman &mdash; recognizing him as the most outstanding college wrestler in the country.</p><p>His remarkable career also includes Pan American Games gold medals, World Cup championships, and recognition by USA Wrestling as one of the all-time greats of American freestyle wrestling. Known for his trademark &ldquo;All I See Is Gold&rdquo; mantra and his relentless competitive drive, Burroughs has become one of the sport&rsquo;s most prominent ambassadors &mdash; growing American wrestling at every level, from youth programs to international competition, and inspiring the next generation of American wrestlers.</p>",
   },
 ];
 
@@ -91,7 +106,7 @@ const mainCategories = [
         desc: "NCAA, World, and Olympic champions plus emerging American wrestling stars.",
         nominees: [
           { name: "Dan Gable", desc: "NCAA, World, and Olympic wrestling legend" },
-          { name: "Jordan Burroughs", desc: "NCAA, World, and Olympic wrestling champion" },
+          { name: "Jordan Burroughs", desc: "NCAA, World, and Olympic wrestling champion", honoree: true },
           { name: "David Taylor", desc: "Olympic and World wrestling champion" },
           { name: "Spencer Lee", desc: "NCAA champion and Olympic medalist" },
           { name: "Bo Bassett", desc: "World champion wrestler and youth wrestling phenomenon" },
@@ -186,7 +201,7 @@ const mainCategories = [
           { name: "Luke Combs", desc: "Chart-topping country music superstar with one of the most loyal fan bases in live music" },
           { name: "Zach Bryan", desc: "Rising Americana and country artist recognized for heartfelt songwriting and military background" },
           { name: "Lainey Wilson", desc: "Award-winning country artist and one of the leading new voices in modern country music" },
-          { name: "Lee Greenwood", desc: "Patriotic music icon; performer of “God Bless the USA”" },
+          { name: "Lee Greenwood", desc: "Patriotic music icon; performer of “God Bless the USA”", honoree: true, photo: "/images/event/lee-greenwood-hero.jpg" },
           { name: "Craig Morgan", desc: "Country artist and U.S. Army veteran" },
           { name: "John Rich", desc: "Country music performer and entrepreneur" },
           { name: "Tony Orlando", desc: "Award-winning entertainer and patriotic icon", honoree: true, photo: "/images/event/tony-orlando.jpg" },
@@ -523,13 +538,22 @@ const mainCategories = [
             <div class="bg-gradient-to-br from-navy-dark via-navy to-navy-dark border border-gold/40 rounded-2xl overflow-hidden shadow-[0_18px_40px_-16px_rgba(0,0,0,0.6)] flex flex-col sm:flex-row">
               <div class="sm:w-2/5 sm:flex-shrink-0 bg-navy/50">
                 <div class="aspect-[4/3] sm:aspect-auto sm:h-full overflow-hidden">
-                  <img
-                    src={h.img}
-                    alt={h.name}
-                    class={`w-full h-full ${h.imgFit ?? "object-cover"}`}
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  {h.img ? (
+                    <img
+                      src={h.img}
+                      alt={h.name}
+                      class={`w-full h-full ${h.imgFit ?? "object-cover"}`}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <div class="w-full h-full min-h-[180px] flex items-center justify-center bg-gradient-to-br from-navy via-navy-dark to-navy p-6 text-center">
+                      <div>
+                        <p class="text-gold font-heading font-bold text-xl sm:text-2xl leading-tight">{h.name}</p>
+                        <p class="text-white/40 text-[10px] sm:text-xs uppercase tracking-[0.2em] mt-3">Photo coming soon</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
               <div class="flex-1 p-6 sm:p-8 md:p-10">
