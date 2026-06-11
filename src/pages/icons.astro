@@ -437,7 +437,13 @@ const mainCategories = [
         {/* subcategory name + nominee count + plus icon; expands to */}
         {/* the nominee rows with inline Vote buttons).               */}
         {/* ====================================================== */}
-        <div class="space-y-12 sm:space-y-16">
+        {/* 2026-06-01 per Mike: laid out the two main category      */}
+        {/* groups SIDE BY SIDE on lg+ to cut roughly half the        */}
+        {/* vertical scroll. Mobile/tablet stacks vertically as       */}
+        {/* before. items-start so the columns stay independent      */}
+        {/* heights when a subcategory accordion is expanded.         */}
+        {/* ====================================================== */}
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
           {mainCategories.map((main) => (
             <div>
               <div class="text-center mb-6 sm:mb-7">
