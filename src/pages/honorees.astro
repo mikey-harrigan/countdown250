@@ -187,10 +187,20 @@ const heroHonorees = [
                   {h.img ? (
                     <img src={h.img} alt={h.name} class="w-full h-full object-cover" loading="lazy" decoding="async" />
                   ) : (
-                    <div class="w-full h-full min-h-[180px] flex items-center justify-center bg-gradient-to-br from-navy via-navy-dark to-navy p-6 text-center">
+                    <div class="w-full h-full min-h-[220px] flex items-center justify-center bg-gradient-to-br from-navy via-navy-dark to-navy p-6 text-center">
                       <div>
-                        <p class="text-gold font-heading font-bold text-xl sm:text-2xl leading-tight">{h.name}</p>
-                        <p class="text-white/40 text-[10px] sm:text-xs uppercase tracking-[0.2em] mt-3">Photo coming soon</p>
+                        <picture>
+                          <source srcset="/images/misc/all-amer-heroes-medal.webp" type="image/webp" />
+                          <img
+                            src="/images/misc/all-amer-heroes-medal.png"
+                            alt={`All-American Heroes Lifetime Achievement Award medal — placeholder for ${h.name}`}
+                            class="w-32 sm:w-36 md:w-40 h-auto mx-auto"
+                            style="filter: drop-shadow(0 12px 24px rgba(0,0,0,0.32)) drop-shadow(0 4px 10px rgba(197,164,78,0.38));"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </picture>
+                        <p class="text-white/45 text-[10px] sm:text-xs uppercase tracking-[0.2em] mt-5">Photo Coming Soon</p>
                       </div>
                     </div>
                   )}
