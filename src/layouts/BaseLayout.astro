@@ -155,6 +155,55 @@ if (pathSegments.length > 0) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
+  <!-- ============================================================ -->
+  <!-- Eventbrite affiliate (aff) parameter passthrough              -->
+  <!-- ============================================================ -->
+  <!-- Captures the `aff` URL param on landing (e.g. when arriving   -->
+  <!-- from a Space Blue email blast with                            -->
+  <!-- ?aff=SpaceBlueEmail) and rewrites every outbound Eventbrite   -->
+  <!-- link on every page the visitor browses so the affiliate code  -->
+  <!-- gets carried all the way through to the Eventbrite checkout.  -->
+  <!-- Falls back to the existing hardcoded `aff=websitemain` if no  -->
+  <!-- incoming code is present — so non-tracked visitors behave     -->
+  <!-- exactly as before. Defensive try/catch wrap means any failure -->
+  <!-- (sessionStorage blocked, malformed URLs, etc.) degrades       -->
+  <!-- silently to the current default behavior — no broken links.   -->
+  <script is:inline>
+    (function () {
+      // 1) On landing, capture incoming ?aff= and persist for this session.
+      try {
+        var urlParams = new URLSearchParams(window.location.search);
+        var incomingAff = urlParams.get('aff');
+        if (incomingAff) {
+          try { sessionStorage.setItem('cd250_aff', incomingAff); } catch (e) {}
+        }
+      } catch (e) {}
+
+      // 2) On DOMContentLoaded, rewrite every Eventbrite <a> with the
+      //    stored aff. No-op if nothing was stored.
+      function rewriteEventbriteLinks() {
+        try {
+          var aff = null;
+          try { aff = sessionStorage.getItem('cd250_aff'); } catch (e) {}
+          if (!aff) return;
+          var links = document.querySelectorAll('a[href*="eventbrite.com"]');
+          for (var i = 0; i < links.length; i++) {
+            try {
+              var u = new URL(links[i].href);
+              u.searchParams.set('aff', aff);
+              links[i].href = u.toString();
+            } catch (e) {}
+          }
+        } catch (e) {}
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', rewriteEventbriteLinks);
+      } else {
+        rewriteEventbriteLinks();
+      }
+    })();
+  </script>
+
 </head>
 <body class="min-h-screen flex flex-col">
   <!-- Google Tag Manager (noscript) -->
