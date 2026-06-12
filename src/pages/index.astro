@@ -10,14 +10,15 @@ import Footer from '../components/Footer.astro';
 
 const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
 
-// 'THE COUNTDOWN IS BUILDING' news-ticker items. Objects so an item
-// can carry an optional `href`; the marquee renders an <a> when href
-// is present, otherwise a non-clickable <span>. Space Blue leads and
-// links to its live page (/space-blue/).
+// 'THE LINEUP & BUZZ KEEP GROWING' news-ticker items. Objects so an
+// item can carry an optional `href`; the marquee renders an <a> when
+// href is present, otherwise a non-clickable <span>. Space Blue leads
+// and links to its live page (/space-blue/).
 const tickerItems = [
   { text: 'Space Blue Makes History — and Brings It to Life at Countdown 250', href: '/space-blue/' },
   { text: 'America’s Freedom Bell to Ring at Midnight in the “1,000 Bells of Freedom” Moment', href: '#midnight-moment-homepage' },
   { text: 'All-American Heroes and Icons', href: '#awards' },
+  { text: 'Lee Greenwood Joins List of Iconic Patriotic Performers', href: '/entertainment/' },
   { text: 'More Entertainment and Special Guest Announcements Ahead', href: '/entertainment/' },
   { text: 'Be in the Room When America Turns 250' },
 ];
@@ -363,7 +364,7 @@ const faqs = [
     </section>
 
     <!-- ============================================================ -->
-    <!-- 1.6 'THE COUNTDOWN IS BUILDING' — news-ticker band             -->
+    <!-- 1.6 'THE LINEUP & BUZZ KEEP GROWING' — news-ticker band       -->
     <!-- (promoted from /homepage-news-bar-preview/ 2026-05-20).        -->
     <!-- Desktop: gold label flush-left + scrolling marquee of the     -->
     <!-- latest curated headlines (right-to-left, seamless loop,       -->
@@ -379,7 +380,7 @@ const faqs = [
              shows on ALL screen sizes (was desktop-only). -->
         <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
           <p style="font-family: var(--font-body)" class="text-gold font-bold tracking-tight text-sm sm:text-base md:text-lg flex-shrink-0 text-center sm:text-left">
-            THE COUNTDOWN IS BUILDING:
+            THE LINEUP & BUZZ KEEP GROWING:
           </p>
           <div class="w-full sm:flex-1 overflow-hidden news-marquee">
             <div class="news-marquee-track inline-flex items-center whitespace-nowrap">
