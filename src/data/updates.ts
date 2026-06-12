@@ -58,6 +58,6 @@ export const updates: Update[] = [
     date: "2026-01-20",
     headline: "Countdown 250 Ball Officially Announced",
     slug: "ball-announced",
-    body: "Fifty years after the Bicentennial, America prepares to celebrate 250 years. The All-American Countdown 250 Ball will take place on Friday, July 3, 2026 at the Washington Hilton in Washington, D.C. Join 3,000 guests for a once-in-a-generation patriotic celebration featuring 6 party zones, 4 stages, premium open bars, culinary stations, and a midnight countdown to July 4th.",
+    body: "Fifty years after the Bicentennial, America prepares to celebrate 250 years. The All-American Countdown 250 Ball will take place on Friday, July 3, 2026 at the Washington Hilton in Washington, D.C. Join 3,000 guests for a once-in-a-generation patriotic celebration featuring 7 party zones, 4 stages, premium open bars, culinary stations, and a midnight countdown to July 4th.",
   },
 ];
