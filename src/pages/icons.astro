@@ -25,10 +25,8 @@ import Footer from '../components/Footer.astro';
 const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
 const voteFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfpvYYii5Kq5afy70yWcTrAWMb8pvrcurZ0lDW0aW1vX0ousw/viewform?usp=dialog"; // Google Form — All-American Icon Awards public voting (vote + write-in nominations)
 
-// Order: Music icons first (Tony Orlando, Bob Anderson, Lee Greenwood)
-// grouped together as the three patriotic music legends, then Jordan
-// Burroughs as the wrestling icon. Lee Greenwood + Jordan Burroughs
-// added 2026-06-01 per Mike.
+// Order: Music icons first (Tony Orlando, Bob Anderson) grouped
+// together, then Jordan Burroughs as the wrestling icon.
 const iconHonorees = [
   {
     name: "Tony Orlando",
@@ -44,13 +42,6 @@ const iconHonorees = [
     role: "World’s Greatest Singing Impressionist",
     bio: "Hailed by <em>People</em> magazine as &ldquo;America&rsquo;s Greatest Singing Impressionist,&rdquo; Bob Anderson has spent five decades as one of the most celebrated entertainers on the Las Vegas Strip.",
     bioExpanded: "<p>A Vietnam veteran from a musical family, Anderson arrived in Las Vegas in his early twenties and was on stage at the famed Sahara within hours. His extraordinary gift for recreating the voices of the world&rsquo;s greatest singers &mdash; most famously Frank Sinatra &mdash; has earned standing ovations at Carnegie Hall and performances for two U.S. Presidents and the Royal Family.</p><p>He is an inductee of both the Casino Legends Hall of Fame and the Las Vegas Entertainers Hall of Fame, was praised by Simon Cowell as the best on the planet, and was summed up by Frank Sinatra himself: &ldquo;Bob Anderson has a hell of an act.&rdquo;</p>",
-  },
-  {
-    name: "Lee Greenwood",
-    img: "/images/event/lee-greenwood-hero.jpg",
-    role: "American Patriotic Music Icon",
-    bio: "Lee Greenwood is one of America&rsquo;s most beloved country music artists and the voice behind &ldquo;God Bless the USA&rdquo; &mdash; an unofficial national anthem that has defined patriotic American music for more than four decades.",
-    bioExpanded: "<p>Greenwood&rsquo;s career spans more than forty years, over 20 studio albums, and 38 Top 40 hits on the country charts. He is a Grammy Award winner for Best Male Country Vocal Performance, a two-time Country Music Association Male Vocalist of the Year, and a member of the Grand Ole Opry.</p><p>Released in 1984, &ldquo;God Bless the USA&rdquo; became one of the most-played patriotic anthems in American history. The song resurged powerfully after the September 11, 2001 attacks and has remained a defining sound of national pride at inaugurations, military ceremonies, civic events, and stadiums across the country.</p><p>Greenwood has performed for every U.S. President since Ronald Reagan and is one of the most consistent and visible champions of America&rsquo;s veterans and active military in American entertainment. Through countless USO tours, military fundraisers, and veterans events, he has spent his career standing alongside those who serve. He is an honorary member of the U.S. Army Special Forces and has been recognized by national veterans organizations for his lifetime of service to military families.</p><p>His honors also include induction into the Music City Walk of Fame, multiple American Music Awards, and a body of patriotic music that has become inseparable from the soundtrack of modern American life.</p>",
   },
   {
     name: "Jordan Burroughs",
@@ -209,7 +200,6 @@ const mainCategories = [
           { name: "Luke Combs", desc: "Chart-topping country music superstar with one of the most loyal fan bases in live music" },
           { name: "Zach Bryan", desc: "Rising Americana and country artist recognized for heartfelt songwriting and military background" },
           { name: "Lainey Wilson", desc: "Award-winning country artist and one of the leading new voices in modern country music" },
-          { name: "Lee Greenwood", desc: "Patriotic music icon; performer of “God Bless the USA”", honoree: true, photo: "/images/event/lee-greenwood-hero.jpg" },
           { name: "Craig Morgan", desc: "Country artist and U.S. Army veteran" },
           { name: "John Rich", desc: "Country music performer and entrepreneur" },
           { name: "Tony Orlando", desc: "Award-winning entertainer and patriotic icon", honoree: true, photo: "/images/event/tony-orlando.jpg" },
