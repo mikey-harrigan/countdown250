@@ -10,7 +10,7 @@ export const updates: Update[] = [
     date: "2026-04-16",
     headline: "Complete America 250 DC Events Guide Now Live — Plan Your July 4 Weekend",
     slug: "america-250-dc-events-guide-live",
-    body: "A complete guide to all major America's 250th anniversary events in Washington, D.C. is now available on the Countdown 250 site. The guide covers six tentpole events anchoring DC this summer: UFC Freedom 250 on the White House South Lawn (June 14), the Great American State Fair on the National Mall (June 25-July 10), The Countdown 250 Ball (July 3, featured), the Salute to America July 4 fireworks on the Mall, the Freedom 250 Grand Prix of Washington D.C. (August 22-23), and context on the America250 Times Square Ball Drop in NYC. Includes a three-day July 4 weekend itinerary and a nine-question FAQ. See the full guide at /america-250-dc-events-guide.",
+    body: "A complete guide to all major America's 250th anniversary events in Washington, D.C. is now available on the Countdown 250 site. The guide covers six tentpole events anchoring DC this summer: UFC Freedom 250 on the White House South Lawn (June 14), the Great American State Fair on the National Mall (June 25-July 10), The Official Countdown 250 Ball (July 3, featured), the Salute to America July 4 fireworks on the Mall, the Freedom 250 Grand Prix of Washington D.C. (August 22-23), and context on the America250 Times Square Ball Drop in NYC. Includes a three-day July 4 weekend itinerary and a nine-question FAQ. See the full guide at /america-250-dc-events-guide.",
   },
   {
     date: "2026-04-16",
@@ -26,7 +26,7 @@ export const updates: Update[] = [
   },
   {
     date: "2026-03-26",
-    headline: "Countdown 250 Ball Partners with Operation Renewed Hope Foundation",
+    headline: "Official Countdown 250 Ball Partners with Operation Renewed Hope Foundation",
     slug: "orhf-partnership",
     body: "The official All-American Countdown 250 Ball is proud to announce its partnership with Operation Renewed Hope Foundation (ORHF), a veteran-led nonprofit dedicated to eradicating homelessness among our patriotic and selfless U.S. Veterans. ORHF provides quality housing and supportive services to homeless Veterans in the Greater DC Metropolitan region, serving over 100 Veterans and their families each year. With more than 90% of donations going directly to helping Veterans, ORHF is making a real difference in the lives of those who served our nation. ORHF will help select the All-American Heroes Lifetime Achievement Award recipients and manage the awards ceremony at the Ball. Learn more at operationrenewedhopefoundation.org.",
   },
@@ -34,7 +34,7 @@ export const updates: Update[] = [
     date: "2026-03-20",
     headline: "Early Release Tickets Now Available",
     slug: "early-release-tickets",
-    body: "Early release pricing is live for The Countdown 250 Ball. Lock in the current rates before the next wave of increases. Prices rise as the event approaches, so secure your spot today.",
+    body: "Early release pricing is live for The Official Countdown 250 Ball. Lock in the current rates before the next wave of increases. Prices rise as the event approaches, so secure your spot today.",
   },
   {
     date: "2026-03-10",
