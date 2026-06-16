@@ -1527,10 +1527,36 @@ const faqs = [
           </p>
         </div>
 
-        {/* Logo row — 2-up on mobile, 4-up on tablet+. Each card is a
+        {/* Primary Sponsors row — 2 oversized cards (Space Blue +
+            America's Freedom Bell), each taking 1/2 the page width.
+            Sit above the regular partners grid; clearly larger and
+            framed with a gold ring so they read as top-tier sponsors.
+            Promoted 2026-06-15 per Mike. */}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 max-w-6xl mx-auto mb-6 sm:mb-8">
+          <a href="/space-blue/" class="group block rounded-xl shadow-lg hover:shadow-2xl transition-all hover:-translate-y-0.5 border-2 border-navy-dark/40 overflow-hidden">
+            <div class="bg-white p-6 sm:p-8 flex items-center justify-center h-44 sm:h-56">
+              <img src="/images/partners/space-blue-logo.jpg" alt="Space Blue" class="max-h-full max-w-full object-contain" loading="lazy" decoding="async" />
+            </div>
+            <div class="bg-navy py-3 px-4 border-t-2 border-navy-dark/40 flex items-center justify-center min-h-[4rem]">
+              <p class="text-white text-center font-bold text-sm sm:text-base tracking-wide leading-tight">Space Blue</p>
+            </div>
+          </a>
+          <a href="/freedom-bell/" class="group block rounded-xl shadow-lg hover:shadow-2xl transition-all hover:-translate-y-0.5 border-2 border-navy-dark/40 overflow-hidden">
+            <div class="bg-white p-6 sm:p-8 flex items-center justify-center h-44 sm:h-56">
+              <img src="/images/event/freedom-bell-framed.png" alt="America's Freedom Bell" class="max-h-full max-w-full object-contain" loading="lazy" decoding="async" />
+            </div>
+            <div class="bg-navy py-3 px-4 border-t-2 border-navy-dark/40 flex items-center justify-center min-h-[4rem]">
+              <p class="text-white text-center font-bold text-sm sm:text-base tracking-wide leading-tight">America&rsquo;s Freedom Bell</p>
+            </div>
+          </a>
+        </div>
+
+        {/* Logo row — 2-up on mobile, 5-up on desktop. Each card is a
             link to /partners/ (gradient hover lift), with a navy name
-            bar bonded to the bottom of each white logo well. */}
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 max-w-6xl mx-auto">
+            bar bonded to the bottom of each white logo well.
+            Freedom Bell promoted to Primary Sponsors row 2026-06-15;
+            this grid now has 5 cards. */}
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5 max-w-6xl mx-auto">
           <a href="/partners/" class="group block rounded-xl shadow-md hover:shadow-xl transition-all hover:-translate-y-0.5 border border-navy/20 overflow-hidden">
             <div class="bg-white p-6 flex items-center justify-center h-28 sm:h-32">
               <img src="/images/logos/orhf-logo.png" alt="Operation Renewed Hope Foundation" class="max-h-full max-w-full object-contain" loading="lazy" decoding="async" />
@@ -1561,14 +1587,6 @@ const faqs = [
             </div>
             <div class="bg-navy py-2 px-3 border-t border-navy-dark/30 flex items-center justify-center min-h-[3.25rem] sm:min-h-[3.5rem]">
               <p class="text-white text-center font-semibold text-[11px] sm:text-xs tracking-wide leading-tight">The BRAINing Center</p>
-            </div>
-          </a>
-          <a href="/partners/" class="group block rounded-xl shadow-md hover:shadow-xl transition-all hover:-translate-y-0.5 border border-navy/20 overflow-hidden">
-            <div class="bg-white p-3 flex items-center justify-center h-28 sm:h-32">
-              <img src="/images/event/freedom-bell-framed.png" alt="America's Freedom Bell" class="max-h-full max-w-full object-contain" loading="lazy" decoding="async" />
-            </div>
-            <div class="bg-navy py-2 px-3 border-t border-navy-dark/30 flex items-center justify-center min-h-[3.25rem] sm:min-h-[3.5rem]">
-              <p class="text-white text-center font-semibold text-[11px] sm:text-xs tracking-wide leading-tight">America&rsquo;s Freedom Bell</p>
             </div>
           </a>
           <a href="/partners/" class="group block rounded-xl shadow-md hover:shadow-xl transition-all hover:-translate-y-0.5 border border-navy/20 overflow-hidden">

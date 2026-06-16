@@ -23,6 +23,23 @@ import Footer from '../components/Footer.astro';
  * flow in array order.
  */
 
+// Primary Sponsors — rendered as 2 oversized cards (1/2 page width each)
+// above the regular partners grid. Promoted 2026-06-15 per Mike.
+const primarySponsors = [
+  {
+    name: "Space Blue",
+    img: "/images/partners/space-blue-logo.jpg",
+    blurb: "The team behind the Lunaprise &mdash; the first art collection to land on the Moon. Space Blue is anchoring the Space Blue Interactive Zone with the Lunaprise Lunar Museum, lifelike hologram-style exhibits of iconic Americans, certified lunar art collectibles, and an exclusive silent charity auction benefitting American heroes.",
+    url: "/space-blue/",
+  },
+  {
+    name: "America&rsquo;s Freedom Bell",
+    img: "/images/event/freedom-bell-framed.png",
+    blurb: "A national symbol of American liberty making its coast-to-capital journey to Washington, D.C. to ring at midnight at Countdown 250 &mdash; the historic &ldquo;Bell of the Ball.&rdquo;",
+    url: "/freedom-bell/",
+  },
+];
+
 const partners = [
   {
     name: "Operation Renewed Hope Foundation",
@@ -42,12 +59,6 @@ const partners = [
     img: "/images/partners/whitbeckbeglis.png",
     blurb: "<em class='text-navy not-italic font-bold'>Your Family, Our Focus.</em> An aggressive yet compassionate team of attorneys dedicated to the areas of law affecting your family.",
     url: "https://wblaws.com/",
-  },
-  {
-    name: "America&rsquo;s Freedom Bell",
-    img: "/images/event/freedom-bell-framed.png",
-    blurb: "A national symbol of American liberty making its coast-to-capital journey to Washington, D.C. to ring at midnight at Countdown 250 &mdash; the historic &ldquo;Bell of the Ball.&rdquo;",
-    url: "/freedom-bell/",
   },
   {
     name: "The BRAINing Center",
@@ -125,7 +136,40 @@ const partners = [
     </section>
 
     <!-- ============================================================ -->
-    <!-- OUR PARTNERS — 6 cards in a uniform sm:2-col / lg:3-col grid  -->
+    <!-- PRIMARY SPONSORS — 2 oversized cards, 1/2 page width each.    -->
+    <!-- Promoted 2026-06-15 per Mike. Space Blue (left), America's    -->
+    <!-- Freedom Bell (right). Larger logo well + larger headline +    -->
+    <!-- gold-accent ring so they read clearly above the partners grid.-->
+    <!-- ============================================================ -->
+    <section class="pb-10 sm:pb-12">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm text-center mb-6">
+          Primary Sponsors
+        </p>
+        <div class="grid md:grid-cols-2 gap-6 sm:gap-8">
+          {primarySponsors.map((p) => (
+            <div class="bg-cream rounded-xl overflow-hidden border-2 border-gold/60 shadow-xl flex flex-col">
+              <div class="bg-white flex items-center justify-center h-56 sm:h-72 p-8">
+                <img src={p.img} alt={p.name} class="max-h-full max-w-full object-contain" loading="lazy" decoding="async" />
+              </div>
+              <div class="p-6 sm:p-7 flex-1 flex flex-col">
+                <h3 class="font-heading font-bold text-xl sm:text-2xl text-navy mb-3 leading-tight" set:html={p.name} />
+                <p class="text-slate/80 text-sm sm:text-base leading-relaxed flex-1" set:html={p.blurb} />
+                {p.url && (
+                  <a href={p.url} target={p.url.startsWith('/') ? '_self' : '_blank'} rel={p.url.startsWith('/') ? undefined : 'noopener noreferrer'} class="inline-block mt-5 text-red font-semibold uppercase tracking-wider text-xs sm:text-sm hover:text-red-light">
+                    Learn more &nearr;
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- OUR PARTNERS — 5 cards in a uniform sm:2-col / lg:3-col grid  -->
+    <!-- (Freedom Bell promoted to Primary Sponsors row above 2026-06-15)-->
     <!-- Each card: white logo well + name + short blurb + optional    -->
     <!-- 'Visit website ↗' link.                                       -->
     <!-- ============================================================ -->
