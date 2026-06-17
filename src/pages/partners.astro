@@ -23,9 +23,12 @@ import Footer from '../components/Footer.astro';
  * flow in array order.
  */
 
-// Primary Sponsors — rendered as 2 oversized cards (1/2 page width each)
-// above the regular partners grid. Promoted 2026-06-15 per Mike.
-const primarySponsors = [
+// 3-tier sponsor structure (2 + 2 + 4) — restructured 2026-06-17 per Mike.
+// Tier 1 (Principal Partners): Space Blue + Operation Renewed Hope Foundation.
+// Tier 2 (Key Partners): America's Freedom Bell + The Platform Magazine.
+// Tier 3 (Supporting Partners): MikeDrop, WhitbeckBeglis, BRAINing, Highly Rated Local.
+
+const tier1Sponsors = [
   {
     name: "Space Blue",
     img: "/images/partners/space-blue-logo.jpg",
@@ -33,20 +36,29 @@ const primarySponsors = [
     url: "/space-blue/",
   },
   {
+    name: "Operation Renewed Hope Foundation",
+    img: "/images/logos/orhf-logo.png",
+    blurb: "Ending Veteran homelessness. ORHF has helped more than 1,500 Veterans and their family members out of homelessness since 2011. Proceeds from the Countdown 250 Ball help support ORHF&rsquo;s mission to house U.S. Veterans.",
+    url: "https://www.operationrenewedhopefoundation.org",
+  },
+];
+
+const tier2Sponsors = [
+  {
     name: "America&rsquo;s Freedom Bell",
     img: "/images/event/freedom-bell-framed.png",
     blurb: "A national symbol of American liberty making its coast-to-capital journey to Washington, D.C. to ring at midnight at Countdown 250 &mdash; the historic &ldquo;Bell of the Ball.&rdquo;",
     url: "/freedom-bell/",
   },
+  {
+    name: "The Platform Magazine",
+    img: "/images/partners/platform-magazine.png",
+    blurb: "A national publication dedicated to military fitness, wellness, and human performance &mdash; advocating for service members, veterans, and military families across the country. Platform Magazine is helping bring complimentary tickets to active and retired military so they can celebrate America&rsquo;s 250th alongside our All-American Heroes.",
+    url: "https://fitness.foundation/",
+  },
 ];
 
 const partners = [
-  {
-    name: "Operation Renewed Hope Foundation",
-    img: "/images/logos/orhf-logo.png",
-    blurb: "Ending Veteran homelessness. ORHF has helped more than 1,500 Veterans and their family members out of homelessness since 2011.",
-    url: "https://www.operationrenewedhopefoundation.org",
-  },
   {
     name: "MikeDrop Events",
     img: "/images/partners/mikedrop-events.png",
@@ -136,18 +148,50 @@ const partners = [
     </section>
 
     <!-- ============================================================ -->
-    <!-- PRIMARY SPONSORS — 2 oversized cards, 1/2 page width each.    -->
-    <!-- Promoted 2026-06-15 per Mike. Space Blue (left), America's    -->
-    <!-- Freedom Bell (right). Larger logo well + larger headline +    -->
-    <!-- gold-accent ring so they read clearly above the partners grid.-->
+    <!-- TIER 1 — PRINCIPAL PARTNERS: Space Blue + ORHF. Largest      -->
+    <!-- cards on the page, gold ring + largest logo well + largest   -->
+    <!-- type. Restructured 2026-06-17 per Mike — ORHF promoted up   -->
+    <!-- from the regular grid; Freedom Bell moved down to Tier 2.   -->
     <!-- ============================================================ -->
     <section class="pb-10 sm:pb-12">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm text-center mb-6">
-          Primary Sponsors
+          Principal Partners
         </p>
         <div class="grid md:grid-cols-2 gap-6 sm:gap-8">
-          {primarySponsors.map((p) => (
+          {tier1Sponsors.map((p) => (
+            <div class="bg-cream rounded-xl overflow-hidden border-2 border-gold/70 shadow-2xl flex flex-col">
+              <div class="bg-white flex items-center justify-center h-64 sm:h-80 p-10">
+                <img src={p.img} alt={p.name} class="max-h-full max-w-full object-contain" loading="lazy" decoding="async" />
+              </div>
+              <div class="p-7 sm:p-8 flex-1 flex flex-col">
+                <h3 class="font-heading font-bold text-2xl sm:text-3xl text-navy mb-3 leading-tight" set:html={p.name} />
+                <p class="text-slate/80 text-base sm:text-lg leading-relaxed flex-1" set:html={p.blurb} />
+                {p.url && (
+                  <a href={p.url} target={p.url.startsWith('/') ? '_self' : '_blank'} rel={p.url.startsWith('/') ? undefined : 'noopener noreferrer'} class="inline-block mt-5 text-red font-semibold uppercase tracking-wider text-xs sm:text-sm hover:text-red-light">
+                    Learn more &nearr;
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TIER 2 — KEY PARTNERS: Freedom Bell + Platform Magazine.    -->
+    <!-- Clearly larger than the supporting partner cards but a step  -->
+    <!-- smaller than the Tier 1 principals. Platform Magazine added  -->
+    <!-- 2026-06-17.                                                  -->
+    <!-- ============================================================ -->
+    <section class="pb-10 sm:pb-12">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm text-center mb-6">
+          Key Partners
+        </p>
+        <div class="grid md:grid-cols-2 gap-6 sm:gap-8">
+          {tier2Sponsors.map((p) => (
             <div class="bg-cream rounded-xl overflow-hidden border-2 border-gold/60 shadow-xl flex flex-col">
               <div class="bg-white flex items-center justify-center h-56 sm:h-72 p-8">
                 <img src={p.img} alt={p.name} class="max-h-full max-w-full object-contain" loading="lazy" decoding="async" />
@@ -168,14 +212,17 @@ const partners = [
     </section>
 
     <!-- ============================================================ -->
-    <!-- OUR PARTNERS — 5 cards in a uniform sm:2-col / lg:3-col grid  -->
-    <!-- (Freedom Bell promoted to Primary Sponsors row above 2026-06-15)-->
-    <!-- Each card: white logo well + name + short blurb + optional    -->
-    <!-- 'Visit website ↗' link.                                       -->
+    <!-- TIER 3 — SUPPORTING PARTNERS: 4 cards in a uniform           -->
+    <!-- sm:2-col / lg:4-col grid. ORHF promoted to Tier 1 2026-06-17;-->
+    <!-- this section now has 4 cards. Each card: white logo well +   -->
+    <!-- name + short blurb + optional 'Visit website ↗' link.        -->
     <!-- ============================================================ -->
     <section class="pb-16 sm:pb-20">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm text-center mb-6">
+          Supporting Partners
+        </p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {partners.map((p) => (
             <div class={`bg-cream rounded-xl overflow-hidden border border-gold/20 shadow-md flex flex-col ${p.gridClass ?? ''}`}>
               <div class={`bg-white flex items-center justify-center h-36 sm:h-40 ${p.wellClass ?? 'p-6'}`}>
