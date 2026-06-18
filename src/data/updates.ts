@@ -7,6 +7,12 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    date: "2026-06-17",
+    headline: "Celeste Kellogg Joins the Countdown 250 Lineup",
+    slug: "celeste-kellogg-joins-lineup",
+    body: "JUST ANNOUNCED. Country music's rising star Celeste Kellogg takes the Main Stage at the Great American State Fair, then performs her patriotic anthem \"Faith in Freedom\" at the Countdown 250 Ball. An award-winning, Nashville-based singer, songwriter, and actress whose powerful voice, magnetic stage presence, and heartfelt storytelling are captivating audiences across the country, Kellogg blends modern country with the energy of 90s and 2000s pop and the grit of 70s and 80s rock. Her singles \"Country Swagger\" and \"There's a Beach Somewhere\" have been featured on Spotify and CMT playlists and charted on the Music Row Country Airplay charts. She has also opened for major artists including Miley Cyrus, Kelly Clarkson, and Brett Eldredge. \"Faith in Freedom\" — a deeply personal song born from her belief that America's strength is found not only in freedom itself, but in the courage to speak truth, stand firm, and love one another even across our differences — will be one of the evening's most meaningful musical moments. See the full lineup at /entertainment.",
+  },
+  {
     date: "2026-04-16",
     headline: "Complete America 250 DC Events Guide Now Live — Plan Your July 4 Weekend",
     slug: "america-250-dc-events-guide-live",
