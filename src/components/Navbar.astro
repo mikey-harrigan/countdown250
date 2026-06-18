@@ -15,29 +15,50 @@ const { enhancedTopBar = false } = Astro.props;
 const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
 const base = "";
 
-// Primary nav synced to homepage scroll order: Experience -> Tickets ->
-// Hosted Groups -> Awards -> Partners. "Awards" replaces the previous
-// "Honorees" label 2026-05-31 per Mike — the on-homepage section was
-// renamed `#heroes` -> `#awards` at the same time.
-const navLinks = [
-  { label: "Experience", href: "/#experience" },
+// Primary nav restructured 2026-06-17 per Mike for clearer, more
+// sales-focused navigation. Six top-level items, three of which open
+// dropdowns. Two plain anchor links (Tickets, Hosted Groups, Partners).
+//
+// Items with `items` render as dropdown menus; items with `href` render
+// as plain top-level links. All dropdown trigger/menu pairs share the
+// same `.nav-dropdown` wrapper + `.nav-dropdown-trigger` /
+// `.nav-dropdown-menu` classes so a single generic click handler can
+// toggle any of them with proper mutual exclusivity (one open closes
+// the rest).
+const primaryNav: Array<
+  | { label: string; href: string }
+  | { label: string; items: { label: string; href: string }[] }
+> = [
+  {
+    label: "Experiences & Entertainment",
+    items: [
+      { label: "Experiences Overview", href: "/#experience" },
+      { label: "Entertainment Lineup", href: `${base}/entertainment/` },
+      { label: "America’s Freedom Bell", href: `${base}/freedom-bell/` },
+      { label: "Space Blue", href: `${base}/space-blue/` },
+    ],
+  },
   { label: "Tickets", href: "/#tickets" },
   { label: "Hosted Groups", href: "/#hosted-tables" },
-  { label: "Awards", href: "/#awards" },
+  {
+    label: "Awards",
+    items: [
+      { label: "Awards Overview", href: "/#awards" },
+      { label: "All-American Heroes", href: `${base}/honorees/` },
+      { label: "All-American Icons", href: `${base}/icons/` },
+    ],
+  },
   { label: "Partners", href: "/#partners" },
-];
-
-const moreLinks = [
-  { label: "Entertainment", href: `${base}/entertainment/` },
-  { label: "Freedom Bell", href: `${base}/freedom-bell/` },
-  { label: "Space Blue", href: `${base}/space-blue/` },
-  { label: "Hosted Groups", href: `${base}/hosted-group-tables/` },
-  { label: "Heroes", href: `${base}/honorees/` },
-  { label: "Icons", href: `${base}/icons/` },
-  { label: "Venue", href: `${base}/venue/` },
-  { label: "News & Updates", href: `${base}/updates/` },
-  { label: "Press", href: `${base}/press/` },
-  { label: "FAQ", href: `${base}/faq/` },
+  {
+    label: "More",
+    items: [
+      { label: "Venue", href: `${base}/venue/` },
+      { label: "News & Updates", href: `${base}/updates/` },
+      { label: "Press", href: `${base}/press/` },
+      { label: "FAQ", href: `${base}/faq/` },
+      { label: "Contact / Questions", href: "mailto:CountdownAmerica250@gmail.com?subject=Countdown%20250%20Ball%20-%20Question" },
+    ],
+  },
 ];
 ---
 
@@ -57,35 +78,34 @@ const moreLinks = [
         </picture>
       </a>
 
-      <!-- Desktop Nav -->
-      <div class="hidden lg:flex items-center gap-6">
-        {navLinks.map((link) => (
-          <a href={link.href} class="text-white/90 hover:text-white text-sm font-medium tracking-wide uppercase transition-colors">{link.label}</a>
-        ))}
-
-        <!-- More dropdown — click-toggle (works on touch + keyboard, not just mouse hover) -->
-        <div class="relative">
-          <button
-            id="more-btn"
-            type="button"
-            aria-expanded="false"
-            aria-haspopup="true"
-            aria-controls="more-menu"
-            class="text-white/90 hover:text-white text-sm font-medium tracking-wide uppercase transition-colors flex items-center gap-1"
-          >
-            More
-            <svg class="w-3.5 h-3.5 mt-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <div id="more-menu" class="hidden absolute right-0 top-full pt-2">
-            <div class="bg-navy-dark/95 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 py-2 min-w-[180px]">
-              {moreLinks.map((link) => (
-                <a href={link.href} class="block px-4 py-2 text-white/80 hover:text-white hover:bg-white/10 text-sm font-medium tracking-wide transition-colors">{link.label}</a>
-              ))}
+      <!-- Desktop Nav — 6 top-level items, three with dropdowns -->
+      <div class="hidden lg:flex items-center gap-5">
+        {primaryNav.map((item) => (
+          'items' in item ? (
+            <div class="nav-dropdown relative">
+              <button
+                type="button"
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="nav-dropdown-trigger text-white/90 hover:text-white text-sm font-medium tracking-wide uppercase transition-colors flex items-center gap-1"
+              >
+                {item.label}
+                <svg class="w-3.5 h-3.5 mt-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="nav-dropdown-menu hidden absolute right-0 top-full pt-2">
+                <div class="bg-navy-dark/95 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 py-2 min-w-[220px]">
+                  {item.items.map((sub) => (
+                    <a href={sub.href} class="block px-4 py-2 text-white/80 hover:text-white hover:bg-white/10 text-sm font-medium tracking-wide transition-colors">{sub.label}</a>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          ) : (
+            <a href={item.href} class="text-white/90 hover:text-white text-sm font-medium tracking-wide uppercase transition-colors">{item.label}</a>
+          )
+        ))}
 
         <a
           href="/#tickets"
@@ -104,18 +124,26 @@ const moreLinks = [
     </div>
   </div>
 
-  <!-- Mobile menu -->
+  <!-- Mobile menu — same hierarchy as desktop, but always-expanded
+       nested groups (no accordion). Headers are non-clickable section
+       labels above their nested sub-links. Plain top-level items
+       remain ordinary links. -->
   <div id="mobile-menu" class="hidden lg:hidden bg-navy-dark/95 backdrop-blur-sm">
     <div class="px-4 py-6 space-y-4">
-      {navLinks.map((link) => (
-        <a href={link.href} class="block text-white/90 hover:text-white text-sm font-medium tracking-wide uppercase">{link.label}</a>
+      {primaryNav.map((item) => (
+        'items' in item ? (
+          <div class="border-t border-white/10 pt-3 first:border-t-0 first:pt-0">
+            <p class="text-gold text-xs font-bold uppercase tracking-[0.18em] mb-2">{item.label}</p>
+            <div class="pl-3 space-y-1.5">
+              {item.items.map((sub) => (
+                <a href={sub.href} class="block text-white/85 hover:text-white text-sm font-medium tracking-wide py-1">{sub.label}</a>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <a href={item.href} class="block text-white/90 hover:text-white text-sm font-medium tracking-wide uppercase">{item.label}</a>
+        )
       ))}
-      <div class="border-t border-white/10 pt-4 mt-4">
-        <p class="text-white/40 text-xs uppercase tracking-wider mb-3">More</p>
-        {moreLinks.map((link) => (
-          <a href={link.href} class="block text-white/80 hover:text-white text-sm font-medium tracking-wide py-1.5">{link.label}</a>
-        ))}
-      </div>
       <a
         href="/#tickets"
         class="block bg-red text-white px-6 py-3 text-sm font-semibold tracking-wider uppercase text-center hover:bg-red-light transition-colors rounded mt-4"
@@ -351,47 +379,59 @@ const moreLinks = [
     }
   });
 
-  // ===== "More" dropdown — click-toggle, keyboard-accessible, closes on outside click =====
-  const moreBtn = document.getElementById('more-btn');
-  const moreMenu = document.getElementById('more-menu');
-  const moreChevron = moreBtn?.querySelector('svg');
+  // ===== Generic dropdown menus — click-toggle, keyboard-accessible, =====
+  // ===== mutually exclusive (opening one closes the others), and    =====
+  // ===== close on outside click / Escape / link click.              =====
+  //
+  // Markup pattern (rendered by primaryNav above): each dropdown is a
+  // `.nav-dropdown` wrapper containing a `.nav-dropdown-trigger` button
+  // and a `.nav-dropdown-menu` panel. This wires them up generically so
+  // adding more dropdowns later "just works."
+  const dropdowns = Array.from(document.querySelectorAll<HTMLElement>('.nav-dropdown'));
 
-  function closeMoreMenu() {
-    moreMenu?.classList.add('hidden');
-    moreBtn?.setAttribute('aria-expanded', 'false');
-    moreChevron?.classList.remove('rotate-180');
+  function closeAllDropdowns() {
+    dropdowns.forEach((dd) => {
+      dd.querySelector<HTMLElement>('.nav-dropdown-menu')?.classList.add('hidden');
+      const t = dd.querySelector<HTMLElement>('.nav-dropdown-trigger');
+      t?.setAttribute('aria-expanded', 'false');
+      t?.querySelector('svg')?.classList.remove('rotate-180');
+    });
   }
 
-  moreBtn?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const wasOpen = !moreMenu?.classList.contains('hidden');
-    if (wasOpen) {
-      closeMoreMenu();
-    } else {
-      moreMenu?.classList.remove('hidden');
-      moreBtn?.setAttribute('aria-expanded', 'true');
-      moreChevron?.classList.add('rotate-180');
-    }
+  dropdowns.forEach((dd) => {
+    const trigger = dd.querySelector<HTMLElement>('.nav-dropdown-trigger');
+    const dropdownMenu = dd.querySelector<HTMLElement>('.nav-dropdown-menu');
+    const chevron = trigger?.querySelector('svg');
+
+    trigger?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const wasOpen = !dropdownMenu?.classList.contains('hidden');
+      // Mutual exclusivity: close all first.
+      closeAllDropdowns();
+      if (!wasOpen) {
+        dropdownMenu?.classList.remove('hidden');
+        trigger?.setAttribute('aria-expanded', 'true');
+        chevron?.classList.add('rotate-180');
+      }
+    });
+
+    // Close after clicking any link inside the dropdown so it doesn't
+    // linger after a same-page-anchor click.
+    dropdownMenu?.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => closeAllDropdowns());
+    });
   });
 
-  // Close on click outside
+  // Close any open dropdown when the user clicks outside the navbar dropdowns.
   document.addEventListener('click', (e) => {
-    if (!moreMenu) return;
     const target = e.target as Node;
-    if (!moreMenu.contains(target) && !moreBtn?.contains(target)) {
-      closeMoreMenu();
-    }
+    const clickedInside = dropdowns.some((dd) => dd.contains(target));
+    if (!clickedInside) closeAllDropdowns();
   });
 
-  // Close on Escape
+  // Close all dropdowns on Escape.
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeMoreMenu();
-  });
-
-  // Close after clicking any link inside the More menu (so the dropdown
-  // doesn't stay open after navigating to the same page anchor)
-  moreMenu?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => closeMoreMenu());
+    if (e.key === 'Escape') closeAllDropdowns();
   });
 </script>
 
