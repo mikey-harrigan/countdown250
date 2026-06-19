@@ -20,17 +20,24 @@ export interface HostedTable {
 export const FEATURED_THRESHOLD = 6;
 
 /** Live roster shown on /hosted-group-tables, ordered by display preference. */
+// 2026-06-18: Mike added Movement Mortgage, Latin Fashion Awards –
+// America 250 Celebration, and Sankeys. They're appended at the end
+// with count: 0 — counts are no longer displayed on the page, so the
+// numeric values are kept here only for the Featured-badge threshold.
 export const hostedTables: HostedTable[] = [
-  { name: "Technical Staffing Inc.",       count: 8  },
-  { name: "JMU Alumni",                    count: 12 },
-  { name: "Virginia Tech Alumni",          count: 8  },
-  { name: "Lansdowne Neighbors",           count: 8  },
-  { name: "Georgetown Alumni",             count: 4  },
-  { name: "Healthcare Professionals",      count: 6  },
-  { name: "H Tragle 50th Bday",            count: 6  },
-  { name: "Univ. of MD Alumni",            count: 6  },
-  { name: "Walter Family Reunion",         count: 8  },
-  { name: "Knuckle Dragger Cattle Co.",    count: 2  },
+  { name: "Technical Staffing Inc.",                    count: 8  },
+  { name: "JMU Alumni",                                 count: 12 },
+  { name: "Virginia Tech Alumni",                       count: 8  },
+  { name: "Lansdowne Neighbors",                        count: 8  },
+  { name: "Georgetown Alumni",                          count: 4  },
+  { name: "Healthcare Professionals",                   count: 6  },
+  { name: "H Tragle 50th Bday",                         count: 6  },
+  { name: "Univ. of MD Alumni",                         count: 6  },
+  { name: "Walter Family Reunion",                      count: 8  },
+  { name: "Knuckle Dragger Cattle Co.",                 count: 2  },
+  { name: "Movement Mortgage",                          count: 0  },
+  { name: "Latin Fashion Awards – America 250 Celebration", count: 0 },
+  { name: "Sankeys",                                    count: 0  },
 ];
 
 /** Convenience: derived flat list of names, kept for any legacy imports. */

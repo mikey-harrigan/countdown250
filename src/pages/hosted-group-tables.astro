@@ -330,10 +330,7 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
                   {t.count >= FEATURED_THRESHOLD && (
                     <span class="absolute -top-2.5 -right-2.5 bg-red text-white text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded shadow-md">&#9733; Featured</span>
                   )}
-                  <h3 class="font-heading font-bold text-lg sm:text-xl text-navy mb-1 leading-tight">{t.name}</h3>
-                  <p class="text-red font-bold text-sm tracking-wide mb-4">
-                    {t.count} confirmed members
-                  </p>
+                  <h3 class="font-heading font-bold text-lg sm:text-xl text-navy mb-4 leading-tight">{t.name}</h3>
                   <a
                     href={JOIN_FORM_URL}
                     target="_blank"
