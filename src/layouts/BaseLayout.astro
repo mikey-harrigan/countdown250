@@ -170,12 +170,17 @@ if (pathSegments.length > 0) {
   <!-- silently to the current default behavior — no broken links.   -->
   <script is:inline>
     (function () {
-      // 1) On landing, capture incoming ?aff= and persist for this session.
+      // 1) On landing, capture incoming ?aff= and persist across browser sessions.
+      //    localStorage (not sessionStorage) so a visitor who lands via a
+      //    partner link, leaves without buying, and comes back days later
+      //    still has their partner attribution intact at checkout time.
+      //    Last-touch behavior preserved: a new ?aff= on a later visit
+      //    overwrites the stored value.
       try {
         var urlParams = new URLSearchParams(window.location.search);
         var incomingAff = urlParams.get('aff');
         if (incomingAff) {
-          try { sessionStorage.setItem('cd250_aff', incomingAff); } catch (e) {}
+          try { localStorage.setItem('cd250_aff', incomingAff); } catch (e) {}
         }
       } catch (e) {}
 
@@ -184,7 +189,7 @@ if (pathSegments.length > 0) {
       function rewriteEventbriteLinks() {
         try {
           var aff = null;
-          try { aff = sessionStorage.getItem('cd250_aff'); } catch (e) {}
+          try { aff = localStorage.getItem('cd250_aff'); } catch (e) {}
           if (!aff) return;
           var links = document.querySelectorAll('a[href*="eventbrite.com"]');
           for (var i = 0; i < links.length; i++) {
@@ -228,7 +233,7 @@ if (pathSegments.length > 0) {
       // Map inbound UTM source/campaign to an Eventbrite tracking code so sales attribute to the right channel
       function resolveAff() {
         try {
-          var stored = sessionStorage.getItem('cd250_aff');
+          var stored = localStorage.getItem('cd250_aff');
           if (stored) return stored;
           var p = new URLSearchParams(window.location.search);
           var src = (p.get('utm_source') || '').toLowerCase();
@@ -238,7 +243,7 @@ if (pathSegments.length > 0) {
           else if (src === 'google') aff = 'googleOther';
           else if (src === 'facebook' || src === 'meta') aff = 'fbAds';
           else if (src === 'linkedin') aff = 'liAds';
-          sessionStorage.setItem('cd250_aff', aff);
+          localStorage.setItem('cd250_aff', aff);
           return aff;
         } catch (e) { return 'websitemain'; }
       }
