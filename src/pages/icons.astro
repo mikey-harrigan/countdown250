@@ -25,8 +25,9 @@ import Footer from '../components/Footer.astro';
 const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
 const voteFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfpvYYii5Kq5afy70yWcTrAWMb8pvrcurZ0lDW0aW1vX0ousw/viewform?usp=dialog"; // Google Form — All-American Icon Awards public voting (vote + write-in nominations)
 
-// Order: Music icons first (Tony Orlando, Bob Anderson) grouped
-// together, then Jordan Burroughs as the wrestling icon.
+// Order: Music icons first (Tony Orlando, Bob Anderson, Scott Page)
+// grouped together, then Jordan Burroughs and Mike Moyer as the
+// wrestling icons.
 const iconHonorees = [
   {
     name: "Tony Orlando",
@@ -42,6 +43,13 @@ const iconHonorees = [
     role: "World’s Greatest Singing Impressionist",
     bio: "Hailed by <em>People</em> magazine as &ldquo;America&rsquo;s Greatest Singing Impressionist,&rdquo; Bob Anderson has spent five decades as one of the most celebrated entertainers on the Las Vegas Strip.",
     bioExpanded: "<p>A Vietnam veteran from a musical family, Anderson arrived in Las Vegas in his early twenties and was on stage at the famed Sahara within hours. His extraordinary gift for recreating the voices of the world&rsquo;s greatest singers &mdash; most famously Frank Sinatra &mdash; has earned standing ovations at Carnegie Hall and performances for two U.S. Presidents and the Royal Family.</p><p>He is an inductee of both the Casino Legends Hall of Fame and the Las Vegas Entertainers Hall of Fame, was praised by Simon Cowell as the best on the planet, and was summed up by Frank Sinatra himself: &ldquo;Bob Anderson has a hell of an act.&rdquo;</p>",
+  },
+  {
+    name: "Scott Page",
+    img: null,
+    role: "Saxophonist &middot; Pink Floyd &middot; Supertramp",
+    bio: "Scott Page is the renowned American saxophonist who toured the world with Pink Floyd on the landmark <em>A Momentary Lapse of Reason</em> and <em>Delicate Sound of Thunder</em> tours, and with Supertramp on the <em>Brother Where You Bound</em> album and 1985 World Tour &mdash; performing on some of the largest stages in rock history.",
+    bioExpanded: "<p>Scott Page joined Pink Floyd as the saxophonist for their <em>A Momentary Lapse of Reason</em> world tour (1987&ndash;1988) and continued with the band on the <em>Delicate Sound of Thunder</em> tour &mdash; era-defining shows captured on the live recordings and films of the same name, which together rank among the highest-grossing rock tours of their decade.</p><p>His tenure with Supertramp on the 1985 <em>Brother Where You Bound</em> album and accompanying World Tour cemented his place among rock&rsquo;s most in-demand session and touring saxophonists. From sold-out stadium shows to intimate showcases, his unmistakable sound has reached audiences across the world.</p><p>Beyond his musical career, Page has built a parallel body of work as a multimedia entrepreneur and innovator at the intersection of music, technology, and live experience &mdash; bringing that same restless creative energy to every stage he steps onto.</p>",
   },
   {
     name: "Jordan Burroughs",
@@ -64,7 +72,7 @@ const iconHonorees = [
 // & Influence). Main groups render as always-visible section headers;
 // subcategories render as collapsed accordions with a Vote button on
 // every nominee row. `honoree: true` flags the gold "2026 HONOREE"
-// badge — currently Tony Orlando + Bob Anderson.
+// badge — currently Tony Orlando, Bob Anderson, and Scott Page.
 //
 // Honorees NOT carried forward from the previous structure (cut):
 //   Ilona Maher, Shedeur Sanders, Cooper Flagg.
@@ -204,6 +212,7 @@ const mainCategories = [
           { name: "John Rich", desc: "Country music performer and entrepreneur" },
           { name: "Tony Orlando", desc: "Award-winning entertainer and patriotic icon", honoree: true, photo: "/images/event/tony-orlando.jpg" },
           { name: "Bob Anderson", desc: "Award-winning vocal impressionist and performer", honoree: true, photo: "/images/event/bob-anderson.jpg" },
+          { name: "Scott Page", desc: "Renowned saxophonist (Pink Floyd, Supertramp)", honoree: true },
         ],
       },
       {
