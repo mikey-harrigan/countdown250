@@ -27,11 +27,12 @@ export default defineConfig({
     '/stars': '/?aff=Stars',
     '/celeste': '/?aff=Celeste',
     '/tami': '/?aff=Tami',
+    '/military': '/?aff=Military',
   },
   integrations: [
     sitemap({
       filter: (page) =>
-        !/\/(homepage-|home-original-archive|hosted-group-tables-preview|tickets-preview|liquid-blue-preview|entertainment-preview|partners-preview|american-icons-preview|statesmans-pass|freedom-bell-|space-blue-preview|icons-vote-preview|rpv|chris|gentry|sean|plm|stars|celeste|tami)/.test(page),
+        !/\/(homepage-|home-original-archive|hosted-group-tables-preview|tickets-preview|liquid-blue-preview|entertainment-preview|partners-preview|american-icons-preview|statesmans-pass|freedom-bell-|space-blue-preview|icons-vote-preview|rpv|chris|gentry|sean|plm|stars|celeste|tami|military)/.test(page),
     }),
   ],
   vite: {
