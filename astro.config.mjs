@@ -20,11 +20,16 @@ export default defineConfig({
   // matching tracking link in Eventbrite so reports show it by name.
   redirects: {
     '/rpv': '/?aff=RPV',
+    '/chris': '/?aff=Chris',
+    '/gentry': '/?aff=Gentry',
+    '/sean': '/?aff=Sean',
+    '/plm': '/?aff=PLM',
+    '/stars': '/?aff=Stars',
   },
   integrations: [
     sitemap({
       filter: (page) =>
-        !/\/(homepage-|home-original-archive|hosted-group-tables-preview|tickets-preview|liquid-blue-preview|entertainment-preview|partners-preview|american-icons-preview|statesmans-pass|freedom-bell-|space-blue-preview|icons-vote-preview|rpv)/.test(page),
+        !/\/(homepage-|home-original-archive|hosted-group-tables-preview|tickets-preview|liquid-blue-preview|entertainment-preview|partners-preview|american-icons-preview|statesmans-pass|freedom-bell-|space-blue-preview|icons-vote-preview|rpv|chris|gentry|sean|plm|stars)/.test(page),
     }),
   ],
   vite: {
