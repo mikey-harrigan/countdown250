@@ -19,6 +19,7 @@ const tickerItems = [
   { text: 'Space Blue Makes History — and Brings It to Life at Countdown 250', href: '/space-blue/' },
   { text: 'America’s Freedom Bell to Ring at Midnight in the “1,000 Bells of Freedom” Moment', href: '#midnight-moment-homepage' },
   { text: 'All-American Heroes and Icons', href: '#awards' },
+  { text: 'Lee Greenwood to Receive the All-American Icon Award and Perform “God Bless the USA”', href: '/icons/' },
   { text: 'More Entertainment and Special Guest Announcements Ahead', href: '/entertainment/' },
   { text: 'Be in the Room When America Turns 250' },
 ];
@@ -308,14 +309,21 @@ const faqs = [
               A once-in-a-lifetime moment.
             </p>
 
-            <!-- CTA: anchor unchanged (#tickets) -->
-            <div class="flex justify-center">
+            <!-- CTA: anchor unchanged (#tickets) + hero video trigger -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
                 href="#tickets"
                 class="bg-red hover:bg-red-light text-white px-10 py-4 text-sm font-semibold tracking-[0.2em] uppercase transition-all rounded shadow-lg hover:shadow-xl hover:-translate-y-0.5"
               >
                 See Ticket Options
               </a>
+              <button
+                type="button"
+                id="hero-video-trigger"
+                class="inline-flex items-center justify-center gap-2.5 bg-navy/70 hover:bg-navy border-2 border-white/40 hover:border-white/70 text-white px-10 py-4 text-sm font-semibold tracking-[0.2em] uppercase transition-all rounded shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              >
+                <span class="text-base leading-none" aria-hidden="true">&#9654;</span> Watch the Video
+              </button>
             </div>
 
           </div>
@@ -484,6 +492,10 @@ const faqs = [
               <div class="carousel-caption">Celeste Kellogg &mdash; Country Music&rsquo;s Rising Star</div>
             </div>
             <div class="carousel-slide">
+              <img src="/images/event/lee-greenwood-hero.jpg" alt="Lee Greenwood, patriotic music legend, in a dramatic portrait against an American flag backdrop" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">Lee Greenwood &mdash; All-American Icon Award honoree</div>
+            </div>
+            <div class="carousel-slide">
               <img src="/images/event/bob-anderson.jpg" alt="Bob Anderson, World's Greatest Singing Impressionist, performing on stage with a microphone" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
               <div class="carousel-caption">Bob Anderson &mdash; America&rsquo;s Greatest Singing Impressionist</div>
             </div>
@@ -555,6 +567,7 @@ const faqs = [
               <button type="button" class="carousel-dot" data-go="10" aria-label="Slide 11"></button>
               <button type="button" class="carousel-dot" data-go="11" aria-label="Slide 12"></button>
               <button type="button" class="carousel-dot" data-go="12" aria-label="Slide 13"></button>
+              <button type="button" class="carousel-dot" data-go="13" aria-label="Slide 14"></button>
             </div>
           </div>
 
@@ -1497,6 +1510,7 @@ const faqs = [
             <div class="awards-marquee-track">
               <div class="awards-marquee-item"><img src="/images/event/buzz-aldrin.png" alt="Astronaut Buzz Aldrin at a past All-American Inaugural Ball" loading="eager" /><div class="awards-marquee-cap">Buzz Aldrin</div></div>
               <div class="awards-marquee-item"><img src="/images/event/hero-medal-presentation.jpg" alt="Ashley Judd presenting a Lifetime Achievement medal" loading="lazy" /><div class="awards-marquee-cap">Honoring our heroes</div></div>
+              <div class="awards-marquee-item"><img src="/images/event/lee-greenwood-hero.jpg" alt="Lee Greenwood, country music legend and patriot" loading="lazy" /><div class="awards-marquee-cap">Lee Greenwood</div></div>
               <div class="awards-marquee-item"><img src="/images/event-photos/aab-2025-medal-recipients-stage.jpg" alt="All-American Heroes Lifetime Achievement Award recipients on stage" loading="lazy" /><div class="awards-marquee-cap">Medal recipients on stage</div></div>
               <div class="awards-marquee-item"><img src="/images/event/military-guard-sword.jpg" alt="Ceremonial military guard with raised sword" loading="lazy" /><div class="awards-marquee-cap">Pomp and salute</div></div>
               <div class="awards-marquee-item"><img src="/images/event/hero-veteran-honored.jpg" alt="Wounded Army officer honored at the 2025 ball" loading="lazy" /><div class="awards-marquee-cap">Wounded warriors honored</div></div>
@@ -1504,6 +1518,7 @@ const faqs = [
               <!-- Duplicate set for seamless loop -->
               <div class="awards-marquee-item" aria-hidden="true"><img src="/images/event/buzz-aldrin.png" alt="" loading="lazy" /><div class="awards-marquee-cap">Buzz Aldrin</div></div>
               <div class="awards-marquee-item" aria-hidden="true"><img src="/images/event/hero-medal-presentation.jpg" alt="" loading="lazy" /><div class="awards-marquee-cap">Honoring our heroes</div></div>
+              <div class="awards-marquee-item" aria-hidden="true"><img src="/images/event/lee-greenwood-hero.jpg" alt="" loading="lazy" /><div class="awards-marquee-cap">Lee Greenwood</div></div>
               <div class="awards-marquee-item" aria-hidden="true"><img src="/images/event-photos/aab-2025-medal-recipients-stage.jpg" alt="" loading="lazy" /><div class="awards-marquee-cap">Medal recipients on stage</div></div>
               <div class="awards-marquee-item" aria-hidden="true"><img src="/images/event/military-guard-sword.jpg" alt="" loading="lazy" /><div class="awards-marquee-cap">Pomp and salute</div></div>
               <div class="awards-marquee-item" aria-hidden="true"><img src="/images/event/hero-veteran-honored.jpg" alt="" loading="lazy" /><div class="awards-marquee-cap">Wounded warriors honored</div></div>
@@ -1834,6 +1849,23 @@ const faqs = [
         </div>
       </div>
     </div>
+
+    <!-- ============================================================ -->
+    <!-- HERO VIDEO MODAL — plays the Countdown 250 preview video      -->
+    <!-- (Google Drive embed, LG_Countdown250_preview.mp4). Opened by  -->
+    <!-- the #hero-video-trigger 'Watch the Video' button in the hero. -->
+    <!-- src is set on open and cleared on close so playback stops.    -->
+    <!-- ============================================================ -->
+    <div id="hero-video-modal" class="hidden fixed inset-0 z-50 items-center justify-center bg-black/80 backdrop-blur-sm p-4 sm:p-6" role="dialog" aria-modal="true" aria-label="Countdown 250 Ball video" aria-hidden="true">
+      <div class="relative w-full max-w-4xl bg-navy-dark rounded-2xl border-2 border-gold shadow-2xl overflow-hidden">
+        <button id="hero-video-close" type="button" aria-label="Close video" class="absolute top-2 right-2 sm:-top-4 sm:-right-4 z-10 bg-gold hover:bg-gold-light text-navy-dark rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center font-bold text-2xl shadow-lg transition-all leading-none">
+          &times;
+        </button>
+        <div class="relative w-full bg-black" style="aspect-ratio: 16 / 9;">
+          <iframe id="hero-video-iframe" class="absolute inset-0 w-full h-full" src="" title="Countdown 250 Ball video" frameborder="0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
   </main>
 
   <Footer />
@@ -1931,6 +1963,42 @@ const faqs = [
   initFadeCarousel('.heroes-carousel', 6500);
   initFadeCarousel('.experience-carousel', 5500);
   initFadeCarousel('.hosted-groups-carousel', 6000);
+</script>
+
+<script>
+  // Hero video modal — Google Drive embed of the Countdown 250 preview.
+  (function () {
+    const trigger = document.getElementById('hero-video-trigger');
+    const modal = document.getElementById('hero-video-modal');
+    const iframe = document.getElementById('hero-video-iframe') as HTMLIFrameElement | null;
+    const closeBtn = document.getElementById('hero-video-close');
+    if (!trigger || !modal || !iframe || !closeBtn) return;
+    const SRC = 'https://drive.google.com/file/d/105JMa2B1PSQJwFi6YiBzFiGIdsr-5Sxu/preview';
+
+    function openModal() {
+      if (!iframe || !modal) return;
+      iframe.src = SRC;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      if (!iframe || !modal) return;
+      iframe.src = '';
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    trigger.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+    });
+  })();
 </script>
 
 <style>

@@ -25,9 +25,11 @@ import Footer from '../components/Footer.astro';
 const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
 const voteFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfpvYYii5Kq5afy70yWcTrAWMb8pvrcurZ0lDW0aW1vX0ousw/viewform?usp=dialog"; // Google Form — All-American Icon Awards public voting (vote + write-in nominations)
 
-// Order: Music icons first (Tony Orlando, Bob Anderson, Scott Page)
+// Order: Music icons first (Tony Orlando, Bob Anderson, Lee Greenwood)
 // grouped together, then Jordan Burroughs and Mike Moyer as the
-// wrestling icons.
+// wrestling icons. Lee Greenwood restored 2026-06-24 per Mike (agreement
+// finalized) — scoped to receiving the All-American Icon Award and
+// performing his one signature song, "God Bless the USA."
 const iconHonorees = [
   {
     name: "Tony Orlando",
@@ -50,6 +52,13 @@ const iconHonorees = [
     role: "Saxophonist &amp; Renowned Artist &middot; Pink Floyd &middot; Supertramp &middot; Toto",
     bio: "Scott Page is one of rock&rsquo;s most influential and revered musicians &mdash; a saxophonist and celebrated artist whose revolutionary sound has helped shape some of the greatest tours and recordings in music history, from Pink Floyd to Supertramp to Toto.",
     bioExpanded: "<p>Scott Page&rsquo;s career has been one continuous arc through some of the most important moments in modern rock. As Pink Floyd&rsquo;s saxophonist on the <em>A Momentary Lapse of Reason</em> world tour (1987&ndash;1988) and the subsequent <em>Delicate Sound of Thunder</em> tour, he performed on some of the highest-grossing concerts of the era &mdash; his solos captured forever on the live recordings and films that defined a generation of arena rock.</p><p>His collaboration with Supertramp on the 1985 <em>Brother Where You Bound</em> album and the accompanying World Tour cemented his place among rock&rsquo;s most in-demand touring saxophonists. He has also brought his signature sound to Toto and a long list of legendary acts &mdash; the kind of breadth that makes him not just a great musician but a voice that has shaped how a generation of rock and roll sounds.</p><p>Beyond music, Scott is a renowned artist and creative force whose work and instincts have reached far beyond the stage. From traditional visual art and design to the cutting edge of multimedia and digital experience, he has built a body of work that has inspired generations of musicians, artists, and creators &mdash; and put him at the front of many of the most important conversations in modern entertainment.</p><p>We are thrilled to welcome Scott Page to the Countdown 250 Ball. His musicianship, artistry, and unmistakable energy will help make America&rsquo;s 250th birthday celebration truly unforgettable.</p>",
+  },
+  {
+    name: "Lee Greenwood",
+    img: "/images/event/lee-greenwood-hero.jpg",
+    role: "American Patriotic Music Icon",
+    bio: "Lee Greenwood is one of America&rsquo;s most beloved country music artists and the voice behind &ldquo;God Bless the USA&rdquo; &mdash; an unofficial national anthem that has defined patriotic American music for more than four decades.",
+    bioExpanded: "<p>Greenwood&rsquo;s career spans more than forty years, over 20 studio albums, and 38 Top 40 hits on the country charts. He is a Grammy Award winner for Best Male Country Vocal Performance, a two-time Country Music Association Male Vocalist of the Year, and a member of the Grand Ole Opry.</p><p>Released in 1984, &ldquo;God Bless the USA&rdquo; became one of the most-played patriotic anthems in American history. The song resurged powerfully after the September 11, 2001 attacks and has remained a defining sound of national pride at inaugurations, military ceremonies, civic events, and stadiums across the country.</p><p>Greenwood has performed for every U.S. President since Ronald Reagan and is one of the most consistent and visible champions of America&rsquo;s veterans and active military in American entertainment. Through countless USO tours, military fundraisers, and veterans events, he has spent his career standing alongside those who serve.</p><p>At the Countdown 250 Ball, Lee Greenwood will be presented with the All-American Icon Award and perform his signature anthem, &ldquo;God Bless the USA.&rdquo;</p>",
   },
   {
     name: "Jordan Burroughs",
@@ -208,6 +217,7 @@ const mainCategories = [
           { name: "Luke Combs", desc: "Chart-topping country music superstar with one of the most loyal fan bases in live music" },
           { name: "Zach Bryan", desc: "Rising Americana and country artist recognized for heartfelt songwriting and military background" },
           { name: "Lainey Wilson", desc: "Award-winning country artist and one of the leading new voices in modern country music" },
+          { name: "Lee Greenwood", desc: "Patriotic music icon; performer of “God Bless the USA”", honoree: true, photo: "/images/event/lee-greenwood-hero.jpg" },
           { name: "Craig Morgan", desc: "Country artist and U.S. Army veteran" },
           { name: "John Rich", desc: "Country music performer and entrepreneur" },
           { name: "Tony Orlando", desc: "Award-winning entertainer and patriotic icon", honoree: true, photo: "/images/event/tony-orlando.jpg" },
