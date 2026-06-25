@@ -396,6 +396,24 @@
     "text_in_image": "Casamigos Tequila (bottle label)"
   },
   {
+    "filename": "event-photos/lee-greenwood-banner.jpg",
+    "category": "entertainment",
+    "subcategory": "performer-promotional",
+    "description": "Promotional banner of Lee Greenwood posed in front of a large American flag on a blue background, with his name and song title in bold red text.",
+    "people_visible": 1,
+    "people_description": "Lee Greenwood, country music artist, wearing a black jacket",
+    "setting": "studio composite with American flag",
+    "mood": "patriotic-promotional",
+    "is_political": false,
+    "visual_quality": "high",
+    "lighting": "bright",
+    "colors_dominant": ["navy blue", "red", "white"],
+    "formal_attire": false,
+    "usable_for": ["gallery", "entertainment-section"],
+    "flags_or_patriotic_elements": true,
+    "text_in_image": "LEE GREENWOOD / Proud To Be An American"
+  },
+  {
     "filename": "event-photos/patriotic-crowd.jpg",
     "category": "crowd",
     "subcategory": "mingling",
@@ -483,6 +501,24 @@
     "formal_attire": false,
     "usable_for": ["honoree-profile"],
     "flags_or_patriotic_elements": false,
+    "text_in_image": "none"
+  },
+  {
+    "filename": "honorees/lee-greenwood.jpg",
+    "category": "portrait",
+    "subcategory": "honoree-portrait",
+    "description": "Portrait of Lee Greenwood in a black jacket posed in front of a large American flag, gazing directly at the camera with a serious, patriotic expression.",
+    "people_visible": 1,
+    "people_description": "Lee Greenwood, country music artist",
+    "setting": "studio with American flag backdrop",
+    "mood": "patriotic-dignified",
+    "is_political": false,
+    "visual_quality": "medium",
+    "lighting": "bright",
+    "colors_dominant": ["red", "navy blue", "white"],
+    "formal_attire": false,
+    "usable_for": ["gallery", "honoree-profile", "entertainment-section"],
+    "flags_or_patriotic_elements": true,
     "text_in_image": "none"
   },
   {
