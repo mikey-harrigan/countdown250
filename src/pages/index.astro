@@ -308,21 +308,14 @@ const faqs = [
               A once-in-a-lifetime moment.
             </p>
 
-            <!-- CTA: anchor unchanged (#tickets) + hero video trigger -->
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <!-- CTA -->
+            <div class="flex justify-center">
               <a
                 href="#tickets"
                 class="bg-red hover:bg-red-light text-white px-10 py-4 text-sm font-semibold tracking-[0.2em] uppercase transition-all rounded shadow-lg hover:shadow-xl hover:-translate-y-0.5"
               >
                 See Ticket Options
               </a>
-              <button
-                type="button"
-                id="hero-video-trigger"
-                class="cd250-video-trigger inline-flex items-center justify-center gap-2.5 bg-navy/70 hover:bg-navy border-2 border-white/40 hover:border-white/70 text-white px-10 py-4 text-sm font-semibold tracking-[0.2em] uppercase transition-all rounded shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-              >
-                <span class="text-base leading-none" aria-hidden="true">&#9654;</span> Watch the Video
-              </button>
             </div>
 
           </div>
@@ -474,32 +467,6 @@ const faqs = [
           <p class="text-white/85 text-lg leading-relaxed">
             Mix and mingle with decorated veterans and first responders, professional athletes and celebrities, C-suite business leaders, policymakers, media personalities, influencers, and proud Americans from across the country at this once-in-a-lifetime celebration.
           </p>
-        </div>
-
-        <!-- ============================================================ -->
-        <!-- COUNTDOWN 250 VIDEO — clickable thumbnail directly below the   -->
-        <!-- intro copy. Opens the shared video modal (#hero-video-modal). -->
-        <!-- Same .cd250-video-trigger class as the hero "Watch the Video" -->
-        <!-- button. (Per Mike 2026-06-24 evening: video stays on the site -->
-        <!-- while the Lee Greenwood agreement remains uncertain; he is    -->
-        <!-- NOT to appear anywhere else on the site until confirmed.)     -->
-        <!-- ============================================================ -->
-        <div class="mb-10 sm:mb-12 flex flex-col items-center">
-          <button
-            type="button"
-            class="cd250-video-trigger group relative block w-full max-w-[30rem] rounded-xl overflow-hidden ring-2 ring-gold/50 hover:ring-gold shadow-[0_18px_40px_-16px_rgba(0,0,0,0.65)] transition-all hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-gold/70"
-            aria-label="Play the Countdown 250 video"
-          >
-            <span class="block aspect-video bg-navy-dark">
-              <img src="/videos/lg-countdown250-poster.jpg" alt="Countdown 250 Ball video preview" class="w-full h-full object-cover" loading="lazy" decoding="async" />
-            </span>
-            <span class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-black/25 pointer-events-none"></span>
-            <span class="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <span class="flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gold/90 group-hover:bg-gold text-navy-dark shadow-lg transition-all group-hover:scale-105">
-                <svg class="w-9 h-9 sm:w-10 sm:h-10 ml-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
-              </span>
-            </span>
-          </button>
         </div>
 
         <!-- Image carousel (left) + ribbon feature cards (right). On mobile
@@ -1869,25 +1836,6 @@ const faqs = [
       </div>
     </div>
 
-    <!-- ============================================================ -->
-    <!-- COUNTDOWN 250 VIDEO MODAL — plays the preview video. Opened   -->
-    <!-- by the #hero-video-trigger 'Watch the Video' button in the    -->
-    <!-- hero and the thumbnail in the Experience section. (Per Mike   -->
-    <!-- 2026-06-24 evening: kept while the Lee Greenwood agreement    -->
-    <!-- remains uncertain.)                                           -->
-    <!-- ============================================================ -->
-    <div id="hero-video-modal" class="hidden fixed inset-0 z-50 items-center justify-center bg-black/80 backdrop-blur-sm p-4 sm:p-6" role="dialog" aria-modal="true" aria-label="Countdown 250 Ball video" aria-hidden="true">
-      <div class="relative w-full max-w-4xl bg-navy-dark rounded-2xl border-2 border-gold shadow-2xl overflow-hidden">
-        <button id="hero-video-close" type="button" aria-label="Close video" class="absolute top-2 right-2 sm:-top-4 sm:-right-4 z-10 bg-gold hover:bg-gold-light text-navy-dark rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center font-bold text-2xl shadow-lg transition-all leading-none">
-          &times;
-        </button>
-        <div class="relative w-full bg-black" style="aspect-ratio: 16 / 9;">
-          <video id="hero-video-player" class="absolute inset-0 w-full h-full" controls playsinline preload="none" poster="/videos/lg-countdown250-poster.jpg">
-            <source src="/videos/lg-countdown250.mp4" type="video/mp4" />
-          </video>
-        </div>
-      </div>
-    </div>
   </main>
 
   <Footer />
@@ -1985,43 +1933,6 @@ const faqs = [
   initFadeCarousel('.heroes-carousel', 6500);
   initFadeCarousel('.experience-carousel', 5500);
   initFadeCarousel('.hosted-groups-carousel', 6000);
-</script>
-
-<script>
-  // Countdown 250 video modal (self-hosted .mp4 preview).
-  (function () {
-    const triggers = document.querySelectorAll('.cd250-video-trigger');
-    const modal = document.getElementById('hero-video-modal');
-    const video = document.getElementById('hero-video-player') as HTMLVideoElement | null;
-    const closeBtn = document.getElementById('hero-video-close');
-    if (!triggers.length || !modal || !video || !closeBtn) return;
-
-    function openModal() {
-      if (!video || !modal) return;
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-      const p = video.play();
-      if (p && typeof p.catch === 'function') p.catch(() => {});
-    }
-    function closeModal() {
-      if (!video || !modal) return;
-      video.pause();
-      video.currentTime = 0;
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    triggers.forEach((t) => t.addEventListener('click', openModal));
-    closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
-    });
-  })();
 </script>
 
 <style>
