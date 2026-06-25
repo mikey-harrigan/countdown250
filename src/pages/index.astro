@@ -471,16 +471,21 @@ const faqs = [
         </div>
 
         <!-- ============================================================ -->
-        <!-- LEE GREENWOOD VIDEO — clickable thumbnail directly below the   -->
-        <!-- intro copy. Opens the shared video modal (#hero-video-modal)   -->
-        <!-- and plays LG_Countdown250_preview.mp4. Uses .cd250-video-      -->
-        <!-- trigger class to open the modal.                              -->
+        <!-- TWO VIDEO THUMBNAILS — Lee Greenwood (always visible) + Space  -->
+        <!-- Blue (desktop only — on mobile, Space Blue video lives inside  -->
+        <!-- the Space Blue section below to avoid stacking 2 videos at the -->
+        <!-- top). Both open the shared video modal (#hero-video-modal) via -->
+        <!-- data-video-src / data-video-poster on the trigger.             -->
         <!-- ============================================================ -->
-        <div class="mb-10 sm:mb-12 flex flex-col items-center">
+        <div class="mb-10 sm:mb-12 flex flex-col items-center sm:grid sm:grid-cols-2 sm:gap-8 sm:items-start max-w-5xl mx-auto">
+
+          <!-- LEFT (or only on mobile): Lee Greenwood -->
           <button
             type="button"
-            class="cd250-video-trigger group relative block w-full max-w-[30rem] rounded-xl overflow-hidden ring-2 ring-gold/50 hover:ring-gold shadow-[0_18px_40px_-16px_rgba(0,0,0,0.65)] transition-all hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-gold/70"
+            class="cd250-video-trigger group relative block w-full max-w-[30rem] sm:max-w-none rounded-xl overflow-hidden ring-2 ring-gold/50 hover:ring-gold shadow-[0_18px_40px_-16px_rgba(0,0,0,0.65)] transition-all hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-gold/70"
             aria-label="Play the Lee Greenwood Countdown 250 video"
+            data-video-src="/videos/lg-countdown250.mp4"
+            data-video-poster="/videos/lg-countdown250-poster.jpg"
           >
             <span class="block aspect-video bg-navy-dark">
               <img src="/videos/lg-countdown250-poster.jpg" alt="Lee Greenwood, in an American-flag hoodie, recording a video message for the Countdown 250 Ball" class="w-full h-full object-cover" loading="lazy" decoding="async" />
@@ -496,6 +501,31 @@ const faqs = [
               <span class="block text-gold text-xs sm:text-sm font-semibold">All-American Icon &mdash; &ldquo;God Bless the USA&rdquo;</span>
             </span>
           </button>
+
+          <!-- RIGHT: Space Blue — DESKTOP ONLY. On mobile this slot is
+               empty; the Space Blue video appears at the top of the Space
+               Blue section below instead. -->
+          <button
+            type="button"
+            class="cd250-video-trigger group relative hidden sm:block w-full rounded-xl overflow-hidden ring-2 ring-gold/50 hover:ring-gold shadow-[0_18px_40px_-16px_rgba(0,0,0,0.65)] transition-all hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-gold/70"
+            aria-label="Play the Space Blue Countdown 250 video"
+            data-video-src="/videos/space-blue.mp4"
+            data-video-poster="/videos/space-blue-poster.jpg"
+          >
+            <span class="block aspect-video bg-navy-dark">
+              <img src="/videos/space-blue-poster.jpg" alt="Space Blue immersive experience preview for the Countdown 250 Ball" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+            </span>
+            <span class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-black/25 pointer-events-none"></span>
+            <span class="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <span class="flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gold/90 group-hover:bg-gold text-navy-dark shadow-lg transition-all group-hover:scale-105">
+                <svg class="w-9 h-9 sm:w-10 sm:h-10 ml-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+              </span>
+            </span>
+            <span class="absolute bottom-0 left-0 right-0 p-3 sm:p-4 text-left pointer-events-none">
+              <span class="block text-white font-heading font-bold text-base sm:text-lg leading-tight">Space Blue</span>
+              <span class="block text-gold text-xs sm:text-sm font-semibold">Immersive Experience &mdash; Live at the Ball</span>
+            </span>
+          </button>
         </div>
 
         <!-- Image carousel (left) + ribbon feature cards (right). On mobile
@@ -504,17 +534,17 @@ const faqs = [
              when off-screen, respects prefers-reduced-motion. -->
         <div class="grid lg:grid-cols-[7fr_5fr] gap-6 lg:gap-8 items-stretch">
 
-          <!-- Experience carousel — 13 slides of real ball moments + performers.
-               Celeste Kellogg promoted to slide 1 (active, eager) 2026-06-18 per Mike;
-               Bob Anderson moves to slide 2. -->
+          <!-- Experience carousel — 14 slides of real ball moments + performers.
+               Lee Greenwood promoted to slide 1 (active, eager) 2026-06-25 per Mike;
+               Celeste Kellogg moves to slide 2. -->
           <div class="experience-carousel relative rounded-lg overflow-hidden ring-2 ring-[#C5A44E]/40 aspect-[4/3] lg:aspect-auto lg:min-h-0" style="box-shadow: 0 25px 60px -12px rgba(0,0,0,0.65), 0 10px 25px -10px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08) inset;">
             <div class="carousel-slide active">
-              <img src="/images/event/celeste-kellogg.jpg" alt="Country music singer Celeste Kellogg holding her red electric guitar overhead in a sunlit mountain field" class="absolute inset-0 w-full h-full object-cover" loading="eager" />
-              <div class="carousel-caption">Celeste Kellogg &mdash; Country Music&rsquo;s Rising Star</div>
+              <img src="/images/event/lee-greenwood-hero.jpg" alt="Lee Greenwood, patriotic music legend, in a dramatic portrait against an American flag backdrop" class="absolute inset-0 w-full h-full object-cover" loading="eager" />
+              <div class="carousel-caption">Lee Greenwood &mdash; All-American Icon Award honoree</div>
             </div>
             <div class="carousel-slide">
-              <img src="/images/event/lee-greenwood-hero.jpg" alt="Lee Greenwood, patriotic music legend, in a dramatic portrait against an American flag backdrop" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-              <div class="carousel-caption">Lee Greenwood &mdash; All-American Icon Award honoree</div>
+              <img src="/images/event/celeste-kellogg.jpg" alt="Country music singer Celeste Kellogg holding her red electric guitar overhead in a sunlit mountain field" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div class="carousel-caption">Celeste Kellogg &mdash; Country Music&rsquo;s Rising Star</div>
             </div>
             <div class="carousel-slide">
               <img src="/images/event/bob-anderson.jpg" alt="Bob Anderson, World's Greatest Singing Impressionist, performing on stage with a microphone" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
@@ -612,225 +642,15 @@ const faqs = [
 
 
     <!-- ============================================================ -->
-    <!-- 3.4 SPACE BLUE — immersive-experience announcement (live,      -->
-    <!-- promoted 2026-05-22 from the news-bar preview). Sits after the -->
-    <!-- All-Inclusive Experience section and before the Midnight       -->
-    <!-- Moment section. Deep navy band, gold accents; 2-col on desktop -->
-    <!-- (left copy + 2 CTAs, right 'Featured Space Blue Activations'   -->
-    <!-- card). Links to the live /space-blue/ page.                     -->
-    <!-- ============================================================ -->
-    <section id="space-blue-homepage-feature" class="bg-navy-dark text-white py-12 sm:py-[4.5rem] border-y border-gold/25">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
-
-          <!-- LEFT: eyebrow, headline, body, punch line, 2 CTAs -->
-          <div>
-            <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-5">
-              Immersive Experience Announcement
-            </p>
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-snug mb-5" style="font-family: var(--font-body)">
-              <span class="block">Space Blue Makes History...</span>
-              <span class="block">And Brings It to Life</span>
-              <span class="block">at the Countdown 250 Ball</span>
-            </h2>
-            <div class="w-20 h-1 bg-gold mb-7"></div>
-
-            <div class="text-white/80 text-base sm:text-lg leading-relaxed space-y-5 mb-7">
-              <p>
-                <a href="https://www.spaceblue.club" target="_blank" rel="noopener noreferrer" class="text-gold underline decoration-gold/40 hover:decoration-gold underline-offset-2">Space Blue</a>
-                made history with the Lunaprise lunar time capsule that landed on the Moon. Now Space Blue
-                brings that same spirit of exploration to the Official Countdown 250 Ball.
-              </p>
-              <p>
-                You will see, hear, and feel America&rsquo;s story come to life through hands-on
-                activations, lunar art, lifelike hologram-style exhibits, and immersive storytelling.
-              </p>
-              <p class="text-white/95 font-semibold">
-                Walk through it. Experience it. Photograph it. Remember it.
-              </p>
-            </div>
-
-            <div class="flex flex-col sm:flex-row gap-4">
-              <a
-                href="/space-blue/"
-                class="inline-block text-center bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-8 py-4 text-sm sm:text-base font-bold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
-              >
-                Explore the Space Blue Experience
-              </a>
-              <a
-                href="#tickets"
-                class="inline-block text-center border-2 border-gold text-gold hover:bg-gold hover:text-navy-dark px-8 py-4 text-sm sm:text-base font-bold tracking-wider uppercase transition-all rounded"
-              >
-                Get Tickets
-              </a>
-            </div>
-          </div>
-
-          <!-- RIGHT: Featured Space Blue Activations card -->
-          <div class="bg-white/[0.05] border border-gold/40 rounded-2xl p-7 sm:p-8 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.6)]">
-            <p class="text-gold font-bold tracking-[0.18em] uppercase text-sm sm:text-base mb-6">
-              Featured Space Blue Activations
-            </p>
-            <div class="space-y-6">
-              <div>
-                <p class="text-white font-bold text-base sm:text-lg mb-1">Lunaprise Lunar Museum</p>
-                <p class="text-white/75 text-sm sm:text-base leading-relaxed">
-                  Explore a lunar museum experience curated by Space Blue and connected to certified art
-                  reproductions sent to the Moon.
-                </p>
-              </div>
-              <div>
-                <p class="text-white font-bold text-base sm:text-lg mb-1">Hologram-Style Historic Moments</p>
-                <p class="text-white/75 text-sm sm:text-base leading-relaxed">
-                  Experience lifelike exhibits bringing pivotal American moments, iconic speeches, and
-                  cultural milestones to life.
-                </p>
-              </div>
-              <div>
-                <p class="text-white font-bold text-base sm:text-lg mb-1">Certified Lunar Art Collectibles</p>
-                <p class="text-white/75 text-sm sm:text-base leading-relaxed">
-                  Discover certified prints, canvas works, and digital art tied to reproductions sent to
-                  the Moon.
-                </p>
-              </div>
-              <div>
-                <p class="text-white font-bold text-base sm:text-lg mb-1">Iconic Art &amp; American Heroes</p>
-                <p class="text-white/75 text-sm sm:text-base leading-relaxed">
-                  Encounter music, sports, space, modern, and classic art connected to a mission to
-                  support American heroes.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================ -->
-    <!-- 3.5 MIDNIGHT MOMENT — Freedom Bell teaser. Designed to feel    -->
-    <!-- like a continuation of the Experience section above: same      -->
-    <!-- liquid-blue gradient + radial sheen, no top border. Compact    -->
-    <!-- full-width layout (centered header, full-width body, full-     -->
-    <!-- width navy box with the supporting lines as 3 columns) so it  -->
-    <!-- takes less vertical space than the previous 2-col version.    -->
-    <!-- ============================================================ -->
-    <section
-      id="midnight-moment-homepage"
-      class="scroll-mt-24 relative pt-4 pb-12 sm:pt-6 sm:pb-16 text-white overflow-hidden"
-      style="background: linear-gradient(135deg, #052058 0%, #002B77 50%, #043D9C 100%);"
-    >
-      <!-- Same soft radial sheen overlay used by the Experience section -->
-      <div
-        class="absolute inset-0 pointer-events-none"
-        style="background: radial-gradient(circle at 30% 30%, rgba(4, 61, 156, 0.45) 0%, transparent 55%);"
-      ></div>
-
-      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <!-- Centered header across the top -->
-        <div class="text-center mb-7 sm:mb-9 max-w-3xl mx-auto">
-          <h2 class="text-[2.15rem] sm:text-[2.6rem] md:text-[3.45rem] font-bold text-gold mb-4 font-heading leading-tight">
-            At Midnight... Freedom Rings
-          </h2>
-          <div class="w-20 h-px bg-gold mx-auto"></div>
-        </div>
-
-        <!-- Full-width body copy, centered -->
-        <div class="text-white/85 text-base sm:text-lg leading-relaxed space-y-4 mb-8 sm:mb-10 text-center">
-          <p style="font-family: var(--font-body)" class="text-gold font-bold text-xl sm:text-2xl leading-snug">
-            The &ldquo;Bell of the Ball&rdquo; is coming to Washington, D.C.
-          </p>
-          <p>
-            After a historic cross-country tour, the iconic America&rsquo;s Freedom Bell will conclude its
-            journey in the nation&rsquo;s capital and take center stage at the Official Countdown 250 Ball.
-          </p>
-          <p>
-            As midnight arrives, America&rsquo;s Freedom Bell will lead the &ldquo;1,000 Bells of Freedom&rdquo;
-            while the ballroom is transformed into a dazzling spectacle of red, white, and blue celebration
-            worthy of America&rsquo;s 250th birthday.
-          </p>
-        </div>
-
-        <!-- Full-width dark navy feature card beneath the body copy -->
-        <div class="bg-navy-dark border border-gold/40 rounded-2xl p-7 sm:p-9 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.6)]">
-          <!-- Bell icon + 3-line tagline (centered) -->
-          <div class="text-center mb-7">
-            <svg class="w-10 h-10 sm:w-12 sm:h-12 text-gold mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-            </svg>
-            <p style="font-family: var(--font-body)" class="text-gold font-bold text-xl sm:text-2xl leading-snug">
-              The midnight celebration of our lifetime.
-            </p>
-          </div>
-
-          <!-- Three supporting lines as a 3-column row (was stacked) -->
-          <div class="grid sm:grid-cols-3 gap-6 sm:gap-5 border-t border-gold/25 pt-6 text-center sm:text-left">
-            <div>
-              <p class="text-gold font-bold uppercase tracking-[0.18em] text-xs sm:text-sm mb-1">The Bell Rings</p>
-              <p class="text-white/80 text-sm sm:text-base leading-relaxed">
-                America&rsquo;s Freedom Bell takes center stage and rings in the midnight moment at Countdown 250.
-              </p>
-            </div>
-            <div>
-              <p class="text-gold font-bold uppercase tracking-[0.18em] text-xs sm:text-sm mb-1">The Ballroom Comes Alive</p>
-              <p class="text-white/80 text-sm sm:text-base leading-relaxed">
-                Guests join in as the room is transformed into a dazzling red, white, and blue celebration.
-              </p>
-            </div>
-            <div>
-              <p class="text-gold font-bold uppercase tracking-[0.18em] text-xs sm:text-sm mb-1">The Nation Turns 250</p>
-              <p class="text-white/80 text-sm sm:text-base leading-relaxed">
-                A once-in-a-generation moment at the heart of Independence Weekend.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- CTA buttons (centered, beneath the card) -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8 sm:mt-10">
-          <a
-            href="/freedom-bell/"
-            class="inline-block text-center bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-8 py-4 text-sm sm:text-base font-bold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
-          >
-            Learn About America&rsquo;s Freedom Bell
-          </a>
-          <a
-            href="#tickets"
-            class="inline-block text-center border-2 border-gold text-gold hover:bg-gold hover:text-navy-dark px-8 py-4 text-sm sm:text-base font-bold tracking-wider uppercase transition-all rounded"
-          >
-            Get Tickets
-          </a>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================ -->
-    <!-- NAVY BUFFER STRIP — visual cushion between heroes (cream) and -->
-    <!-- tickets (navy). If the navbar 'Get Tickets' scroll undershoots -->
-    <!-- by a few px, the visitor lands on navy instead of cream so it -->
-    <!-- still reads as 'I'm at the tickets section.' -->
-    <!-- ============================================================ -->
-    <div class="bg-navy pt-10 pb-4 sm:pt-12 sm:pb-5 border-t border-gold/25">
-      <div class="flex items-center justify-center gap-3 sm:gap-4 text-gold/70 text-base sm:text-lg" aria-hidden="true">
-        <span>&#9733;</span>
-        <span>&#9733;</span>
-        <span>&#9733;</span>
-        <span>&#9733;</span>
-        <span>&#9733;</span>
-      </div>
-    </div>
-
-    <!-- ============================================================ -->
     <!-- 4. TICKET LADDER — modernized 3-column comparison (live, Phase 1) -->
     <!-- ============================================================ -->
-    <section id="tickets" class="scroll-mt-32 pt-4 pb-px sm:pt-5 sm:pb-px bg-navy text-white">
+    <section id="tickets" class="scroll-mt-32 pt-16 pb-16 sm:pt-20 sm:pb-20 bg-navy text-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Header -->
         <div class="text-center mb-14">
           <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 font-heading">Three Ticket Options</h2>
           <div class="w-20 h-1 bg-red mx-auto mb-6"></div>
+          <p class="text-white/65 text-xs italic mb-4">Full event details continue below.</p>
           <p class="text-gold/80 text-sm max-w-xl mx-auto mb-2 font-medium">
             &#9733; Proceeds help support <a href="https://www.operationrenewedhopefoundation.org" target="_blank" rel="noopener noreferrer" class="underline hover:text-gold">Operation Renewed Hope Foundation</a> in their mission to house U.S. Veterans and end veteran homelessness.
           </p>
@@ -1019,15 +839,240 @@ const faqs = [
       </div>
     </section>
 
+
+    <!-- ============================================================ -->
+    <!-- 3.4 SPACE BLUE — immersive-experience announcement (live,      -->
+    <!-- promoted 2026-05-22 from the news-bar preview). Sits after the -->
+    <!-- All-Inclusive Experience section and before the Midnight       -->
+    <!-- Moment section. Deep navy band, gold accents; 2-col on desktop -->
+    <!-- (left copy + 2 CTAs, right 'Featured Space Blue Activations'   -->
+    <!-- card). Links to the live /space-blue/ page.                     -->
+    <!-- ============================================================ -->
+    <section id="space-blue-homepage-feature" class="bg-navy-dark text-white py-12 sm:py-[4.5rem] border-y border-gold/25">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- MOBILE-ONLY Space Blue video — appears at the top of the
+             Space Blue section on phones. On desktop, the Space Blue video
+             lives next to the Lee Greenwood video in the Experience
+             section above, so it is hidden here (sm:hidden). -->
+        <div class="mb-10 flex justify-center sm:hidden">
+          <button
+            type="button"
+            class="cd250-video-trigger group relative block w-full max-w-[30rem] rounded-xl overflow-hidden ring-2 ring-gold/50 hover:ring-gold shadow-[0_18px_40px_-16px_rgba(0,0,0,0.65)] transition-all hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-gold/70"
+            aria-label="Play the Space Blue Countdown 250 video"
+            data-video-src="/videos/space-blue.mp4"
+            data-video-poster="/videos/space-blue-poster.jpg"
+          >
+            <span class="block aspect-video bg-navy-dark">
+              <img src="/videos/space-blue-poster.jpg" alt="Space Blue immersive experience preview for the Countdown 250 Ball" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+            </span>
+            <span class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-black/25 pointer-events-none"></span>
+            <span class="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <span class="flex items-center justify-center w-20 h-20 rounded-full bg-gold/90 group-hover:bg-gold text-navy-dark shadow-lg transition-all group-hover:scale-105">
+                <svg class="w-9 h-9 ml-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+              </span>
+            </span>
+            <span class="absolute bottom-0 left-0 right-0 p-3 text-left pointer-events-none">
+              <span class="block text-white font-heading font-bold text-base leading-tight">Space Blue</span>
+              <span class="block text-gold text-xs font-semibold">Immersive Experience &mdash; Live at the Ball</span>
+            </span>
+          </button>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+
+          <!-- LEFT: eyebrow, headline, body, punch line, 2 CTAs -->
+          <div>
+            <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-5">
+              Immersive Experience Announcement
+            </p>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-snug mb-5" style="font-family: var(--font-body)">
+              <span class="block">Space Blue Makes History...</span>
+              <span class="block">And Brings It to Life</span>
+              <span class="block">at the Countdown 250 Ball</span>
+            </h2>
+            <div class="w-20 h-1 bg-gold mb-7"></div>
+
+            <div class="text-white/80 text-base sm:text-lg leading-relaxed space-y-5 mb-7">
+              <p>
+                <a href="https://www.spaceblue.club" target="_blank" rel="noopener noreferrer" class="text-gold underline decoration-gold/40 hover:decoration-gold underline-offset-2">Space Blue</a>
+                made history with the Lunaprise lunar time capsule that landed on the Moon. Now Space Blue
+                brings that same spirit of exploration to the Official Countdown 250 Ball.
+              </p>
+              <p>
+                You will see, hear, and feel America&rsquo;s story come to life through hands-on
+                activations, lunar art, lifelike hologram-style exhibits, and immersive storytelling.
+              </p>
+              <p class="text-white/95 font-semibold">
+                Walk through it. Experience it. Photograph it. Remember it.
+              </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a
+                href="/space-blue/"
+                class="inline-block text-center bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-8 py-4 text-sm sm:text-base font-bold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+              >
+                Explore the Space Blue Experience
+              </a>
+              <a
+                href="#tickets"
+                class="inline-block text-center border-2 border-gold text-gold hover:bg-gold hover:text-navy-dark px-8 py-4 text-sm sm:text-base font-bold tracking-wider uppercase transition-all rounded"
+              >
+                Get Tickets
+              </a>
+            </div>
+          </div>
+
+          <!-- RIGHT: Featured Space Blue Activations card -->
+          <div class="bg-white/[0.05] border border-gold/40 rounded-2xl p-7 sm:p-8 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.6)]">
+            <p class="text-gold font-bold tracking-[0.18em] uppercase text-sm sm:text-base mb-6">
+              Featured Space Blue Activations
+            </p>
+            <div class="space-y-6">
+              <div>
+                <p class="text-white font-bold text-base sm:text-lg mb-1">Lunaprise Lunar Museum</p>
+                <p class="text-white/75 text-sm sm:text-base leading-relaxed">
+                  Explore a lunar museum experience curated by Space Blue and connected to certified art
+                  reproductions sent to the Moon.
+                </p>
+              </div>
+              <div>
+                <p class="text-white font-bold text-base sm:text-lg mb-1">Hologram-Style Historic Moments</p>
+                <p class="text-white/75 text-sm sm:text-base leading-relaxed">
+                  Experience lifelike exhibits bringing pivotal American moments, iconic speeches, and
+                  cultural milestones to life.
+                </p>
+              </div>
+              <div>
+                <p class="text-white font-bold text-base sm:text-lg mb-1">Certified Lunar Art Collectibles</p>
+                <p class="text-white/75 text-sm sm:text-base leading-relaxed">
+                  Discover certified prints, canvas works, and digital art tied to reproductions sent to
+                  the Moon.
+                </p>
+              </div>
+              <div>
+                <p class="text-white font-bold text-base sm:text-lg mb-1">Iconic Art &amp; American Heroes</p>
+                <p class="text-white/75 text-sm sm:text-base leading-relaxed">
+                  Encounter music, sports, space, modern, and classic art connected to a mission to
+                  support American heroes.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================ -->
+    <!-- 3.5 MIDNIGHT MOMENT — Freedom Bell teaser. Designed to feel    -->
+    <!-- like a continuation of the Experience section above: same      -->
+    <!-- liquid-blue gradient + radial sheen, no top border. Compact    -->
+    <!-- full-width layout (centered header, full-width body, full-     -->
+    <!-- width navy box with the supporting lines as 3 columns) so it  -->
+    <!-- takes less vertical space than the previous 2-col version.    -->
+    <!-- ============================================================ -->
+    <section
+      id="midnight-moment-homepage"
+      class="scroll-mt-24 relative pt-4 pb-12 sm:pt-6 sm:pb-16 text-white overflow-hidden"
+      style="background: linear-gradient(135deg, #052058 0%, #002B77 50%, #043D9C 100%);"
+    >
+      <!-- Same soft radial sheen overlay used by the Experience section -->
+      <div
+        class="absolute inset-0 pointer-events-none"
+        style="background: radial-gradient(circle at 30% 30%, rgba(4, 61, 156, 0.45) 0%, transparent 55%);"
+      ></div>
+
+      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Centered header across the top -->
+        <div class="text-center mb-7 sm:mb-9 max-w-3xl mx-auto">
+          <h2 class="text-[2.15rem] sm:text-[2.6rem] md:text-[3.45rem] font-bold text-gold mb-4 font-heading leading-tight">
+            At Midnight... Freedom Rings
+          </h2>
+          <div class="w-20 h-px bg-gold mx-auto"></div>
+        </div>
+
+        <!-- Full-width body copy, centered -->
+        <div class="text-white/85 text-base sm:text-lg leading-relaxed space-y-4 mb-8 sm:mb-10 text-center">
+          <p style="font-family: var(--font-body)" class="text-gold font-bold text-xl sm:text-2xl leading-snug">
+            The &ldquo;Bell of the Ball&rdquo; is coming to Washington, D.C.
+          </p>
+          <p>
+            After a historic cross-country tour, the iconic America&rsquo;s Freedom Bell will conclude its
+            journey in the nation&rsquo;s capital and take center stage at the Official Countdown 250 Ball.
+          </p>
+          <p>
+            As midnight arrives, America&rsquo;s Freedom Bell will lead the &ldquo;1,000 Bells of Freedom&rdquo;
+            while the ballroom is transformed into a dazzling spectacle of red, white, and blue celebration
+            worthy of America&rsquo;s 250th birthday.
+          </p>
+        </div>
+
+        <!-- Full-width dark navy feature card beneath the body copy -->
+        <div class="bg-navy-dark border border-gold/40 rounded-2xl p-7 sm:p-9 shadow-[0_18px_40px_-16px_rgba(0,0,0,0.6)]">
+          <!-- Bell icon + 3-line tagline (centered) -->
+          <div class="text-center mb-7">
+            <svg class="w-10 h-10 sm:w-12 sm:h-12 text-gold mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+            </svg>
+            <p style="font-family: var(--font-body)" class="text-gold font-bold text-xl sm:text-2xl leading-snug">
+              The midnight celebration of our lifetime.
+            </p>
+          </div>
+
+          <!-- Three supporting lines as a 3-column row (was stacked) -->
+          <div class="grid sm:grid-cols-3 gap-6 sm:gap-5 border-t border-gold/25 pt-6 text-center sm:text-left">
+            <div>
+              <p class="text-gold font-bold uppercase tracking-[0.18em] text-xs sm:text-sm mb-1">The Bell Rings</p>
+              <p class="text-white/80 text-sm sm:text-base leading-relaxed">
+                America&rsquo;s Freedom Bell takes center stage and rings in the midnight moment at Countdown 250.
+              </p>
+            </div>
+            <div>
+              <p class="text-gold font-bold uppercase tracking-[0.18em] text-xs sm:text-sm mb-1">The Ballroom Comes Alive</p>
+              <p class="text-white/80 text-sm sm:text-base leading-relaxed">
+                Guests join in as the room is transformed into a dazzling red, white, and blue celebration.
+              </p>
+            </div>
+            <div>
+              <p class="text-gold font-bold uppercase tracking-[0.18em] text-xs sm:text-sm mb-1">The Nation Turns 250</p>
+              <p class="text-white/80 text-sm sm:text-base leading-relaxed">
+                A once-in-a-generation moment at the heart of Independence Weekend.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA buttons (centered, beneath the card) -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8 sm:mt-10">
+          <a
+            href="/freedom-bell/"
+            class="inline-block text-center bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-8 py-4 text-sm sm:text-base font-bold tracking-wider uppercase transition-all rounded shadow-lg hover:-translate-y-0.5"
+          >
+            Learn About America&rsquo;s Freedom Bell
+          </a>
+          <a
+            href="#tickets"
+            class="inline-block text-center border-2 border-gold text-gold hover:bg-gold hover:text-navy-dark px-8 py-4 text-sm sm:text-base font-bold tracking-wider uppercase transition-all rounded"
+          >
+            Get Tickets
+          </a>
+        </div>
+      </div>
+    </section>
+
+
     <!-- ============================================================ -->
     <!-- 4.5 HOSTED TABLES — Statesman's Pass free upgrade story -->
     <!-- ============================================================ -->
     <section id="hosted-tables" class="scroll-mt-24 relative">
 
       <!-- Hosted Groups content — navy bg with gold feature accents (Statesman amenity).
-           pt set to 0 so this section visually flows out of the Tickets section above
-           (both share bg-navy — no color seam, no padding seam either). -->
-      <div class="relative pt-0 pb-20 sm:pt-0 sm:pb-24 bg-navy overflow-hidden">
+           Tickets section was moved out from above this on 2026-06-25 (now sits after
+           Experience). Standard top padding restored here. -->
+      <div class="relative pt-20 pb-20 sm:pt-24 sm:pb-24 bg-navy overflow-hidden">
 
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -1989,16 +2034,28 @@ const faqs = [
 </script>
 
 <script>
-  // Hero video modal — Google Drive embed of the Countdown 250 preview.
+  // Shared video modal — each .cd250-video-trigger button supplies its own
+  // video via data-video-src and data-video-poster attributes. The modal
+  // swaps the <source> + poster on open so a single modal serves both the
+  // Lee Greenwood video and the Space Blue video.
   (function () {
-    const triggers = document.querySelectorAll('.cd250-video-trigger');
+    const triggers = document.querySelectorAll<HTMLElement>('.cd250-video-trigger');
     const modal = document.getElementById('hero-video-modal');
     const video = document.getElementById('hero-video-player') as HTMLVideoElement | null;
     const closeBtn = document.getElementById('hero-video-close');
     if (!triggers.length || !modal || !video || !closeBtn) return;
 
-    function openModal() {
+    const source = video.querySelector('source') as HTMLSourceElement | null;
+
+    function openModal(trigger: HTMLElement) {
       if (!video || !modal) return;
+      const src = trigger.dataset.videoSrc;
+      const poster = trigger.dataset.videoPoster;
+      if (src && source) {
+        source.src = src;
+        video.setAttribute('poster', poster || '');
+        video.load();
+      }
       modal.classList.remove('hidden');
       modal.classList.add('flex');
       modal.setAttribute('aria-hidden', 'false');
@@ -2016,7 +2073,7 @@ const faqs = [
       document.body.style.overflow = '';
     }
 
-    triggers.forEach((t) => t.addEventListener('click', openModal));
+    triggers.forEach((t) => t.addEventListener('click', () => openModal(t)));
     closeBtn.addEventListener('click', closeModal);
     modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
     document.addEventListener('keydown', (e) => {
