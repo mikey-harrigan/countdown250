@@ -242,6 +242,11 @@ if (pathSegments.length > 0) {
       // Iframe modal removed — banks' fraud detection, 3D Secure, Apple Pay, and Google Pay
       // frequently block payments initiated inside iframes, silently killing checkouts.
       // Eventbrite's native page handles all payment methods reliably in a normal tab.
+      //
+      // Implementation note: rather than window.open() (which Chrome may treat as a popup
+      // request when given any features string, risking popup-blocker interception), we
+      // build a temporary <a target="_blank"> and click it. Every browser treats this as
+      // identical to a user clicking a normal link — guaranteed new tab, never blocked.
       document.querySelectorAll('.eventbrite-checkout').forEach(function(btn) {
         btn.addEventListener('click', function(e) {
           e.preventDefault();
@@ -252,7 +257,13 @@ if (pathSegments.length > 0) {
           if (typeof fbq === 'function') {
             fbq('track', 'InitiateCheckout');
           }
-          window.open(ebUrl, '_blank', 'noopener,noreferrer');
+          var a = document.createElement('a');
+          a.href = ebUrl;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
         });
       });
     });
