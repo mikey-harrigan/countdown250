@@ -217,19 +217,8 @@ if (pathSegments.length > 0) {
   <!-- End Google Tag Manager (noscript) -->
   <slot />
 
-  <!-- Eventbrite Modal Overlay -->
-  <div id="eb-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; z-index:99999; background:rgba(0,0,0,0.7);">
-    <div style="position:relative; width:90%; max-width:600px; height:85vh; margin:5vh auto; background:white; border-radius:12px; overflow:hidden;">
-      <button id="eb-modal-close" style="position:absolute; top:10px; right:14px; z-index:10; background:none; border:none; font-size:28px; cursor:pointer; color:#333; font-weight:bold;">&times;</button>
-      <iframe id="eb-iframe" src="" style="width:100%; height:100%; border:none;"></iframe>
-    </div>
-  </div>
-
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      var modal = document.getElementById('eb-modal');
-      var iframe = document.getElementById('eb-iframe');
-
       // Map inbound UTM source/campaign to an Eventbrite tracking code so sales attribute to the right channel
       function resolveAff() {
         try {
@@ -249,7 +238,10 @@ if (pathSegments.length > 0) {
       }
       var ebUrl = 'https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=' + resolveAff();
 
-      // All eventbrite-checkout buttons open the modal
+      // All eventbrite-checkout buttons open Eventbrite in a new tab.
+      // Iframe modal removed — banks' fraud detection, 3D Secure, Apple Pay, and Google Pay
+      // frequently block payments initiated inside iframes, silently killing checkouts.
+      // Eventbrite's native page handles all payment methods reliably in a normal tab.
       document.querySelectorAll('.eventbrite-checkout').forEach(function(btn) {
         btn.addEventListener('click', function(e) {
           e.preventDefault();
@@ -260,35 +252,8 @@ if (pathSegments.length > 0) {
           if (typeof fbq === 'function') {
             fbq('track', 'InitiateCheckout');
           }
-          iframe.src = ebUrl;
-          modal.style.display = 'block';
-          document.body.style.overflow = 'hidden';
+          window.open(ebUrl, '_blank', 'noopener,noreferrer');
         });
-      });
-
-      // Close modal
-      document.getElementById('eb-modal-close').addEventListener('click', function() {
-        modal.style.display = 'none';
-        iframe.src = '';
-        document.body.style.overflow = '';
-      });
-
-      // Close on backdrop click
-      modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-          modal.style.display = 'none';
-          iframe.src = '';
-          document.body.style.overflow = '';
-        }
-      });
-
-      // Close on Escape key
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.style.display === 'block') {
-          modal.style.display = 'none';
-          iframe.src = '';
-          document.body.style.overflow = '';
-        }
       });
     });
   </script>
