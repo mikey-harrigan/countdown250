@@ -491,7 +491,7 @@ const faqs = [
             aria-label="Play the Lee Greenwood Countdown 250 video"
           >
             <span class="block aspect-video bg-navy-dark">
-              <img src="/images/event/lee-greenwood-hero.jpg" alt="Lee Greenwood, patriotic music legend, in a dramatic portrait against an American flag backdrop" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+              <img src="/videos/lg-countdown250-poster.jpg" alt="Lee Greenwood, in an American-flag hoodie, recording a video message for the Countdown 250 Ball" class="w-full h-full object-cover" loading="lazy" decoding="async" />
             </span>
             <span class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-black/25 pointer-events-none"></span>
             <span class="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -1891,7 +1891,9 @@ const faqs = [
           &times;
         </button>
         <div class="relative w-full bg-black" style="aspect-ratio: 16 / 9;">
-          <iframe id="hero-video-iframe" class="absolute inset-0 w-full h-full" src="" title="Countdown 250 Ball video" frameborder="0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
+          <video id="hero-video-player" class="absolute inset-0 w-full h-full" controls playsinline preload="none" poster="/videos/lg-countdown250-poster.jpg">
+            <source src="/videos/lg-countdown250.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
     </div>
@@ -1999,22 +2001,23 @@ const faqs = [
   (function () {
     const triggers = document.querySelectorAll('.cd250-video-trigger');
     const modal = document.getElementById('hero-video-modal');
-    const iframe = document.getElementById('hero-video-iframe') as HTMLIFrameElement | null;
+    const video = document.getElementById('hero-video-player') as HTMLVideoElement | null;
     const closeBtn = document.getElementById('hero-video-close');
-    if (!triggers.length || !modal || !iframe || !closeBtn) return;
-    const SRC = 'https://drive.google.com/file/d/105JMa2B1PSQJwFi6YiBzFiGIdsr-5Sxu/preview';
+    if (!triggers.length || !modal || !video || !closeBtn) return;
 
     function openModal() {
-      if (!iframe || !modal) return;
-      iframe.src = SRC;
+      if (!video || !modal) return;
       modal.classList.remove('hidden');
       modal.classList.add('flex');
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      const p = video.play();
+      if (p && typeof p.catch === 'function') p.catch(() => {});
     }
     function closeModal() {
-      if (!iframe || !modal) return;
-      iframe.src = '';
+      if (!video || !modal) return;
+      video.pause();
+      video.currentTime = 0;
       modal.classList.add('hidden');
       modal.classList.remove('flex');
       modal.setAttribute('aria-hidden', 'true');
