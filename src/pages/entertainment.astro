@@ -19,7 +19,7 @@ import Footer from '../components/Footer.astro';
  *   - Non-Stop Entertainment gold callout
  *   - "7 Party Zones * 4 Stages" — 2-column compact zone grid
  *     (left: Open to All; right: Statesman's Pass with gold cards)
- *   - "Countdown 250 Lineup… so far" — 10 performer/attraction cards
+ *   - "Countdown 250 Lineup… so far" — performer/attraction cards (count grows as additions land)
  *     (Bob Anderson, MARCEY, Julian Awari, Deebo, DJ Freedom,
  *      Live Broadcast, Midnight Countdown, Heroes Awards, Tribute
  *      to America, Roving Entertainers)
@@ -83,6 +83,13 @@ const zones = [
 // Entertainment Lineup — Bob Anderson at top per Mike (2026-05-08).
 const performers = [
   {
+    name: "Rock Legends Trio Jam",
+    role: "Scott Page, Gerardo Velez &amp; Larry Dvoskin &mdash; First Time On Stage Together. Ever.",
+    img: "/images/event/performer-eagle-screen.jpg",
+    bio: "<em class='block mb-3 text-navy/80 not-italic font-extrabold uppercase tracking-wider text-xs'>Holy Smokes &mdash; This Is Amazing</em>For one night only, three of rock and roll&rsquo;s most accomplished musicians take the same stage for the first time in history. Scott Page (Pink Floyd, Supertramp, Toto), Gerardo Velez (Jimi Hendrix, Spyro Gyra), and Larry Dvoskin (Robert Plant, The Beach Boys, Journey, MGMT) come together for an exclusive collaborative performance during America&rsquo;s Independence Eve celebration.",
+    bioExpanded: "<p>Between them, this trio has performed, recorded, or collaborated with some of the most influential names in modern music: Pink Floyd, Jimi Hendrix, Robert Plant, Sammy Hagar, Bad Company, Cheap Trick, The Beach Boys, Toto, Supertramp, MGMT, Journey, Spyro Gyra, and Bow Wow Wow &mdash; a list that reads like a Rock and Roll Hall of Fame roll call.</p><p>They have never performed together as a trio before. And after Countdown 250, they may never perform together again. This is a true one-time-only moment &mdash; the kind of collaboration that happens only when a national milestone like America&rsquo;s Semiquincentennial brings extraordinary people into the same room at the same time.</p><p>&ldquo;Scott, Gerardo, and Larry have each helped shape the soundtrack of generations,&rdquo; said Mike Harrigan, Founder and Executive Producer of Countdown 250. &ldquo;Seeing them perform together on one stage during America&rsquo;s historic Semiquincentennial celebration is something our guests will never forget.&rdquo;</p>",
+  },
+  {
     name: "Bob Anderson",
     role: "American Icon &amp; World&rsquo;s Greatest Singing Impressionist",
     img: "/images/event/bob-anderson.jpg",
@@ -109,6 +116,20 @@ const performers = [
     img: "/images/event/scott-page.jpg",
     bio: "Scott Page is one of rock&rsquo;s most influential and revered musicians &mdash; a saxophonist and celebrated artist whose revolutionary sound and trailblazing creative instincts have helped shape some of the greatest tours and recordings in music history. He toured the world with Pink Floyd on the era-defining <em>A Momentary Lapse of Reason</em> and <em>Delicate Sound of Thunder</em> world tours, recorded and toured with Supertramp on <em>Brother Where You Bound</em>, and has brought his signature sound to Toto and a long list of rock&rsquo;s most celebrated acts.",
     bioExpanded: "<p>Scott Page&rsquo;s career has been one continuous arc through some of the most important moments in modern rock. As Pink Floyd&rsquo;s saxophonist on the <em>A Momentary Lapse of Reason</em> world tour (1987&ndash;1988) and the subsequent <em>Delicate Sound of Thunder</em> tour, he performed on some of the highest-grossing concerts of the era &mdash; his solos captured forever on the live recordings and films that defined a generation of arena rock.</p><p>His collaboration with Supertramp on the 1985 <em>Brother Where You Bound</em> album and the accompanying World Tour cemented his place among rock&rsquo;s most in-demand touring saxophonists. He has also brought his signature sound to Toto and a long list of legendary acts &mdash; the kind of breadth that makes him not just a great musician but a voice that has helped shape how a generation of rock and roll sounds.</p><p>Beyond music, Scott is a renowned artist and creative force whose work and instincts have reached far beyond the stage. From traditional visual art to the cutting edge of multimedia and digital experience, he has built a body of work that has inspired generations of musicians, artists, and creators &mdash; and put him at the front of many of the most important conversations in modern entertainment.</p><p>We are thrilled to welcome Scott Page to the Countdown 250 Ball. His musicianship, artistry, and unmistakable energy will help make America&rsquo;s 250th birthday celebration truly unforgettable.</p>",
+  },
+  {
+    name: "Gerardo Velez",
+    role: "Renowned Percussionist &mdash; Jimi Hendrix, Spyro Gyra",
+    img: "/images/event/singer-flag-screen.jpg",
+    bio: "Gerardo Velez is a master percussionist whose career has carried him through some of the most influential moments in modern music. He performed with Jimi Hendrix, became a founding rhythmic voice in the jazz-fusion ensemble Spyro Gyra, and has collaborated with legendary artists across rock, jazz, and world music.",
+    bioExpanded: "<p>Velez&rsquo;s instinct for rhythm has put him on stage and in studios with some of the most innovative musicians of the past five decades. His work with Jimi Hendrix placed him inside one of the defining sounds of the era, and his role in shaping Spyro Gyra&rsquo;s groundbreaking sound helped define what jazz fusion could be.</p><p>At Countdown 250, he joins fellow rock legends Scott Page and Larry Dvoskin for a once-in-a-lifetime trio performance &mdash; bringing the same fire, precision, and joy that has earned him the respect of his peers across genres for generations.</p>",
+  },
+  {
+    name: "Larry Dvoskin",
+    role: "Award-Winning Producer, Songwriter &amp; Keyboardist &mdash; Robert Plant, Beach Boys, Journey",
+    img: "/images/event/piano-player.jpg",
+    bio: "Larry Dvoskin is an award-winning producer, songwriter, keyboardist, and recording artist whose collaborators read like a Rock and Roll Hall of Fame roll call. He has worked with Robert Plant, Sammy Hagar, Bad Company, Robin Zander of Cheap Trick, Al Jardine of The Beach Boys, MGMT, Neal Schon of Journey, and Desir&eacute;e &lsquo;Des&rsquo; Annabella Lwin of Bow Wow Wow.",
+    bioExpanded: "<p>Across his career, Dvoskin has built a reputation as one of the music industry&rsquo;s most versatile creative forces &mdash; a producer, songwriter, and musician who is equally at home behind the keyboard, in the studio, or shaping records for some of rock&rsquo;s most enduring voices. His collaboration list is staggering in both depth and breadth: from arena rock royalty (Plant, Schon, Hagar, Cheap Trick) to classic Americana (Beach Boys, Bad Company) to modern alternative artists (MGMT) to genre-defining new wave (Bow Wow Wow).</p><p>At Countdown 250, he joins Scott Page and Gerardo Velez for an exclusive trio performance &mdash; the first time the three have ever shared a stage. With his trademark fluency across rock, soul, and pop, Dvoskin will bring a creative spark to a collaboration built for once-in-a-generation moments.</p>",
   },
   {
     name: "MARCEY",
@@ -354,7 +375,7 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
     </section>
 
     <!-- ============================================================ -->
-    <!-- ENTERTAINMENT LINEUP — 9 performer/attraction cards            -->
+    <!-- ENTERTAINMENT LINEUP — performer/attraction cards              -->
     <!-- ============================================================ -->
     <section class="py-12 sm:py-16">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
