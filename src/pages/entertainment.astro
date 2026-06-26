@@ -81,11 +81,16 @@ const zones = [
 ];
 
 // Entertainment Lineup — Bob Anderson at top per Mike (2026-05-08).
-// NOTE: The Rock Legends Trio Jam (Scott Page + Gerardo Velez + Larry
-// Dvoskin) lives in a dedicated featured section ABOVE the lineup grid
-// below — it is intentionally NOT in this performers array so it does
-// not appear twice on the page.
 const performers = [
+  {
+    name: "Rock Legends Trio Jam",
+    role: "Scott Page, Gerardo Velez &amp; Larry Dvoskin &mdash; First Time On Stage Together. Ever.",
+    img: "/images/event/rock-legends-jam.svg",
+    imgFit: "object-cover",
+    tier: "featured",
+    bio: "<em class='block mb-3 text-red-700 not-italic font-extrabold uppercase tracking-[0.3em] text-xs'>&#9733; Holy Smokes &mdash; This Is Amazing &#9733;</em><strong class='text-navy text-base sm:text-lg block mb-3 leading-snug'>Three rock legends. One stage. For the first time ever. And almost certainly the last.</strong>For one night only, three of rock and roll&rsquo;s most accomplished musicians take the same stage for the first time in history. <strong>Scott Page</strong> (Pink Floyd, Supertramp, Toto), <strong>Gerardo Velez</strong> (Jimi Hendrix, Spyro Gyra), and <strong>Larry Dvoskin</strong> (Robert Plant, The Beach Boys, Journey, MGMT) come together at the Countdown 250 Ball for an exclusive collaborative performance during America&rsquo;s Independence Eve celebration.",
+    bioExpanded: "<p>Between them, this trio has performed with, recorded with, or collaborated with <strong>some of the most influential names in the history of modern music</strong> &mdash; Pink Floyd, Jimi Hendrix, Robert Plant, Sammy Hagar, Bad Company, Cheap Trick, The Beach Boys, Toto, Supertramp, MGMT, Journey, Spyro Gyra, and Bow Wow Wow. A list that reads like a Rock and Roll Hall of Fame roll call.</p><p><strong>Scott Page</strong> toured the world with Pink Floyd on <em>A Momentary Lapse of Reason</em> and <em>Delicate Sound of Thunder</em> &mdash; some of the highest-grossing concerts of the era. He recorded and toured with Supertramp on <em>Brother Where You Bound</em> and brought his signature sound to Toto and a long arc of rock&rsquo;s most celebrated acts.</p><p><strong>Gerardo Velez</strong> is a master percussionist who performed with Jimi Hendrix &mdash; placing him inside one of the defining sounds of the era. He was a founding rhythmic voice in the jazz-fusion ensemble Spyro Gyra, helping define what jazz fusion could be, and has collaborated for five decades across rock, jazz, and world music.</p><p><strong>Larry Dvoskin</strong> is an award-winning producer, songwriter, keyboardist, and recording artist whose collaborators include Robert Plant, Sammy Hagar, Bad Company, Robin Zander of Cheap Trick, Al Jardine of The Beach Boys, MGMT, Neal Schon of Journey, and Desir&eacute;e &lsquo;Des&rsquo; Annabella Lwin of Bow Wow Wow.</p><p>They have <strong>never performed together as a trio</strong>. And after Countdown 250, they may never perform together again. This is the kind of moment that only happens when a national milestone &mdash; America&rsquo;s historic Semiquincentennial &mdash; brings extraordinary people into the same room at the same time.</p><p>&ldquo;Scott, Gerardo, and Larry have each helped shape the soundtrack of generations,&rdquo; said Mike Harrigan, Founder and Executive Producer of Countdown 250. &ldquo;Seeing them perform together on one stage during America&rsquo;s historic Semiquincentennial celebration is something our guests will never forget.&rdquo;</p>",
+  },
   {
     name: "Bob Anderson",
     role: "American Icon &amp; World&rsquo;s Greatest Singing Impressionist",
@@ -372,179 +377,6 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
     </section>
 
     <!-- ============================================================ -->
-    <!-- FEATURED HEADLINE — ROCK LEGENDS JAM SESSION                   -->
-    <!-- First-time-ever trio: Scott Page + Gerardo Velez + Larry       -->
-    <!-- Dvoskin. Big visual treatment so the announcement reads as the -->
-    <!-- headline of the page above the regular lineup grid.            -->
-    <!-- ============================================================ -->
-    <section class="py-14 sm:py-20 relative overflow-hidden" style="background: radial-gradient(ellipse at 50% 0%, #1a0608 0%, #0a0612 55%, #000814 100%);">
-
-      <!-- Top + bottom gold accent lines -->
-      <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent" aria-hidden="true"></div>
-      <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent" aria-hidden="true"></div>
-
-      <!-- Section-wide stage light beams in the background -->
-      <div class="absolute inset-x-0 top-0 h-3/4 pointer-events-none opacity-40" aria-hidden="true">
-        <div class="absolute top-0 left-[18%] w-[2px] h-full bg-gradient-to-b from-red/60 via-red/20 to-transparent blur-sm" style="transform: rotate(6deg); transform-origin: top;"></div>
-        <div class="absolute top-0 left-[42%] w-[3px] h-full bg-gradient-to-b from-white/70 via-white/15 to-transparent blur-sm"></div>
-        <div class="absolute top-0 right-[36%] w-[3px] h-full bg-gradient-to-b from-gold/60 via-gold/15 to-transparent blur-sm"></div>
-        <div class="absolute top-0 right-[16%] w-[2px] h-full bg-gradient-to-b from-red/60 via-red/20 to-transparent blur-sm" style="transform: rotate(-6deg); transform-origin: top;"></div>
-      </div>
-
-      <div class="relative max-w-5xl mx-auto px-4 sm:px-6">
-
-        <!-- =========================================================== -->
-        <!-- THE "ROCK LEGENDS JAM SESSION" GRAPHIC                       -->
-        <!-- Pure CSS/HTML — no external image. Rock-and-roll concert     -->
-        <!-- poster aesthetic: deep black + red glow background, stage    -->
-        <!-- light beams, spotlight halo, big white "ROCK LEGENDS" with   -->
-        <!-- red glow, gold italic "Jam Session" underneath.              -->
-        <!-- =========================================================== -->
-        <div class="relative aspect-[16/9] sm:aspect-[2/1] w-full overflow-hidden rounded-2xl border-2 border-gold/40 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.85)] mb-10 sm:mb-14"
-             style="background: radial-gradient(ellipse at 50% 100%, #4a0a0a 0%, #1a0000 35%, #0a0612 75%, #000000 100%);">
-
-          <!-- Inner stage light beams -->
-          <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-            <div class="absolute top-0 left-1/4 w-[3px] h-full bg-gradient-to-b from-red/80 via-red/15 to-transparent blur-md" style="transform: rotate(8deg); transform-origin: top;"></div>
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[4px] h-full bg-gradient-to-b from-white/80 via-white/20 to-transparent blur-md"></div>
-            <div class="absolute top-0 right-1/4 w-[3px] h-full bg-gradient-to-b from-gold/80 via-gold/15 to-transparent blur-md" style="transform: rotate(-8deg); transform-origin: top;"></div>
-          </div>
-
-          <!-- Spotlight halo -->
-          <div class="absolute inset-0 pointer-events-none" aria-hidden="true"
-               style="background: radial-gradient(circle at 50% 35%, rgba(255,255,255,0.18) 0%, transparent 45%);"></div>
-
-          <!-- Subtle red footlight glow -->
-          <div class="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none" aria-hidden="true"
-               style="background: linear-gradient(to top, rgba(255,40,40,0.18) 0%, transparent 100%);"></div>
-
-          <!-- Text on top -->
-          <div class="relative h-full flex flex-col items-center justify-center text-center px-4 py-6 sm:py-10 md:py-14">
-
-            <p class="text-red font-extrabold tracking-[0.4em] uppercase text-[10px] sm:text-xs mb-3 sm:mb-5"
-               style="text-shadow: 0 0 14px rgba(255,40,40,0.75);">
-              &#9733; Once In A Lifetime &#9733;
-            </p>
-
-            <h2 class="font-heading font-black text-white tracking-tight text-5xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.95] mb-2"
-                style="text-shadow: 0 6px 30px rgba(255,40,40,0.65), 0 0 80px rgba(255,255,255,0.18); letter-spacing: -0.02em;">
-              ROCK LEGENDS
-            </h2>
-
-            <h3 class="font-heading italic font-bold tracking-wider text-3xl sm:text-5xl md:text-6xl mb-5 sm:mb-7"
-                style="background: linear-gradient(180deg, #f4d03f 0%, #d4a017 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 2px 12px rgba(212,160,23,0.5);">
-              Jam Session
-            </h3>
-
-            <div class="w-24 sm:w-32 h-px bg-gradient-to-r from-transparent via-gold to-transparent mb-3 sm:mb-4"></div>
-
-            <p class="text-white/85 tracking-[0.35em] uppercase text-[10px] sm:text-xs">
-              July 3 &middot; Countdown 250 Ball
-            </p>
-          </div>
-        </div>
-
-        <!-- HEADLINE COPY -->
-        <div class="text-center mb-10 sm:mb-12 max-w-3xl mx-auto">
-          <p class="text-red font-extrabold tracking-[0.3em] uppercase text-xs sm:text-sm mb-4"
-             style="text-shadow: 0 0 12px rgba(255,40,40,0.5);">
-            &#9733; Holy Smokes &mdash; This Is Amazing &#9733;
-          </p>
-          <h2 class="font-heading font-black text-white text-3xl sm:text-4xl md:text-5xl leading-tight mb-3">
-            Three rock legends. <span class="text-gold">One stage.</span> <span class="text-red">For the first time ever.</span>
-          </h2>
-          <p class="text-white/80 text-base sm:text-lg italic mt-3">
-            And almost certainly the last.
-          </p>
-        </div>
-
-        <!-- INTRO PARAGRAPHS -->
-        <div class="max-w-4xl mx-auto text-white/90 text-base sm:text-lg leading-relaxed space-y-5 mb-12 sm:mb-14">
-          <p>
-            For one night only, three of rock and roll&rsquo;s most accomplished musicians take the same stage for the first time in history. <strong class="text-gold-light">Scott Page</strong>, <strong class="text-gold-light">Gerardo Velez</strong>, and <strong class="text-gold-light">Larry Dvoskin</strong> come together at the Countdown 250 Ball for an exclusive collaborative performance during America&rsquo;s Independence Eve celebration.
-          </p>
-          <p>
-            Between them, this trio has performed with, recorded with, or collaborated with <strong class="text-white">some of the most influential names in the history of modern music</strong> &mdash; Pink Floyd, Jimi Hendrix, Robert Plant, Sammy Hagar, Bad Company, Cheap Trick, The Beach Boys, Toto, Supertramp, MGMT, Journey, Spyro Gyra, and Bow Wow Wow. A list that reads like a Rock and Roll Hall of Fame roll call.
-          </p>
-          <p>
-            They have <strong class="text-red">never performed together as a trio</strong>. And after Countdown 250, they may never perform together again. This is the kind of moment that only happens when a national milestone &mdash; America&rsquo;s historic Semiquincentennial &mdash; brings extraordinary people into the same room at the same time.
-          </p>
-        </div>
-
-        <!-- THREE LEGEND CARDS -->
-        <div class="grid md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-14">
-
-          <!-- SCOTT PAGE -->
-          <div class="bg-navy/40 border border-gold/30 rounded-xl overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.8)] backdrop-blur-sm">
-            <div class="aspect-[4/3] bg-black overflow-hidden">
-              <img src="/images/event/scott-page.jpg" alt="Scott Page" class="w-full h-full object-cover" loading="lazy" decoding="async" />
-            </div>
-            <div class="p-5 sm:p-6">
-              <h3 class="font-heading font-black text-gold text-2xl mb-1 leading-tight">Scott Page</h3>
-              <p class="text-white/60 uppercase tracking-[0.2em] text-[10px] sm:text-xs font-bold mb-4">Saxophone &amp; Multi-Instrumentalist</p>
-              <p class="text-white/90 text-sm leading-relaxed">
-                Toured the world with <strong class="text-gold-light">Pink Floyd</strong> on <em>A Momentary Lapse of Reason</em> and <em>Delicate Sound of Thunder</em> &mdash; some of the highest-grossing concerts of the era. Recorded and toured with <strong class="text-gold-light">Supertramp</strong> on <em>Brother Where You Bound</em>. Brought his signature sound to <strong class="text-gold-light">Toto</strong> and a long arc of rock&rsquo;s most celebrated acts.
-              </p>
-            </div>
-          </div>
-
-          <!-- GERARDO VELEZ -->
-          <div class="bg-navy/40 border border-gold/30 rounded-xl overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.8)] backdrop-blur-sm">
-            <div class="aspect-[4/3] bg-black overflow-hidden">
-              <img src="/images/event/singer-flag-screen.jpg" alt="Gerardo Velez" class="w-full h-full object-cover" loading="lazy" decoding="async" />
-            </div>
-            <div class="p-5 sm:p-6">
-              <h3 class="font-heading font-black text-gold text-2xl mb-1 leading-tight">Gerardo Velez</h3>
-              <p class="text-white/60 uppercase tracking-[0.2em] text-[10px] sm:text-xs font-bold mb-4">Percussion</p>
-              <p class="text-white/90 text-sm leading-relaxed">
-                A master percussionist who performed with <strong class="text-gold-light">Jimi Hendrix</strong> &mdash; placing him inside one of the defining sounds of the era. A founding rhythmic voice in <strong class="text-gold-light">Spyro Gyra</strong>, helping define what jazz fusion could be. Five decades of collaborations across rock, jazz, and world music.
-              </p>
-            </div>
-          </div>
-
-          <!-- LARRY DVOSKIN -->
-          <div class="bg-navy/40 border border-gold/30 rounded-xl overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.8)] backdrop-blur-sm">
-            <div class="aspect-[4/3] bg-black overflow-hidden">
-              <img src="/images/event/piano-player.jpg" alt="Larry Dvoskin" class="w-full h-full object-cover" loading="lazy" decoding="async" />
-            </div>
-            <div class="p-5 sm:p-6">
-              <h3 class="font-heading font-black text-gold text-2xl mb-1 leading-tight">Larry Dvoskin</h3>
-              <p class="text-white/60 uppercase tracking-[0.2em] text-[10px] sm:text-xs font-bold mb-4">Keyboards &middot; Producer &middot; Songwriter</p>
-              <p class="text-white/90 text-sm leading-relaxed">
-                Award-winning collaborator with <strong class="text-gold-light">Robert Plant</strong>, <strong class="text-gold-light">Sammy Hagar</strong>, <strong class="text-gold-light">Bad Company</strong>, <strong class="text-gold-light">Robin Zander</strong> of Cheap Trick, <strong class="text-gold-light">Al Jardine</strong> of The Beach Boys, <strong class="text-gold-light">MGMT</strong>, and <strong class="text-gold-light">Neal Schon</strong> of Journey. One of the music industry&rsquo;s most versatile creative forces.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- QUOTE FROM MIKE -->
-        <div class="max-w-3xl mx-auto border-l-4 border-gold pl-6 sm:pl-8 mb-10 sm:mb-12">
-          <svg class="w-8 h-8 text-gold/60 mb-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
-          </svg>
-          <p class="text-white/95 text-lg sm:text-xl italic font-light leading-relaxed mb-4">
-            Scott, Gerardo, and Larry have each helped shape the soundtrack of generations. Seeing them perform together on one stage during America&rsquo;s historic Semiquincentennial celebration is something our guests will never forget.
-          </p>
-          <p class="text-gold font-bold tracking-[0.2em] uppercase text-xs">
-            &mdash; Mike Harrigan, Founder &amp; Executive Producer, Countdown 250
-          </p>
-        </div>
-
-        <!-- CLOSING PUNCH -->
-        <div class="text-center max-w-3xl mx-auto">
-          <p class="font-heading font-black leading-tight">
-            <span class="block text-red text-3xl sm:text-4xl md:text-5xl mb-2" style="text-shadow: 0 0 20px rgba(255,40,40,0.65);">Never before.</span>
-            <span class="block text-gold text-3xl sm:text-4xl md:text-5xl" style="text-shadow: 0 0 20px rgba(212,160,23,0.65);">Likely never again.</span>
-          </p>
-          <p class="text-white/75 text-sm sm:text-base italic mt-5">
-            Only at the Countdown 250 Ball &middot; July 3, 2026 &middot; Washington Hilton
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ============================================================ -->
     <!-- ENTERTAINMENT LINEUP — performer/attraction cards              -->
     <!-- ============================================================ -->
     <section class="py-12 sm:py-16">
@@ -561,9 +393,16 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
 
         <div class="space-y-5 sm:space-y-6">
           {performers.map((p) => (
-            <div class={`${p.tier === "statesman" ? 'bg-gold border-gold' : 'bg-cream border-gold/30'} rounded-xl overflow-hidden border shadow-md flex flex-col sm:flex-row ${p.bioExpanded ? 'sm:min-h-56' : 'sm:h-56'}`}>
+            <div class={`${
+              p.tier === "statesman" ? 'bg-gold border-gold' :
+              p.tier === "featured" ? 'bg-cream border-gold ring-2 ring-gold/40' :
+              'bg-cream border-gold/30'
+            } rounded-xl overflow-hidden border shadow-md flex flex-col sm:flex-row ${
+              p.tier === "featured" ? 'sm:min-h-[26rem]' :
+              p.bioExpanded ? 'sm:min-h-56' : 'sm:h-56'
+            }`}>
               {p.img ? (
-                <div class="sm:w-72 sm:flex-shrink-0 bg-navy/50">
+                <div class={`${p.tier === "featured" ? 'sm:w-96 bg-black' : 'sm:w-72 bg-navy/50'} sm:flex-shrink-0`}>
                   <div class="aspect-[4/3] sm:aspect-auto sm:h-full overflow-hidden">
                     <img src={p.img} alt={p.name} class={`w-full h-full ${p.imgFit ?? "object-cover"}`} loading="lazy" decoding="async" />
                   </div>
