@@ -391,6 +391,35 @@ const mediaAngles = [
           Schedule details are subject to confirmation and may be updated as the Freedom Bell journey
           develops.
         </p>
+
+        <!-- ============================================================ -->
+        <!-- Photos of America's Freedom Bell — small thumbnail gallery.    -->
+        <!-- 4 source images at native 240x320 portrait (~33-37 KB each).   -->
+        <!-- Displayed at ~190px each desktop (4-col) / ~210px each mobile  -->
+        <!-- (2-col) so the browser never upscales above source resolution. -->
+        <!-- All images use loading='lazy' + decoding='async' so this       -->
+        <!-- block has ZERO impact on initial page load — they only fetch   -->
+        <!-- when scrolled near view.                                       -->
+        <!-- ============================================================ -->
+        <div class="mt-14 sm:mt-16">
+          <p class="text-center text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-6">
+            America&rsquo;s Freedom Bell
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto">
+            <div class="aspect-[3/4] overflow-hidden rounded-lg ring-2 ring-gold/40 shadow-lg bg-navy-dark">
+              <img src="/images/event/freedom-bell-photo-1.jpg" alt="America&rsquo;s Freedom Bell" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+            </div>
+            <div class="aspect-[3/4] overflow-hidden rounded-lg ring-2 ring-gold/40 shadow-lg bg-navy-dark">
+              <img src="/images/event/freedom-bell-photo-2.jpg" alt="America&rsquo;s Freedom Bell" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+            </div>
+            <div class="aspect-[3/4] overflow-hidden rounded-lg ring-2 ring-gold/40 shadow-lg bg-navy-dark">
+              <img src="/images/event/freedom-bell-photo-3.jpg" alt="America&rsquo;s Freedom Bell" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+            </div>
+            <div class="aspect-[3/4] overflow-hidden rounded-lg ring-2 ring-gold/40 shadow-lg bg-navy-dark">
+              <img src="/images/event/freedom-bell-photo-4.jpg" alt="America&rsquo;s Freedom Bell" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
