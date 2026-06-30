@@ -274,12 +274,20 @@ const partners = [
           <div class="p-5 sm:p-6 flex-1 flex flex-col">
             <h3 class="font-heading font-bold text-lg sm:text-xl text-navy mb-1 leading-tight">Joseph M. Gillespie</h3>
             <p class="text-gold font-bold tracking-[0.15em] uppercase text-[10px] sm:text-xs mb-4">Honorary Executive Producer</p>
-            <div class="text-slate/80 text-sm leading-relaxed space-y-3">
+            <div class="text-slate/80 text-sm leading-relaxed">
               <p>A disabled Vietnam War Veteran, Joseph Gillespie chose to get involved in this project as an <strong>Honorary Executive Producer</strong>, as a way to urge Americans to cherish their liberty and remember the high cost of freedom.</p>
-              <p>&ldquo;As a Vietnam Veteran, reflecting on America&rsquo;s 250th celebration stirs a complex mix of pride and contemplation. I served in a time of deep division, where the nation grappled with its identity both at home and abroad. Seeing us reach this milestone, I think about the resilience embedded in our history and the courage of those who fought, not just in wars, but for civil rights, justice and equality.</p>
-              <p>There&rsquo;s pride in how far we&rsquo;ve come, but also a solemn reminder of the costs paid along the way. The faces of my fallen comrades, the struggles of veterans reintegrating, and the lessons learned from conflict, all are part of America&rsquo;s fabric.</p>
-              <p>May this celebration be a reflection on our journey as a nation, honoring both the triumphs and the trials.</p>
-              <p>Most of all, as we celebrate 250 years, let us commit to building a future for all homeless veterans for the sacrifices they made in keeping our nation the freest and the greatest in the world.&rdquo;</p>
+              <details class="group mt-3">
+                <summary class="list-none cursor-pointer marker:hidden">
+                  <span class="inline-block text-red font-semibold uppercase tracking-wider text-xs hover:text-red-light group-open:hidden">Read more &rarr;</span>
+                </summary>
+                <div class="mt-3 space-y-3">
+                  <p>&ldquo;As a Vietnam Veteran, reflecting on America&rsquo;s 250th celebration stirs a complex mix of pride and contemplation. I served in a time of deep division, where the nation grappled with its identity both at home and abroad. Seeing us reach this milestone, I think about the resilience embedded in our history and the courage of those who fought, not just in wars, but for civil rights, justice and equality.</p>
+                  <p>There&rsquo;s pride in how far we&rsquo;ve come, but also a solemn reminder of the costs paid along the way. The faces of my fallen comrades, the struggles of veterans reintegrating, and the lessons learned from conflict, all are part of America&rsquo;s fabric.</p>
+                  <p>May this celebration be a reflection on our journey as a nation, honoring both the triumphs and the trials.</p>
+                  <p>Most of all, as we celebrate 250 years, let us commit to building a future for all homeless veterans for the sacrifices they made in keeping our nation the freest and the greatest in the world.&rdquo;</p>
+                  <span class="hidden group-open:inline-block text-red font-semibold uppercase tracking-wider text-xs cursor-pointer hover:text-red-light" onclick="this.closest('details').open = false">&larr; Show less</span>
+                </div>
+              </details>
             </div>
           </div>
         </div>
