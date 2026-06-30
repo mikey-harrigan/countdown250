@@ -244,28 +244,44 @@ const partners = [
     </section>
 
     <!-- ============================================================ -->
-    <!-- EXECUTIVE PRODUCER — individual partner spotlight. Joseph M.   -->
-    <!-- Gillespie, disabled Vietnam War Veteran, supporting the        -->
-    <!-- project as Executive Producer. The supplied image is a         -->
-    <!-- self-contained patriotic card with portrait + full bio +       -->
-    <!-- decorative flag border baked into the graphic, so we render    -->
-    <!-- the full image centered without any overlay text. Anchor       -->
-    <!-- '#executive-producer' so homepage tile can deep-link here.     -->
-    <!-- Added 2026-06-30 per Mike.                                     -->
+    <!-- HONORARY EXECUTIVE PRODUCER — Joseph M. Gillespie, disabled    -->
+    <!-- Vietnam War Veteran. Originally rendered as a full-image card  -->
+    <!-- (the supplied PNG had bio text baked into the graphic with     -->
+    <!-- 'Executive Producer' in printed text). 2026-06-30: relabeled   -->
+    <!-- 'Honorary Executive Producer' per Mike; since we can't edit    -->
+    <!-- the printed text in the source image, the bio is rewritten as  -->
+    <!-- live HTML alongside the cropped portrait and 'Executive        -->
+    <!-- Producer' is updated to 'Honorary Executive Producer' inline.  -->
+    <!-- Card scaled down to match other sponsor cards. Anchor          -->
+    <!-- '#executive-producer' preserved so existing homepage tile      -->
+    <!-- deep-link continues to work.                                   -->
     <!-- ============================================================ -->
     <section id="executive-producer" class="scroll-mt-24 pb-16 sm:pb-20">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="max-w-md mx-auto px-4 sm:px-6">
         <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm text-center mb-6">
-          Executive Producer
+          Honorary Executive Producer
         </p>
-        <div class="bg-cream rounded-xl overflow-hidden border border-gold/20 shadow-md">
-          <img
-            src="/images/partners/joseph-gillespie-full.jpg"
-            alt="Joseph M. Gillespie — disabled Vietnam War Veteran serving as Executive Producer of the Countdown 250 Ball. Includes his portrait in uniform and full biographical statement on his service, his commitment to America's 250th, and his support for fellow veterans."
-            class="w-full h-auto block"
-            loading="lazy"
-            decoding="async"
-          />
+        <div class="bg-cream rounded-xl overflow-hidden border border-gold/20 shadow-md flex flex-col">
+          <div class="bg-white flex items-center justify-center h-56 sm:h-64 p-5">
+            <img
+              src="/images/partners/joseph-gillespie-portrait.jpg"
+              alt="Joseph M. Gillespie, disabled Vietnam War Veteran, in U.S. Army uniform"
+              class="max-h-full max-w-full object-contain"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="p-5 sm:p-6 flex-1 flex flex-col">
+            <h3 class="font-heading font-bold text-lg sm:text-xl text-navy mb-1 leading-tight">Joseph M. Gillespie</h3>
+            <p class="text-gold font-bold tracking-[0.15em] uppercase text-[10px] sm:text-xs mb-4">Honorary Executive Producer</p>
+            <div class="text-slate/80 text-sm leading-relaxed space-y-3">
+              <p>A disabled Vietnam War Veteran, Joseph Gillespie chose to get involved in this project as an <strong>Honorary Executive Producer</strong>, as a way to urge Americans to cherish their liberty and remember the high cost of freedom.</p>
+              <p>&ldquo;As a Vietnam Veteran, reflecting on America&rsquo;s 250th celebration stirs a complex mix of pride and contemplation. I served in a time of deep division, where the nation grappled with its identity both at home and abroad. Seeing us reach this milestone, I think about the resilience embedded in our history and the courage of those who fought, not just in wars, but for civil rights, justice and equality.</p>
+              <p>There&rsquo;s pride in how far we&rsquo;ve come, but also a solemn reminder of the costs paid along the way. The faces of my fallen comrades, the struggles of veterans reintegrating, and the lessons learned from conflict, all are part of America&rsquo;s fabric.</p>
+              <p>May this celebration be a reflection on our journey as a nation, honoring both the triumphs and the trials.</p>
+              <p>Most of all, as we celebrate 250 years, let us commit to building a future for all homeless veterans for the sacrifices they made in keeping our nation the freest and the greatest in the world.&rdquo;</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
