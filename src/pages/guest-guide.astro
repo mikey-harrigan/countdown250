@@ -25,7 +25,7 @@ import Footer from '../components/Footer.astro';
 // target/rel attributes to open it in a new tab.
 const parkingMapUrl = "#getting-here";
 
-const pageTitle = "Know Before You Go | Guest Guide | The Official Countdown 250 Ball";
+const pageTitle = "Countdown 250 Guest Guide | Know Before You Go";
 const pageDesc = "Must-know info before you arrive at the Countdown 250 Ball on July 3, 2026 — parking, Metro, drop-off, dress code, security, what to bring, and check-in details for the Washington Hilton.";
 ---
 
@@ -78,12 +78,13 @@ const pageDesc = "Must-know info before you arrive at the Countdown 250 Ball on 
             For the best experience, we encourage all guests to review the information below before traveling to the Official Countdown 250 Ball.
           </p>
 
-          <!-- Single CTA: scroll down to the Getting Here section. The
-               'View My Tickets' button was removed 2026-06-30 per Mike;
-               the PDF button was pointing to a not-yet-uploaded file so
-               was 404-ing — retargeted to an in-page anchor so it works
-               today and stays useful when the Hilton PDF eventually
-               replaces the scroll behavior. -->
+          <!-- Quick Actions row (label above button so guests scanning
+               understand they can act without scrolling). One button
+               for now — parking/metro. When the Hilton PDF arrives,
+               swap the href from '#getting-here' to the PDF path. -->
+          <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm text-center mb-3">
+            Quick Actions
+          </p>
           <div class="max-w-md mx-auto">
             <a
               href={parkingMapUrl}
@@ -122,7 +123,7 @@ const pageDesc = "Must-know info before you arrive at the Countdown 250 Ball on 
 
             <!-- Drop-off callout: the single most-asked question -->
             <div class="bg-navy text-white rounded-xl p-5 sm:p-6 mb-6">
-              <p class="text-gold font-bold tracking-[0.18em] uppercase text-[11px] sm:text-xs mb-2">Rideshare &amp; Drop-Off (Recommended)</p>
+              <p class="text-gold font-bold tracking-[0.18em] uppercase text-[11px] sm:text-xs mb-2">Recommended Guest Arrival (Uber, Lyft &amp; Taxi Drop-Off)</p>
               <p class="text-white/90 text-sm sm:text-base leading-relaxed mb-3">
                 For the quickest and most convenient access to the Countdown 250 Ball, rideshare services, taxis, and guest drop-offs should use:
               </p>
@@ -133,9 +134,12 @@ const pageDesc = "Must-know info before you arrive at the Countdown 250 Ball on 
             </div>
 
             <!-- Parking pair -->
-            <h3 class="font-heading font-bold text-lg sm:text-xl text-navy mb-4 flex items-center gap-2">
+            <h3 class="font-heading font-bold text-lg sm:text-xl text-navy mb-3 flex items-center gap-2">
               <span aria-hidden="true">🅿️</span> Parking
             </h3>
+            <p class="text-navy font-bold text-sm sm:text-base leading-relaxed mb-4">
+              Parking at the Washington Hilton is limited and available on a first-come basis.
+            </p>
             <div class="grid sm:grid-cols-2 gap-4 mb-8">
               <div class="bg-white rounded-lg border border-gold/30 p-5">
                 <p class="text-navy font-bold text-base mb-3">Washington Hilton Self-Parking</p>
@@ -232,8 +236,11 @@ const pageDesc = "Must-know info before you arrive at the Countdown 250 Ball on 
               </div>
               <div class="bg-white border border-gold/30 rounded-xl p-5">
                 <p class="text-navy font-bold tracking-[0.18em] uppercase text-[11px] sm:text-xs mb-3">Liberty Admission</p>
-                <p class="text-slate-800 text-sm sm:text-base leading-relaxed">
+                <p class="text-slate-800 text-sm sm:text-base leading-relaxed mb-2">
                   Doors open at <strong class="text-navy">9:00 PM</strong>.
+                </p>
+                <p class="text-slate-800 text-sm sm:text-base leading-relaxed">
+                  Entertainment continues until <strong class="text-navy">1:00 AM</strong>.
                 </p>
               </div>
             </div>
@@ -259,13 +266,14 @@ const pageDesc = "Must-know info before you arrive at the Countdown 250 Ball on 
           <div class="p-6 sm:p-8">
             <div class="text-slate-800 text-sm sm:text-base leading-relaxed space-y-3 mb-6">
               <p>Please have your Eventbrite ticket ready before arriving at the entrance.</p>
+              <p><strong class="text-navy">Please have your ticket opened on your phone before reaching the entrance.</strong> Cellular service is limited in and around the ballroom &mdash; see <a href="#cell-service" class="text-red hover:text-red-light font-bold underline">Cell Service &amp; Connectivity</a> below.</p>
               <p>Mobile tickets are recommended, although printed tickets are also accepted.</p>
               <p>Guests wishing to consume alcoholic beverages must present a valid government-issued photo ID.</p>
             </div>
             <div class="bg-gold/25 border-2 border-gold rounded-xl p-5 sm:p-6">
               <p class="text-navy font-bold tracking-[0.18em] uppercase text-[11px] sm:text-xs mb-3">Statesman Pass Holders</p>
-              <p class="text-slate-800 text-sm sm:text-base leading-relaxed mb-2">
-                Upon entering, please ask for a member of our <strong class="text-navy">Statesman Concierge Team</strong>.
+              <p class="text-slate-800 text-base sm:text-lg leading-relaxed mb-2">
+                Upon entering, <strong class="text-navy">ask for a Statesman&rsquo;s Concierge</strong> &mdash; a member of our concierge team will meet you at the door.
               </p>
               <p class="text-slate-800 text-sm sm:text-base leading-relaxed">
                 Your concierge will personally escort you to your reserved seating area and assist you with your arrival.
@@ -318,7 +326,7 @@ const pageDesc = "Must-know info before you arrive at the Countdown 250 Ball on 
             </p>
             <p class="text-navy font-bold text-sm sm:text-base mb-3">To help speed entry into the event:</p>
             <ul class="text-slate-800 text-sm sm:text-base leading-relaxed space-y-2 mb-5 pl-6 list-disc marker:text-gold">
-              <li>Please allow extra time for security screening.</li>
+              <li><strong class="text-navy">Security screening is required for all guests.</strong> Please allow extra time when arriving.</li>
               <li>All bags are subject to inspection.</li>
               <li>Small purses and handbags are welcome.</li>
               <li><strong class="text-navy">Backpacks, luggage, and oversized bags are not permitted.</strong></li>
@@ -429,8 +437,12 @@ const pageDesc = "Must-know info before you arrive at the Countdown 250 Ball on 
 
     <!-- ============================================================ -->
     <!-- CARD: CELL SERVICE & CONNECTIVITY                              -->
+    <!-- Rewritten 2026-06-30 per Mike to lead with the action, not     -->
+    <!-- the caveat. id='cell-service' anchors the cross-link from the  -->
+    <!-- Check-In card ('please have your ticket opened on your phone   -->
+    <!-- before reaching the entrance').                                -->
     <!-- ============================================================ -->
-    <section class="py-6 sm:py-8">
+    <section id="cell-service" class="scroll-mt-24 py-6 sm:py-8">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="bg-cream rounded-2xl border border-gold/30 shadow-lg overflow-hidden">
           <div class="bg-navy px-6 sm:px-8 py-4 sm:py-5">
@@ -439,15 +451,15 @@ const pageDesc = "Must-know info before you arrive at the Countdown 250 Ball on 
             </h2>
           </div>
           <div class="p-6 sm:p-8">
-            <p class="text-slate-800 text-sm sm:text-base leading-relaxed mb-4">
-              Because of the hotel&rsquo;s construction and the large number of guests attending the event:
+            <p class="text-slate-800 text-base sm:text-lg leading-relaxed mb-3">
+              <strong class="text-navy">Cellular service is limited in the Main Ballroom and several other lower-level event spaces.</strong>
             </p>
-            <ul class="text-slate-800 text-sm sm:text-base leading-relaxed space-y-2.5 mb-5 pl-6 list-disc marker:text-red">
-              <li><strong class="text-navy">Cellular service will be limited in the lower-level areas of the hotel, including the Main Ballroom and several of the other entertainment areas.</strong></li>
-              <li><strong class="text-navy">Public Wi-Fi is not available for event guests.</strong></li>
-              <li>Please download your Eventbrite ticket to your phone before arriving.</li>
-              <li>Bringing a portable phone charger is strongly recommended.</li>
-            </ul>
+            <p class="text-slate-800 text-base sm:text-lg leading-relaxed mb-3">
+              <strong class="text-navy">Please do not rely on cellular service for accessing your ticket after arrival. Download your ticket before coming to the hotel.</strong>
+            </p>
+            <p class="text-slate-800 text-sm sm:text-base leading-relaxed mb-4">
+              Public Wi-Fi is not available for event guests. Bringing a portable phone charger is strongly recommended.
+            </p>
             <p class="text-slate-700 text-sm sm:text-base italic">
               Planning ahead will help ensure a smooth check-in experience.
             </p>
@@ -474,12 +486,20 @@ const pageDesc = "Must-know info before you arrive at the Countdown 250 Ball on 
                 <p class="text-slate-800 text-sm sm:text-base leading-relaxed"><strong class="text-navy">Yes.</strong> Re-entry is permitted; however, you must keep your event credential or admission ticket with you in order to re-enter.</p>
               </div>
               <div class="py-5">
+                <h3 class="text-navy font-bold text-base sm:text-lg mb-2">What if I&rsquo;m running late?</h3>
+                <p class="text-slate-800 text-sm sm:text-base leading-relaxed">You are welcome to arrive after your admission time. Your ticket remains valid throughout the evening.</p>
+              </div>
+              <div class="py-5">
                 <h3 class="text-navy font-bold text-base sm:text-lg mb-2">Can I purchase tickets at the door?</h3>
                 <p class="text-slate-800 text-sm sm:text-base leading-relaxed">Tickets may be purchased <strong class="text-navy">online</strong> until the event begins, subject to availability. <strong class="text-navy">Tickets will not be sold at the door.</strong></p>
               </div>
               <div class="py-5">
                 <h3 class="text-navy font-bold text-base sm:text-lg mb-2">Is there Will Call?</h3>
                 <p class="text-slate-800 text-sm sm:text-base leading-relaxed">No. Please bring your Eventbrite ticket with you (mobile or printed).</p>
+              </div>
+              <div class="py-5">
+                <h3 class="text-navy font-bold text-base sm:text-lg mb-2">Can I bring a camera?</h3>
+                <p class="text-slate-800 text-sm sm:text-base leading-relaxed">Personal photography is welcome. Professional photography and video equipment require media credentials.</p>
               </div>
               <div class="py-5">
                 <h3 class="text-navy font-bold text-base sm:text-lg mb-2">What if my phone battery dies?</h3>
