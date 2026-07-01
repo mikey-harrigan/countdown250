@@ -1,0 +1,468 @@
+---
+/**
+ * KNOW BEFORE YOU GO — Countdown 250 Ball Guest Guide.
+ *
+ * Purpose: single canonical "day-of" info page for ticket holders. Every
+ * question Guest Services and the Washington Hilton keep getting on the
+ * phone gets an answer here so people can self-serve.
+ *
+ * Added 2026-06-30 per Mike. Linked from:
+ *  - Navbar "More" dropdown (top item, so it appears first)
+ *  - Homepage red announcement bar directly under the dress-code band
+ *  - (Owner action) attendee reminder emails + Eventbrite confirmation
+ *
+ * Two CTAs at the top:
+ *  - Parking & Metro Map (PDF)  — placeholder path;
+ *    Mike will upload the Hilton PDF to /downloads/countdown250-parking-metro-map.pdf
+ *  - View My Tickets  — links to Eventbrite
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
+const parkingMapUrl = "/downloads/countdown250-parking-metro-map.pdf";
+
+const pageTitle = "Know Before You Go | Guest Guide | The Official Countdown 250 Ball";
+const pageDesc = "Must-know info before you arrive at the Countdown 250 Ball on July 3, 2026 — parking, Metro, drop-off, dress code, security, what to bring, and check-in details for the Washington Hilton.";
+---
+
+<BaseLayout title={pageTitle} description={pageDesc} ogImage="/images/event/countdown250-midnight-ball.jpg">
+  <Navbar />
+  <main
+    class="relative"
+    style="background: radial-gradient(circle at 30% 30%, rgba(4, 61, 156, 0.45) 0%, transparent 55%), linear-gradient(135deg, #052058 0%, #002B77 50%, #043D9C 100%); background-attachment: fixed;"
+  >
+    <!-- ============================================================ -->
+    <!-- HERO — canonical sub-page pattern, gold ribbon over patriotic  -->
+    <!-- image. Reuses the FAQ-page flag hero (already installed).      -->
+    <!-- ============================================================ -->
+    <section class="relative overflow-hidden">
+      <div class="relative w-full h-[45vh] sm:h-[55vh] min-h-[280px] max-h-[560px]">
+        <img
+          src="/images/event/header-faq-question-mark.jpg"
+          alt="A gold question-mark emblem framed by laurel wreath and stars, centered on a vintage-toned American flag — Know Before You Go guest guide header"
+          class="absolute inset-0 w-full h-full object-cover"
+          decoding="async"
+        />
+        <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-navy-dark/55 to-transparent pointer-events-none"></div>
+
+        <div class="absolute inset-y-0 left-0 flex items-end pb-4 sm:pb-8 md:pb-12 lg:pb-16 pointer-events-none">
+          <div class="bg-gradient-to-r from-gold to-[#f4d847] py-2.5 sm:py-3.5 md:py-4 lg:py-5 pl-3 sm:pl-8 md:pl-14 lg:pl-20 xl:pl-28 pr-5 sm:pr-8 md:pr-12 lg:pr-14 border-y-2 border-r-2 border-navy-dark/35 rounded-r-2xl shadow-[0_14px_32px_-10px_rgba(0,0,0,0.55)] pointer-events-auto">
+            <h1 class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy font-heading leading-none tracking-tight">
+              Know Before You Go
+            </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- INTRO + QUICK LINKS: two prominent CTA buttons                -->
+    <!-- ============================================================ -->
+    <section class="pt-14 sm:pt-20 pb-10 sm:pb-12">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <p class="text-white font-bold tracking-[0.3em] uppercase text-xs sm:text-sm text-center mb-4">
+          Countdown 250 Ball Guest Guide
+        </p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gold text-center font-heading mb-4 leading-tight">
+          Washington Hilton &middot; July 3, 2026
+        </h2>
+        <p class="text-white/85 text-base sm:text-lg leading-relaxed text-center max-w-2xl mx-auto mb-10">
+          For the best experience, we encourage all guests to review the information below before traveling to the Official Countdown 250 Ball.
+        </p>
+
+        <!-- Two prominent CTA buttons — parking map + eventbrite. Full-width
+             on mobile, side-by-side from sm+. Bold contrasting colors so a
+             guest arriving in a hurry can act with one tap. -->
+        <div class="grid sm:grid-cols-2 gap-4 sm:gap-5 max-w-3xl mx-auto">
+          <a
+            href={parkingMapUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center justify-center gap-3 bg-gold hover:bg-[#f4d847] text-navy font-bold py-4 sm:py-5 px-5 rounded-xl shadow-xl hover:-translate-y-0.5 transition-all text-center border-2 border-navy-dark/30"
+          >
+            <span class="text-2xl sm:text-3xl" aria-hidden="true">&#128205;</span>
+            <span class="text-sm sm:text-base tracking-wide">
+              <span class="block text-[10px] sm:text-xs uppercase tracking-[0.15em] text-navy/70 font-bold">Download</span>
+              Parking &amp; Metro Map (PDF)
+            </span>
+          </a>
+          <a
+            href={ticketUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center justify-center gap-3 bg-red hover:bg-red-light text-white font-bold py-4 sm:py-5 px-5 rounded-xl shadow-xl hover:-translate-y-0.5 transition-all text-center border-2 border-white/20"
+          >
+            <span class="text-2xl sm:text-3xl" aria-hidden="true">&#127903;</span>
+            <span class="text-sm sm:text-base tracking-wide">
+              <span class="block text-[10px] sm:text-xs uppercase tracking-[0.15em] text-white/80 font-bold">Access</span>
+              View My Tickets
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- GETTING HERE — venue address, drop-off, parking, metro         -->
+    <!-- ============================================================ -->
+    <section class="py-10 sm:py-12">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="w-16 h-1 bg-gold mx-auto mb-10"></div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gold mb-2 font-heading text-center">
+          <span aria-hidden="true">&#128205;</span> Getting Here
+        </h2>
+        <p class="text-white text-center text-lg sm:text-xl font-heading font-bold mb-1">Washington Hilton</p>
+        <p class="text-white/80 text-center mb-10">1919 Connecticut Avenue NW &middot; Washington, DC 20009</p>
+
+        <!-- Drop-off callout — most important arrival info; boxed so it
+             pops for guests scanning the page. -->
+        <div class="bg-gold/15 border-2 border-gold/40 rounded-xl p-6 sm:p-8 mb-8">
+          <p class="text-gold font-bold tracking-[0.18em] uppercase text-xs sm:text-sm mb-2">Rideshare &amp; Drop-Off (Recommended)</p>
+          <p class="text-white/90 text-sm sm:text-base leading-relaxed mb-4">
+            For the quickest and most convenient access to the Countdown 250 Ball, rideshare services, taxis, and guest drop-offs should use:
+          </p>
+          <p class="text-white font-heading font-bold text-2xl sm:text-3xl mb-2">1901 Connecticut Avenue NW</p>
+          <p class="text-white/80 text-sm sm:text-base leading-relaxed">
+            This is the <strong>Ballroom Entrance</strong> and the recommended guest arrival location.
+          </p>
+        </div>
+
+        <!-- Parking — self-park + alternate -->
+        <div class="grid md:grid-cols-2 gap-4 sm:gap-6 mb-10">
+          <div class="bg-white/[0.06] border border-white/15 rounded-xl p-6">
+            <h3 class="text-gold font-bold text-lg mb-3 font-heading">Washington Hilton Self-Parking</h3>
+            <ul class="text-white/85 text-sm sm:text-base leading-relaxed space-y-1.5">
+              <li>&bull; Open 24 hours</li>
+              <li>&bull; Approximately <strong class="text-white">$59 plus tax</strong></li>
+              <li>&bull; Garage entrance: <strong class="text-white">1998 19th Street NW</strong></li>
+              <li>&bull; Limited availability</li>
+            </ul>
+          </div>
+          <div class="bg-white/[0.06] border border-white/15 rounded-xl p-6">
+            <h3 class="text-gold font-bold text-lg mb-3 font-heading">Nearby Alternate Parking</h3>
+            <p class="text-white font-bold mb-1">ONE Parking</p>
+            <p class="text-white/85 text-sm sm:text-base leading-relaxed mb-2">1666 Connecticut Avenue NW</p>
+            <p class="text-white/70 text-sm">Approximately <strong class="text-white">$22 flat rate</strong> (subject to change).</p>
+          </div>
+        </div>
+
+        <!-- Metro -->
+        <div class="bg-white/[0.06] border border-white/15 rounded-xl p-6 sm:p-8">
+          <h3 class="text-gold font-bold text-lg sm:text-xl mb-3 font-heading">Metro (Recommended)</h3>
+          <p class="text-white/85 text-sm sm:text-base leading-relaxed mb-4">
+            Metro is one of the easiest ways to reach the Washington Hilton.
+          </p>
+          <div class="space-y-3 text-white/85 text-sm sm:text-base leading-relaxed">
+            <p><strong class="text-white">Dupont Circle Station (Red Line)</strong> &mdash; approximately a four-block walk to the hotel.</p>
+            <p><strong class="text-white">U Street Station (Green Line)</strong> &mdash; approximately 0.9 miles from the hotel.</p>
+          </div>
+          <p class="text-white/70 text-sm mt-4 pt-4 border-t border-white/10">
+            Complete Metro directions and parking information are available in the <a href={parkingMapUrl} target="_blank" rel="noopener noreferrer" class="text-gold hover:text-gold-light font-semibold underline">Parking &amp; Metro Map</a> above.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TRAVEL & TRAFFIC UPDATES — AlertDC SMS keyword                 -->
+    <!-- ============================================================ -->
+    <section class="py-10 sm:py-12">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="w-16 h-1 bg-gold mx-auto mb-10"></div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gold mb-6 font-heading text-center">
+          <span aria-hidden="true">&#128678;</span> Travel &amp; Traffic Updates
+        </h2>
+        <p class="text-white/85 text-sm sm:text-base leading-relaxed mb-4">
+          Washington, D.C. will experience significant traffic, road closures, security zones, and increased visitor activity throughout Independence Day weekend.
+        </p>
+        <p class="text-white/85 text-sm sm:text-base leading-relaxed mb-6">
+          Guests are encouraged to stay informed by signing up for the District of Columbia&rsquo;s official <strong class="text-white">AlertDC</strong> notifications.
+        </p>
+        <div class="bg-red/20 border-2 border-red/60 rounded-xl p-6 sm:p-7 text-center">
+          <p class="text-white/85 text-sm sm:text-base mb-2">Text</p>
+          <p class="text-white font-heading font-bold text-2xl sm:text-3xl mb-1">
+            &ldquo;DC250&rdquo; to <a href="sms:888777" class="underline hover:text-gold transition-colors">888-777</a>
+          </p>
+          <p class="text-white/80 text-sm sm:text-base">
+            to receive free traffic, transit, public safety, and special event updates from the District of Columbia.
+          </p>
+        </div>
+        <p class="text-white/70 text-sm mt-4 text-center italic">
+          Please allow extra travel time when arriving and departing from the event.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ARRIVAL & CHECK-IN — VIP vs Liberty timing                     -->
+    <!-- ============================================================ -->
+    <section class="py-10 sm:py-12">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="w-16 h-1 bg-gold mx-auto mb-10"></div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gold mb-8 font-heading text-center">
+          <span aria-hidden="true">&#9200;</span> Arrival &amp; Check-In
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-4 sm:gap-6 mb-6">
+          <div class="bg-gold/10 border-2 border-gold/50 rounded-xl p-6">
+            <p class="text-gold font-bold tracking-[0.18em] uppercase text-[11px] sm:text-xs mb-2">Statesman &amp; Patriot VIP</p>
+            <p class="text-white/85 text-sm sm:text-base leading-relaxed mb-3">
+              Early check-in begins at <strong class="text-white">6:30 PM</strong>.
+            </p>
+            <p class="text-white/85 text-sm sm:text-base leading-relaxed">
+              VIP Reception, dinner, premium bars, entertainment, and all VIP services begin promptly at <strong class="text-white">7:00 PM</strong>.
+            </p>
+          </div>
+          <div class="bg-white/[0.06] border border-white/15 rounded-xl p-6">
+            <p class="text-white font-bold tracking-[0.18em] uppercase text-[11px] sm:text-xs mb-2">Liberty Admission</p>
+            <p class="text-white/85 text-sm sm:text-base leading-relaxed">
+              Doors open at <strong class="text-white">9:00 PM</strong>.
+            </p>
+          </div>
+        </div>
+
+        <p class="text-white/85 text-sm sm:text-base leading-relaxed text-center">
+          To ensure a smooth arrival, we recommend arriving <strong class="text-white">30&ndash;45 minutes early</strong>, particularly during peak arrival times.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CHECK-IN — ticket scanning details                             -->
+    <!-- ============================================================ -->
+    <section class="py-10 sm:py-12">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="w-16 h-1 bg-gold mx-auto mb-10"></div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gold mb-6 font-heading text-center">
+          <span aria-hidden="true">&#127903;</span> Check-In
+        </h2>
+        <div class="text-white/85 text-sm sm:text-base leading-relaxed space-y-4 mb-8">
+          <p>Please have your Eventbrite ticket ready before arriving at the entrance.</p>
+          <p>Mobile tickets are recommended, although printed tickets are also accepted.</p>
+          <p>Guests wishing to consume alcoholic beverages must present a valid government-issued photo ID.</p>
+        </div>
+
+        <div class="bg-gold/10 border-2 border-gold/50 rounded-xl p-6">
+          <p class="text-gold font-bold tracking-[0.18em] uppercase text-[11px] sm:text-xs mb-3">Statesman Pass Holders</p>
+          <p class="text-white/90 text-sm sm:text-base leading-relaxed mb-2">
+            Upon entering, please ask for a member of our <strong class="text-white">Statesman Concierge Team</strong>.
+          </p>
+          <p class="text-white/85 text-sm sm:text-base leading-relaxed">
+            Your concierge will personally escort you to your reserved seating area and assist you with your arrival.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- DRESS CODE — canonical wording, matches FAQ + Terms § 9        -->
+    <!-- ============================================================ -->
+    <section class="py-10 sm:py-12">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="w-16 h-1 bg-gold mx-auto mb-10"></div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gold mb-4 font-heading text-center">
+          <span aria-hidden="true">&#128084;</span> Dress Code
+        </h2>
+        <p class="text-white font-heading font-bold text-2xl sm:text-3xl text-center mb-4">Stylish Patriotic Attire</p>
+        <div class="text-white/85 text-sm sm:text-base leading-relaxed space-y-3 max-w-2xl mx-auto text-center">
+          <p>Festive, polished, and photo-ready.</p>
+          <p>Guests are encouraged to celebrate America&rsquo;s 250th Anniversary with tasteful patriotic attire.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECURITY INFO — friendly framing, clear rules                  -->
+    <!-- ============================================================ -->
+    <section class="py-10 sm:py-12">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="w-16 h-1 bg-gold mx-auto mb-10"></div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gold mb-6 font-heading text-center">
+          <span aria-hidden="true">&#128274;</span> Security Information
+        </h2>
+        <p class="text-white/85 text-sm sm:text-base leading-relaxed mb-4">
+          The safety and comfort of our guests are our highest priorities.
+        </p>
+        <p class="text-white/85 text-sm sm:text-base leading-relaxed mb-6">
+          Professional event security will be present throughout the evening to help ensure a safe, welcoming, and enjoyable celebration for everyone.
+        </p>
+        <p class="text-white font-semibold text-sm sm:text-base mb-3">To help speed entry into the event:</p>
+        <ul class="text-white/85 text-sm sm:text-base leading-relaxed space-y-2 mb-6 pl-6 list-disc marker:text-gold">
+          <li>Please allow extra time for security screening.</li>
+          <li>All bags are subject to inspection.</li>
+          <li>Small purses and handbags are welcome.</li>
+          <li><strong class="text-white">Backpacks, luggage, and oversized bags are not permitted.</strong></li>
+          <li>Weapons of any kind are strictly prohibited.</li>
+          <li>Illegal drugs or prohibited substances are not permitted.</li>
+          <li>Guests who appear visibly intoxicated may be denied admission.</li>
+        </ul>
+        <p class="text-white/75 text-sm sm:text-base italic">
+          Thank you for helping us create a safe and memorable celebration for everyone.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- WHAT TO BRING / LEAVE AT HOME — two-column side-by-side        -->
+    <!-- ============================================================ -->
+    <section class="py-10 sm:py-12">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="w-16 h-1 bg-gold mx-auto mb-10"></div>
+        <div class="grid md:grid-cols-2 gap-6 sm:gap-8">
+          <div class="bg-white/[0.06] border border-gold/30 rounded-xl p-6 sm:p-7">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gold mb-4 font-heading">
+              <span aria-hidden="true">&#127890;</span> What to Bring
+            </h2>
+            <p class="text-white/85 text-sm sm:text-base mb-3">Please bring:</p>
+            <ul class="text-white/85 text-sm sm:text-base leading-relaxed space-y-2 pl-6 list-disc marker:text-gold">
+              <li>Your Eventbrite ticket (mobile or printed)</li>
+              <li>A valid government-issued photo ID if you plan to consume alcoholic beverages</li>
+              <li>A fully charged mobile phone</li>
+              <li>A portable phone charger (strongly recommended)</li>
+              <li>Comfortable shoes if you plan to explore the many experiences throughout the evening</li>
+            </ul>
+          </div>
+          <div class="bg-white/[0.06] border border-red/40 rounded-xl p-6 sm:p-7">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gold mb-4 font-heading">
+              <span aria-hidden="true">&#128683;</span> Please Leave at Home
+            </h2>
+            <p class="text-white/85 text-sm sm:text-base mb-3">Please do not bring:</p>
+            <ul class="text-white/85 text-sm sm:text-base leading-relaxed space-y-2 pl-6 list-disc marker:text-red">
+              <li>Weapons of any kind</li>
+              <li>Illegal drugs or prohibited substances</li>
+              <li>Backpacks</li>
+              <li>Luggage</li>
+              <li>Oversized bags</li>
+              <li>Outside food or beverages</li>
+              <li>Professional photography or video equipment without media credentials</li>
+              <li>Drones</li>
+              <li>Fireworks</li>
+              <li>Laser pointers</li>
+              <li>Any item deemed unsafe by event security</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PHOTOGRAPHY & VIDEO                                            -->
+    <!-- ============================================================ -->
+    <section class="py-10 sm:py-12">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="w-16 h-1 bg-gold mx-auto mb-10"></div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gold mb-6 font-heading text-center">
+          <span aria-hidden="true">&#128248;</span> Photography &amp; Video
+        </h2>
+        <div class="text-white/85 text-sm sm:text-base leading-relaxed space-y-4">
+          <p>Professional photographers and videographers will be covering the event throughout the evening.</p>
+          <p>By attending Countdown 250, you acknowledge that photographs and video may be taken and used for promotional, marketing, news, documentary, and archival purposes.</p>
+          <p>Guests are encouraged to capture and share their own experience on social media.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ACCESSIBILITY                                                  -->
+    <!-- ============================================================ -->
+    <section class="py-10 sm:py-12">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="w-16 h-1 bg-gold mx-auto mb-10"></div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gold mb-6 font-heading text-center">
+          <span aria-hidden="true">&#9855;</span> Accessibility
+        </h2>
+        <div class="text-white/85 text-sm sm:text-base leading-relaxed space-y-4 text-center">
+          <p>Accessible entrances, elevators, and ADA seating are available.</p>
+          <p>If you require assistance during the evening, please notify a member of our Guest Services team.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CELL SERVICE & CONNECTIVITY — download your ticket ahead!      -->
+    <!-- ============================================================ -->
+    <section class="py-10 sm:py-12">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="w-16 h-1 bg-gold mx-auto mb-10"></div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gold mb-6 font-heading text-center">
+          <span aria-hidden="true">&#128241;</span> Cell Service &amp; Connectivity
+        </h2>
+        <p class="text-white/85 text-sm sm:text-base leading-relaxed mb-4">
+          Because of the hotel&rsquo;s construction and the large number of guests attending the event:
+        </p>
+        <ul class="text-white/90 text-sm sm:text-base leading-relaxed space-y-3 mb-4 pl-6 list-disc marker:text-gold">
+          <li><strong class="text-white">Cellular service will be limited in the lower-level areas of the hotel, including the Main Ballroom and several of the other entertainment areas.</strong></li>
+          <li><strong class="text-white">Public Wi-Fi is not available for event guests.</strong></li>
+          <li>Please download your Eventbrite ticket to your phone before arriving.</li>
+          <li>Bringing a portable phone charger is strongly recommended.</li>
+        </ul>
+        <p class="text-white/75 text-sm sm:text-base italic">
+          Planning ahead will help ensure a smooth check-in experience.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- FAQ — the highest-frequency day-of questions                   -->
+    <!-- ============================================================ -->
+    <section class="py-10 sm:py-12">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="w-16 h-1 bg-gold mx-auto mb-10"></div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gold mb-8 font-heading text-center">
+          <span aria-hidden="true">&#10067;</span> Frequently Asked Questions
+        </h2>
+        <div class="space-y-6">
+          <div class="border-b border-white/15 pb-5">
+            <h3 class="text-lg sm:text-xl font-semibold text-gold mb-2">Can I leave the event and return later?</h3>
+            <p class="text-white/80 leading-relaxed text-sm sm:text-base"><strong class="text-white">Yes.</strong> Re-entry is permitted; however, you must keep your event credential or admission ticket with you in order to re-enter.</p>
+          </div>
+          <div class="border-b border-white/15 pb-5">
+            <h3 class="text-lg sm:text-xl font-semibold text-gold mb-2">Can I purchase tickets at the door?</h3>
+            <p class="text-white/80 leading-relaxed text-sm sm:text-base">Tickets may be purchased <strong class="text-white">online</strong> until the event begins, subject to availability. <strong class="text-white">Tickets will not be sold at the door.</strong></p>
+          </div>
+          <div class="border-b border-white/15 pb-5">
+            <h3 class="text-lg sm:text-xl font-semibold text-gold mb-2">Is there Will Call?</h3>
+            <p class="text-white/80 leading-relaxed text-sm sm:text-base">No. Please bring your Eventbrite ticket with you (mobile or printed).</p>
+          </div>
+          <div class="border-b border-white/15 pb-5">
+            <h3 class="text-lg sm:text-xl font-semibold text-gold mb-2">What if my phone battery dies?</h3>
+            <p class="text-white/80 leading-relaxed text-sm sm:text-base">We recommend bringing a portable phone charger, as charging stations will not be available during the event.</p>
+          </div>
+          <div class="border-b border-white/15 pb-5">
+            <h3 class="text-lg sm:text-xl font-semibold text-gold mb-2">Where should Uber, Lyft, or taxis drop me off?</h3>
+            <p class="text-white/80 leading-relaxed text-sm sm:text-base">
+              For the fastest access to the event, use <strong class="text-white">1901 Connecticut Avenue NW</strong>. This is the Ballroom Entrance and the recommended guest drop-off location.
+            </p>
+          </div>
+          <div class="pb-5">
+            <h3 class="text-lg sm:text-xl font-semibold text-gold mb-2">What if I have questions when I arrive?</h3>
+            <p class="text-white/80 leading-relaxed text-sm sm:text-base">Guest Services, Statesman Concierges, hotel staff, and event volunteers will be available throughout the evening to assist you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CLOSING — warm sign-off                                        -->
+    <!-- ============================================================ -->
+    <section class="py-14 sm:py-20">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <div class="w-16 h-1 bg-gold mx-auto mb-10"></div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gold mb-6 font-heading">
+          We Look Forward to Welcoming You
+        </h2>
+        <p class="text-white/85 text-base sm:text-lg leading-relaxed mb-4">
+          Thank you for joining us for the <strong class="text-white">Official Countdown 250 Ball</strong> as we celebrate America&rsquo;s 250th Anniversary.
+        </p>
+        <p class="text-white/85 text-base sm:text-lg leading-relaxed">
+          We wish you safe travels and look forward to sharing an unforgettable Independence Eve celebration with you on <strong class="text-white">July 3, 2026</strong>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
