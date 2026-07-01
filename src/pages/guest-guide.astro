@@ -17,8 +17,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 
-const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
-const parkingMapUrl = "/downloads/countdown250-parking-metro-map.pdf";
+// Parking & Metro button — links to the Getting Here section on this
+// page for now (the section already has venue address, rideshare
+// drop-off, self-park, alternate park, and Metro). When Mike has the
+// official Hilton PDF, swap this to
+// '/downloads/countdown250-parking-metro-map.pdf' and add
+// target/rel attributes to open it in a new tab.
+const parkingMapUrl = "#getting-here";
 
 const pageTitle = "Know Before You Go | Guest Guide | The Official Countdown 250 Ball";
 const pageDesc = "Must-know info before you arrive at the Countdown 250 Ball on July 3, 2026 — parking, Metro, drop-off, dress code, security, what to bring, and check-in details for the Washington Hilton.";
@@ -73,29 +78,21 @@ const pageDesc = "Must-know info before you arrive at the Countdown 250 Ball on 
             For the best experience, we encourage all guests to review the information below before traveling to the Official Countdown 250 Ball.
           </p>
 
-          <div class="grid sm:grid-cols-2 gap-4 sm:gap-5">
+          <!-- Single CTA: scroll down to the Getting Here section. The
+               'View My Tickets' button was removed 2026-06-30 per Mike;
+               the PDF button was pointing to a not-yet-uploaded file so
+               was 404-ing — retargeted to an in-page anchor so it works
+               today and stays useful when the Hilton PDF eventually
+               replaces the scroll behavior. -->
+          <div class="max-w-md mx-auto">
             <a
               href={parkingMapUrl}
-              target="_blank"
-              rel="noopener noreferrer"
               class="group flex items-center justify-center gap-3 bg-navy hover:bg-navy-dark text-white font-bold py-4 sm:py-5 px-5 rounded-xl shadow-lg hover:-translate-y-0.5 transition-all text-center border-2 border-navy-dark/40"
             >
               <span class="text-2xl sm:text-3xl" aria-hidden="true">📍</span>
               <span class="text-sm sm:text-base tracking-wide">
-                <span class="block text-[10px] sm:text-xs uppercase tracking-[0.15em] text-gold font-bold">Download</span>
-                Parking &amp; Metro Map (PDF)
-              </span>
-            </a>
-            <a
-              href={ticketUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group flex items-center justify-center gap-3 bg-red hover:bg-red-light text-white font-bold py-4 sm:py-5 px-5 rounded-xl shadow-lg hover:-translate-y-0.5 transition-all text-center border-2 border-white/40"
-            >
-              <span class="text-2xl sm:text-3xl" aria-hidden="true">🎟️</span>
-              <span class="text-sm sm:text-base tracking-wide">
-                <span class="block text-[10px] sm:text-xs uppercase tracking-[0.15em] text-gold font-bold">Access</span>
-                View My Tickets
+                <span class="block text-[10px] sm:text-xs uppercase tracking-[0.15em] text-gold font-bold">See</span>
+                Parking &amp; Metro Info
               </span>
             </a>
           </div>
@@ -105,8 +102,11 @@ const pageDesc = "Must-know info before you arrive at the Countdown 250 Ball on 
 
     <!-- ============================================================ -->
     <!-- CARD: GETTING HERE — venue, drop-off, parking, Metro           -->
+    <!-- id='getting-here' anchors the 'See Parking & Metro Info' CTA   -->
+    <!-- button at the top of the page. scroll-mt-24 keeps the card    -->
+    <!-- from being tucked under the fixed navbar on jump.              -->
     <!-- ============================================================ -->
-    <section class="py-6 sm:py-8">
+    <section id="getting-here" class="scroll-mt-24 py-6 sm:py-8">
       <div class="max-w-4xl mx-auto px-4 sm:px-6">
         <div class="bg-cream rounded-2xl border border-gold/30 shadow-lg overflow-hidden">
           <div class="bg-navy px-6 sm:px-8 py-4 sm:py-5">
@@ -166,7 +166,7 @@ const pageDesc = "Must-know info before you arrive at the Countdown 250 Ball on 
               <p><strong class="text-navy">U Street Station (Green Line)</strong> &mdash; approximately 0.9 miles from the hotel.</p>
             </div>
             <p class="text-slate-700 text-sm sm:text-base italic">
-              Complete Metro directions and parking information are available in the <a href={parkingMapUrl} target="_blank" rel="noopener noreferrer" class="text-red hover:text-red-light font-bold underline">Parking &amp; Metro Map</a> at the top of this page.
+              Metro fares vary; check current fares at <a href="https://www.wmata.com/fares/" target="_blank" rel="noopener noreferrer" class="text-red hover:text-red-light font-bold underline">wmata.com</a>.
             </p>
           </div>
         </div>
