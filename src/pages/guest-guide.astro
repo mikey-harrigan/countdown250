@@ -17,13 +17,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 
-// Parking & Metro button — links to the Getting Here section on this
-// page for now (the section already has venue address, rideshare
-// drop-off, self-park, alternate park, and Metro). When Mike has the
-// official Hilton PDF, swap this to
-// '/downloads/countdown250-parking-metro-map.pdf' and add
-// target/rel attributes to open it in a new tab.
-const parkingMapUrl = "#getting-here";
+// Parking & Metro Map PDF — Mike uploaded the Hilton parking map on
+// 2026-07-01 (public/downloads/countdown250-parking-metro-map.pdf).
+// The Quick Actions button now downloads it directly.
+const parkingMapUrl = "/downloads/countdown250-parking-metro-map.pdf";
 
 const pageTitle = "Countdown 250 Guest Guide | Know Before You Go";
 const pageDesc = "Must-know info before you arrive at the Countdown 250 Ball on July 3, 2026 — parking, Metro, drop-off, dress code, security, what to bring, and check-in details for the Washington Hilton.";
@@ -78,22 +75,23 @@ const pageDesc = "Must-know info before you arrive at the Countdown 250 Ball on 
             For the best experience, we encourage all guests to review the information below before traveling to the Official Countdown 250 Ball.
           </p>
 
-          <!-- Quick Actions row (label above button so guests scanning
-               understand they can act without scrolling). One button
-               for now — parking/metro. When the Hilton PDF arrives,
-               swap the href from '#getting-here' to the PDF path. -->
+          <!-- Quick Actions — single button that downloads the official
+               Hilton Parking & Metro Map PDF. Opens in a new tab so the
+               guest guide stays put behind it. -->
           <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm text-center mb-3">
             Quick Actions
           </p>
           <div class="max-w-md mx-auto">
             <a
               href={parkingMapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               class="group flex items-center justify-center gap-3 bg-navy hover:bg-navy-dark text-white font-bold py-4 sm:py-5 px-5 rounded-xl shadow-lg hover:-translate-y-0.5 transition-all text-center border-2 border-navy-dark/40"
             >
               <span class="text-2xl sm:text-3xl" aria-hidden="true">📍</span>
               <span class="text-sm sm:text-base tracking-wide">
-                <span class="block text-[10px] sm:text-xs uppercase tracking-[0.15em] text-gold font-bold">See</span>
-                Parking &amp; Metro Info
+                <span class="block text-[10px] sm:text-xs uppercase tracking-[0.15em] text-gold font-bold">Download</span>
+                Parking &amp; Metro Map
               </span>
             </a>
           </div>
