@@ -428,17 +428,17 @@ const faqs = [
     <section class="bg-gradient-to-r from-gold via-[#f4d847] to-gold border-b border-navy/30">
       <a
         href="/faq/"
-        class="block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 sm:py-4 text-center group hover:bg-white/10 transition-colors"
-        aria-label="Dress code: Stylish Patriotic Summer Attire. Click for full dress code details on the FAQ page."
+        class="block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6 md:py-7 text-center group hover:bg-white/10 transition-colors"
+        aria-label="Attire update: Stylish Patriotic Summer Attire. Click for full dress code details on the FAQ page."
       >
-        <p class="text-navy text-sm sm:text-base md:text-lg leading-tight">
-          <span class="font-bold tracking-[0.18em] uppercase text-xs sm:text-sm md:text-base mr-1">Attire:</span>
+        <p class="text-navy text-base sm:text-lg md:text-xl leading-tight">
+          <span class="attire-update-pulse font-bold tracking-[0.18em] uppercase text-lg sm:text-xl md:text-2xl mr-2 text-red">Attire Update:</span>
           <span class="font-bold">Stylish Patriotic Summer Attire</span>
           <span class="hidden sm:inline">&nbsp;&middot;&nbsp;</span>
-          <span class="block sm:inline text-navy/85 text-[13px] sm:text-sm md:text-base mt-1 sm:mt-0">
+          <span class="block sm:inline text-navy/85 text-sm sm:text-base md:text-lg mt-1 sm:mt-0">
             Comfortable, weather-appropriate, and festive &mdash; patriotic colors welcome.
           </span>
-          <span class="block sm:inline mt-1 sm:mt-0 sm:ml-2 text-red font-bold uppercase tracking-wider text-[11px] sm:text-xs group-hover:text-red-light">
+          <span class="block sm:inline mt-1 sm:mt-0 sm:ml-2 text-red font-bold uppercase tracking-wider text-xs sm:text-sm group-hover:text-red-light">
             See full dress code &rarr;
           </span>
         </p>
@@ -489,6 +489,29 @@ const faqs = [
       }
       @media (prefers-reduced-motion: reduce) {
         .news-marquee-track { animation: none; transform: translateX(0); }
+      }
+
+      /* ATTIRE UPDATE label pulse — scale + soft glow, 1.8s cycle,
+         ease-in-out. inline-block so the transform is honored on an
+         inline span. Respects prefers-reduced-motion. */
+      @keyframes attire-update-pulse {
+        0%, 100% {
+          transform: scale(1);
+          text-shadow: 0 0 0 rgba(206, 17, 38, 0);
+        }
+        50% {
+          transform: scale(1.09);
+          text-shadow: 0 0 14px rgba(206, 17, 38, 0.45);
+        }
+      }
+      .attire-update-pulse {
+        display: inline-block;
+        transform-origin: center;
+        animation: attire-update-pulse 1.8s ease-in-out infinite;
+        will-change: transform;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .attire-update-pulse { animation: none; transform: scale(1); }
       }
     </style>
 
