@@ -12,11 +12,19 @@ const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-
 //   JOIN_FORM_URL   → for Guests joining an existing Hosted Group
 const CREATE_FORM_URL = "https://forms.gle/yT1YbicTbS3i1CNn9";
 const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
+
+// Post-event mode (event was 2026-07-03). When true, the entire
+// Hosted Groups pitch (hero, program explainer, tables lineup,
+// registration forms, CTAs) is hidden and a minimal placeholder is
+// shown instead. All original content is preserved in code so the
+// program can be revived for the next event by flipping this to
+// false. Added 2026-07-10 per Mike.
+const POST_EVENT_MODE = true;
 ---
 
 <BaseLayout
-  title="The Hosted Groups Program — Statesman's Pass Amenity | The Official Countdown 250 Ball | July 3, 2026"
-  description="Host your own Party Inside the Party at the Countdown 250 Ball — or join one already in motion. Reserved private tables, named recognition, public toast. A Statesman's Concierge Pass amenity."
+  title="Hosted Groups Program | The Official Countdown 250 Ball"
+  description="The 2026 Hosted Groups Program at the Countdown 250 Ball concluded on July 3, 2026. Thank you to all the Hosts and guests who made the experience unforgettable."
   ogImage="/images/event/hero-countdown250-toast.jpg"
 >
   <Navbar />
@@ -25,6 +33,27 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
     class="relative"
     style="background: radial-gradient(circle at 30% 30%, rgba(4, 61, 156, 0.45) 0%, transparent 55%), linear-gradient(135deg, #052058 0%, #002B77 50%, #043D9C 100%); background-attachment: fixed;"
   >
+
+    {POST_EVENT_MODE && (
+    <section class="min-h-[70vh] flex items-center justify-center py-24 px-4 sm:px-6">
+      <div class="max-w-2xl mx-auto text-center">
+        <p class="text-gold font-bold tracking-[0.3em] uppercase text-xs sm:text-sm mb-4">Hosted Groups Program</p>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-heading leading-tight mb-6">
+          The 2026 Hosted Groups Program Has Concluded
+        </h1>
+        <div class="w-16 h-1 bg-gold mx-auto mb-8"></div>
+        <p class="text-white/85 text-base sm:text-lg leading-relaxed mb-8">
+          Thank you to all the Hosts and guests who made the Hosted Groups experience unforgettable at the Countdown 250 Ball on July 3, 2026. This program is no longer accepting new registrations.
+        </p>
+        <p class="text-white/70 text-sm sm:text-base italic">
+          Stay tuned for information about our next event.
+        </p>
+      </div>
+    </section>
+    )}
+
+    {!POST_EVENT_MODE && (
+    <>
 
     <!-- ============================================================ -->
     <!-- HERO — standard sub-page image-led pattern.                  -->
@@ -577,6 +606,9 @@ const JOIN_FORM_URL   = "https://forms.gle/J8v9jHB5ENqvYbaw5";
         </div>
       </div>
     </section>
+
+    </>
+    )}
 
   </main>
   <Footer />

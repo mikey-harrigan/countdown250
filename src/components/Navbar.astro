@@ -51,7 +51,11 @@ const primaryNav: Array<
     label: "More",
     items: [
       { label: "Know Before You Go", href: `${base}/guest-guide/` },
-      { label: "Hosted Groups", href: `${base}/hosted-group-tables/` },
+      // Hosted Groups link removed 2026-07-10 (post-event cleanup —
+      // /hosted-group-tables/ page now renders a placeholder). To
+      // revive for the next event, uncomment the line below AND
+      // flip POST_EVENT_MODE to false in hosted-group-tables.astro.
+      // { label: "Hosted Groups", href: `${base}/hosted-group-tables/` },
       { label: "Partners", href: `${base}/partners/` },
       { label: "Venue", href: `${base}/venue/` },
       { label: "News & Updates", href: `${base}/updates/` },
