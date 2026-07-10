@@ -4,6 +4,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 
+// Post-event mode (event was 2026-07-03). When true, hides all
+// nomination content but keeps confirmed honoree cards visible.
+// Preserved in code so the entire nomination structure can be
+// revived for the next event by flipping this to false. Added
+// 2026-07-10 per Mike.
+const POST_EVENT_MODE = true;
+
 const pastCategories = [
   {
     icon: "🎖️",
@@ -103,7 +110,7 @@ const heroHonorees = [
 ];
 ---
 
-<BaseLayout title="All-American Heroes Award | Nominate Outstanding Americans | Countdown 250 Ball Washington DC" description="Honor modern-day American heroes at the historic 250th anniversary Countdown 250 Ball, July 3, 2026 Washington DC. Nominate military, first responders & more." ogImage="/images/event/buzz-aldrin.png">
+<BaseLayout title="All-American Heroes Award | 2026 Honorees | Countdown 250 Ball Washington DC" description="Meet the All-American Heroes recognized at the historic Countdown 250 Ball on July 3, 2026 at the Washington Hilton in Washington, D.C. — modern-day American heroes celebrated for their lifetime of extraordinary service." ogImage="/images/event/buzz-aldrin.png">
   <Navbar />
   <main
     class="relative"
@@ -357,6 +364,10 @@ const heroHonorees = [
     </section>
 
     <!-- Nominations — widened body + 2-col star list for less vertical space -->
+    <!-- Wrapped in {!POST_EVENT_MODE} 2026-07-10: nomination process ran     -->
+    <!-- pre-event and is no longer live. Flip the flag to bring it back     -->
+    <!-- for the next event.                                                  -->
+    {!POST_EVENT_MODE && (
     <section class="py-14 sm:py-16 bg-navy text-white">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
         <p class="text-gold font-medium tracking-[0.2em] uppercase text-sm mb-3">Nominations Now Open</p>
@@ -409,6 +420,7 @@ const heroHonorees = [
         <p class="text-white/40 text-sm mt-4">Nominations will be reviewed by our Awards Committee. All submissions are confidential.</p>
       </div>
     </section>
+    )}
 
   </main>
   <!-- Thick gold divider band — visually separates the page's last navy -->

@@ -25,6 +25,13 @@ import Footer from '../components/Footer.astro';
 const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
 const voteFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfpvYYii5Kq5afy70yWcTrAWMb8pvrcurZ0lDW0aW1vX0ousw/viewform?usp=dialog"; // Google Form — All-American Icon Awards public voting (vote + write-in nominations)
 
+// Post-event mode (event was 2026-07-03). When true, hides all
+// nomination / voting / write-in / "help us select" content but keeps
+// all confirmed honoree cards visible. Preserved in code so the
+// entire voting/nomination structure can be revived for the next
+// event by flipping this to false. Added 2026-07-10 per Mike.
+const POST_EVENT_MODE = true;
+
 // Order: Music icons first (Tony Orlando, Bob Anderson, Lee Greenwood)
 // grouped together, then Jordan Burroughs and Mike Moyer as the
 // wrestling icons. Lee Greenwood restored 2026-06-24 per Mike (agreement
@@ -306,7 +313,7 @@ const mainCategories = [
 
 <BaseLayout
   title="All-American Icons (Preview) | Help Select America's Icons | Countdown 250 Ball, July 3, 2026"
-  description="Public voting is now open for the 2026 All-American Icon Awards. Review nominees by category, cast your vote, submit a write-in nomination, and share the campaign. Awards presented at the Countdown 250 Ball on July 3, 2026."
+  description="The 2026 All-American Icon Awards were presented at the historic Countdown 250 Ball on July 3, 2026 at the Washington Hilton in Washington, D.C. Meet the honorees celebrated for their lifetime of achievement and impact on the American story."
   ogImage="/images/event/header-icons-flag-medal.jpg"
 >
   <Navbar />
@@ -343,7 +350,11 @@ const mainCategories = [
 
     <!-- ============================================================ -->
     <!-- 1. PUBLIC VOTING NOW OPEN — campaign hook + primary CTA.       -->
+    <!-- Wrapped in {!POST_EVENT_MODE} 2026-07-10: the voting campaign  -->
+    <!-- ran pre-event and is no longer live. Flip the flag to bring    -->
+    <!-- it back for the next event.                                    -->
     <!-- ============================================================ -->
+    {!POST_EVENT_MODE && (
     <section class="pt-12 sm:pt-14 pb-8 sm:pb-10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="bg-gradient-to-br from-navy-dark via-navy to-navy-dark rounded-2xl border-2 border-gold/55 p-6 sm:p-8 md:p-10 text-center shadow-[0_20px_44px_-16px_rgba(0,0,0,0.55)]">
@@ -359,6 +370,7 @@ const mainCategories = [
         </div>
       </div>
     </section>
+    )}
 
     <!-- ============================================================ -->
     <!-- 2. WHAT IS AN ALL-AMERICAN ICON? — definition.                 -->
@@ -386,7 +398,12 @@ const mainCategories = [
 
     <!-- ============================================================ -->
     <!-- 3. REVIEW THE NOMINEE CATEGORIES — accordion (collapsed).      -->
+    <!-- Wrapped in {!POST_EVENT_MODE} 2026-07-10: hides all voting     -->
+    <!-- + nomination + write-in content post-event. Flip the flag at  -->
+    <!-- the top of the file to bring this section back for the next   -->
+    <!-- event.                                                        -->
     <!-- ============================================================ -->
+    {!POST_EVENT_MODE && (
     <section class="py-10 sm:py-12 bg-navy-dark border-y border-gold/25">
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="text-center mb-9 sm:mb-10">
@@ -502,6 +519,7 @@ const mainCategories = [
         </div>
       </div>
     </section>
+    )}
 
     <!-- Section 4 "Official Voting Form" CTA removed 2026-05-31 per   -->
     <!-- Mike: its copy + gold button were merged into the "Review the -->
@@ -534,11 +552,9 @@ const mainCategories = [
           <h2 class="text-3xl sm:text-4xl font-bold text-gold font-heading leading-tight mb-3">2026 All-American Icon Honorees</h2>
           <div class="w-16 h-1 bg-gold mx-auto mb-5"></div>
           <p class="text-white/80 text-base sm:text-lg leading-relaxed max-w-5xl mx-auto">
-            These are the All-American Icons already selected for recognition in 2026. Additional
-            honorees will be announced as the event nears &mdash; don&rsquo;t forget to vote for
-            your favorites to help shape the final list. All honorees will be celebrated at the
-            official All-American Icon Awards presentation on July 3, 2026 at the Countdown 250
-            Ball.
+            These are the All-American Icons recognized at the 2026 Countdown 250 Ball. All honorees
+            were celebrated at the official All-American Icon Awards presentation on July 3, 2026 at
+            the historic Washington Hilton in Washington, D.C.
           </p>
         </div>
 
@@ -610,7 +626,11 @@ const mainCategories = [
 
     <!-- ============================================================ -->
     <!-- 8. SEE THE AWARDS PRESENTED LIVE — Event CTA.                  -->
+    <!-- Wrapped in {!POST_EVENT_MODE} 2026-07-10: the event has taken -->
+    <!-- place, so this "Join Us / Purchase Tickets" CTA is stale.     -->
+    <!-- Flip the flag to bring it back for the next event.            -->
     <!-- ============================================================ -->
+    {!POST_EVENT_MODE && (
     <section class="py-10 sm:py-12">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <p class="text-gold font-bold tracking-[0.25em] uppercase text-xs sm:text-sm mb-4">
@@ -622,13 +642,9 @@ const mainCategories = [
         <div class="w-16 h-1 bg-gold mx-auto mb-7"></div>
         <div class="text-white/85 text-base sm:text-lg leading-relaxed space-y-4 mb-8">
           <p>
-            The All-American Icon Awards will be presented during the historic Countdown 250 Ball
-            at the Washington Hilton in Washington, D.C., as America begins its 250th anniversary
+            The All-American Icon Awards were presented during the historic Countdown 250 Ball at
+            the Washington Hilton in Washington, D.C., as America began its 250th anniversary
             celebration.
-          </p>
-          <p class="text-white font-semibold">
-            Vote, nominate, share the campaign &mdash; then be in the room when America&rsquo;s
-            Icons are recognized.
           </p>
         </div>
         <a
@@ -641,6 +657,7 @@ const mainCategories = [
         </a>
       </div>
     </section>
+    )}
 
     <!-- Section 9 "Be in the Room When America Counts Down to 250"   -->
     <!-- final CTA band removed 2026-05-31 per Mike. Redundant with   -->

@@ -10,6 +10,13 @@ import Footer from '../components/Footer.astro';
 
 const ticketUrl = "https://www.eventbrite.com/e/the-official-countdown-250-ball-washington-dc-tickets-1982528927390?aff=websitemain";
 
+// Post-event mode (event was 2026-07-03). When true, hides all
+// homepage nomination / voting / write-in / "help us select" content
+// but keeps the Icons + Heroes award cards visible. Preserved in code
+// so the entire pre-event voting/nomination flow can be revived for
+// the next event by flipping this to false. Added 2026-07-10 per Mike.
+const POST_EVENT_MODE = true;
+
 // 'THE LINEUP & BUZZ KEEP GROWING' news-ticker items. Objects so an
 // item can carry an optional `href`; the marquee renders an <a> when
 // href is present, otherwise a non-clickable <span>. Space Blue leads
@@ -1563,10 +1570,12 @@ const faqs = [
                   <span>Learn More</span>
                   <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 </a>
+                {!POST_EVENT_MODE && (
                 <a href="https://forms.gle/23Hcnc4qg41kuPxm9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-red font-bold uppercase tracking-wider text-xs hover:text-red-light group">
                   <span>Submit a Nomination</span>
                   <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                 </a>
+                )}
               </div>
             </div>
           </div>
@@ -1597,18 +1606,22 @@ const faqs = [
               <div class="w-12 h-px bg-gold mb-3 mx-auto sm:mx-0"></div>
               <div class="space-y-3 text-slate text-sm sm:text-base leading-relaxed mb-4">
                 <p>The All-American Icon Award honors individuals who embody the promise of the American Dream. Through <strong class="text-navy">extraordinary talent, tenacity, and grace</strong>, they have defied the odds, reached the pinnacle of their fields, inspired generations, and added an important chapter to the American story.</p>
+                {!POST_EVENT_MODE && (
                 <p class="pt-1">
                   <span class="block text-navy font-bold uppercase tracking-[0.12em] text-xs sm:text-sm mb-1.5">Be a Part of History. Help Us Select the All-American Icons.</span>
                   <strong class="text-navy">Public voting is now open</strong> &mdash; cast your vote, submit a write-in nomination, and share the campaign.
                 </p>
+                )}
               </div>
               <div class="flex flex-col gap-2.5 items-center sm:items-start">
+                {!POST_EVENT_MODE && (
                 <a
                   href="/icons/"
                   class="inline-block bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark px-6 py-2.5 text-xs sm:text-sm font-bold tracking-wider uppercase transition-all rounded shadow-md hover:-translate-y-0.5"
                 >
                   Vote, Nominate &amp; Share
                 </a>
+                )}
                 <a href="/icons/" class="inline-flex items-center gap-1.5 text-red font-bold uppercase tracking-wider text-xs hover:text-red-light group">
                   <span>Learn More</span>
                   <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
