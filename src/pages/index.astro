@@ -889,10 +889,17 @@ const faqs = [
                   ))}
                 </div>
 
-                {/* Statesman-only: big gold CTA to Hosted Groups */}
+                {/* Statesman-only: big gold CTA to Hosted Groups.
+                    Updated 2026-07-10: was href="#hosted-tables" (on-page
+                    anchor to the section below), now points to the
+                    /hosted-group-tables/ subpage because the homepage
+                    section has been hidden for post-event cleanup. When
+                    POST_EVENT_MODE is flipped back to false, this link
+                    will still work — it just goes to the subpage
+                    instead of the on-page anchor. */}
                 {ticket.highlight && (
                   <a
-                    href="#hosted-tables"
+                    href="/hosted-group-tables/"
                     class="block w-full text-center mb-4 px-5 py-4 rounded-lg bg-gradient-to-b from-gold to-[#B8954A] hover:from-[#D9B864] hover:to-gold text-navy-dark transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
                   >
                     <p class="font-heading font-extrabold text-base sm:text-lg leading-tight tracking-tight mb-1.5">
@@ -1169,6 +1176,14 @@ const faqs = [
     <!-- ============================================================ -->
     <!-- 4.5 HOSTED TABLES — Statesman's Pass free upgrade story -->
     <!-- ============================================================ -->
+    <!-- Wrapped in {!POST_EVENT_MODE} 2026-07-10 per Mike (task #25). -->
+    <!-- Full 'Host a Party Inside the Party' pitch — arched header,   -->
+    <!-- benefits, image marquee, CTA cluster — hidden post-event.     -->
+    <!-- The Statesman ticket-tier CTA that used to link to this       -->
+    <!-- section (#hosted-tables) now links directly to the            -->
+    <!-- /hosted-group-tables/ subpage instead. Flip the flag to bring -->
+    <!-- this section back for the next event.                         -->
+    {!POST_EVENT_MODE && (
     <section id="hosted-tables" class="scroll-mt-24 relative">
 
       <!-- Hosted Groups content — navy bg with gold feature accents (Statesman amenity).
@@ -1485,6 +1500,7 @@ const faqs = [
       </div>
       </div>
     </section>
+    )}
 
     <!-- ============================================================ -->
     <!-- 4.6 SPONSORSHIP CONTACT BAR — separator between Hosted Groups and Social Proof -->
